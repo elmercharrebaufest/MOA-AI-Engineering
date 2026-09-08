@@ -18,8 +18,8 @@
 | **Branch** | `main` | FACT |
 | **Integration Status** | No integrado a ningún repo de equipo — patrón de referencia | FACT |
 | **Configuration Status** | **VERIFIED** para el patrón/documento en sí | Contrato completo y sin ambigüedad |
-| **Real Use Status** | **NOT FOUND** | Sin ejecución real — el MCP real que lo origina también está `CONFIGURED`, sin invocación (`security-governance.md` §2) |
-| **Lifecycle State** | Design | Recién definido |
+| **Real Use Status** | **EXECUTED** | 1 ejecución real registrada (`EXEC-20260908-002`) — el script se ejecutó de verdad, sin simular; resultado real `retrievalStatus: SOURCE_UNAVAILABLE` (BLOCKED por falta de credenciales/MCP en este entorno). Una ejecución fallida sigue siendo `EXECUTED`, no `NOT FOUND` — la escala mide si hubo invocación real, no si tuvo éxito |
+| **Lifecycle State** | Pilot | Primera ejecución real registrada, sin Evaluation todavía |
 | **Corporate Standard** | N | Requiere Assessment Gate |
 | **Version** | `1.0-pattern` | — |
 | **Risk** | Bajo-Medio — READ-only y scope acotado reducen el riesgo respecto al hallazgo wildcard original, pero MCP sigue sujeto al gobierno específico de `security-governance.md` §2 (identidad/auditoría `REQUIRES VALIDATION` para cualquier MCP real) | Ver `security-governance.md` §1.5 y §2 |
@@ -34,10 +34,10 @@
 | **Metrics** | NOT FOUND | — |
 | **Adopters** | Ninguno | — |
 | **Last Review** | Esta actividad | — |
-| **Evidence Reference** | `NOT EXECUTED` | — |
-| **Evaluation Reference** | `NOT EVALUATED` | — |
+| **Evidence Reference** | [`evidence/EXEC-20260908-002.md`](../../evidence/EXEC-20260908-002.md) | Ejecución real, `status: FAILED` honesto (BLOCKED), no simulado |
+| **Evaluation Reference** | `NOT EVALUATED` | Sin evaluación humana todavía — solo hubo ejecución técnica |
 | **Metric Reference** | `NOT MEASURED` | — |
-| **Reusable Asset** | [`integrations/jira-context-provider.md`](../../integrations/jira-context-provider.md) | Patrón completo, READ-only, sin wildcard, con consideraciones de prompt injection y data sensitivity documentadas |
+| **Reusable Asset** | [`integrations/jira-context-provider.md`](../../integrations/jira-context-provider.md), implementación ejecutable en [`integrations/scripts/jira-context.ps1`](../../integrations/scripts/jira-context.ps1) | Patrón + código real, READ-only, sin wildcard, con consideraciones de prompt injection y data sensitivity documentadas |
 
 ## Nota de selección
 

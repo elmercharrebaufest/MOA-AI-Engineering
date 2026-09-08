@@ -117,6 +117,18 @@ resolver un Work Item hacia contexto, y pasarlo a cualquier capability que acept
 [`../capabilities/skills/user-story/SKILL.md`](../capabilities/skills/user-story/SKILL.md#context-input)).
 No reemplaza el flujo manual (Direct Context) — es una alternativa, no una obligación.
 
+## Implementación ejecutable
+
+- [`scripts/azure-devops-context.ps1`](scripts/azure-devops-context.ps1) — script real,
+  usa `az` CLI (mismo mecanismo que CAP-001), READ-only, sin credenciales hardcoded.
+- [`scripts/resolved-context.schema.json`](scripts/resolved-context.schema.json) —
+  serialización JSON del contrato de `../architecture/context-acquisition-resolution.md`
+  (no un contrato nuevo — ver la nota del propio schema).
+- [`scripts/invoke-cap002-with-context.ps1`](scripts/invoke-cap002-with-context.ps1) —
+  adaptador hacia CAP-002, sin tocar CAP-002 mismo.
+- Quick Start ejecutable completo:
+  [`../adoption/context-providers-quickstart.md`](../adoption/context-providers-quickstart.md).
+
 ## Qué es Team Adaptation, explícitamente
 
 - La organización/proyecto de Azure DevOps configurados.

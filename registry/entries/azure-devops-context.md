@@ -18,8 +18,8 @@
 | **Branch** | `main` | FACT |
 | **Integration Status** | No integrado a ningún repo de equipo — es un patrón de referencia | FACT |
 | **Configuration Status** | **VERIFIED** para el patrón/documento en sí (contrato completo, sin ambigüedad) | El patrón está completo; no hay "configuración real" adicional que verificar más allá del documento mismo |
-| **Real Use Status** | **NOT FOUND** | Sin ninguna ejecución real todavía — es un patrón recién definido, no una capacidad ya ejercida |
-| **Lifecycle State** | Design | Recién definido, sin Pilot todavía (`../lifecycle.md`) |
+| **Real Use Status** | **EXECUTED** | 1 ejecución real de punta a punta (`EXEC-20260908-003`) — Work Item real (#7, proyecto "AWS Portal de créditos", org `molinosagro`) → Resolved Context real → CAP-002 real. Primer vertical slice completo del modelo |
+| **Lifecycle State** | Pilot | Primera ejecución real registrada (`../lifecycle.md`) |
 | **Corporate Standard** | N | Ningún patrón nuevo se promueve automáticamente — requiere Assessment Gate |
 | **Version** | `1.0-pattern` | — |
 | **Risk** | Bajo — READ-only, sin credenciales, sin llamadas reales desde este repo | Ver `security-governance.md` §1.5 |
@@ -34,10 +34,10 @@
 | **Metrics** | NOT FOUND | — |
 | **Adopters** | Ninguno | Patrón recién definido |
 | **Last Review** | Esta actividad | — |
-| **Evidence Reference** | `NOT EXECUTED` | Sin ejecución real |
-| **Evaluation Reference** | `NOT EVALUATED` | — |
-| **Metric Reference** | `NOT MEASURED` | — |
-| **Reusable Asset** | [`integrations/azure-devops-context-provider.md`](../../integrations/azure-devops-context-provider.md) | Patrón completo, con input/output/dependencias/errores/límites documentados |
+| **Evidence Reference** | [`evidence/EXEC-20260908-003.md`](../../evidence/EXEC-20260908-003.md) | Ejecución real completa, `status: EXECUTED` |
+| **Evaluation Reference** | [`evaluation/EXEC-20260908-003.md`](../../evaluation/EXEC-20260908-003.md) | `PARTIAL`, `model-assisted`, no independiente |
+| **Metric Reference** | [`measurements/EXEC-20260908-003.md`](../../measurements/EXEC-20260908-003.md) | `NOT MEASURED` — sin baseline |
+| **Reusable Asset** | [`integrations/azure-devops-context-provider.md`](../../integrations/azure-devops-context-provider.md), implementación ejecutable en [`integrations/scripts/azure-devops-context.ps1`](../../integrations/scripts/azure-devops-context.ps1) | Patrón + código real, probado en sus rutas de error (`INVALID_REFERENCE`, `SOURCE_UNAVAILABLE`) contra este entorno; pendiente de ejecución real contra un Work Item/PR concreto |
 
 ## Nota de selección
 

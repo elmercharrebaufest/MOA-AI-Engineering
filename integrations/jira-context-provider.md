@@ -135,6 +135,22 @@ Un equipo con Jira y un mecanismo de acceso ya configurado puede usar este patr�
 resolver un issue hacia contexto y pasarlo a cualquier capability que acepte `Resolved
 Context` (ej. CAP-002). No reemplaza el flujo manual — es una alternativa.
 
+## Implementación ejecutable
+
+- [`scripts/mcp.template.json`](scripts/mcp.template.json) — configuración mínima de MCP
+  (Prioridad 1, `getJiraIssue` acotado, sin wildcard) para un cliente MCP real (VS Code +
+  Copilot) de un equipo.
+- [`scripts/jira-context.ps1`](scripts/jira-context.ps1) — script real (Prioridad 2,
+  fallback REST explícito, mismo protocolo que termina usando el propio servidor MCP),
+  READ-only, sin credenciales hardcoded — requiere `JIRA_BASE_URL`/`JIRA_EMAIL`/
+  `JIRA_API_TOKEN` por variable de entorno.
+- **Ejecución real intentada** en esta sesión: `BLOCKED` (sin MCP invocable, sin
+  credenciales REST disponibles) — ver
+  [`../evidence/EXEC-20260908-002.md`](../evidence/EXEC-20260908-002.md), registrado
+  honestamente, no simulado.
+- Quick Start ejecutable completo:
+  [`../adoption/context-providers-quickstart.md`](../adoption/context-providers-quickstart.md).
+
 ## Qué es Team Adaptation, explícitamente
 
 - El proyecto/espacio de Jira configurado.

@@ -122,6 +122,27 @@ un resultado válido, y nunca un `content` inventado para no dejar el campo vac�
   que permiten después construir trazabilidad de ejecución sobre la adquisición de
   contexto — ver `evaluation-observability.md`.
 
+## Implementación de referencia (ejecutable)
+
+**El contrato de arriba es el canónico — lo que sigue es su serialización JSON
+ejecutable, no un contrato nuevo.** `content` se descompone en `title`/`description`/
+`requirements`/`acceptanceCriteria` porque un Work Item/Issue tiene naturalmente esa
+forma; `content_reference` se serializa como `sourceUrl`; el resto son los mismos campos
+en camelCase. Ver
+[`../integrations/scripts/resolved-context.schema.json`](../integrations/scripts/resolved-context.schema.json)
+para el JSON Schema completo con esta nota documentada en el propio archivo.
+
+- [`../integrations/scripts/azure-devops-context.ps1`](../integrations/scripts/azure-devops-context.ps1) — CAP-007, READ-only, `az` CLI.
+- [`../integrations/scripts/jira-context.ps1`](../integrations/scripts/jira-context.ps1) — CAP-008, READ-only, REST (fallback documentado — MCP `getJiraIssue` es Prioridad 1, ver [`../integrations/scripts/mcp.template.json`](../integrations/scripts/mcp.template.json)).
+- [`../integrations/scripts/invoke-cap002-with-context.ps1`](../integrations/scripts/invoke-cap002-with-context.ps1) — adaptador hacia CAP-002, sin tocar la capability misma.
+- Quick Start completo: [`../adoption/context-providers-quickstart.md`](../adoption/context-providers-quickstart.md).
+
+`retrieval_status` en la implementación real usa una enumeración más granular que la
+versión conceptual de arriba: `SUCCESS`, `NOT_FOUND`, `UNAUTHORIZED`, `FORBIDDEN`,
+`SOURCE_UNAVAILABLE`, `INVALID_REFERENCE`, `PARTIAL` — un refinamiento del mismo campo
+(`resolved`/`failed`/`partial`/`not_found` de la versión conceptual eran una
+simplificación previa), no un campo nuevo.
+
 ## Qué NO implementa esta versión
 
 - Ningún servicio distribuido, ningún cache, ninguna infraestructura de resolución.

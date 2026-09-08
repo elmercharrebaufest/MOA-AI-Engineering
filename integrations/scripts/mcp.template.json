@@ -1,0 +1,15 @@
+{
+  "_comment": "Plantilla de referencia para CAP-008 (jira-context). Copiar a .vscode/mcp.json del repo de un equipo, NUNCA commitear credenciales aca -- la autenticacion la resuelve el cliente MCP (VS Code/Copilot), no este archivo. Scope deliberadamente acotado a un unico metodo -- ver security/security-governance.md #2 y la nota de por que se descarta el patron wildcard en integrations/jira-context-provider.md.",
+  "servers": {
+    "atlassian-mcp-server": {
+      "url": "https://mcp.atlassian.com/v1/mcp",
+      "type": "http"
+    }
+  },
+  "_toolsExpected": [
+    "com.atlassian/atlassian-mcp-server/getJiraIssue"
+  ],
+  "_neverDeclare": [
+    "com.atlassian/atlassian-mcp-server/*"
+  ]
+}

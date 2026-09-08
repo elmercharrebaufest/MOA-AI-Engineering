@@ -11,6 +11,7 @@ honesto, no una omisión.
 |---|---|---|---|
 | [`EXEC-20260907-001.md`](EXEC-20260907-001.md) | CAP-002 (`user-story`) | `NOT MEASURED` | Sin baseline |
 | [`EXEC-20260908-001.md`](EXEC-20260908-001.md) | CAP-002 (`user-story`) | `NOT MEASURED` | Sin baseline; 2 puntos del mismo actor no forman una serie comparable |
+| [`EXEC-20260908-003.md`](EXEC-20260908-003.md) | CAP-002 + CAP-007 (vertical slice) | `NOT MEASURED` | Sin baseline de Direct Context ni de Connected Context |
 
 **No existe todavía baseline cuantitativo ni medición comparativa de valor para ninguna
 capacidad.** Ningún resultado fue inventado ni convertido en `0%` por falta de dato.
