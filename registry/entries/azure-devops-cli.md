@@ -22,7 +22,7 @@
 | **Version** | Sin versionado semántico formal. Proxy de Configuration version: Scato Logística = commit `8bff906e` (introducción), posible actualización en `be9ae170` (2026-08-24, diff exacto no verificado — REQUIRES VALIDATION). Orquestador = commit `872911c` | FACT (hashes) / REQUIRES VALIDATION (diff exacto de la actualización) |
 | **Risk** | Bajo | Solo lectura en los pre-checks obligatorios; no se declaran operaciones destructivas por defecto en la skill misma |
 | **Data** | No toca datos de negocio — opera sobre metadata de Azure DevOps (pipelines, PRs, builds) | INFERENCE (por contenido leído) |
-| **Data Classification** | REQUIRES VALIDATION | Política de clasificación de datos no existe (`BLOCKED-DECISIONS.md` #3) |
+| **Data Classification** | REQUIRES VALIDATION | Política de clasificación de datos no existe (`../governance/BLOCKED-DECISIONS.md` #3) |
 | **Tools** | `az cli` + extensión `azure-devops` | FACT |
 | **Model** | No declarado en el agent `devops` de Orquestador que la invoca | FACT (ausencia confirmada) |
 | **Autonomy** | No aplica directo (es Skill). El agent `devops` que la carga declara reglas duras: secretos nunca en YAML, sin tareas deprecadas, sin push directo a main | FACT (del agent, no de la skill en sí) |

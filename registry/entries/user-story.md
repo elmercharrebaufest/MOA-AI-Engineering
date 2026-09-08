@@ -22,7 +22,7 @@
 | **Version** | Sin versionado semántico. Proxy: DataAgro = `20b6363a3`; Scato Logística = `8bff906e`; Orquestador = `872911c` | FACT (hashes) |
 | **Risk** | Bajo | No ejecuta código, no accede a sistemas externos — produce texto estructurado |
 | **Data** | No toca datos sensibles | INFERENCE |
-| **Data Classification** | REQUIRES VALIDATION | Política no existe (`BLOCKED-DECISIONS.md` #3) |
+| **Data Classification** | REQUIRES VALIDATION | Política no existe (`../governance/BLOCKED-DECISIONS.md` #3) |
 | **Tools** | Ninguna declarada — es contenido de referencia, no requiere `tools` | FACT |
 | **Model** | No declarado en ningún caso donde se invoca (el agent `product-owner` de Orquestador que la carga tampoco declara `model`) | FACT |
 | **Autonomy** | No aplica directo (Skill) | — |

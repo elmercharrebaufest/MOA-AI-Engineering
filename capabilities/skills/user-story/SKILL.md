@@ -127,6 +127,95 @@ requerimiento (planes técnicos, decisiones ya tomadas) — `EXEC-20260908-001` 
 descartó correctamente un falso positivo así; no reportar como ambigüedad algo que ya fue
 decidido y documentado en otro lugar.
 
+## How to use this capability
+
+Guía operativa — cómo llevar esta capability a tu proyecto real, con un asistente de IA.
+
+### Input
+
+```
+Ticket:
+MOA-XXXX
+
+Requirement:
+"[requerimiento real, en lenguaje natural o EARS — nunca inventado]"
+
+Context:
+"[contexto disponible: dominio, roles reales de tu equipo, restricciones conocidas]"
+```
+
+### Execution prompt pattern
+
+Ejemplo de instrucción que podés entregarle a Copilot/Claude/otro asistente. **Esto es
+un patrón de ejecución, no un prompt obligatorio de proveedor** — adaptalo a la interfaz
+real de tu herramienta:
+
+```
+Usa la capability CAP-002 user-story.
+
+Analiza el siguiente requerimiento real.
+
+Contexto:
+[contexto real de tu dominio — rol, sistema, restricciones]
+
+Requerimiento:
+[el requerimiento real, sin parafrasear]
+
+Genera:
+1. Historia de usuario
+2. Criterios de aceptación
+3. Reglas de negocio
+4. Análisis de gaps
+
+No inventes reglas de negocio.
+No conviertas decisiones técnicas ya documentadas en gaps.
+Si falta información necesaria, declárala explícitamente como gap.
+
+La salida debe quedar lista para Human Review.
+```
+
+### Expected result
+
+```
+### Historia de usuario
+Como [rol real], quiero [objetivo], para [beneficio].
+
+### Criterios de aceptación
+1. Dado [contexto], cuando [acción], entonces [resultado].
+   (camino feliz, validación/error, caso borde — al menos 3)
+
+### Reglas de negocio
+RN-01: [restricción real]
+
+### Análisis de gaps
+❓ [pregunta real que bloquea implementación, si existe alguna]
+```
+
+### Human review
+
+**Obligatorio, sin excepción**: un PO o referente funcional debe revisar el resultado
+**antes de Planning/desarrollo**. Una salida de IA no queda aprobada por generarse — ver
+sección HITL más abajo.
+
+### Evidence
+
+Registrá la ejecución con
+[`../../../adoption/templates/evidence-record.md`](../../../adoption/templates/evidence-record.md)
+(contrato canónico en
+[`../../../architecture/evidence-evaluation-measurement.md`](../../../architecture/evidence-evaluation-measurement.md#1-evidence)).
+
+### Evaluation
+
+Aplicá
+[`../../../adoption/templates/evaluation-record.md`](../../../adoption/templates/evaluation-record.md)
+— declará tus criterios antes de mirar el resultado.
+
+### Measurement
+
+Completá
+[`../../../adoption/templates/measurement-record.md`](../../../adoption/templates/measurement-record.md)
+— si no tenés baseline, `NOT MEASURED`, nunca inventado.
+
 ## Dependencias
 
 Ninguna técnica — es contenido de referencia, no requiere `tools` ni acceso a sistemas
@@ -192,7 +281,7 @@ contenido de dominio de ninguna.
 
 ## Owner / Maintainer
 
-`REQUIRES VALIDATION` — sin gobierno del Common Core confirmado (`BLOCKED-DECISIONS.md`
+`REQUIRES VALIDATION` — sin gobierno del Common Core confirmado (`../../../governance/BLOCKED-DECISIONS.md`
 #1).
 
 ## Compatibilidad / adaptación

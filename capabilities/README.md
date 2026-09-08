@@ -121,7 +121,7 @@ capabilities/
 **No existe `capabilities/integrations/`** — se evaluaron 2 hallazgos reales de MCP
 (Azure DevOps remoto en DataAgro, Atlassian en 3 repos) y se decidió **no materializar
 ninguno como capability** — MCP requiere gobierno (identidad, scope, auditoría) que
-todavía no existe en MOA (`BLOCKED-DECISIONS.md` #4), y esta iniciativa **no implementa
+todavía no existe en MOA (`../governance/BLOCKED-DECISIONS.md` #4), y esta iniciativa **no implementa
 MCP** por alcance explícito. Ver
 [`security/security-governance.md`](../security/security-governance.md)
 para el detalle completo de ambos hallazgos.

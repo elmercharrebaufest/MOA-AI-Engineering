@@ -143,7 +143,7 @@ contenido de reglas específico de ninguna instancia.
 
 ## Owner / Maintainer
 
-`REQUIRES VALIDATION` — sin gobierno del Common Core confirmado (`BLOCKED-DECISIONS.md`
+`REQUIRES VALIDATION` — sin gobierno del Common Core confirmado (`../../../governance/BLOCKED-DECISIONS.md`
 #1).
 
 ## Compatibilidad / adaptación

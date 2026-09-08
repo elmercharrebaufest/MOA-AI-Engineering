@@ -144,7 +144,7 @@ independiente, esta es la versión de referencia para adoptar en un equipo nuevo
 
 ## Owner / Maintainer
 
-`REQUIRES VALIDATION` — sin gobierno del Common Core confirmado (`BLOCKED-DECISIONS.md`
+`REQUIRES VALIDATION` — sin gobierno del Common Core confirmado (`../../../governance/BLOCKED-DECISIONS.md`
 #1).
 
 ## Compatibilidad / adaptación

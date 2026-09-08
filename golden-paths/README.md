@@ -78,6 +78,45 @@ controladas del mismo actor, sin evaluación independiente ni medición, refuerz
 evidencia inicial pero no acreditan adopción independiente ni bastan para promoción (ver
 `../architecture/assessment-gate.md` y el [historial del Independence Test](../docs/history/track-1/G4.6-Independent-Adoption-and-Validation.md) §14).
 
+### How to adopt this Golden Path
+
+```mermaid
+flowchart LR
+    A["Requerimiento real"] --> B["CAP-002"]
+    B --> C["Adaptar roles/contexto"]
+    C --> D["Ejecutar"]
+    D --> E["HU + criterios + reglas + gaps"]
+    E --> F["Human Review"]
+    F --> G["Evidence"]
+    G --> H["Evaluation"]
+    H --> I["Measurement"]
+    I --> J["Feedback"]
+```
+
+1. Identificá un requerimiento real (ticket, idea de negocio) — nunca un ejemplo
+   inventado.
+2. Seleccioná [`CAP-002`](../registry/entries/user-story.md)
+   ([`user-story`](../capabilities/skills/user-story/SKILL.md)).
+3. Adaptá roles/contexto a tu dominio real — ver "How to use this capability" en la
+   propia capability, y [`../adoption/team-adaptation.md`](../adoption/team-adaptation.md).
+4. Ejecutá con tu asistente de IA (Copilot, Claude, u otro).
+5. Obtené historia de usuario + criterios de aceptación + reglas de negocio + análisis
+   de gaps.
+6. Human Review — un PO/referente funcional valida antes de Planning.
+7. Registrá Evidence —
+   [`../adoption/templates/evidence-record.md`](../adoption/templates/evidence-record.md).
+8. Registrá Evaluation —
+   [`../adoption/templates/evaluation-record.md`](../adoption/templates/evaluation-record.md).
+9. Registrá Measurement —
+   [`../adoption/templates/measurement-record.md`](../adoption/templates/measurement-record.md)
+   (`NOT MEASURED` si no hay baseline, no inventado).
+10. Feedback — [`../adoption/contribution-guide.md`](../adoption/contribution-guide.md).
+
+**Estado real, sin cambios por agregar esta guía**: 2 controlled dry-runs, ninguna
+validación humana independiente, `NOT MEASURED`, **no** `Corporate Standard`. Seguir
+estos 10 pasos no convierte al Golden Path en "validado" — lo hace ejecutable por un
+equipo nuevo sin depender del arquitecto, que es un problema distinto.
+
 ## 2. AI-Assisted Development
 
 **Estado: fortalecido en G5.1 (todavía PROPOSAL, no HARDENED)** — antes solo mencionaba

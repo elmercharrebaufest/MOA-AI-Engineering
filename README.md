@@ -46,6 +46,23 @@ consumible: [`capabilities/README.md`](capabilities/README.md).
 
 [`adoption/getting-started.md`](adoption/getting-started.md) — guía práctica paso a paso.
 
+## Quiero usar IA en mi proyecto
+
+Si es tu primera vez, seguí en orden:
+
+1. [`adoption/getting-started.md`](adoption/getting-started.md) — la guía paso a paso.
+2. [`adoption/adoption-flow.md`](adoption/adoption-flow.md) — el modelo mental completo.
+3. [`adoption/execution-model.md`](adoption/execution-model.md) — cómo ejecutar sobre tu
+   proyecto real.
+
+```
+Necesidad → Golden Path → Capability → Adapt → Execute →
+Evidence → Evaluate → Measure → Improve
+```
+
+**No necesitás copiar este repositorio dentro de tu proyecto.** Adoptás únicamente las
+capacidades puntuales que necesitás — el resto queda acá como catálogo de referencia.
+
 ## 6. Flujo de adopción
 
 ```

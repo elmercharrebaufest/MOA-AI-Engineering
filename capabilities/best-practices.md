@@ -107,7 +107,7 @@ para el detalle completo.
 modelo de riesgo proporcional de `security-governance.md` §1 — identidad de servicio
 dedicada (no personal), scope explícito y mínimo (nunca wildcard `/*` sin justificación
 documentada), y auditoría antes de la primera ejecución real. **Esta iniciativa no
-implementa ningún MCP** — es una decisión de gobierno pendiente (`BLOCKED-DECISIONS.md`
+implementa ningún MCP** — es una decisión de gobierno pendiente (`../governance/BLOCKED-DECISIONS.md`
 #4), no una capacidad para materializar todavía.
 **Integraciones directas (no-MCP) reales**: `moa-metrics` tiene 4 conectores REST reales
 (Jira, Azure DevOps, GitHub Copilot Metrics, SonarQube) — código de aplicación, no un
