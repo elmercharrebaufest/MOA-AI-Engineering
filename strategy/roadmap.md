@@ -62,7 +62,7 @@ de MOA, pero acotada a la construcción de la base de AI Engineering:
 - Promoción de capacidades concretas (skills/agents/instructions) a `skills/`/`agents/`
   reusable, una vez pasadas por el pipeline de `assessment/README.md` — evaluando por
   igual las candidatas de cualquier repo con evidencia real (DataAgro, Scato Logística,
-  `moa-sdlc`, `moa-metrics`; ver `assessment/relevamiento-capacidades.md`), no
+  `moa-sdlc`, `moa-metrics`; ver `docs/history/track-1/relevamiento-capacidades-g2.md`), no
   privilegiando ninguna por defecto.
 - Catálogo real de servidores MCP (autenticación, scope, auditoría) — no se documentará
   ningún MCP server hasta que exista uno realmente desplegado o aprobado.

@@ -97,12 +97,12 @@ estáticas siguen siendo más simples y ya cubren la evidencia real encontrada.
 
 ## MCP / Integrations
 
-**Estado real en MOA (actualizado en G5.1, más amplio de lo conocido hasta G4.6)**: 2
-hallazgos reales — un `mcp.json` commiteado en DataAgro apuntando a un servidor MCP de
-Azure DevOps real (`mcp.dev.azure.com/molinosagro`), y referencias a herramientas MCP de
-Atlassian en agentes de 3 repos (DataAgro, Scato Logística, Orquestador), sin gobierno de
-identidad/scope/auditoría confirmado en ningún caso. Ver
-`docs/architecture/security-governance.md` para el detalle completo.
+**Estado real en MOA**: 2 hallazgos reales — un `mcp.json` commiteado en DataAgro
+apuntando a un servidor MCP de Azure DevOps real (`mcp.dev.azure.com/molinosagro`), y
+referencias a herramientas MCP de Atlassian en agentes de 3 repos (DataAgro, Scato
+Logística, Orquestador), sin gobierno de identidad/scope/auditoría confirmado en ningún
+caso. Ver [`../security/security-governance.md`](../security/security-governance.md)
+para el detalle completo.
 **Recomendación (PROPOSAL)**: antes de habilitar o escalar cualquier MCP, completar el
 modelo de riesgo proporcional de `security-governance.md` §1 — identidad de servicio
 dedicada (no personal), scope explícito y mínimo (nunca wildcard `/*` sin justificación
@@ -140,7 +140,7 @@ Instructions/Skills estáticas sin ejecución propia.
 **Estado real en MOA**: `moa-metrics` implementa 8/8 indicadores propuestos por el KO, con
 ETL real y tests — el artefacto de medición más maduro de todo el relevamiento. Sigue
 siendo `STRONG CANDIDATE → ASSESS → VALIDATE → PROMOTE`, no promovido automáticamente
-(`docs/architecture/assessment-gate.md`).
+(`../architecture/assessment-gate.md`).
 **Hallazgo EXPERIMENTAL de G5.1**: Scato Logística tiene un `copilot-config.yml` real que
 asigna un modelo distinto por agente según criticidad/costo (ej. `security-review` forzado
 a un modelo premium, con nota de benchmark "17/18 tareas exitosas | 0 USD costo AI"). Es

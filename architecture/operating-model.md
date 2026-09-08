@@ -1,8 +1,9 @@
 # Operating Model
 
-**Fase**: G3.3. **Estado**: PROPOSAL salvo donde se cita FACT explícitamente. Ver
-[`BLOCKED-DECISIONS.md`](BLOCKED-DECISIONS.md) para las preguntas que condicionan este
-documento (especialmente #1: quién gobierna el Common Core).
+**Estado**: PROPOSAL salvo donde se cita FACT explícitamente. Ver
+[`../governance/BLOCKED-DECISIONS.md`](../governance/BLOCKED-DECISIONS.md) para las
+preguntas que condicionan este documento (especialmente #1: quién gobierna el Common
+Core).
 
 ## Propósito
 
@@ -63,13 +64,14 @@ totalidad — el Common Core también incluye procesos y personas que hoy **no e
 evidenciados** (ver Blocked Decision #1).
 
 **Responsabilidad**: mantener los 10 componentes listados arriba en un estado
-consumible, versionado, y consistente entre sí (ver `security-governance.md`,
+consumible, versionado, y consistente entre sí (ver
+[`../security/security-governance.md`](../security/security-governance.md),
 `assessment-gate.md`, `capability-registry.md`, `evaluation-observability.md`,
-`golden-paths.md`).
+[`../golden-paths/README.md`](../golden-paths/README.md)).
 
 **Lo que el Common Core NO hace**: no impone tecnología, no reemplaza el criterio del
-equipo, no aprueba automáticamente nada por existir en más de un repo (Principio #13 —
-ver también [[moa-assessment-methodology]] ya vigente desde G2). **Tampoco impone una
+equipo, no aprueba automáticamente nada por existir en más de un repo (Principio #13,
+ver `../strategy/principles.md`). **Tampoco impone una
 plataforma centralizada obligatoria para Evaluation/Observability** (PROPOSAL, G3.3
 Corrections — ver `evaluation-observability.md` §0): esas se ejecutan en el contexto local
 del equipo cuando sea técnicamente viable; el Common Core provee standards, patterns,
@@ -106,14 +108,15 @@ promover automáticamente por "aparece en 3 repos").
 
 ## Roles (FACT donde está evidenciado, REQUIRES VALIDATION donde no)
 
+Roles de gobierno y consumo del producto — no incluye roles del equipo que construyó
+este repositorio (ver `docs/history/track-1/` para ese contexto, si es relevante).
+
 | Rol | Responsabilidad declarada | Evidencia |
 |---|---|---|
-| **Usuario / Solutions Architect** | Decisiones arquitectónicas finales, decisiones organizacionales, aprobación de promociones a Common Core | FACT — rol activo en esta misma sesión de trabajo |
-| **ChatGPT (supervisor arquitectónico)** | Benchmark externo, revisión crítica, validación de arquitectura, identificación de riesgos/contradicciones/gaps | FACT — rol declarado explícitamente por el usuario en G2.5+ |
-| **Copilot / Claude Code (implementador)** | Analista de evidencia interna, ejecuta cambios en el repositorio bajo decisiones ya aprobadas, mantiene trazabilidad | FACT — rol de esta sesión |
+| **Solutions Architect / gobierno de la arquitectura** | Decisiones arquitectónicas, aprobación de promociones a Common Core | FACT |
 | **Líderes de la iniciativa** | Elmer Charre, Fernando Pagano, Tito Picón (soporte: Adrián Bepré, Ariel Bensussán) | FACT — KO Interno pág. 17. **REQUIRES VALIDATION**: si tienen mandato de aprobación de gobierno (Blocked Decision #1) |
-| **Practicantes identificados con evidencia real de AI Engineering** | Manuel Davila, Alexis Morales Vega, Gonzalo Sian — autores reales de la mayoría de Agents/Skills/Instructions encontrados en repos de MOA | FACT — G3.2.5, por autoría de commits. **REQUIRES VALIDATION**: rol formal dentro de la iniciativa (Blocked Decision #5) |
-| **Equipos consumidores** (DataAgro, MOA Operaciones, Scato Puerto, Scato Logística, Orquestador) | Adoptan, adaptan, ejecutan, evalúan, miden, contribuyen — ver `golden-paths.md` y el Adoption Test | FACT (existencia de los equipos) / REQUIRES VALIDATION (nivel de participación real más allá de los repos ya evidenciados) |
+| **Practicantes identificados con evidencia real de AI Engineering** | Manuel Davila, Alexis Morales Vega, Gonzalo Sian — autores reales de la mayoría de Agents/Skills/Instructions encontrados en repos de MOA | FACT, por autoría de commits. **REQUIRES VALIDATION**: rol formal dentro de la iniciativa (Blocked Decision #5) |
+| **Equipos consumidores** (DataAgro, MOA Operaciones, Scato Puerto, Scato Logística, Orquestador) | Adoptan, adaptan, ejecutan, evalúan, miden, contribuyen — ver [`../golden-paths/README.md`](../golden-paths/README.md) y el Adoption Test | FACT (existencia de los equipos) / REQUIRES VALIDATION (nivel de participación real más allá de los repos ya evidenciados) |
 
 ## Flujo de adopción (alto nivel)
 
@@ -140,10 +143,10 @@ sequenceDiagram
 - Cómo una capacidad transiciona de estado: [`lifecycle.md`](lifecycle.md).
 - Cómo se decide una promoción: [`assessment-gate.md`](assessment-gate.md).
 - Cómo se registra cada capacidad: [`capability-registry.md`](capability-registry.md).
-- Controles aplicables en ambas capas: [`security-governance.md`](security-governance.md).
+- Controles aplicables en ambas capas: [`../security/security-governance.md`](../security/security-governance.md).
 - Cómo se sabe si algo funciona y qué impacto tiene: [`evaluation-observability.md`](evaluation-observability.md).
-- Caminos guiados de adopción: [`golden-paths.md`](golden-paths.md).
+- Caminos guiados de adopción: [`../golden-paths/README.md`](../golden-paths/README.md).
 - Arquitectura lógica completa: [`reference-architecture.md`](reference-architecture.md).
 
-Este documento no reemplaza `../../strategy/vision.md`, `../../strategy/principles.md` ni
-`../../teams/README.md` — los complementa con el modelo operativo formal de G3.3.
+Este documento no reemplaza `../strategy/vision.md`, `../strategy/principles.md` ni
+`../teams/README.md` — los complementa con el modelo operativo formal.

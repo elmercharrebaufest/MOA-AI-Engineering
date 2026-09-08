@@ -1,9 +1,8 @@
 # Registry INDEX
 
 **Mecanismo de Discovery — MVP manual.** No es una base de datos ni un buscador; es un
-índice mantenido a mano, agrupado por las preguntas que un equipo nuevo necesita responder
-(`docs/architecture/G4.1-Product-Architecture-Baseline.md`, sección 8). Se actualiza junto
-con cada entrada nueva o modificada en `entries/`.
+índice mantenido a mano, agrupado por las preguntas que un equipo nuevo necesita
+responder. Se actualiza junto con cada entrada nueva o modificada en `entries/`.
 
 ## Todas las entradas
 
@@ -16,11 +15,12 @@ con cada entrada nueva o modificada en `entries/`.
 | [CAP-005](entries/repository-governance.md) | repository-governance | Instruction | DataAgro, Scato Logística, Orquestador, `moa-sdlc` | N | VERIFIED | CONFIGURED | Bajo |
 | [CAP-006](entries/stack-best-practices-template.md) | stack-best-practices-template | Skill | Scato Logística, Orquestador | N | VERIFIED | CONFIGURED | Bajo |
 
-**Nuevas en G5.1** (CAP-004/005/006): materializadas como capacidades reutilizables
-generalizadas en [`../capabilities/`](../capabilities/README.md) — ver
-`docs/architecture/G5.1-Reusable-Capability-Library.md` para el proceso completo de
-evaluación (Existing Practice + External Best Practice + Architectural Judgment →
-Decisión) que llevó a esta selección, y por qué otros candidatos inspeccionados
+**CAP-004/005/006**: materializadas como capacidades reutilizables generalizadas en
+[`../capabilities/`](../capabilities/README.md) — ver
+[`../docs/history/track-1/G5.1-Reusable-Capability-Library.md`](../docs/history/track-1/G5.1-Reusable-Capability-Library.md)
+para el proceso completo de evaluación (Existing Practice + External Best Practice +
+Architectural Judgment → Decisión) que llevó a esta selección, y por qué otros
+candidatos inspeccionados
 (`dotnet-best-practices` como contenido, `abm-mvc`, `afip-cpe-ctg`/`afip-integration`, y
 la mayoría de los agentes por rol de DataAgro/Scato Logística) **no** se materializaron
 acá — quedaron clasificados TEAM-SPECIFIC o EXPERIMENTAL, con su razón documentada.
@@ -34,9 +34,11 @@ acá — quedaron clasificados TEAM-SPECIFIC o EXPERIMENTAL, con su razón docum
 - **Workflow**: CAP-004
 - **Instruction**: CAP-005
 - Knowledge/RAG, Integration/API, MCP: sin entradas todavía (ver
-  `../assessment/relevamiento-capacidades.md` para evidencia adicional no registrada aún,
-  y `docs/architecture/security-governance.md` §2 para 2 hallazgos reales de MCP nuevos
-  en G5.1 — sin materializar como capability, MCP no se implementa en este repo)
+  [`../docs/history/track-1/relevamiento-capacidades-g2.md`](../docs/history/track-1/relevamiento-capacidades-g2.md)
+  para evidencia adicional no registrada aún, y
+  [`../security/security-governance.md`](../security/security-governance.md) §2 para 2
+  hallazgos reales de MCP — sin materializar como capability, MCP no se implementa en
+  este repo)
 
 ## Por equipo (`Team`)
 
@@ -104,8 +106,9 @@ explícitamente, en vez de dejar la afirmación anterior sin corregir.
   `xamlx-documenter`): inspeccionados en G5.1, clasificados **TEAM-SPECIFIC** o
   **EXPERIMENTAL** — no registrados como capability reusable porque su contenido no es
   portable entre equipos. Ver
-  `docs/architecture/G5.1-Reusable-Capability-Library.md`, tabla de clasificación
-  completa, para la razón de cada uno.
-- Otras capacidades de DataAgro/Scato Logística/Orquestador relevadas en G2/G3.2 sin
-  inspección profunda todavía: ver `../assessment/relevamiento-capacidades.md` para el
-  listado completo no incorporado aún al Registry.
+  [`../docs/history/track-1/G5.1-Reusable-Capability-Library.md`](../docs/history/track-1/G5.1-Reusable-Capability-Library.md),
+  tabla de clasificación completa, para la razón de cada uno.
+- Otras capacidades de DataAgro/Scato Logística/Orquestador relevadas sin inspección
+  profunda todavía: ver
+  [`../docs/history/track-1/relevamiento-capacidades-g2.md`](../docs/history/track-1/relevamiento-capacidades-g2.md)
+  para el listado completo no incorporado aún al Registry.

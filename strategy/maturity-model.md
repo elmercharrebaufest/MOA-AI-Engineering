@@ -49,10 +49,10 @@ de implementación posibles, entre otros:
 - **DataAgro** y **Scato Logística** (equipos reales de MOA) tienen evidencia directa,
   validada por lectura de código el 2026-09-04, de Agents/Skills/Instructions
   formalizados — Scato Logística en particular con mayor integración cruzada que el
-  patrón de `moa-sdlc`. Ver `assessment/relevamiento-capacidades.md` para el detalle. Esto
+  patrón de `moa-sdlc`. Ver `docs/history/track-1/relevamiento-capacidades-g2.md` para el detalle. Esto
   no cambia automáticamente su nivel KO (CRAWL/WALK) porque **configuración formalizada
   no equivale a uso real, proceso ni resultados medidos** (ver
-  `assessment/relevamiento-capacidades.md` — uso efectivo queda REQUIRES VALIDATION en
+  `docs/history/track-1/relevamiento-capacidades-g2.md` — uso efectivo queda REQUIRES VALIDATION en
   ambos).
 - `moa-metrics` (pipeline de indicadores, herramienta de Baufest) es **un ejemplo posible**
   de implementación del eje Medición — no la única vía ni un requisito para que un equipo

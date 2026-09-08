@@ -6,7 +6,7 @@ description: Plantilla para documentar las buenas prácticas específicas del st
 # stack-best-practices-template
 
 **Capability Registry**: [`CAP-006`](../../../registry/entries/stack-best-practices-template.md).
-**Golden Path**: [`AI Code Review`](../../../docs/architecture/golden-paths.md#4-ai-code-review)
+**Golden Path**: [`AI Code Review`](../../../golden-paths/README.md#4-ai-code-review)
 — es la skill que un Agent de code review (ver
 [`capabilities/agents/read-only-code-reviewer/`](../../agents/read-only-code-reviewer/AGENT.md))
 carga para aplicar reglas concretas por stack.
@@ -30,7 +30,7 @@ MVC4, NUnit 2.6.3+Moq) y otra en Orquestador (target: .NET Framework 4.7.2, EF6,
 Ninject, ASP.NET MVC 5, NUnit3+Moq). Mismo género de documento (arquitectura por capas,
 manejo de errores, acceso a datos, DI/scoping, reglas de async, SOLID, convenciones de
 testing), **contenido específico y no intercambiable** entre ambas — confirmando la
-clasificación ya anticipada en `docs/architecture/assessment-gate.md`: TEAM-SPECIFIC en
+clasificación ya anticipada en `../../../architecture/assessment-gate.md`: TEAM-SPECIFIC en
 contenido, candidato a plantilla en género. Ninguna de las 2 instancias reales se
 promueve ni se copia acá — esta plantilla es una generalización de su **estructura**.
 

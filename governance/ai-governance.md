@@ -1,8 +1,9 @@
 # AI Governance
 
-> **G3.3**: el modelo de riesgo proporcional (no binario) y el gobierno específico de MCP
-> —incluido el hallazgo real de `com.atlassian/atlassian-mcp-server`— están en
-> [`../docs/architecture/security-governance.md`](../docs/architecture/security-governance.md).
+> El modelo de riesgo proporcional (no binario) y el gobierno específico de MCP —incluido
+> el hallazgo real de `com.atlassian/atlassian-mcp-server` y del `mcp.json` de
+> DataAgro— están en
+> [`../security/security-governance.md`](../security/security-governance.md).
 > Este documento conserva su contenido (niveles de gobierno, human-in-the-loop, patrones
 > observados) como base — no se duplica, se referencia.
 
@@ -14,7 +15,7 @@
 | **REUSABLE** | Skills, agents, prompts, instructions, patrones MCP, templates, patrones de arquitectura | Este repositorio, una vez promovidos desde un equipo |
 | **TEAM SPECIFIC** | Adaptaciones, casos de uso y flujos de cada equipo | Repos de cada equipo real de MOA (DataAgro, Scato Logística, MOA Operaciones, Scato Puerto, Orquestador — ver `teams/README.md`). `moa-sdlc`/`moa-metrics` son herramientas de referencia de Baufest para la iniciativa, no repos de un equipo de MOA. |
 
-## Human-in-the-loop obligatorio (FACT — master prompt + KO Interno pág. 14, 21)
+## Human-in-the-loop obligatorio (FACT — encuadre fundacional de la iniciativa + KO Interno pág. 14, 21)
 
 Debe existir validación humana explícita cuando las acciones de IA puedan afectar:
 código crítico, infraestructura, seguridad, datos, producción o decisiones relevantes.
@@ -37,7 +38,7 @@ definición propia del Common Core, independiente de cualquier repo puntual.
 
 Ver plantilla generalizada en [`../templates/agent-template.md`](../templates/agent-template.md).
 
-## Seguridad (FACT — master prompt de la iniciativa)
+## Seguridad (FACT — encuadre fundacional de la iniciativa)
 
 Todo diseño de capacidad de IA debe considerar: least privilege, protección de datos,
 gestión de secretos, control de acceso, auditabilidad, prompt injection, data leakage,

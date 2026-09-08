@@ -11,7 +11,7 @@
 | **Origin** | 2 instancias reales e independientes de `dotnet-best-practices`: Scato Logística (.NET Framework 4.5.2/EF5/MVC4/NUnit 2.6.3) y Orquestador (.NET Framework 4.7.2/EF6/MVC5/NUnit3), rama `master-logistica`/`feature/cardless4` | FACT — contenido completo leído en ambas, confirmado no intercambiable |
 | **Originator** | REQUIRES VALIDATION por instancia — no verificado individualmente en G5.1 | — |
 | **Team** | Scato Logística, Orquestador | FACT |
-| **Domain** | Contenido 100% específico por versión de stack — mismo género (arquitectura por capas, manejo de errores, acceso a datos, DI/scoping, async, testing), contenido no intercambiable | FACT — ya anticipado en `docs/architecture/assessment-gate.md` (G3.3), confirmado con contenido real en G5.1 |
+| **Domain** | Contenido 100% específico por versión de stack — mismo género (arquitectura por capas, manejo de errores, acceso a datos, DI/scoping, async, testing), contenido no intercambiable | FACT — ya anticipado en `../../architecture/assessment-gate.md`, confirmado con contenido real posteriormente |
 | **Repository** | `Scato Logistica/Scato%20Logistica`; `Orquestador/Orquestador` | FACT |
 | **Branch** | Scato Logística: working tree. Orquestador: `master-logistica`/`feature/cardless4` | FACT |
 | **Integration Status** | Integrada en ambos, cargada explícitamente por sus respectivos Agents `dotnet-code-reviewer` (`Load and apply the following skills: dotnet-best-practices, dotnet-performance-fx472`) | FACT |

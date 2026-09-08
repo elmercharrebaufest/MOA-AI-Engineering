@@ -1,10 +1,10 @@
 # Assessment Gate
 
-**Fase**: G3.3. **Estado**: PROPOSAL. Este documento **elabora** el gate ya introducido en
-[`../../assessment/README.md`](../../assessment/README.md) (pipeline de 11 pasos, vigente
-desde G2) — no lo reemplaza. `assessment/README.md` describe el proceso completo
-(Problema → ... → Reutilización); este documento define **el rubric concreto** que se
-aplica en los pasos "Assessment" y "Validación" de ese proceso.
+**Estado**: PROPOSAL. Este documento **elabora** el gate ya introducido en
+[`../assessment/README.md`](../assessment/README.md) (pipeline de 11 pasos) — no lo
+reemplaza. `assessment/README.md` describe el proceso completo (Problema → ... →
+Reutilización); este documento define **el rubric concreto** que se aplica en los pasos
+"Assessment" y "Validación" de ese proceso.
 
 ## Propósito
 
@@ -30,10 +30,10 @@ Reference Model v0.1 como decisión pendiente).
 | 1 | **Value** | ¿Qué problema real resuelve, y para cuántos equipos es relevante ese problema? | Caso de uso documentado, no solo "sería útil" |
 | 2 | **Reusability** | ¿El patrón (no el contenido) es independiente del dominio de negocio? | Ver `capability-model.md` — ej. el *formato* de Instruction es reusable, el *contenido* de una instruction de AFIP no |
 | 3 | **Quality** | ¿El artefacto está bien formado, específico, no genérico? | Cumple el estándar fijado en G2: "un checklist no es automáticamente un Skill" |
-| 4 | **Security** | ¿Qué controles tiene si se ejecuta con autonomía? | Ver `security-governance.md` |
+| 4 | **Security** | ¿Qué controles tiene si se ejecuta con autonomía? | Ver [`../security/security-governance.md`](../security/security-governance.md) |
 | 5 | **Data** | ¿Qué datos toca, y de qué clasificación? | Ver Blocked Decision #3 (clasificación de datos no existe todavía) |
 | 6 | **Risk** | Riesgo agregado de habilitar esto más ampliamente | Combinación de Security + Data + Autonomy, no un número aislado |
-| 7 | **Integration** | ¿Depende de un MCP/API/Integration, y ese componente está gobernado? | Ver `security-governance.md`, sección MCP |
+| 7 | **Integration** | ¿Depende de un MCP/API/Integration, y ese componente está gobernado? | Ver [`../security/security-governance.md`](../security/security-governance.md), sección MCP |
 | 8 | **Autonomy** | ¿Qué nivel de autonomía tiene (ALWAYS/ASK FIRST/NEVER)? | Matriz de autonomía declarada, no implícita |
 | 9 | **HITL** | ¿Dónde exactamente hay un punto de validación humana? | Debe ser explícito, no "se supone que alguien revisa" |
 | 10 | **Evaluation** | ¿Se evaluó que produce el resultado correcto? | Ver `evaluation-observability.md` |

@@ -1,10 +1,10 @@
 # Relevamiento de capacidades de IA reales por equipo
 
 **Qué es este documento:** el resultado de los pasos 1-2 del pipeline de
-[`README.md`](README.md) — comprender qué existe realmente en MOA y relevar las
-prácticas de los distintos equipos. Cubre 13 repositorios: 11 repos de código de equipos
-de MOA (recién relevados, 2026-09-04) + los 2 repos de implementación de la propia
-iniciativa (`moa-sdlc`, `moa-metrics`).
+[`../../../assessment/README.md`](../../../assessment/README.md) — comprender qué existe
+realmente en MOA y relevar las prácticas de los distintos equipos. Cubre 13
+repositorios: 11 repos de código de equipos de MOA + los 2 repos de implementación de la
+propia iniciativa (`moa-sdlc`, `moa-metrics`).
 
 **Qué NO es este documento:**
 - No es un catálogo de estándares reutilizables.

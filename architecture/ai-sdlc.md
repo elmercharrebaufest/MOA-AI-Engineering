@@ -16,7 +16,7 @@ Troubleshooting, Documentation, Knowledge Management, Continuous Improvement.
 ## Mapeo Hoy vs. Q4 2026 (FACT — KO Interno, pág. 23-26)
 
 Este mapeo es evidencia real recolectada por Baufest/MOA para las etapas de desarrollo y
-soporte; **no cubre las 28 etapas del master prompt** (ver gaps al final).
+soporte; **no cubre las 28 etapas del encuadre fundacional de la iniciativa** (ver gaps al final).
 
 | Etapa (KO) | Hoy en MOA | Con IA ampliada (Q4) | Impacto esperado (Q4, proyectado) |
 |---|---|---|---|
@@ -32,7 +32,7 @@ soporte; **no cubre las 28 etapas del master prompt** (ver gaps al final).
 | Soporte productivo | Análisis de logs reactivo, ante incidentes | Copilot + MCP App Insights + MCP BD analiza logs periódicamente, detecta patrones, propone ajustes preventivos | No cuantificado en el KO |
 | Build & CI | Azure DevOps ejecuta pipeline; falla bloquea merge | DevOps agents ejecutan/validan corridas con `gh cli` para diagnosticar fallos | No cuantificado en el KO |
 
-## Gaps frente al alcance completo del master prompt (REQUIRES VALIDATION)
+## Gaps frente al alcance completo del encuadre fundacional de la iniciativa (REQUIRES VALIDATION)
 
 El KO Interno **no** documenta evidencia para: Idea (fase temprana pre-Jira), Discovery,
 Business Analysis (como disciplina separada de refinamiento), Architecture, Design,

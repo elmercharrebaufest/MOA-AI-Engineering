@@ -1,8 +1,8 @@
 # Evaluation, Observability & Metrics
 
-**Fase**: G3.3. **Estado**: PROPOSAL. Complementa (no reemplaza)
-[`../../metrics/framework.md`](../../metrics/framework.md) y
-[`../../metrics/kpis.md`](../../metrics/kpis.md), que siguen siendo el catálogo de
+**Estado**: PROPOSAL. Complementa (no reemplaza)
+[`../metrics/framework.md`](../metrics/framework.md) y
+[`../metrics/kpis.md`](../metrics/kpis.md), que siguen siendo el catálogo de
 métricas concretas propuestas por el KO. Este documento formaliza la **relación
 arquitectónica** entre las 3 disciplinas — brecha que ninguno de los documentos previos
 cubría explícitamente.
@@ -108,15 +108,16 @@ decisión tecnológica (instrucción explícita de alcance). Este documento defi
 señales importan, no **con qué herramienta** capturarlas.
 
 **Prioridad de esta brecha**: alta específicamente para cualquier capacidad con `tools:
-execute` o `tools: edit`, y **crítica** para el hallazgo de MCP de la sección de
-`security-governance.md` — sin Observability, no hay forma de confirmar si el MCP de
-Atlassian encontrado en Orquestador se ejecutó alguna vez.
+execute` o `tools: edit`, y **crítica** para los hallazgos de MCP de
+[`../security/security-governance.md`](../security/security-governance.md) — sin
+Observability, no hay forma de confirmar si el MCP de Atlassian o el de Azure DevOps
+encontrados se ejecutaron alguna vez.
 
 ## 3. Metrics
 
 **Responde**: ¿qué impacto produce en el proceso o negocio?
 
-Categorías vigentes (sin cambios, ver `../../metrics/framework.md`): Adoption,
+Categorías vigentes (sin cambios, ver `../metrics/framework.md`): Adoption,
 Productivity, Quality, Delivery, Automation, Developer Experience, Business Impact.
 
 **Regla explícita de G3.3**: la cantidad de Agents/Skills creados **no es un KPI de
@@ -133,7 +134,7 @@ STRONG CANDIDATE → ASSESS → VALIDATE → PROMOTE
 
 Están en **STRONG CANDIDATE**: implementados con tests, pipeline ETL real, cubren 6/7
 categorías del framework — pero sin baseline real medido en producción (brecha heredada
-desde G1, ver `../../metrics/kpis.md`). Pasan a **ASSESS** cuando alguien los someta al
+desde el inicio, ver `../metrics/kpis.md`). Pasan a **ASSESS** cuando alguien los someta al
 rubric de `assessment-gate.md`; a **VALIDATE** si el Solutions Architect confirma que
 corren en producción con datos reales; a **PROMOTE** solo después de eso.
 

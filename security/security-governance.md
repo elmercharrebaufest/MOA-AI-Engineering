@@ -1,8 +1,8 @@
 # Security & Governance
 
-**Fase**: G3.3. **Estado**: PROPOSAL, salvo citas FACT explícitas. Este documento
-**sintetiza y extiende** [`../../governance/ai-governance.md`](../../governance/ai-governance.md)
-y [`../../governance/agent-governance.md`](../../governance/agent-governance.md) — ambos
+**Estado**: PROPOSAL, salvo citas FACT explícitas. Este documento
+**sintetiza y extiende** [`../governance/ai-governance.md`](../governance/ai-governance.md)
+y [`../governance/agent-governance.md`](../governance/agent-governance.md) — ambos
 se mantienen (contienen detalle todavía válido: la matriz de autonomía con ejemplos reales
 de DataAgro/Scato Logística/`moa-sdlc`, y el pipeline TRIGGER→CONTEXT→DECISION→ACTION→
 VALIDATION→AUDIT). Este documento agrega el **modelo de riesgo proporcional** y el
@@ -138,7 +138,7 @@ corresponde al equipo de Scato Logística, no a esta iniciativa.
 ### Cualquier MCP futuro
 
 Antes de habilitar cualquier MCP nuevo (Jira, Confluence, Azure DevOps, SQL Server,
-Playwright — todos PROPOSED según `../../integrations/catalog.md`):
+Playwright — todos PROPOSED según `../integrations/catalog.md`):
 
 1. Completar la tabla de la sección 1 (modelo de riesgo).
 2. Confirmar identidad/autenticación (cuenta de servicio, no personal — principio ya
@@ -149,7 +149,7 @@ Playwright — todos PROPOSED según `../../integrations/catalog.md`):
 
 ## 3. Modelo de gobierno de agentes (heredado, vigente)
 
-Sin cambios respecto a `../../governance/agent-governance.md`: pipeline TRIGGER→CONTEXT→
+Sin cambios respecto a `../governance/agent-governance.md`: pipeline TRIGGER→CONTEXT→
 DECISION→ACTION→VALIDATION→AUDIT obligatorio, matriz ALWAYS/ASK FIRST/NEVER declarada por
 cada Agent. **Patrón destacado de G3.2.5** que refuerza este modelo con evidencia real:
 el agent `.NET Code Reviewer` de Orquestador logra bajo riesgo *por diseño* — su lista de

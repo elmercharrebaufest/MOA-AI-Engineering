@@ -6,7 +6,7 @@ description: Plantillas para historias de usuario, criterios de aceptación (Giv
 # user-story
 
 **Capability Registry**: [`CAP-002`](../../../registry/entries/user-story.md).
-**Golden Path**: [`AI-Assisted Requirements`](../../../docs/architecture/golden-paths.md#1-ai-assisted-requirements)
+**Golden Path**: [`AI-Assisted Requirements`](../../../golden-paths/README.md#1-ai-assisted-requirements)
 — única capacidad que consume, con **2 ejecuciones reales** (`EXEC-20260907-001`,
 `EXEC-20260908-001`).
 **Clasificación (G5.1)**: **REUSABLE CAPABILITY** — ADAPT. La **estructura** (Historia/
@@ -172,7 +172,7 @@ DataAgro) y [`evidence/EXEC-20260908-001.md`](../../../evidence/EXEC-20260908-00
 
 ## Criterios de evaluación
 
-Ver Evaluation Contract (`docs/architecture/G4.3-Evidence-Evaluation-Measurement.md` §8).
+Ver Evaluation Contract (`../../../architecture/evidence-evaluation-measurement.md` §2).
 Criterios ya aplicados 2 veces: estructura, claridad, criterios de aceptación
 verificables, ausencia de ambigüedad, trazabilidad, consistencia con convenciones del
 proyecto, ajuste del rol al catálogo (agregado en G4.6, ver nota de rol arriba).

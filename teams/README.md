@@ -52,7 +52,7 @@ Data (más allá de métricas), Web Development, QA/Testing, Seguridad, DevOps, 
 Arquitectura. Para cada uno, antes de crear contenido en `teams/<equipo>/`, se debe:
 
 1. Confirmar que el equipo existe como tal en la estructura real de MOA (no inventar
-   equipos a partir de los ejemplos del master prompt).
+   equipos a partir de los ejemplos del encuadre fundacional de la iniciativa).
 2. Identificar su nivel de madurez actual (Crawl/Walk/Run) con evidencia, no supuestos.
 3. Relevar qué stack/herramientas usa hoy, igual que se hizo para el stack general en
    `architecture/reference-architecture.md`.
@@ -64,7 +64,7 @@ Arquitectura. Para cada uno, antes de crear contenido en `teams/<equipo>/`, se d
 3. Consultar `governance/ai-governance.md` y `governance/agent-governance.md` para los
    controles corporativos mínimos (human-in-the-loop, matriz de autonomía).
 4. Si el equipo produce una capacidad (skill, agente, patrón) que **parece** útil para más
-   de un equipo, se documenta como candidata en [`../assessment/relevamiento-capacidades.md`](../assessment/relevamiento-capacidades.md)
+   de un equipo, se documenta como candidata en [`../docs/history/track-1/relevamiento-capacidades-g2.md`](../docs/history/track-1/relevamiento-capacidades-g2.md)
    y pasa por el pipeline de [`../assessment/README.md`](../assessment/README.md)
    (problema → caso de uso → valor/riesgo → assessment → evaluación → piloto → medición →
    gobierno → validación) antes de proponerse como REUSABLE. Ninguna capacidad se promueve

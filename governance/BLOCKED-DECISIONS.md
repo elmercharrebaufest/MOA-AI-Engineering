@@ -1,8 +1,8 @@
-# Blocked Decisions — G3.3
+# Blocked Decisions
 
 Preguntas cuya respuesta puede cambiar significativamente la arquitectura y que **no se
 respondieron por inferencia**. Mientras no se resuelvan, el resto de la documentación de
-`docs/architecture/` avanza solo con contenido marcado **PROPOSAL**.
+[`../architecture/`](../architecture/) avanza solo con contenido marcado **PROPOSAL**.
 
 | # | Pregunta | Por qué bloquea | Dónde impacta |
 |---|---|---|---|
@@ -18,8 +18,9 @@ respondieron por inferencia**. Mientras no se resuelvan, el resto de la document
 | 10 | ¿Existe (o debería existir) un portal/wiki interno de MOA donde Discovery debería vivir en vez de (o además de) archivos en git? | Determina si el mecanismo de Discovery de `registry/INDEX.md` (G4.2) es viable a largo plazo o solo un MVP transitorio | `G4.1-Product-Architecture-Baseline.md` (Discovery Model) — agregado en G4.1, persistido en G4.2 |
 | 11 | ¿Cuál es la relación real entre las ramas `master`, `master-logistica` y `master-merge` de Orquestador? ¿Representan distintos clientes/instalaciones, líneas de release distintas, u otra cosa? (Hallazgo de G4.2: `master-logistica` es una rama de larga vida, activamente mantenida — no una rama huérfana como se había caracterizado en G3.2/G3.2.5) | Determina si CAP-001/CAP-003 del Registry deben tratarse como "integradas" a efectos de gobierno, o si `master-logistica` es una línea secundaria cuyo estado de producción es incierto | `registry/entries/azure-devops-cli.md`, `registry/entries/dotnet-code-reviewer.md` |
 
-| 12 | *(agregada en G5.1)* La skill `afip-cpe-ctg` de Scato Logística documenta que el código real deshabilita incondicionalmente la validación de certificado SSL para las llamadas a AFIP (`ServicePointManager.ServerCertificateValidationCallback = ((s,c,ch,e) => true)`, con el comentario "AFIP no valida certificado en todos los ambientes") — ¿es una decisión evaluada y aceptada por Scato Logística, o una brecha de seguridad no revisada? ¿Puede acotarse a los ambientes que realmente lo requieren en vez de deshabilitarse siempre? | Riesgo de integridad de datos en tránsito (man-in-the-middle) en comunicación con un sistema regulatorio real — MOA-AI-Engineering no puede resolverlo (no modifica repos de equipos), pero tampoco debe quedar sin registrar | `security-governance.md` (nueva sección G5.1) |
+| 12 | *(agregada en G5.1)* La skill `afip-cpe-ctg` de Scato Logística documenta que el código real deshabilita incondicionalmente la validación de certificado SSL para las llamadas a AFIP (`ServicePointManager.ServerCertificateValidationCallback = ((s,c,ch,e) => true)`, con el comentario "AFIP no valida certificado en todos los ambientes") — ¿es una decisión evaluada y aceptada por Scato Logística, o una brecha de seguridad no revisada? ¿Puede acotarse a los ambientes que realmente lo requieren en vez de deshabilitarse siempre? | Riesgo de integridad de datos en tránsito (man-in-the-middle) en comunicación con un sistema regulatorio real — MOA-AI-Engineering no puede resolverlo (no modifica repos de equipos), pero tampoco debe quedar sin registrar | [`../security/security-governance.md`](../security/security-governance.md) |
 
 **Regla aplicada mientras estas preguntas siguen abiertas**: ningún documento de
-`docs/architecture/` afirma estas respuestas. Donde el contenido depende de una de estas
-preguntas, queda explícitamente marcado `REQUIRES VALIDATION` y enlazado a esta tabla.
+[`../architecture/`](../architecture/) afirma estas respuestas. Donde el contenido
+depende de una de estas preguntas, queda explícitamente marcado `REQUIRES VALIDATION` y
+enlazado a esta tabla.

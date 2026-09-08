@@ -1,13 +1,15 @@
 # Agent Governance
 
-> **G3.3**: este documento es la base de gobierno de agentes; el modelo de riesgo
-> proporcional que condiciona *cuándo* un agente puede escalar autonomía está en
-> [`../docs/architecture/security-governance.md`](../docs/architecture/security-governance.md).
-> El patrón de agente de solo-lectura (`tools` sin `edit`, scope acotado al diff) hallado
-> en Orquestador está documentado como candidato en
-> [`../docs/architecture/assessment-gate.md`](../docs/architecture/assessment-gate.md).
+> Este documento es la base de gobierno de agentes; el modelo de riesgo proporcional que
+> condiciona *cuándo* un agente puede escalar autonomía está en
+> [`../security/security-governance.md`](../security/security-governance.md).
+> El patrón de agente de solo-lectura (`tools` sin `edit`, scope acotado al diff),
+> materializado como capacidad reusable en
+> [`../capabilities/agents/read-only-code-reviewer/`](../capabilities/agents/read-only-code-reviewer/AGENT.md),
+> está documentado como candidato en
+> [`../architecture/assessment-gate.md`](../architecture/assessment-gate.md).
 
-## Modelo de pipeline para agentes (FACT — master prompt de la iniciativa)
+## Modelo de pipeline para agentes (FACT — principios fundacionales de la iniciativa)
 
 Todo agente debe poder describirse mediante este pipeline; si no se puede completar
 alguno de estos pasos, el agente no debe implementarse todavía:
@@ -25,7 +27,7 @@ TRIGGER → CONTEXT → DECISION → ACTION → VALIDATION → AUDIT
 | VALIDATION | ¿Quién y cómo valida la salida antes de que tenga efecto? (human-in-the-loop) |
 | AUDIT | ¿Qué se registra para trazabilidad y revisión posterior? |
 
-## Principio rector (FACT — master prompt)
+## Principio rector (FACT — principios fundacionales de la iniciativa)
 
 > "No crear agentes sólo porque técnicamente sea posible. Cada agente debe resolver un
 > problema real."

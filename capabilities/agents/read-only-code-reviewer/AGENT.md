@@ -17,7 +17,7 @@ tools: [execute, read, search]
 # read-only-code-reviewer
 
 **Capability Registry**: [`CAP-003`](../../../registry/entries/dotnet-code-reviewer.md).
-**Golden Path**: [`AI Code Review`](../../../docs/architecture/golden-paths.md#4-ai-code-review).
+**Golden Path**: [`AI Code Review`](../../../golden-paths/README.md#4-ai-code-review).
 **Clasificación (G5.1)**: **REUSABLE CAPABILITY (patrón de diseño)** — ADOPT el patrón de
 gobierno; VALIDATE cualquier contenido de reglas concreto antes de reutilizarlo tal cual
 (ver `capabilities/skills/stack-best-practices-template/`).
@@ -155,5 +155,5 @@ buenas prácticas específica del stack real del equipo — ver
 explícitamente fuera de esta plantilla — la evidencia real muestra 3 elecciones distintas
 (`claude-opus-5`, sin declarar, y en `copilot-config.yml` de Scato Logística una
 asignación de modelo por costo/criticidad — ver
-`docs/architecture/G5.1-Reusable-Capability-Library.md`, sección Best Practices, para esa
+[`../../best-practices.md`](../../best-practices.md), sección Metrics, para esa
 práctica marcada EXPERIMENTAL).

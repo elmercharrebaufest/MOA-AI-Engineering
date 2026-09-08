@@ -8,7 +8,7 @@ pero sin detalle suficiente para evaluarlo).
 > evidencia real de que el caso de uso existe en el repo citado. Antes de proponerlo a
 > otro equipo, debe pasar por el pipeline de assessment de
 > [`../assessment/README.md`](../assessment/README.md). Ver también
-> [`../assessment/relevamiento-capacidades.md`](../assessment/relevamiento-capacidades.md)
+> [`../docs/history/track-1/relevamiento-capacidades-g2.md`](../docs/history/track-1/relevamiento-capacidades-g2.md)
 > para el relevamiento por capacidad (no solo por caso de uso) que incluye equipos con
 > repos de código real (DataAgro, Scato Logística, etc.), más allá de `moa-sdlc`/`moa-metrics`.
 
@@ -48,7 +48,7 @@ pero sin detalle suficiente para evaluarlo).
 ## Equipos sin caso de uso documentado todavía (REQUIRES VALIDATION)
 
 Data (más allá de métricas), QA/Testing como equipo independiente, Seguridad, DevOps,
-Operaciones (más allá de las 5 líneas de soporte del KO), Arquitectura. El master prompt
+Operaciones (más allá de las 5 líneas de soporte del KO), Arquitectura. El encuadre fundacional de la iniciativa
 lista áreas posibles para cada uno (SQL/ETL, Playwright/regresión, vulnerability
 analysis, Terraform/CI-CD, runbooks/observabilidad) pero **son ejemplos iniciales, no
-casos de uso aprobados** — así lo indica explícitamente el propio master prompt.
+casos de uso aprobados** — así lo indica explícitamente el propio encuadre fundacional de la iniciativa.

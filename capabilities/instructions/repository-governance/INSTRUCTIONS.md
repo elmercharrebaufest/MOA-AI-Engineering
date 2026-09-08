@@ -24,7 +24,7 @@ Corporate Standard
 ```
 
 La convención de 4 capas ya fue evaluada como "ADOPT como convención" en
-`docs/architecture/assessment-gate.md` (G3.3) — eso significa que es un buen candidato
+[`../../../architecture/assessment-gate.md`](../../../architecture/assessment-gate.md) — eso significa que es un buen candidato
 con evidencia fuerte de convergencia independiente (4 instancias), **no** que un
 gobierno humano ya la haya aprobado como estándar corporativo. Team Adaptation sigue
 siendo obligatoria en el contenido de cada capa, sin importar qué tan candidata a Common
@@ -124,7 +124,7 @@ commitear secretos, no hacer push/merge autónomo a rama principal.
 ## Datos
 
 No aplica directamente — si el proyecto toca datos sensibles, agregar una regla NEVER
-explícita al respecto (ver `docs/architecture/security-governance.md` §4, clasificación
+explícita al respecto (ver `../../../security/security-governance.md` §4, clasificación
 de datos todavía `REQUIRES VALIDATION` a nivel MOA).
 
 ## HITL

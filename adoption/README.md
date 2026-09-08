@@ -2,11 +2,11 @@
 
 **Para quién es esto**: un equipo de MOA que quiere empezar a usar `MOA-AI-Engineering`
 — no para quien diseña la arquitectura (esa documentación vive en
-[`../docs/architecture/`](../docs/architecture/)). Esta carpeta es **práctica y
-operativa**, no conceptual: responde "qué hago" en segunda persona, cruza referencia a la
-arquitectura en vez de repetirla.
+[`../architecture/`](../architecture/)). Esta carpeta es **práctica y operativa**, no
+conceptual: responde "qué hago" en segunda persona, cruza referencia a la arquitectura en
+vez de repetirla.
 
-## Biblioteca de capacidades (nuevo en G5.1)
+## Biblioteca de capacidades
 
 Si ya sabés cómo funciona el modelo y solo querés ver **qué hay para usar hoy**:
 [`../capabilities/README.md`](../capabilities/README.md) — 6 capacidades reales
@@ -41,8 +41,8 @@ La parte técnica de este flujo (descubrir → adoptar → adaptar → ejecutar 
 evidencia) es self-serve hoy. La parte de gobierno (quién evalúa con mandato, a quién le
 llega tu feedback, quién aprueba una promoción) **todavía depende de que se resuelva quién
 gobierna el Common Core** — ver
-[`../docs/architecture/BLOCKED-DECISIONS.md`](../docs/architecture/BLOCKED-DECISIONS.md)
+[`../governance/BLOCKED-DECISIONS.md`](../governance/BLOCKED-DECISIONS.md)
 #1. Esto no es un defecto oculto: está documentado así en
-[`../docs/architecture/G4.4-Real-Adoption-Pilot.md`](../docs/architecture/G4.4-Real-Adoption-Pilot.md)
+[el historial del primer piloto](../docs/history/track-1/G4.4-Real-Adoption-Pilot.md)
 tras el primer controlled dry-run (no un piloto real independiente — ver la distinción
 en ese mismo documento). Puedes avanzar igual con las partes que sí son self-serve.

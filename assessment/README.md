@@ -1,12 +1,11 @@
 # Assessment — metodología
 
-**Origen (FACT):** encuadre explícito del Arquitecto de Soluciones responsable del Track
-1 (2026-09-04), que corrige y precisa el alcance de la fase Foundation de este
-repositorio.
+El pipeline que cualquier capacidad debe atravesar antes de promoverse a candidata de
+Common Core — desde identificar el problema real hasta la decisión de reutilización.
 
-> **G3.3**: el rubric multi-dimensión que se aplica en los pasos "Assessment" y
-> "Validación" del pipeline de abajo está elaborado en
-> [`../docs/architecture/assessment-gate.md`](../docs/architecture/assessment-gate.md) (14
+> El rubric multi-dimensión que se aplica en los pasos "Assessment" y "Validación" del
+> pipeline de abajo está elaborado en
+> [`../architecture/assessment-gate.md`](../architecture/assessment-gate.md) (14
 > dimensiones: Value, Reusability, Quality, Security, Data, Risk, Integration, Autonomy,
 > HITL, Evaluation, Observability, Metrics, Ownership, Lifecycle). Este documento sigue
 > siendo la referencia del proceso completo — no se duplica.
@@ -22,7 +21,7 @@ pasar por este pipeline.
 **Ninguna capacidad existente en un equipo es automáticamente un estándar corporativo.**
 Encontrar un patrón real y maduro en un repo (por ejemplo, `AGENTS.md` + agentes por rol +
 skills en `DataAgro`/`Scato Logística` — ver
-[`relevamiento-capacidades.md`](relevamiento-capacidades.md)) no significa que deba
+[relevamiento histórico de capacidades](../docs/history/track-1/relevamiento-capacidades-g2.md)) no significa que deba
 replicarse a los demás equipos. Primero debe demostrar **valor, calidad, seguridad,
 reutilización y resultados** a través de este pipeline.
 
@@ -80,27 +79,30 @@ Las decisiones de qué capacidad se adopta, adapta, descarta, o se promueve a RE
 del Arquitecto de Soluciones — este repositorio prepara el relevamiento y el assessment,
 no decide la promoción.
 
-## Etapa actual (FACT — 2026-09-04)
+## Estado del pipeline
 
-Estamos construyendo la base arquitectónica de "MOA AI Engineering". Orden de trabajo,
-sin adelantar implementación tecnológica nueva hasta completar los primeros pasos:
+Los 6 pasos de este pipeline ya se recorrieron una vez, de punta a punta:
 
-1. **Comprender qué existe realmente en MOA** — en curso, ver
-   [`relevamiento-capacidades.md`](relevamiento-capacidades.md).
-2. **Relevar las prácticas de los distintos equipos** — en curso, mismo documento.
-3. **Contrastar con buenas prácticas externas (EXTERNAL EVIDENCE)** — pendiente, insumo
-   externo del Arquitecto.
-4. **Identificar qué debe ADOPTARSE, ADAPTARSE o DESCARTARSE** por capacidad — pendiente,
-   requiere completar este pipeline por cada capacidad candidata, no es una recomendación
-   directa desde el relevamiento.
-5. **Definir el modelo de referencia de AI Engineering** — pendiente, posterior al paso 4.
-6. **Materializar el modelo** (arquitectura, gobierno, patrones, capacidades, pilotos) —
-   fase posterior, no iniciada.
+1. **Comprender qué existe realmente en MOA** — completo, ver
+   [relevamiento histórico de capacidades](../docs/history/track-1/relevamiento-capacidades-g2.md).
+2. **Relevar las prácticas de los distintos equipos** — completo, mismo documento.
+3. **Contrastar con buenas prácticas externas (EXTERNAL EVIDENCE)** — completo, ver
+   fuentes citadas en [`../capabilities/best-practices.md`](../capabilities/best-practices.md).
+4. **Identificar qué debe ADOPTARSE, ADAPTARSE o DESCARTARSE** por capacidad — completo,
+   ver clasificación por capacidad en [`../registry/INDEX.md`](../registry/INDEX.md).
+5. **Definir el modelo de referencia de AI Engineering** — completo,
+   [`../architecture/reference-architecture.md`](../architecture/reference-architecture.md).
+6. **Materializar el modelo** (capacidades reales, no solo conceptos) — completo,
+   [`../capabilities/README.md`](../capabilities/README.md).
+
+Esto **no significa que el pipeline esté "terminado" para siempre** — cualquier
+capacidad nueva que un equipo proponga vuelve a atravesar los 6 pasos desde el principio
+(ver [`../adoption/contribution-guide.md`](../adoption/contribution-guide.md)).
 
 ## Cómo usar esta carpeta
 
-- [`relevamiento-capacidades.md`](relevamiento-capacidades.md) — inventario FACT de
-  capacidades de IA reales encontradas por equipo/repo, sin recomendación de adopción.
-- Próximos documentos de esta carpeta (a medida que se avance en el pipeline):
-  assessment individual por capacidad candidata (valor/riesgo), resultados de pilotos,
-  decisiones de adopción/adaptación/descarte ya tomadas por el Arquitecto.
+- [Relevamiento histórico de capacidades](../docs/history/track-1/relevamiento-capacidades-g2.md)
+  — inventario FACT de capacidades de IA reales encontradas por equipo/repo en el
+  relevamiento original, sin recomendación de adopción.
+- Para la clasificación actual de cada capacidad (ADOPT/ADAPT/TEAM-SPECIFIC/EXPERIMENTAL)
+  y su evidencia, ver [`../registry/INDEX.md`](../registry/INDEX.md) — no se duplica acá.

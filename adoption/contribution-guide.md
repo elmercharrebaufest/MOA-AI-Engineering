@@ -5,10 +5,10 @@ limitación real declarada primero, no escondida.
 
 ## Limitación honesta, primero
 
-El primer controlled dry-run (`../docs/architecture/G4.4-Real-Adoption-Pilot.md`) — no un
-piloto real independiente — confirmó que
+El primer controlled dry-run ([historial](../docs/history/track-1/G4.4-Real-Adoption-Pilot.md))
+— no un piloto real independiente — confirmó que
 hoy **no hay un evaluador/receptor con mandato confirmado** para nada de esto —
-`../docs/architecture/BLOCKED-DECISIONS.md` #1. Este documento describe el mecanismo
+`../governance/BLOCKED-DECISIONS.md` #1. Este documento describe el mecanismo
 (cómo se hace), no promete que alguien va a responder de inmediato. Seguí los pasos igual
 — es lo que deja el trabajo trazable para cuando esa decisión se resuelva.
 
@@ -29,7 +29,7 @@ respondé lo que puedas de esto (no inventes una respuesta si no la tenés):
 Si tu feedback aplica a una capacidad específica del Registry, actualizá también el campo
 `Real Use Status` de esa entrada si tenés evidencia directa de haberla usado — no lo dejes
 en blanco, pero tampoco pongas `VERIFIED` sin evidencia real (ver
-`../docs/architecture/capability-registry.md`).
+`../architecture/capability-registry.md`).
 
 ## Proponer una capacidad para reutilización (Contribution Model)
 
@@ -44,7 +44,7 @@ Measurement → Human Validation → Reusable Capability → Common Core
 3. **Evidence**: completá al menos un Evidence Record real (no inventado) — ver
    `../evidence/EXEC-20260907-001.md` como ejemplo.
 4. **Assessment**: aplicá el rubric de 14 dimensiones de
-   `../docs/architecture/assessment-gate.md` vos mismo, como primer filtro.
+   `../architecture/assessment-gate.md` vos mismo, como primer filtro.
 5. **Evaluation**: completá un Evaluation Record — si podés conseguir una revisión de
    alguien distinto de quien ejecutó, mejor (ver `evaluation-observability.md`).
 6. **Pilot**: si el assessment inicial es favorable, pedí que otro equipo lo pruebe.
@@ -63,4 +63,4 @@ Measurement → Human Validation → Reusable Capability → Common Core
 - **Mantener**: si sos quien más la usa, considerate `Maintainer` de facto — el campo
   formal sigue `REQUIRES VALIDATION` hasta que haya un proceso de asignación real.
 - **Retirar**: si dejaste de usarla, actualizá `Lifecycle State` a `Deprecate` con motivo
-  explícito (no por antigüedad) — ver `../docs/architecture/lifecycle.md`.
+  explícito (no por antigüedad) — ver `../architecture/lifecycle.md`.

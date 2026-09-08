@@ -1,185 +1,136 @@
 # MOA-AI-Engineering
 
-**Common AI Engineering Foundation for MOA (Molinos Agro)**
+**Base común de AI Engineering para Molinos Agro (MOA).**
 
-Este repositorio es la base central y reutilizable de AI Engineering para MOA. Establece
-estrategia, arquitectura de referencia, patrones, gobierno, métricas y mecanismos de
-adopción de IA aplicados al SDLC y a las actividades de ingeniería.
+## 1. ¿Qué es esto?
 
-> **No es un repositorio monolítico.** MOA-AI-Engineering establece la base común; cada
-> equipo decide qué adoptar, adaptar o no utilizar según sus necesidades, manteniendo los
-> principios y controles corporativos.
+Un modelo base + una biblioteca de capacidades reutilizables para incorporar IA al SDLC
+de forma **sistemática, gobernada, reutilizable, medible y trazable** — no una
+plataforma, no un framework obligatorio idéntico para todos los equipos.
 
-## Origen y alcance
+> **No es un repositorio monolítico.** Establece la base común; cada equipo decide qué
+> adoptar, adaptar o no utilizar, manteniendo los principios y controles corporativos.
 
-Este repositorio implementa el **Track 1** de la iniciativa de Estrategia de IA de MOA:
+## 2. ¿Qué problema resuelve?
 
-> "Evolucionar la Productividad de los Servicios Actuales"
+Los equipos de MOA ya usan IA — de forma heterogénea, sin un modelo común de evidencia,
+evaluación o medición. Sin eso, no se puede saber qué realmente funciona, comparar
+resultados entre equipos, ni promover con confianza lo que sí demostró valor. Este
+repositorio da la estructura para cerrar esa brecha: Common Core + Team Adaptation,
+capacidades reutilizables, un Registry, y contratos de Evidence/Evaluation/Measurement.
 
-Fuente primaria: *BAUFEST - Escalando el Valor del Delivery Mediante IA Aplicada (KO
-Interno)* — deck de kick-off interno (29 páginas), leído y utilizado como fuente principal
-para todo el contenido de este repositorio. Todo el contenido está clasificado como:
-
-- **FACT** — respaldado explícitamente por el KO o por un repositorio existente.
-- **INFERENCE** — deducción razonable a partir de hechos disponibles.
-- **PROPOSAL** — propuesta del arquitecto, no es decisión oficial de MOA.
-- **EXTERNAL EVIDENCE** — buena práctica o benchmark externo a MOA.
-- **REQUIRES VALIDATION** — información faltante o decisión pendiente de MOA.
-
-> Ninguna capacidad existente en un equipo (ej. un `AGENTS.md`, un skill, un agente) se
-> considera automáticamente un estándar reutilizable solo por estar documentada como FACT.
-> Debe pasar por el pipeline de assessment (ver [`assessment/README.md`](assessment/README.md))
-> antes de proponerse como capacidad REUSABLE.
-
-## Para quién es esto
+## 3. ¿Para quién es?
 
 Cualquier equipo de MOA (DataAgro, Scato Logística, Scato Puerto, MOA Operaciones,
-Orquestador, u otro futuro) que quiera incorporar IA en su SDLC de forma sistemática en
-vez de improvisada — desarrolladores, POs y QA. No reemplaza el trabajo del equipo: es
-algo que se **consume y adapta**, no un framework obligatorio idéntico para todos.
+Orquestador, u otro futuro) que quiera incorporar IA en su SDLC de forma sistemática —
+desarrolladores, POs, QA. Se **consume y adapta**, no se impone.
 
-## Cómo adoptar
+## 4. ¿Qué puedo utilizar actualmente?
 
-Punto de entrada práctico: [`adoption/README.md`](adoption/README.md) →
-[`adoption/getting-started.md`](adoption/getting-started.md) (6 pasos: entender, descubrir,
-evaluar, adoptar/adaptar + generar evidencia, evaluar el resultado, medir).
+**6 capacidades reales**, cada una con evidencia y clasificación honesta (ninguna es
+`Corporate Standard: Y` todavía):
 
-## Estado actual (G5.1 — Reusable Capability Library)
+| Capacidad | Tipo | Para qué sirve |
+|---|---|---|
+| [`azure-devops-cli`](capabilities/skills/azure-devops-cli/SKILL.md) (CAP-001) | Skill | Operar Azure DevOps por CLI sin inventar sintaxis |
+| [`user-story`](capabilities/skills/user-story/SKILL.md) (CAP-002) | Skill | Estructurar requerimientos en historias de usuario |
+| [`read-only-code-reviewer`](capabilities/agents/read-only-code-reviewer/AGENT.md) (CAP-003) | Agent | Code review acotado al diff, sin poder de escritura |
+| [`spec-driven-development`](capabilities/workflows/spec-driven-development/WORKFLOW.md) (CAP-004) | Workflow | Llevar un ticket a código verificado, con trazabilidad |
+| [`repository-governance`](capabilities/instructions/repository-governance/INSTRUCTIONS.md) (CAP-005) | Instruction | Declarar qué puede/no puede hacer un asistente sin supervisión |
+| [`stack-best-practices-template`](capabilities/skills/stack-best-practices-template/SKILL.md) (CAP-006) | Skill | Plantilla para documentar buenas prácticas de tu stack real |
 
-**READY FOR DELIVERY WITH CONDITIONS** — ver
-[`G5-Track-1-Finalization-and-Delivery-Readiness.md`](docs/architecture/G5-Track-1-Finalization-and-Delivery-Readiness.md)
-y [`G5.1-Reusable-Capability-Library.md`](docs/architecture/G5.1-Reusable-Capability-Library.md)
-para el detalle completo. Resumen:
+Catálogo completo con evidencia: [`registry/INDEX.md`](registry/INDEX.md). Catálogo
+consumible: [`capabilities/README.md`](capabilities/README.md).
 
-- **Construido y consistente**: Common Core, Team Adaptation, Capability Model, Capability
-  Registry (6 capacidades reales, 3 nuevas en G5.1), **una biblioteca reusable real**
-  ([`capabilities/`](capabilities/README.md): 3 Skills, 1 Agent, 1 Instruction, 1
-  Workflow, cada una generalizada de evidencia real, no copiada), 1 Golden Path con 2
-  ejecuciones reales + 2 Golden Paths fortalecidos con capacidades nuevas, contratos de
-  Evidence/Evaluation/Measurement, Adoption Kit, Contribution Model, Governance con 12
-  decisiones explícitamente bloqueadas (no ocultas — 1 nueva en G5.1, sobre validación de
-  certificado SSL en una integración AFIP real).
-- **Validado en controlled dry-run** *(no "pilotos reales" — corregido en G5.2)*: el
-  flujo puede ejecutarse técnicamente sobre requerimientos reales y generar evidencia/
-  hallazgos útiles. Concretamente: 2 controlled dry-runs (`EXEC-20260907-001`,
-  `EXEC-20260908-001`), ambos sobre requerimientos reales de DataAgro (MOA-1816,
-  MOA-1765), con ejecución técnica real, evidencia generada, evaluación
-  `model-assisted` (no humana independiente), y análisis de gaps genuinos (verificables,
-  no inventados). `Real Use Status: EXECUTED` en el Registry — **no** `VERIFIED`: no hubo
-  evaluación humana independiente, no existe baseline cuantitativo, no existe medición
-  comparativa de valor.
-- **No validado todavía — pendiente, no bloqueante**: adopción independiente real (las 2
-  ejecuciones existentes fueron hechas por el mismo agente que diseñó el modelo, no por
-  un miembro de un equipo de MOA), feedback humano real, y cualquier medición de impacto
-  con baseline. Ver sección "Real Adoption Status" del documento G5 — es trabajo posterior
-  a esta entrega, con un plan ya definido para ejecutarlo.
+## 5. ¿Cómo empiezo?
 
-## Estructura
+[`adoption/getting-started.md`](adoption/getting-started.md) — guía práctica paso a paso.
+
+## 6. Flujo de adopción
 
 ```
-MOA-AI-Engineering/
-├── strategy/          Visión, principios, modelo de madurez, roadmap
-├── architecture/       **Histórica/superseded** (fase G1) — ver docs/architecture/ para
-│                       la arquitectura canónica vigente. Se conserva por contenido FACT
-│                       todavía válido (stack del KO), no por ser la referencia actual
-├── governance/         Gobierno corporativo de IA y de agentes
-├── integrations/        Catálogo de integraciones (existentes/propuestas)
-├── metrics/            Framework de métricas e indicadores (KPIs)
-├── use-cases/          Catálogo de casos de uso por etapa del SDLC
-├── teams/              Modelo de adopción por equipo y referencias a implementaciones
-├── assessment/          Relevamiento de capacidades reales por equipo + pipeline de
-│                       evaluación (problema→caso de uso→capacidad→piloto→medición→
-│                       gobierno) antes de promover cualquier capacidad a REUSABLE
-├── templates/           Plantillas para nuevas capacidades reutilizables
-├── docs/architecture/    Especificación arquitectónica G3.3-G4.5 — Reference Architecture,
-│                       Operating Model, Capability Model, Lifecycle, Assessment Gate,
-│                       Capability Registry, Security & Governance, Evaluation &
-│                       Observability, Golden Paths, Product Architecture Baseline,
-│                       Registry MVP, Evidence/Evaluation/Measurement, Real Adoption
-│                       Pilot, Product Hardening, Independent Adoption & Validation,
-│                       Track 1 Finalization, Reusable Capability Library. **Arquitectura
-│                       canónica vigente — documento de entrada**:
-│                       docs/architecture/reference-architecture.md (no confundir con
-│                       architecture/reference-architecture.md, histórica/superseded)
-├── registry/            Capability Registry operativo — README, INDEX (discovery) y
-│                       entries/ (6 capacidades reales con evidencia, ninguna todavía
-│                       Corporate Standard)
-├── capabilities/         Biblioteca reusable (G5.1) — Skills/Agents/Instructions/
-│                       Workflows generalizados, listos para adoptar/adaptar, + guía de
-│                       Best Practices. Punto de entrada: capabilities/README.md
-├── adoption/            Adoption Kit — guía práctica para que un equipo nuevo empiece,
-│                       adapte y contribuya sin depender permanentemente del arquitecto.
-│                       Punto de entrada: adoption/README.md
-├── evidence/            Evidence Records reales de ejecuciones de capacidades (schema:
-│                       docs/architecture/G4.3-Evidence-Evaluation-Measurement.md)
-├── evaluation/           Evaluation Records reales — resultado de aplicar el Evaluation
-│                       Contract a una evidencia concreta
-└── measurements/         Measurement Results reales — incluye resultados NOT MEASURED
-                        explícitamente justificados, no solo mediciones exitosas
+Team → Discover → Understand → Adopt/Adapt → Execute → Evidence →
+Evaluate → Measure → Feedback/Contribute → Promotion/Iteration
 ```
 
-**Corrección respecto a G4.5**: `capabilities/` se había diferido hasta que existiera al
-menos 1 capacidad `Corporate Standard: Y` — G5.1 revisó esa condición: `capabilities/` no
-requiere `Corporate Standard: Y`, requiere **evidencia real + evaluación explícita**
-(Existing Practice + External Best Practice + Architectural Judgment → Decisión), que ya
-existe para 6 capacidades — ver
-[`capabilities/README.md`](capabilities/README.md) y
-`docs/architecture/G5.1-Reusable-Capability-Library.md`. Ninguna es todavía Corporate
-Standard; la carpeta documenta candidatas evaluadas, no estándares impuestos.
-`golden-paths/` (como carpeta dedicada, hoy es un único archivo en `docs/architecture/`)
-sigue diferida hasta que exista un segundo Golden Path con evidencia real, no conceptual.
-`enablement/` y `integrations/mcp/` (con contenido operativo) se incorporarán en fases
-posteriores, cuando existan casos concretos que los justifiquen — MCP en particular
-**no se implementa** por decisión explícita de alcance, pese a 2 hallazgos reales
-documentados en G5.1 (ver `docs/architecture/security-governance.md`)
-(ver principio "Start small and scale progressively").
+## 7. ¿Cómo adopto/adapto una capacidad?
 
-### Fases y documentos (`docs/architecture/`)
+Copiá la estructura, adaptá el contenido a tu dominio. Qué podés cambiar libremente y qué
+no: [`adoption/team-adaptation.md`](adoption/team-adaptation.md).
 
-| Fase | Documento | Qué produjo |
-|---|---|---|
-| G3.3 | [`reference-architecture.md`](docs/architecture/reference-architecture.md) | Arquitectura de referencia (documento de entrada) |
-| G4.1 | [`G4.1-Product-Architecture-Baseline.md`](docs/architecture/G4.1-Product-Architecture-Baseline.md) | Baseline de producto |
-| G4.2 | [`G4.2-Registry-MVP-and-Golden-Path.md`](docs/architecture/G4.2-Registry-MVP-and-Golden-Path.md) | Registry MVP + primer Golden Path |
-| G4.3 | [`G4.3-Evidence-Evaluation-Measurement.md`](docs/architecture/G4.3-Evidence-Evaluation-Measurement.md) | Contratos de Evidence/Evaluation/Measurement |
-| G4.4 | [`G4.4-Real-Adoption-Pilot.md`](docs/architecture/G4.4-Real-Adoption-Pilot.md) | Primer controlled dry-run (no piloto real independiente) |
-| G4.5 | [`G4.5-Product-Hardening-and-Adoption-Model.md`](docs/architecture/G4.5-Product-Hardening-and-Adoption-Model.md) | Adoption Kit, Golden Path endurecido, Contribution Model |
-| G4.6 | [`G4.6-Independent-Adoption-and-Validation.md`](docs/architecture/G4.6-Independent-Adoption-and-Validation.md) | Segundo controlled dry-run, Independence Test (resultado: `NOT INDEPENDENTLY VALIDATED`) |
-| G5 | [`G5-Track-1-Finalization-and-Delivery-Readiness.md`](docs/architecture/G5-Track-1-Finalization-and-Delivery-Readiness.md) | Consolidación final — estado de entrega |
-| G5.1 | [`G5.1-Reusable-Capability-Library.md`](docs/architecture/G5.1-Reusable-Capability-Library.md) | Biblioteca de capacidades reutilizables + Best Practices — `capabilities/` |
+## 8. ¿Cómo evalúo?
 
-Decisiones sin resolver, explícitas y sin ocultar: [`BLOCKED-DECISIONS.md`](docs/architecture/BLOCKED-DECISIONS.md).
+Declarás tus criterios *antes* de mirar el resultado y completás el Evaluation Contract —
+ver [`architecture/evidence-evaluation-measurement.md`](architecture/evidence-evaluation-measurement.md#2-evaluation).
+Un resultado `model-assisted` (autoevaluación) **no sustituye** una evaluación humana
+independiente.
 
-## Relación con `moa-sdlc` y `moa-metrics` (corregido 2026-09-04)
+## 9. ¿Cómo mido?
 
-**Este repositorio (`MOA-AI-Engineering`) es el que se está construyendo como la base
-común de buenas prácticas de IA para todos los proyectos de MOA** (existentes y
-nuevos) — no al revés. `moa-sdlc` y `moa-metrics` son herramientas de referencia
-construidas por Baufest para la propia iniciativa (template de gobierno de agentes +
-spec-driven development, y pipeline de indicadores, respectivamente); **no son equipos
-de MOA** y su contenido no es la fuente de la que este repositorio deriva su gobierno o
-sus principios. Se tratan como **evidencia/candidatos a evaluar**, al mismo nivel que
-cualquier otro repo real relevado (DataAgro, Scato Logística, MOA Operaciones, Scato
-Puerto, Orquestador — ver [`teams/README.md`](teams/README.md)), nunca como estándar por
-default.
+Con el Measurement Result Contract — ver
+[`architecture/evidence-evaluation-measurement.md`](architecture/evidence-evaluation-measurement.md#3-measurement).
+Si no hay baseline, el resultado es `NOT MEASURED`, explícito — nunca un `0` inventado.
 
-| Repositorio | Qué es | Rol |
-|---|---|---|
-| [`moa-sdlc`](../moa-sdlc) | Herramienta de referencia de Baufest (no un equipo de MOA) | Evidencia/candidato a evaluar |
-| [`moa-metrics`](../moa-metrics) | Herramienta de referencia de Baufest (no un equipo de MOA) | Evidencia/candidato a evaluar |
+## 10. ¿Cómo contribuyo?
 
-Ver [`teams/README.md`](teams/README.md) para el detalle de los equipos reales de MOA y
-su evidencia, y [`assessment/README.md`](assessment/README.md) para el pipeline que
-cualquier capacidad —incluidas las de `moa-sdlc`/`moa-metrics`— debe atravesar antes de
-promoverse.
+Reportar feedback o proponer que algo se vuelva reutilizable:
+[`adoption/contribution-guide.md`](adoption/contribution-guide.md).
 
-## Principios
+## 11. ¿Dónde encuentro arquitectura, gobierno y seguridad?
 
-Ver [`strategy/principles.md`](strategy/principles.md).
+| Qué buscás | Dónde |
+|---|---|
+| Arquitectura de referencia (canónica y vigente) | [`architecture/reference-architecture.md`](architecture/reference-architecture.md) |
+| Modelo de capacidades (Instruction/Skill/Workflow/Agent/Knowledge-RAG/Integration/MCP) | [`architecture/capability-model.md`](architecture/capability-model.md) |
+| Ciclo de vida de una capacidad | [`architecture/lifecycle.md`](architecture/lifecycle.md) |
+| Rubric de evaluación para promover una capacidad | [`architecture/assessment-gate.md`](architecture/assessment-gate.md) |
+| Golden Paths (caminos de adopción guiados) | [`golden-paths/README.md`](golden-paths/README.md) |
+| Gobierno de agentes y de IA | [`governance/`](governance/) |
+| Decisiones bloqueadas (12, sin resolver, visibles) | [`governance/BLOCKED-DECISIONS.md`](governance/BLOCKED-DECISIONS.md) |
+| Seguridad — modelo de riesgo proporcional, MCP | [`security/security-governance.md`](security/security-governance.md) |
+| Evidencia / Evaluación / Medición reales | [`evidence/`](evidence/README.md) · [`evaluation/`](evaluation/README.md) · [`measurements/`](measurements/README.md) |
+| Estrategia (visión, principios, madurez, roadmap) | [`strategy/`](strategy/) |
 
-## Cómo contribuir una nueva capacidad
+## Estado actual
 
-Ruta completa (9 pasos, Team-Specific → Common Core, con evidencia en cada paso):
-[`adoption/contribution-guide.md`](adoption/contribution-guide.md). Si involucra un
-agente autónomo, seguir además el modelo TRIGGER→CONTEXT→DECISION→ACTION→VALIDATION→AUDIT
-de [`governance/agent-governance.md`](governance/agent-governance.md).
+**READY WITH CONDITIONS** — el modelo está construido, la biblioteca de capacidades es
+real y usable, pero:
+
+- Ninguna ejecución existente es una **validación humana independiente** — las 2
+  ejecuciones reales de CAP-002 (`evidence/README.md`) son *controlled dry-runs*: técnicas
+  y reales, pero hechas por el mismo agente que diseñó la capacidad, no por un miembro de
+  un equipo de MOA.
+- No existe todavía **baseline cuantitativo** ni **medición comparativa de valor** para
+  ninguna capacidad.
+- Ninguna capacidad es `Corporate Standard: Y` — todas son candidatas evaluadas con
+  evidencia, no estándares impuestos.
+- **12 decisiones de gobierno siguen bloqueadas** — la más estructural: quién tiene
+  mandato para aprobar el Common Core (`governance/BLOCKED-DECISIONS.md` #1). Sin
+  resolverla, ninguna capacidad puede avanzar más allá de evidencia técnica.
+
+Esto no bloquea usar el producto hoy — bloquea declarar algo "validado" que todavía no lo
+está. La validación independiente con equipos reales de MOA es la evolución pendiente.
+
+## De IA a valor — la cadena que este repositorio mantiene explícita
+
+```
+AI capability → SDLC activity → resultado técnico/de negocio →
+Evidence → Evaluation → Measurement → valor para MOA
+```
+
+Ejemplo real: CAP-002 (`user-story`) → refinamiento de un requerimiento real de DataAgro
+→ historia + criterios + reglas + análisis de gaps → Evidence Record → Evaluation Record
+(`PARTIAL`, no independiente) → Measurement Result (`NOT MEASURED`, sin baseline). No se
+completa la cadena inventando el eslabón que falta.
+
+## `moa-sdlc` y `moa-metrics`
+
+Son herramientas de referencia de Baufest, **no equipos de MOA** — se tratan como
+evidencia/candidatos a evaluar, nunca como fuente de gobierno. Detalle:
+[`teams/README.md`](teams/README.md).
+
+## Historial de construcción
+
+Las fases que construyeron este repositorio (G3.3 a G5.1) están preservadas, con su
+razonamiento completo, en [`docs/history/track-1/`](docs/history/track-1/) — no forman
+parte de la navegación principal del producto, pero nada se descartó.

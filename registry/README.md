@@ -1,18 +1,18 @@
 # Capability Registry — README
 
-**Fase**: G4.2 (MVP). **Estado**: PROPOSAL — mecanismo operativo mínimo, no una base de
-datos ni servicio (decisión de diseño ya tomada en
-[`../docs/architecture/G4.1-Product-Architecture-Baseline.md`](../docs/architecture/G4.1-Product-Architecture-Baseline.md)).
+**Estado**: PROPOSAL — mecanismo operativo mínimo, no una base de datos ni servicio
+(decisión de diseño documentada en
+[`../docs/history/track-1/G4.1-Product-Architecture-Baseline.md`](../docs/history/track-1/G4.1-Product-Architecture-Baseline.md)).
 Este README documenta el mecanismo; el **schema** de campos está definido en
-[`../docs/architecture/capability-registry.md`](../docs/architecture/capability-registry.md)
+[`../architecture/capability-registry.md`](../architecture/capability-registry.md)
 — no se duplica acá, se reutiliza.
 
 ## Propósito
 
 Ser el **source of truth versionado en git** de qué capacidades de IA existen en MOA, con
-qué evidencia, en qué estado, y quién las usa — reemplazando progresivamente a
-[`../assessment/relevamiento-capacidades.md`](../assessment/relevamiento-capacidades.md)
-(que sigue siendo válido como relevamiento narrativo original de G2, no se borra).
+qué evidencia, en qué estado, y quién las usa — reemplazando progresivamente al
+[relevamiento histórico narrativo](../docs/history/track-1/relevamiento-capacidades-g2.md)
+que lo precedió (se conserva, no se borra).
 
 ## Estructura
 
@@ -25,21 +25,21 @@ registry/
 
 ## Schema
 
-Los 27 campos (18 originales de G3.1 + 6 de G3.3 + 3 de G3.3 Corrections) están definidos
-en [`capability-registry.md`](../docs/architecture/capability-registry.md). Cada archivo en
+Los ~27 campos están definidos en
+[`capability-registry.md`](../architecture/capability-registry.md). Cada archivo en
 `entries/` los completa. **Regla dura, sin excepción**: si un campo no tiene evidencia
 directa, se marca `REQUIRES VALIDATION` — nunca se infiere ni se inventa. Si depende de
 una decisión bloqueada, se marca `BLOCKED` con referencia al ítem de
-[`../docs/architecture/BLOCKED-DECISIONS.md`](../docs/architecture/BLOCKED-DECISIONS.md).
+[`../governance/BLOCKED-DECISIONS.md`](../governance/BLOCKED-DECISIONS.md).
 
-## Dos clases de entrada (ya definidas en G4.1, sección 7)
+## Dos clases de entrada
 
 1. **Team-Specific** (`Corporate Standard: N`) — cualquier equipo puede agregar una
    entrada describiendo su propia capacidad, sin necesidad de pasar el Assessment Gate.
    Es puramente informativa/de discovery.
 2. **Common Core Candidate → Corporate Standard** (`Corporate Standard: Y`) — requiere
    haber pasado el rubric de 14 dimensiones de
-   [`assessment-gate.md`](../docs/architecture/assessment-gate.md) y **Human Validation**
+   [`assessment-gate.md`](../architecture/assessment-gate.md) y **Human Validation**
    explícita (ver `lifecycle.md`). **Ninguna entrada de este Registry tiene hoy
    `Corporate Standard: Y`** — el mecanismo existe, pero ninguna capacidad completó el
    Gate todavía.
@@ -47,7 +47,7 @@ una decisión bloqueada, se marca `BLOCKED` con referencia al ítem de
 ## Estados que usa una entrada
 
 - **`Lifecycle State`**: posición dentro del **Capability Lifecycle** de
-  [`lifecycle.md`](../docs/architecture/lifecycle.md) (Use Case→...→Promote). No confundir
+  [`lifecycle.md`](../architecture/lifecycle.md) (Use Case→...→Promote). No confundir
   con `Corporate Standard` (Adoption Status — Y/N, no secuencial).
 - **`Configuration Status`** y **`Real Use Status`**: independientes entre sí y de
   `Evaluation Status`/`Observability Status`. **Nunca se infiere Real Use desde

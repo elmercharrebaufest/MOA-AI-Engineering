@@ -1,16 +1,16 @@
 # Capability Model
 
-**Fase**: G3.3. **Estado**: PROPOSAL (taxonomía) con ejemplos FACT donde hay evidencia
-real (G1-G3.2.5). Provider-agnostic a nivel conceptual — no se asume GitHub Copilot,
-Copilot Studio, Claude, ni ningún proveedor como plataforma oficial única (ver Blocked
-Decision #2).
+**Estado**: PROPOSAL (taxonomía) con ejemplos FACT donde hay evidencia real.
+Provider-agnostic a nivel conceptual — no se asume GitHub Copilot, Copilot Studio,
+Claude, ni ningún proveedor como plataforma oficial única (ver Blocked Decision #2).
 
 ## Propósito
 
 Dar vocabulario común para clasificar cualquier capacidad de IA, y **evitar el sesgo hacia
 Agent por defecto** ya observado en la evidencia real (dos de cinco equipos con evidencia
 —DataAgro, Scato Logística— construyeron Agents antes de tener Evaluation u Observability
-formalizados — ver `assessment/relevamiento-capacidades.md`).
+formalizados — ver
+[`../docs/history/track-1/relevamiento-capacidades-g2.md`](../docs/history/track-1/relevamiento-capacidades-g2.md)).
 
 ## Principio rector
 
@@ -96,7 +96,7 @@ implementación → QA).
 **Cuándo NO usarlo**: si el proceso requiere que el sistema decida dinámicamente qué
 herramienta usar o qué camino tomar — eso es un Agent (Principio #6: Workflow antes que
 Agent cuando el proceso es determinístico).
-**Relación**: un Golden Path (ver `golden-paths.md`) es la expresión de más alto nivel de
+**Relación**: un Golden Path (ver [`../golden-paths/README.md`](../golden-paths/README.md)) es la expresión de más alto nivel de
 un Workflow — un camino de adopción completo, no solo una tarea. **Criterio de
 desambiguación con Agent** (agregado en G3.3 Corrections, cierra un solapamiento real
 encontrado en la revisión final): si la secuencia de pasos y el actor de cada paso son
@@ -159,7 +159,7 @@ dinámicamente — eso es el rol de MCP.
 que un Agent la use; no son excluyentes.
 **Evidencia real (FACT)**: EXISTING — Jira API, Azure DevOps Repos API, GitHub Copilot
 Metrics API, SonarQube API, todas implementadas como conectores Python reales en
-`moa-metrics` (ver `../../integrations/catalog.md`).
+`moa-metrics` (ver `../integrations/catalog.md`).
 
 ### 7. MCP (Model Context Protocol)
 
@@ -171,16 +171,18 @@ a un mismo sistema externo, y ese acceso debe poder auditarse.
 descubrimiento dinámico — ahí alcanza una Integration/API directa.
 **Relación**: **sujeto a gobierno específico** — identidad, autorización, least privilege,
 gobierno de datos, HITL, auditoría y observabilidad (Principio #8). Ver
-`security-governance.md`.
-**Evidencia real — actualizada en G3.2.5 (cambio de conclusión respecto a G1/G2/G3.2)**:
-se encontró una referencia concreta a `com.atlassian/atlassian-mcp-server` en 2 agents de
-Orquestador (rama `feature/cardless4`, no integrada a `master`). Esto es
-**CONFIGURATION VERIFIED** (la referencia existe, se leyó el archivo completo) —
-**REAL USE REQUIRES VALIDATION** (no hay evidencia de ejecución, ni de que esté
-autenticado/autorizado/auditado). No se debe asumir read-only, ni producción, ni
-autenticación — ver Blocked Decision #4 y `security-governance.md`. Todo lo demás
-mencionado sobre MCP en el KO (Jira, Confluence, Azure DevOps, SQL Server, Playwright)
-sigue siendo **PROPOSED**, sin evidencia de despliegue.
+[`../security/security-governance.md`](../security/security-governance.md).
+**Evidencia real**: 2 hallazgos concretos — referencias a `com.atlassian/
+atlassian-mcp-server` en agents de DataAgro, Scato Logística y Orquestador (este último en
+rama `feature/cardless4`, no integrada a `master`), y un `.vscode/mcp.json` real en
+DataAgro apuntando a un servidor MCP de Azure DevOps (`mcp.dev.azure.com/molinosagro`).
+Ambos son **CONFIGURATION VERIFIED** (los archivos existen, se leyeron completos) —
+**REAL USE REQUIRES VALIDATION** (no hay evidencia de ejecución, ni de que estén
+autenticados/autorizados/auditados). No se debe asumir read-only, ni producción, ni
+autenticación — ver Blocked Decision #4 y
+[`../security/security-governance.md`](../security/security-governance.md). Todo lo demás
+mencionado sobre MCP en el KO (Jira, Confluence, SQL Server, Playwright) sigue siendo
+**PROPOSED**, sin evidencia de despliegue.
 
 ## Cross-Cutting Concerns (3) — no son capacidades seleccionables
 

@@ -8,7 +8,7 @@ La primera biblioteca curada de capacidades de AI Engineering de MOA — **no** 
 lo que cada equipo ya tiene, sino una **generalización de patrones reales seleccionados
 mediante evidencia interna, assessment, buenas prácticas externas y juicio
 arquitectónico**, tras el proceso de evaluación de
-[`docs/architecture/G5.1-Reusable-Capability-Library.md`](../docs/architecture/G5.1-Reusable-Capability-Library.md).
+[proceso de evaluación documentado en el historial de construcción](../docs/history/track-1/G5.1-Reusable-Capability-Library.md).
 Esto **no** equivale a valor demostrado, ROI demostrado, impacto demostrado, ni
 productividad demostrada — lo que existe hoy son controlled dry-runs sobre requerimientos
 reales, con evidencia de ejecución y evaluación `model-assisted`, sin validación humana
@@ -38,17 +38,17 @@ de seguridad, patrones de workflow) de 6 repos de equipos de MOA. **La mayoría 
 acá** — quedaron clasificados `TEAM-SPECIFIC` (correctos para su equipo, no para
 centralizar) o `EXPERIMENTAL` (interesantes, sin evidencia suficiente todavía). Ver la
 tabla completa de clasificación en
-[`G5.1-Reusable-Capability-Library.md`](../docs/architecture/G5.1-Reusable-Capability-Library.md)
+[el historial de construcción](../docs/history/track-1/G5.1-Reusable-Capability-Library.md)
 — nada acá llegó por "estar en 2 repos", cada una pasó por: propósito, dependencias,
 qué parte es genérica vs. específica, seguridad, permisos, datos, mantenibilidad,
 portabilidad, evidencia de uso, reusabilidad, y contraste con buenas prácticas externas.
 
-## De dónde viene una capacidad y a dónde va (agregado en G5.2)
+## De dónde viene una capacidad y a dónde va
 
 `MOA-AI-Engineering` contiene la **fuente/patrón reusable** — no el runtime ejecutable
 de ningún equipo. Copiar un archivo de acá a un repo de equipo **no lo convierte
 automáticamente en capacidad corporativa** — sigue siendo Team-Specific hasta que pase
-por Assessment/Human Governance (`docs/architecture/assessment-gate.md`), sin importar
+por Assessment/Human Governance (`../architecture/assessment-gate.md`), sin importar
 cuántas veces se copie.
 
 ```
@@ -123,5 +123,5 @@ capabilities/
 ninguno como capability** — MCP requiere gobierno (identidad, scope, auditoría) que
 todavía no existe en MOA (`BLOCKED-DECISIONS.md` #4), y esta iniciativa **no implementa
 MCP** por alcance explícito. Ver
-[`docs/architecture/security-governance.md`](../docs/architecture/security-governance.md)
+[`security/security-governance.md`](../security/security-governance.md)
 para el detalle completo de ambos hallazgos.

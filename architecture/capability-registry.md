@@ -1,10 +1,11 @@
 # Capability Registry
 
-**Fase**: G3.3. **Estado**: PROPOSAL — modelo conceptual únicamente. **No se implementa
-base de datos ni servicio en esta fase** (instrucción explícita de alcance de G3.3).
-[`../../assessment/relevamiento-capacidades.md`](../../assessment/relevamiento-capacidades.md)
-es, hoy, una instancia manual/narrativa de lo que este Registry formalizaría — se
-mantiene como está, no se duplica.
+**Estado**: PROPOSAL — modelo conceptual del schema. **No se implementa base de datos ni
+servicio** (decisión de alcance vigente — ver `registry/README.md` para el mecanismo
+real, archivos en git). El
+[relevamiento histórico de capacidades](../docs/history/track-1/relevamiento-capacidades-g2.md)
+fue la instancia manual/narrativa que este Registry formaliza — se mantiene como
+registro histórico, no se duplica.
 
 ## Propósito
 

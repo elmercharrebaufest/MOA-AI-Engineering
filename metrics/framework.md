@@ -1,6 +1,6 @@
 # Framework de métricas
 
-## Categorías (FACT — master prompt de la iniciativa)
+## Categorías (FACT — encuadre fundacional de la iniciativa)
 
 No se mide únicamente cantidad de usuarios, prompts, código generado o tokens. Se definen
 7 categorías:
@@ -15,7 +15,7 @@ No se mide únicamente cantidad de usuarios, prompts, código generado o tokens.
 | Developer Experience | ¿Reduce fricción y context switching? |
 | Business Impact | ¿Genera valor real? |
 
-## Ciclo obligatorio: Baseline → Pilot → Measure → Compare (FACT — master prompt)
+## Ciclo obligatorio: Baseline → Pilot → Measure → Compare (FACT — encuadre fundacional de la iniciativa)
 
 Ningún porcentaje de mejora debe afirmarse sin este ciclo. Estado actual (REQUIRES
 VALIDATION): no hay evidencia de que exista un **baseline medido** todavía; los números

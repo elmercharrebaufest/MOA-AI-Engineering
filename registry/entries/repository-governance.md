@@ -8,7 +8,7 @@
 | **Purpose** | Declarar en un lugar predecible qué puede hacer un asistente de IA sin pedir permiso, qué debe confirmar antes, y qué nunca debe hacer — vía la convención de 4 capas (`copilot-instructions.md`/`AGENTS.md` + `instructions/` + `skills/` + `agents/`) | FACT |
 | **Owner** | REQUIRES VALIDATION | `BLOCKED-DECISIONS.md` #1 |
 | **Maintainer** | REQUIRES VALIDATION | Ídem |
-| **Origin** | Convención encontrada de forma independiente en 4 repos: DataAgro, Scato Logística, Orquestador (rama `master-logistica`), `moa-sdlc` | FACT — ya evaluada como "ADOPT como convención" en `docs/architecture/assessment-gate.md` (G3.3), materializada recién en G5.1 |
+| **Origin** | Convención encontrada de forma independiente en 4 repos: DataAgro, Scato Logística, Orquestador (rama `master-logistica`), `moa-sdlc` | FACT — ya evaluada como "ADOPT como convención" en `../../architecture/assessment-gate.md`, materializada posteriormente |
 | **Originator** | Múltiples, sin un originador único identificable — la convención converge de forma independiente en 4 repos distintos, con distintos autores | FACT (multiplicidad) |
 | **Team** | DataAgro, Scato Logística, Orquestador, `moa-sdlc` (herramienta de referencia, no equipo de MOA) | FACT |
 | **Domain** | Transversal — la estructura es independiente del dominio; el contenido de cada capa es 100% específico por equipo | FACT |

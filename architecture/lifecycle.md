@@ -1,6 +1,6 @@
 # Capability Lifecycle
 
-**Fase**: G3.3. **Estado**: PROPOSAL. No confundir con `../../strategy/maturity-model.md`
+**Estado**: PROPOSAL. No confundir con `../strategy/maturity-model.md`
 (Crawl/Walk/Run) — ese modelo mide la madurez de un **equipo**; este documento modela el
 ciclo de vida de una **capacidad individual** (un Agent, un Skill, una Instruction). Son
 ejes complementarios, no intercambiables.
@@ -88,7 +88,7 @@ estado del lifecycle formal.
 
 | Estado | Qué significa | Quién lo mueve | Evidencia mínima requerida |
 |---|---|---|---|
-| **Use Case** | El problema está articulado como caso de uso concreto (ver `../../templates/use-case-template.md`) | Equipo proponente | Documento de caso de uso |
+| **Use Case** | El problema está articulado como caso de uso concreto (ver `../templates/use-case-template.md`) | Equipo proponente | Documento de caso de uso |
 | **Value + Risk** | Se estimó el valor esperado y el riesgo (ver `assessment-gate.md`, dimensiones Value/Risk) | Equipo proponente | Estimación explícita, no implícita |
 | **Design** | Se seleccionó la capacidad adecuada (`capability-model.md`) y se diseñó — **sin implementación productiva todavía** | Equipo proponente | Diseño documentado |
 | **Pilot** | Implementación mínima, en un contexto acotado y real | Equipo proponente | Al menos 1 ejecución real |

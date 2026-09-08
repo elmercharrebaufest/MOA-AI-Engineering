@@ -6,7 +6,7 @@ description: Workflow de múltiples pasos con estado para llevar un requerimient
 # spec-driven-development
 
 **Capability Registry**: [`CAP-004`](../../../registry/entries/spec-driven-development.md).
-**Golden Path**: [`AI-Assisted Development`](../../../docs/architecture/golden-paths.md#2-ai-assisted-development)
+**Golden Path**: [`AI-Assisted Development`](../../../golden-paths/README.md#2-ai-assisted-development)
 — este Workflow es la capacidad central de ese Golden Path, antes solo mencionada, ahora
 materializada.
 **Clasificación (G5.1)**: **REUSABLE PATTERN** — 2 niveles de madurez distintos, no
@@ -108,7 +108,7 @@ amplio que el resto de los roles, que debe gobernarse explícitamente si se adop
 Riesgo bajo en el nivel Lite (sin permisos especiales). El nivel Full introduce un rol con
 acceso a secretos/configuración — cualquier equipo que lo adopte debe tratar ese acceso
 con el mismo rigor que cualquier otro acceso a datos sensibles
-(`docs/architecture/security-governance.md`).
+(`../../../security/security-governance.md`).
 
 ## Datos
 
