@@ -86,12 +86,17 @@ flowchart LR
     B --> C["Adaptar roles/contexto"]
     C --> D["Ejecutar"]
     D --> E["HU + criterios + reglas + gaps"]
-    E --> F["Human Review"]
-    F --> G["Evidence"]
-    G --> H["Evaluation"]
-    H --> I["Measurement"]
-    I --> J["Feedback"]
+    E --> F["Human Review operativo"]
+    F --> G["Execution Record"]
+    G --> H["Evidence"]
+    H --> I["Evaluation"]
+    H --> J["Measurement"]
+    I --> K["Feedback"]
+    J --> K
 ```
+
+Desde **Evidence** salen dos ramas independientes — Evaluation y Measurement no son
+pasos secuenciales entre sí.
 
 1. Identificá un requerimiento real (ticket, idea de negocio) — nunca un ejemplo
    inventado.
@@ -102,19 +107,25 @@ flowchart LR
 4. Ejecutá con tu asistente de IA (Copilot, Claude, u otro).
 5. Obtené historia de usuario + criterios de aceptación + reglas de negocio + análisis
    de gaps.
-6. Human Review — un PO/referente funcional valida antes de Planning.
-7. Registrá Evidence —
+6. **Human Review operativo** — revisión rápida por un PO/referente funcional para
+   detectar errores obvios y decidir si el resultado puede continuar. **No** equivale a
+   la evaluación formal del paso 9.
+7. Registrá Execution —
+   [`../adoption/templates/execution-record.md`](../adoption/templates/execution-record.md).
+8. Registrá Evidence —
    [`../adoption/templates/evidence-record.md`](../adoption/templates/evidence-record.md).
-8. Registrá Evaluation —
-   [`../adoption/templates/evaluation-record.md`](../adoption/templates/evaluation-record.md).
-9. Registrá Measurement —
-   [`../adoption/templates/measurement-record.md`](../adoption/templates/measurement-record.md)
-   (`NOT MEASURED` si no hay baseline, no inventado).
-10. Feedback — [`../adoption/contribution-guide.md`](../adoption/contribution-guide.md).
+9. **Evaluation** — evaluación formal contra criterios explícitos, registrada mediante el
+   [Evaluation Record](../adoption/templates/evaluation-record.md).
+10. **Measurement** — medición independiente del impacto cuando existe baseline, con el
+    [Measurement Record](../adoption/templates/measurement-record.md)
+    (`NOT MEASURED` si no hay baseline, no inventado). No es un paso posterior a
+    Evaluation — ambas consumen la misma Evidence por separado.
+11. Feedback — [`../adoption/contribution-guide.md`](../adoption/contribution-guide.md),
+    con lo que haya salido de Evaluation y/o de Measurement.
 
 **Estado real, sin cambios por agregar esta guía**: 2 controlled dry-runs, ninguna
 validación humana independiente, `NOT MEASURED`, **no** `Corporate Standard`. Seguir
-estos 10 pasos no convierte al Golden Path en "validado" — lo hace ejecutable por un
+estos 11 pasos no convierte al Golden Path en "validado" — lo hace ejecutable por un
 equipo nuevo sin depender del arquitecto, que es un problema distinto.
 
 ## 2. AI-Assisted Development

@@ -53,8 +53,10 @@ flowchart LR
 - **Measurement Record** — el contrato canónico de qué impacto tuvo (o `NOT MEASURED`).
 
 Los primeros dos (Adoption, Execution) son mecanismos prácticos de este Adoption Kit —
-**no** son contratos corporativos. Los últimos tres sí lo son, y no se redefinen acá —
-ver [`templates/`](templates/) para las 5 plantillas.
+**no** son contratos corporativos. Los últimos tres corresponden a los contratos
+canónicos del modelo operativo vigente y no se redefinen acá; su estado sigue siendo el
+definido en la arquitectura y no implica por sí mismo una aprobación como estándar
+corporativo — ver [`templates/`](templates/) para las 5 plantillas.
 
 ## Dónde vive cada artefacto
 

@@ -19,12 +19,17 @@ flowchart LR
     C --> D["Contexto del proyecto"]
     D --> E["Asistente IA"]
     E --> F["Resultado"]
-    F --> G["Human Review"]
-    G --> H["Evidence"]
-    H --> I["Evaluation"]
-    I --> J["Measurement"]
-    J --> K["Feedback"]
+    F --> G["Human Review operativo"]
+    G --> H["Execution Record"]
+    H --> I["Evidence"]
+    I --> J["Evaluation"]
+    I --> K["Measurement"]
+    J --> L["Feedback"]
+    K --> L
 ```
+
+Desde **Evidence** salen dos ramas independientes — Evaluation y Measurement no son
+pasos secuenciales entre sí, ambas consumen la misma Evidence por separado.
 
 1. **Seleccionar actividad real** — un ticket, un requerimiento, un diff real de tu
    proyecto. Nunca un ejemplo inventado para "probar el sistema".
@@ -42,22 +47,49 @@ flowchart LR
 6. **Ejecutar con la herramienta IA disponible** — Copilot, Claude, u otro asistente
    compatible con tu equipo. `MOA-AI-Engineering` define el patrón y los controles, no
    obliga a un proveedor.
-7. **Revisar resultado** — una lectura humana rápida antes de decidir si sigue a Human
-   Review formal o si hay que reintentar.
+7. **Human Review operativo** — una lectura humana rápida del resultado, antes de decidir
+   si sigue adelante o si hay que reintentar. Ver la distinción con la evaluación formal
+   más abajo.
 8. **Registrar execution** — completá un
    [`templates/execution-record.md`](templates/execution-record.md): qué herramienta,
    qué input, qué output, qué estado.
 9. **Registrar Evidence** — completá el
    [Evidence Record](templates/evidence-record.md) (contrato canónico en
    [`../architecture/evidence-evaluation-measurement.md`](../architecture/evidence-evaluation-measurement.md#1-evidence)).
-10. **Evaluar** — declará tus criterios, aplicá el
+10. **Evaluar formalmente** — declará tus criterios, aplicá el
     [Evaluation Record](templates/evaluation-record.md). Si el resultado puede tener
     impacto real, HITL es obligatorio — no un `model-assisted` alcanza.
 11. **Medir** — si hay baseline, completá el
     [Measurement Record](templates/measurement-record.md) con un valor real. Si no hay
-    baseline, `NOT MEASURED` — nunca inventado.
+    baseline, `NOT MEASURED` — nunca inventado. Ver más abajo por qué esto es
+    independiente del paso 10.
 12. **Feedback** — si encontraste algo reutilizable o una brecha en la capability misma,
-    seguí [`contribution-guide.md`](contribution-guide.md).
+    seguí [`contribution-guide.md`](contribution-guide.md). Feedback puede nutrirse tanto
+    de lo que salió de Evaluation como de lo que salió de Measurement.
+
+### Human Review operativo ≠ Human Evaluation formal
+
+**Human Review operativo** (paso 7):
+- revisión humana rápida del resultado generado;
+- detecta errores obvios;
+- permite decidir si se debe reintentar;
+- **NO sustituye** la evaluación formal.
+
+**Human Evaluation** (paso 10):
+- evaluación formal contra criterios explícitos, declarados antes de evaluar;
+- genera el Evaluation Record;
+- requiere HITL cuando corresponde a promoción o impacto real;
+- un resultado `model-assisted` no sustituye la evaluación humana requerida.
+
+### Measurement es independiente de Evaluation (paso 11)
+
+Measurement no viene "después" de Evaluation — ambas consumen la misma Evidence, cada
+una respondiendo una pregunta distinta:
+
+- Measurement requiere **baseline** para producir una medición válida.
+- Sin baseline: `NOT MEASURED` / `NO DATA`.
+- **Nunca inventar** un cero, un porcentaje, ni un impacto — con o sin resultado de
+  Evaluation.
 
 ## Qué significa cada paso, en una línea
 
@@ -69,11 +101,11 @@ flowchart LR
 | Contexto | ¿Qué necesita saber el asistente para no alucinar? |
 | Adaptar | ¿Qué de esta capability es mío, y qué es del Common Core? |
 | Ejecutar | ¿Qué obtengo al aplicar esto sobre mi caso real? |
-| Human Review | ¿Alguien con criterio de negocio miró esto antes de avanzar? |
+| Human Review operativo | ¿Alguien miró esto rápido antes de seguir, o hay que reintentar? |
 | Execution | ¿Quedó registro operativo de qué corrí y con qué? |
 | Evidence | ¿Quedó registro trazable de que esto ocurrió? |
-| Evaluation | ¿El resultado es correcto/suficiente? |
-| Measurement | ¿Qué impacto tuvo, si puedo saberlo? |
+| Evaluation | ¿El resultado es correcto/suficiente, contra criterios formales? |
+| Measurement | ¿Qué impacto tuvo, si hay baseline para saberlo — independiente de Evaluation? |
 | Feedback | ¿Esto debería mejorar la capability para el próximo equipo? |
 
 ## Ver también
