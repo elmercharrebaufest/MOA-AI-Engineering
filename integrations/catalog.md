@@ -21,6 +21,16 @@ evidencia suficiente).
 | **Playwright (MCP)** | **PROPOSED** | KO Interno (pág. 15, 25): tests de regresión generados vía Copilot + Skills + MCP Playwright. `moa-sdlc` menciona Playwright como práctica de testing pero no como MCP configurado. |
 | **CI/CD (Azure DevOps Pipelines)** | **EXISTING** | `moa-sdlc/azure-pipelines.yml` confirma pipeline real. KO confirma Azure DevOps como plataforma de build/CI. |
 
+## Ver también — patrones de Context Provider (nuevo)
+
+Los 2 primeros patrones reusables de adquisición de contexto (Context Acquisition &
+Resolution, [`../architecture/context-acquisition-resolution.md`](../architecture/context-acquisition-resolution.md)),
+**ambos READ-only**, extraídos de las filas EXISTING/CONFIGURATION VERIFIED de esta tabla
+(Azure DevOps CLI y MCP Atlassian con scope acotado, no del wildcard):
+
+- [`azure-devops-context-provider.md`](azure-devops-context-provider.md) — [CAP-007](../registry/entries/azure-devops-context.md)
+- [`jira-context-provider.md`](jira-context-provider.md) — [CAP-008](../registry/entries/jira-context.md)
+
 ## Nota sobre gobierno de MCP (pendiente — ver `governance/ai-governance.md`)
 
 Ningún MCP mencionado arriba tiene documentado: autenticación, autorización, scope,

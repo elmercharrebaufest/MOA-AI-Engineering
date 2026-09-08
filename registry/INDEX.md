@@ -14,6 +14,16 @@ responder. Se actualiza junto con cada entrada nueva o modificada en `entries/`.
 | [CAP-004](entries/spec-driven-development.md) | spec-driven-development | Workflow | DataAgro (Lite, real), `moa-sdlc` (Full, sin evidencia de ejecución) | N | VERIFIED | EXECUTED (nivel Lite) / NOT FOUND (nivel Full) | Bajo (Lite) / Medio (Full) |
 | [CAP-005](entries/repository-governance.md) | repository-governance | Instruction | DataAgro, Scato Logística, Orquestador, `moa-sdlc` | N | VERIFIED | CONFIGURED | Bajo |
 | [CAP-006](entries/stack-best-practices-template.md) | stack-best-practices-template | Skill | Scato Logística, Orquestador | N | VERIFIED | CONFIGURED | Bajo |
+| [CAP-007](entries/azure-devops-context.md) | azure-devops-context | Integration/API | Ninguno todavía (patrón de referencia) | N | VERIFIED (documento) | NOT FOUND | Bajo |
+| [CAP-008](entries/jira-context.md) | jira-context | MCP | Ninguno todavía (patrón de referencia) | N | VERIFIED (documento) | NOT FOUND | Bajo-Medio |
+
+**CAP-007/008** *(nuevas, agregadas al implementar Context Acquisition & Resolution)*: a
+diferencia de CAP-001 a CAP-006, no son generalizaciones de una capacidad ya ejecutada por
+un equipo — son **patrones nuevos**, extraídos de evidencia real (CAP-001 y el MCP
+Atlassian con scope acotado) pero sin ninguna ejecución propia todavía. `Action Type:
+READ` en ambas, sin excepción — ver
+[`../architecture/context-acquisition-resolution.md`](../architecture/context-acquisition-resolution.md)
+y [`../security/security-governance.md`](../security/security-governance.md) §1.5.
 
 **CAP-004/005/006**: materializadas como capacidades reutilizables generalizadas en
 [`../capabilities/`](../capabilities/README.md) — ver
@@ -33,12 +43,12 @@ acá — quedaron clasificados TEAM-SPECIFIC o EXPERIMENTAL, con su razón docum
 - **Agent**: CAP-003
 - **Workflow**: CAP-004
 - **Instruction**: CAP-005
-- Knowledge/RAG, Integration/API, MCP: sin entradas todavía (ver
+- **Integration/API**: CAP-007 (patrón, READ-only, sin ejecución real)
+- **MCP**: CAP-008 (patrón, READ-only, scope acotado, sin ejecución real) — **no implica
+  que se haya desplegado ningún servidor MCP real**, es documentación de patrón únicamente
+- **Knowledge/RAG**: sin entradas todavía (ver
   [`../docs/history/track-1/relevamiento-capacidades-g2.md`](../docs/history/track-1/relevamiento-capacidades-g2.md)
-  para evidencia adicional no registrada aún, y
-  [`../security/security-governance.md`](../security/security-governance.md) §2 para 2
-  hallazgos reales de MCP — sin materializar como capability, MCP no se implementa en
-  este repo)
+  para evidencia adicional no registrada aún)
 
 ## Por equipo (`Team`)
 

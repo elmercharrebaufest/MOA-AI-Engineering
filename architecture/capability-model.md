@@ -142,10 +142,14 @@ completo en el contexto de cada interacción.
 Instruction o Skill (contexto cargado directo, sin indexación).
 **Relación**: es la capacidad menos madura de todo el modelo — no hay evidencia de que
 ningún equipo la necesite todavía.
-**Evidencia real**: no se encontró evidencia de RAG real (indexación + recuperación) en
-ningún repo/documentación relevados — lo más cercano es documentación estática
-(`docs/wiki/` de Scato Logística). Esto es **NOT FOUND en la evidencia revisada**, no una
-afirmación de que no exista en MOA (distinción fijada en G3.1 review).
+**Evidencia real (corregido tras el benchmark de prácticas reales)**: existe un mecanismo
+real **CONFIGURADO** — un submodule de Azure DevOps Wiki (`docs/wiki/`), presente en 2
+repos, **parcialmente poblado** (con contenido real en 1 de los 2 casos), **sin consumo
+confirmado** por ningún agent relevado. El estado correcto ya no es "NOT FOUND" — es
+`CONFIGURED, PARTIALLY POPULATED, NO CONFIRMED CONSUMPTION`. Sigue sin existir ningún
+mecanismo de indexación ni recuperación semántica real (RAG propiamente dicho) en ningún
+repo — ver [`../evidence/current-moa-ai-practices-benchmark.md`](../evidence/current-moa-ai-practices-benchmark.md)
+sección 16 (gap 5). No se implementa RAG en esta actividad.
 
 ### 6. Integration / API
 
@@ -184,17 +188,23 @@ autenticación — ver Blocked Decision #4 y
 mencionado sobre MCP en el KO (Jira, Confluence, SQL Server, Playwright) sigue siendo
 **PROPOSED**, sin evidencia de despliegue.
 
-## Cross-Cutting Concerns (3) — no son capacidades seleccionables
+## Cross-Cutting Concerns (4) — no son capacidades seleccionables
 
-**Corrección aplicada en G3.3 Corrections**: estos 3 no se "eligen" para resolver un caso
+**Corrección aplicada en G3.3 Corrections**: estos no se "eligen" para resolver un caso
 de uso de negocio de la misma forma que se elige entre Skill o Agent — son disciplinas del
 Common Core que **operan sobre instancias** de las 7 capacidades de arriba (un equipo no
 decide "voy a usar Evaluation", decide "voy a evaluar el Agent que construí"). Esto corrige
 una inconsistencia real detectada en la revisión final: este documento las listaba
 originalmente como capacidades #9/#10/#11, mientras que `reference-architecture.md` y
 `evaluation-observability.md` ya las trataban como componentes/servicios del Common Core.
-Ver `evaluation-observability.md` para el modelo completo de las 3, incluido el modelo de
-ejecución (local vs. común).
+Ver `evaluation-observability.md` para el modelo completo de Evaluation/Observability/
+Metrics, incluido el modelo de ejecución (local vs. común).
+
+**4º concern, agregado en esta actividad**: **Context Acquisition & Resolution** — opera
+**antes** de cualquier capability, no sobre su resultado. Ver
+[`context-acquisition-resolution.md`](context-acquisition-resolution.md) para el modelo
+completo. Al igual que los otros 3, no se elige para un caso de uso de negocio — resuelve
+de dónde viene el input que cualquier capability va a consumir.
 
 ### Evaluation
 
@@ -246,10 +256,11 @@ PROMOTE** (no se redefine automáticamente como estándar corporativo — ver
 | Integration/API | EXISTING (`moa-metrics`) | Determinístico | Media | Media |
 | MCP | 1 referencia CONFIGURATION VERIFIED, resto PROPOSED | Dinámico (habilita a Agents) | **Alta prioridad** | **Alta prioridad — obligatoria antes de producción** |
 
-### Cross-Cutting Concerns (3)
+### Cross-Cutting Concerns (4)
 
 | Concern | Estado/madurez | Opera sobre |
 |---|---|---|
 | Evaluation | Brecha fundacional (NOT FOUND) | Cualquiera de las 7 capacidades |
 | Observability | Brecha fundacional (NOT FOUND) | Cualquiera de las 7, prioritario en Agent/MCP |
 | Metrics | `moa-metrics` (STRONG CANDIDATE) | El efecto agregado de cualquier capacidad en uso |
+| Context Acquisition & Resolution | Contrato definido (`context-acquisition-resolution.md`), 2 patrones concretos (Azure DevOps, Jira) — ninguno con evidencia de resolución automática real todavía | Antes de cualquiera de las 7 capacidades, no sobre su resultado |

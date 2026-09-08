@@ -112,6 +112,24 @@ vez de "convertir el uso de IA en práctica sostenida de ingeniería" contradice
 **Límite**: esta capa no cambia con cada iteración técnica — solo con decisión explícita
 del Solutions Architect/MOA.
 
+## Interaction Surface / Channel (concepto, no implementado)
+
+**PROPOSAL, agregado al evaluar Copilot Studio/"Mola"** (ver
+[`benchmark-to-target-model-decision-input.md`](benchmark-to-target-model-decision-input.md)
+Decisión #5). **No es una 8va capacidad** — es la superficie por la cual un resultado
+llega a quien lo consume: IDE, CLI, Chat, Copilot, Copilot Studio, Web, API. Una misma
+capability puede exponerse por más de una surface sin cambiar su contrato — el concepto
+existe para que el modelo pueda **explicar** casos como un chatbot de producción
+(Copilot Studio/"Mola", encontrado en el benchmark de prácticas reales) sin forzarlo
+dentro de la taxonomía de 7 capacidades.
+
+**Estado de "Mola" específicamente**: `REQUIRES VALIDATION` — no se declara estándar
+corporativo, no se determina si está dentro del alcance de gobierno de Track 1
+([`../evidence/current-moa-ai-practices-benchmark.md`](../evidence/current-moa-ai-practices-benchmark.md)
+sección 16, gap 4). **No se implementa ningún Channel/Interface nuevo en esta actividad**
+— este concepto queda documentado únicamente para que el modelo pueda nombrar lo que ya
+existe, no como una capacidad a construir.
+
 ## Team Adoption Flow
 
 ```mermaid

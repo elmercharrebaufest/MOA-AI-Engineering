@@ -36,6 +36,8 @@
 | **Evaluation Reference** *(nuevo en G4.3)* | `NOT EVALUATED` | Ídem |
 | **Metric Reference** *(nuevo en G4.3)* | `NOT MEASURED` | Ídem |
 | **Reusable Asset** *(nuevo en G5.1)* | [`capabilities/skills/azure-devops-cli/SKILL.md`](../../capabilities/skills/azure-devops-cli/SKILL.md) | Generalización de las 2 instancias reales — no una copia literal de ninguna |
+| **Action Type** *(nuevo, campo agregado al implementar Context Acquisition & Resolution)* | BOTH | Pre-checks obligatorios = READ; subcomandos posteriores (ej. crear PR) = ACT, según cuál se invoque — ver `security-governance.md` §1.5 |
+| **Context Requirements** *(nuevo)* | No aplica directamente — es una capacidad de operaciones generales, no un Context Provider. El subconjunto de "resolver contexto" quedó extraído en CAP-007 | Revisión explícita en esta actividad, sin cambio de contenido de la skill misma |
 
 ## Nota de selección
 

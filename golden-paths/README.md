@@ -54,6 +54,31 @@ punta a punta (ver `../architecture/evaluation-observability.md` y el Product Te
   devueltas por ambigüedad — **sin baseline medido todavía** (mismo REQUIRES VALIDATION
   que el resto de los KPIs del KO).
 
+### Modelo A / Modelo B — 2 variantes del mismo Golden Path, no 2 Golden Paths
+
+**Agregado al implementar Context Acquisition & Resolution**
+([`../architecture/context-acquisition-resolution.md`](../architecture/context-acquisition-resolution.md)).
+**Es el mismo Golden Path** — la única diferencia es de dónde viene el contexto antes del
+paso "Adaptar roles/contexto". Ninguna de las 2 variantes crea una capability nueva.
+
+**Modelo A — Direct Context** (el único con evidencia real de ejecución hoy):
+```
+User → Direct Context → CAP-002 → Human Review → Evidence → Evaluation → Measurement → Feedback
+```
+
+**Modelo B — Connected Context** (conceptual — sin evidencia de ejecución real todavía):
+```
+User → Reference → Context Acquisition → Resolved Context → CAP-002 →
+Human Review → Evidence → Evaluation → Measurement → Feedback
+```
+
+En Modelo B, la `Reference` (ej. `MOA-1234`) se resuelve vía
+[`azure-devops-context-provider`](../integrations/azure-devops-context-provider.md) o
+[`jira-context-provider`](../integrations/jira-context-provider.md) (ambos READ-only,
+sección "Ver también" de [`../integrations/catalog.md`](../integrations/catalog.md)) antes
+de llegar a CAP-002 — el resto del camino (Human Review → Evidence → Evaluation →
+Measurement → Feedback) es **idéntico** en ambos modelos.
+
 ### Qué es Common Core y qué es Team Adaptation en este Golden Path (G4.5)
 
 | Elemento | Capa | Por qué |

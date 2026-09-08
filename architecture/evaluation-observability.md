@@ -113,6 +113,15 @@ execute` o `tools: edit`, y **crítica** para los hallazgos de MCP de
 Observability, no hay forma de confirmar si el MCP de Atlassian o el de Azure DevOps
 encontrados se ejecutaron alguna vez.
 
+**Nota agregada al implementar Context Acquisition & Resolution**: los 2 patrones nuevos
+de Context Provider (CAP-007, CAP-008) dejan **preparados**, no instrumentados, los campos
+`retrieval_status` y `provenance` del Resolved Context Contract
+([`context-acquisition-resolution.md`](context-acquisition-resolution.md)) — cubren
+directamente las señales "Execution" y "Errors" de la tabla de arriba para el caso
+específico de adquisición de contexto, y `Action Type` (`security-governance.md` §1.5) es
+la señal equivalente a "Tool calls" para distinguir READ de ACT. No se rediseña el modelo
+de Observability — se confirma que ya tiene dónde encajar esto.
+
 ## 3. Metrics
 
 **Responde**: ¿qué impacto produce en el proceso o negocio?

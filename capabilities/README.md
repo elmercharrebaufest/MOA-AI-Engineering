@@ -118,10 +118,18 @@ capabilities/
 └── workflows/            1 capacidad
 ```
 
-**No existe `capabilities/integrations/`** — se evaluaron 2 hallazgos reales de MCP
-(Azure DevOps remoto en DataAgro, Atlassian en 3 repos) y se decidió **no materializar
-ninguno como capability** — MCP requiere gobierno (identidad, scope, auditoría) que
-todavía no existe en MOA (`../governance/BLOCKED-DECISIONS.md` #4), y esta iniciativa **no implementa
-MCP** por alcance explícito. Ver
+**Sigue sin existir `capabilities/integrations/`** — la decisión original de no
+materializar los hallazgos de MCP como capability dentro de esta carpeta sigue vigente: el
+gobierno de MCP (identidad, scope, auditoría) todavía no existe en MOA
+(`../governance/BLOCKED-DECISIONS.md` #4), y esta iniciativa **sigue sin implementar
+ningún MCP real** (sin servidor desplegado, sin credenciales). **Actualización**: al
+formalizar Context Acquisition & Resolution como Cross-Cutting Concern
+([`../architecture/context-acquisition-resolution.md`](../architecture/context-acquisition-resolution.md)),
+se crearon 2 **patrones** de adquisición de contexto READ-only —
+[CAP-007](../registry/entries/azure-devops-context.md) (Azure DevOps) y
+[CAP-008](../registry/entries/jira-context.md) (Jira) — pero **viven en
+[`../integrations/`](../integrations/catalog.md), no en `capabilities/`**, precisamente
+porque no son capacidades de negocio seleccionables de la misma forma que Skill/Agent/
+Workflow/Instruction — son la implementación concreta de un concern transversal. Ver
 [`security/security-governance.md`](../security/security-governance.md)
-para el detalle completo de ambos hallazgos.
+para el detalle completo de gobierno de MCP.

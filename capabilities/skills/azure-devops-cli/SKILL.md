@@ -153,3 +153,15 @@ Portable a cualquier equipo de MOA que use Azure DevOps, sin importar el stack d
 aplicación (la skill opera sobre Azure DevOps, no sobre el código). Nada que adaptar por
 dominio de negocio — solo confirmar que la organización/proyecto de Azure DevOps están
 configurados en el entorno del equipo que la adopta.
+
+## Relación con Context Acquisition & Resolution
+
+**Revisión realizada al implementar el Cross-Cutting Concern de contexto** — esta skill
+**no cambia**: sigue siendo la capacidad general de operaciones de Azure DevOps
+(pipelines, PRs, builds, variable groups), con `Action Type: BOTH` (los 4 pre-checks son
+`READ`; algunos subcomandos posteriores, como crear un PR, son `ACT`). El subconjunto
+específico de "resolver un Work Item hacia contexto" quedó extraído como un patrón
+separado — [`azure-devops-context-provider`](../../../integrations/azure-devops-context-provider.md)
+([CAP-007](../../../registry/entries/azure-devops-context.md)) — para no mezclar una
+capacidad general de operaciones con un mecanismo específico de adquisición de contexto.
+No hay evidencia ni necesidad arquitectónica de cambiar nada más en esta skill.

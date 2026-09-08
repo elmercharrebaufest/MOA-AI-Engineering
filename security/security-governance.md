@@ -39,6 +39,45 @@ el nivel de control exigido antes de habilitar/escalar. No se define un umbral n
 (consistente con el principio de `assessment-gate.md`: no forzar un score sin evidencia
 para calibrarlo).
 
+## 1.5 READ vs. ACT — frontera de contrato
+
+**Agregado al implementar Context Acquisition & Resolution** — formaliza la distinción ya
+evaluada en [`../architecture/benchmark-to-target-model-decision-input.md`](../architecture/benchmark-to-target-model-decision-input.md)
+(Decisión #3). Antes vivía disuelta dentro del factor "Read/write" de la sección 1; ahora
+tiene contrato propio, campo `Action Type` en `capability-registry.md`.
+
+**Action Type**: `READ` / `ACT` / `BOTH`.
+
+- **READ**: recuperar contexto, consultar información, analizar — sin modificar estado
+  externo.
+- **ACT**: crear, actualizar, transicionar, disparar, notificar — modifica estado externo.
+
+**Regla dura, sin excepción**: **READ no implica automáticamente bajo riesgo. ACT no
+implica automáticamente alto riesgo.** La diferencia central no es "cuánto riesgo tiene
+por naturaleza" — es **el impacto sobre estado externo**. Una lectura de datos AFIP/SAP
+(alta sensibilidad) puede tener más riesgo que una escritura en un sistema interno de bajo
+impacto. El modelo de riesgo proporcional de la sección 1 sigue aplicando igual sobre
+ambos — esto no reemplaza esa sección, la complementa con una frontera de contrato.
+
+| Dimensión | READ | ACT (agrega, sobre lo de READ) |
+|---|---|---|
+| Scope | Acotado al recurso consultado | Acotado a la operación exacta que puede ejecutar |
+| Data sensitivity | Se evalúa igual que cualquier lectura (sección 1) | Ídem, más el dato que se escribe/modifica |
+| Provenance | Registrar de dónde vino el contexto leído | Ídem, más quién/qué autorizó la acción |
+| Audit | Deseable | **Obligatorio** |
+| Risk | Evaluado por la sección 1, sin asumir "bajo" por defecto | Evaluado por la sección 1, sin asumir "alto" por defecto — pero con explicit risk documentado siempre |
+| Authorization | No crítica si el dato no es sensible | **Crítica** — identidad/scope mínimo confirmados antes de habilitar |
+| HITL | Opcional según sensibilidad del dato | **Obligatorio por default**, salvo excepción justificada y auditada — misma regla ya vigente para Evaluation de alto impacto (`../architecture/evidence-evaluation-measurement.md` §2), extendida acá a cualquier ACT |
+| Evidence | Útil | Requerido — mismo `evidence_reference` sin excepción |
+| Reversibility | Siempre reversible | No siempre — requiere estrategia explícita de failure handling |
+| Failure handling | Reintentar es de bajo riesgo | Requiere estrategia explícita — un ACT fallido a medias puede dejar estado externo inconsistente |
+| Excessive agency | Riesgo bajo por naturaleza | Riesgo real — ver el hallazgo de wildcard MCP más abajo, es exactamente este antipatrón |
+
+**Regla aplicada a esta primera ola de Context Providers (sección 2 y
+[`../integrations/`](../integrations/catalog.md))**: **la primera generación de Context
+Integrations es READ-only, sin excepción.** Ningún Context Provider de esta versión
+implementa ACT.
+
 ## 2. Gobierno específico de MCP
 
 **No asumir, para ningún MCP, ninguno de los siguientes atributos sin evidencia

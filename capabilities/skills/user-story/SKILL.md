@@ -144,6 +144,29 @@ Context:
 "[contexto disponible: dominio, roles reales de tu equipo, restricciones conocidas]"
 ```
 
+### Context Input
+
+**Sin cambios en el contrato de entrada** — el campo `Context:` de arriba sigue
+funcionando exactamente igual, con contexto manual. Lo que cambia es de dónde puede venir
+ese texto, sin que esta capability necesite saberlo
+([`../../../architecture/context-acquisition-resolution.md`](../../../architecture/context-acquisition-resolution.md)):
+
+- **Direct Context** (como hasta ahora): alguien escribe el `Context:` directamente. Es el
+  único modo con evidencia real de ejecución hoy (ver "Ejemplos" más abajo) y **sigue
+  siendo el modo por defecto**.
+- **Resolved Context** (nuevo, conceptual — sin ejecución real todavía): el `Context:` se
+  completa con el `content` de un `Resolved Context` producido por un Context Provider
+  (ej. [`azure-devops-context-provider`](../../../integrations/azure-devops-context-provider.md)
+  o [`jira-context-provider`](../../../integrations/jira-context-provider.md)), a partir
+  de una referencia como `MOA-1234` en vez de texto escrito a mano.
+
+**Regla dura, sin excepción**: esta capability **no sabe ni le importa** si el `Context:`
+vino de una persona o de un Context Provider — el formato de entrada es idéntico en ambos
+casos. **No existe, ni existirá, una versión `user-story-jira` o `user-story-azuredevops`**
+— sería exactamente el antipatrón que este modelo evita (ver
+`context-acquisition-resolution.md`). La resolución de la referencia hacia contexto ocurre
+**antes** de invocar esta capability, no dentro de ella.
+
 ### Execution prompt pattern
 
 Ejemplo de instrucción que podés entregarle a Copilot/Claude/otro asistente. **Esto es

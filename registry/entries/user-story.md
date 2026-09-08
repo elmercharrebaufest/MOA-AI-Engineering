@@ -36,6 +36,8 @@
 | **Evaluation Reference** *(actualizado en G4.6)* | [`evaluation/EXEC-20260907-001.md`](../../evaluation/EXEC-20260907-001.md), [`evaluation/EXEC-20260908-001.md`](../../evaluation/EXEC-20260908-001.md) | Resultado en ambas: `PARTIAL`, autoevaluación (`method: model-assisted`), HITL real pendiente en ambas |
 | **Metric Reference** *(actualizado en G4.6)* | [`measurements/EXEC-20260907-001.md`](../../measurements/EXEC-20260907-001.md), [`measurements/EXEC-20260908-001.md`](../../measurements/EXEC-20260908-001.md) | `NOT MEASURED` en ambas — sin baseline, y 2 puntos del mismo actor no son una serie comparable (explicado en el segundo archivo) |
 | **Reusable Asset** *(nuevo en G5.1)* | [`capabilities/skills/user-story/SKILL.md`](../../capabilities/skills/user-story/SKILL.md) | Generalización de las 3 instancias reales — **sin catálogo de roles fijo**, corrigiendo la brecha encontrada en `EXEC-20260908-001` (rol "operador de planta" ausente del catálogo original de DataAgro) |
+| **Action Type** *(nuevo, campo agregado al implementar Context Acquisition & Resolution)* | READ (no accede a sistemas externos; produce texto, no actúa sobre ningún sistema) | Sin cambios respecto a la evidencia ya existente — CAP-002 nunca declaró `ACT` |
+| **Context Requirements** *(nuevo)* | `Direct Context o Resolved Context, indistintamente` — ver [`SKILL.md`](../../capabilities/skills/user-story/SKILL.md#context-input) | PROPOSAL — el modo Resolved Context es conceptual, sin ejecución real todavía; el modo Direct Context sigue siendo el único con evidencia real (`EXEC-20260907-001`, `EXEC-20260908-001`) |
 
 ## Nota de selección
 
