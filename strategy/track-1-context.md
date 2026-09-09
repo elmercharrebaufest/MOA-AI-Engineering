@@ -27,9 +27,23 @@ trazabilidad y velocidad de entrega."
 
 ### Cómo se construye el modelo
 
-"Tomar las buenas prácticas que ya demostraron utilidad en proyectos reales de MOA,
-analizarlas críticamente, mejorarlas, estandarizarlas cuando corresponda y convertirlas
-en un modelo base de AI Engineering reutilizable para toda la organización."
+**PROPOSAL — mecanismo permanente de construcción y evolución del modelo, no una fase
+adicional del proyecto.** El modelo se construye combinando **dos fuentes de
+conocimiento**, nunca una sola:
+
+1. **Prácticas reales de MOA (Internal MOA Evidence)** — prácticas, patrones,
+   capacidades, workflows, integraciones, agentes y mecanismos de gobierno que ya están
+   siendo utilizados en proyectos reales de MOA con evidencia suficiente de utilidad o
+   adopción (ver sección 13 y `../docs/history/track-1/relevamiento-capacidades-g2.md`).
+2. **Expertise y mejores prácticas de AI Engineering (AI Engineering Expertise /
+   External Practice)** — conocimiento especializado de la disciplina, incorporado
+   cuando es relevante para MOA, nunca en reemplazo de la evidencia interna ni como
+   estándar automático (ver subsección "Fuentes de conocimiento del modelo" más abajo).
+
+Ambas fuentes pasan por el mismo filtro, sin atajos para ninguna de las dos: relevancia
+→ análisis crítico → compatibilidad con MOA → riesgo → utilidad esperada → posibilidad
+de validación → adaptación → validación real (detalle del pipeline: sección 3; rubric de
+14 dimensiones, aplicado por igual a ambas fuentes: sección 6, capa 3).
 
 Declaración de visión original ([`vision.md`](vision.md), sigue vigente sin
 contradicción): *"Pasar del uso individual y heterogéneo actual de la IA a una adopción
@@ -57,23 +71,23 @@ El resultado de Track 1 debe ser un modelo base reutilizable que permita a los e
 
 ### Origen del modelo
 
-Track 1 **no parte de cero**: toma prácticas reales de MOA con evidencia, no un diseño en
-blanco. De forma conceptual y breve (ver sección 5 y sección 6 para el detalle formal
-equivalente — esto es una síntesis para claridad del objetivo, no una tercera fuente
-nueva):
+Track 1 **no parte de cero**, pero tampoco queda limitado por el estado actual de MOA: el
+modelo combina evidencia real de MOA con expertise externo de AI Engineering (ver
+subsección "Fuentes de conocimiento del modelo" a continuación), sintetizados mediante el
+mismo mecanismo de análisis crítico. De forma conceptual y breve (ver sección 5 y sección
+6 para el detalle formal equivalente — esto es una síntesis para claridad del objetivo,
+no una tercera fuente nueva):
 
 ```
-Buenas prácticas reales de MOA
-        ↓
-Evidencia
+MOA Real Practices + AI Engineering Expertise / Best Practices
         ↓
 Análisis crítico
         ↓
-Mejora
+Gap / Riesgo / Oportunidad
         ↓
-Estandarización cuando corresponda
+Adopt / Adapt / Improve / Create / Discard
         ↓
-Capability / Pattern / Golden Path
+MOA Target Pattern (Capability / Pattern / Golden Path)
         ↓
 Modelo base reutilizable
         ↓
@@ -87,6 +101,79 @@ Feedback
         ↓
 Evolución del modelo
 ```
+
+### Fuentes de conocimiento del modelo
+
+**PROPOSAL — marco conceptual permanente que gobierna toda incorporación de
+conocimiento al modelo, no una fase adicional.** Toda práctica que entra al modelo se
+clasifica en uno de tres niveles, sin mezclarlos:
+
+- **A. Internal MOA Evidence** — práctica observada directamente en un proyecto real de
+  MOA, con evidencia verificable (código, configuración, historial de commits/PRs) — ver
+  sección 13 y [`../docs/history/track-1/relevamiento-capacidades-g2.md`](../docs/history/track-1/relevamiento-capacidades-g2.md).
+  Ejemplos ya identificados con evidencia (no exhaustivo, no implica que todo lo listado
+  ya sea Common Core): Spec-Driven Development, agent harness, roles especializados,
+  contratos de entrada/salida, estados, evidencia, human approval, retry/rollback, audit
+  trail y Definition of Done en `moa-sdlc`; integración Jira + Atlassian MCP, agentes
+  especializados y separación Product Owner/Architect en Orquestador; model
+  selection/routing, benchmark de modelos y repository-first analysis en Scato
+  Logística.
+- **B. AI Engineering Expertise / External Practice** — conocimiento recomendado por la
+  disciplina de AI Engineering / Agent Engineering, incorporado cuando es relevante para
+  MOA: arquitectura de agentes; separación entre planning, reasoning y execution; límites
+  de autonomía; Human-in-the-Loop; tool governance; least privilege; MCP governance;
+  Context Engineering; Resolved Context; seguridad de agentes; prompt injection y data
+  exfiltration; evaluación de capabilities/agentes/herramientas; evaluation datasets;
+  evaluación humana; automated evaluation cuando corresponda; LLM-as-a-judge cuando
+  corresponda y con controles; observabilidad AI-native; tracing; auditabilidad; model
+  selection/routing; benchmarking; costo/latencia/calidad; gestión de estado y memoria;
+  context drift; retries/rollback/recovery; multi-agent orchestration; versionado;
+  lifecycle de capacidades; continuous improvement; métricas de productividad, calidad,
+  seguridad y velocidad; gobierno basado en riesgo. Este repositorio ya usa esta
+  categoría de forma puntual bajo el nombre `EXTERNAL EVIDENCE` — ver
+  [`../capabilities/best-practices.md`](../capabilities/best-practices.md) (guía de
+  seguridad de agentes de Anthropic aplicada a `read-only-code-reviewer`, CAP-003) y la
+  taxonomía de evaluación de [`../assessment/README.md`](../assessment/README.md), que ya
+  incluye `EXTERNAL EVIDENCE` como una de sus 5 categorías.
+- **C. MOA Target Pattern** — la forma adaptada/mejorada, resultado de aplicar análisis
+  crítico a A y/o B, que este repositorio propone como patrón reutilizable. Nunca es una
+  copia literal de A ni una adopción directa de B — sale del Assessment Gate (sección 6,
+  capa 3) con una clasificación explícita (`ADOPT`/`ADAPT`/`IMPROVE`/`CREATE`/`DISCARD`),
+  no de una decisión implícita.
+
+**Regla dura, sin excepción**: una práctica de la Fuente B **no** se convierte en
+estándar de MOA por el solo hecho de ser una buena práctica reconocida — debe pasar por
+el mismo pipeline que una práctica de la Fuente A (relevancia → análisis crítico →
+compatibilidad con MOA → riesgo → utilidad esperada → posibilidad de validación →
+adaptación → validación real, sección 3). De la misma forma, una práctica de la Fuente A
+**no** se convierte en Corporate Standard solo por existir en un repo de MOA (regla ya
+vigente, ver sección 4 y `lifecycle.md` regla dura #1). **Ninguna práctica de ninguna de
+las 2 fuentes fue elevada a `Corporate Standard: Y` hasta hoy** (ver sección 12 y
+[`../registry/INDEX.md`](../registry/INDEX.md)).
+
+**Ejemplo de aplicación correcta (no mezclar niveles)**:
+
+*No escribir*: "MOA utiliza Jira MCP, por lo tanto Jira MCP es el estándar."
+
+*Sí escribir*: "Orquestador y otros proyectos proporcionan Internal MOA Evidence de uso
+de Jira/MCP (Fuente A). La práctica se analiza junto con principios de Context
+Engineering y tool governance (Fuente B). El MOA Target Pattern resultante (Fuente C)
+desacopla el proveedor mediante Context Acquisition + Resolved Context
+(`../architecture/context-acquisition-resolution.md`), permitiendo reutilizar la
+capacidad con Jira, Azure DevOps u otros proveedores autorizados — evidencia real ya
+registrada para ambos proveedores (`EXEC-20260908-003` vía Azure DevOps,
+`EXEC-20260908-004`/`EXEC-20260908-005` vía Jira/MCP, ver
+[`../registry/entries/user-story.md`](../registry/entries/user-story.md))."
+
+Otro ejemplo: *no* "Scato usa distintos modelos, por lo tanto MOA debe usar esos
+modelos" — *sí* "Scato proporciona Internal MOA Evidence de model routing y
+benchmarking (Fuente A). La práctica se generaliza, con expertise de la disciplina
+(Fuente B), como selección de modelo basada en tarea, calidad, costo, latencia y riesgo,
+manteniendo el proveedor desacoplado (Fuente C)." Otro: *no* "`moa-sdlc` tiene 6
+agentes, por lo tanto MOA debe tener esos 6 agentes" — *sí* "`moa-sdlc` proporciona
+Internal MOA Evidence de separación de responsabilidades, contratos, estados, evidencia
+y aprobación humana (Fuente A). El MOA Target Pattern generaliza estos principios sin
+imponer un conjunto fijo de agentes (Fuente C)."
 
 ### Criterio de inclusión al Common Core
 
@@ -149,20 +236,27 @@ aquello que la evidencia real demuestre que debe mejorar."
 
 ## 3. Propósito estratégico
 
-Track 1 parte de las prácticas reales de IA que ya ocurren en MOA — no de un diseño en
-blanco — y sigue el pipeline definido en [`../assessment/README.md`](../assessment/README.md):
-identificar capacidades y patrones existentes → analizarlos con evidencia → distinguir
-configuración, uso real, madurez y resultados (regla dura, sin excepción:
-`CONFIGURED ≠ USED ≠ MATURE ≠ MEASURED ≠ PROVEN`) → identificar fortalezas, gaps y riesgos
-→ mejorar las prácticas existentes → determinar qué puede convertirse en patrón reusable →
-establecer un modelo base común → permitir adaptación por equipo → validar mediante
-adopción y uso real → medir cuando exista baseline → incorporar feedback para evolución
-continua.
+Track 1 combina **dos fuentes de conocimiento** — prácticas reales de IA que ya ocurren en
+MOA (Internal MOA Evidence) y expertise / mejores prácticas actuales de AI Engineering
+relevantes para MOA (AI Engineering Expertise / External Practice) — ver "Fuentes de
+conocimiento del modelo" en la sección 2. No parte de un diseño en blanco limitado a lo
+que MOA ya hace hoy, ni de un framework genérico externo adoptado sin validación. Sigue el
+pipeline definido en [`../assessment/README.md`](../assessment/README.md): identificar
+capacidades y patrones existentes — de cualquiera de las 2 fuentes — → analizarlos con
+evidencia → distinguir configuración, uso real, madurez y resultados (regla dura, sin
+excepción: `CONFIGURED ≠ USED ≠ MATURE ≠ MEASURED ≠ PROVEN`) → identificar fortalezas, gaps
+y riesgos → mejorar las prácticas existentes → determinar qué puede convertirse en patrón
+reusable → establecer un modelo base común → permitir adaptación por equipo → validar
+mediante adopción y uso real → medir cuando exista baseline → incorporar feedback para
+evolución continua.
 
-**El objetivo NO es inventar desde cero un framework de IA ni imponer una implementación
-idéntica a todos los equipos** (FACT — principio explícito en
-[`../operating-model.md`](../architecture/operating-model.md): *"Common Core ≠
-centralizar todo. Team autonomy debe preservarse."*).
+**El objetivo NO es inventar desde cero un framework de IA, ni copiar únicamente lo que
+MOA ya hace, ni imponer una implementación idéntica a todos los equipos** (FACT —
+principio explícito en [`../operating-model.md`](../architecture/operating-model.md):
+*"Common Core ≠ centralizar todo. Team autonomy debe preservarse."*). **Tampoco cualquier
+recomendación externa de AI Engineering se convierte automáticamente en estándar de
+MOA** — pasa por el mismo Assessment Gate que una práctica interna, sin atajos para
+ninguna de las 2 fuentes (ver "Fuentes de conocimiento del modelo", sección 2).
 
 ## 4. Principios rectores
 
