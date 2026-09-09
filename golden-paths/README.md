@@ -61,12 +61,14 @@ punta a punta (ver `../architecture/evaluation-observability.md` y el Product Te
 **Es el mismo Golden Path** — la única diferencia es de dónde viene el contexto antes del
 paso "Adaptar roles/contexto". Ninguna de las 2 variantes crea una capability nueva.
 
-**Modelo A — Direct Context** (el único con evidencia real de ejecución hoy):
+**Modelo A — Direct Context** (con evidencia real de ejecución):
 ```
 User → Direct Context → CAP-002 → Human Review → Evidence → Evaluation → Measurement → Feedback
 ```
 
-**Modelo B — Connected Context** (conceptual — sin evidencia de ejecución real todavía):
+**Modelo B — Connected Context** (con evidencia real de ejecución — actualizado tras el
+vertical slice de Context Acquisition & Resolution; **no `VERIFIED`**, sin evaluación
+humana independiente todavía):
 ```
 User → Reference → Context Acquisition → Resolved Context → CAP-002 →
 Human Review → Evidence → Evaluation → Measurement → Feedback
@@ -77,7 +79,13 @@ En Modelo B, la `Reference` (ej. `MOA-1234`) se resuelve vía
 [`jira-context-provider`](../integrations/jira-context-provider.md) (ambos READ-only,
 sección "Ver también" de [`../integrations/catalog.md`](../integrations/catalog.md)) antes
 de llegar a CAP-002 — el resto del camino (Human Review → Evidence → Evaluation →
-Measurement → Feedback) es **idéntico** en ambos modelos.
+Measurement → Feedback) es **idéntico** en ambos modelos. Ambas variantes ya tienen al
+menos una ejecución real de punta a punta: Modelo A en `EXEC-20260907-001`/
+`EXEC-20260908-001`; Modelo B en `EXEC-20260908-003` (Azure DevOps) y en
+`EXEC-20260908-004`/`EXEC-20260908-005` (Jira, vía MCP real, sobre dos tipos de issue
+distintos) — existe evidencia inicial de generalización a dos tipos de issue reales con
+diferente nivel de completitud de información, sin que esto equivalga a `VERIFIED`.
+
 
 ### Qué es Common Core y qué es Team Adaptation en este Golden Path (G4.5)
 

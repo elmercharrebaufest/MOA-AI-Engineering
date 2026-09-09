@@ -11,6 +11,8 @@ Esta carpeta contiene únicamente instancias reales, nunca ejemplos sintéticos.
 | [`EXEC-20260907-001.md`](EXEC-20260907-001.md) | `evidence/EXEC-20260907-001.md` | `model-assisted` (no `human`) | `PARTIAL` |
 | [`EXEC-20260908-001.md`](EXEC-20260908-001.md) | `evidence/EXEC-20260908-001.md` | `model-assisted` (no `human`) | `PARTIAL` |
 | [`EXEC-20260908-003.md`](EXEC-20260908-003.md) | `evidence/EXEC-20260908-003.md` (vertical slice CAP-007 → CAP-002) | `model-assisted` (no `human`) | `PARTIAL` |
+| [`EXEC-20260908-004.md`](EXEC-20260908-004.md) | `evidence/EXEC-20260908-004.md` (vertical slice CAP-008 MCP → CAP-002, issue Error/Bug) | `model-assisted` (no `human`) | `PARTIAL` |
+| [`EXEC-20260908-005.md`](EXEC-20260908-005.md) | `evidence/EXEC-20260908-005.md` (vertical slice CAP-008 MCP → CAP-002, issue Tarea/Task) | `model-assisted` (no `human`) | `PARTIAL` |
 
 **Ninguna evaluación es independiente todavía** — ambas fueron hechas por el mismo actor
 que generó la evidencia que evalúan, no por un evaluador humano confirmado

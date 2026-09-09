@@ -14,14 +14,20 @@ responder. Se actualiza junto con cada entrada nueva o modificada en `entries/`.
 | [CAP-004](entries/spec-driven-development.md) | spec-driven-development | Workflow | DataAgro (Lite, real), `moa-sdlc` (Full, sin evidencia de ejecución) | N | VERIFIED | EXECUTED (nivel Lite) / NOT FOUND (nivel Full) | Bajo (Lite) / Medio (Full) |
 | [CAP-005](entries/repository-governance.md) | repository-governance | Instruction | DataAgro, Scato Logística, Orquestador, `moa-sdlc` | N | VERIFIED | CONFIGURED | Bajo |
 | [CAP-006](entries/stack-best-practices-template.md) | stack-best-practices-template | Skill | Scato Logística, Orquestador | N | VERIFIED | CONFIGURED | Bajo |
-| [CAP-007](entries/azure-devops-context.md) | azure-devops-context | Integration/API | Ninguno todavía (patrón de referencia) | N | VERIFIED (documento) | NOT FOUND | Bajo |
-| [CAP-008](entries/jira-context.md) | jira-context | MCP | Ninguno todavía (patrón de referencia) | N | VERIFIED (documento) | NOT FOUND | Bajo-Medio |
+| [CAP-007](entries/azure-devops-context.md) | azure-devops-context | Integration/API | Ninguno todavía (patrón de referencia) | N | VERIFIED (documento) | EXECUTED (`EXEC-20260908-003`) | Bajo |
+| [CAP-008](entries/jira-context.md) | jira-context | MCP | Ninguno todavía (patrón de referencia) | N | VERIFIED (documento) | EXECUTED (MCP real, `EXEC-20260908-004`, `EXEC-20260908-005`) | Bajo-Medio |
 
 **CAP-007/008** *(nuevas, agregadas al implementar Context Acquisition & Resolution)*: a
 diferencia de CAP-001 a CAP-006, no son generalizaciones de una capacidad ya ejecutada por
 un equipo — son **patrones nuevos**, extraídos de evidencia real (CAP-001 y el MCP
-Atlassian con scope acotado) pero sin ninguna ejecución propia todavía. `Action Type:
-READ` en ambas, sin excepción — ver
+Atlassian con scope acotado). **Actualización**: CAP-007 tiene 1 ejecución real de punta a
+punta (`EXEC-20260908-003`, Azure DevOps) y CAP-008 tiene 3 (`EXEC-20260908-002` BLOCKED
+vía REST, `EXEC-20260908-004` SUCCESS vía MCP real sobre un issue tipo Error/Bug,
+`EXEC-20260908-005` SUCCESS vía MCP real sobre un issue tipo Tarea/Task) — existe
+evidencia inicial de generalización a dos tipos de issue reales con diferente nivel de
+completitud de información, pero ninguna de las dos capabilities alcanza `VERIFIED` (sin
+evaluación humana independiente todavía). `Action Type: READ` en ambas,
+sin excepción — ver
 [`../architecture/context-acquisition-resolution.md`](../architecture/context-acquisition-resolution.md)
 y [`../security/security-governance.md`](../security/security-governance.md) §1.5.
 
@@ -43,9 +49,8 @@ acá — quedaron clasificados TEAM-SPECIFIC o EXPERIMENTAL, con su razón docum
 - **Agent**: CAP-003
 - **Workflow**: CAP-004
 - **Instruction**: CAP-005
-- **Integration/API**: CAP-007 (patrón, READ-only, sin ejecución real)
-- **MCP**: CAP-008 (patrón, READ-only, scope acotado, sin ejecución real) — **no implica
-  que se haya desplegado ningún servidor MCP real**, es documentación de patrón únicamente
+- **Integration/API**: CAP-007 (patrón, READ-only, 1 ejecución real de punta a punta — `EXEC-20260908-003`)
+- **MCP**: CAP-008 (patrón, READ-only, scope acotado, 3 ejecuciones reales — `EXEC-20260908-002` BLOCKED, `EXEC-20260908-004` SUCCESS sobre issue tipo Error/Bug, `EXEC-20260908-005` SUCCESS sobre issue tipo Tarea/Task, ambas vía Atlassian Rovo MCP real) — el servidor MCP invocado es real (Atlassian Rovo, hosted), no significa que MOA haya desplegado un servidor MCP propio
 - **Knowledge/RAG**: sin entradas todavía (ver
   [`../docs/history/track-1/relevamiento-capacidades-g2.md`](../docs/history/track-1/relevamiento-capacidades-g2.md)
   para evidencia adicional no registrada aún)
