@@ -21,6 +21,12 @@ mismo agente que diseñó la capacidad, no por un miembro de un equipo de MOA. V
 propio archivo de cada registro para el detalle completo y la clasificación exacta
 (`status: EXECUTED`, no `VERIFIED`).
 
+## Pilotos en sandbox (no integrados a ningún repo real)
+
+| Carpeta | Capacidad | Qué documenta |
+|---|---|---|
+| [`../docs/history/track-1/pilots/PILOT-001-moa-operaciones-cap005/`](../docs/history/track-1/pilots/PILOT-001-moa-operaciones-cap005/README.md) | CAP-005 (`repository-governance`) | Primer intento de adopción independiente — borrador de `AGENTS.md` para MoaOperaciones (repo real sin ninguna capacidad de IA formalizada). `status: PARTIAL`, no integrado al repo real, pendiente de revisión humana del equipo de MoaOperaciones |
+
 ## Cómo generar un registro nuevo
 
 Ver [`../adoption/getting-started.md`](../adoption/getting-started.md) — completá el
