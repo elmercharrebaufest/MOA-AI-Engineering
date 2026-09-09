@@ -42,6 +42,13 @@ desarrolladores, POs, QA. Se **consume y adapta**, no se impone.
 Catálogo completo con evidencia: [`registry/INDEX.md`](registry/INDEX.md). Catálogo
 consumible: [`capabilities/README.md`](capabilities/README.md).
 
+Además, el Registry contiene 2 patrones transversales de Context Acquisition
+(CAP-007 Azure DevOps Context y CAP-008 Jira Context), que no se materializan bajo
+`capabilities/` porque representan patrones de adquisición de contexto, no capabilities
+de negocio — ver [`registry/entries/azure-devops-context.md`](registry/entries/azure-devops-context.md)
+y [`registry/entries/jira-context.md`](registry/entries/jira-context.md). Ninguno de los
+dos es `Corporate Standard`.
+
 ## 5. ¿Cómo empiezo?
 
 [`adoption/getting-started.md`](adoption/getting-started.md) — guía práctica paso a paso.

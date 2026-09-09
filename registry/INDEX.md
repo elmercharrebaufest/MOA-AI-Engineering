@@ -25,7 +25,7 @@ punta (`EXEC-20260908-003`, Azure DevOps) y CAP-008 tiene 3 (`EXEC-20260908-002`
 vía REST, `EXEC-20260908-004` SUCCESS vía MCP real sobre un issue tipo Error/Bug,
 `EXEC-20260908-005` SUCCESS vía MCP real sobre un issue tipo Tarea/Task) — existe
 evidencia inicial de generalización a dos tipos de issue reales con diferente nivel de
-completitud de información, pero ninguna de las dos capabilities alcanza `VERIFIED` (sin
+completitud de información, pero ninguno de los dos patrones alcanza `VERIFIED` (sin
 evaluación humana independiente todavía). `Action Type: READ` en ambas,
 sin excepción — ver
 [`../architecture/context-acquisition-resolution.md`](../architecture/context-acquisition-resolution.md)
@@ -67,12 +67,13 @@ acá — quedaron clasificados TEAM-SPECIFIC o EXPERIMENTAL, con su razón docum
 
 ## ¿Puedo adoptarla?
 
-Ninguna de las 6 entradas está promovida a Corporate Standard. Las entradas pueden
+Ninguna de las 8 entradas del Registry está promovida a Corporate Standard. Las entradas pueden
 corresponder a capacidades reutilizables, patrones reutilizables, candidatos a Common
 Core o activos Team-Specific según su clasificación individual — `Corporate Standard: N`
 no implica por sí mismo que una entrada sea Team-Specific (ver la clasificación propia de
 cada entrada: CAP-001/002 Reusable Capability, CAP-003/004/006 Reusable Pattern, CAP-005
-Reusable Governance Pattern / Common Core Candidate — ninguna es Team-Specific en sentido
+Reusable Governance Pattern / Common Core Candidate, CAP-007/008 Context Acquisition
+Pattern — ninguna es Team-Specific en sentido
 estricto, todas son candidatas evaluadas). Cualquier equipo puede consultarlas y
 adaptarlas por su cuenta (autonomía de equipo), pero **ninguna está todavía promovida
 como estándar corporativo** — adoptarlas hoy es replicar/adaptar un patrón con evidencia

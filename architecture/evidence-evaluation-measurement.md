@@ -142,11 +142,31 @@ Reference`, `Metric Reference`. Cuando no hay ejecución real, quedan honestamen
 
 ## 5. Registros reales existentes
 
-2 ejecuciones reales (CONTROLLED DRY-RUN, no independientes) aplicaron estos 3 contratos
-de punta a punta — ver [`../evidence/README.md`](../evidence/README.md),
+4 registros de ejecución real aplicaron (o intentaron aplicar) estos 3 contratos, ninguno
+simulado — ver [`../evidence/README.md`](../evidence/README.md),
 [`../evaluation/README.md`](../evaluation/README.md) y
-[`../measurements/README.md`](../measurements/README.md) para los registros concretos y
-su estado real.
+[`../measurements/README.md`](../measurements/README.md) para el detalle completo de cada
+uno:
+
+- **`EXEC-20260908-002`** — `BLOCKED`. Intento histórico de Connected Context (Jira) vía
+  REST (Prioridad 2, sin MCP/credenciales disponibles en ese entorno). Preservado tal
+  cual como evidencia histórica — **no convertido en éxito**.
+- **`EXEC-20260908-003`** — `EXECUTED`. Azure DevOps → Resolved Context (CAP-007) →
+  CAP-002, primer vertical slice real de punta a punta.
+- **`EXEC-20260908-004`** — `EXECUTED`. Jira real → Atlassian Rovo MCP → `getJiraIssue` →
+  Resolved Context (CAP-008) → CAP-002, sobre un issue real tipo Error/Bug
+  (`ARMOA277-191`).
+- **`EXEC-20260908-005`** — `EXECUTED`. Jira real → Atlassian Rovo MCP → `getJiraIssue` →
+  Resolved Context (CAP-008) → CAP-002, sobre un segundo issue real tipo Tarea/Task
+  (`ARMOA277-180`), sin descripción cargada.
+
+**Para CAP-008 (`jira-context`) en particular**: 3 registros de ejecución relacionados —
+1 `BLOCKED` (`EXEC-20260908-002`) y 2 `SUCCESS` (`EXEC-20260908-004`,
+`EXEC-20260908-005`). Existe evidencia inicial de generalización a dos tipos de issue
+reales con diferente nivel de completitud de información. `Real Use Status` continúa
+siendo `EXECUTED` — **no se declara `VERIFIED`**: la validación humana independiente
+sigue pendiente, y el Measurement de las 4 ejecuciones continúa `NOT MEASURED` porque
+todavía no existe baseline cuantitativo.
 
 ## Historial
 

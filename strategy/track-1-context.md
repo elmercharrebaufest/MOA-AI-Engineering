@@ -17,16 +17,135 @@ integrar modelos propios en plataformas de IA) están fuera del alcance de este 
 
 ## 2. Objetivo
 
-**FACT — vigente, tal como está documentado hoy**: construir un modelo base de AI
-Engineering para MOA que permita a los equipos incorporar IA de manera sistemática,
-gobernada, reutilizable y medible dentro del SDLC, evolucionando los servicios actuales
-para mejorar productividad, calidad, seguridad, trazabilidad y velocidad de entrega.
+### Objetivo rector
 
-Declaración de visión original ([`vision.md`](vision.md)): *"Pasar del uso individual y
-heterogéneo actual de la IA a una adopción sistemática en todo el SDLC de nuestros
-equipos para MOA, con un enfoque común, gobierno y métricas que conecten la IA con el
-impacto positivo en el equipo y en el negocio."* — *"No se trata de sumar herramientas,
-sino de convertir el uso de IA en una práctica sostenida de ingeniería."*
+**FACT — vigente, tal como está documentado hoy**: "Construir un modelo base de AI
+Engineering para MOA que permita a los distintos equipos y proyectos incorporar IA de
+manera sistemática, gobernada, reutilizable y medible dentro del SDLC, acelerando la
+evolución de los servicios actuales para mejorar productividad, calidad, seguridad,
+trazabilidad y velocidad de entrega."
+
+### Cómo se construye el modelo
+
+"Tomar las buenas prácticas que ya demostraron utilidad en proyectos reales de MOA,
+analizarlas críticamente, mejorarlas, estandarizarlas cuando corresponda y convertirlas
+en un modelo base de AI Engineering reutilizable para toda la organización."
+
+Declaración de visión original ([`vision.md`](vision.md), sigue vigente sin
+contradicción): *"Pasar del uso individual y heterogéneo actual de la IA a una adopción
+sistemática en todo el SDLC de nuestros equipos para MOA, con un enfoque común, gobierno
+y métricas que conecten la IA con el impacto positivo en el equipo y en el negocio."* —
+*"No se trata de sumar herramientas, sino de convertir el uso de IA en una práctica
+sostenida de ingeniería."* La visión declara el **para qué**; el objetivo rector de
+arriba declara **qué debe entregar Track 1**; el mecanismo de esta subsección declara
+**cómo se construye**. Los tres no compiten entre sí.
+
+### Resultado esperado
+
+El resultado de Track 1 debe ser un modelo base reutilizable que permita a los equipos:
+
+1. Identificar oportunidades de uso de IA dentro de su SDLC.
+2. Seleccionar una práctica/capability adecuada.
+3. Adoptarla o adaptarla al contexto del equipo.
+4. Utilizar contexto manual o conectado cuando exista una integración autorizada.
+5. Ejecutarla sobre trabajo real.
+6. Mantener gobierno, seguridad y HITL según el riesgo.
+7. Generar evidencia trazable.
+8. Evaluar la calidad/corrección del resultado.
+9. Medir impacto cuando exista baseline.
+10. Retroalimentar y evolucionar el modelo.
+
+### Origen del modelo
+
+Track 1 **no parte de cero**: toma prácticas reales de MOA con evidencia, no un diseño en
+blanco. De forma conceptual y breve (ver sección 5 y sección 6 para el detalle formal
+equivalente — esto es una síntesis para claridad del objetivo, no una tercera fuente
+nueva):
+
+```
+Buenas prácticas reales de MOA
+        ↓
+Evidencia
+        ↓
+Análisis crítico
+        ↓
+Mejora
+        ↓
+Estandarización cuando corresponda
+        ↓
+Capability / Pattern / Golden Path
+        ↓
+Modelo base reutilizable
+        ↓
+Adopción por otros equipos
+        ↓
+Ejecución real
+        ↓
+Evaluación + Medición
+        ↓
+Feedback
+        ↓
+Evolución del modelo
+```
+
+### Criterio de inclusión al Common Core
+
+Una práctica **no** entra al Common Core simplemente porque exista en un proyecto, porque
+esté documentada, porque utilice una herramienta determinada o porque haya sido creada
+por varios equipos. Debe existir evidencia suficiente de utilidad y debe pasar por
+análisis crítico, evaluación de reusabilidad, seguridad, riesgo y capacidad de
+adaptación (pipeline completo: sección 3; rubric de 14 dimensiones: sección 6, capa 3).
+
+Regla dura existente, sin cambios (ver también sección 4): **`CONFIGURED ≠ USED ≠ MATURE
+≠ MEASURED ≠ PROVEN`**.
+
+### Qué NO es Track 1
+
+Track 1 **no** busca:
+
+- crear una plataforma central de IA;
+- imponer una única herramienta o proveedor;
+- copiar los repositorios de los equipos;
+- crear documentación extensa por sí misma;
+- crear agentes/skills/MCP simplemente porque sea técnicamente posible;
+- convertir automáticamente una práctica de un equipo en estándar corporativo;
+- demostrar ROI sin medición;
+- llenar el repositorio de artefactos que no tengan utilidad operacional.
+
+"El repositorio es el vehículo versionado del modelo; el producto es el modelo reutilizable
+de AI Engineering y su capacidad de adopción por los equipos."
+
+### ¿Cuándo consideramos que Track 1 está terminado?
+
+Track 1 estará listo para entrega cuando:
+
+- exista un modelo base coherente;
+- existan capacidades/patrones reutilizables derivados de prácticas reales;
+- exista un mecanismo claro de adopción y adaptación;
+- exista gobierno, seguridad y trazabilidad;
+- exista evidencia de ejecución real;
+- al menos una validación independiente haya demostrado que un equipo/persona puede
+  utilizar el modelo sobre una actividad real del SDLC;
+- exista un mecanismo para evaluar y medir resultados;
+- las limitaciones que todavía requieran validación estén explícitamente delimitadas y
+  tengan criterio de cierre.
+
+**Importante**: no se exige que todas las capabilities estén `VERIFIED` para considerar
+terminado el Track. El objetivo es validar el **modelo base** y demostrar que puede ser
+reutilizado. Las capabilities individuales pueden continuar evolucionando mediante el
+lifecycle (`../architecture/lifecycle.md`). Este es el criterio operativo de validación
+del modelo a nivel de objetivo — la sección 19 (Criterios de finalización) mantiene,
+además, el checklist formal y más granular de cierre del Track (aprobación de decisiones
+pendientes, Blocked Decisions, baseline medido); ambos criterios son complementarios, no
+contradictorios: este describe cuándo el **modelo** está validado, la sección 19 describe
+cuándo el **Track** puede darse formalmente por cerrado.
+
+### Orientación del trabajo actual
+
+"El trabajo actual ya no está orientado a seguir diseñando el modelo desde cero. El
+modelo base está construido; el foco ahora es ejecutar pruebas reales con equipos,
+validar adopción independiente, medir cuando exista baseline y corregir únicamente
+aquello que la evidencia real demuestre que debe mejorar."
 
 ## 3. Propósito estratégico
 

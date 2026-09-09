@@ -138,13 +138,21 @@ flowchart TD
     Discover --> Understand["2. Entiende propósito<br/>(docs de la capacidad)"]
     Understand --> AdoptStep{"3. Adopta tal cual<br/>o 4. Adapta a su contexto?"}
     AdoptStep --> Execute["5. Ejecuta"]
-    Execute --> Evaluate["6. Evalúa<br/>(evaluation-observability.md)"]
-    Evaluate --> Measure["7. Mide<br/>(evaluation-observability.md)"]
-    Measure --> Feedback["8. Da feedback / Contribuye"]
+    Execute --> Evidence["6. Registra Evidence<br/>(evidence-evaluation-measurement.md)"]
+    Evidence --> Evaluate["7a. Evaluation<br/>(¿es correcto?)"]
+    Evidence --> Measure["7b. Measurement<br/>(¿qué impacto tuvo?)"]
+    Evaluate --> Feedback["8. Da feedback / Contribuye"]
+    Measure --> Feedback
     Feedback -->|mejora al Core| Gate["Assessment Gate"]
     Feedback -->|capacidad nueva| Gate
     Gate --> CommonCore["Common Core actualizado"]
 ```
+
+Evaluation y Measurement son ramas **independientes** que consumen la misma Evidence —
+no un paso secuencial único (`Execute → Evaluate → Measure`) — ver
+[`evidence-evaluation-measurement.md`](evidence-evaluation-measurement.md) para el
+contrato completo; una capacidad puede tener Evaluation sin Measurement todavía, o
+viceversa.
 
 Este flujo **es** el Adoption Test operacionalizado — ver sección "Fase 5" del reporte
 final de G3.3 para la simulación conceptual de un equipo nuevo.
