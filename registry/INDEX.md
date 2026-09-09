@@ -4,12 +4,19 @@
 índice mantenido a mano, agrupado por las preguntas que un equipo nuevo necesita
 responder. Se actualiza junto con cada entrada nueva o modificada en `entries/`.
 
+## Escala de `Real Use Status` (leer antes de la tabla)
+
+`NOT FOUND` (sin evidencia de que exista) → `CONFIGURED` (existe, bien formado, cero
+ejecuciones) → `EXECUTED` (al menos 1 ejecución real registrada, no necesariamente
+independiente) → `VERIFIED` (ejecución independiente + evaluación humana confirmadas —
+**ninguna entrada llegó a este nivel todavía**). Ver detalle unificado en G4.5 más abajo.
+
 ## Todas las entradas
 
 | ID | Nombre | Tipo | Repos | Corporate Standard | Configuration Status | Real Use Status | Riesgo |
 |---|---|---|---|---|---|---|---|
 | [CAP-001](entries/azure-devops-cli.md) | azure-devops-cli | Skill | Scato Logística, Orquestador | N | VERIFIED | CONFIGURED | Bajo |
-| [CAP-002](entries/user-story.md) | user-story | Skill | DataAgro, Scato Logística, Orquestador | N | VERIFIED (2/3) · PARTIAL (DataAgro) | **EXECUTED** (2 dry-runs: G4.4 MOA-1816, G4.6 MOA-1765) | Bajo |
+| [CAP-002](entries/user-story.md) | user-story | Skill | DataAgro, Scato Logística, Orquestador | N | VERIFIED (2/3) · PARTIAL (DataAgro) | **EXECUTED** (5 ejecuciones: 2 dry-runs Direct Context — G4.4 MOA-1816, G4.6 MOA-1765 — + 3 Connected Context — `EXEC-20260908-003/004/005`) | Bajo |
 | [CAP-003](entries/dotnet-code-reviewer.md) | .NET Code Reviewer | Agent | Orquestador, Scato Logística | N | VERIFIED | CONFIGURED | Bajo (por diseño) |
 | [CAP-004](entries/spec-driven-development.md) | spec-driven-development | Workflow | DataAgro (Lite, real), `moa-sdlc` (Full, sin evidencia de ejecución) | N | VERIFIED | EXECUTED (nivel Lite) / NOT FOUND (nivel Full) | Bajo (Lite) / Medio (Full) |
 | [CAP-005](entries/repository-governance.md) | repository-governance | Instruction | DataAgro, Scato Logística, Orquestador, `moa-sdlc` | N | VERIFIED | CONFIGURED | Bajo |

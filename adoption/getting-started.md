@@ -119,20 +119,63 @@ Qué podés cambiar libremente y qué no, con más detalle:
 Ejecutar significa **aplicar la capability a una actividad real de tu SDLC** — nunca a un
 ejemplo inventado para "probar el sistema".
 
+Antes de ejecutar, respondé: **¿cómo vas a proporcionar el contexto?** Hay 2 caminos —
+ninguno obligatorio, elegís el que tengas disponible:
+
+### A. Contexto conectado (si tenés un Context Provider configurado)
+
 ```
-Entrada real → capability → asistente IA → resultado → revisión humana
+Referencia del recurso → Context Provider → Resolved Context → Capability → Resultado → Human Review
 ```
 
-**Ejemplo genérico**: tenés un ticket real (`MOA-XXXX`). Le das al asistente el contenido
-de la capability (ej. CAP-002 `user-story`) más el requerimiento real del ticket. El
-asistente produce un resultado estructurado. Una persona con criterio de negocio lo
-revisa antes de que avance a la siguiente etapa del SDLC.
+Le das al asistente una **referencia** (ej. un ID de ticket), no el contenido completo —
+un Context Provider ya configurado la resuelve por vos. **No necesitás copiar/pegar todo
+el requerimiento a mano.**
 
-La herramienta concreta puede ser **Copilot, Claude, u otro asistente compatible con tu
-equipo** — `MOA-AI-Engineering` define el patrón y los controles, no obliga a un
-proveedor (ver Blocked Decision #2, sin plataforma única sancionada por MOA).
+Requiere que exista un Context Provider real configurado para tu sistema origen — no
+está disponible por defecto para todos los equipos/usuarios. Ejemplo actualmente validado
+de punta a punta: **Jira → Atlassian Rovo MCP → Resolved Context → CAP-002
+(`user-story`)**. Prerrequisitos de alto nivel para ese ejemplo (sin credenciales, ver
+detalle completo en
+[`context-providers-quickstart.md`](context-providers-quickstart.md)):
+
+- acceso al Jira correspondiente;
+- un cliente compatible con MCP — en el escenario actualmente validado, VS Code +
+  GitHub Copilot Agent;
+- Atlassian Rovo MCP instalado y configurado;
+- autenticación del usuario ya completada;
+- permisos suficientes sobre el proyecto/issue;
+- el flujo actual es de solo lectura (`READ`) sobre el issue.
+
+Esto **no** significa que Jira o Rovo MCP sean obligatorios ni un estándar corporativo —
+es el único proveedor conectado con evidencia real hoy. Azure DevOps tiene su propio
+Context Provider (ver [`registry/entries/azure-devops-context.md`](../registry/entries/azure-devops-context.md));
+otros sistemas pueden sumarse sin cambiar la capability que consume el contexto.
+
+### B. Entrada manual (si no tenés un Context Provider disponible)
+
+```
+Requerimiento real → Capability → Resultado → Human Review
+```
+
+Le das al asistente el contenido de la capability (ej. CAP-002 `user-story`) más el
+requerimiento real que vos mismo proporcionás — copiado del ticket, de un documento, o de
+donde lo tengas. Este camino **siempre está disponible**, sin depender de ninguna
+integración.
+
+**Ejemplo genérico**: tenés un ticket real (`MOA-XXXX`), sin Context Provider disponible
+para tu sistema. Le das al asistente el contenido de la capability más el requerimiento
+real del ticket, pegado a mano. El asistente produce un resultado estructurado. Una
+persona con criterio de negocio lo revisa antes de que avance a la siguiente etapa del
+SDLC.
+
+En ambos caminos, la herramienta concreta puede ser **Copilot, Claude, u otro asistente
+compatible con tu equipo** — `MOA-AI-Engineering` define el patrón y los controles, no
+obliga a un proveedor (ver Blocked Decision #2, sin plataforma única sancionada por MOA).
 
 Detalle operativo completo, paso a paso: [`execution-model.md`](execution-model.md).
+Detalle técnico completo de contexto conectado (Jira, Azure DevOps):
+[`context-providers-quickstart.md`](context-providers-quickstart.md).
 
 ## 7. Generar Evidence
 
@@ -162,7 +205,7 @@ Los criterios se definen **antes** de mirar el resultado, no después. El result
 `PASS` / `PARTIAL` / `FAIL`, siempre con `rationale` (justificación) — nunca sin
 explicar por qué.
 
-**HITL es obligatorio** cuando el resultado puede promoverse o tener impacto real —
+**HITL (Human-In-The-Loop) es obligatorio** cuando el resultado puede promoverse o tener impacto real —
 `method: model-assisted` (autoevaluación) no sustituye una evaluación humana
 independiente, sin excepción.
 

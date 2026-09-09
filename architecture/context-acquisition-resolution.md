@@ -48,10 +48,14 @@ Reference:
 MOA-1234
 ```
 
-**Hoy no existe ninguna instancia real que resuelva esto de punta a punta** — es la
-brecha confirmada en
-[`../evidence/current-moa-ai-practices-benchmark.md`](../evidence/current-moa-ai-practices-benchmark.md)
-sección 6. Esta versión define el contrato y los primeros 2 patrones concretos
+Esta brecha ya tiene ejecuciones reales que la cierran de punta a punta, ambas
+`EXECUTED` y **READ-only** ([`../evidence/README.md`](../evidence/README.md)):
+[`EXEC-20260908-003`](../evidence/EXEC-20260908-003.md) (Azure DevOps → Resolved Context
+→ CAP-002) y [`EXEC-20260908-004`](../evidence/EXEC-20260908-004.md) /
+[`EXEC-20260908-005`](../evidence/EXEC-20260908-005.md) (Jira, vía Atlassian Rovo MCP →
+Resolved Context → CAP-002). Son ejemplos de Connected Context sobre 2 sistemas
+concretos — no dependencias obligatorias del modelo, que sigue siendo
+provider-agnostic. Esta versión define el contrato y los primeros 2 patrones concretos
 (Azure DevOps, Jira — ver [`../integrations/`](../integrations/catalog.md)), ambos
 **READ-only**, sin implementar infraestructura ni servicio distribuido.
 

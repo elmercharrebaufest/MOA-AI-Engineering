@@ -7,8 +7,9 @@ description: Plantillas para historias de usuario, criterios de aceptación (Giv
 
 **Capability Registry**: [`CAP-002`](../../../registry/entries/user-story.md).
 **Golden Path**: [`AI-Assisted Requirements`](../../../golden-paths/README.md#1-ai-assisted-requirements)
-— única capacidad que consume, con **2 ejecuciones reales** (`EXEC-20260907-001`,
-`EXEC-20260908-001`).
+— única capacidad que consume, con **5 ejecuciones reales** (`EXEC-20260907-001`,
+`EXEC-20260908-001` con Direct Context; `EXEC-20260908-003`, `EXEC-20260908-004`,
+`EXEC-20260908-005` con Connected Context vía Context Provider).
 **Clasificación (G5.1)**: **REUSABLE CAPABILITY** — ADAPT. La **estructura** (Historia/
 Criterios/Reglas/Gaps) es Common Core; el **contenido** (roles, ejemplos, dominio) es
 Team Adaptation obligatoria, no opcional — ver nota de roles más abajo.
@@ -262,17 +263,20 @@ le pasa como entrada.
 ## HITL
 
 **Obligatorio, sin excepción**: un PO/referente de negocio debe validar la historia antes
-de pasar a Planning/desarrollo. Ninguna ejecución de esta skill hasta ahora (2/2) tuvo
-HITL real — ambas fueron autoevaluadas por el mismo actor que las generó (ver Evaluation
+de pasar a Planning/desarrollo. Ninguna ejecución de esta skill hasta ahora (5/5) tuvo
+HITL real — todas fueron autoevaluadas por el mismo actor que las generó (ver Evaluation
 Records referenciados abajo). No tratar una historia generada como aprobada sin esa
 revisión.
 
 ## Ejemplos
 
-Ver 2 ejecuciones reales completas, con historia + criterios + reglas + gaps genuinos:
-[`evidence/EXEC-20260907-001.md`](../../../evidence/EXEC-20260907-001.md) (MOA-1816,
-DataAgro) y [`evidence/EXEC-20260908-001.md`](../../../evidence/EXEC-20260908-001.md)
-(MOA-1765, DataAgro).
+Ver 2 ejecuciones reales completas con Direct Context, con historia + criterios + reglas
++ gaps genuinos: [`evidence/EXEC-20260907-001.md`](../../../evidence/EXEC-20260907-001.md)
+(MOA-1816, DataAgro) y [`evidence/EXEC-20260908-001.md`](../../../evidence/EXEC-20260908-001.md)
+(MOA-1765, DataAgro). Ver además 3 ejecuciones reales con Connected Context vía Context
+Provider: [`evidence/EXEC-20260908-003.md`](../../../evidence/EXEC-20260908-003.md)
+(Azure DevOps), [`evidence/EXEC-20260908-004.md`](../../../evidence/EXEC-20260908-004.md)
+y [`evidence/EXEC-20260908-005.md`](../../../evidence/EXEC-20260908-005.md) (Jira/MCP).
 
 ## Criterios de calidad
 
@@ -285,15 +289,16 @@ DataAgro) y [`evidence/EXEC-20260908-001.md`](../../../evidence/EXEC-20260908-00
 ## Criterios de evaluación
 
 Ver Evaluation Contract (`../../../architecture/evidence-evaluation-measurement.md` §2).
-Criterios ya aplicados 2 veces: estructura, claridad, criterios de aceptación
+Criterios ya aplicados 5 veces: estructura, claridad, criterios de aceptación
 verificables, ausencia de ambigüedad, trazabilidad, consistencia con convenciones del
 proyecto, ajuste del rol al catálogo (agregado en G4.6, ver nota de rol arriba).
 
 ## Evidencia / origen
 
 3 instancias reales de origen (DataAgro, Scato Logística, Orquestador — 2 originadores
-distintos) y 2 ejecuciones reales completas de punta a punta (G4.4, G4.6), ambas
-`PARTIAL`, ninguna independiente — ver
+distintos) y 5 ejecuciones reales completas de punta a punta (2 Direct Context: G4.4,
+G4.6; 3 Connected Context: `EXEC-20260908-003/004/005`), todas `PARTIAL`, ninguna
+independiente — ver
 [`registry/entries/user-story.md`](../../../registry/entries/user-story.md). Esta versión
 en `capabilities/` generaliza la estructura común a las 3 instancias, sin copiar el
 contenido de dominio de ninguna.

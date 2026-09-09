@@ -39,8 +39,13 @@ pasos secuenciales entre sí, ambas consumen la misma Evidence por separado.
 3. **Seleccionar capability** — dentro del Golden Path elegido, la capability concreta
    (Skill/Agent/Workflow/Instruction) que vas a usar. Ver
    [`registry/INDEX.md`](../registry/INDEX.md) para elegir con evidencia, no por nombre.
-4. **Preparar contexto** — juntá lo que el asistente va a necesitar: el ticket real, el
-   contenido de la capability, y cualquier instruction/skill de tu propio repo que
+4. **Preparar contexto** — juntá lo que el asistente va a necesitar: el contenido de la
+   capability y el requerimiento real. El requerimiento puede llegar por 2 caminos, sin
+   que la capability necesite saber cuál: **contexto conectado** (una referencia, ej. un
+   ticket, resuelta por un Context Provider ya configurado — ver
+   [`context-providers-quickstart.md`](context-providers-quickstart.md)) o **entrada
+   manual** (vos proporcionás directamente el requerimiento, cuando no hay integración
+   disponible). Sumá también cualquier instruction/skill de tu propio repo que
    corresponda aplicar en paralelo.
 5. **Adaptar capability** — copiá su estructura, completá el contenido de dominio que le
    falta (ver [`team-adaptation.md`](team-adaptation.md) para qué se adapta y qué no).
@@ -98,7 +103,7 @@ una respondiendo una pregunta distinta:
 | Actividad real | ¿Qué necesito resolver hoy, de verdad? |
 | Golden Path | ¿En qué orden combino capacidades para este tipo de necesidad? |
 | Capability | ¿Qué activo reutilizable concreto voy a usar? |
-| Contexto | ¿Qué necesita saber el asistente para no alucinar? |
+| Contexto | ¿Qué necesita saber el asistente para no alucinar — conectado (Context Provider) o manual? |
 | Adaptar | ¿Qué de esta capability es mío, y qué es del Common Core? |
 | Ejecutar | ¿Qué obtengo al aplicar esto sobre mi caso real? |
 | Human Review operativo | ¿Alguien miró esto rápido antes de seguir, o hay que reintentar? |

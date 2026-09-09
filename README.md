@@ -120,10 +120,12 @@ Reportar feedback o proponer que algo se vuelva reutilizable:
 **READY WITH CONDITIONS** — el modelo está construido, la biblioteca de capacidades es
 real y usable, pero:
 
-- Ninguna ejecución existente es una **validación humana independiente** — las 2
-  ejecuciones reales de CAP-002 (`evidence/README.md`) son *controlled dry-runs*: técnicas
-  y reales, pero hechas por el mismo agente que diseñó la capacidad, no por un miembro de
-  un equipo de MOA.
+- Ninguna ejecución existente es una **validación humana independiente** — CAP-002 tiene
+  **5 ejecuciones reales registradas** (`evidence/README.md`): 2 *controlled dry-runs* con
+  Direct Context (`EXEC-20260907-001`, `EXEC-20260908-001`) y 3 adicionales con Connected
+  Context vía Context Provider (`EXEC-20260908-003` Azure DevOps, `EXEC-20260908-004` y
+  `EXEC-20260908-005` Jira/MCP) — todas hechas por el mismo agente que diseñó la
+  capacidad, no por un miembro de un equipo de MOA.
 - No existe todavía **baseline cuantitativo** ni **medición comparativa de valor** para
   ninguna capacidad.
 - Ninguna capacidad es `Corporate Standard: Y` — todas son candidatas evaluadas con

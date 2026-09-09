@@ -104,10 +104,12 @@ mecanismo produjo un contexto dado.
 
 - El mecanismo subyacente (`az` CLI + extensión `azure-devops`) tiene evidencia real de
   uso en 2 repos de equipos de MOA (ver CAP-001).
-- **Este patrón específico de resolución de contexto (Reference → Resolved Context) no
-  tiene evidencia de ejecución real todavía** — es una extracción/generalización del
-  patrón existente, no una capacidad ya ejecutada de punta a punta. Queda en
-  `Real Use Status: NOT FOUND` hasta la primera ejecución real registrada.
+- **Este patrón específico de resolución de contexto (Reference → Resolved Context) ya
+  tiene evidencia de ejecución real**: `EXEC-20260908-003` (Work Item #7, proyecto "AWS
+  Portal de créditos", org `molinosagro`) — Reference real → Resolved Context real →
+  CAP-002 real, de punta a punta. `Real Use Status: EXECUTED` (no `VERIFIED`: sigue sin
+  evaluación humana independiente, ver
+  [`../registry/entries/azure-devops-context.md`](../registry/entries/azure-devops-context.md)).
 
 ## Uso esperado
 
