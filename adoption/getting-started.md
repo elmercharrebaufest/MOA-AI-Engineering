@@ -128,7 +128,35 @@ Qué podés cambiar libremente y qué no, con más detalle:
 Ejecutar significa **aplicar la capability a una actividad real de tu SDLC** — nunca a un
 ejemplo inventado para "probar el sistema".
 
-Antes de ejecutar, respondé: **¿cómo vas a proporcionar el contexto?** Hay 2 caminos —
+### 6.0. Antes de nada: ¿ya existe un registro para tu tarea? (hallazgo real de un piloto)
+
+Si le das a tu asistente la referencia de tu ticket (ej. `ARMOA277-45`) y te contesta que
+**ya existe una ejecución previa** para esa tarea (mismo `EXEC-ID`, en
+`records/<fuente>-<tarea>/`), **no es un error ni algo que tengas que resolver por tu
+cuenta** — es exactamente lo que se espera que pase (el modelo no duplica trabajo ya
+hecho). 3 decisiones simples, según tu caso:
+
+1. **No cambió nada, solo querías el mismo resultado** → no hay nada que hacer. El
+   registro existente ya es tu evidencia.
+2. **Tu ticket cambió, o el resultado anterior tiene algo para corregir** → pedile al
+   asistente que cree una **nueva ejecución anidada** dentro de la misma carpeta de tarea
+   (`records/<fuente>-<tarea>/EXEC-<fecha-nueva>-<n>/`) — nunca edites el registro viejo
+   ni sobrescribas el `EXEC-ID` anterior.
+3. **Vos, como persona real, podés revisar si el resultado existente es correcto** —
+   **esta es tu oportunidad concreta de cerrar el HITL pendiente** que casi ninguna
+   ejecución tiene todavía (`evaluation.md` de esa carpeta, campo `hitl_confirmed_by:
+   Ninguno`). Abrí `evaluation.md` de esa ejecución y decidí: ¿estás de acuerdo con el
+   resultado? Si sí, pedile al asistente que actualice `method: model-assisted` →
+   `method: human`, `evaluator` → tu nombre, `hitl_confirmed_by` → tu nombre. Si no estás
+   de acuerdo, lo mismo pero con `result: FAIL`/`PARTIAL` y tu justificación real. **Esto
+   es lo más valioso que podés aportar hoy** — es la pieza que le falta a todo el modelo
+   (ninguna capability tiene todavía una evaluación humana confirmada).
+
+**Si no estás seguro de cuál de las 3 aplica, decíselo directamente al asistente** ("quiero
+revisar si el resultado anterior es correcto" / "mi tarea cambió, necesito una ejecución
+nueva") — no hace falta entender el resto del modelo para elegir.
+
+Antes de ejecutar (si no existe registro previo), respondé: **¿cómo vas a proporcionar el contexto?** Hay 2 caminos —
 ninguno obligatorio, elegís el que tengas disponible:
 
 ### A. Contexto conectado (si tenés un Context Provider configurado)

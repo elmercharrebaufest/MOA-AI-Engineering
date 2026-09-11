@@ -7,9 +7,10 @@ description: Plantillas para historias de usuario, criterios de aceptación (Giv
 
 **Capability Registry**: [`CAP-002`](../../../registry/entries/user-story.md).
 **Golden Path**: [`AI-Assisted Requirements`](../../../golden-paths/README.md#1-ai-assisted-requirements)
-— única capacidad que consume, con **5 ejecuciones reales** (`EXEC-20260907-001`,
+— única capacidad que consume, con **6 ejecuciones reales** (`EXEC-20260907-001`,
 `EXEC-20260908-001` con Direct Context; `EXEC-20260908-003`, `EXEC-20260908-004`,
-`EXEC-20260908-005` con Connected Context vía Context Provider).
+`EXEC-20260908-005`, `EXEC-20260909-001` con Connected Context vía Context Provider —
+esta última con **actor independiente**, ver "Ejemplos" abajo).
 **Clasificación (G5.1)**: **REUSABLE CAPABILITY** — ADAPT. La **estructura** (Historia/
 Criterios/Reglas/Gaps) es Common Core; el **contenido** (roles, ejemplos, dominio) es
 Team Adaptation obligatoria, no opcional — ver nota de roles más abajo.
@@ -215,6 +216,25 @@ RN-01: [restricción real]
 ❓ [pregunta real que bloquea implementación, si existe alguna]
 ```
 
+### ¿Ya existe una ejecución para este ticket?
+
+Si al darle la referencia del ticket a tu asistente, te dice que **ya existe un registro**
+(`records/<fuente>-<tarea>/EXEC-*/`) para esa tarea — no es un error, es esperable (el
+modelo no duplica trabajo). No sigas con "Execution prompt pattern" de arriba sin decidir
+primero:
+
+1. **No cambió nada** → no hay nada que hacer, ese registro ya es tu evidencia.
+2. **Tu ticket cambió o el resultado tiene algo mal** → pedile una ejecución nueva,
+   anidada en la misma carpeta de tarea (nunca sobrescribir el `EXEC-ID` viejo).
+3. **Podés revisar si el resultado existente es correcto** — esta es tu oportunidad real
+   de dar la validación humana que le falta a esta skill (ver "HITL" abajo: 0/6
+   ejecuciones tienen HITL real todavía). Pedile al asistente que actualice
+   `evaluation.md` de esa ejecución: `method: model-assisted` → `method: human`,
+   `evaluator`/`hitl_confirmed_by` → tu nombre, y tu veredicto real.
+
+Detalle completo de esta misma guía, sección "6.0. Antes de nada: ¿ya existe un registro
+para tu tarea?": [`../../../adoption/getting-started.md`](../../../adoption/getting-started.md).
+
 ### Human review
 
 **Obligatorio, sin excepción**: un PO o referente funcional debe revisar el resultado
@@ -263,20 +283,24 @@ le pasa como entrada.
 ## HITL
 
 **Obligatorio, sin excepción**: un PO/referente de negocio debe validar la historia antes
-de pasar a Planning/desarrollo. Ninguna ejecución de esta skill hasta ahora (5/5) tuvo
-HITL real — todas fueron autoevaluadas por el mismo actor que las generó (ver Evaluation
-Records referenciados abajo). No tratar una historia generada como aprobada sin esa
-revisión.
+de pasar a Planning/desarrollo. Ninguna ejecución de esta skill hasta ahora (6/6) tuvo
+HITL real — todas fueron autoevaluadas (`model-assisted`), sin evaluador humano
+confirmado, **independientemente de que la 6ta (`EXEC-20260909-001`) sí tenga un actor de
+ejecución independiente** — son 2 ejes distintos, ver nota en "Ejemplos". No tratar una
+historia generada como aprobada sin esa revisión.
 
 ## Ejemplos
 
 Ver 2 ejecuciones reales completas con Direct Context, con historia + criterios + reglas
 + gaps genuinos: [`EXEC-20260907-001`](../../../records/jira-MOA-1816/EXEC-20260907-001/evidence.md)
 (MOA-1816, DataAgro) y [`EXEC-20260908-001`](../../../records/jira-MOA-1765/EXEC-20260908-001/evidence.md)
-(MOA-1765, DataAgro). Ver además 3 ejecuciones reales con Connected Context vía Context
+(MOA-1765, DataAgro). Ver además 4 ejecuciones reales con Connected Context vía Context
 Provider: [`EXEC-20260908-003`](../../../records/ado-7/EXEC-20260908-003/evidence.md)
 (Azure DevOps), [`EXEC-20260908-004`](../../../records/jira-ARMOA277-191/EXEC-20260908-004/evidence.md)
-y [`EXEC-20260908-005`](../../../records/jira-ARMOA277-180/EXEC-20260908-005/evidence.md) (Jira/MCP).
+y [`EXEC-20260908-005`](../../../records/jira-ARMOA277-180/EXEC-20260908-005/evidence.md) (Jira/MCP), y
+[`EXEC-20260909-001`](../../../records/jira-ARMOA277-45/EXEC-20260909-001/evidence.md)
+(Jira/MCP, `ARMOA277-45`) — **la única con actor de ejecución independiente** (developer
+real, no quien diseñó el modelo, ver `PILOT-003`).
 
 ## Criterios de calidad
 
@@ -296,9 +320,10 @@ proyecto, ajuste del rol al catálogo (agregado en G4.6, ver nota de rol arriba)
 ## Evidencia / origen
 
 3 instancias reales de origen (DataAgro, Scato Logística, Orquestador — 2 originadores
-distintos) y 5 ejecuciones reales completas de punta a punta (2 Direct Context: G4.4,
-G4.6; 3 Connected Context: `EXEC-20260908-003/004/005`), todas `PARTIAL`, ninguna
-independiente — ver
+distintos) y 6 ejecuciones reales completas de punta a punta (2 Direct Context: G4.4,
+G4.6; 4 Connected Context: `EXEC-20260908-003/004/005`, `EXEC-20260909-001`), todas
+`PARTIAL` en su evaluación — ninguna evaluación es independiente todavía, aunque la última
+sí tuvo actor de ejecución independiente (`PILOT-003`) — ver
 [`registry/entries/user-story.md`](../../../registry/entries/user-story.md). Esta versión
 en `capabilities/` generaliza la estructura común a las 3 instancias, sin copiar el
 contenido de dominio de ninguna.
