@@ -13,7 +13,7 @@ Candidate** — no Common Core aprobado. `Corporate Standard: N` en
 [`registry/entries/repository-governance.md`](../../../registry/entries/repository-governance.md),
 sin excepción. Progresión conceptual que le falta recorrer, sin atajos:
 
-```
+```text
 Reusable Capability
       ↓
 Common Core Candidate   ← CAP-005 está acá

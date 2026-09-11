@@ -27,7 +27,7 @@ reutilización y resultados** a través de este pipeline.
 
 ## Pipeline obligatorio (no empezar por la tecnología)
 
-```
+```text
 Problema/proceso
    → Use Case
    → Valor esperado + Riesgo
@@ -63,7 +63,7 @@ ahora son Instructions y Skills, no Agents autónomos (ver relevamiento).
 
 ## Roles en este flujo de trabajo
 
-```
+```text
 Usuario / Arquitecto de Soluciones — decisiones arquitectónicas finales
         ↓
 Supervisor arquitectónico externo — investigación externa, benchmarks, evaluación

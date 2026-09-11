@@ -7,7 +7,7 @@ que se resuelvan las decisiones de `../governance/BLOCKED-DECISIONS.md`.
 Este documento define los 3 contratos que sostienen la cadena de valor de cualquier
 capacidad de AI Engineering en MOA:
 
-```
+```text
 AI capability → SDLC activity → resultado técnico/de negocio →
 Evidence → Evaluation → Measurement → valor para MOA
 ```

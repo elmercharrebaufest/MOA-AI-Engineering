@@ -19,7 +19,7 @@ Core` estaba modelado como un paso secuencial único cuando en realidad es un **
 estado** — una vez alcanzado, varios equipos pueden estar en Adopt/Adapt/Improve **en
 paralelo**, no en fila. Se corrige separando el modelo en 3 bloques:
 
-```
+```text
 Idea (informal, fuera del lifecycle formal)
     ↓ se articula
 CAPABILITY LIFECYCLE (secuencial, con evidencia en cada paso)

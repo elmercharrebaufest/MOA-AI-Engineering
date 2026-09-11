@@ -43,7 +43,7 @@ misma tabla. **Corregido**: la clasificación correcta es **Reusable Governance 
 Common Core Candidate** — evidencia fuerte de convergencia independiente (4 instancias)
 no equivale a aprobación de gobierno. Progresión pendiente, sin atajos:
 
-```
+```text
 Reusable Capability → Common Core Candidate (acá) → Assessment / Human Governance
 (REQUIRES VALIDATION, Blocked #1) → Corporate Standard
 ```

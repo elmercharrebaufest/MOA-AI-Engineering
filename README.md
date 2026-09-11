@@ -62,7 +62,7 @@ Si es tu primera vez, seguí en orden:
 3. [`adoption/execution-model.md`](adoption/execution-model.md) — cómo ejecutar sobre tu
    proyecto real.
 
-```
+```text
 Necesidad → Golden Path → Capability → Adapt → Execute →
 Evidence → Evaluate → Measure → Improve
 ```
@@ -72,7 +72,7 @@ capacidades puntuales que necesitás — el resto queda acá como catálogo de r
 
 ## 6. Flujo de adopción
 
-```
+```text
 Team → Discover → Understand → Adopt/Adapt → Execute → Evidence →
 Evaluate → Measure → Feedback/Contribute → Promotion/Iteration
 ```
@@ -139,7 +139,7 @@ está. La validación independiente con equipos reales de MOA es la evolución p
 
 ## De IA a valor — la cadena que este repositorio mantiene explícita
 
-```
+```text
 AI capability → SDLC activity → resultado técnico/de negocio →
 Evidence → Evaluation → Measurement → valor para MOA
 ```
@@ -157,6 +157,6 @@ evidencia/candidatos a evaluar, nunca como fuente de gobierno. Detalle:
 
 ## Historial de construcción
 
-Las fases que construyeron este repositorio (G3.3 a G11) están preservadas, con su
+Las fases que construyeron este repositorio (G3.3 a G12) están preservadas, con su
 razonamiento completo, en [`docs/history/track-1/`](docs/history/track-1/) — no forman
 parte de la navegación principal del producto, pero nada se descartó.

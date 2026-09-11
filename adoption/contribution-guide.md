@@ -33,7 +33,7 @@ en blanco, pero tampoco pongas `VERIFIED` sin evidencia real (ver
 
 ## Proponer una capacidad para reutilización (Contribution Model)
 
-```
+```text
 Team-Specific → Candidate → Evidence → Assessment → Evaluation → Pilot →
 Measurement → Human Validation → Reusable Capability → Common Core
 ```

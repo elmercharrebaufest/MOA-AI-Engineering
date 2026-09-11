@@ -99,7 +99,7 @@ conversación para que un humano la confirme antes de considerar la tarea cerrad
 ## Ejemplos
 
 **Correcto**:
-```
+```bash
 1. az --version                        → confirma instalación
 2. az extension list                   → confirma extensión azure-devops
 3. az account show                     → confirma sesión

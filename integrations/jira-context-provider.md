@@ -21,7 +21,7 @@ escritura.
 
 ## Flujo
 
-```
+```text
 Reference (ej. DAT-1274)
         ↓
 Jira (consulta READ, scope acotado a getIssue)
@@ -148,7 +148,7 @@ Context` (ej. CAP-002). No reemplaza el flujo manual — es una alternativa.
 
 ## Arquitectura runtime — Runtime Adapter
 
-```
+```text
 VS Code + GitHub Copilot (runtime real de los desarrolladores de MOA)
         ↓
 Atlassian Rovo MCP v2  (https://mcp.atlassian.com/v2/mcp, OAuth 2.1)

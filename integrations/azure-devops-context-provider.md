@@ -19,7 +19,7 @@ el origen fue Azure DevOps.
 
 ## Flujo
 
-```
+```text
 Reference (ej. Work Item #1234)
         ↓
 Azure DevOps (consulta READ)

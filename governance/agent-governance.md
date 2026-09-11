@@ -14,7 +14,7 @@
 Todo agente debe poder describirse mediante este pipeline; si no se puede completar
 alguno de estos pasos, el agente no debe implementarse todavía:
 
-```
+```text
 TRIGGER → CONTEXT → DECISION → ACTION → VALIDATION → AUDIT
 ```
 
@@ -65,7 +65,7 @@ integración — se documentan en paralelo, no en orden de preferencia:
 - **`moa-sdlc`** (herramienta de referencia de Baufest, **no un equipo de MOA)**: harness
   de 6 roles con feedback loop (`AGENTS-HARNESS.md`, `AGENTS-CONTRACTS.md` — contrato JSON
   explícito, el más formal en cuanto a especificación):
-  ```
+  ```text
   spec-author → implementer → tester → reviewer → security-reviewer → human-approver
         ↑                                                       ↓
         └───────────────────── feedback loop / fix cycle ─────┘

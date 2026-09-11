@@ -51,7 +51,7 @@ automáticamente en capacidad corporativa** — sigue siendo Team-Specific hasta
 por Assessment/Human Governance (`../architecture/assessment-gate.md`), sin importar
 cuántas veces se copie.
 
-```
+```text
 MOA-AI-Engineering Capability Source   (capabilities/)
               ↓
       Platform Mapping                 (depende del proveedor del equipo)
@@ -60,14 +60,14 @@ Team Repository Runtime Implementation (el equipo la adapta y ejecuta)
 ```
 
 Ejemplo — Skill (GitHub Copilot):
-```
+```text
 MOA-AI-Engineering/capabilities/skills/user-story/SKILL.md
               ↓
 Team Repository/.github/skills/user-story/SKILL.md
 ```
 
 Ejemplo — Agent (GitHub Copilot):
-```
+```text
 MOA-AI-Engineering/capabilities/agents/read-only-code-reviewer/AGENT.md
               ↓
 Team Repository/.github/agents/read-only-code-reviewer.agent.md

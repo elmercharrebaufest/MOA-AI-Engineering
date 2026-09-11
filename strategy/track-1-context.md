@@ -123,7 +123,7 @@ mismo mecanismo de análisis crítico. De forma conceptual y breve (ver sección
 6 para el detalle formal equivalente — esto es una síntesis para claridad del objetivo,
 no una tercera fuente nueva):
 
-```
+```text
 MOA Real Practices + AI Engineering Expertise / Best Practices
         ↓
 Análisis crítico
@@ -202,7 +202,7 @@ Toda práctica de la Fuente B recorre esta cadena antes de convertirse en Fuente
 respuesta a cualquier pregunta es negativa o no puede sustentarse con evidencia, la
 práctica se descarta o queda `REQUIRES VALIDATION`, nunca avanza por defecto:
 
-```
+```text
 External Practice
       ↓
 ¿Es relevante para MOA?
@@ -404,7 +404,7 @@ sí ([`roadmap.md`](roadmap.md)).
 
 Forma resumida (equivalente conceptual, no una tercera fuente nueva):
 
-```
+```text
 Problema → Use Case → Value + Risk → Assessment → Pilot →
 Capability (Skill/Agent/Workflow/Instruction/Integration) →
 Evaluation → Measure → Human Validation → Promote →
@@ -502,7 +502,7 @@ ej. scope wildcard vs. scope acotado en agents distintos del mismo repo).
 **FACT — modelo completo y vigente**,
 [`../architecture/evidence-evaluation-measurement.md`](../architecture/evidence-evaluation-measurement.md):
 
-```
+```text
 Ejecución → Evidence (qué ocurrió)
 Evidence → Evaluation (¿es correcto?)
 Evidence → Measurement (¿qué impacto tuvo?)

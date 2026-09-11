@@ -72,14 +72,14 @@ con contenido de otros equipos), ya corregida parcialmente en `adoption/getting-
 paso "Adaptar roles/contexto". Ninguna de las 2 variantes crea una capability nueva.
 
 **Modelo A — Direct Context** (con evidencia real de ejecución):
-```
+```text
 User → Direct Context → CAP-002 → Human Review → Evidence → Evaluation → Measurement → Feedback
 ```
 
 **Modelo B — Connected Context** (con evidencia real de ejecución — actualizado tras el
 vertical slice de Context Acquisition & Resolution; **no `VERIFIED`**, sin evaluación
 humana independiente todavía):
-```
+```text
 User → Reference → Context Acquisition → Resolved Context → CAP-002 →
 Human Review → Evidence → Evaluation → Measurement → Feedback
 ```

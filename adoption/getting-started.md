@@ -61,7 +61,7 @@ son conceptuales, documentados a propósito pero sin evidencia de ejecución tod
 
 No son lo mismo:
 
-```
+```text
 Golden Path
     ↓
 Capability
@@ -161,7 +161,7 @@ ninguno obligatorio, elegís el que tengas disponible:
 
 ### A. Contexto conectado (si tenés un Context Provider configurado)
 
-```
+```text
 Referencia del recurso → Context Provider → Resolved Context → Capability → Resultado → Human Review
 ```
 
@@ -191,7 +191,7 @@ otros sistemas pueden sumarse sin cambiar la capability que consume el contexto.
 
 ### B. Entrada manual (si no tenés un Context Provider disponible)
 
-```
+```text
 Requerimiento real → Capability → Resultado → Human Review
 ```
 
