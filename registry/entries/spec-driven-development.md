@@ -19,7 +19,7 @@
 | **Real Use Status** | **EXECUTED en ambos niveles** *(corregido — hallazgo nuevo)*. Nivel Lite: 2 tickets reales (`MOA-1765`, `MOA-1816`), ninguno con sign-off de QA manual. Nivel Full: **`moa-sdlc/_sdd/specs/MOA-1765-DistribuidorCupos/`** es una instancia real y sustancial, no un template vacío — `requirements.md` (R1–R17 EARS reales, con fuente en `req/UserStories_API_Cupos.md` y `plan-distribucionCuposSL-v2.md`), `tasks.md` con Fases 1–3 marcadas `[x]` (DTOs, Managers, Controllers, Vista Razor, script SQL reales en `DataAgro/WebDataAgro` y `Molinos.DataAgro.*`), y `_sdd/progress/current/MOA-1765.md` con evidencia verificada real: build completo verde (`MSBuild DataAgro.sln`), suite NUnit 1228/1228 verde, 2 clases de bugs reales encontrados y corregidos durante la implementación. Esto cubre **spec-author + implementer + tester** con evidencia real — **no llega** a reviewer/security-reviewer/human-approver: `feature.json.estado` sigue en `"draft"`, `qaManualPending` (R1, R11, R16, R17) con `signOff: null` en los 4, y no existe `_sdd/progress/history/MOA-1765.md` (solo el `TEMPLATE.md` vacío) — la feature nunca se cerró end-to-end | Escala `NOT FOUND / CONFIGURED / EXECUTED / VERIFIED`. Mismo ticket `MOA-1765` que en CAP-002 (ahí usado como dry-run de historia de usuario; acá, ejecución real completa del workflow en `moa-sdlc` sobre el mismo requerimiento real de DataAgro) — cruce de evidencia verificado, no coincidencia forzada |
 | **Lifecycle State** | Pilot (ambos niveles). El nivel Full alcanza `Pilot` con esta corrección — 3 de 6 roles del harness (`spec-author`, `implementer`, `tester`) tienen evidencia real de ejecución; los 3 restantes (`reviewer`, `security-reviewer`, `human-approver`) siguen sin evidencia | FACT, corregido |
 | **Corporate Standard** | N | Sin evidencia de evaluación/medición formal en ningún nivel |
-| **Version** | Sin versionado semántico en las fuentes reales. Esta entrada de Registry referencia la generalización `1.0-generalized` (G5.1) en `capabilities/workflows/spec-driven-development/WORKFLOW.md` | FACT |
+| **Version** | Sin versionado semántico en las fuentes reales. Esta entrada de Registry referencia la generalización `1.1-generalized` (G8, agrega `research.md`/`contracts/` sobre `1.0-generalized` de G5.1) en `capabilities/workflows/spec-driven-development/WORKFLOW.md` | FACT |
 | **Risk** | Bajo (nivel Lite, sin permisos especiales). Medio (nivel Full, el rol `security-reviewer` propuesto requiere acceso de lectura a secretos/configuración — sin evidencia de que ese acceso esté gobernado en la práctica) | FACT (diseño) + INFERENCE (riesgo agregado) |
 | **Data** | Depende del dominio del ticket procesado — sin patrón fijo | INFERENCE |
 | **Data Classification** | REQUIRES VALIDATION | `BLOCKED-DECISIONS.md` #3 |
@@ -51,3 +51,20 @@ describe (`.github/agents/`, `CODEOWNERS`) y lo que realmente existe en el repo.
 registra como una sola entrada (CAP-004) con ambos niveles explícitos, en vez de 2
 entradas separadas, porque comparten el mismo Origin conceptual y la distinción de
 madurez es más útil visible en un solo lugar que fragmentada.
+
+## Nota de ampliación (G8, 2026-09-11) — `research.md` y `contracts/`
+
+Decisión explícita del Solutions Architect, tras contrastar este Workflow contra GitHub
+Spec Kit (External Practice): agregar `research.md` y `contracts/` como artefactos
+**opcionales**. Evidencia de cada uno, sin mezclar:
+
+- **`research.md`**: `CONFIGURED` por reclasificación de evidencia ya real — `moa-sdlc/_sdd/specs/MOA-1765-DistribuidorCupos/plan-distribucionCuposSL-v2.md`
+  + `plan-distribucionCuposSL_old_v1.md` + `req/` ya cumplen esta función, sin ese nombre
+  formal. No es una capacidad inventada, es una que ya se usaba sin nombrarse.
+- **`contracts/`**: `NOT FOUND` — PROPOSAL puro, sin ninguna instancia real en ningún repo
+  de MOA relevado. Incorporado por el gap real identificado (endpoints reales sin
+  contrato pre-implementación documentado, ej. `R16` de `MOA-1765`), no por evidencia de
+  uso.
+
+Ninguno de los 2 es `Corporate Standard`, ninguno es obligatorio — mismo criterio que el
+resto del Workflow.

@@ -62,16 +62,60 @@ requerimiento debe leerse de la fuente real antes de generar el spec.
 ## Salidas
 
 - Un `requirements.md` en formato EARS, un `design.md`, un `tasks.md`.
+- **`research.md`** (opcional, cuando hubo investigación/decisión real que documentar —
+  ver sección "Artefactos ampliados" abajo).
+- **`contracts/`** (opcional, cuando la feature expone o consume una API/interfaz — ver
+  misma sección).
 - Código implementado, con tests.
 - Un registro de estado explícito (`draft → spec_ready → approved → in_progress →
   verified → reviewed → done` en el nivel Full; más simple en el nivel Lite).
 - Un `feature.json` con `traceability` (qué artefactos de código cubren qué requisito) y
   `qaManualPending` (qué requiere sign-off humano, con `signOff: null` hasta que ocurra).
 
+## Artefactos ampliados — `research.md` y `contracts/` (agregado 2026-09-11, decisión del Solutions Architect)
+
+Al contrastar este Workflow contra [GitHub Spec Kit](https://github.com/github/spec-kit/blob/main/spec-driven.md)
+(External Practice) se identificaron 2 artefactos de su estructura (`specs/[feature]/research.md`,
+`specs/[feature]/contracts/`) sin equivalente formal en nuestro modelo — ambos se
+incorporan ahora, **con evidencia distinta, declarada sin mezclar**:
+
+- **`research.md`** — **formaliza una práctica que ya existe, no es una incorporación
+  desde cero**: `moa-sdlc/_sdd/specs/MOA-1765-DistribuidorCupos/` ya tiene
+  `plan-distribucionCuposSL-v2.md` + `plan-distribucionCuposSL_old_v1.md` (iteraciones
+  reales del plan) y una carpeta `req/` con material fuente crudo (`UserStories_API_Cupos.md`,
+  planillas, HTML de referencia) — exactamente la función que cumple `research.md` en Spec
+  Kit, sin ese nombre. **Cuándo usarlo**: cuando el Spec Author necesitó investigar,
+  comparar alternativas, o consultar material fuente antes de poder escribir
+  `requirements.md` con confianza — no es obligatorio para features triviales.
+  **Contenido**: opciones consideradas, por qué se eligió una, links/citas al material
+  fuente real (nunca resumido de memoria).
+- **`contracts/`** — **incorporación nueva, sin precedente interno encontrado** (a
+  diferencia de `research.md`): no se encontró evidencia de que ningún equipo de MOA
+  documente el contrato de una API/interfaz antes de implementarla — el gap es real
+  (`MOA-1765` tiene endpoints reales, `R16`, sin contrato previo documentado). **Cuándo
+  usarlo**: cuando la feature expone o consume una API/interfaz entre componentes
+  (endpoint REST, contrato entre capas, DTO compartido) — el Spec Author o el Implementer
+  declara la forma esperada (request/response, campos, tipos) **antes** de implementar,
+  para que el Reviewer pueda verificar el código contra un contrato explícito, no contra
+  su memoria del diseño. **No confundir con** los contratos JSON de entrada/salida *entre
+  roles* del nivel Full (`mustNotChange`/`mustAskBefore`) — son conceptos distintos: esto
+  es un contrato *técnico* (API), aquello es un contrato *de proceso* (handoff entre
+  roles).
+
+**Estado real de ambos** (sin inventar evidencia que no existe): `research.md` —
+`CONFIGURED` por reclasificación de evidencia ya real (los archivos de `moa-sdlc` cumplen
+la función, aunque no con este nombre); nunca se creó un archivo llamado literalmente
+`research.md`. `contracts/` — `NOT FOUND`, PROPOSAL puro, sin ninguna instancia real
+todavía. Ninguno de los 2 es obligatorio — son condicionales a que la feature real lo
+justifique, mismo principio que el resto de este Workflow.
+
 ## Instrucciones (nivel Lite — recomendado como punto de partida)
 
-1. **Spec Author**: leer el ticket real (nunca inventar contenido), producir
-   `requirements.md` en formato EARS (Cuando X, el sistema debe Y).
+1. **Spec Author**: leer el ticket real (nunca inventar contenido); si hubo
+   investigación/decisión real antes de poder escribir el spec, dejarla en `research.md`
+   (opcional); producir `requirements.md` en formato EARS (Cuando X, el sistema debe Y);
+   si la feature expone/consume una API, declarar su forma esperada en `contracts/`
+   (opcional) antes de pasar a Implementer.
 2. **Implementer**: implementar contra el spec, generar tests, actualizar
    `traceability` en `feature.json` con los archivos reales tocados por cada requisito.
 3. **Reviewer**: verificar que el código cumple el spec y que los tests están en verde —
@@ -156,7 +200,9 @@ clasificación de evidencia por nivel.
 
 ## Versión
 
-`1.0-generalized` (G5.1).
+`1.1-generalized` (G8 — agrega `research.md`/`contracts/` sobre la base `1.0-generalized`
+de G5.1, sin romper compatibilidad: ambos son opcionales, ningún caso real existente deja
+de cumplir el Workflow por no tenerlos).
 
 ## Owner / Maintainer
 
