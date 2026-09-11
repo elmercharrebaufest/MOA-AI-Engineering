@@ -52,7 +52,7 @@ ya ocurrió, sin resumir ni completar en su nombre.
 
 El punto de fricción #2 (`feedback-record.md`: "está todo mezclado... quiero toda la
 información de mi tarea en un directorio bien distribuido") se tradujo en una corrección
-concreta al modelo, **no solo un finding documentado**: [`../../../../adoption/getting-started.md`](../../../../adoption/getting-started.md)
+concreta al modelo, **no solo un finding documentado**: [`../../../../adoption/getting-started.md`](../../../../../adoption/getting-started.md)
 ahora deja explícito (pasos 4 y 7) que (a) la tabla de Evidence/Evaluation/Measurement de
 una entrada del Registry es historial acumulado del modelo, no lectura obligatoria para
 ejecutar una tarea, y (b) la evidencia de cada developer vive en un único archivo

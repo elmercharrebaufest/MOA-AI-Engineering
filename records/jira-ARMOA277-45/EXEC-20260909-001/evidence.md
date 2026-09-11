@@ -2,18 +2,18 @@
 
 **La más significativa de las 6 ejecuciones de CAP-002 hasta hoy**: es la **primera con un
 actor real independiente** de quien diseñó `MOA-AI-Engineering` — ver
-[`PILOT-003`](../docs/history/track-1/pilots/PILOT-003-armoa277-45-cold-start-independiente/README.md).
+[`PILOT-003`](../../../docs/history/track-1/pilots/PILOT-003-armoa277-45-cold-start-independiente/README.md).
 Todas las anteriores (`EXEC-20260907-001` a `EXEC-20260908-005`) fueron CONTROLLED
 DRY-RUN del mismo agente que construyó el modelo. La `Evaluation` sigue siendo
 `model-assisted` (sección de abajo) — la independencia del actor y la independencia de la
 evaluación son 2 ejes distintos, y solo el primero se resuelve acá.
 
-Contrato canónico: [`../architecture/evidence-evaluation-measurement.md`](../architecture/evidence-evaluation-measurement.md#1-evidence).
+Contrato canónico: [`../architecture/evidence-evaluation-measurement.md`](../../../architecture/evidence-evaluation-measurement.md#1-evidence).
 **Tercera ejecución real de Connected Context vía MCP (Prioridad 1)**: Jira (real, tenant
 `baufest.atlassian.net`) → Atlassian Rovo MCP → `getJiraIssue` → Resolved Context →
 CAP-002 (real), sobre un issue de tipo `Test` (Xray) — un tercer tipo de issue distinto de
-[`EXEC-20260908-004.md`](EXEC-20260908-004.md) (`Error`/Bug) y
-[`EXEC-20260908-005.md`](EXEC-20260908-005.md) (`Tarea`/Task).
+[`EXEC-20260908-004.md`](../../jira-ARMOA277-191/EXEC-20260908-004/evidence.md) (`Error`/Bug) y
+[`EXEC-20260908-005.md`](../../jira-ARMOA277-180/EXEC-20260908-005/evidence.md) (`Tarea`/Task).
 
 | Campo | Valor |
 |---|---|
@@ -27,8 +27,8 @@ CAP-002 (real), sobre un issue de tipo `Test` (Xray) — un tercer tipo de issue
 | `input_reference` | Issue real **ARMOA277-45**, proyecto `ARMOA277` ("GMK - MOLINOS - Portal de Créditos - MOA"), tenant `baufest.atlassian.net` — `https://baufest.atlassian.net/browse/ARMOA277-45` |
 | `output_reference` | Historia de usuario + criterios + reglas + análisis de gaps (ver Paso 3 más abajo) |
 | `evidence_reference` | Este mismo registro |
-| `evaluation_reference` | [`../evaluation/EXEC-20260909-001.md`](../evaluation/EXEC-20260909-001.md) |
-| `metric_reference` | [`../measurements/EXEC-20260909-001.md`](../measurements/EXEC-20260909-001.md) — `NOT MEASURED` |
+| `evaluation_reference` | [`EXEC-20260909-001`](evaluation.md) |
+| `metric_reference` | [`EXEC-20260909-001`](measurement.md) — `NOT MEASURED` |
 | `status` | **EXECUTED** — real, no simulado |
 
 ## Por qué se eligió `ARMOA277-45`
@@ -107,7 +107,7 @@ recuperados en esta llamada (`fields` por defecto, sin `expand` de campos Xray c
 ## Paso 3 — CAP-002 (`user-story`) ejecutado sobre el Resolved Context real
 
 Aplicado el patrón de
-[`../capabilities/skills/user-story/SKILL.md`](../capabilities/skills/user-story/SKILL.md)
+[`../capabilities/skills/user-story/SKILL.md`](../../../capabilities/skills/user-story/SKILL.md)
 tal cual, sin modificar la capability, usando como input:
 
 ```

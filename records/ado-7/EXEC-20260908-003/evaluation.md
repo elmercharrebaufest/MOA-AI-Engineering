@@ -10,7 +10,7 @@ con el método declarado honestamente (`model-assisted`), sin sustituir el HITL 
 | Campo | Valor |
 |---|---|
 | `capability_id` | CAP-002, habilitado por CAP-007 |
-| `evidence_reference` | [`../evidence/EXEC-20260908-003.md`](../evidence/EXEC-20260908-003.md) |
+| `evidence_reference` | [`EXEC-20260908-003`](evidence.md) |
 | `criteria` | Las 7 preguntas del vertical slice (ver abajo) — específicas de esta actividad, no el set genérico de `user-story/SKILL.md` |
 | `method` | `model-assisted` — **no** `human` |
 | `evaluator` | Ejecutor de esta actividad — **REQUIRES HUMAN VALIDATION** para evaluación independiente real |

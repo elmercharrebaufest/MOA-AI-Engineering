@@ -1,10 +1,10 @@
 # Evidence Record — EXEC-20260908-005
 
-Contrato canónico: [`../architecture/evidence-evaluation-measurement.md`](../architecture/evidence-evaluation-measurement.md#1-evidence).
+Contrato canónico: [`../architecture/evidence-evaluation-measurement.md`](../../../architecture/evidence-evaluation-measurement.md#1-evidence).
 **Segunda ejecución real de Connected Context vía MCP (Prioridad 1), para probar
 generalización**: Jira (real, tenant `baufest.atlassian.net`) → Atlassian Rovo MCP →
 `getJiraIssue` → Resolved Context → CAP-002 (real), sobre un issue **distinto** de
-[`EXEC-20260908-004.md`](EXEC-20260908-004.md) (`ARMOA277-191`, tipo `Error`/Bug).
+[`EXEC-20260908-004.md`](../../jira-ARMOA277-191/EXEC-20260908-004/evidence.md) (`ARMOA277-191`, tipo `Error`/Bug).
 
 | Campo | Valor |
 |---|---|
@@ -18,8 +18,8 @@ generalización**: Jira (real, tenant `baufest.atlassian.net`) → Atlassian Rov
 | `input_reference` | Issue real **ARMOA277-180**, proyecto `ARMOA277` ("GMK - MOLINOS - Portal de Créditos - MOA"), tenant `baufest.atlassian.net` — `https://baufest.atlassian.net/browse/ARMOA277-180` |
 | `output_reference` | Historia de usuario + criterios + reglas + análisis de gaps (ver Paso 3 más abajo) |
 | `evidence_reference` | Este mismo registro |
-| `evaluation_reference` | [`../evaluation/EXEC-20260908-005.md`](../evaluation/EXEC-20260908-005.md) |
-| `metric_reference` | [`../measurements/EXEC-20260908-005.md`](../measurements/EXEC-20260908-005.md) — `NOT MEASURED` |
+| `evaluation_reference` | [`EXEC-20260908-005`](evaluation.md) |
+| `metric_reference` | [`EXEC-20260908-005`](measurement.md) — `NOT MEASURED` |
 | `status` | **EXECUTED** — real, no simulado |
 
 ## Por qué se eligió `ARMOA277-180`
@@ -127,7 +127,7 @@ Jira es `null` — no se completó con contenido inventado):
 ## Paso 3 — CAP-002 (`user-story`) ejecutado sobre el Resolved Context real
 
 Aplicado el patrón de
-[`../capabilities/skills/user-story/SKILL.md`](../capabilities/skills/user-story/SKILL.md)
+[`../capabilities/skills/user-story/SKILL.md`](../../../capabilities/skills/user-story/SKILL.md)
 tal cual, sin modificar la capability, usando como input:
 
 ```

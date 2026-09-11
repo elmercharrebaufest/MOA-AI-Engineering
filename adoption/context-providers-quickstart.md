@@ -94,11 +94,11 @@ terminal para esto — lo ejecuta el cliente MCP directamente.
 **Estado real, EXECUTED**: sobre el issue real `ARMOA277-191` (tipo Error/Bug, tenant
 `baufest.atlassian.net`), con el servidor `Atlassian Rovo MCP` ya autenticado en la
 sesión: resultado `retrievalStatus: SUCCESS`, Resolved Context real consumido por CAP-002
-— ver [`../evidence/EXEC-20260908-004.md`](../evidence/EXEC-20260908-004.md) para el JSON
+— ver [`EXEC-20260908-004`](../records/jira-ARMOA277-191/EXEC-20260908-004/evidence.md) para el JSON
 completo, real, sin editar, y la salida real de CAP-002. Una segunda ejecución real,
 sobre el issue `ARMOA277-180` (tipo Tarea/Task, sin descripción cargada), confirmó el
 mismo resultado (`SUCCESS`) con un nivel de completitud de información distinto — ver
-[`../evidence/EXEC-20260908-005.md`](../evidence/EXEC-20260908-005.md). **No se simuló
+[`EXEC-20260908-005`](../records/jira-ARMOA277-180/EXEC-20260908-005/evidence.md). **No se simuló
 ningún resultado, ni se realizó ninguna operación `WRITE` sobre Jira.**
 
 **Vía REST (Prioridad 2, fallback headless — sin cliente MCP disponible en esa sesión)**:
@@ -111,7 +111,7 @@ cd integrations/scripts
 **Estado real, EXECUTED en una sesión anterior** (con `Reference: MOA-1234`, sin
 credenciales disponibles en ese entorno): resultado `retrievalStatus:
 SOURCE_UNAVAILABLE`, `BLOCKED` — ver
-[`../evidence/EXEC-20260908-002.md`](../evidence/EXEC-20260908-002.md) para el JSON
+[`EXEC-20260908-002`](../records/jira-MOA-1234/EXEC-20260908-002/evidence.md) para el JSON
 completo, real, sin editar. **No se simuló un resultado exitoso.**
 
 **Nota histórica** (de la sesión que generó `EXEC-20260908-002`, preservada tal cual):
@@ -144,7 +144,7 @@ $env:AZURE_DEVOPS_ORG = "https://dev.azure.com/<org>"
 **Estado**: `EXECUTED` — las 2 rutas de error y el camino de éxito completo se validaron
 en esta sesión, incluyendo un vertical slice real de punta a punta (Work Item #7 real →
 Resolved Context → CAP-002) — ver
-[`../evidence/EXEC-20260908-003.md`](../evidence/EXEC-20260908-003.md) para el detalle
+[`EXEC-20260908-003`](../records/ado-7/EXEC-20260908-003/evidence.md) para el detalle
 completo, comandos y salidas reales, sin editar.
 
 ## 6. Context resolution
@@ -168,17 +168,17 @@ prompt pattern" de esa skill) con tu asistente de IA (Copilot, Claude, u otro).
 
 **Estado**: `EXECUTED` — vertical slice completo de punta a punta corrido en esta sesión
 (Work Item real → Resolved Context real → CAP-002 real) — ver
-[`../evidence/EXEC-20260908-003.md`](../evidence/EXEC-20260908-003.md).
+[`EXEC-20260908-003`](../records/ado-7/EXEC-20260908-003/evidence.md).
 
 ## 8. Evidence
 
 Cada ejecución real de cualquiera de los caminos (MCP o los 3 scripts REST) debe
 registrarse con el
 [Evidence Contract](../architecture/evidence-evaluation-measurement.md#1-evidence) — ver
-[`../evidence/EXEC-20260908-002.md`](../evidence/EXEC-20260908-002.md) como ejemplo de un
+[`EXEC-20260908-002`](../records/jira-MOA-1234/EXEC-20260908-002/evidence.md) como ejemplo de un
 `BLOCKED` real (no un éxito, y así se registró) y
-[`../evidence/EXEC-20260908-004.md`](../evidence/EXEC-20260908-004.md) /
-[`../evidence/EXEC-20260908-005.md`](../evidence/EXEC-20260908-005.md) como ejemplos de un
+[`EXEC-20260908-004`](../records/jira-ARMOA277-191/EXEC-20260908-004/evidence.md) /
+[`EXEC-20260908-005`](../records/jira-ARMOA277-180/EXEC-20260908-005/evidence.md) como ejemplos de un
 `SUCCESS` real de punta a punta (Jira vía MCP → CAP-002), sobre dos tipos de issue
 distintos.
 
@@ -190,8 +190,8 @@ Al evaluar un Resolved Context real, separar explícitamente:
    significado real del issue/work item, sin inventar información?
 3. **Evaluación asistida** (`model-assisted`) — no sustituye la humana, igual que en
    CAP-002 (ver `../architecture/evidence-evaluation-measurement.md` §2). Ver
-   [`../evaluation/EXEC-20260908-004.md`](../evaluation/EXEC-20260908-004.md) y
-   [`../evaluation/EXEC-20260908-005.md`](../evaluation/EXEC-20260908-005.md) como ejemplos
+   [`EXEC-20260908-004`](../records/jira-ARMOA277-191/EXEC-20260908-004/evaluation.md) y
+   [`EXEC-20260908-005`](../records/jira-ARMOA277-180/EXEC-20260908-005/evaluation.md) como ejemplos
    reales — resultado `PARTIAL` en ambas, precisamente porque solo existe evaluación
    asistida.
 

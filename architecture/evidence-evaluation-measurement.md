@@ -140,13 +140,32 @@ tiene 3 campos de **referencia** (no de contenido): `Evidence Reference`, `Evalu
 Reference`, `Metric Reference`. Cuando no hay ejecución real, quedan honestamente en
 `NOT EXECUTED` / `NOT EVALUATED` / `NOT MEASURED` — nunca inventados.
 
-## 5. Registros reales existentes
+## 5. Dónde viven los registros (convención de carpetas, corregida 2026-09-11)
+
+**Los 3 contratos de una misma ejecución viven juntos, en una carpeta por tarea, con cada
+ejecución anidada adentro**: `records/<fuente>-<tarea>/<EXEC-ID>/{evidence,evaluation,
+measurement}.md`. Reemplaza el diseño anterior (3 carpetas paralelas por tipo de
+artefacto, `evidence/`, `evaluation/`, `measurements/`) tras feedback real de un developer
+independiente (`PILOT-003`) que reportó fricción real navegando entre las 3 carpetas para
+ver todo lo de su propia tarea. Alineado a 2 estándares oficiales verificados: [GitHub
+Spec Kit](https://github.com/github/spec-kit/blob/main/spec-driven.md) (una carpeta por
+unidad de trabajo — mismo patrón que `moa-sdlc` ya usa en `_sdd/specs/<ticket>/`) y el
+modelo de `runs` anidados de la API de GitHub Actions
+(`GET /repos/{owner}/{repo}/actions/runs/{run_id}/artifacts`, para ejecuciones repetibles
+de la misma tarea).
+
+`evidence/README.md`, `evaluation/README.md` y `measurements/README.md` se conservan como
+**índices cruzados por tipo de artefacto** (para quien quiera ver "todas las
+evaluaciones" o "todas las mediciones" across tareas) — el contenido real vive en
+[`../records/`](../records/), nunca duplicado.
+
+## 6. Registros reales existentes
 
 4 registros de ejecución real aplicaron (o intentaron aplicar) estos 3 contratos, ninguno
 simulado — ver [`../evidence/README.md`](../evidence/README.md),
 [`../evaluation/README.md`](../evaluation/README.md) y
-[`../measurements/README.md`](../measurements/README.md) para el detalle completo de cada
-uno:
+[`../measurements/README.md`](../measurements/README.md) para el índice completo, y
+[`../records/`](../records/) para el contenido real de cada uno:
 
 - **`EXEC-20260908-002`** — `BLOCKED`. Intento histórico de Connected Context (Jira) vía
   REST (Prioridad 2, sin MCP/credenciales disponibles en ese entorno). Preservado tal

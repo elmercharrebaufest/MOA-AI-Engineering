@@ -32,11 +32,12 @@ es si el modelo te aporta algo o no, y qué.
 
 ## Qué se te va a preguntar después (adelanto, no lo respondas ahora)
 
-Ver [`feedback-record.md`](feedback-record.md) — son preguntas abiertas sobre qué usaste,
-qué te aportó y qué no.
+Ver `feedback-record.md` — son preguntas abiertas sobre qué usaste,
+qué te aportó y qué no. **(Nota: este piloto se cerró sin ejecutar — ver `README.md` de
+esta carpeta — el archivo se eliminó, no se re-crea acá.)**
 
 ## Nota para quien coordina el piloto (vos)
 
 Cuando el developer termine (o llegue a un punto natural de corte), completá
-[`execution-record.md`](execution-record.md) y [`feedback-record.md`](feedback-record.md)
+`execution-record.md` y `feedback-record.md`
 con sus respuestas literales — no las resumas ni las completes en su nombre.

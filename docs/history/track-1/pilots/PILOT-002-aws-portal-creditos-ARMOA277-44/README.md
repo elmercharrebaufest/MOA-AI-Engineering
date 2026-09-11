@@ -29,10 +29,12 @@ El objetivo es medir aporte, no completar la tarea con esto.
 
 - [`briefing-para-developer.md`](briefing-para-developer.md) — instrucciones para el
   developer: explorar libremente, sin capacidad preasignada.
-- [`execution-record.md`](execution-record.md) — Execution Record de este piloto
-  (capability_id abierto, no limitado a CAP-005).
-- [`feedback-record.md`](feedback-record.md) — preguntas abiertas de exploración +
-  espacio para registrar qué usó y qué le aportó.
+- `execution-record.md` — Execution Record de este piloto
+  (capability_id abierto, no limitado a CAP-005). **Eliminado al cerrar el piloto** (ver
+  "Cierre" más abajo) — no re-creado.
+- `feedback-record.md` — preguntas abiertas de exploración +
+  espacio para registrar qué usó y qué le aportó. **Eliminado al cerrar el piloto** — no
+  re-creado.
 
 Nota: no hay `evidence-record.md` todavía — se crea recién cuando exista un output
 concreto que evaluar (ver `adoption/templates/evidence-record.md`).

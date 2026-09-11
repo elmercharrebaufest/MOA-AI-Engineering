@@ -27,7 +27,7 @@ carpeta como `AGENTS.md.developer-attempt.md` cuando termines.
 ## Qué se te va a preguntar después (adelanto, no lo respondas ahora)
 
 Basado en las preguntas reales de
-[`../../../../adoption/contribution-guide.md`](../../../../adoption/contribution-guide.md):
+[`../../../../adoption/contribution-guide.md`](../../../../../adoption/contribution-guide.md):
 
 1. ¿Encontraste por dónde empezar sin que nadie te lo dijera? ¿Cuánto tardaste en
    encontrar `adoption/getting-started.md` o el Registry?

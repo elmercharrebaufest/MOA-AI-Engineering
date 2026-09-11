@@ -137,8 +137,8 @@ y por la sección "READ vs. ACT" de `security-governance.md` — **no se habilit
   [`../registry/entries/jira-context.md`](../registry/entries/jira-context.md)). Existe
   evidencia inicial de generalización a dos tipos de issue reales con diferente nivel de
   completitud de información. Detalle completo en
-  [`../evidence/EXEC-20260908-004.md`](../evidence/EXEC-20260908-004.md) y
-  [`../evidence/EXEC-20260908-005.md`](../evidence/EXEC-20260908-005.md).
+  [`EXEC-20260908-004`](../records/jira-ARMOA277-191/EXEC-20260908-004/evidence.md) y
+  [`EXEC-20260908-005`](../records/jira-ARMOA277-180/EXEC-20260908-005/evidence.md).
 
 ## Uso esperado
 
@@ -171,14 +171,14 @@ el navegador) — **nunca** un token en un archivo.
 **El script REST (Prioridad 2, fallback)** —
 [`scripts/jira-context.ps1`](scripts/jira-context.ps1) — sigue existiendo para escenarios
 headless/no interactivos (ej. un pipeline de CI, o la sesión que registró
-[`EXEC-20260908-002.md`](../evidence/EXEC-20260908-002.md), que no tenía un cliente MCP
+[`EXEC-20260908-002.md`](../records/jira-MOA-1234/EXEC-20260908-002/evidence.md), que no tenía un cliente MCP
 interactivo disponible). **No es el runtime principal** — no reemplaza al flujo MCP para
 un desarrollador trabajando en VS Code.
 
 ## Ejecución interactiva: histórico vs. esta actualización
 
 **Nota histórica, preservada tal cual se documentó originalmente**: la sesión que generó
-[`EXEC-20260908-002.md`](../evidence/EXEC-20260908-002.md) (Claude Code, sin interfaz
+[`EXEC-20260908-002.md`](../records/jira-MOA-1234/EXEC-20260908-002/evidence.md) (Claude Code, sin interfaz
 gráfica ni control de navegador) no podía abrir VS Code, instalar una extensión desde su
 galería, ni completar un flujo de consentimiento OAuth 2.1 en un navegador — esa
 limitación era real *para ese runtime específico*, no una configuración faltante. Esa
@@ -197,17 +197,17 @@ runtime/cliente MCP disponible en la sesión, no es una imposibilidad estructura
 "cualquier sesión de agente".
 
 **Ejecución real de Prioridad 1 (MCP), primera ejecución**: `SUCCESS` — ver
-[`../evidence/EXEC-20260908-004.md`](../evidence/EXEC-20260908-004.md) (issue tipo
+[`EXEC-20260908-004`](../records/jira-ARMOA277-191/EXEC-20260908-004/evidence.md) (issue tipo
 Error/Bug, `ARMOA277-191`), registrado honestamente, no simulado.
 
 **Ejecución real de Prioridad 1 (MCP), segunda ejecución**: `SUCCESS` — ver
-[`../evidence/EXEC-20260908-005.md`](../evidence/EXEC-20260908-005.md) (issue tipo
+[`EXEC-20260908-005`](../records/jira-ARMOA277-180/EXEC-20260908-005/evidence.md) (issue tipo
 Tarea/Task, `ARMOA277-180`, sin descripción cargada), registrado honestamente, no
 simulado. Existe evidencia inicial de generalización a dos tipos de issue reales con
 diferente nivel de completitud de información — esto no equivale a `VERIFIED`.
 
 **Ejecución real de Prioridad 2 (REST), sesión anterior**: `BLOCKED` — ver
-[`../evidence/EXEC-20260908-002.md`](../evidence/EXEC-20260908-002.md), registrado
+[`EXEC-20260908-002`](../records/jira-MOA-1234/EXEC-20260908-002/evidence.md), registrado
 honestamente, no simulado.
 
 Quick Start completo:

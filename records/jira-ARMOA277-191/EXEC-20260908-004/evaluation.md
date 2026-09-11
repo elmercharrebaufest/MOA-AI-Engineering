@@ -3,7 +3,7 @@
 **Limitación explícita, sin excepción**: esta evaluación fue realizada por el mismo actor
 que ejecutó el vertical slice — **no es una evaluación humana independiente**. Se registra
 con el método declarado honestamente (`model-assisted`), sin sustituir el HITL real que
-[`user-story/SKILL.md`](../capabilities/skills/user-story/SKILL.md) exige antes de
+[`user-story/SKILL.md`](../../../capabilities/skills/user-story/SKILL.md) exige antes de
 Planning/desarrollo.
 
 ## Evaluation Contract
@@ -11,7 +11,7 @@ Planning/desarrollo.
 | Campo | Valor |
 |---|---|
 | `capability_id` | CAP-002, habilitado por CAP-008 |
-| `evidence_reference` | [`../evidence/EXEC-20260908-004.md`](../evidence/EXEC-20260908-004.md) |
+| `evidence_reference` | [`EXEC-20260908-004`](evidence.md) |
 | `criteria` | Las 9 preguntas del vertical slice (ver abajo) — declaradas antes de mirar el resultado, específicas de esta actividad |
 | `method` | `model-assisted` — **no** `human` |
 | `evaluator` | Ejecutor de esta actividad — **REQUIRES HUMAN VALIDATION** para evaluación independiente real |

@@ -157,6 +157,6 @@ evidencia/candidatos a evaluar, nunca como fuente de gobierno. Detalle:
 
 ## Historial de construcción
 
-Las fases que construyeron este repositorio (G3.3 a G6) están preservadas, con su
+Las fases que construyeron este repositorio (G3.3 a G7) están preservadas, con su
 razonamiento completo, en [`docs/history/track-1/`](docs/history/track-1/) — no forman
 parte de la navegación principal del producto, pero nada se descartó.

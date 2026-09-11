@@ -34,9 +34,9 @@
 | **Metrics** | NOT FOUND | — |
 | **Adopters** | Ninguno | Patrón recién definido |
 | **Last Review** | Esta actividad | — |
-| **Evidence Reference** | [`evidence/EXEC-20260908-003.md`](../../evidence/EXEC-20260908-003.md) | Ejecución real completa, `status: EXECUTED` |
-| **Evaluation Reference** | [`evaluation/EXEC-20260908-003.md`](../../evaluation/EXEC-20260908-003.md) | `PARTIAL`, `model-assisted`, no independiente |
-| **Metric Reference** | [`measurements/EXEC-20260908-003.md`](../../measurements/EXEC-20260908-003.md) | `NOT MEASURED` — sin baseline |
+| **Evidence Reference** | [`EXEC-20260908-003`](../../records/ado-7/EXEC-20260908-003/evidence.md) | Ejecución real completa, `status: EXECUTED` |
+| **Evaluation Reference** | [`EXEC-20260908-003`](../../records/ado-7/EXEC-20260908-003/evaluation.md) | `PARTIAL`, `model-assisted`, no independiente |
+| **Metric Reference** | [`EXEC-20260908-003`](../../records/ado-7/EXEC-20260908-003/measurement.md) | `NOT MEASURED` — sin baseline |
 | **Reusable Asset** | [`integrations/azure-devops-context-provider.md`](../../integrations/azure-devops-context-provider.md), implementación ejecutable en [`integrations/scripts/azure-devops-context.ps1`](../../integrations/scripts/azure-devops-context.ps1) | Patrón + código real, probado en sus rutas de error (`INVALID_REFERENCE`, `SOURCE_UNAVAILABLE`) contra este entorno; pendiente de ejecución real contra un Work Item/PR concreto |
 
 ## Nota de selección

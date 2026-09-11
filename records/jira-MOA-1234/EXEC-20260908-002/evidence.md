@@ -1,6 +1,6 @@
 # Evidence Record — EXEC-20260908-002
 
-Contrato canónico: [`../architecture/evidence-evaluation-measurement.md`](../architecture/evidence-evaluation-measurement.md#1-evidence).
+Contrato canónico: [`../architecture/evidence-evaluation-measurement.md`](../../../architecture/evidence-evaluation-measurement.md#1-evidence).
 
 | Campo | Valor |
 |---|---|

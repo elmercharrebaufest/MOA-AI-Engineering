@@ -1,6 +1,6 @@
 # Evidence Record — EXEC-20260908-003
 
-Contrato canónico: [`../architecture/evidence-evaluation-measurement.md`](../architecture/evidence-evaluation-measurement.md#1-evidence).
+Contrato canónico: [`../architecture/evidence-evaluation-measurement.md`](../../../architecture/evidence-evaluation-measurement.md#1-evidence).
 **Primer vertical slice completo de punta a punta**: Azure DevOps (real) → Resolved
 Context → CAP-002 (real).
 
@@ -16,8 +16,8 @@ Context → CAP-002 (real).
 | `input_reference` | Work Item #7, proyecto **AWS Portal de créditos**, org `molinosagro` — `https://dev.azure.com/molinosagro/_workitems/edit/7` |
 | `output_reference` | Historia de usuario + análisis de gaps (ver más abajo) |
 | `evidence_reference` | Este mismo registro |
-| `evaluation_reference` | [`../evaluation/EXEC-20260908-003.md`](../evaluation/EXEC-20260908-003.md) |
-| `metric_reference` | [`../measurements/EXEC-20260908-003.md`](../measurements/EXEC-20260908-003.md) — `NOT MEASURED` |
+| `evaluation_reference` | [`EXEC-20260908-003`](evaluation.md) |
+| `metric_reference` | [`EXEC-20260908-003`](measurement.md) — `NOT MEASURED` |
 | `status` | **EXECUTED** — real, no simulado |
 
 ## Paso 1 — Context Provider real (CAP-007)

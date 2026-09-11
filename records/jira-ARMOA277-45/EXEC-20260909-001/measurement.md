@@ -6,8 +6,8 @@
 |---|---|
 | `metric_id` | MET-CTX-01 (reutilizada, no ratificada — misma métrica candidata que en `EXEC-20260908-004`/`005`) |
 | `capability_id` | CAP-002 / CAP-008 |
-| `evidence_reference` | [`../evidence/EXEC-20260909-001.md`](../evidence/EXEC-20260909-001.md) |
-| `evaluation_reference` | [`../evaluation/EXEC-20260909-001.md`](../evaluation/EXEC-20260909-001.md) |
+| `evidence_reference` | [`EXEC-20260909-001`](evidence.md) |
+| `evaluation_reference` | [`EXEC-20260909-001`](evaluation.md) |
 | `value` | — (sin medir) |
 | `unit` | — |
 | `period` | — |

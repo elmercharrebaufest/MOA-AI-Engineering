@@ -271,12 +271,12 @@ revisión.
 ## Ejemplos
 
 Ver 2 ejecuciones reales completas con Direct Context, con historia + criterios + reglas
-+ gaps genuinos: [`evidence/EXEC-20260907-001.md`](../../../evidence/EXEC-20260907-001.md)
-(MOA-1816, DataAgro) y [`evidence/EXEC-20260908-001.md`](../../../evidence/EXEC-20260908-001.md)
++ gaps genuinos: [`EXEC-20260907-001`](../../../records/jira-MOA-1816/EXEC-20260907-001/evidence.md)
+(MOA-1816, DataAgro) y [`EXEC-20260908-001`](../../../records/jira-MOA-1765/EXEC-20260908-001/evidence.md)
 (MOA-1765, DataAgro). Ver además 3 ejecuciones reales con Connected Context vía Context
-Provider: [`evidence/EXEC-20260908-003.md`](../../../evidence/EXEC-20260908-003.md)
-(Azure DevOps), [`evidence/EXEC-20260908-004.md`](../../../evidence/EXEC-20260908-004.md)
-y [`evidence/EXEC-20260908-005.md`](../../../evidence/EXEC-20260908-005.md) (Jira/MCP).
+Provider: [`EXEC-20260908-003`](../../../records/ado-7/EXEC-20260908-003/evidence.md)
+(Azure DevOps), [`EXEC-20260908-004`](../../../records/jira-ARMOA277-191/EXEC-20260908-004/evidence.md)
+y [`EXEC-20260908-005`](../../../records/jira-ARMOA277-180/EXEC-20260908-005/evidence.md) (Jira/MCP).
 
 ## Criterios de calidad
 

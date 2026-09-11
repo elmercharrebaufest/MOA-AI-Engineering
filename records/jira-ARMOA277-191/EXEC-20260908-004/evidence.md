@@ -1,11 +1,11 @@
 # Evidence Record — EXEC-20260908-004
 
-Contrato canónico: [`../architecture/evidence-evaluation-measurement.md`](../architecture/evidence-evaluation-measurement.md#1-evidence).
+Contrato canónico: [`../architecture/evidence-evaluation-measurement.md`](../../../architecture/evidence-evaluation-measurement.md#1-evidence).
 **Primer vertical slice real de Connected Context vía MCP (Prioridad 1)**: Jira (real,
 tenant `baufest.atlassian.net`) → Atlassian Rovo MCP → `getJiraIssue` → Resolved Context →
-CAP-002 (real). Distinto de [`EXEC-20260908-002.md`](EXEC-20260908-002.md) (REST fallback,
+CAP-002 (real). Distinto de [`EXEC-20260908-002.md`](../../jira-MOA-1234/EXEC-20260908-002/evidence.md) (REST fallback,
 Prioridad 2, `BLOCKED`) — esta ejecución usa el runtime principal documentado en
-[`../integrations/jira-context-provider.md`](../integrations/jira-context-provider.md#arquitectura-runtime--runtime-adapter).
+[`../integrations/jira-context-provider.md`](../../../integrations/jira-context-provider.md#arquitectura-runtime--runtime-adapter).
 
 | Campo | Valor |
 |---|---|
@@ -19,8 +19,8 @@ Prioridad 2, `BLOCKED`) — esta ejecución usa el runtime principal documentado
 | `input_reference` | Issue real **ARMOA277-191**, proyecto `ARMOA277` ("GMK - MOLINOS - Portal de Créditos - MOA"), tenant `baufest.atlassian.net` — `https://baufest.atlassian.net/browse/ARMOA277-191` |
 | `output_reference` | Historia de usuario + criterios + reglas + análisis de gaps (ver Paso 3 más abajo) |
 | `evidence_reference` | Este mismo registro |
-| `evaluation_reference` | [`../evaluation/EXEC-20260908-004.md`](../evaluation/EXEC-20260908-004.md) |
-| `metric_reference` | [`../measurements/EXEC-20260908-004.md`](../measurements/EXEC-20260908-004.md) — `NOT MEASURED` |
+| `evaluation_reference` | [`EXEC-20260908-004`](evaluation.md) |
+| `metric_reference` | [`EXEC-20260908-004`](measurement.md) — `NOT MEASURED` |
 | `status` | **EXECUTED** — real, no simulado |
 
 ## Por qué esta ejecución es distinta de `EXEC-20260908-002`
@@ -31,7 +31,7 @@ cliente MCP interactivo) no tenía ningún servidor MCP de Atlassian invocable, 
 corre en un runtime distinto** (GitHub Copilot Agent, con el servidor `Atlassian Rovo MCP`
 ya cargado como herramienta del propio agente) — es la primera vez que la Prioridad 1
 (`getJiraIssue` vía MCP) se invoca realmente, tal como predice
-[`jira-context-provider.md`](../integrations/jira-context-provider.md#arquitectura-runtime--runtime-adapter).
+[`jira-context-provider.md`](../../../integrations/jira-context-provider.md#arquitectura-runtime--runtime-adapter).
 
 ## Paso 0 — Validación de conexión MCP (antes de cualquier lectura de issue)
 
@@ -110,7 +110,7 @@ precisión explícitamente antes que inventar una hora exacta.
 ## Paso 3 — CAP-002 (`user-story`) ejecutado sobre el Resolved Context real
 
 Aplicado el patrón de
-[`../capabilities/skills/user-story/SKILL.md`](../capabilities/skills/user-story/SKILL.md)
+[`../capabilities/skills/user-story/SKILL.md`](../../../capabilities/skills/user-story/SKILL.md)
 tal cual, sin modificar la capability, usando como input:
 
 ```
