@@ -4,6 +4,12 @@
 > [`../../architecture/evidence-evaluation-measurement.md`](../../architecture/evidence-evaluation-measurement.md#3-measurement).
 > Esta plantilla **no redefine** ese contrato.
 
+## Regla de oro: decilo directo primero, justificalo después
+
+Si `status: NOT MEASURED`, la primera línea del archivo debe decir eso en criollo ("todavía
+no hay nada medido acá, y está bien que sea así") — no arrancar con un análisis de tamaño
+de muestra. La justificación estadística/técnica va después, para quien la necesite.
+
 ## Cómo usar esta plantilla
 
 1. Copiá este archivo a `measurements/EXEC-<fecha>-<número>.md`.

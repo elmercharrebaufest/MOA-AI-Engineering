@@ -4,6 +4,13 @@
 > [`../../architecture/evidence-evaluation-measurement.md`](../../architecture/evidence-evaluation-measurement.md#2-evaluation).
 > Esta plantilla **no redefine** ese contrato.
 
+## Regla de oro: primero lo que la persona puede hacer, después el detalle
+
+Si `hitl_required: true` y todavía no hay revisión humana, **eso va primero, como una
+invitación directa** ("¿ya revisaste el resultado? esto es tu oportunidad de confirmarlo")
+— no como una nota al pie después de una tabla de 9 criterios técnicos. La tabla de
+criterios va después, para quien quiera el detalle.
+
 ## Cómo usar esta plantilla
 
 1. **Declará los criterios ANTES de mirar el resultado** — si ya viste el resultado y
