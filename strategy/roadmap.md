@@ -40,39 +40,51 @@ Iteration), con tareas asignadas a Baufest [BF], MOA [MOA] o ambos [BF+MOA]:
 5. **Mejorar** — ajustar prompts/skills/agentes y estrategia, revisar avances vs.
    objetivos, definir backlog de evolución.
 
-## Roadmap de este repositorio (PROPOSAL)
+## Roadmap de este repositorio (FACT — estado real al 2026-09-11, ver `strategy/track-1-context.md`)
 
-Este repositorio sigue una progresión Foundation → Evolution, alineada al roadmap general
-de MOA, pero acotada a la construcción de la base de AI Engineering:
+Este repositorio sigue una progresión Foundation → Evolution → Iteration, alineada al
+roadmap general de MOA. **Ya superó ampliamente la fase Foundation** — el estado real y
+siempre vigente vive en [`track-1-context.md`](track-1-context.md) (documento rector,
+actualizado con cada fase); esta sección resume, no duplica.
 
-### Foundation (esta entrega)
-- Estrategia, principios, modelo de madurez, roadmap.
-- Arquitectura de referencia y mapeo inicial del SDLC con IA.
-- Gobierno corporativo (AI governance + agent governance).
-- Catálogo inicial de integraciones (clasificadas EXISTING/POSSIBLE/PROPOSED).
-- Framework de métricas + KPIs propuestos por el KO.
-- Catálogo de casos de uso identificados en el KO.
-- Modelo de equipos reales de MOA (DataAgro, Scato Logística, MOA Operaciones, Scato
-  Puerto, Orquestador), con `moa-sdlc`/`moa-metrics` referenciadas como herramientas de
-  Baufest para la iniciativa, no como equipos (corregido 2026-09-04, ver
-  `teams/README.md`).
-- Templates para nuevas capacidades.
+### Foundation (completada — G1 a G3.3)
+- Estrategia, principios, modelo de madurez, roadmap, arquitectura de referencia, mapeo
+  inicial del SDLC con IA, gobierno corporativo, catálogo inicial de integraciones,
+  framework de métricas + KPIs propuestos por el KO, catálogo de casos de uso, modelo de
+  equipos reales de MOA, templates.
 
-### Evolution (siguiente fase — REQUIRES VALIDATION de alcance con MOA)
-- Promoción de capacidades concretas (skills/agents/instructions) a `skills/`/`agents/`
-  reusable, una vez pasadas por el pipeline de `assessment/README.md` — evaluando por
-  igual las candidatas de cualquier repo con evidencia real (DataAgro, Scato Logística,
-  `moa-sdlc`, `moa-metrics`; ver `docs/history/track-1/relevamiento-capacidades-g2.md`), no
-  privilegiando ninguna por defecto.
-- Catálogo real de servidores MCP (autenticación, scope, auditoría) — no se documentará
-  ningún MCP server hasta que exista uno realmente desplegado o aprobado.
-- Onboarding de equipos sin implementación aún (Data, QA, Security, DevOps, Operations
-  fuera de los ya mapeados).
-- Baseline real medido (no solo proyectado) con `moa-metrics`.
+### Evolution (completada — G4.1 a G5.1, no "siguiente fase")
+- **Capability Registry real**: 8 entradas (`registry/INDEX.md`), 6 capacidades
+  materializadas y reutilizables (`capabilities/README.md`) — generalizadas desde
+  evidencia real de DataAgro, Scato Logística, Orquestador y `moa-sdlc` (herramienta de
+  referencia de Baufest, no equipo de MOA), pasadas por el pipeline de
+  `assessment/README.md`.
+- **Golden Paths**: 6 documentados, 1 (`AI-Assisted Requirements`) con 6 ejecuciones
+  reales — la última con un actor independiente (`PILOT-003`, ver
+  `golden-paths/README.md`).
+- **Evidence/Evaluation/Measurement Contracts**: definidos y aplicados 7 veces sobre
+  requerimientos reales.
+- **Context Acquisition & Resolution**: implementado como cross-cutting concern, con 2
+  patrones reales (Azure DevOps, Jira/MCP).
+- Catálogo real de servidores MCP: **todavía no existe** — 2 hallazgos de MCP real sin
+  gobierno confirmado quedaron escalados como Blocked Decisions (`governance/BLOCKED-DECISIONS.md`
+  #4, #12), no como catálogo aprobado.
+- Onboarding de equipos sin implementación aún (Data, QA, Security, DevOps, Operations):
+  **sigue sin resolver** — ningún equipo nuevo se incorporó todavía.
+- Baseline real medido con `moa-metrics`: **sigue sin resolver** — todas las mediciones
+  registradas son `NOT MEASURED` por falta de baseline (`measurements/README.md`).
 
-### Iteration (continuo)
-- Ciclo de mejora de prompts/skills/agentes en base a auditorías reales.
-- Revisión de gobierno y métricas por ciclo, según el modelo de 5 pasos del KO.
+### Iteration (en curso)
+- Ciclo de mejora de prompts/skills/agentes en base a auditorías reales — aplicado en
+  G5.1 (correcciones a `capability-registry.md`, `README.md`, `golden-paths.md` tras
+  auditoría de consistencia).
+- Revisión de gobierno y métricas por ciclo, según el modelo de 5 pasos del KO — pendiente
+  de la resolución de las 12 Blocked Decisions (ver sección de preguntas abiertas, más
+  abajo).
+
+**Estado declarado por el propio repositorio**: `READY WITH CONDITIONS` (`README.md`) — no
+"Foundation en curso". Ver `strategy/track-1-context.md` §12 y §17 para el detalle
+completo, siempre más actual que este archivo.
 
 ## Metas proyectadas por MOA a Q3/Q4 2026 (PROPOSAL — proyecciones del KO, no baseline medido)
 
@@ -83,13 +95,22 @@ refinar en base a las necesidades de MOA y la disponibilidad de la información.
 decir: **estos números no son un compromiso confirmado**, sino una proyección de KO. Ver
 detalle completo en [`metrics/kpis.md`](../metrics/kpis.md).
 
-## Preguntas abiertas para MOA (heredadas del análisis de discovery)
+## Preguntas abiertas para MOA
 
-1. ¿`moa-sdlc`/`moa-metrics` se referencian o se consolidan dentro de este repo?
-2. ¿Hay más material de referencia (actas, Confluence, decks) fuera de este workspace?
-3. ¿Los equipos con madurez ya mapeada (DataAgro/MOA Oper./Scato Puerto/Scato Logística)
-   son los únicos alcanzados por Track 1, o hay más equipos a incorporar?
-4. ¿Quién aprueba formalmente el contenido de `governance/` — los líderes listados en el
-   KO (Elmer Charre, Fernando Pagano, Tito Picón), u otro proceso?
-5. ¿Estos principios y este roadmap deben ser ratificados por un comité de gobierno antes
-   de aplicarse como norma para todos los equipos?
+**No duplicar el tracking en 2 lugares** — las 12 decisiones bloqueadas reales, con su
+impacto y evidencia, viven únicamente en
+[`../governance/BLOCKED-DECISIONS.md`](../governance/BLOCKED-DECISIONS.md) (la más
+estructural: quién tiene mandato para aprobar/gobernar el Common Core, #1). De las 5
+preguntas originales de este documento (discovery temprano, G1), el estado real hoy es:
+
+1. ¿`moa-sdlc`/`moa-metrics` se referencian o se consolidan dentro de este repo? —
+   **Resuelta**: se referencian como evidencia/candidatos, nunca como fuente de gobierno
+   (`teams/README.md`).
+2. ¿Hay más material de referencia fuera de este workspace? — Sigue abierta, no escalada
+   como Blocked Decision formal (bajo impacto arquitectónico).
+3. ¿Los equipos ya mapeados son los únicos alcanzados por Track 1? — Sigue abierta, sin
+   evidencia nueva.
+4. ¿Quién aprueba formalmente `governance/`? — **Absorbida por Blocked Decision #1**
+   (mandato de gobierno del Common Core), no se resuelve por separado.
+5. ¿Principios y roadmap requieren ratificación de un comité? — **Absorbida por Blocked
+   Decision #1**, misma razón.

@@ -17,6 +17,8 @@ Troubleshooting, Documentation, Knowledge Management, Continuous Improvement.
 
 Este mapeo es evidencia real recolectada por Baufest/MOA para las etapas de desarrollo y
 soporte; **no cubre las 28 etapas del encuadre fundacional de la iniciativa** (ver gaps al final).
+**Es la proyección original del KO — sección "Cobertura real hoy" (más abajo) es la que
+contrasta esto contra lo que el repositorio efectivamente construyó desde entonces.**
 
 | Etapa (KO) | Hoy en MOA | Con IA ampliada (Q4) | Impacto esperado (Q4, proyectado) |
 |---|---|---|---|
@@ -31,6 +33,45 @@ soporte; **no cubre las 28 etapas del encuadre fundacional de la iniciativa** (v
 | Cierre del ticket | Registro manual de horas y estado, propenso a omisión | Copilot + Skills + MCP Jira sugiere registro de horas y actualiza estado automáticamente | +30% productividad DEVs, +30% Reqs/Mej., -20% lead time |
 | Soporte productivo | Análisis de logs reactivo, ante incidentes | Copilot + MCP App Insights + MCP BD analiza logs periódicamente, detecta patrones, propone ajustes preventivos | No cuantificado en el KO |
 | Build & CI | Azure DevOps ejecuta pipeline; falla bloquea merge | DevOps agents ejecutan/validan corridas con `gh cli` para diagnosticar fallos | No cuantificado en el KO |
+
+## Cobertura real hoy — capacidades del Registry vs. etapas del SDLC (FACT, 2026-09-11)
+
+**Esto es lo que realmente existe con evidencia** (Registry, 8 entradas, `docs/history/track-1/G5.1-Reusable-Capability-Library.md`), contrastado etapa por etapa contra el mapeo del KO de arriba — no una proyección. Ninguna fila de esta tabla es aspiracional: cada capacidad citada tiene al menos `Real Use Status: EXECUTED` (ver `registry/INDEX.md`).
+
+| Etapa del SDLC | Capacidad real que la cubre | Golden Path | Estado real |
+|---|---|---|---|
+| Recepción del requerimiento / Refinamiento / User Stories / Estimation | **CAP-002** (`user-story`) + **CAP-007/CAP-008** (Context Acquisition, cuando el ticket viene de Azure DevOps/Jira) | [Golden Path #1 — AI-Assisted Requirements](../golden-paths/README.md#1-ai-assisted-requirements) | `HARDENED` — 6 ejecuciones reales, la 6ta con actor independiente (`EXEC-20260909-001`, `PILOT-003`). Ninguna evaluación es todavía humana independiente |
+| Planning / Development | **CAP-004** (`spec-driven-development`, nivel Lite) + **CAP-005** (`repository-governance`) | [Golden Path #2 — AI-Assisted Development](../golden-paths/README.md#2-ai-assisted-development) | `PROPOSAL` fortalecido — evidencia real del Workflow que lo alimenta (DataAgro, 2 tickets; `moa-sdlc` nivel Full ejecutado hasta `tester` en `MOA-1765`), sin Evidence Record propio del camino completo |
+| Design | *(parcial, dentro de CAP-004)* — `design.md` es un artefacto real del Workflow (nivel Full, `moa-sdlc`) | — | Cubierto solo como parte de spec-driven-development, no como capacidad independiente |
+| Code Review | **CAP-003** (`.NET Code Reviewer`) + **CAP-006** (`stack-best-practices-template`) | [Golden Path #4 — AI Code Review](../golden-paths/README.md#4-ai-code-review) | `PROPOSAL` fortalecido — patrón real en 2 repos (Orquestador, Scato Logística), cero Evidence Records de una ejecución real de este Golden Path específico |
+| Build & CI / Release / Deployment | **CAP-001** (`azure-devops-cli`) | — (sin Golden Path propio) | `CONFIGURED` — 2 instancias reales casi idénticas, cero ejecuciones registradas como capability (uso real vía CLI ya confirmado en historial de commits/PRs, pero no vía Evidence Record) |
+| Pull Request (apertura) | *(sin capacidad materializada)* — el KO lo describe (Copilot + Skills + MCP Jira + MCP ADO), sin evidencia de implementación real en ningún repo relevado | — | **NOT FOUND** |
+| Unit Testing / QA / Functional Testing / Regression Testing | *(sin capacidad materializada)* | [Golden Path #3 — AI-Assisted QA](../golden-paths/README.md#3-ai-assisted-qa) | `PROPOSAL` conceptual únicamente — el KO menciona MCP Playwright, sin evidencia real en ningún repo |
+| Soporte productivo / Incident Management / Troubleshooting | *(sin capacidad materializada)* — el KO propone 5 líneas de trabajo (triage, respuesta Nivel 1, comunicaciones, cierre asistido, detección de recurrencia) | — | **REQUIRES VALIDATION** — sin evidencia de implementación (ver sección "Operación y soporte" abajo) |
+| MCP / Integration Onboarding *(transversal, no una etapa)* | **CAP-007/CAP-008** como patrones de referencia | [Golden Path #6 — MCP / Integration Onboarding](../golden-paths/README.md#6-mcp--integration-onboarding) | `PROPOSAL` — el propio Golden Path señala que debería aplicarse retroactivamente al MCP Atlassian de Orquestador, algo que todavía no ocurrió |
+
+**Etapas sin ninguna capacidad ni Golden Path, ni siquiera conceptual**: Idea, Discovery,
+Business Analysis, Architecture *(fuera de lo parcial ya anotado en CAP-004)*,
+Observability *(como etapa de producto — distinto de la Observability de capacidades, ver
+`architecture/evaluation-observability.md`)*, Documentation, Knowledge Management,
+Continuous Improvement. No se inventa cobertura para ninguna — quedan **sin evidencia
+disponible**, igual que en la versión anterior de este documento.
+
+### Lectura obligatoria de esta tabla (EXTERNAL EVIDENCE — DORA, State of AI-assisted Software Development 2025/2026)
+
+El hallazgo central de DORA sobre adopción de IA en el ciclo de entrega de software es que
+**la IA amplifica, no corrige** — acelera el paso donde se aplica (ej. escribir código) sin
+que el resto del ciclo (testing, deployment, coordinación) automáticamente se mantenga al
+mismo ritmo, a menos que existan capacidades organizacionales sólidas de base (control de
+versiones, batches pequeños, plataforma de calidad). Aplicado a la tabla de arriba: MOA
+tiene cobertura real fuerte en **Requirements** (el más maduro, `HARDENED`) y evidencia
+parcial en **Development** y **Code Review**, pero **cero cobertura real en Testing/QA**
+— exactamente el tipo de desequilibrio que DORA advierte que genera cuellos de botella
+nuevos si el desarrollo se acelera sin que QA lo acompañe. Esto no es una recomendación de
+agregar una capacidad de QA sin evidencia (regla dura del assessment), es una razón
+concreta para priorizar la validación de un caso de uso real de QA/testing **antes** de
+seguir sumando cobertura en las etapas ya fuertes. Fuente:
+[DORA — State of AI-assisted Software Development 2025](https://dora.dev/dora-report-2025/).
 
 ## Gaps frente al alcance completo del encuadre fundacional de la iniciativa (REQUIRES VALIDATION)
 

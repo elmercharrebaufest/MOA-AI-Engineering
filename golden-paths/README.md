@@ -27,16 +27,26 @@ como relleno — pero no deben leerse como "listos para usar" solo por estar esc
 
 ## 1. AI-Assisted Requirements
 
-**Estado: HARDENED en G4.5, con una segunda ejecución en G4.6.** Único Golden Path del
-producto — deliberadamente no se creó un segundo (regla vigente desde G4.2). Consume
+**Estado: HARDENED en G4.5, con evidencia acumulada hasta 6 ejecuciones reales — la 6ta
+(`EXEC-20260909-001`) es la primera con un actor real independiente.** Único Golden Path
+del producto — deliberadamente no se creó un segundo (regla vigente desde G4.2). Consume
 **CAP-002** (`user-story`,
-[`../registry/entries/user-story.md`](../registry/entries/user-story.md)). Tiene
-**2 ejecuciones reales registradas** (`EXEC-20260907-001` sobre MOA-1816 en G4.4;
-`EXEC-20260908-001` sobre MOA-1765 en G4.6, elegido deliberadamente distinto para probar
-generalización) — ambas CONTROLLED DRY-RUN, ninguna independiente. Ver
-[el historial del segundo controlled dry-run](../docs/history/track-1/G4.6-Independent-Adoption-and-Validation.md) para el detalle de la segunda ejecución y
-por qué 2 ejecuciones del mismo actor siguen sin acreditar el Golden Path como validado de
-punta a punta (ver `../architecture/evaluation-observability.md` y el Product Test de G4.6).
+[`../registry/entries/user-story.md`](../registry/entries/user-story.md)). Tiene **6
+ejecuciones reales registradas**: `EXEC-20260907-001` (MOA-1816, G4.4) y `EXEC-20260908-001`
+(MOA-1765, G4.6) — Direct Context, CONTROLLED DRY-RUN del mismo agente que diseñó el
+modelo; `EXEC-20260908-003/004/005` — Connected Context vía Context Provider, mismo agente;
+y **`EXEC-20260909-001`** (`ARMOA277-45`, vía Jira/MCP) — Connected Context, ejecutada por
+un **developer real de MOA en una sesión independiente** (`PILOT-003`,
+[detalle completo](../docs/history/track-1/pilots/PILOT-003-armoa277-45-cold-start-independiente/README.md)),
+la primera vez que alguien distinto de quien construyó `MOA-AI-Engineering` usa el Golden
+Path sin guía. **Esto no lo vuelve `VERIFIED`**: la independencia del actor y la
+independencia de la evaluación son ejes distintos — la evaluación de `EXEC-20260909-001`
+sigue siendo `model-assisted` (`evaluation/EXEC-20260909-001.md`), sin HITL humano
+confirmado. Ver
+[el historial del segundo controlled dry-run](../docs/history/track-1/G4.6-Independent-Adoption-and-Validation.md)
+para el detalle de G4.6, y `PILOT-003` para el detalle de la ejecución independiente —
+incluye fricción real reportada por el developer (navegar `evidence/`/`registry/` mezclado
+con contenido de otros equipos), ya corregida parcialmente en `adoption/getting-started.md`.
 
 - **Objetivo**: reducir ambigüedad y tiempo de refinamiento de un requerimiento antes de
   que llegue a desarrollo.
@@ -82,9 +92,11 @@ de llegar a CAP-002 — el resto del camino (Human Review → Evidence → Evalu
 Measurement → Feedback) es **idéntico** en ambos modelos. Ambas variantes ya tienen al
 menos una ejecución real de punta a punta: Modelo A en `EXEC-20260907-001`/
 `EXEC-20260908-001`; Modelo B en `EXEC-20260908-003` (Azure DevOps) y en
-`EXEC-20260908-004`/`EXEC-20260908-005` (Jira, vía MCP real, sobre dos tipos de issue
-distintos) — existe evidencia inicial de generalización a dos tipos de issue reales con
-diferente nivel de completitud de información, sin que esto equivalga a `VERIFIED`.
+`EXEC-20260908-004`/`EXEC-20260908-005`/`EXEC-20260909-001` (Jira, vía MCP real, sobre tres
+tipos de issue distintos: Bug, Tarea, Test/Xray) — existe evidencia de generalización a
+tres tipos de issue reales con diferente nivel de completitud de información, y la última
+(`EXEC-20260909-001`) además con un actor independiente (`PILOT-003`) — sin que esto
+equivalga a `VERIFIED`.
 
 
 ### Qué es Common Core y qué es Team Adaptation en este Golden Path (G4.5)

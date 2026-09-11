@@ -14,6 +14,7 @@ honesto, no una omisión.
 | [`EXEC-20260908-003.md`](EXEC-20260908-003.md) | CAP-002 + CAP-007 (vertical slice) | `NOT MEASURED` | Sin baseline de Direct Context ni de Connected Context |
 | [`EXEC-20260908-004.md`](EXEC-20260908-004.md) | CAP-002 + CAP-008 (vertical slice, MCP) | `NOT MEASURED` | Sin baseline de Direct Context ni del camino MCP/REST |
 | [`EXEC-20260908-005.md`](EXEC-20260908-005.md) | CAP-002 + CAP-008 (vertical slice, MCP, segunda ejecución) | `NOT MEASURED` | Sin baseline; 2 puntos MCP (issue Error/Bug y Tarea/Task) no forman una serie comparable |
+| [`EXEC-20260909-001.md`](EXEC-20260909-001.md) | CAP-002 + CAP-008 (vertical slice, MCP, tercera ejecución) | `NOT MEASURED` | Sin baseline; 3 puntos MCP (Error/Bug, Tarea/Task, Test/Xray) siguen sin formar una serie comparable |
 
 **No existe todavía baseline cuantitativo ni medición comparativa de valor para ninguna
 capacidad.** Ningún resultado fue inventado ni convertido en `0%` por falta de dato.

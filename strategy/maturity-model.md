@@ -13,14 +13,22 @@ Gobierno → Automatización.**
 
 > No se asume que todos los equipos deban comenzar (ni terminar) en el mismo nivel.
 
-## Nivel actual por equipo (FACT — KO Interno, pág. 9 y 20)
+## Nivel actual y meta por equipo (FACT — KO Interno, pág. 9 y 20)
 
-| Equipo | Nivel actual | Evidencia (KO Interno) |
-|---|---|---|
-| DataAgro | CRAWL | DEV: autocomplete/sugerencias, debugging, poco modo agente; integración SAP; consultas sobre código existente. PM/PO/QA: documentación asistida sin herramienta específica. |
-| MOA Operaciones | CRAWL | Igual grupo que DataAgro/Scato Puerto en el KO. |
-| Scato Puerto | CRAWL | Igual grupo que DataAgro/MOA Operaciones en el KO. |
-| Scato Logística | WALK (en transición) | DEV (Cardless): modo agente con reglas de codificación, MCP contra Jira, skills e instructions. PO: agente en prueba. QA: generación de casos con apoyo de Copilot. |
+**Es un mapa de progresión, no 2 columnas independientes**: la pág. 20 del KO muestra una
+flecha desde el nivel de hoy de cada equipo hacia su meta a fin de 2026 — verificado
+visualmente contra la slide, no solo por el texto extraído (corrección 2026-09-11, la
+versión anterior de esta tabla omitía la columna de meta).
+
+| Equipo | Nivel hoy | Meta fin 2026 | Evidencia (KO Interno) |
+|---|---|---|---|
+| DataAgro | CRAWL | **WALK** | DEV: autocomplete/sugerencias, debugging, poco modo agente; integración SAP; consultas sobre código existente. PM/PO/QA: documentación asistida sin herramienta específica. |
+| MOA Operaciones | CRAWL | **WALK** | Igual grupo que DataAgro/Scato Puerto en el KO. |
+| Scato Puerto | CRAWL | **WALK** | Igual grupo que DataAgro/MOA Operaciones en el KO. |
+| Scato Logística | WALK (en transición) | **RUN** | DEV (Cardless): modo agente con reglas de codificación, MCP contra Jira, skills e instructions. PO: agente en prueba. QA: generación de casos con apoyo de Copilot. |
+
+Ningún equipo está hoy en RUN — es el destino de madurez del marco (características
+descritas más arriba), no un estado de partida de ningún equipo real.
 
 **[REQUIRES VALIDATION]** El KO no detalla el nivel de madurez de los equipos Data, Web
 Development, Enterprise Applications (más allá de Scato Logística), Security, DevOps ni

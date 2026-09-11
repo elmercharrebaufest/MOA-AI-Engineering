@@ -1,6 +1,11 @@
-# PILOT-001 — CAP-005 (repository-governance) en MoaOperaciones — SANDBOX
+# PILOT-001 — CAP-005 (repository-governance) en MoaOperaciones — CERRADO SIN EJECUTAR
 
-**Estado: SANDBOX / PROPOSAL — no integrado al repositorio real de MoaOperaciones.**
+**Estado: CERRADO (2026-09-09) — nunca se ejecutó con un developer real independiente.**
+Todos los campos de `execution-record.md`/`feedback-record.md` quedaron en "pendiente"
+desde su creación — no hubo actor externo real que lo completara. Se cierra este sandbox
+en vez de dejarlo abierto indefinidamente sin evidencia. **Superseded by**: el usuario
+(no un developer hipotético de MoaOperaciones) va a correr el protocolo cold-start real
+él mismo, con una tarea de Jira real como input — ver nota al final de este archivo.
 
 ## Por qué existe esta carpeta
 
@@ -53,3 +58,13 @@ exactas a entregarle (sin mostrarle el borrador antes).
 5. Esto sigue sin ser `VERIFIED` en el Registry ni promovible a `Corporate Standard` —
    Blocked Decision #1 (mandato de gobierno) sigue sin resolverse, este piloto no lo
    reemplaza.
+
+## Cierre (2026-09-09)
+
+Ningún developer real de MoaOperaciones ejecutó este protocolo — se mantuvo en
+"pendiente" desde su creación. En vez de simularlo o completarlo por inferencia, se
+cierra honestamente sin evidencia y se reemplaza por un intento real: el usuario va a
+actuar él mismo como la persona sin conocimiento previo del proyecto, dando como entrada
+una tarea de Jira real (ver `PILOT-002`). `AGENTS.md.proposal.md` de esta carpeta sigue
+disponible para comparación futura si se retoma este piloto específico con un developer
+real de MoaOperaciones.

@@ -97,6 +97,15 @@ responde al otro:
 significa que alguien lo haya ejecutado. Son preguntas independientes — ver
 [`../architecture/capability-registry.md`](../architecture/capability-registry.md).
 
+**No mezcles tu tarea con el modelo (regla dura, hallazgo real de un piloto).** La tabla
+de Evidence/Evaluation/Measurement de una entrada del Registry lista **todas** las
+ejecuciones reales acumuladas de esa capability — de tu proyecto y de otros, a veces de
+meses distintos. **No necesitás leerlas ni entenderlas para ejecutar tu propia tarea.**
+Esas filas existen para que el equipo que mantiene `MOA-AI-Engineering` audite el modelo
+en conjunto, no como instrucciones para vos. Tu única lectura obligatoria del Registry es
+el cuerpo de la entrada (`Propósito`, `Cuándo usarla`, `Instrucciones`) — el historial de
+ejecuciones de otros es contexto opcional, no un prerrequisito.
+
 ## 5. Adoptar / Adaptar
 
 1. Abrí la capability elegida (`capabilities/<tipo>/<nombre>/`).
@@ -181,6 +190,21 @@ Detalle técnico completo de contexto conectado (Jira, Azure DevOps):
 
 **Evidence demuestra que una ejecución ocurrió** — en lenguaje simple: es la prueba, no
 la opinión sobre si salió bien (eso es Evaluation).
+
+**Tu evidencia vive en un único archivo, propio de tu tarea — nunca mezclado con el de
+otro ticket.** Un `EXEC-<fecha>-<n>.md` es 1:1 con 1 ejecución real sobre 1 ticket/input
+real tuyo. Vos solo necesitás:
+
+1. Crear tu propio `EXEC-<fecha>-<n>.md` (copiá el template, no reutilices el de otra
+   ejecución).
+2. Completar los campos sobre **tu** input/output — nunca copiar contenido de otro
+   registro para "completar" el tuyo.
+3. Dejar `evaluation_reference`/`metric_reference` como `NOT EVALUATED`/`NOT MEASURED`
+   hasta que existan los tuyos propios.
+
+No necesitás abrir ni entender los `EXEC-*.md` de otros tickets/equipos para esto — son
+evidencia acumulada del modelo (útil para quien lo audita), no parte de tu flujo de
+trabajo.
 
 - **Qué archivo usar**: [`templates/evidence-record.md`](templates/evidence-record.md).
 - **Qué registrar**: quién ejecutó, cuándo, con qué capability y versión, sobre qué

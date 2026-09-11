@@ -25,6 +25,51 @@ manera sistemática, gobernada, reutilizable y medible dentro del SDLC, aceleran
 evolución de los servicios actuales para mejorar productividad, calidad, seguridad,
 trazabilidad y velocidad de entrega."
 
+### La distinción fundamental — dos fuentes, nunca una sola
+
+**PROPOSAL — forma visual explícita del mismo mecanismo descrito en "Cómo se construye
+el modelo" y "Fuentes de conocimiento del modelo" más abajo; no es una tercera fuente ni
+un paso adicional del pipeline.** Esta bifurcación es la distinción que gobierna todo lo
+que entra al modelo — ninguna práctica avanza sin pasar por las dos ramas y su síntesis:
+
+```
+                        TRACK 1
+                           │
+              ┌────────────┴────────────┐
+              ▼                         ▼
+       EXPERIENCIA MOA              EXPERTISE AI
+       REAL Y ADOPTADA              / EXTERNA
+              │                         │
+     buenas prácticas             mejores prácticas
+     evidencia real                patrones actuales
+     implementaciones              evolución tecnológica
+     lecciones aprendidas         seguridad / governance
+     problemas reales             evaluación / medición
+              │                         │
+              └────────────┬────────────┘
+                           ▼
+                 ANÁLISIS CRÍTICO
+                           │
+                           ▼
+                 ADOPTAR / ADAPTAR
+                 MEJORAR / DESCARTAR
+                           │
+                           ▼
+                  MODELO BASE MOA
+                           │
+                           ▼
+                   REUTILIZABLE
+                   GOBERNADO
+                   MEDIBLE
+                   EVOLUTIVO
+```
+
+Equivalencia con el vocabulario ya usado en el resto de este documento: "EXPERIENCIA MOA
+REAL Y ADOPTADA" = **Fuente A / Internal MOA Evidence**; "EXPERTISE AI / EXTERNA" =
+**Fuente B / AI Engineering Expertise / External Practice**; "MODELO BASE MOA" = **Fuente
+C / MOA Target Pattern**, una vez que pasó por el Assessment Gate (sección 6, capa 3) —
+no es una fase distinta al pipeline de la sección 3, es su forma resumida y visual.
+
 ### Cómo se construye el modelo
 
 **PROPOSAL — mecanismo permanente de construcción y evolución del modelo, no una fase
@@ -150,6 +195,39 @@ adaptación → validación real, sección 3). De la misma forma, una práctica 
 vigente, ver sección 4 y `lifecycle.md` regla dura #1). **Ninguna práctica de ninguna de
 las 2 fuentes fue elevada a `Corporate Standard: Y` hasta hoy** (ver sección 12 y
 [`../registry/INDEX.md`](../registry/INDEX.md)).
+
+**La misma regla, en forma de secuencia de preguntas — anti-patrón explícito que esta
+secuencia previene: `EXTERNAL BEST PRACTICE → COMMON CORE` (atajo, no permitido).**
+Toda práctica de la Fuente B recorre esta cadena antes de convertirse en Fuente C; si la
+respuesta a cualquier pregunta es negativa o no puede sustentarse con evidencia, la
+práctica se descarta o queda `REQUIRES VALIDATION`, nunca avanza por defecto:
+
+```
+External Practice
+      ↓
+¿Es relevante para MOA?
+      ↓
+¿Resuelve una necesidad real?
+      ↓
+¿Es compatible con nuestro contexto?
+      ↓
+¿Tiene riesgos?
+      ↓
+¿Puede probarse?
+      ↓
+Pilot / Validation
+      ↓
+Evidence
+      ↓
+Reusable Pattern
+```
+
+Esta secuencia es la misma lista de "relevancia → análisis crítico → compatibilidad con
+MOA → riesgo → utilidad esperada → posibilidad de validación → adaptación → validación
+real" citada arriba, expresada como preguntas de gate en vez de sustantivos — ambas
+formas son equivalentes y coexisten en este documento para distintos propósitos (la
+forma de preguntas es más útil como checklist operativo al evaluar una práctica externa
+puntual).
 
 **Ejemplo de aplicación correcta (no mezclar niveles)**:
 

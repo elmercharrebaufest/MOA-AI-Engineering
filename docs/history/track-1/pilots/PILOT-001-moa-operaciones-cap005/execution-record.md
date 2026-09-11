@@ -21,5 +21,5 @@
 | `actual_output_reference` | *(pendiente — completar cuando el developer termine)* |
 | `human_review_required` | true |
 | `human_review_status` | PENDING |
-| `execution_status` | *(pendiente — `EXECUTED` si completa el intento, `PARTIAL` si queda bloqueado a mitad de camino, `FAILED` si no logra avanzar)* |
-| `notes` | Es la **primera ejecución candidata a adopción independiente real** de Track 1 — actor distinto (developer de MoaOperaciones) de quien diseñó CAP-005. `AGENTS.md.proposal.md` (mi borrador previo) se mantiene oculto hasta que termine, solo para comparación posterior. |
+| `execution_status` | **CANCELLED (2026-09-09) — nunca se ejecutó.** Ningún developer real de MoaOperaciones tomó este piloto; se cierra sin `actual_output_reference` en vez de quedar abierto sin fecha. |
+| `notes` | Es la **primera ejecución candidata a adopción independiente real** de Track 1 — actor distinto (developer de MoaOperaciones) de quien diseñó CAP-005. `AGENTS.md.proposal.md` (mi borrador previo) se mantiene oculto hasta que termine, solo para comparación posterior. Reemplazado por un intento real del usuario con una tarea de Jira real (ver `PILOT-002`). |
