@@ -192,10 +192,13 @@ PR".
 - **Entrada**: historia de usuario + contexto del repo (Instructions de capa).
 - **Pasos**: (1) leer instructions de la capa afectada (`CAP-005`), (2) consultar skills de
   dominio si aplica, (3) generar/proponer código siguiendo el Workflow `CAP-004` (nivel
-  Lite recomendado como punto de partida), (4) generar tests, (5) abrir PR.
+  Lite recomendado como punto de partida — si hubo investigación real previa o la feature
+  expone/consume una API, sumar `research.md`/`contracts/`, ver "Artefactos ampliados" en
+  la propia capability), (4) generar tests, (5) abrir PR.
 - **Capacidades**: Instruction (`CAP-005`, evidencia real en 4 repos), Skill de dominio,
-  Workflow (`CAP-004`, spec-driven development — 2 niveles de madurez, ver su propia
-  capability para la distinción Lite/Full).
+  Workflow (`CAP-004`, spec-driven development — 2 niveles de madurez + 2 artefactos
+  opcionales `research.md`/`contracts/` desde G8, ver su propia capability para la
+  distinción Lite/Full).
 - **HITL**: revisión humana del PR antes de merge — **no automatizar el merge** (regla ya
   vigente en `AGENTS.md` de DataAgro/Scato Logística: nunca `git push`/merge autónomo).
 - **Evaluación**: ¿el código compila, pasa tests, sigue las convenciones declaradas en las
