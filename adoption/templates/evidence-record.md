@@ -32,6 +32,24 @@
 | `metric_reference` | *(referencia al Measurement Result correspondiente, o `NOT MEASURED`)* |
 | `status` | *(`EXECUTED` / `PARTIAL` / `FAILED`)* |
 
+## Cómo escribir el texto alrededor de la tabla (no solo llenar campos)
+
+La tabla de campos va tal cual. Pero cualquier explicación que agregues alrededor —
+por qué se hizo algo, qué pasó, qué falta — **escribila como si se la contaras a un
+colega, no como un reporte de auditoría**. Evitá:
+
+- Hablar del proceso en vez del resultado ("es la primera ejecución con actor
+  independiente de quien diseñó el modelo" → mejor: "esta la hizo alguien que no tuvo
+  nada que ver con armar el repositorio").
+- Meter IDs de otras ejecuciones en el medio de la oración — si hace falta compararlas,
+  decilo en una frase aparte, simple.
+- Jerga interna de clasificación (`CONTROLLED DRY-RUN`, "2 ejes distintos") — si el
+  concepto importa, explicalo con palabras comunes.
+- Frases tipo "ver sección de abajo" en cada párrafo — cortan la lectura.
+
+Si dudás, releé lo que escribiste en voz alta: si suena a que alguien está describiendo
+un sistema en vez de contarte qué pasó, reescribilo.
+
 ## Qué NO registrar acá
 
 - Secretos, credenciales, tokens.

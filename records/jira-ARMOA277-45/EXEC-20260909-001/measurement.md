@@ -4,44 +4,37 @@
 
 | Campo | Valor |
 |---|---|
-| `metric_id` | MET-CTX-01 (reutilizada, no ratificada — misma métrica candidata que en `EXEC-20260908-004`/`005`) |
+| `metric_id` | MET-CTX-01 (todavía no es una métrica oficial, es candidata) |
 | `capability_id` | CAP-002 / CAP-008 |
-| `evidence_reference` | [`EXEC-20260909-001`](evidence.md) |
-| `evaluation_reference` | [`EXEC-20260909-001`](evaluation.md) |
-| `value` | — (sin medir) |
+| `evidence_reference` | [`evidence.md`](evidence.md) |
+| `evaluation_reference` | [`evaluation.md`](evaluation.md) |
+| `value` | — (no hay medición) |
 | `unit` | — |
 | `period` | — |
-| `baseline_reference` | **REQUIRES VALIDATION** — no existe baseline ratificado |
+| `baseline_reference` | Todavía no hay un baseline confirmado |
 | `confidence` | — |
-| `status` | **NOT MEASURED** |
+| `status` | No medido |
 
-## Justificación de `NOT MEASURED`
+## Por qué no hay medición todavía
 
-Esta es la **cuarta ejecución real** documentada de este patrón en total
-(`EXEC-20260908-002` BLOCKED/REST, `EXEC-20260908-004` EXECUTED/MCP,
-`EXEC-20260908-005` EXECUTED/MCP, `EXEC-20260909-001` EXECUTED/MCP — esta), y la
-**tercera ejecución real exitosa** sobre el camino MCP. Tres puntos de datos exitosos
-siguen sin constituir una serie estadística válida para ratificar `MET-CTX-01` ni ningún
-baseline de completitud/calidad:
+Esta es la cuarta vez que se prueba este mismo camino (traer contexto de Jira/ADO y
+generar la historia de usuario), y la tercera vez que sale bien. Tres casos exitosos
+todavía no alcanzan para sacar una conclusión estadística ni para confirmar esta métrica
+como algo oficial:
 
-- Ahora hay 3 tipos de issue probados (`Error`, `Tarea`, `Test`) de los 17 tipos reales
-  que existen en el proyecto — mejora la cobertura, pero sigue siendo una muestra pequeña
-  no representativa.
-- El ejecutor de las 3 ejecuciones MCP es el mismo actor que definió el patrón — no hay
-  variación de ejecutor que permita separar "calidad del patrón" de "calidad del
-  ejecutor".
-- No existe evaluación humana en ninguna de las tres ejecuciones MCP, por lo que no hay
-  una etiqueta de verdad (ground truth) validada contra la cual calcular una métrica de
-  precisión/completitud real.
+- Ya se probaron 3 tipos distintos de issue (un bug, una tarea, y ahora un caso de
+  prueba), de los 17 tipos que existen en el proyecto real — es un buen avance, pero
+  sigue siendo poca muestra.
+- Las 3 ejecuciones las hizo la misma persona que diseñó el patrón — todavía no hay forma
+  de separar "qué tan bueno es el método" de "qué tan bien lo usa quien lo inventó".
+- Ninguna de las 3 tiene todavía una revisión humana confirmada — sin eso, no hay con qué
+  comparar si el resultado fue realmente bueno o no.
 
-## Nota para futuras mediciones
+## Qué haría falta para poder medir esto
 
-Los campos de este registro quedan preparados con la misma estructura que
-`measurements/EXEC-20260908-004.md` y `measurements/EXEC-20260908-005.md` para cuando
-exista:
-1. Una evaluación humana confirmada (`hitl_confirmed_by` distinto de "Ninguno") sobre al
-   menos una ejecución de este patrón, y
-2. Un volumen de ejecuciones suficiente (recomendado: ≥5, con variación real de tipo de
-   issue y de ejecutor) para ratificar `MET-CTX-01` como métrica activa con baseline.
+1. Que al menos una de estas ejecuciones tenga una revisión humana real confirmada.
+2. Un número más grande de ejecuciones (recomendado: 5 o más), con variedad de tipo de
+   issue y, si es posible, de quién las ejecuta.
 
-No se declara ningún valor, unidad ni período simulado para completar esta tabla.
+No se completa ningún valor ni porcentaje inventado mientras tanto — que diga "no medido"
+es un resultado honesto, no una plantilla a medio llenar.

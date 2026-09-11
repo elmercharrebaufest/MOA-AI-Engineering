@@ -28,6 +28,13 @@
 | `hitl_required` | *(`true`/`false` — si esta evaluación requería validación humana)* |
 | `hitl_confirmed_by` | *(quién confirmó, si `hitl_required = true`; si no hay nadie confirmado, decilo)* |
 
+## Cómo escribir la justificación (`rationale`) y el texto alrededor
+
+Escribilo en lenguaje simple, como si le explicaras a alguien por qué diste ese resultado
+— no como un reporte técnico. Mismo criterio que en `evidence-record.md`: evitá jerga
+interna, evitá encadenar IDs de otras ejecuciones en el medio de una oración, y contá el
+resultado en vez de describir el método de clasificación usado para llegar a él.
+
 ## Qué NO hacer
 
 - No tratar un `result: PASS` de `method: model-assisted` como si fuera una aprobación

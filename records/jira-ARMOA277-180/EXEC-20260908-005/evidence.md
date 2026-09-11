@@ -74,7 +74,7 @@ Campos reales devueltos (resumen, sin inventar ninguno adicional):
 
 **No se creó un contrato nuevo, ni se modificó el existente.** Se serializó la respuesta
 real contra
-[`../integrations/scripts/resolved-context.schema.json`](../integrations/scripts/resolved-context.schema.json)
+[`../integrations/scripts/resolved-context.schema.json`](../../../integrations/scripts/resolved-context.schema.json)
 tal cual — mismo schema que `EXEC-20260908-004`.
 
 Resolved Context real, sin editar (`description` se deja `null` porque el campo real de

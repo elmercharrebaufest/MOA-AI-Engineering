@@ -60,7 +60,7 @@ ejecución — la sesión OAuth ya existente del cliente MCP fue la que autoriz�
 ## Paso 2 — Transformación al contrato `Resolved Context` existente
 
 **No se creó un contrato nuevo.** Se serializó la respuesta real de `getJiraIssue` contra
-[`../integrations/scripts/resolved-context.schema.json`](../integrations/scripts/resolved-context.schema.json)
+[`../integrations/scripts/resolved-context.schema.json`](../../../integrations/scripts/resolved-context.schema.json)
 tal cual — mismo schema que ya usa `azure-devops-context.ps1`/`jira-context.ps1`. La
 transformación la hizo el Agent Runtime directamente (no un script PowerShell — `getJiraIssue`
 solo puede invocarlo el cliente MCP, no un proceso standalone, tal como ya documenta

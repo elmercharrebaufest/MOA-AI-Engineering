@@ -1,77 +1,77 @@
 # Evidence Record — EXEC-20260909-001
 
-**La más significativa de las 6 ejecuciones de CAP-002 hasta hoy**: es la **primera con un
-actor real independiente** de quien diseñó `MOA-AI-Engineering` — ver
-[`PILOT-003`](../../../docs/history/track-1/pilots/PILOT-003-armoa277-45-cold-start-independiente/README.md).
-Todas las anteriores (`EXEC-20260907-001` a `EXEC-20260908-005`) fueron CONTROLLED
-DRY-RUN del mismo agente que construyó el modelo. La `Evaluation` sigue siendo
-`model-assisted` (sección de abajo) — la independencia del actor y la independencia de la
-evaluación son 2 ejes distintos, y solo el primero se resuelve acá.
+Esta es la ejecución más importante de las 6 que tiene `user-story` (CAP-002) hasta ahora:
+fue la primera vez que alguien de MOA la usó por su cuenta, sin relación con quien armó
+este repositorio. Las 5 anteriores las hizo la misma persona que diseñó el modelo, a modo
+de prueba. El detalle de cómo pasó está en
+[PILOT-003](../../../docs/history/track-1/pilots/PILOT-003-armoa277-45-cold-start-independiente/README.md).
 
-Contrato canónico: [`../architecture/evidence-evaluation-measurement.md`](../../../architecture/evidence-evaluation-measurement.md#1-evidence).
-**Tercera ejecución real de Connected Context vía MCP (Prioridad 1)**: Jira (real, tenant
-`baufest.atlassian.net`) → Atlassian Rovo MCP → `getJiraIssue` → Resolved Context →
-CAP-002 (real), sobre un issue de tipo `Test` (Xray) — un tercer tipo de issue distinto de
-[`EXEC-20260908-004.md`](../../jira-ARMOA277-191/EXEC-20260908-004/evidence.md) (`Error`/Bug) y
-[`EXEC-20260908-005.md`](../../jira-ARMOA277-180/EXEC-20260908-005/evidence.md) (`Tarea`/Task).
+Una aclaración importante: que la haya ejecutado una persona independiente **no significa
+que el resultado ya esté evaluado por un humano** — eso todavía no pasó (lo ves en el
+archivo `evaluation.md` de esta misma carpeta). Son 2 cosas distintas: quién ejecutó, y
+quién revisó que el resultado esté bien.
+
+Lo que se hizo, en simple: se trajo el ticket real `ARMOA277-45` directamente desde Jira
+(usando el servidor MCP de Atlassian, no copiando y pegando a mano), y con ese contenido
+se generó la historia de usuario, los criterios de aceptación, las reglas de negocio y las
+preguntas abiertas. Es la tercera vez que se prueba este camino de punta a punta, y la
+primera sobre un caso de prueba (tipo `Test` en Jira) en vez de un bug o una tarea — así
+que además sirve para confirmar que la capability funciona también con este tipo de
+contenido.
+
+Contrato canónico: [`evidence-evaluation-measurement.md`](../../../architecture/evidence-evaluation-measurement.md#1-evidence).
 
 | Campo | Valor |
 |---|---|
-| `capability_id` | CAP-002 (`user-story`), habilitado por CAP-008 (`jira-context`) |
-| `capability_version` | CAP-002 `1.0-generalized`; CAP-008 `1.0-pattern` (`jira-context-provider v1`) |
+| `capability_id` | CAP-002 (`user-story`), con el contexto traído por CAP-008 (`jira-context`) |
+| `capability_version` | CAP-002 `1.0-generalized`; CAP-008 `1.0-pattern` |
 | `execution_id` | EXEC-20260909-001 |
 | `executed_at` | 2026-09-09 |
-| `actor` | Developer real de MOA, **independiente de quien diseñó `MOA-AI-Engineering`** (human+AI assistant — GitHub Copilot Agent, VS Code), en una sesión de chat separada sin el historial de diseño de este repositorio — ver `docs/history/track-1/pilots/PILOT-003-armoa277-45-cold-start-independiente/README.md` |
+| `actor` | Un developer real de MOA, sin relación con quien armó este repositorio, trabajando en una sesión de chat aparte (GitHub Copilot Agent, VS Code) — ver `PILOT-003` |
 | `repository` | `MOA-AI-Engineering` |
 | `branch` | `main` |
-| `input_reference` | Issue real **ARMOA277-45**, proyecto `ARMOA277` ("GMK - MOLINOS - Portal de Créditos - MOA"), tenant `baufest.atlassian.net` — `https://baufest.atlassian.net/browse/ARMOA277-45` |
-| `output_reference` | Historia de usuario + criterios + reglas + análisis de gaps (ver Paso 3 más abajo) |
+| `input_reference` | Issue real **ARMOA277-45**, del proyecto "GMK - MOLINOS - Portal de Créditos - MOA" — `https://baufest.atlassian.net/browse/ARMOA277-45` |
+| `output_reference` | La historia de usuario, criterios, reglas y preguntas abiertas (ver más abajo) |
 | `evidence_reference` | Este mismo registro |
-| `evaluation_reference` | [`EXEC-20260909-001`](evaluation.md) |
-| `metric_reference` | [`EXEC-20260909-001`](measurement.md) — `NOT MEASURED` |
-| `status` | **EXECUTED** — real, no simulado |
+| `evaluation_reference` | [`evaluation.md`](evaluation.md) |
+| `metric_reference` | [`measurement.md`](measurement.md) — todavía no hay nada medido |
+| `status` | Ejecutado, real, no simulado |
 
-## Por qué se eligió `ARMOA277-45`
+## Por qué este ticket
 
-El usuario aportó directamente la referencia `ARMOA277-45` (sin búsqueda JQL previa, a
-diferencia de `EXEC-20260908-005`). El issue real resultó ser de tipo `Test` (Xray Test
-Issue Type) — un tercer tipo distinto de los dos ya probados en este proyecto (`Error`/Bug
-en `EXEC-20260908-004`, `Tarea`/Task en `EXEC-20260908-005`), lo que suma evidencia real de
-generalización de CAP-002 sobre un tipo de contenido adicional: un caso de prueba, no un
-requerimiento ni una tarea de infraestructura.
+El developer dio directamente la referencia `ARMOA277-45`, sin buscarla antes en Jira. El
+issue resultó ser un caso de prueba (tipo `Test`, de Xray) — un tipo distinto a los 2 que
+ya se habían probado antes (un bug y una tarea de infraestructura), así que de paso suma
+evidencia de que la capability también funciona bien sobre este tipo de contenido, no solo
+sobre requerimientos o tareas.
 
-## Paso 1 — `getJiraIssue` real (Prioridad 1, MCP)
+## Paso 1 — Traer el issue real desde Jira
 
-Herramienta invocada: `mcp_atlassian-mcp_getJiraIssue`, parámetros
-`cloudId: 61607e2f-377a-4c9b-be69-4e95aa418683`, `issueIdOrKey: ARMOA277-45`. Ninguna
-credencial, token ni variable de entorno fue leída, generada ni almacenada por esta
-ejecución — misma sesión OAuth ya autorizada del cliente MCP, reutilizada sin volver a
-autenticar.
+Se usó la herramienta `getJiraIssue` (vía MCP de Atlassian) para pedir el issue
+`ARMOA277-45` directamente. No se leyó, generó ni guardó ninguna credencial en este
+paso — se reutilizó la sesión ya autorizada del cliente MCP.
 
-Campos reales devueltos (resumen, sin inventar ninguno adicional):
+Esto es lo que Jira devolvió (sin agregar ni resumir nada):
 
 | Campo Jira | Valor real |
 |---|---|
 | `summary` | "Consulta de Datos Sociedad exitosa (Integración SAP)" |
-| `issuetype` | `Test` — `id: 11936`, "This is the Xray Test Issue Type. Used to define test cases of different types that can be executed multiple times using Test Execution issues." |
+| `issuetype` | `Test` (caso de prueba de Xray) |
 | `description` | "Validar que al realizar una Búsqueda con CUIT y Cosecha válidos, el sistema recupere y muestre la información de SAP de forma correcta en Datos Sociedad." |
-| `status` | `Pendiente` (`statusCategory: Por hacer/new`) |
-| `resolution` | `null` |
-| `priority` | "Medium" |
-| `project` | `ARMOA277` — "GMK - MOLINOS - Portal de Créditos - MOA" |
-| `reporter` / `assignee` | Ricardo García Meza (`rgarcia@baufest.com`), mismo usuario en ambos campos |
-| `created` | `2026-06-22T18:32:20.953-0300` |
-| `updated` | `2026-06-23T11:47:47.412-0300` |
-| `labels` / `components` | `[]` (vacíos) |
+| `status` | Pendiente |
+| `priority` | Medium |
+| `project` | ARMOA277 — "GMK - MOLINOS - Portal de Créditos - MOA" |
+| `reporter` / `assignee` | Ricardo García Meza, en ambos campos |
+| `created` | 2026-06-22 |
+| `updated` | 2026-06-23 |
+| `labels` / `components` | vacíos |
 
-## Paso 2 — Transformación al contrato `Resolved Context` existente
+## Paso 2 — Armar el contexto que recibe la capability
 
-**No se creó un contrato nuevo, ni se modificó el existente.** Se serializó la respuesta
-real contra
-[`../integrations/scripts/resolved-context.schema.json`](../integrations/scripts/resolved-context.schema.json)
-tal cual — mismo schema que `EXEC-20260908-004`/`EXEC-20260908-005`.
-
-Resolved Context real, sin editar:
+Con esos datos se arma un paquete de contexto (`Resolved Context`) en el mismo formato que
+ya usan las otras ejecuciones — no se inventó ni se cambió nada del formato para esta.
+`requirements` y `acceptanceCriteria` quedan vacíos porque Jira no tenía cargados esos
+campos específicos para este issue, no porque se haya omitido algo a propósito:
 
 ```json
 {
@@ -100,48 +100,26 @@ Resolved Context real, sin editar:
 }
 ```
 
-**No se inventó ningún campo que Jira no tenga** — `requirements` y `acceptanceCriteria`
-quedan `null` porque el issue real no tiene campos Xray de criterios estructurados
-recuperados en esta llamada (`fields` por defecto, sin `expand` de campos Xray custom).
+## Paso 3 — Generar la historia de usuario
 
-## Paso 3 — CAP-002 (`user-story`) ejecutado sobre el Resolved Context real
+Con ese contexto, se aplicó la capability `user-story` tal cual está definida, sin
+modificarla. Esto fue lo que se generó:
 
-Aplicado el patrón de
-[`../capabilities/skills/user-story/SKILL.md`](../../../capabilities/skills/user-story/SKILL.md)
-tal cual, sin modificar la capability, usando como input:
+### Historia de usuario
 
 ```
-Ticket:
-ARMOA277-45
-
-Requirement:
-"Validar que al realizar una Búsqueda con CUIT y Cosecha válidos, el sistema recupere y
-muestre la información de SAP de forma correcta en Datos Sociedad."
-
-Context:
-"Fuente: jira (ARMOA277-45)
-Estado en origen: Pendiente (no resuelto)
-Tipo: Test (Xray Test Issue Type)
-Referencia verificable: https://baufest.atlassian.net/browse/ARMOA277-45
-Resuelto: 2026-09-09 via jira-context-provider v1 (Atlassian Rovo MCP, getJiraIssue)"
-```
-
-### 1. Historia de usuario
-
-```
-Como usuario del Portal de Créditos (rol específico REQUIERE VALIDACIÓN — no declarado en
-el issue),
+Como usuario del Portal de Créditos (el rol específico no está definido en el issue —
+falta confirmarlo),
 quiero consultar los Datos de Sociedad ingresando CUIT y Cosecha,
 para obtener la información de la sociedad sincronizada desde SAP sin consultarla
 manualmente en el sistema origen.
 ```
 
-**Nota de fidelidad**: el issue de origen es un caso de prueba (Xray `Test`), no una
-historia de usuario ni un requerimiento crudo — la historia fue reconstruida hacia atrás
-desde el comportamiento esperado que el caso de prueba describe, no desde un pedido de
-negocio explícito. Esto se declara como limitación, no se disimula.
+El issue de origen es un caso de prueba, no una historia de usuario ni un pedido de
+negocio explícito — la historia se reconstruyó hacia atrás desde lo que el caso de prueba
+describe. Se aclara esto como una limitación real, no se disimula.
 
-### 2. Criterios de aceptación
+### Criterios de aceptación
 
 ```
 Dado que el usuario ingresa un CUIT y una Cosecha válidos y existentes en SAP,
@@ -152,23 +130,21 @@ pantalla de Datos Sociedad.
 Dado que el usuario ingresa un CUIT válido pero sin datos asociados en SAP para la
 Cosecha indicada,
 cuando ejecuta la búsqueda,
-entonces el sistema debe informar la ausencia de datos de forma explícita (comportamiento
-exacto NO documentado en el issue real — registrado como gap, no inventado).
+entonces el sistema debe informar la ausencia de datos de forma explícita (este
+comportamiento no está documentado en el issue — queda como pregunta abierta, no se
+inventó).
 
 Dado que el CUIT o la Cosecha ingresados tienen formato inválido,
 cuando el usuario ejecuta la búsqueda,
-entonces el sistema debe rechazar la búsqueda y mostrar un mensaje de validación
-(comportamiento exacto NO documentado en el issue real — registrado como gap, no
-inventado).
+entonces el sistema debe rechazar la búsqueda y mostrar un mensaje de validación (ídem,
+no documentado, queda como pregunta abierta).
 ```
 
-**Nota de fidelidad**: solo el primer criterio (camino feliz) está respaldado
-directamente por el texto real del issue ("exitosa" en el summary, y la descripción
-completa). Los otros dos (error/borde) son inferencias razonables de cobertura mínima
-exigidas por la skill, no comportamiento confirmado — se marcan explícitamente como tal,
-no se presentan con el mismo nivel de certeza que el primero.
+Solo el primer criterio (el camino esperado) está respaldado directamente por lo que dice
+el issue. Los otros 2 son deducciones razonables de lo mínimo que cualquier búsqueda
+debería cubrir — se marcan como tal, no se presentan con la misma certeza que el primero.
 
-### 3. Reglas de negocio
+### Reglas de negocio
 
 ```
 RN-01: La búsqueda de Datos Sociedad requiere CUIT y Cosecha como criterios de búsqueda.
@@ -176,44 +152,38 @@ RN-02: Los datos mostrados en Datos Sociedad provienen de una integración con S
        una fuente propia del Portal de Créditos).
 ```
 
-Ilustrativas del formato — no certificadas contra la implementación real; validar cada
-regla contra la integración SAP antes de dar la historia por cerrada.
+Son ilustrativas del formato esperado, no están certificadas contra la implementación
+real — hay que validar cada una contra la integración con SAP antes de dar la historia
+por cerrada.
 
-### 4. Análisis de gaps
+### Preguntas abiertas
 
 ```
 ❓ ¿Qué debe mostrar el sistema si el CUIT/Cosecha son válidos pero SAP no tiene datos
    para esa combinación?
-   Contexto: el issue solo describe el camino feliz ("exitosa"); no hay un caso de
-   prueba hermano visible para el camino sin datos.
-   Impacto si no se resuelve: medio.
+   El issue solo describe el caso exitoso; no hay un caso de prueba para cuando no hay
+   datos. Impacto si no se resuelve: medio.
 
-❓ ¿Qué pasa si la integración con SAP no responde o responde con error/timeout?
-   Contexto: no se documenta manejo de fallas de la integración externa.
-   Impacto si no se resuelve: alto — integración externa es un punto de falla real.
+❓ ¿Qué pasa si la integración con SAP no responde o da timeout?
+   No hay nada documentado sobre cómo manejar una falla de la integración externa.
+   Impacto si no se resuelve: alto — es un punto de falla real.
 
-❓ ¿Cuál es el rol real que ejecuta esta búsqueda?
-   Contexto: el issue no declara un actor/rol; "usuario del Portal de Créditos" es un
-   placeholder, no un rol validado del dominio.
-   Impacto si no se resuelve: medio.
+❓ ¿Cuál es el rol real que hace esta búsqueda?
+   El issue no dice quién ejecuta esta acción; "usuario del Portal de Créditos" es un
+   placeholder, no un rol confirmado del negocio. Impacto si no se resuelve: medio.
 
-❓ ¿Qué formato válido debe tener el CUIT y la Cosecha (rango, longitud, tipo)?
-   Contexto: no está especificado en el issue ni en la descripción del test.
-   Impacto si no se resuelve: medio — afecta el criterio de validación/error.
+❓ ¿Qué formato válido deben tener el CUIT y la Cosecha?
+   No está especificado ni en el issue ni en la descripción del caso de prueba. Impacto
+   si no se resuelve: medio — afecta directamente el criterio de validación.
 ```
 
-## Restricciones respetadas (verificado)
+## Qué se respetó durante esta ejecución
 
-- **Solo lectura**: únicamente se invocó `getJiraIssue`. Ninguna herramienta `WRITE` fue
-  invocada.
-- **Sin API Token / REST como camino principal**: exclusivamente MCP (`getJiraIssue`), no
-  `jira-context.ps1`.
-- **Sin credenciales almacenadas**: ningún token, secreto ni variable de entorno fue
-  escrito en ningún archivo de este repositorio.
-- **Mismo contrato `Resolved Context`**: no se creó ni modificó ningún schema.
-- **CAP-002 sin modificar**: se usó `capabilities/skills/user-story/SKILL.md` sin cambiar
-  ninguna línea.
-- **No se creó ninguna capability nueva** ni se cambió la arquitectura.
-- **No se inventó información**: rol, criterios de borde/error y reglas de negocio se
-  declaran explícitamente como inferencia o gap, no como contenido confirmado por el
-  issue.
+- Solo se leyó información de Jira — no se escribió ni modificó nada.
+- Se usó únicamente el camino MCP (no hubo que caer al método alternativo por API/token).
+- No se guardó ninguna credencial en ningún archivo de este repositorio.
+- No se cambió el formato de contexto ni la capability `user-story` — se usaron tal cual
+  ya estaban definidos.
+- No se inventó ningún dato: el rol, los criterios de error/borde y las reglas de negocio
+  quedan marcados explícitamente como suposición o pregunta abierta, nunca como hecho
+  confirmado por el issue.

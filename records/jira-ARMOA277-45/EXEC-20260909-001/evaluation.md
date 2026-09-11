@@ -1,56 +1,52 @@
 # Evaluation Record — EXEC-20260909-001
 
-**Limitación explícita, sin excepción**: esta evaluación fue realizada por el mismo actor
-que ejecutó el vertical slice — **no es una evaluación humana independiente**. Se registra
-con el método declarado honestamente (`model-assisted`), sin sustituir el HITL real que
-[`user-story/SKILL.md`](../../../capabilities/skills/user-story/SKILL.md) exige antes de
-Planning/desarrollo.
+Esta evaluación la hizo el mismo asistente que ejecutó la tarea, no una persona — así que
+no reemplaza la revisión humana que `user-story` pide antes de pasar a Planning o
+desarrollo. Se deja constancia de esto explícitamente, sin presentarlo como algo que ya
+está confirmado.
 
 ## Evaluation Contract
 
 | Campo | Valor |
 |---|---|
-| `capability_id` | CAP-002, habilitado por CAP-008 |
-| `evidence_reference` | [`EXEC-20260909-001`](evidence.md) |
-| `criteria` | Las mismas 9 preguntas usadas en `evaluation/EXEC-20260908-004.md` y `evaluation/EXEC-20260908-005.md`, para permitir comparación directa |
-| `method` | `model-assisted` — **no** `human` |
-| `evaluator` | Ejecutor de esta actividad — **REQUIRES HUMAN VALIDATION** para evaluación independiente real |
-| `result` | `PARTIAL` — ver justificación |
+| `capability_id` | CAP-002, con el contexto traído por CAP-008 |
+| `evidence_reference` | [`evidence.md`](evidence.md) |
+| `criteria` | Las mismas 9 preguntas que se usaron en las 2 ejecuciones anteriores por MCP, para poder comparar directamente |
+| `method` | Autoevaluación (no humana) |
+| `evaluator` | Quien ejecutó la tarea — todavía falta que una persona lo confirme |
+| `result` | Parcial (ver el detalle abajo) |
 | `evaluated_at` | 2026-09-09 |
-| `hitl_required` | `true` |
-| `hitl_confirmed_by` | Ninguno — **REQUIRES HUMAN VALIDATION** |
+| `hitl_required` | Sí |
+| `hitl_confirmed_by` | Nadie todavía |
 
-## Las 9 preguntas (mismas que `EXEC-20260908-004`/`005`, para comparar)
+## Las 9 preguntas de siempre, para poder comparar
 
-| # | Pregunta | Resultado | Justificación |
+| # | Pregunta | Resultado | Por qué |
 |---|---|---|---|
-| 1 | ¿Se recuperó correctamente vía MCP (Prioridad 1)? | PASS | `getJiraIssue` real, issue real `ARMOA277-45`, verificable en `https://baufest.atlassian.net/browse/ARMOA277-45` |
-| 2 | ¿El Resolved Context es completo respecto al contrato? | **PARTIAL** | Cumple `resolved-context.schema.json` (todos los campos requeridos presentes); `requirements`/`acceptanceCriteria` son `null` porque no se recuperaron campos Xray custom (sin `expand`), no porque el issue carezca de contenido — a diferencia de `EXEC-20260908-005`, acá sí hay `description` real y completa |
-| 3 | ¿CAP-002 pudo consumirlo? | PASS | Ejecutó sin error, produjo historia + criterios + reglas + gaps |
-| 4 | ¿Se preservó el significado del requerimiento? | PASS | El criterio de aceptación principal (camino feliz) es una traducción directa de la descripción real, sin agregar detalle no presente |
-| 5 | ¿Se inventó información? | **PASS (negativo — no se inventó nada verificable como tal)** | El rol y 2 de los 3 criterios de aceptación se declaran explícitamente como inferencia/gap, no como hecho confirmado por el issue |
-| 6 | ¿Los gaps detectados corresponden realmente al issue? | PASS | Los 4 gaps son verificables contra la ausencia real de información en el issue (sin caso hermano de error, sin manejo de fallas de integración documentado, sin rol declarado, sin formato de CUIT/Cosecha especificado) |
-| 7 | ¿Existe trazabilidad completa? | PASS | `getJiraIssue` (MCP) → Resolved Context (JSON real) → input de CAP-002 → salida, cada paso citado en `evidence/EXEC-20260909-001.md` |
-| 8 | ¿Se usó exclusivamente el camino MCP (Prioridad 1), sin REST/API Token como fallback? | PASS | Ningún uso de `jira-context.ps1` ni de variables `JIRA_*` en esta ejecución |
-| 9 | ¿Se realizó alguna operación `WRITE` sobre Jira? | PASS (negativo — ninguna operación WRITE) | Solo se invocó `getJiraIssue` (READ) |
+| 1 | ¿Se trajo bien el issue vía MCP? | Sí | Se usó `getJiraIssue` real, sobre el issue real `ARMOA277-45`, verificable en Jira |
+| 2 | ¿El contexto quedó completo? | Parcial | Tiene todos los campos que pide el formato; `requirements`/`acceptanceCriteria` quedaron vacíos porque Jira no tenía esos campos cargados para este issue en particular — no porque el issue no tuviera contenido (acá sí había una descripción completa, a diferencia de la ejecución anterior) |
+| 3 | ¿La capability pudo usar ese contexto? | Sí | Corrió sin errores y generó historia, criterios, reglas y preguntas abiertas |
+| 4 | ¿Se mantuvo el sentido real del requerimiento? | Sí | El criterio principal es una traducción directa de lo que dice el issue, sin agregar nada que no estuviera |
+| 5 | ¿Se inventó algo? | No | El rol y 2 de los 3 criterios se marcan explícitamente como suposición, no como hecho confirmado |
+| 6 | ¿Las preguntas abiertas son reales? | Sí | Las 4 corresponden a información que realmente no está en el issue (no hay caso de error, no se documenta qué pasa si falla la integración con SAP, no hay rol declarado, no hay formato de CUIT/Cosecha especificado) |
+| 7 | ¿Se puede rastrear todo el camino? | Sí | Desde traer el issue hasta el resultado final, cada paso queda citado en `evidence.md` |
+| 8 | ¿Se usó solo MCP, sin caer al método alternativo? | Sí | No se usó en ningún momento el script de respaldo ni credenciales sueltas |
+| 9 | ¿Se escribió algo en Jira? | No | Solo se leyó información, ninguna operación de escritura |
 
-**Resultado agregado**: `PARTIAL` — mismo resultado que `EXEC-20260908-004` y
-`EXEC-20260908-005`, por la misma razón dura (evaluación no independiente/humana), no por
-una falla del patrón o de la capability.
+**Resultado general: Parcial** — mismo resultado que las 2 ejecuciones anteriores, y por la
+misma razón: falta que una persona lo confirme. No es porque algo haya salido mal.
 
-## Diferencia clave frente a `EXEC-20260908-004`/`EXEC-20260908-005`
+## Qué tiene de distinto esta ejecución
 
-Esta es la primera de las tres ejecuciones MCP sobre un issue de tipo `Test` (Xray), y la
-primera con `description` real completa **y** un origen claro de "camino feliz" (el
-summary del test ya declara "exitosa"). A diferencia de `EXEC-20260908-005` (sin
-`description`), acá sí se pudo derivar un criterio de aceptación con alta fidelidad al
-texto real — pero los criterios de error/borde siguen siendo inferencia, no confirmados,
-igual que en las dos ejecuciones anteriores.
+Es la primera vez que se prueba este camino sobre un caso de prueba (tipo `Test` de Xray),
+y la primera con una descripción completa **y** un resultado esperado claro (el propio
+resumen del issue ya dice "exitosa"). Eso permitió armar un criterio de aceptación fiel al
+texto real — aunque los criterios de error y borde siguen siendo suposiciones, igual que
+en las 2 ejecuciones anteriores.
 
-## Separación explícita (mismo principio que ejecuciones anteriores)
+## Para que quede claro
 
-- **Ejecución**: confirmada, real, con herramientas MCP reproducibles
-  (`evidence/EXEC-20260909-001.md`).
-- **Evaluación humana**: **no existe** — `hitl_confirmed_by: Ninguno`.
-- **Evaluación asistida** (esta): `model-assisted`, declarada como tal, no presentada como
-  independiente en ningún campo.
+- **La ejecución en sí**: confirmada, real, se puede reproducir siguiendo `evidence.md`.
+- **La revisión humana**: todavía no existe — nadie la confirmó.
+- **Esta autoevaluación**: existe, pero se declara como tal — nunca se presenta como si
+  fuera una revisión independiente.

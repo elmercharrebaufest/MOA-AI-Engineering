@@ -33,6 +33,13 @@
 | `owner` | *(quién es responsable del dato — `REQUIRES VALIDATION` si no confirmado)* |
 | `confidence/status` | *(`MEASURED` / `NOT MEASURED` / `NO DATA`)* |
 
+## Cómo escribir la justificación de `NOT MEASURED`/`NO DATA`
+
+Explicá en lenguaje simple por qué no hay dato todavía (poca muestra, sin baseline, sin
+evaluación humana) — no como un análisis estadístico formal. Mismo criterio que en los
+otros 2 templates: nada de jerga interna ni de encadenar referencias a otras ejecuciones
+en el medio del texto.
+
 ## Reglas duras, sin excepción
 
 - Si no existe medición real: `NOT MEASURED` o `NO DATA` — **nunca `0`**.
