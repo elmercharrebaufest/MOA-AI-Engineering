@@ -553,19 +553,27 @@ capacidades es real y usable, con condiciones:
   definido.
 - **Registry**: modelo conceptual de campos definido
   ([`../architecture/capability-registry.md`](../architecture/capability-registry.md));
-  6 entradas reales pobladas ([`../registry/INDEX.md`](../registry/INDEX.md)) — ninguna
-  `Corporate Standard: Y`.
-- **Capabilities**: 6 capacidades materializadas como fuente/patrón reusable
-  ([`../capabilities/README.md`](../capabilities/README.md)) — 3 Skills, 1 Agent, 1
-  Workflow, 1 Instruction.
+  **8 entradas reales pobladas** ([`../registry/INDEX.md`](../registry/INDEX.md)) — CAP-001
+  a CAP-006 (generalizaciones de capacidades ya ejecutadas por equipos) más CAP-007/CAP-008
+  (patrones nuevos de Context Acquisition & Resolution) — ninguna `Corporate Standard: Y`.
+- **Capabilities**: 6 capacidades materializadas como Skill/Agent/Workflow/Instruction en
+  [`../capabilities/`](../capabilities/README.md) — 3 Skills, 1 Agent, 1 Workflow, 1
+  Instruction. Los 2 patrones de tipo Integration/API y MCP (CAP-007, CAP-008) viven en
+  [`../integrations/`](../integrations/catalog.md), no en `capabilities/`, por diseño —
+  ver sección 8.
 - **Golden Paths**: 6 documentados, **solo 1 (AI-Assisted Requirements) tiene ejecuciones
   reales** (`HARDENED` en el sentido de evidencia real, no de validación independiente) —
-  los otros 5 son `PROPOSAL` conceptual.
+  los otros 5 son `PROPOSAL` conceptual. Ese único Golden Path tiene ya 6 ejecuciones
+  reales, la última con un actor de ejecución independiente (`PILOT-003`, sección 13).
 - **Adoption Model**: guía paso a paso, modelo de ejecución de 12 pasos, plantillas
   operativas de Adoption/Execution/Evidence/Evaluation/Measurement Record.
-- **Evidence/Evaluation/Measurement contracts**: definidos y aplicados 2 veces —
-  `evidence/`, `evaluation/`, `measurements/` tienen 2 registros reales cada uno, ambos
-  `CONTROLLED DRY-RUN` del mismo actor, ninguno independiente.
+- **Evidence/Evaluation/Measurement contracts**: definidos y aplicados **6 veces** —
+  `records/` (restructurado a task-centric, ver [`../evidence/README.md`](../evidence/README.md))
+  tiene 6 ejecuciones reales: 2 `CONTROLLED DRY-RUN` con Direct Context y 4 con Connected
+  Context (Azure DevOps + Jira/MCP sobre 3 tipos de issue). Las primeras 5 fueron del mismo
+  actor que diseñó el modelo; la 6ta (`EXEC-20260909-001`, `PILOT-003`) tuvo un actor de
+  ejecución real e independiente — su evaluación, como las otras 5, sigue siendo
+  `model-assisted`, no independiente.
 - **Governance**: pipeline de agentes (`TRIGGER→CONTEXT→DECISION→ACTION→VALIDATION→AUDIT`),
   niveles de gobierno (Corporate/Reusable/Team-Specific), human-in-the-loop obligatorio
   para acciones de alto impacto.
@@ -585,8 +593,13 @@ instructions) — 3 no tienen ninguna. Hallazgos concretos con respaldo directo:
 - **Agents/Skills/Instructions** formalizados en 3 repos, con contenido leído directamente
   (no inferido por nombre de archivo).
 - **MCP Azure DevOps** (config real, 1 repo) y **MCP Atlassian/Jira** (config real en 1
-  repo, referenciado sin config local en 2 repos más) — **ningún MCP tiene evidencia de
-  invocación real**.
+  repo, referenciado sin config local en 2 repos más) — **ningún MCP configurado
+  localmente en un repo de equipo tiene evidencia de invocación real**. Esto no
+  contradice la evidencia de la sección 12: `MOA-AI-Engineering` invocó con éxito el
+  servidor Atlassian Rovo MCP hosted (el mismo servicio real, no una config local de
+  equipo) para validar CAP-008 — son 2 hechos distintos: el hallazgo del benchmark
+  (configuración de equipo sin uso) sigue vigente, y no fue la vía usada para la
+  validación posterior.
 - **Azure DevOps CLI**: uso real confirmado (evidencia de commits/PRs reales).
 - **`moa-sdlc`**: herramienta de referencia de Baufest, **no un equipo de MOA** — aporta
   un patrón de Workflow formal (harness de roles con contrato explícito), sin capacidades
@@ -632,8 +645,8 @@ de decisión la deja como `REQUIRES VALIDATION`, se mantiene así acá.
 | Modelo de 5 capas (Team → Team Adaptation → Assessment Gate → Common Core → Foundation) | Vigente | [`../architecture/reference-architecture.md`](../architecture/reference-architecture.md) | Alto |
 | Fork Evidence → [Evaluation, Measurement] → Feedback, independientes entre sí | Vigente | [`../architecture/evidence-evaluation-measurement.md`](../architecture/evidence-evaluation-measurement.md) | Alto |
 | Evaluation/Observability se ejecutan localmente; el Common Core provee contrato, no ejecución | Vigente | [`../architecture/evaluation-observability.md`](../architecture/evaluation-observability.md) §0 | Medio |
-| No implementar MCP en esta fase (alcance explícito) | Vigente | [`../capabilities/README.md`](../capabilities/README.md) | Alto — bloquea el Modo conectado de contexto (sección 8) |
-| 6 capacidades materializadas como fuente reusable (no `Corporate Standard`) | Vigente | [`../registry/INDEX.md`](../registry/INDEX.md) | Medio |
+| No desplegar un servidor MCP propio de MOA (se usa el Atlassian Rovo MCP hosted, sin credenciales propias) | Vigente, matizado — Jira ya se validó vía MCP real de Atlassian (sección 13), pero MOA no desplegó infraestructura MCP propia | [`../capabilities/README.md`](../capabilities/README.md) | Alto |
+| 8 capacidades materializadas en el Registry como fuente reusable (no `Corporate Standard`) | Vigente | [`../registry/INDEX.md`](../registry/INDEX.md) | Medio |
 | Golden Path #1 es el único con evidencia real de ejecución; los otros 5 son conceptuales | Vigente | [`../golden-paths/README.md`](../golden-paths/README.md) | Medio |
 | Formato de matriz de autonomía ALWAYS/ASK FIRST/NEVER (sin contenido de referencia único) | Vigente | [`../governance/agent-governance.md`](../governance/agent-governance.md) | Medio |
 | `moa-sdlc`/`moa-metrics` son herramientas de referencia de Baufest, no equipos de MOA | Vigente (corrección de alcance ya aplicada) | [`../teams/README.md`](../teams/README.md) | Alto — evita tratarlas como fuente de verdad de gobierno |
@@ -663,15 +676,21 @@ de decisión la deja como `REQUIRES VALIDATION`, se mantiene así acá.
   internamente (con las contradicciones señaladas en este documento).
 - **Validado técnicamente**: las 6 capacidades tienen configuración `VERIFIED` (archivos
   reales, bien formados, leídos completos).
-- **Ejecutado**: 2 ejecuciones reales de CAP-002 sobre requerimientos reales de un equipo
-  de MOA — `EXECUTED`, no `VERIFIED`.
-- **Validado por humanos**: **ninguna** — las 2 evaluaciones existentes son
-  `model-assisted`, hechas por el mismo actor que generó la evidencia, no por un
-  evaluador humano independiente confirmado.
-- **Medido**: **ninguna** capacidad tiene medición real — ambos registros de Measurement
+- **Ejecutado**: **6 ejecuciones reales** de CAP-002 sobre trabajo real (2 Direct Context,
+  4 Connected Context vía Azure DevOps/Jira) — `EXECUTED`, no `VERIFIED`.
+- **Validado por humanos**: **ninguna** — las 6 evaluaciones existentes son
+  `model-assisted`; ninguna tiene un evaluador humano independiente confirmado.
+- **Medido**: **ninguna** capacidad tiene medición real — los 6 registros de Measurement
   son `NOT MEASURED`, sin baseline.
-- **Probado en adopción independiente**: **ninguna** — cero contribuciones reales, cero
-  ejecuciones por un equipo distinto del que diseñó la capacidad.
+- **Probado en adopción independiente**: **parcialmente — 1 de 2 ejes cumplidos**. Existe
+  ya un **actor de ejecución real e independiente** (`PILOT-003`/`EXEC-20260909-001`: un
+  developer de MOA, sin conocimiento previo de este repositorio, resolvió por su cuenta
+  una tarea real de Jira y eligió/ejecutó CAP-002). **No** existe todavía una
+  **evaluación independiente** de ese resultado — sigue `model-assisted` — ni el piloto
+  está cerrado (quedan 4 de 7 preguntas de feedback sin responder, ver
+  [`PILOT-003`](../docs/history/track-1/pilots/PILOT-003-armoa277-45-cold-start-independiente/README.md)).
+  Independencia de actor e independencia de evaluación son ejes distintos, sin confundirse
+  (mismo principio de la sección 11).
 
 **Estado consolidado (tal como lo declara el propio [`../README.md`](../README.md))**:
 **READY WITH CONDITIONS** — utilizable hoy, pero nada debe presentarse como "validado"
@@ -688,10 +707,13 @@ nuevas:
    implementación debe anticiparse a la aprobación.
 3. **Validar técnicamente** cualquier cambio que se implemente, antes de exponerlo como
    disponible.
-4. **Ejecutar pilotos reales** con equipos de MOA (no con el mismo actor que diseñó la
-   capacidad) — condición explícita para superar el estado `EXECUTED` sin `VERIFIED`.
-5. **Obtener feedback humano real** — el mecanismo de contribución existe, ninguna
-   contribución real fue recibida todavía.
+4. **Cerrar el piloto real ya en curso** (`PILOT-003`) y ejecutar pilotos adicionales con
+   otros equipos/personas de MOA — condición explícita para superar el estado `EXECUTED`
+   sin `VERIFIED` (el actor de `PILOT-003` ya es independiente; falta la evaluación
+   independiente y las 4 preguntas de feedback pendientes).
+5. **Obtener feedback humano real** — parcialmente cumplido: `PILOT-003` ya produjo
+   feedback literal real (y motivó una mejora concreta, la restructuración de
+   `records/`), pero el piloto sigue `EN CURSO` — faltan 4 de 7 preguntas del protocolo.
 6. **Medir cuando exista baseline** — no antes; no inventar un baseline para poder medir.
 7. **Cerrar condiciones de entrega** — resolver, o dejar explícitamente abiertas con
    dueño asignado, las Blocked Decisions más estructurales (sección 16).
@@ -707,7 +729,9 @@ Track 1 se considera terminado cuando, como mínimo:
 - Al menos una capacidad alcanzó el estado `Human Validation` del Capability Lifecycle
   (evaluación independiente, no `model-assisted` del mismo actor).
 - Al menos un Golden Path tiene una ejecución real por un equipo de MOA distinto del que
-  construyó la capacidad.
+  construyó la capacidad. **Parcialmente satisfecho**: `PILOT-003` (`EXEC-20260909-001`)
+  ya es una ejecución real por un developer de MOA independiente — pero el piloto sigue
+  `EN CURSO` (feedback incompleto), así que este criterio no se marca cerrado todavía.
 - Blocked Decision #1 (mandato de gobierno del Common Core) está resuelta — sin esto,
   ninguna promoción a `Common Core = Y` tiene validez formal.
 - Existe al menos un baseline real medido para al menos una capacidad — no una proyección.

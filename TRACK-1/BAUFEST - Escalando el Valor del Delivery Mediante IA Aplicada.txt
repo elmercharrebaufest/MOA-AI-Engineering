@@ -1,0 +1,260 @@
+ESCALANDO EL VALOR DEL DELIVERY MEDIANTE IA APLICADA.
+POTENCIAR LA PRODUCTIVDAD, CALIDAD Y EVOLUCIÓN .
+
+1. CONTEXTO Y OBJETIVOS:
+- EVOLUCIONAR EL DELIVERY DE SERVICIOS Y NUEVAS SOLUCIONES PARA ACELERAR LA ENTREGA DE VALOR.
+
+- TRACK: EVOLUCIONAR LA PRODUCTIVIDAD DE LOS SERVICIOS ACTUALES.
+  ¿Cómo podemos incrementar la productividad del equipo evolutivo y de operación de las soluciones actuales en MOA, mejorando la adopción de IA, trabajando con un SDLC más ágil y midiendo el cambio de velocidad en el tiempo?
+
+2. PANORAMA ACTUAL:
+- UNA INDUSTRIA TECNOLÓGICA QUE SE ESTÁ REDESCUBRIENDO Y REDEFINIENDO.
+  ¿CÓMO PODEMOS INCORPORAR IA DE MANERA EFICIENTE?
+  La IA no solo sugiere código. Ya ejecuta tareas, revisa, testea y opera como parte activa de los nuevos SDLC Inteligentes.
+  El desafío no es incorporar herramientas, sino rediseñar el modelo de ingeniería actual para que la velocidad no se transforme en un riesgo.
+
+- Flujo Actual: Humanos + Asistentes de IA -> Equipos híbridos (Humanos + agentes) -> Evolución.
+- TODA EVOLUCIÓN PRESENTA DESAFÍOS:
+  	Más código generado ≠ +productividad real.
+  	Velocidad sin métricas claras = pérdida de control.
+  	Incorporar Agentic AI sin erosionar arquitectura o seguridad.
+  	Equipos híbridos requieren procesos, plataforma y gobierno específicos.
+  	El SDLC tradicional no está preparado para AI a escala.
+  
+3. QUÉ ESTAMOS HACIENDO HOY EN MOA:
+  EL PUNTO DE PARTIDA, UN EQUIPO QUE YA UTILIZA IA, PERO DE FORMA HETEROGÉNEA.
+  
+- UNA ADOPCIÓN REAL DE IA, CON OPORTUNIDADES PARA ESCALARLA MEJOR:
+  	Uso real y cotidiano. Los equipos ya utilizan IA en su día a día en diferentes prácticas, tanto en modo chat como en modo agente.
+  	Adopción con distintos niveles de madurez. Los equipos comparten algunas prácticas, pero no de forma estandarizada, si bien estamos trabajando en establecer procesos comunes.
+  	Curva de aprendizaje en marcha. Conviven niveles básico e intermedio según el equipo y el rol, algo esperable en etapas iniciales de adopción.
+  	Conocimiento distribuido. Existen prompts, prácticas y aprendizajes generados por personas y equipos que pueden consolidarse como activos compartidos en un repositorio común.
+  	La oportunidad. El próximo paso es capturar el valor que ya se está generando en los equipos y escalarlo con método, gobierno y métricas.
+  	Foco en el valor. La adopción debe evolucionar con métricas que permitan evidenciar mejoras en productividad, calidad y velocidad.
+
+- NIVEL DE ADOPCIÓN POR EQUIPO (MARCO CRAWL – WALK – RUN):
+  	Nivel 1 CRAWL: EXPLORAR CON CONTROL - Uso inicial de IA en actividades acotadas del SDLC, con bajo riesgo, foco en aprendizaje y validación de valor potencial.
+  Proyectos: DataAgro, MOA Operaciones, Scato Puerto.
+  Roles:
+  DEV: autocomplete y sugerencias, debugging, poco modo agente; integración SAP; consultas sobre código existente; V0 para bosquejo.
+  PM/PO/QA: documentación asistida por IA, sin herramienta específica.
+  
+  	Nivel 2 WALK: ORDENAR, REPETIR Y MEDIR - Adopción regular de IA en casos concretos del SDLC, con prácticas comunes, métricas iniciales y procesos controlados.
+  Proyectos: Scato Logistica.
+  Roles:
+  DEV (Cardless): modo agente con reglas de codificación, MCP contra Jira, skills e instructions; soporte con agente y chat.
+  PO: agente en prueba.
+  QA: generación de casos con apoyo de Copilot
+  PM: gestión, reportes de status, documentación.
+
+  	Nivel 3 RUN: ESCALAR Y GOBERNAR - IA integrada de forma sistemática en el SDLC, con gobierno, automatización, métricas ejecutivas y mejora continua.
+
+- PRÁCTICAS, PROCESOS Y HERRAMIENTAS:
+  	Trabajo por sprint (1 mes): Refinamiento, estimación, planning y aviso de despliegue al usuario de forma manual.
+  	Requerimientos: Jira como fuente; estimación manual de tickets en la misma herramienta
+   Documentación: Distribuido entre SharePoint (MOA) y Confluence (Baufest).
+   Coding: Visual Studio + VS Code con GitHub Copilot, uso diario.
+  	Testing: NUnit para unitarios; Cypress arrancando; algo de JMeter; Playwright en pruebas.
+  	Consultoría: Hoy funciona de forma local, sin repositorios compartidos aún.
+
+- STACK:
+  	Repos: Azure DevOps.
+  	DB: SQL Server.
+  	IA: GitHub Copilot + modelos varios (costo cubierto por Baufest).
+  	Gestión y Documentación: Jira, SharePoint, Confluence.
+
+- RESULTADOS Y APRENDIZAJES ACTUALES DE LA ADOPCIÓN DE IA:
+  	Mayor fluidez en tareas de desarrollo: El equipo ya identifica mejoras en actividades como generación de código, consultas sobre código existente y soporte al desarrollo.
+  	Mejor asistencia en documentación y conocimiento: La IA ayuda a acelerar tareas de documentación, análisis y recuperación de contexto.
+  	Primeros usos en modo agente: Algunos equipos ya exploran reglas, instructions, skills e integraciones con herramientas del ciclo.
+  	Valor todavía no capturado de forma homogénea: Los beneficios existen, pero dependen del equipo, la práctica y el nivel de madurez.
+  	Necesidad de medición: El próximo paso es consolidar un baseline y medir adopción, productividad, calidad y velocidad de forma consistente.
+
+4. TRACK 01: EVOLUCIONAR LA PRODUCTIVIDAD DE LOS SERVICIOS ACTUALES.
+  TRANSFORMAR ESTA ADOPCIÓN INICIAL PARA UNIFICAR Y ESCALAR EL USO DE IA EN TODOS LOS SERVICIOS, CON MÉTODO Y MEDICIÓN.
+
+- OBJETIVO:
+  Pasar del uso individual y heterogéneo actual de la IA a una adopción sistemática en todo el SDLC de nuestros equipos para MOA, con un enfoque común, gobierno y métricas que conecten la IA con el impacto positivo en el equipo y en el negocio.
+  Más productividad -> mejor calidad -> menor time-to-market. No se trata de sumar herramientas, sino de convertir el uso de IA en una práctica sostenida de ingeniería.
+
+- ESCALAR EL USO DE IA EN TODO EL CICLO DE SOPORTE Y DESARROLLO:
+  	Empezar por la plataforma: Probar y conectar la base de IA (Jira, Copilot, SharePoint, Azure DevOps) antes de escalar.
+  	Aplicar IA en cada etapa: Llevar la IA a cada ceremonia y actividad del ciclo, no a una sola tarea.
+  	Mantener enfoque human-in-the-loop: Validación y corrección humana estricta antes de integrar cualquier salida.
+  	Medir desde el día 1: Definir baseline e indicadores de uso para gobernar la adopción con datos.
+
+- ADOPTAR UNA PLATAFORMA DE IA SOPORTADA POR HERRAMIENTAS:
+  	Asistencia: GitHub Copilot, Copilot Code Review, Rovo.
+  	Conectores (MCP/API): Jira, Confluence, Azure DevOps, Playwright, App Insights, Base de datos, SonarQube.
+  	Automatización: SKILLs y archivos de instrucciones, Agentes, Integración con Azure DevOps, Tablero de métricas.
+
+- ¿QUÉ DEBERÍAMOS AGREGAR AL STACK ACTUAL?:
+  	Servidores MCP: Garantizar el acceso por MCP para las herramientas existentes: Jira, Confluence, Azure DevOps, SQL Server.
+  	Tablero PowerBI Permite visualizar las métricas del servicio en cuanto a adopción de IA y productividad. Se espera que las métricas evolucionen con el servicio, sumando o retirándolas en la medida en que cambie el contexto o el foco de los equipos.
+  	Application Insights Para centralizar los logs de aplicación y poder alimentar información de errores productivos a los agentes.
+  	SonarQube Para mantener la calidad del código bajo control y extraer métricas relacionadas. Sumar agentes que se integren al ciclo a medida que madura la adopción.
+
+- IMPLEMENTAR UN MODELO DE MÉTRICAS PARA MONITOREAR AVANCE:
+  Métricas consolidadas en un Dashboard Ejecutivo (con datos de Jira, GitHub y Azure DevOps y SonarQube). Esto está trabajado con el proyecto/repositorio moa-metrics (rama ai-adoption).
+
+  	INDICADORES DE ADOPCIÓN, PRODUCTIVIDAD Y VELOCIDAD:
+    — % Team con Copilot (GH + 365) (adopción).
+	— # HU refinadas X sprint/mes (productividad & velocidad): HU completas y listas para trabajar/desarrollar.
+	— % Aceptación de sugerencias de Copilot (adopción): Presentadas vs. Aceptadas.
+	— # Requerimientos/Mejoras X sprint/mes (productividad & velocidad).
+	— Lead time de features (productividad & velocidad): HU desde requerimiento a pase a producción.
+
+  	INDICADORES DE IMPACTO Y CALIDAD:
+    — # Bugs detectados X sprint/mes (QA & PROD).
+	— Calidad de código (SonarQube): Reliability Grade, Vulnerabilities, Code Coverage.
+
+- EL IMPACTO AL QUE APUNTAMOS ALCANZAR: Objetivos para evolucionar el valor que actualmente aportamos como equipo hacia finales de 2026.
+  	Mayor Adopción y Evolución: Un equipo que propone mejoras y suma agentes autónomos al ciclo, no solo ejecuta.
+  Q3: 100% Team con Copilot. Integración con herramientas tablero Métricas disponible, SonarQube instalado.
+  Q4: Conocimiento compartido Repositorio de Skills, Prompts, Instructions. Prácticas homogéneas.
+  
+  	Más Productividad y Velocidad: Asistencia de IA en cada etapa del ciclo, reduciendo el cambio de contexto y el trabajo manual.
+  Q3: +5% # HU ref. X sprint/mes, +15% # Reqs/Mej. X sprint/mes, -10% Lead time de features, +15% Productividad DEVs.
+  Q4: +10% # HU ref. X sprint/mes, +30% # Reqs/Mej. X sprint/mes, -20% Lead time de features, +30% Productividad DEVs.
+  
+  	Más Impacto y Calidad: Menos bugs en producción, code review automatizado y deuda técnica bajo control.
+  Q3: SQ: +5% Unit Tests (global), -5% Bugs en QA/PROD, -10% tiempo generación de CP.
+  Q4: SQ: Reliability Grade A o B, SQ: Zero Critical Vulnerabilities SQ: +15% Unit Tests (global), -10% Bugs en QA/PROD.
+  
+- EL IMPACTO AL QUE APUNTAMOS ALCANZAR: Objetivos para evolucionar la forma en la que trabajan actualmente los equipos hacia finales de 2026.
+  	Nivel 1 CRAWL: DataAgro, MOA Operaciones, Scato Puerto.
+    - Roles y prácticas heterogéneas.
+	- IA en DEV principalmente.
+	- Sin dashboard ni métricas aún.
+	- Poca reutilización.
+  
+  	Nivel 2 WALK: Scato Logistica, DataAgro, MOA Operaciones, Scato Puerto.
+	- Prácticas IA comunes por rol.
+	- IA en refinamientos, documentación, dev y QA.
+	- Instructions, Skills, prompts reutilizables.
+	- Integración inicial con tools.
+	- Baseline e indicadores.
+	- Dashboard ejecutivo.
+	- Métricas en SonarQube.
+
+  	Nivel 3 RUN: Scato Logistica.
+    - Repositorio de Instructions, Prompts y Skills.
+	- Agentes para DEVs.
+	- IA extendida full a PO, QA, PM.
+	- PR, review y testing asistidos.
+	- Tools conectadas.
+	- Dashboard ejecutivo automatizado.
+	- Gobierno formalizado.
+
+- NUESTRO ENFOQUE DE 5 PASOS PARA LOGRAR ADOPCIÓN, PRODUCTIVIDAD Y CALIDAD:
+  	IDENTIFICAR PROCESO & ACTIVIDAD: Desglosar el proceso de desarrollo global en actividades (ej. generación de pruebas unitarias o documentación de endpoints).
+  	INTEGRAR IA: Asignar un modelo de IA con un contexto reducido para resolver la tarea específica, limitando el margen de alucinación.
+  	AUDITAR: Implementar un filtro humano estricto (Human-in-the-loop) que valide y corrija el código propuesto antes de su integración.
+  	MEDIR RESULTADOS: Evaluar métricas clave de rendimiento como el tiempo ahorrado, calidad resultante del código y tasas reales de error.
+  	MEJORAR: Optimizar la base de conocimientos, los prompts y los parámetros técnicos del modelo en base a las auditorías.
+
+- ROADMAP PROPUESTO PARA LOGRAR ADOPCIÓN, PRODUCTIVIDAD Y CALIDAD:
+  	CICLO I:
+    - Q3:
+	  	FOUNDATION:
+	    - IDENTIFICAR PROCESO & ACTIVIDAD:
+		  - Mapear SDLC por rol & etapa [BF].
+		  - Revalidar objetivos [BF + MOA].
+		  - Revalidar CRAWL  WALK [BF + MOA].
+		  - Revalidar WALK  RUN [BF + MOA].
+		  - Acordar métricas [BF + MOA].
+		  - Validar plan de trabajo [BF + MOA].
+		  - Verificar requerimientos [MOA].
+		  - Validar accesos e integraciones [BF + MOA].
+	  	EVOLUTION:
+	    - INTEGRAR IA:
+		  - Habilitar Rovo / Jira [MOA + BF].
+		  - Habilitar MCPs y accesos [MOA + BF].
+		  - Habilitar GitHub Copilot Code Review for Azure DevOps [MOA + BF].
+		  - Configurar skills, agents e instructions por rol/etapa [BF].
+		  - Formar, capacitar, difundir y estandarizar en el equipo [BF].
+		  - Aplicar IA en Refi, DEV, QA, PR, Docu y Soporte [BF].
+		- AUDITAR:
+		  - Integrar proyectos en SQ [BF + MOA].
+		  - Activar controles de calidad SQ [BF].
+		  - Validar human-in-the-loop [BF].
+	- Q4:
+	  	EVOLUTION:
+	    - INTEGRAR IA:
+		  - Definir criterios de revisión para código, docu, tests y PRs [BF].
+		  - Instalar SonarQube [MOA + BF].
+		  - Habilitar BBDD + Licencia y Crear Tablero Power BI [BF + MOA].
+		  - Consolidar repositorio común [BF].
+		  - Acordar gobierno mínimo [BF + MOA].
+	    - MEDIR RESULTADOS:
+		  - Instrumentar métricas SDLC [BF].
+		  - Medir adopción –licencias y uso [BF].
+		  - Medir productividad –HU y leadtime [BF].
+		  - Medir calidad e impacto –bugs y SQ [BF].
+	    - MEJORAS:
+		  - Ajustar instructions, prompts, skills y agentes [BF].
+		  - Ajustar estrategias y plan de trabajo [BF].
+		  - Revisar avances vs. objetivos [BF + MOA].
+		  - Definir backlog evolución 2027 [BF + MOA].
+   CICLO II:
+    - 2027:
+	  	ITERATION.
+
+- DESAROLLOS Y EVOLUTIVOS (SDLC CON IA, ANÁLISIS Y PLANNING):
+  	ETAPA Recepción del requerimiento:
+    - HOY EN MOA: El PO carga el ticket en Jira con descripción manual o asistida por agente PO. El equipo lee el ticket en la próxima ceremonia de refinamiento y detecta inconsistencias recién en esa instancia.
+	- EN Q4 CON IA AMPLIADA: Rovo Agent analiza el ticket al momento de su creación, detecta ambigüedades y genera preguntas para el PO antes del refinamiento.
+  	ETAPA Refinamiento y estimación:
+    - HOY EN MOA: Reunión grupal donde el equipo discute el alcance y hace una estimación del esfuerzo. Proceso manual sujeto a sesgos y falta de contexto histórico.
+	- EN Q4 CON IA AMPLIADA: Rovo Agent propone una estimación inicial basada en el historial del equipo y la descripción técnica, reduciendo el tiempo de debate y aportando consistencia.
+  	ETAPA Planning:
+    - HOY EN MOA: El desarrollador valida asunciones previas consultando a compañeros o documentación dispersa, e identifica dependencias y componentes afectados por cuenta propia. Proceso lento y propenso a omisiones.
+	- EN Q4 CON IA AMPLIADA: Copilot + SKILLs + MCP Jira/Confluence asiste en la interpretación del ticket consultando tickets similares y documentación técnica. Sugiere dependencias y componentes afectados a partir del contexto del requerimiento, reduciendo el riesgo de asunciones incorrectas.
+  	IMPACTO ESPERADO EN Q4 para las 3 etapas:
+    - +10% # HU refinadas por sprint/mes.
+	- +30% # Requerimientos/Mejoras X sprint/mes.
+	- -20% Lead time de features.
+  
+  	ETAPA Desarrollo del código:
+    - HOY EN MOA: El desarrollador lee el ticket en Jira, busca documentación en Confluence y vuelve al editor a escribir el código, apoyándose en su conocimiento previo, búsquedas externas y herramientas como Copilot. Alto costo de cambio de contexto.
+	- EN Q4 CON IA AMPLIADA: Copilot + SKILLs + MCP Jira/Confluence permite consultar el ticket y la documentación directamente desde VS Code, sin salir del editor. Copilot sugiere implementaciones en tiempo real, alineadas al contexto del requerimiento.
+  	ETAPA Apertura del Pull Request:
+    - HOY EN MOA: El desarrollador abre el PR manualmente en Azure DevOps, completa la descripción y solicita revisores.
+	- EN Q4 CON IA AMPLIADA: Copilot + SKILLs + MCP JIRA + MCP Azure DevOps crea el PR automáticamente tras el push: genera el título, la descripción y vincula el ticket de Jira sin intervención manual.
+  	IMPACTO ESPERADO EN Q4 para las 2 etapas:
+    - +30% Productividad DEVs.
+	- 100% Team con Copilot.
+
+  	ETAPA Code Review:
+    - HOY EN MOA: Un desarrollador revisor lee el diff manualmente, detecta problemas de estilo, lógica y seguridad, y deja comentarios. Proceso lento y sujeto a disponibilidad del revisor.
+	- EN Q4 CON IA AMPLIADA: GitHub Copilot Code Review for Azure DevOps analiza el diff automáticamente, detecta problemas de calidad, seguridad y buenas prácticas, y genera comentarios en segundos.
+  	IMPACTO ESPERADO EN Q4 para esta etapa:
+    - 100% Team con Copilot.
+	- SQ: Reliability Grade A o B.
+	- SQ: Zero Critical Vulnerabilities.
+	- SQ: +15% Unit Tests (global).
+
+  	ETAPA Testing funcional (QA):
+    - HOY EN MOA: El equipo de QA valida manualmente la funcionalidad en el ambiente QA siguiendo casos de prueba escritos.
+	- EN Q4 CON IA AMPLIADA: Copilot + SKILLs + MCP Jira/Confluence analiza el requerimiento del ticket y propone automáticamente los casos de prueba a testear, publicándolos como comentario en el ticket de Jira. El equipo de QA se enfoca en validación exploratoria y de negocio, ya que la regresión automatizada cubre los flujos estándar.
+  	ETAPA Test de regresión:
+    - HOY EN MOA: Los tests de regresión se escriben y mantienen manualmente por el equipo de QA. Su ejecución puede demorar horas.
+	- EN Q4 CON IA AMPLIADA: Los tests generados por Copilot + SKILLs + MCP Playwright corren automáticamente en el pipeline, cubriendo los flujos definidos en los criterios de aceptación.
+  	IMPACTO ESPERADO EN Q4 para las 2 etapas:
+    - 100% Team con Copilot.
+	- -10% tiempo generación de CP.
+	- -10% Bugs en QA/PROD.
+
+  	ETAPA Cierre del ticket:
+    - HOY EN MOA: El desarrollador registra manualmente las horas trabajadas en el ticket de Jira y actualiza el estado a Done. Proceso propenso a postergarse u omitirse, generando reportes imprecisos.
+	- EN Q4 CON IA AMPLIADA: Copilot + SKILLs + MCP Jira sugiere el registro de horas basándose en el tiempo transcurrido y la actividad del sprint, y actualiza automáticamente el estado del ticket a Done, reduciendo el olvido y mejorando la trazabilidad del esfuerzo real.
+  	ETAPA Soporte productivo:
+    - HOY EN MOA: El equipo utiliza los logs de la aplicación para monitorear errores y performance en producción. El análisis de logs es reactivo: se revisan ante incidentes, sin un proceso periódico proactivo de detección temprana.
+	- EN Q4 CON IA AMPLIADA: Copilot + MCP Application Insights + MCP + Base de Datos analiza periódicamente los logs de producción, detecta patrones de error recurrentes y complementa el diagnóstico consultando directamente la base de datos para validar estados inconsistentes o datos anómalos, proponiendo soluciones o ajustes preventivos antes de que escalen a incidentes críticos.
+  	ETAPA Build & CI:
+    - HOY EN MOA: Azure DevOps ejecuta el pipeline de build y tests unitarios. Cualquier fallo bloquea el merge.
+	- EN Q4 CON IA AMPLIADA: DevOps agents ejecuta y valida corridas con gh cli en entornos de prueba para diagnosticar y resolver fallos.
+  	IMPACTO ESPERADO EN Q4 para las 3 etapas:
+    - +30% Productividad DEVs.
+	- +30% # Requerimientos/Mejoras por sprint/mes.
+	- -20% Lead time de features

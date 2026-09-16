@@ -29,6 +29,12 @@ significativa de las 6", "a diferencia de EXEC-XXXX"), quién diseñó el modelo
 clasificación interna (`CONTROLLED DRY-RUN`, "2 ejes distintos"). Eso es contenido para
 `docs/history/` o para el Registry, nunca para el archivo que la persona realmente abre.
 
+**La misma regla aplica a tu respuesta en el chat, no solo a este archivo** — y a
+cualquier archivo compartido del modelo (`registry/`, índices, otras tareas de
+`records/`): nunca los leas, edites ni menciones como parte de ejecutar la tarea de una
+persona. Ver [`agent-execution-contract.md`](../agent-execution-contract.md) para el
+contrato completo — es corto, léelo antes de continuar.
+
 ## Cómo usar esta plantilla
 
 1. Copiá este archivo a `records/<fuente>-<tarea>/EXEC-<fecha>-<número>/evidence.md`

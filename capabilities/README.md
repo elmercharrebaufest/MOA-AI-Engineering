@@ -122,8 +122,9 @@ capabilities/
 materializar los hallazgos de MCP como capability dentro de esta carpeta sigue vigente: el
 gobierno de MCP (identidad, scope, auditoría) todavía no existe en MOA
 (`../governance/BLOCKED-DECISIONS.md` #4). **Actualización**: esta iniciativa sí tiene ya
-2 ejecuciones reales de un MCP real hosted (Atlassian Rovo MCP, `getJiraIssue`, ver
-`EXEC-20260908-004`/`EXEC-20260908-005`) — pero MOA no ha desplegado, ni tiene previsto
+3 ejecuciones reales de un MCP real hosted (Atlassian Rovo MCP, `getJiraIssue`, ver
+`EXEC-20260908-004`/`EXEC-20260908-005`/`EXEC-20260909-001` — esta última con actor de
+ejecución independiente, `PILOT-003`) — pero MOA no ha desplegado, ni tiene previsto
 desplegar, un servidor MCP propio; esas ejecuciones no cambian el gobierno pendiente de
 MCP como mecanismo general. Al
 formalizar Context Acquisition & Resolution como Cross-Cutting Concern

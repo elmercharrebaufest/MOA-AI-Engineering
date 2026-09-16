@@ -59,9 +59,11 @@ real.
 **Este es el mecanismo Prioridad 1** — el script REST de la sección 4 es el fallback
 headless, no el runtime real de un desarrollador. Pasos verificados contra la
 documentación oficial de Atlassian (citada abajo). **Actualización**: estos pasos ya
-tienen 2 ejecuciones reales registradas (`EXEC-20260908-004`, `EXEC-20260908-005`) — una
-sesión GitHub Copilot Agent en VS Code, con el servidor MCP ya instalado/autenticado,
-invocó `getJiraIssue` real sobre dos issues reales de tipo distinto. Los pasos 1 y 2
+tienen 3 ejecuciones reales registradas (`EXEC-20260908-004`, `EXEC-20260908-005`,
+`EXEC-20260909-001`) — sesiones de GitHub Copilot Agent en VS Code, con el servidor MCP ya
+instalado/autenticado, invocaron `getJiraIssue` real sobre tres issues reales de tipo
+distinto; la tercera (`EXEC-20260909-001`) además con un developer real de MOA como actor
+independiente (`PILOT-003`), sin conocimiento previo de este repositorio. Los pasos 1 y 2
 (instalación, primer OAuth) siguen siendo
 inherentemente interactivos y requieren una persona real la primera vez — una vez hechos,
 el paso 3 (invocar la herramienta) puede repetirlo cualquier sesión de agente que reutilice

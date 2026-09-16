@@ -17,7 +17,9 @@ Cada Golden Path se define con: objetivo, entrada, pasos, capacidades utilizadas
 **Estado por Golden Path**: de los 6 Golden Paths documentados, **solo el #1
 (AI-Assisted Requirements) tiene
 ejecuciones reales** y está `HARDENED` en el sentido definido por G4.5/G4.6 (evidencia real,
-2 ejecuciones, sin llegar a validado de punta a punta). **Los Golden Paths #2 a #6 siguen
+6 ejecuciones — la última con un actor de ejecución independiente, `PILOT-003` — sin
+llegar a validado de punta a punta: la evaluación sigue siendo `model-assisted` en las 6).
+**Los Golden Paths #2 a #6 siguen
 siendo `PROPOSAL` — definición conceptual únicamente, sin ejecución real todavía** (mismo
 estado declarado a nivel de documento desde G3.3). Se mantienen documentados a propósito
 (mapean patrones con evidencia real en el relevamiento — ver `../architecture/assessment-gate.md`), no
@@ -41,7 +43,7 @@ un **developer real de MOA en una sesión independiente** (`PILOT-003`,
 la primera vez que alguien distinto de quien construyó `MOA-AI-Engineering` usa el Golden
 Path sin guía. **Esto no lo vuelve `VERIFIED`**: la independencia del actor y la
 independencia de la evaluación son ejes distintos — la evaluación de `EXEC-20260909-001`
-sigue siendo `model-assisted` (`evaluation/EXEC-20260909-001.md`), sin HITL humano
+sigue siendo `model-assisted` ([`evaluation.md`](../records/jira-ARMOA277-45/EXEC-20260909-001/evaluation.md)), sin HITL humano
 confirmado. Ver
 [el historial del segundo controlled dry-run](../docs/history/track-1/G4.6-Independent-Adoption-and-Validation.md)
 para el detalle de G4.6, y `PILOT-003` para el detalle de la ejecución independiente —
@@ -112,16 +114,19 @@ equivalga a `VERIFIED`.
 
 | Disciplina | Contrato | Estado real hoy |
 |---|---|---|
-| Evidence | `../architecture/evaluation-observability.md` + Evidence Contract (`../architecture/evidence-evaluation-measurement.md#1-evidence`) | **Producido 2 veces** — `evidence/EXEC-20260907-001.md`, `evidence/EXEC-20260908-001.md` |
-| Evaluation | Evaluation Contract (§8) | **Producido 2 veces, `PARTIAL` en ambas, ninguna independiente** — `evaluation/EXEC-20260907-001.md`, `evaluation/EXEC-20260908-001.md` |
-| Measurement | Measurement Result Contract (§10) | **`NOT MEASURED` en ambas** — sin baseline; 2 puntos del mismo actor no forman una serie comparable (`measurements/EXEC-20260908-001.md`) |
-| Feedback | `../adoption/contribution-guide.md` | **No obtenido** — sin evaluador/receptor confirmado (Blocked #1); se preparó una solicitud concreta de feedback sin poder enviarla a una persona real (ver [historial](../docs/history/track-1/G4.6-Independent-Adoption-and-Validation.md) §13) |
-| Contribution | Contribution Model (`../adoption/contribution-guide.md`) | Mecanismo definido, **ninguna contribución real todavía** |
+| Evidence | `../architecture/evaluation-observability.md` + Evidence Contract (`../architecture/evidence-evaluation-measurement.md#1-evidence`) | **Producido 6 veces** — ver [`../evidence/README.md`](../evidence/README.md) (índice completo, apunta a `../records/<tarea>/<EXEC-ID>/evidence.md`) |
+| Evaluation | Evaluation Contract (§8) | **Producido 6 veces, `PARTIAL` en las 6, ninguna independiente** (la 6ta, `EXEC-20260909-001`, tuvo un actor de ejecución independiente — `PILOT-003` — pero su evaluación sigue siendo `model-assisted`; son ejes distintos) — ver [`../evaluation/README.md`](../evaluation/README.md) |
+| Measurement | Measurement Result Contract (§10) | **`NOT MEASURED` en las 6** — sin baseline; los puntos disponibles (2 Direct Context, 4 Connected Context sobre 3 tipos de issue distintos) no forman una serie comparable — ver [`../measurements/README.md`](../measurements/README.md) |
+| Feedback | `../adoption/contribution-guide.md` | **Obtenido una vez, real** — `PILOT-003` (`EXEC-20260909-001`) produjo feedback literal de un developer real, ya parcialmente accionado (la fricción de navegación reportada motivó la restructuración de `evidence/`/`evaluation/`/`measurements/` a `records/` task-centric). Piloto **`EN CURSO`** — 4 de 7 preguntas del protocolo de `contribution-guide.md` siguen sin respuesta literal, ver [detalle](../docs/history/track-1/pilots/PILOT-003-armoa277-45-cold-start-independiente/feedback-record.md) |
+| Contribution | Contribution Model (`../adoption/contribution-guide.md`) | Mecanismo definido y ejercido una vez (`PILOT-003`) — todavía no una contribución formal aceptada al Common Core |
 
-**No se declara este Golden Path "validado" ni "listo para producción"** — 2 ejecuciones
-controladas del mismo actor, sin evaluación independiente ni medición, refuerzan la
-evidencia inicial pero no acreditan adopción independiente ni bastan para promoción (ver
-`../architecture/assessment-gate.md` y el [historial del Independence Test](../docs/history/track-1/G4.6-Independent-Adoption-and-Validation.md) §14).
+**No se declara este Golden Path "validado" ni "listo para producción"** — 6 ejecuciones,
+la última con un actor de ejecución real e independiente pero sin evaluación
+independiente ni medición, refuerzan la evidencia inicial y suman la primera señal real de
+adopción por alguien distinto de quien construyó el modelo, pero no bastan todavía para
+promoción (ver `../architecture/assessment-gate.md` y el
+[historial del Independence Test](../docs/history/track-1/G4.6-Independent-Adoption-and-Validation.md) §14,
+y `PILOT-003` para el detalle de la ejecución independiente más reciente).
 
 ### How to adopt this Golden Path
 

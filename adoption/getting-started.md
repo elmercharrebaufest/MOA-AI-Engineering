@@ -31,6 +31,19 @@ flowchart TD
     O --> P
 ```
 
+## 0.5. Si sos el agente ejecutando esta guía (no una persona explorando el modelo)
+
+**Leé primero [`agent-execution-contract.md`](agent-execution-contract.md) — es corto,
+es el único documento que necesitás para ejecutar una tarea real correctamente.** Define,
+en 4 reglas derivadas del límite Team Adaptation/Common Core que ya rige todo este
+modelo: qué podés leer, qué podés escribir, qué le mostrás a la persona (solo el
+resultado de su tarea) y qué hacer si notás algo que el modelo debería corregir (no
+actuarlo ni reportarlo en esa conversación). El resto de esta guía (secciones 1 en
+adelante) es para quien está explorando o adoptando el modelo, no para la ejecución
+puntual de una tarea.
+- Priorizá **velocidad y simplicidad** sobre exhaustividad — el objetivo es que la persona
+  vea su resultado rápido, no una auditoría del repositorio.
+
 ## 1. Entender
 
 `MOA-AI-Engineering` es la base común de AI Engineering para MOA — principios, gobierno,
@@ -97,14 +110,16 @@ responde al otro:
 significa que alguien lo haya ejecutado. Son preguntas independientes — ver
 [`../architecture/capability-registry.md`](../architecture/capability-registry.md).
 
-**No mezcles tu tarea con el modelo (regla dura, hallazgo real de un piloto).** La tabla
-de Evidence/Evaluation/Measurement de una entrada del Registry lista **todas** las
-ejecuciones reales acumuladas de esa capability — de tu proyecto y de otros, a veces de
-meses distintos. **No necesitás leerlas ni entenderlas para ejecutar tu propia tarea.**
-Esas filas existen para que el equipo que mantiene `MOA-AI-Engineering` audite el modelo
-en conjunto, no como instrucciones para vos. Tu única lectura obligatoria del Registry es
-el cuerpo de la entrada (`Propósito`, `Cuándo usarla`, `Instrucciones`) — el historial de
-ejecuciones de otros es contexto opcional, no un prerrequisito.
+**No mezcles tu tarea con el modelo (regla dura, hallazgo real de 2 pilotos
+independientes).** La tabla de Evidence/Evaluation/Measurement de una entrada del
+Registry lista **todas** las ejecuciones reales acumuladas de esa capability — de tu
+proyecto y de otros, a veces de meses distintos. **No necesitás leerlas ni entenderlas
+para ejecutar tu propia tarea.** Esas filas existen para que el equipo que mantiene
+`MOA-AI-Engineering` audite el modelo en conjunto, no como instrucciones para vos. Tu
+única lectura obligatoria del Registry es el cuerpo de la entrada (`Propósito`, `Cuándo
+usarla`, `Instrucciones`) — el historial de ejecuciones de otros es contexto opcional, no
+un prerrequisito. **Si sos el agente ejecutando esto**: esto no es solo para que la
+persona decida no leer — es una instrucción para vos también, ver sección 0.5.
 
 ## 5. Adoptar / Adaptar
 

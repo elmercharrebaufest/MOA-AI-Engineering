@@ -120,12 +120,16 @@ Reportar feedback o proponer que algo se vuelva reutilizable:
 **READY WITH CONDITIONS** — el modelo está construido, la biblioteca de capacidades es
 real y usable, pero:
 
-- Ninguna ejecución existente es una **validación humana independiente** — CAP-002 tiene
-  **5 ejecuciones reales registradas** (`evidence/README.md`): 2 *controlled dry-runs* con
-  Direct Context (`EXEC-20260907-001`, `EXEC-20260908-001`) y 3 adicionales con Connected
-  Context vía Context Provider (`EXEC-20260908-003` Azure DevOps, `EXEC-20260908-004` y
-  `EXEC-20260908-005` Jira/MCP) — todas hechas por el mismo agente que diseñó la
-  capacidad, no por un miembro de un equipo de MOA.
+- Ninguna evaluación existente es una **validación humana independiente** — CAP-002 tiene
+  **6 ejecuciones reales registradas** (`evidence/README.md`): 2 *controlled dry-runs* con
+  Direct Context (`EXEC-20260907-001`, `EXEC-20260908-001`) y 4 adicionales con Connected
+  Context vía Context Provider (`EXEC-20260908-003` Azure DevOps; `EXEC-20260908-004`,
+  `EXEC-20260908-005` y `EXEC-20260909-001` Jira/MCP). Las primeras 5 fueron hechas por el
+  mismo agente que diseñó la capacidad; la 6ta (`EXEC-20260909-001`, `PILOT-003`) tuvo un
+  **actor de ejecución real e independiente** (un developer de MOA, sin conocimiento
+  previo del repositorio) — pero su **evaluación** sigue siendo `model-assisted`, sin HITL
+  humano confirmado. Independencia de actor e independencia de evaluación son ejes
+  distintos; ninguna capacidad alcanza `VERIFIED` todavía.
 - No existe todavía **baseline cuantitativo** ni **medición comparativa de valor** para
   ninguna capacidad.
 - Ninguna capacidad es `Corporate Standard: Y` — todas son candidatas evaluadas con
