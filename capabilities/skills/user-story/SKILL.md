@@ -297,8 +297,8 @@ primero:
    `evaluation.md` de esa ejecución: `method: model-assisted` → `method: human`,
    `evaluator`/`hitl_confirmed_by` → tu nombre, y tu veredicto real.
 
-Detalle completo de esta misma guía, sección "6.0. Antes de nada: ¿ya existe un registro
-para tu tarea?": [`../../../adoption/getting-started.md`](../../../adoption/getting-started.md).
+Detalle completo en [`../../../adoption/getting-started.md`](../../../adoption/getting-started.md)
+(sección "Ejecutá").
 
 ### Human review
 

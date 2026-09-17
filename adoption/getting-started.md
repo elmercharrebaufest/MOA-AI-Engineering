@@ -1,10 +1,7 @@
 # Getting Started
 
-## 0. Si eres nuevo, empieza aquí
-
 Tenés un proyecto de MOA y querés usar IA para mejorar una actividad de tu SDLC. Esta
-guía te lleva desde esa necesidad hasta un resultado trazable — sin necesitar que nadie
-te explique el modelo primero.
+guía te lleva desde esa necesidad hasta un resultado trazable en tu propio repositorio.
 
 ```mermaid
 flowchart TD
@@ -31,48 +28,65 @@ flowchart TD
     O --> P
 ```
 
-## 0.5. Si sos el agente ejecutando esta guía (no una persona explorando el modelo)
-
-**Leé primero [`agent-execution-contract.md`](agent-execution-contract.md) — es corto,
-es el único documento que necesitás para ejecutar una tarea real correctamente.** Define,
-en 4 reglas derivadas del límite Team Adaptation/Common Core que ya rige todo este
-modelo: qué podés leer, qué podés escribir, qué le mostrás a la persona (solo el
-resultado de su tarea) y qué hacer si notás algo que el modelo debería corregir (no
-actuarlo ni reportarlo en esa conversación). El resto de esta guía (secciones 1 en
-adelante) es para quien está explorando o adoptando el modelo, no para la ejecución
-puntual de una tarea.
-- Priorizá **velocidad y simplicidad** sobre exhaustividad — el objetivo es que la persona
-  vea su resultado rápido, no una auditoría del repositorio.
-
-## 1. Entender
+## 1. Qué es esto
 
 `MOA-AI-Engineering` es la base común de AI Engineering para MOA — principios, gobierno,
 un Registry de capacidades reales, Golden Paths, y contratos para generar evidencia,
 evaluar y medir.
 
-**Qué NO es**: no es un framework obligatorio, no es una plataforma que reemplaza tu
-stack, no es un tutorial de cómo usar Copilot/Claude. **No necesitás copiar todo este
-repositorio dentro de tu proyecto** — adoptás las capacidades puntuales que necesitás, el
-resto queda acá como referencia.
+No es un framework obligatorio, no es una plataforma que reemplaza tu stack, no es un
+tutorial de cómo usar Copilot o Claude. No necesitás copiar todo este repositorio dentro
+de tu proyecto — adoptás las capacidades puntuales que necesitás, el resto queda acá como
+referencia.
 
-## 1.5. Qué necesito configurado antes de empezar, por plataforma
+## 2. El camino más corto
 
-El KO (pág. 15-16) apoya este modelo en 3 plataformas concretas: GitHub Copilot, Jira y
-Azure DevOps. No todo lo que necesitás lo configurás vos — separá siempre estas 2
-columnas antes de asumir que algo "no funciona":
+No hace falta ninguna herramienta nueva para adoptar esto — tu propio asistente de IA
+(Copilot, Claude, el que ya usás) puede hacer todo el trabajo mecánico. Parado en tu
+propio repositorio de aplicación, con `MOA-AI-Engineering` clonado o accesible en algún
+lugar de tu máquina, pegale esto a tu asistente en modo agente:
 
-| Plataforma | Lo que configurás vos, en tu equipo | Lo que requiere habilitación previa de MOA/Baufest |
+```text
+Quiero adoptar la capability CAP-002 (user-story) de MOA-AI-Engineering en este
+repositorio.
+
+1. Leé capabilities/skills/user-story/SKILL.md del repositorio MOA-AI-Engineering.
+2. Copiá su contenido a este repo, en la carpeta que uses para instrucciones/skills de
+   IA (si no existe ninguna, preguntame dónde antes de crear una nueva).
+3. En la sección "Sobre el rol", preguntame primero qué roles reales existen en este
+   dominio antes de completarla — no inventes roles.
+4. Mostrame el archivo final antes de guardarlo.
+```
+
+Con eso ya tenés la capability en tu repo, adaptada a tu dominio. A partir de ahí:
+
+1. Con tu asistente, sobre un ticket real: *"Usá la capability CAP-002 user-story para
+   refinar este ticket: [tu ticket real]"*.
+2. Revisá el resultado antes de darlo por bueno.
+3. Guardá tu propia evidencia, en tu repo: pedile a tu asistente que copie
+   [`templates/evidence-record.md`](templates/evidence-record.md) a algo como
+   `records/<tu-tarea>/evidence.md` y lo complete con tu resultado real.
+
+Con eso ya tenés tu primer resultado. El resto de esta guía es para cuando quieras el
+panorama completo o adoptar más de una capability.
+
+## 3. Qué necesitás configurado, por plataforma
+
+Este modelo se apoya en 3 plataformas: GitHub Copilot, Jira y Azure DevOps. No todo lo
+que necesitás lo configurás vos — separá siempre estas 2 columnas antes de asumir que
+algo no funciona:
+
+| Plataforma | Lo que configurás vos, en tu equipo | Lo que depende de una habilitación previa |
 |---|---|---|
-| **GitHub Copilot** (asistencia base) | Instalar la extensión de Copilot en tu IDE (VS Code/Visual Studio) y autenticarte con tu cuenta | Licencia/seat de Copilot asignada a tu usuario — `REQUIRES VALIDATION`, gestión centralizada de licencias |
-| **GitHub Copilot Code Review for Azure DevOps** | Nada a nivel individual — se activa a nivel de organización/proyecto, no de usuario | Habilitación sobre el proyecto de Azure DevOps (KO pág. 22, tarea `[MOA+BF]` del roadmap) — `REQUIRES VALIDATION`, sin evidencia de estar habilitado hoy |
-| **Jira** (Context Acquisition, CAP-008) | Instalar el cliente MCP de Atlassian Rovo en tu IDE y autenticar tu propia cuenta (OAuth 2.1) — paso a paso en [`context-providers-quickstart.md`](context-providers-quickstart.md#3a-atlassian-rovo-mcp-v2--runtime-principal-vs-code--github-copilot) | Que tu usuario ya tenga permisos reales sobre el proyecto de Jira correspondiente |
-| **Azure DevOps** (Context Acquisition, CAP-007, y CAP-001) | Azure CLI + extensión `azure-devops`, `az login` con tu cuenta, variables de entorno (`AZURE_DEVOPS_ORG`/`AZURE_DEVOPS_PROJECT`) — paso a paso en [`context-providers-quickstart.md`](context-providers-quickstart.md#1-prerequisites) | Que tu usuario ya tenga permisos reales sobre la organización/proyecto de Azure DevOps |
+| **GitHub Copilot** (asistencia base) | Instalar la extensión de Copilot en tu IDE y autenticarte con tu cuenta | Licencia asignada a tu usuario, gestionada de forma centralizada |
+| **GitHub Copilot Code Review for Azure DevOps** | Nada a nivel individual — se activa a nivel de organización/proyecto | Habilitación sobre el proyecto de Azure DevOps |
+| **Jira** (para traer contexto de un ticket automáticamente) | Instalar el cliente MCP de Atlassian Rovo en tu IDE y autenticar tu cuenta — paso a paso en [`context-providers-quickstart.md`](context-providers-quickstart.md#3a-atlassian-rovo-mcp-v2--runtime-principal-vs-code--github-copilot) | Que tu usuario ya tenga permisos sobre el proyecto de Jira correspondiente |
+| **Azure DevOps** (para traer contexto de un Work Item automáticamente) | Azure CLI + extensión `azure-devops`, `az login`, variables de entorno — paso a paso en [`context-providers-quickstart.md`](context-providers-quickstart.md#1-prerequisites) | Que tu usuario ya tenga permisos sobre la organización/proyecto |
 
-**Si algo de la columna derecha no está resuelto todavía**, no es un bloqueo del modelo —
-es una dependencia real, explícita, de alguien fuera de tu equipo. No inventes una
-configuración alternativa para evitarlo; reportalo como lo que es.
+Si algo de la columna derecha todavía no está resuelto, es una dependencia de alguien
+fuera de tu equipo — reportalo así, sin buscar una forma alternativa de evitarlo.
 
-## 2. Elegir qué quiero mejorar
+## 4. Elegí qué querés mejorar
 
 | Necesidad | Camino recomendado |
 |---|---|
@@ -84,10 +98,10 @@ configuración alternativa para evitarlo; reportalo como lo que es.
 | Integrar un sistema externo | MCP / Integration Onboarding |
 
 Detalle completo de cada camino: [`../golden-paths/README.md`](../golden-paths/README.md).
-**Solo el primero (AI-Assisted Requirements) tiene ejecuciones reales hoy** — los demás
-son conceptuales, documentados a propósito pero sin evidencia de ejecución todavía.
+Hoy solo el primero (AI-Assisted Requirements) tiene ejecuciones reales — los demás
+todavía son conceptuales.
 
-## 3. Elegir una capability
+## 5. Elegí una capability
 
 No son lo mismo:
 
@@ -106,219 +120,132 @@ Project Execution
   un Agent, un Workflow, una Instruction).
 - **Execution** = aplicar esa capability sobre tu proyecto real, una vez.
 
-Ver el catálogo completo: [`../registry/INDEX.md`](../registry/INDEX.md) (discovery, con
-evidencia) o [`../capabilities/README.md`](../capabilities/README.md) (archivos listos
-para copiar).
+Catálogo completo: [`../registry/INDEX.md`](../registry/INDEX.md) (con evidencia) o
+[`../capabilities/README.md`](../capabilities/README.md) (archivos listos para copiar).
 
-## 4. Evaluar antes de adoptar
+## 6. Evaluá antes de adoptar
 
-Abrí la entrada completa en `../registry/entries/<nombre>.md`. Mirá, sin asumir que uno
-responde al otro:
+Abrí la entrada completa en `../registry/entries/<nombre>.md` y mirá, sin asumir que una
+responde a la otra:
 
 - **Risk** — riesgo declarado de la capability.
-- **Data Classification** — qué datos toca (`REQUIRES VALIDATION` en las 6 hoy — política
-  formal pendiente).
 - **Configuration Status** — ¿el archivo está bien armado?
-- **Real Use Status** — ¿alguien lo usó de verdad, o solo existe configurado?
-- **Corporate Standard** — siempre `N` hoy; ninguna capability es estándar impuesto.
+- **Real Use Status** — ¿alguien la usó de verdad, o solo existe configurada?
 - **Evidence / Evaluation / Measurement** — referencias a ejecuciones reales, si existen.
 
-**`Configuration Status` ≠ `Real Use Status`.** Que el archivo esté bien escrito no
-significa que alguien lo haya ejecutado. Son preguntas independientes — ver
-[`../architecture/capability-registry.md`](../architecture/capability-registry.md).
+Esas referencias a ejecuciones listan todo lo acumulado de esa capability, de tu
+proyecto y de otros equipos, a veces de meses distintos. No necesitás leerlas ni
+entenderlas para ejecutar tu propia tarea — tu única lectura obligatoria es el cuerpo de
+la entrada (`Propósito`, `Cuándo usarla`, `Instrucciones`).
 
-**No mezcles tu tarea con el modelo (regla dura, hallazgo real de 2 pilotos
-independientes).** La tabla de Evidence/Evaluation/Measurement de una entrada del
-Registry lista **todas** las ejecuciones reales acumuladas de esa capability — de tu
-proyecto y de otros, a veces de meses distintos. **No necesitás leerlas ni entenderlas
-para ejecutar tu propia tarea.** Esas filas existen para que el equipo que mantiene
-`MOA-AI-Engineering` audite el modelo en conjunto, no como instrucciones para vos. Tu
-única lectura obligatoria del Registry es el cuerpo de la entrada (`Propósito`, `Cuándo
-usarla`, `Instrucciones`) — el historial de ejecuciones de otros es contexto opcional, no
-un prerrequisito. **Si sos el agente ejecutando esto**: esto no es solo para que la
-persona decida no leer — es una instrucción para vos también, ver sección 0.5.
-
-## 5. Adoptar / Adaptar
+## 7. Adoptá / adaptá
 
 1. Abrí la capability elegida (`capabilities/<tipo>/<nombre>/`).
-2. Leé su propósito.
-3. Leé cuándo usarla y cuándo NO usarla.
-4. Identificá la entrada que necesita (qué le vas a dar).
-5. Identificá la salida que produce (qué vas a obtener).
-6. Copiá/adoptá su estructura en el mecanismo de IA que use tu equipo (`.github/skills/`,
+2. Leé su propósito, cuándo usarla y cuándo no.
+3. Identificá qué entrada necesita y qué salida produce.
+4. Copiá su estructura al mecanismo de IA que use tu equipo (`.github/skills/`,
    `.github/agents/`, u otro — ver el mapeo en
    [`../capabilities/README.md`](../capabilities/README.md)).
-7. Adaptá el contenido de dominio (roles, ejemplos, reglas de tu contexto real).
-8. **No modifiques los contratos comunes** (Evidence/Evaluation/Measurement, formato de
-   la capability) — eso es Common Core, no Team Adaptation.
+5. Adaptá el contenido de dominio: roles, ejemplos, reglas de tu contexto real.
+6. No modifiques los contratos comunes (Evidence, Evaluation, Measurement, formato de
+   la capability).
 
 Qué podés cambiar libremente y qué no, con más detalle:
 [`team-adaptation.md`](team-adaptation.md).
 
-## 6. Ejecutar
+## 8. Ejecutá
 
-Ejecutar significa **aplicar la capability a una actividad real de tu SDLC** — nunca a un
-ejemplo inventado para "probar el sistema".
+Ejecutar significa aplicar la capability a una actividad real de tu SDLC — nunca a un
+ejemplo inventado para probar el sistema.
 
-### 6.0. Antes de nada: ¿ya existe un registro para tu tarea? (hallazgo real de un piloto)
+**Si tu asistente te dice que ya existe un registro para tu tarea** (mismo `EXEC-ID`, en
+`records/<fuente>-<tarea>/`), elegí según tu caso:
 
-Si le das a tu asistente la referencia de tu ticket (ej. `ARMOA277-45`) y te contesta que
-**ya existe una ejecución previa** para esa tarea (mismo `EXEC-ID`, en
-`records/<fuente>-<tarea>/`), **no es un error ni algo que tengas que resolver por tu
-cuenta** — es exactamente lo que se espera que pase (el modelo no duplica trabajo ya
-hecho). 3 decisiones simples, según tu caso:
+1. No cambió nada y solo querías el mismo resultado → no hay nada que hacer, ese
+   registro ya es tu evidencia.
+2. Tu ticket cambió, o el resultado anterior tiene algo para corregir → pedile al
+   asistente que cree una nueva ejecución anidada dentro de la misma carpeta de tarea
+   (`records/<fuente>-<tarea>/EXEC-<fecha-nueva>-<n>/`) — nunca edites el registro viejo.
+3. Podés revisar si el resultado existente es correcto → abrí `evaluation.md` de esa
+   ejecución y decidí. Si estás de acuerdo, pedile al asistente que actualice
+   `method: model-assisted` → `method: human`, y complete `evaluator`/
+   `hitl_confirmed_by` con tu nombre. Si no estás de acuerdo, lo mismo pero con
+   `result: FAIL`/`PARTIAL` y tu justificación real.
 
-1. **No cambió nada, solo querías el mismo resultado** → no hay nada que hacer. El
-   registro existente ya es tu evidencia.
-2. **Tu ticket cambió, o el resultado anterior tiene algo para corregir** → pedile al
-   asistente que cree una **nueva ejecución anidada** dentro de la misma carpeta de tarea
-   (`records/<fuente>-<tarea>/EXEC-<fecha-nueva>-<n>/`) — nunca edites el registro viejo
-   ni sobrescribas el `EXEC-ID` anterior.
-3. **Vos, como persona real, podés revisar si el resultado existente es correcto** —
-   **esta es tu oportunidad concreta de cerrar el HITL pendiente** que casi ninguna
-   ejecución tiene todavía (`evaluation.md` de esa carpeta, campo `hitl_confirmed_by:
-   Ninguno`). Abrí `evaluation.md` de esa ejecución y decidí: ¿estás de acuerdo con el
-   resultado? Si sí, pedile al asistente que actualice `method: model-assisted` →
-   `method: human`, `evaluator` → tu nombre, `hitl_confirmed_by` → tu nombre. Si no estás
-   de acuerdo, lo mismo pero con `result: FAIL`/`PARTIAL` y tu justificación real. **Esto
-   es lo más valioso que podés aportar hoy** — es la pieza que le falta a todo el modelo
-   (ninguna capability tiene todavía una evaluación humana confirmada).
+Si no existe registro previo, respondé primero cómo vas a dar el contexto:
 
-**Si no estás seguro de cuál de las 3 aplica, decíselo directamente al asistente** ("quiero
-revisar si el resultado anterior es correcto" / "mi tarea cambió, necesito una ejecución
-nueva") — no hace falta entender el resto del modelo para elegir.
+**Contexto conectado** (si tenés un Context Provider configurado): le das al asistente
+una referencia (ej. un ID de ticket), no el contenido completo — el Context Provider ya
+configurado la resuelve por vos. Hoy está validado de punta a punta para Jira (vía
+Atlassian Rovo MCP) y Azure DevOps. Requiere acceso al sistema correspondiente, un
+cliente MCP compatible, y permisos sobre el proyecto/issue — el flujo es de solo lectura.
 
-Antes de ejecutar (si no existe registro previo), respondé: **¿cómo vas a proporcionar el contexto?** Hay 2 caminos —
-ninguno obligatorio, elegís el que tengas disponible:
+**Entrada manual** (si no tenés un Context Provider disponible): le das al asistente el
+contenido de la capability más el requerimiento real, copiado del ticket o de donde lo
+tengas. Este camino siempre está disponible.
 
-### A. Contexto conectado (si tenés un Context Provider configurado)
+En ambos casos, la herramienta concreta puede ser Copilot, Claude, u otro asistente
+compatible con tu equipo — este modelo define el patrón y los controles, no obliga a un
+proveedor.
 
-```text
-Referencia del recurso → Context Provider → Resolved Context → Capability → Resultado → Human Review
-```
+Detalle operativo completo: [`execution-model.md`](execution-model.md). Detalle técnico
+de contexto conectado: [`context-providers-quickstart.md`](context-providers-quickstart.md).
 
-Le das al asistente una **referencia** (ej. un ID de ticket), no el contenido completo —
-un Context Provider ya configurado la resuelve por vos. **No necesitás copiar/pegar todo
-el requerimiento a mano.**
+## 9. Generá evidencia
 
-Requiere que exista un Context Provider real configurado para tu sistema origen — no
-está disponible por defecto para todos los equipos/usuarios. Ejemplo actualmente validado
-de punta a punta: **Jira → Atlassian Rovo MCP → Resolved Context → CAP-002
-(`user-story`)**. Prerrequisitos de alto nivel para ese ejemplo (sin credenciales, ver
-detalle completo en
-[`context-providers-quickstart.md`](context-providers-quickstart.md)):
+La evidencia demuestra que una ejecución ocurrió — es la prueba, no la opinión sobre si
+salió bien (eso es la evaluación).
 
-- acceso al Jira correspondiente;
-- un cliente compatible con MCP — en el escenario actualmente validado, VS Code +
-  GitHub Copilot Agent;
-- Atlassian Rovo MCP instalado y configurado;
-- autenticación del usuario ya completada;
-- permisos suficientes sobre el proyecto/issue;
-- el flujo actual es de solo lectura (`READ`) sobre el issue.
+Tu evidencia vive en un único archivo, propio de tu tarea — nunca mezclado con el de otro
+ticket:
 
-Esto **no** significa que Jira o Rovo MCP sean obligatorios ni un estándar corporativo —
-es el único proveedor conectado con evidencia real hoy. Azure DevOps tiene su propio
-Context Provider (ver [`registry/entries/azure-devops-context.md`](../registry/entries/azure-devops-context.md));
-otros sistemas pueden sumarse sin cambiar la capability que consume el contexto.
+1. Creá tu propio `EXEC-<fecha>-<n>.md` copiando el template — no reutilices el de otra
+   ejecución.
+2. Completá los campos sobre tu propio input/output.
+3. Dejá `evaluation_reference`/`metric_reference` como pendientes hasta que existan los
+   tuyos.
 
-### B. Entrada manual (si no tenés un Context Provider disponible)
+No necesitás abrir los registros de otros tickets o equipos para esto.
 
-```text
-Requerimiento real → Capability → Resultado → Human Review
-```
-
-Le das al asistente el contenido de la capability (ej. CAP-002 `user-story`) más el
-requerimiento real que vos mismo proporcionás — copiado del ticket, de un documento, o de
-donde lo tengas. Este camino **siempre está disponible**, sin depender de ninguna
-integración.
-
-**Ejemplo genérico**: tenés un ticket real (`MOA-XXXX`), sin Context Provider disponible
-para tu sistema. Le das al asistente el contenido de la capability más el requerimiento
-real del ticket, pegado a mano. El asistente produce un resultado estructurado. Una
-persona con criterio de negocio lo revisa antes de que avance a la siguiente etapa del
-SDLC.
-
-En ambos caminos, la herramienta concreta puede ser **Copilot, Claude, u otro asistente
-compatible con tu equipo** — `MOA-AI-Engineering` define el patrón y los controles, no
-obliga a un proveedor (ver Blocked Decision #2, sin plataforma única sancionada por MOA).
-
-Detalle operativo completo, paso a paso: [`execution-model.md`](execution-model.md).
-Detalle técnico completo de contexto conectado (Jira, Azure DevOps):
-[`context-providers-quickstart.md`](context-providers-quickstart.md).
-
-## 7. Generar Evidence
-
-**Evidence demuestra que una ejecución ocurrió** — en lenguaje simple: es la prueba, no
-la opinión sobre si salió bien (eso es Evaluation).
-
-**Tu evidencia vive en un único archivo, propio de tu tarea — nunca mezclado con el de
-otro ticket.** Un `EXEC-<fecha>-<n>.md` es 1:1 con 1 ejecución real sobre 1 ticket/input
-real tuyo. Vos solo necesitás:
-
-1. Crear tu propio `EXEC-<fecha>-<n>.md` (copiá el template, no reutilices el de otra
-   ejecución).
-2. Completar los campos sobre **tu** input/output — nunca copiar contenido de otro
-   registro para "completar" el tuyo.
-3. Dejar `evaluation_reference`/`metric_reference` como `NOT EVALUATED`/`NOT MEASURED`
-   hasta que existan los tuyos propios.
-
-No necesitás abrir ni entender los `EXEC-*.md` de otros tickets/equipos para esto — son
-evidencia acumulada del modelo (útil para quien lo audita), no parte de tu flujo de
-trabajo.
-
-- **Qué archivo usar**: [`templates/evidence-record.md`](templates/evidence-record.md).
-- **Qué registrar**: quién ejecutó, cuándo, con qué capability y versión, sobre qué
-  input, qué output produjo.
-- **Qué NO registrar**: secretos, credenciales, ni el contenido completo de datos
+- Archivo a usar: [`templates/evidence-record.md`](templates/evidence-record.md).
+- Qué registrar: quién ejecutó, cuándo, con qué capability, sobre qué input, qué output
+  produjo.
+- Qué no registrar: secretos, credenciales, ni el contenido completo de datos
   sensibles — usá referencias (paths, links, IDs).
-- **Cómo enlazar el ticket/artefacto**: en el campo `input_reference` — un link real, no
-  una descripción parafraseada.
-- **Cómo enlazar Evaluation/Measurement**: en los campos `evaluation_reference` y
-  `metric_reference` — `NOT EVALUATED`/`NOT MEASURED` si todavía no existen.
 
-Contrato canónico completo:
-[`../architecture/evidence-evaluation-measurement.md`](../architecture/evidence-evaluation-measurement.md#1-evidence).
-Ejemplos reales ya hechos: [`../evidence/README.md`](../evidence/README.md).
+Contrato completo: [`../architecture/evidence-evaluation-measurement.md`](../architecture/evidence-evaluation-measurement.md#1-evidence).
+Ejemplos: [`../evidence/README.md`](../evidence/README.md).
 
-## 8. Evaluar
+## 10. Evaluá
 
-- **Evidence** responde: *¿qué ocurrió?*
-- **Evaluation** responde: *¿el resultado es correcto/suficiente?*
+La evidencia responde qué ocurrió; la evaluación responde si el resultado es correcto o
+suficiente.
 
-Los criterios se definen **antes** de mirar el resultado, no después. El resultado es
-`PASS` / `PARTIAL` / `FAIL`, siempre con `rationale` (justificación) — nunca sin
-explicar por qué.
+Definí tus criterios antes de mirar el resultado. El veredicto es `PASS`, `PARTIAL` o
+`FAIL`, siempre con una justificación. Cuando el resultado puede promoverse o tener
+impacto real, necesita revisión humana — una autoevaluación no la sustituye.
 
-**HITL (Human-In-The-Loop) es obligatorio** cuando el resultado puede promoverse o tener impacto real —
-`method: model-assisted` (autoevaluación) no sustituye una evaluación humana
-independiente, sin excepción.
+Plantilla: [`templates/evaluation-record.md`](templates/evaluation-record.md). Ejemplos:
+[`../evaluation/README.md`](../evaluation/README.md).
 
-Plantilla: [`templates/evaluation-record.md`](templates/evaluation-record.md). Ejemplos
-reales: [`../evaluation/README.md`](../evaluation/README.md).
+## 11. Medí
 
-## 9. Medir
+La medición responde qué impacto tuvo.
 
-**Measurement responde**: *¿qué impacto tuvo?*
-
-- Si existe baseline real: `confidence/status: MEASURED`, con `value` y `unit` reales.
-- Si no existe: `NOT MEASURED` / `NO DATA`, con `baseline_reference: REQUIRES
-  VALIDATION` — un resultado válido, no una falla.
-
-**Nunca inventes un `0` ni un porcentaje de mejora** para completar el campo.
+Si existe un baseline real, completá el valor y la unidad reales. Si no existe, dejalo
+explícito como no medido — es un resultado válido, no una falla. Nunca completes el
+campo con un número inventado.
 
 Plantilla: [`templates/measurement-record.md`](templates/measurement-record.md).
-Ejemplos reales: [`../measurements/README.md`](../measurements/README.md).
+Ejemplos: [`../measurements/README.md`](../measurements/README.md).
 
-## 10. Feedback / Improve
+## 12. Dejá feedback
 
 Si encontraste algo que valdría la pena que otros equipos usen, o una brecha en la
-capability misma (contenido faltante, rol no cubierto, gap real) — convertilo en
-feedback concreto siguiendo [`contribution-guide.md`](contribution-guide.md). El
-mecanismo está listo; el receptor con mandato formal todavía depende de
-[`../governance/BLOCKED-DECISIONS.md`](../governance/BLOCKED-DECISIONS.md) #1 — igual
-vale la pena dejarlo trazable.
+capability misma, convertilo en feedback siguiendo
+[`contribution-guide.md`](contribution-guide.md).
 
-## 11. Definition of Done
+## 13. Checklist final
 
 ```
 [ ] Necesidad SDLC identificada
@@ -329,30 +256,25 @@ vale la pena dejarlo trazable.
 [ ] Resultado generado
 [ ] Evidence registrado
 [ ] Evaluation registrado
-[ ] HITL realizado cuando corresponde
-[ ] Measurement registrado o declarado NOT MEASURED/NO DATA
+[ ] Revisión humana realizada cuando corresponde
+[ ] Measurement registrado o declarado explícitamente sin datos
 [ ] Feedback registrado
 ```
 
-## 12. Errores que debes evitar
+## 14. Errores a evitar
 
 - No copiar todo el repositorio dentro de tu proyecto.
-- No asumir que **existir = funcionar**.
-- No asumir que `CONFIGURED` = `EXECUTED`.
-- No asumir que `EXECUTED` = `VERIFIED`.
-- No considerar una salida de IA como aprobada automáticamente — siempre HITL cuando
-  corresponde.
-- No inventar métricas.
-- No inventar baseline.
-- No declarar `Corporate Standard` — esa decisión no es tuya ni de esta guía.
-- No modificar contratos comunes sin pasar por Assessment.
-- No confundir **Golden Path** con **Capability** (sección 3).
-- No confundir **Evidence** (qué ocurrió) con **Evaluation** (si es correcto).
-- No confundir **Evaluation** (correctness) con **Measurement** (impacto).
+- No asumir que existir es lo mismo que funcionar.
+- No considerar una salida de IA como aprobada automáticamente.
+- No inventar métricas ni baseline.
+- No modificar los contratos comunes sin pasar por Assessment.
+- No confundir Golden Path con Capability.
+- No confundir Evidence (qué ocurrió) con Evaluation (si es correcto) ni con
+  Measurement (impacto).
 
 ## Ver también
 
 - [`adoption-flow.md`](adoption-flow.md) — el modelo mental completo, en un solo lugar.
-- [`execution-model.md`](execution-model.md) — el detalle operativo de "ejecutar".
+- [`execution-model.md`](execution-model.md) — el detalle operativo de ejecutar.
 - [`team-adaptation.md`](team-adaptation.md) — qué adaptar, qué no.
 - [`contribution-guide.md`](contribution-guide.md) — feedback y contribución.
