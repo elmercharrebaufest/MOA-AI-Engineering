@@ -46,7 +46,7 @@ mecánica del modelo.
   documento de arquitectura: quien ejecuta una tarea puntual y quien diseña/mantiene el
   sistema necesitan información distinta, y mezclarlas degrada la experiencia de ambos.
 
-## El contrato, en 4 reglas
+## El contrato, en 5 reglas
 
 1. **Leé solo**: la capability que vas a usar (`capabilities/<tipo>/<nombre>/`) y, si
    existe, `records/<fuente>-<tu-tarea>/` (para no duplicar una ejecución ya hecha sobre
@@ -65,6 +65,30 @@ mecánica del modelo.
    Es información para quien mantiene `MOA-AI-Engineering` vía
    [`contribution-guide.md`](contribution-guide.md), en un canal separado — no para la
    persona que solo quiere avanzar con su ticket.
+5. **Respondé en el idioma en el que te escribe la persona.** Este proyecto y su
+   comunidad de uso son de habla hispana — no cambies a inglés salvo que te lo pidan en
+   inglés. Esto también es parte de "mostrale a la persona solo lo que le sirve" (regla
+   3): una respuesta en un idioma que la persona no pidió es fricción, no ayuda.
+
+## Si te dan solo una referencia de tarea, sin más indicación
+
+**Comportamiento por defecto: actuá, no preguntes primero.** Si la persona te da
+únicamente una referencia (`ARMOA277-XXX`, `MOA-XXXX`) sin decir qué necesita, y no hay
+ninguna ejecución previa de esa misma tarea —**traé el detalle vía el Context Provider
+correspondiente y aplicá CAP-002 (`user-story`) directamente**, sin preguntar antes "¿qué
+querés hacer con esto?". No es una suposición nueva: es el patrón real que ya ocurrió en
+las 5 ejecuciones reales anteriores de Connected Context — ninguna preguntó primero, y el
+KO describe exactamente este comportamiento (*"Rovo Agent analiza el ticket al momento de
+su creación, detecta ambigüedades y genera preguntas para el PO antes del
+refinamiento"* — analiza y actúa, genera preguntas **sobre el contenido del ticket**, no
+sobre la intención de la persona).
+
+**Cuándo sí preguntar**: si el contenido real del ticket (tipo de issue, título,
+descripción) sugiere claramente que CAP-002 no aplica (ej. es un bug de código, una tarea
+de infraestructura, algo sin relación con requerimientos) — ahí preguntá qué necesita la
+persona, porque la ambigüedad es real, no por precaución genérica. Si la persona
+**pide algo distinto explícitamente** ("traeme el detalle nomás", "quiero implementar
+código para esto"), seguí lo que pidió, no el default.
 
 ## Ejemplos reales que motivaron este contrato (ilustrativos, no la lista completa de casos)
 
@@ -73,9 +97,11 @@ mecánica del modelo.
 | Abrió y citó `registry/INDEX.md` y ejecuciones de otro ticket | Contexto ajeno a la tarea, mostrado a la persona | Regla 1 y 3 |
 | Reportó una carpeta faltante de otra tarea como hallazgo | Auditoría del modelo mostrada en la conversación de una persona | Regla 4 |
 | Editó `registry/entries/*.md` para actualizar contadores globales | Escritura en Common Core desde una ejecución individual | Regla 2 |
+| Editó `capabilities/skills/user-story/SKILL.md` (contador de ejecuciones) y respondió en inglés a una persona que escribió en español | El agente nunca había leído este contrato — no hay archivo de auto-descubrimiento (`AGENTS.md`) que lo forzara — y ninguna regla cubría el idioma todavía | Regla 2 (ya cubría `capabilities/`, faltaba que el agente la viera) y Regla 5 (nueva) |
 
-Cualquier variante nueva que no esté en esta tabla sigue cubierta por las 4 reglas — no
-hace falta agregar un caso más para que aplique.
+Cualquier variante nueva que no esté en esta tabla sigue cubierta por las 5 reglas — no
+hace falta agregar un caso más para que aplique. Ver [`../AGENTS.md`](../AGENTS.md) para
+cómo se garantiza que un agente encuentre este contrato antes de empezar.
 
 ## Qué NO cambia
 

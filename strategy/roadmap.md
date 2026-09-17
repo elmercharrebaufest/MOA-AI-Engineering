@@ -59,8 +59,8 @@ actualizado con cada fase); esta sección resume, no duplica.
   evidencia real de DataAgro, Scato Logística, Orquestador y `moa-sdlc` (herramienta de
   referencia de Baufest, no equipo de MOA), pasadas por el pipeline de
   `assessment/README.md`.
-- **Golden Paths**: 6 documentados, 1 (`AI-Assisted Requirements`) con 6 ejecuciones
-  reales — la última con un actor independiente (`PILOT-003`, ver
+- **Golden Paths**: 6 documentados, 1 (`AI-Assisted Requirements`) con 7 ejecuciones
+  reales — las últimas 2 con actor independiente (`PILOT-003` y ARMOA277-194, ver
   `golden-paths/README.md`).
 - **Evidence/Evaluation/Measurement Contracts**: definidos y aplicados 7 veces sobre
   requerimientos reales.

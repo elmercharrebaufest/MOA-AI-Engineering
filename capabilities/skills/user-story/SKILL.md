@@ -7,10 +7,10 @@ description: Plantillas para historias de usuario, criterios de aceptación (Giv
 
 **Capability Registry**: [`CAP-002`](../../../registry/entries/user-story.md).
 **Golden Path**: [`AI-Assisted Requirements`](../../../golden-paths/README.md#1-ai-assisted-requirements)
-— única capacidad que consume, con **6 ejecuciones reales** (`EXEC-20260907-001`,
+— única capacidad que consume, con **7 ejecuciones reales** (`EXEC-20260907-001`,
 `EXEC-20260908-001` con Direct Context; `EXEC-20260908-003`, `EXEC-20260908-004`,
-`EXEC-20260908-005`, `EXEC-20260909-001` con Connected Context vía Context Provider —
-esta última con **actor independiente**, ver "Ejemplos" abajo).
+`EXEC-20260908-005`, `EXEC-20260909-001`, `EXEC-20260917-001` con Connected Context vía
+Context Provider — `EXEC-20260909-001` con **actor independiente**, ver "Ejemplos" abajo).
 **Clasificación (G5.1)**: **REUSABLE CAPABILITY** — ADAPT. La **estructura** (Historia/
 Criterios/Reglas/Gaps) es Common Core; el **contenido** (roles, ejemplos, dominio) es
 Team Adaptation obligatoria, no opcional — ver nota de roles más abajo.
@@ -44,6 +44,7 @@ Y"), con o sin ticket asociado.
 
 Historia de usuario + criterios de aceptación + reglas de negocio + análisis de gaps —
 lista para revisión humana (Human Review), no para desarrollo directo sin esa revisión.
+Si hay gaps bloqueantes, incluye además una recomendación de próximo paso (sección 5).
 
 ## Instrucciones
 
@@ -128,6 +129,36 @@ Revisar siempre, antes de cerrar el requerimiento:
 requerimiento (planes técnicos, decisiones ya tomadas) — `EXEC-20260908-001` encontró y
 descartó correctamente un falso positivo así; no reportar como ambigüedad algo que ya fue
 decidido y documentado en otro lugar.
+
+### 5. Recomendación (obligatoria cuando hay gaps bloqueantes)
+
+**Agregado tras feedback real de developer** — completar el gap-analysis con **una
+recomendación de próximo paso**, no solo la lista de preguntas. Esto no es una función
+nueva: opera exactamente lo que el KO ya describe para esta etapa
+(`TRACK-1/BAUFEST_...md`, etapa "Recepción del requerimiento"): *"Rovo Agent... detecta
+ambigüedades y genera preguntas para el PO antes del refinamiento."* Acá se sintetiza esa
+detección en una acción concreta:
+
+```text
+📌 Recomendación: [1 frase — la historia no está lista para Planning/desarrollo por
+   [razón concreta, ej. "falta descripción y criterios de aceptación en el ticket de
+   origen"]].
+   Sugerencia: contactar a [nombre real del reporter/asignado, si el Resolved Context lo
+   trae — ej. "Jesús Gutiérrez (reporter)"] o al PO real de esta historia para completar
+   [qué falta exactamente] antes de continuar.
+```
+
+**Regla dura, sin excepción — esto es texto, nunca una acción**: la recomendación es
+parte del resultado que lee la persona, **no** dispara ningún comentario, notificación ni
+cambio de estado en Jira/Azure DevOps. Sigue siendo `READ` — la única acción real es que
+un humano, después de leer esto, decida contactar a alguien por su cuenta. Ver
+[`../../../security/security-governance.md`](../../../security/security-governance.md)
+§1.5 — automatizar el envío de esa notificación sería `ACT`, fuera de alcance de esta
+capability.
+
+**Nunca inventar un nombre** — si el Resolved Context no trae `reporter`/`assignee` real
+(campo `metadata` vacío o ausente), la recomendación dice "contactar al PO/referente
+funcional real de este ticket", sin nombre propio inventado.
 
 ## How to use this capability
 
@@ -214,6 +245,10 @@ RN-01: [restricción real]
 
 ### Análisis de gaps
 ❓ [pregunta real que bloquea implementación, si existe alguna]
+
+### Recomendación (solo si hay gaps bloqueantes)
+📌 [1 frase de por qué no está lista + a quién contactar, si el Resolved Context trae un
+   nombre real — nunca inventado]
 ```
 
 ### ¿Ya existe una ejecución para este ticket?
@@ -283,7 +318,7 @@ le pasa como entrada.
 ## HITL
 
 **Obligatorio, sin excepción**: un PO/referente de negocio debe validar la historia antes
-de pasar a Planning/desarrollo. Ninguna ejecución de esta skill hasta ahora (6/6) tuvo
+de pasar a Planning/desarrollo. Ninguna ejecución de esta skill hasta ahora (7/7) tuvo
 HITL real — todas fueron autoevaluadas (`model-assisted`), sin evaluador humano
 confirmado, **independientemente de que la 6ta (`EXEC-20260909-001`) sí tenga un actor de
 ejecución independiente** — son 2 ejes distintos, ver nota en "Ejemplos". No tratar una
@@ -294,13 +329,15 @@ historia generada como aprobada sin esa revisión.
 Ver 2 ejecuciones reales completas con Direct Context, con historia + criterios + reglas
 + gaps genuinos: [`EXEC-20260907-001`](../../../records/jira-MOA-1816/EXEC-20260907-001/evidence.md)
 (MOA-1816, DataAgro) y [`EXEC-20260908-001`](../../../records/jira-MOA-1765/EXEC-20260908-001/evidence.md)
-(MOA-1765, DataAgro). Ver además 4 ejecuciones reales con Connected Context vía Context
+(MOA-1765, DataAgro). Ver además 5 ejecuciones reales con Connected Context vía Context
 Provider: [`EXEC-20260908-003`](../../../records/ado-7/EXEC-20260908-003/evidence.md)
 (Azure DevOps), [`EXEC-20260908-004`](../../../records/jira-ARMOA277-191/EXEC-20260908-004/evidence.md)
-y [`EXEC-20260908-005`](../../../records/jira-ARMOA277-180/EXEC-20260908-005/evidence.md) (Jira/MCP), y
+y [`EXEC-20260908-005`](../../../records/jira-ARMOA277-180/EXEC-20260908-005/evidence.md) (Jira/MCP),
 [`EXEC-20260909-001`](../../../records/jira-ARMOA277-45/EXEC-20260909-001/evidence.md)
 (Jira/MCP, `ARMOA277-45`) — **la única con actor de ejecución independiente** (developer
-real, no quien diseñó el modelo, ver `PILOT-003`).
+real, no quien diseñó el modelo, ver `PILOT-003`) — y
+[`EXEC-20260917-001`](../../../records/jira-ARMOA277-194/EXEC-20260917-001/evidence.md)
+(Jira/MCP, `ARMOA277-194`, primer issue tipo `Historia`/Story disponible en el proyecto).
 
 ## Criterios de calidad
 
@@ -320,10 +357,11 @@ proyecto, ajuste del rol al catálogo (agregado en G4.6, ver nota de rol arriba)
 ## Evidencia / origen
 
 3 instancias reales de origen (DataAgro, Scato Logística, Orquestador — 2 originadores
-distintos) y 6 ejecuciones reales completas de punta a punta (2 Direct Context: G4.4,
-G4.6; 4 Connected Context: `EXEC-20260908-003/004/005`, `EXEC-20260909-001`), todas
-`PARTIAL` en su evaluación — ninguna evaluación es independiente todavía, aunque la última
-sí tuvo actor de ejecución independiente (`PILOT-003`) — ver
+distintos) y 7 ejecuciones reales completas de punta a punta (2 Direct Context: G4.4,
+G4.6; 5 Connected Context: `EXEC-20260908-003/004/005`, `EXEC-20260909-001`,
+`EXEC-20260917-001`), todas `PARTIAL` en su evaluación — ninguna evaluación es
+independiente todavía, aunque una sí tuvo actor de ejecución independiente
+(`EXEC-20260909-001`, ver `PILOT-003`) — ver
 [`registry/entries/user-story.md`](../../../registry/entries/user-story.md). Esta versión
 en `capabilities/` generaliza la estructura común a las 3 instancias, sin copiar el
 contenido de dominio de ninguna.

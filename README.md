@@ -121,12 +121,13 @@ Reportar feedback o proponer que algo se vuelva reutilizable:
 real y usable, pero:
 
 - Ninguna evaluación existente es una **validación humana independiente** — CAP-002 tiene
-  **6 ejecuciones reales registradas** (`evidence/README.md`): 2 *controlled dry-runs* con
-  Direct Context (`EXEC-20260907-001`, `EXEC-20260908-001`) y 4 adicionales con Connected
+  **7 ejecuciones reales registradas** (`evidence/README.md`): 2 *controlled dry-runs* con
+  Direct Context (`EXEC-20260907-001`, `EXEC-20260908-001`) y 5 adicionales con Connected
   Context vía Context Provider (`EXEC-20260908-003` Azure DevOps; `EXEC-20260908-004`,
-  `EXEC-20260908-005` y `EXEC-20260909-001` Jira/MCP). Las primeras 5 fueron hechas por el
-  mismo agente que diseñó la capacidad; la 6ta (`EXEC-20260909-001`, `PILOT-003`) tuvo un
-  **actor de ejecución real e independiente** (un developer de MOA, sin conocimiento
+  `EXEC-20260908-005`, `EXEC-20260909-001` y `EXEC-20260917-001` Jira/MCP). Las primeras 5
+  fueron hechas por el mismo agente que diseñó la capacidad; la 6ta y 7ma
+  (`EXEC-20260909-001`/`PILOT-003`, `EXEC-20260917-001`) tuvieron un
+  **actor de ejecución real e independiente** (developers de MOA, sin conocimiento
   previo del repositorio) — pero su **evaluación** sigue siendo `model-assisted`, sin HITL
   humano confirmado. Independencia de actor e independencia de evaluación son ejes
   distintos; ninguna capacidad alcanza `VERIFIED` todavía.

@@ -17,8 +17,9 @@ Cada Golden Path se define con: objetivo, entrada, pasos, capacidades utilizadas
 **Estado por Golden Path**: de los 6 Golden Paths documentados, **solo el #1
 (AI-Assisted Requirements) tiene
 ejecuciones reales** y está `HARDENED` en el sentido definido por G4.5/G4.6 (evidencia real,
-6 ejecuciones — la última con un actor de ejecución independiente, `PILOT-003` — sin
-llegar a validado de punta a punta: la evaluación sigue siendo `model-assisted` en las 6).
+7 ejecuciones — las últimas 2 con actor de ejecución independiente (`PILOT-003` y una
+ejecución posterior sobre `ARMOA277-194`) — sin llegar a validado de punta a punta: la
+evaluación sigue siendo `model-assisted` en las 7).
 **Los Golden Paths #2 a #6 siguen
 siendo `PROPOSAL` — definición conceptual únicamente, sin ejecución real todavía** (mismo
 estado declarado a nivel de documento desde G3.3). Se mantienen documentados a propósito
@@ -29,11 +30,12 @@ como relleno — pero no deben leerse como "listos para usar" solo por estar esc
 
 ## 1. AI-Assisted Requirements
 
-**Estado: HARDENED en G4.5, con evidencia acumulada hasta 6 ejecuciones reales — la 6ta
-(`EXEC-20260909-001`) es la primera con un actor real independiente.** Único Golden Path
+**Estado: HARDENED en G4.5, con evidencia acumulada hasta 7 ejecuciones reales — la 6ta
+(`EXEC-20260909-001`) y la 7ma (`EXEC-20260917-001`, ARMOA277-194) tienen actor real
+independiente.** Único Golden Path
 del producto — deliberadamente no se creó un segundo (regla vigente desde G4.2). Consume
 **CAP-002** (`user-story`,
-[`../registry/entries/user-story.md`](../registry/entries/user-story.md)). Tiene **6
+[`../registry/entries/user-story.md`](../registry/entries/user-story.md)). Tiene **7
 ejecuciones reales registradas**: `EXEC-20260907-001` (MOA-1816, G4.4) y `EXEC-20260908-001`
 (MOA-1765, G4.6) — Direct Context, CONTROLLED DRY-RUN del mismo agente que diseñó el
 modelo; `EXEC-20260908-003/004/005` — Connected Context vía Context Provider, mismo agente;
@@ -41,10 +43,16 @@ y **`EXEC-20260909-001`** (`ARMOA277-45`, vía Jira/MCP) — Connected Context, 
 un **developer real de MOA en una sesión independiente** (`PILOT-003`,
 [detalle completo](../docs/history/track-1/pilots/PILOT-003-armoa277-45-cold-start-independiente/README.md)),
 la primera vez que alguien distinto de quien construyó `MOA-AI-Engineering` usa el Golden
-Path sin guía. **Esto no lo vuelve `VERIFIED`**: la independencia del actor y la
+Path sin guía; y **`EXEC-20260917-001`** (`ARMOA277-194`, vía Jira/MCP), una segunda
+ejecución independiente real, sobre un cuarto tipo de issue distinto (Historia/Story) y ya
+bajo el `agent-execution-contract.md` — el resultado del developer quedó enfocado en su
+propia tarea, sin narrar acciones internas del modelo. **Esto no vuelve `VERIFIED` a
+ninguna de las dos**: la independencia del actor y la
 independencia de la evaluación son ejes distintos — la evaluación de `EXEC-20260909-001`
-sigue siendo `model-assisted` ([`evaluation.md`](../records/jira-ARMOA277-45/EXEC-20260909-001/evaluation.md)), sin HITL humano
-confirmado. Ver
+y de `EXEC-20260917-001` sigue siendo `model-assisted`
+([`evaluation.md`](../records/jira-ARMOA277-45/EXEC-20260909-001/evaluation.md),
+[`evaluation.md`](../records/jira-ARMOA277-194/EXEC-20260917-001/evaluation.md)), sin HITL
+humano confirmado. Ver
 [el historial del segundo controlled dry-run](../docs/history/track-1/G4.6-Independent-Adoption-and-Validation.md)
 para el detalle de G4.6, y `PILOT-003` para el detalle de la ejecución independiente —
 incluye fricción real reportada por el developer (navegar `evidence/`/`registry/` mezclado
@@ -120,8 +128,8 @@ equivalga a `VERIFIED`.
 | Feedback | `../adoption/contribution-guide.md` | **Obtenido una vez, real** — `PILOT-003` (`EXEC-20260909-001`) produjo feedback literal de un developer real, ya parcialmente accionado (la fricción de navegación reportada motivó la restructuración de `evidence/`/`evaluation/`/`measurements/` a `records/` task-centric). Piloto **`EN CURSO`** — 4 de 7 preguntas del protocolo de `contribution-guide.md` siguen sin respuesta literal, ver [detalle](../docs/history/track-1/pilots/PILOT-003-armoa277-45-cold-start-independiente/feedback-record.md) |
 | Contribution | Contribution Model (`../adoption/contribution-guide.md`) | Mecanismo definido y ejercido una vez (`PILOT-003`) — todavía no una contribución formal aceptada al Common Core |
 
-**No se declara este Golden Path "validado" ni "listo para producción"** — 6 ejecuciones,
-la última con un actor de ejecución real e independiente pero sin evaluación
+**No se declara este Golden Path "validado" ni "listo para producción"** — 7 ejecuciones,
+las últimas 2 con actor de ejecución real e independiente pero sin evaluación
 independiente ni medición, refuerzan la evidencia inicial y suman la primera señal real de
 adopción por alguien distinto de quien construyó el modelo, pero no bastan todavía para
 promoción (ver `../architecture/assessment-gate.md` y el

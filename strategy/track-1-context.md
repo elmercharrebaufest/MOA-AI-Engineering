@@ -563,16 +563,20 @@ capacidades es real y usable, con condiciones:
   ver sección 8.
 - **Golden Paths**: 6 documentados, **solo 1 (AI-Assisted Requirements) tiene ejecuciones
   reales** (`HARDENED` en el sentido de evidencia real, no de validación independiente) —
-  los otros 5 son `PROPOSAL` conceptual. Ese único Golden Path tiene ya 6 ejecuciones
-  reales, la última con un actor de ejecución independiente (`PILOT-003`, sección 13).
+  los otros 5 son `PROPOSAL` conceptual. Ese único Golden Path tiene ya 7 ejecuciones
+  reales, las últimas 2 con un actor de ejecución independiente (`PILOT-003` y
+  ARMOA277-194, sección 13).
 - **Adoption Model**: guía paso a paso, modelo de ejecución de 12 pasos, plantillas
-  operativas de Adoption/Execution/Evidence/Evaluation/Measurement Record.
-- **Evidence/Evaluation/Measurement contracts**: definidos y aplicados **6 veces** —
+  operativas de Adoption/Execution/Evidence/Evaluation/Measurement Record, y un contrato
+  dedicado para agentes ejecutando tareas reales
+  ([`../adoption/agent-execution-contract.md`](../adoption/agent-execution-contract.md)).
+- **Evidence/Evaluation/Measurement contracts**: definidos y aplicados **7 veces** —
   `records/` (restructurado a task-centric, ver [`../evidence/README.md`](../evidence/README.md))
-  tiene 6 ejecuciones reales: 2 `CONTROLLED DRY-RUN` con Direct Context y 4 con Connected
-  Context (Azure DevOps + Jira/MCP sobre 3 tipos de issue). Las primeras 5 fueron del mismo
-  actor que diseñó el modelo; la 6ta (`EXEC-20260909-001`, `PILOT-003`) tuvo un actor de
-  ejecución real e independiente — su evaluación, como las otras 5, sigue siendo
+  tiene 7 ejecuciones reales: 2 `CONTROLLED DRY-RUN` con Direct Context y 5 con Connected
+  Context (Azure DevOps + Jira/MCP sobre 4 tipos de issue). Las primeras 5 fueron del mismo
+  actor que diseñó el modelo; la 6ta y 7ma (`EXEC-20260909-001`/`PILOT-003`,
+  `EXEC-20260917-001`/ARMOA277-194) tuvieron un actor de
+  ejecución real e independiente — su evaluación, como las otras, sigue siendo
   `model-assisted`, no independiente.
 - **Governance**: pipeline de agentes (`TRIGGER→CONTEXT→DECISION→ACTION→VALIDATION→AUDIT`),
   niveles de gobierno (Corporate/Reusable/Team-Specific), human-in-the-loop obligatorio
@@ -676,18 +680,19 @@ de decisión la deja como `REQUIRES VALIDATION`, se mantiene así acá.
   internamente (con las contradicciones señaladas en este documento).
 - **Validado técnicamente**: las 6 capacidades tienen configuración `VERIFIED` (archivos
   reales, bien formados, leídos completos).
-- **Ejecutado**: **6 ejecuciones reales** de CAP-002 sobre trabajo real (2 Direct Context,
-  4 Connected Context vía Azure DevOps/Jira) — `EXECUTED`, no `VERIFIED`.
-- **Validado por humanos**: **ninguna** — las 6 evaluaciones existentes son
+- **Ejecutado**: **7 ejecuciones reales** de CAP-002 sobre trabajo real (2 Direct Context,
+  5 Connected Context vía Azure DevOps/Jira) — `EXECUTED`, no `VERIFIED`.
+- **Validado por humanos**: **ninguna** — las 7 evaluaciones existentes son
   `model-assisted`; ninguna tiene un evaluador humano independiente confirmado.
-- **Medido**: **ninguna** capacidad tiene medición real — los 6 registros de Measurement
+- **Medido**: **ninguna** capacidad tiene medición real — los 7 registros de Measurement
   son `NOT MEASURED`, sin baseline.
-- **Probado en adopción independiente**: **parcialmente — 1 de 2 ejes cumplidos**. Existe
-  ya un **actor de ejecución real e independiente** (`PILOT-003`/`EXEC-20260909-001`: un
-  developer de MOA, sin conocimiento previo de este repositorio, resolvió por su cuenta
-  una tarea real de Jira y eligió/ejecutó CAP-002). **No** existe todavía una
-  **evaluación independiente** de ese resultado — sigue `model-assisted` — ni el piloto
-  está cerrado (quedan 4 de 7 preguntas de feedback sin responder, ver
+- **Probado en adopción independiente**: **parcialmente — 1 de 2 ejes cumplidos, 2 veces**.
+  Existen ya **2 actores de ejecución reales e independientes** (`PILOT-003`/
+  `EXEC-20260909-001` y una segunda ejecución sobre `ARMOA277-194`/`EXEC-20260917-001`):
+  developers de MOA, sin conocimiento previo de este repositorio, resolvieron por su
+  cuenta una tarea real de Jira y eligieron/ejecutaron CAP-002. **No** existe todavía una
+  **evaluación independiente** de ninguno de los 2 resultados — sigue `model-assisted` —
+  ni el primer piloto está cerrado (quedan 4 de 7 preguntas de feedback sin responder, ver
   [`PILOT-003`](../docs/history/track-1/pilots/PILOT-003-armoa277-45-cold-start-independiente/README.md)).
   Independencia de actor e independencia de evaluación son ejes distintos, sin confundirse
   (mismo principio de la sección 11).

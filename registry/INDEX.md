@@ -16,27 +16,28 @@ independiente) → `VERIFIED` (ejecución independiente + evaluación humana con
 | ID | Nombre | Tipo | Repos | Corporate Standard | Configuration Status | Real Use Status | Riesgo |
 |---|---|---|---|---|---|---|---|
 | [CAP-001](entries/azure-devops-cli.md) | azure-devops-cli | Skill | Scato Logística, Orquestador | N | VERIFIED | CONFIGURED | Bajo |
-| [CAP-002](entries/user-story.md) | user-story | Skill | DataAgro, Scato Logística, Orquestador | N | VERIFIED (2/3) · PARTIAL (DataAgro) | **EXECUTED** (6 ejecuciones: 2 dry-runs Direct Context — G4.4 MOA-1816, G4.6 MOA-1765 — + 4 Connected Context — `EXEC-20260908-003/004/005`, `EXEC-20260909-001`; esta última con actor de ejecución independiente, `PILOT-003` — evaluación sigue `model-assisted`) | Bajo |
+| [CAP-002](entries/user-story.md) | user-story | Skill | DataAgro, Scato Logística, Orquestador | N | VERIFIED (2/3) · PARTIAL (DataAgro) | **EXECUTED** (7 ejecuciones: 2 dry-runs Direct Context — G4.4 MOA-1816, G4.6 MOA-1765 — + 5 Connected Context — `EXEC-20260908-003/004/005`, `EXEC-20260909-001`, `EXEC-20260917-001`; las últimas 2 con actor de ejecución independiente, `PILOT-003` y ARMOA277-194 — evaluación sigue `model-assisted`) | Bajo |
 | [CAP-003](entries/dotnet-code-reviewer.md) | .NET Code Reviewer | Agent | Orquestador, Scato Logística | N | VERIFIED | CONFIGURED | Bajo (por diseño) |
 | [CAP-004](entries/spec-driven-development.md) | spec-driven-development | Workflow | DataAgro (Lite, real), `moa-sdlc` (Full, real hasta `tester`) | N | VERIFIED | EXECUTED (ambos niveles — nivel Full: `spec-author`+`implementer`+`tester` reales, `MOA-1765-DistribuidorCupos`, sin `reviewer`/`security-reviewer`/`human-approver`) | Bajo (Lite) / Medio (Full) |
 | [CAP-005](entries/repository-governance.md) | repository-governance | Instruction | DataAgro, Scato Logística, Orquestador, `moa-sdlc` | N | VERIFIED | CONFIGURED | Bajo |
 | [CAP-006](entries/stack-best-practices-template.md) | stack-best-practices-template | Skill | Scato Logística, Orquestador | N | VERIFIED | CONFIGURED | Bajo |
 | [CAP-007](entries/azure-devops-context.md) | azure-devops-context | Integration/API | Ninguno todavía (patrón de referencia) | N | VERIFIED (documento) | EXECUTED (`EXEC-20260908-003`) | Bajo |
-| [CAP-008](entries/jira-context.md) | jira-context | MCP | Ninguno todavía (patrón de referencia) | N | VERIFIED (documento) | EXECUTED (MCP real, `EXEC-20260908-004`, `EXEC-20260908-005`, `EXEC-20260909-001`) | Bajo-Medio |
+| [CAP-008](entries/jira-context.md) | jira-context | MCP | Ninguno todavía (patrón de referencia) | N | VERIFIED (documento) | EXECUTED (MCP real, `EXEC-20260908-004`, `EXEC-20260908-005`, `EXEC-20260909-001`, `EXEC-20260917-001`) | Bajo-Medio |
 
 **CAP-007/008** *(nuevas, agregadas al implementar Context Acquisition & Resolution)*: a
 diferencia de CAP-001 a CAP-006, no son generalizaciones de una capacidad ya ejecutada por
 un equipo — son **patrones nuevos**, extraídos de evidencia real (CAP-001 y el MCP
 Atlassian con scope acotado). **Actualización**: CAP-007 tiene 1 ejecución real de punta a
-punta (`EXEC-20260908-003`, Azure DevOps) y CAP-008 tiene 4 (`EXEC-20260908-002` BLOCKED
+punta (`EXEC-20260908-003`, Azure DevOps) y CAP-008 tiene 5 (`EXEC-20260908-002` BLOCKED
 vía REST, `EXEC-20260908-004` SUCCESS vía MCP real sobre un issue tipo Error/Bug,
 `EXEC-20260908-005` SUCCESS vía MCP real sobre un issue tipo Tarea/Task,
-`EXEC-20260909-001` SUCCESS vía MCP real sobre un issue tipo Test/Xray, esta última con
-**actor de ejecución independiente** — `PILOT-003`, un developer real de MOA sin
-conocimiento previo del repositorio) — existe evidencia de generalización a tres tipos de
-issue reales con diferente nivel de completitud de información, pero ninguno de los dos
-patrones alcanza `VERIFIED` (sin evaluación humana independiente todavía — la
-independencia del actor de `EXEC-20260909-001` no implica evaluación independiente, son
+`EXEC-20260909-001` SUCCESS vía MCP real sobre un issue tipo Test/Xray (actor
+independiente, `PILOT-003`), `EXEC-20260917-001` SUCCESS vía MCP real sobre un issue tipo
+Historia/Story (segundo actor independiente, ARMOA277-194) — un developer real de MOA sin
+conocimiento previo del repositorio en ambos casos) — existe evidencia de generalización a
+cuatro tipos de issue reales con diferente nivel de completitud de información, pero
+ninguno de los dos patrones alcanza `VERIFIED` (sin evaluación humana independiente
+todavía — la independencia del actor no implica evaluación independiente, son
 ejes distintos). `Action Type: READ` en ambas,
 sin excepción — ver
 [`../architecture/context-acquisition-resolution.md`](../architecture/context-acquisition-resolution.md)
@@ -61,7 +62,7 @@ acá — quedaron clasificados TEAM-SPECIFIC o EXPERIMENTAL, con su razón docum
 - **Workflow**: CAP-004
 - **Instruction**: CAP-005
 - **Integration/API**: CAP-007 (patrón, READ-only, 1 ejecución real de punta a punta — `EXEC-20260908-003`)
-- **MCP**: CAP-008 (patrón, READ-only, scope acotado, 4 ejecuciones reales — `EXEC-20260908-002` BLOCKED, `EXEC-20260908-004` SUCCESS sobre issue tipo Error/Bug, `EXEC-20260908-005` SUCCESS sobre issue tipo Tarea/Task, `EXEC-20260909-001` SUCCESS sobre issue tipo Test/Xray con actor independiente (`PILOT-003`), las 3 últimas vía Atlassian Rovo MCP real) — el servidor MCP invocado es real (Atlassian Rovo, hosted), no significa que MOA haya desplegado un servidor MCP propio
+- **MCP**: CAP-008 (patrón, READ-only, scope acotado, 5 ejecuciones reales — `EXEC-20260908-002` BLOCKED, `EXEC-20260908-004` SUCCESS sobre issue tipo Error/Bug, `EXEC-20260908-005` SUCCESS sobre issue tipo Tarea/Task, `EXEC-20260909-001` SUCCESS sobre issue tipo Test/Xray con actor independiente (`PILOT-003`), `EXEC-20260917-001` SUCCESS sobre issue tipo Historia/Story con segundo actor independiente (ARMOA277-194), las 4 últimas vía Atlassian Rovo MCP real) — el servidor MCP invocado es real (Atlassian Rovo, hosted), no significa que MOA haya desplegado un servidor MCP propio
 - **Knowledge/RAG**: sin entradas todavía (ver
   [`../docs/history/track-1/relevamiento-capacidades-g2.md`](../docs/history/track-1/relevamiento-capacidades-g2.md)
   para evidencia adicional no registrada aún)
