@@ -143,10 +143,20 @@ detección en una acción concreta:
 📌 Recomendación: [1 frase — la historia no está lista para Planning/desarrollo por
    [razón concreta, ej. "falta descripción y criterios de aceptación en el ticket de
    origen"]].
-   Sugerencia: contactar a [nombre real del reporter/asignado, si el Resolved Context lo
-   trae — ej. "Jesús Gutiérrez (reporter)"] o al PO real de esta historia para completar
-   [qué falta exactamente] antes de continuar.
+   Sugerencia: contactar a [nombre real del reporter, si el Resolved Context lo trae —
+   ej. "Jesús Gutiérrez (reporter)"] para completar [qué falta exactamente] antes de
+   continuar.
 ```
+
+**`reporter`, no `assignee`, es el contacto por defecto — regla dura, con motivo**: el
+`assignee` de un ticket es quien va a *implementarlo* (con frecuencia la misma persona
+que está ejecutando esta capability en este momento); recomendarle "contactate con el
+assignee" es circular y no aporta nada cuando el assignee es quien lee la recomendación.
+El `reporter` es quien originó el requerimiento y, en ausencia de un campo explícito de
+PO en el Resolved Context, es el proxy más cercano al *"PO"* que pide el KO para esta
+etapa. Solo mencionar al `assignee` además del `reporter` si el Resolved Context trae un
+campo de PO/responsable funcional distinto de ambos, o si el `reporter` no está
+disponible — nunca como alternativa intercambiable "y/o".
 
 **Regla dura, sin excepción — esto es texto, nunca una acción**: la recomendación es
 parte del resultado que lee la persona, **no** dispara ningún comentario, notificación ni
@@ -156,24 +166,29 @@ un humano, después de leer esto, decida contactar a alguien por su cuenta. Ver
 §1.5 — automatizar el envío de esa notificación sería `ACT`, fuera de alcance de esta
 capability.
 
-**Nunca inventar un nombre** — si el Resolved Context no trae `reporter`/`assignee` real
-(campo `metadata` vacío o ausente), la recomendación lo dice de forma explícita y le da a
-la persona la acción concreta que falta, no una referencia vaga:
+**Nunca inventar un nombre** — si el Resolved Context no trae `reporter` real (campo
+`metadata` vacío o ausente), la recomendación lo dice de forma explícita y le da a la
+persona la acción concreta que falta, no una referencia vaga:
 
 ```text
-   Sugerencia: no pude identificar quién reportó o es dueño de esta historia con el
-   contexto que traje de Jira — revisá los campos "Reporter"/"Assignee" del ticket
-   directamente en Jira antes de contactar al PO real, para completar [qué falta
-   exactamente].
+   Sugerencia: no pude identificar quién reportó esta historia con el contexto que traje
+   de Jira — revisá el campo "Reporter" del ticket directamente en Jira antes de
+   contactar al PO real, para completar [qué falta exactamente].
 ```
 
-**Por qué esta aclaración importa (feedback real de developer)**: decir solo "contactar
-al PO/referente" sin más deja a la persona sin saber si el nombre no estaba disponible o
-si el agente lo omitió a propósito, y sin saber si tiene que ir a buscarlo. La regla es:
-si el Resolved Context **sí** trae `reporter`/`assignee`, usalo por su nombre real — la
-persona no necesita entrar a Jira ella misma, ese dato ya viajó en la ejecución de
-Context Acquisition. Solo cuando el campo viene vacío se le pide explícitamente a la
-persona que lo busque en Jira — nunca como paso por defecto.
+**Por qué esta aclaración importa (feedback real de developer, 2 rondas)**: la primera
+ronda mostró que decir solo "contactar al PO/referente" sin más deja a la persona sin
+saber si el nombre no estaba disponible o si el agente lo omitió a propósito. La segunda
+ronda (sobre `ARMOA277-194`) mostró un problema distinto: la recomendación decía
+"contactar a Jesús Gutiérrez (reporter) **y/o** a Samoel Sarmiento Tello (assignee)" —
+pero Samoel es el developer asignado a implementar la historia, no la fuente de la
+información funcional que falta; recomendarle que se contacte a sí mismo (o a quien
+ejecuta la tarea) no aporta nada. La regla, ya corregida arriba: **priorizar siempre
+`reporter`** sobre `assignee` para completar gaps funcionales — la persona no necesita
+entrar a Jira ella misma para el `reporter`, ese dato ya viajó en la ejecución de Context
+Acquisition. Solo cuando el campo `reporter` viene vacío se le pide explícitamente a la
+persona que lo busque en Jira — nunca como paso por defecto, y nunca reemplazado por
+`assignee` sin aclarar el motivo.
 
 ## How to use this capability
 

@@ -61,22 +61,34 @@ mecánica del modelo.
    respuesta. Si dudás si algo es "interno del modelo" o "parte del resultado de la
    persona", es interno. Esto incluye, explícitamente, cualquier comando de
    housekeeping que corras para vos mismo antes de entregar el resultado —
-   `git branch`/`git status`/`git diff --check`, verificar que solo tocaste tus propios
-   archivos, decidir el nombre del próximo `EXEC-ID`, "voy a crear X con Y y después
-   Z" — nada de eso es el resultado de la persona, es el equivalente a mostrarle los
-   logs internos de un pipeline de CI en vez del changelog de la release: **es el mismo
-   patrón de separación de audiencias ya citado más arriba**, aplicado a comandos, no
-   solo a archivos. La persona ve: la historia de usuario, los gaps, la recomendación, y
-   (si aplica) en qué archivo quedó guardado — nada del cómo llegaste ahí.
+   `git branch`/`git status`/`git diff --check`, cualquier paso de validación del propio
+   editor/herramienta ("Checked X, no problems found"), verificar que solo tocaste tus
+   propios archivos, decidir el nombre del próximo `EXEC-ID`, "voy a crear X con Y y
+   después Z" — nada de eso es el resultado de la persona, es el equivalente a mostrarle
+   los logs internos de un pipeline de CI en vez del changelog de la release: **es el
+   mismo patrón de separación de audiencias ya citado más arriba**, aplicado a comandos,
+   no solo a archivos.
+
+   **Lo que sí es del resultado y no debe omitirse** (confirmado con feedback real —
+   sacarlo por error rompe la regla tanto como mostrar de más): la historia de usuario,
+   los gaps, la recomendación, y **la ruta completa y real del archivo donde quedó
+   guardada la ejecución** (`records/<fuente>-<tarea>/<EXEC-ID>/evidence.md`, no solo el
+   nombre `evidence.md` suelto) — la persona necesita esa ruta para poder abrir,
+   compartir o auditar su propio resultado sin tener que pedirla. La distinción no es
+   "mostrar menos", es "mostrar el destino, nunca el camino para llegar ahí".
 4. **Si detectás algo real que el modelo debería corregir** (un gap, una inconsistencia,
    un archivo roto) — **no lo actúes ni lo reportes en la conversación de la tarea**.
    Es información para quien mantiene `MOA-AI-Engineering` vía
    [`contribution-guide.md`](contribution-guide.md), en un canal separado — no para la
    persona que solo quiere avanzar con su ticket.
-5. **Respondé en el idioma en el que te escribe la persona.** Este proyecto y su
-   comunidad de uso son de habla hispana — no cambies a inglés salvo que te lo pidan en
-   inglés. Esto también es parte de "mostrale a la persona solo lo que le sirve" (regla
-   3): una respuesta en un idioma que la persona no pidió es fricción, no ayuda.
+5. **Respondé en el idioma en el que te escribe la persona, y hacelo correctamente.**
+   Este proyecto y su comunidad de uso son de habla hispana — no cambies a inglés salvo
+   que te lo pidan en inglés. Esto también es parte de "mostrale a la persona solo lo que
+   le sirve" (regla 3): una respuesta en un idioma que la persona no pidió es fricción,
+   no ayuda. **Incluye escribir español real, con tildes y demás signos** (`gestión`, no
+   `gestion`; `Jesús`, no `Jesus`; `¿Qué...?`, no `Que...?`) — un archivo sin acentos no
+   es un error menor de estilo, es el mismo tipo de defecto que un linter marcaría en
+   cualquier otro artefacto de este repositorio.
 
 ## Si te dan solo una referencia de tarea, sin más indicación
 
@@ -107,6 +119,7 @@ código para esto"), seguí lo que pidió, no el default.
 | Editó `registry/entries/*.md` para actualizar contadores globales | Escritura en Common Core desde una ejecución individual | Regla 2 |
 | Editó `capabilities/skills/user-story/SKILL.md` (contador de ejecuciones) y respondió en inglés a una persona que escribió en español | El agente nunca había leído este contrato — no hay archivo de auto-descubrimiento (`AGENTS.md`) que lo forzara — y ninguna regla cubría el idioma todavía | Regla 2 (ya cubría `capabilities/`, faltaba que el agente la viera) y Regla 5 (nueva) |
 | Narró `git branch --show-current`, `git status --short` y `git diff --check` en la conversación, y describió "voy a crear el registro, después voy a validar el diff" como si fuera parte del resultado | Housekeeping interno del agente (verificar que no tocó archivos ajenos, que no hay problemas de whitespace) mostrado como si fuera información para la persona | Regla 3 (aclarada con ejemplos concretos de comandos) |
+| En la misma ejecución, dejó de mostrar la ruta del archivo donde quedó guardado el resultado (solo decía "quedó en `evidence.md`", sin la carpeta real), y escribió el archivo entero sin tildes (`gestion`, `Jesus`, `Analisis`) | Sobre-corrección de la regla 3 (se ocultó información que sí es del resultado) + violación nueva de la regla 5 (idioma incorrecto, no solo idioma equivocado) | Regla 3 (aclarada: la ruta del archivo no es housekeeping) y Regla 5 (ampliada a ortografía) |
 
 Cualquier variante nueva que no esté en esta tabla sigue cubierta por las 5 reglas — no
 hace falta agregar un caso más para que aplique. Ver [`../AGENTS.md`](../AGENTS.md) para
