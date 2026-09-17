@@ -148,8 +148,7 @@ repos, **parcialmente poblado** (con contenido real en 1 de los 2 casos), **sin 
 confirmado** por ningún agent relevado. El estado correcto ya no es "NOT FOUND" — es
 `CONFIGURED, PARTIALLY POPULATED, NO CONFIRMED CONSUMPTION`. Sigue sin existir ningún
 mecanismo de indexación ni recuperación semántica real (RAG propiamente dicho) en ningún
-repo — ver [`../evidence/current-moa-ai-practices-benchmark.md`](../evidence/current-moa-ai-practices-benchmark.md)
-sección 16 (gap 5). No se implementa RAG en esta actividad.
+repo. No se implementa RAG en esta actividad.
 
 ### 6. Integration / API
 

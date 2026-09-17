@@ -17,7 +17,7 @@ evidencia real empieza con la prueba en curso de un developer real de MOA sobre
 
 | Ejecución | Tarea | Capacidad | Qué documenta |
 |---|---|---|---|
-| [`current-moa-ai-practices-benchmark.md`](current-moa-ai-practices-benchmark.md) | — | Todas (benchmark, no una ejecución) | Benchmark de prácticas reales de AI Engineering en 6 repos de MOA (DataAgro, Scato Logística, Orquestador, MoaOperaciones, ScatoPuerto, moa-sdlc) — entrada de evidencia para decisión arquitectónica, no propuesta final |
+| *(vacío)* | — | — | Sin ejecuciones registradas todavía |
 
 ## Convención de carpetas (`records/<fuente>-<tarea>/<EXEC-ID>/`)
 

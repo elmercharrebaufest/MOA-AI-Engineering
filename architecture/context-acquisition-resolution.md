@@ -1,12 +1,11 @@
 # Context Acquisition & Resolution
 
-**Estado**: PROPOSAL — primera versión implementada del concepto ya evaluado en
-[`benchmark-to-target-model-decision-input.md`](benchmark-to-target-model-decision-input.md)
-(Decisión #1, `GAP` → primera implementación). **No es una capability de negocio
-adicional.** Es un **Cross-Cutting Concern**, del mismo tipo que Evaluation, Observability
-y Metrics ([`capability-model.md`](capability-model.md)) — no se "elige" para resolver un
-caso de uso, **opera antes** de cualquiera de las 7 capacidades seleccionables,
-resolviendo de dónde viene el input que esas capacidades consumen.
+**Estado**: PROPOSAL — primera versión implementada de un concepto que el modelo no tenía
+nombrado hasta el relevamiento de prácticas reales de 6 repos de MOA (2026-09-08). **No es
+una capability de negocio adicional.** Es un **Cross-Cutting Concern**, del mismo tipo que
+Evaluation, Observability y Metrics ([`capability-model.md`](capability-model.md)) — no se
+"elige" para resolver un caso de uso, **opera antes** de cualquiera de las 7 capacidades
+seleccionables, resolviendo de dónde viene el input que esas capacidades consumen.
 
 ## Por qué existe
 

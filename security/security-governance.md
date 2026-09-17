@@ -41,10 +41,9 @@ para calibrarlo).
 
 ## 1.5 READ vs. ACT — frontera de contrato
 
-**Agregado al implementar Context Acquisition & Resolution** — formaliza la distinción ya
-evaluada en [`../architecture/benchmark-to-target-model-decision-input.md`](../architecture/benchmark-to-target-model-decision-input.md)
-(Decisión #3). Antes vivía disuelta dentro del factor "Read/write" de la sección 1; ahora
-tiene contrato propio, campo `Action Type` en `capability-registry.md`.
+**Agregado al implementar Context Acquisition & Resolution** — formaliza una distinción
+que antes vivía disuelta dentro del factor "Read/write" de la sección 1; ahora tiene
+contrato propio, campo `Action Type` en `capability-registry.md`.
 
 **Action Type**: `READ` / `ACT` / `BOTH`.
 
