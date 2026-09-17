@@ -5,13 +5,13 @@ nombre.**
 
 | Pregunta | Respuesta del developer |
 |---|---|
-| ¿Encontraste por dónde empezar sin que nadie te lo dijera? ¿Cuánto tardaste? | *(pendiente)* |
-| ¿Qué parte del contenido te resultó clara? | *(pendiente)* |
-| ¿Qué parte te generó retrabajo o confusión? | *(pendiente)* |
-| ¿Qué tuviste que adivinar sobre tu propio proyecto que el repo no te ayudó a resolver? | *(pendiente)* |
-| ¿Qué te faltó — algo que buscaste y no encontraste? | *(pendiente)* |
-| ¿Usarías esto de nuevo para otra capacidad? | *(pendiente)* |
-| ¿Qué cambiarías del propio `MOA-AI-Engineering`? | *(pendiente)* |
+| ¿Se encontró por dónde empezar sin que nadie lo indicara? ¿Cuánto se tardó? | *(pendiente)* |
+| ¿Qué parte del contenido resultó clara? | *(pendiente)* |
+| ¿Qué parte generó retrabajo o confusión? | *(pendiente)* |
+| ¿Qué hubo que adivinar sobre el propio proyecto que el repo no ayudó a resolver? | *(pendiente)* |
+| ¿Qué faltó — algo que se buscó y no se encontró? | *(pendiente)* |
+| ¿Se usaría esto de nuevo para otra capacidad? | *(pendiente)* |
+| ¿Qué se cambiaría del propio `MOA-AI-Engineering`? | *(pendiente)* |
 | ¿Se bloqueó en algún punto y necesitó ayuda externa? ¿Dónde exactamente? | *(pendiente)* |
 
 ## Comparación posterior (completar después de recibir el feedback)
