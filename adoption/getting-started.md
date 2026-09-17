@@ -55,6 +55,23 @@ stack, no es un tutorial de cómo usar Copilot/Claude. **No necesitás copiar to
 repositorio dentro de tu proyecto** — adoptás las capacidades puntuales que necesitás, el
 resto queda acá como referencia.
 
+## 1.5. Qué necesito configurado antes de empezar, por plataforma
+
+El KO (pág. 15-16) apoya este modelo en 3 plataformas concretas: GitHub Copilot, Jira y
+Azure DevOps. No todo lo que necesitás lo configurás vos — separá siempre estas 2
+columnas antes de asumir que algo "no funciona":
+
+| Plataforma | Lo que configurás vos, en tu equipo | Lo que requiere habilitación previa de MOA/Baufest |
+|---|---|---|
+| **GitHub Copilot** (asistencia base) | Instalar la extensión de Copilot en tu IDE (VS Code/Visual Studio) y autenticarte con tu cuenta | Licencia/seat de Copilot asignada a tu usuario — `REQUIRES VALIDATION`, gestión centralizada de licencias |
+| **GitHub Copilot Code Review for Azure DevOps** | Nada a nivel individual — se activa a nivel de organización/proyecto, no de usuario | Habilitación sobre el proyecto de Azure DevOps (KO pág. 22, tarea `[MOA+BF]` del roadmap) — `REQUIRES VALIDATION`, sin evidencia de estar habilitado hoy |
+| **Jira** (Context Acquisition, CAP-008) | Instalar el cliente MCP de Atlassian Rovo en tu IDE y autenticar tu propia cuenta (OAuth 2.1) — paso a paso en [`context-providers-quickstart.md`](context-providers-quickstart.md#3a-atlassian-rovo-mcp-v2--runtime-principal-vs-code--github-copilot) | Que tu usuario ya tenga permisos reales sobre el proyecto de Jira correspondiente |
+| **Azure DevOps** (Context Acquisition, CAP-007, y CAP-001) | Azure CLI + extensión `azure-devops`, `az login` con tu cuenta, variables de entorno (`AZURE_DEVOPS_ORG`/`AZURE_DEVOPS_PROJECT`) — paso a paso en [`context-providers-quickstart.md`](context-providers-quickstart.md#1-prerequisites) | Que tu usuario ya tenga permisos reales sobre la organización/proyecto de Azure DevOps |
+
+**Si algo de la columna derecha no está resuelto todavía**, no es un bloqueo del modelo —
+es una dependencia real, explícita, de alguien fuera de tu equipo. No inventes una
+configuración alternativa para evitarlo; reportalo como lo que es.
+
 ## 2. Elegir qué quiero mejorar
 
 | Necesidad | Camino recomendado |
