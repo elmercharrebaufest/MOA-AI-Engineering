@@ -69,13 +69,30 @@ mecánica del modelo.
    mismo patrón de separación de audiencias ya citado más arriba**, aplicado a comandos,
    no solo a archivos.
 
+   **Prueba general, para no depender de que esta lista prevea cada caso nuevo**: si lo
+   que estás por escribir en el chat es la salida cruda de una herramienta — un comando,
+   una búsqueda, un archivo temporal/cache, un mensaje de error de la herramienta misma
+   (ej. "No matches found... .*ignore files...") — en vez de texto que vos redactaste
+   como parte de la historia/los gaps/la recomendación, **no se muestra, sin excepción**.
+   No hace falta que aparezca en la tabla de ejemplos de abajo para que la regla
+   aplique — la prueba es "¿esto lo generó una herramienta o lo redacté yo como parte del
+   resultado?", no "¿ya vi este caso exacto antes?".
+
+   **Además, evitá repetir la misma consulta a una herramienta externa (MCP, CLI) sobre
+   la misma referencia dentro de una misma ejecución** — si ya tenés el resultado, no lo
+   vuelvas a pedir; es el mismo principio de *least privilege/least context* ya citado
+   arriba, aplicado a llamadas, no solo a archivos leídos.
+
    **Lo que sí es del resultado y no debe omitirse** (confirmado con feedback real —
    sacarlo por error rompe la regla tanto como mostrar de más): la historia de usuario,
    los gaps, la recomendación, y **la ruta completa y real del archivo donde quedó
    guardada la ejecución** (`records/<fuente>-<tarea>/<EXEC-ID>/evidence.md`, no solo el
    nombre `evidence.md` suelto) — la persona necesita esa ruta para poder abrir,
    compartir o auditar su propio resultado sin tener que pedirla. La distinción no es
-   "mostrar menos", es "mostrar el destino, nunca el camino para llegar ahí".
+   "mostrar menos", es "mostrar el destino, nunca el camino para llegar ahí". **La ruta
+   completa va en la última frase de tu respuesta** (el cierre, lo que la persona lee al
+   final) — no alcanza con mencionarla una vez en medio del proceso y volver a decir
+   solo `evidence.md` al cerrar.
 4. **Si detectás algo real que el modelo debería corregir** (un gap, una inconsistencia,
    un archivo roto) — **no lo actúes ni lo reportes en la conversación de la tarea**.
    Es información para quien mantiene `MOA-AI-Engineering` vía
@@ -120,8 +137,13 @@ código para esto"), seguí lo que pidió, no el default.
 | Editó `capabilities/skills/user-story/SKILL.md` (contador de ejecuciones) y respondió en inglés a una persona que escribió en español | El agente nunca había leído este contrato — no hay archivo de auto-descubrimiento (`AGENTS.md`) que lo forzara — y ninguna regla cubría el idioma todavía | Regla 2 (ya cubría `capabilities/`, faltaba que el agente la viera) y Regla 5 (nueva) |
 | Narró `git branch --show-current`, `git status --short` y `git diff --check` en la conversación, y describió "voy a crear el registro, después voy a validar el diff" como si fuera parte del resultado | Housekeeping interno del agente (verificar que no tocó archivos ajenos, que no hay problemas de whitespace) mostrado como si fuera información para la persona | Regla 3 (aclarada con ejemplos concretos de comandos) |
 | En la misma ejecución, dejó de mostrar la ruta del archivo donde quedó guardado el resultado (solo decía "quedó en `evidence.md`", sin la carpeta real), y escribió el archivo entero sin tildes (`gestion`, `Jesus`, `Analisis`) | Sobre-corrección de la regla 3 (se ocultó información que sí es del resultado) + violación nueva de la regla 5 (idioma incorrecto, no solo idioma equivocado) | Regla 3 (aclarada: la ruta del archivo no es housekeeping) y Regla 5 (ampliada a ortografía) |
+| Llamó 2 veces a la misma herramienta MCP (`Get issue`) sobre la misma referencia, y mostró en el chat un mensaje de error de búsqueda del propio editor ("No matches found... .*ignore files...") y varias lecturas de un archivo temporal de caché (`content.json`, línea por línea) | Ninguno de los 2 patrones estaba en esta tabla todavía — la salida cruda de una herramienta es interna aunque no sea un comando git; motivó agregar una prueba general en vez de seguir enumerando casos | Regla 3 (prueba general nueva: "¿lo generó una herramienta o lo redacté yo?") |
 
-Cualquier variante nueva que no esté en esta tabla sigue cubierta por las 5 reglas — no
+Esta última fila es la razón por la que la regla 3 ahora incluye una **prueba general**
+en vez de depender solo de la lista de ejemplos — la lista sigue creciendo con cada
+variante nueva de la misma herramienta distinta, pero la prueba general ya las cubre a
+todas sin necesidad de un caso por caso. Cualquier variante nueva que no esté en esta
+tabla sigue cubierta por las 5 reglas — no
 hace falta agregar un caso más para que aplique. Ver [`../AGENTS.md`](../AGENTS.md) para
 cómo se garantiza que un agente encuentre este contrato antes de empezar.
 
