@@ -18,12 +18,18 @@ ejecución anidada adentro — ver la nota de convención al final de este archi
 | [`EXEC-20260908-004`](../records/jira-ARMOA277-191/EXEC-20260908-004/evidence.md) | ARMOA277-191 | CAP-008 (`jira-context`) + CAP-002 (`user-story`) | **Primer vertical slice real de Connected Context vía MCP (Prioridad 1)**: issue real `ARMOA277-191` (tipo Error/Bug, tenant `baufest.atlassian.net`) → Atlassian Rovo MCP `getJiraIssue` → Resolved Context real → CAP-002 real — `status: EXECUTED` |
 | [`EXEC-20260908-005`](../records/jira-ARMOA277-180/EXEC-20260908-005/evidence.md) | ARMOA277-180 | CAP-008 (`jira-context`) + CAP-002 (`user-story`) | **Segundo vertical slice real de Connected Context vía MCP (Prioridad 1)**: issue real `ARMOA277-180` (tipo Tarea/Task, sin descripción, mismo tenant) → Atlassian Rovo MCP `getJiraIssue` → Resolved Context real → CAP-002 real — `status: EXECUTED`, demuestra generalización a un tipo de issue distinto |
 | [`EXEC-20260909-001`](../records/jira-ARMOA277-45/EXEC-20260909-001/evidence.md) | ARMOA277-45 | CAP-008 (`jira-context`) + CAP-002 (`user-story`) | **Tercer vertical slice real de Connected Context vía MCP (Prioridad 1), primera con actor independiente (`PILOT-003`)**: issue real `ARMOA277-45` (tipo Test/Xray, con descripción, mismo tenant/proyecto) → Atlassian Rovo MCP `getJiraIssue` → Resolved Context real → CAP-002 real — `status: EXECUTED`, tercer tipo de issue distinto probado |
+| [`EXEC-20260917-001`](../records/jira-ARMOA277-194/EXEC-20260917-001/evidence.md) | ARMOA277-194 | CAP-008 (`jira-context`) + CAP-002 (`user-story`) | **Cuarto vertical slice real de Connected Context vía MCP (Prioridad 1), segunda con actor independiente**: issue real `ARMOA277-194` (tipo Historia/Story, sin descripción, mismo tenant/proyecto) → Atlassian Rovo MCP `getJiraIssue` → Resolved Context real → CAP-002 real, incluye la nueva sección de Recomendación — `status: EXECUTED`, cuarto tipo de issue distinto probado |
 
-**Ninguno es una evaluación independiente todavía** (la ejecución de `EXEC-20260909-001` sí
-tuvo un actor independiente — ver arriba; su evaluación sigue siendo `model-assisted`,
-ejes distintos). El resto de las ejecuciones fueron generadas por el mismo agente que
-diseñó la capacidad. Ver el propio archivo de cada registro para el detalle completo y la
-clasificación exacta (`status: EXECUTED`, no `VERIFIED`).
+**Ninguno es una evaluación independiente todavía** (`EXEC-20260909-001` y
+`EXEC-20260917-001` sí tuvieron un actor independiente — ver arriba; su evaluación sigue
+siendo `model-assisted`, ejes distintos). El resto de las ejecuciones fueron generadas por
+el mismo agente que diseñó la capacidad. Ver el propio archivo de cada registro para el
+detalle completo y la clasificación exacta (`status: EXECUTED`, no `VERIFIED`).
+
+**Nota de estabilidad**: la carpeta de `EXEC-20260917-001` fue observada apareciendo y
+desapareciendo del disco varias veces durante la sesión en que se registró esta fila —
+consistente con el developer iterando pruebas sobre la misma tarea real. Si el archivo no
+está presente al navegarlo, no asumir que el registro nunca existió.
 
 ## Convención de carpetas (`records/<fuente>-<tarea>/<EXEC-ID>/`)
 

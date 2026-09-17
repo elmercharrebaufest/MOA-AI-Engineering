@@ -59,11 +59,13 @@ real.
 **Este es el mecanismo Prioridad 1** — el script REST de la sección 4 es el fallback
 headless, no el runtime real de un desarrollador. Pasos verificados contra la
 documentación oficial de Atlassian (citada abajo). **Actualización**: estos pasos ya
-tienen 3 ejecuciones reales registradas (`EXEC-20260908-004`, `EXEC-20260908-005`,
-`EXEC-20260909-001`) — sesiones de GitHub Copilot Agent en VS Code, con el servidor MCP ya
-instalado/autenticado, invocaron `getJiraIssue` real sobre tres issues reales de tipo
-distinto; la tercera (`EXEC-20260909-001`) además con un developer real de MOA como actor
-independiente (`PILOT-003`), sin conocimiento previo de este repositorio. Los pasos 1 y 2
+tienen 4 ejecuciones reales registradas (`EXEC-20260908-004`, `EXEC-20260908-005`,
+`EXEC-20260909-001`, `EXEC-20260917-001`) — sesiones de GitHub Copilot Agent en VS Code,
+con el servidor MCP ya instalado/autenticado, invocaron `getJiraIssue` real sobre cuatro
+issues reales de tipo distinto; la tercera y la cuarta (`EXEC-20260909-001`,
+`EXEC-20260917-001`) además con developers reales de MOA como actor independiente
+(`PILOT-003` y ARMOA277-194 respectivamente), sin conocimiento previo de este repositorio.
+Los pasos 1 y 2
 (instalación, primer OAuth) siguen siendo
 inherentemente interactivos y requieren una persona real la primera vez — una vez hechos,
 el paso 3 (invocar la herramienta) puede repetirlo cualquier sesión de agente que reutilice
@@ -100,8 +102,12 @@ sesión: resultado `retrievalStatus: SUCCESS`, Resolved Context real consumido p
 completo, real, sin editar, y la salida real de CAP-002. Una segunda ejecución real,
 sobre el issue `ARMOA277-180` (tipo Tarea/Task, sin descripción cargada), confirmó el
 mismo resultado (`SUCCESS`) con un nivel de completitud de información distinto — ver
-[`EXEC-20260908-005`](../records/jira-ARMOA277-180/EXEC-20260908-005/evidence.md). **No se simuló
-ningún resultado, ni se realizó ninguna operación `WRITE` sobre Jira.**
+[`EXEC-20260908-005`](../records/jira-ARMOA277-180/EXEC-20260908-005/evidence.md). Una
+tercera ejecución (`ARMOA277-45`, tipo Test/Xray) y una cuarta (`ARMOA277-194`, tipo
+Historia/Story) confirmaron el mismo patrón con actor de ejecución independiente en ambas
+— ver [`EXEC-20260909-001`](../records/jira-ARMOA277-45/EXEC-20260909-001/evidence.md) y
+[`EXEC-20260917-001`](../records/jira-ARMOA277-194/EXEC-20260917-001/evidence.md). **No se
+simuló ningún resultado, ni se realizó ninguna operación `WRITE` sobre Jira.**
 
 **Vía REST (Prioridad 2, fallback headless — sin cliente MCP disponible en esa sesión)**:
 
@@ -222,9 +228,11 @@ a nivel de todo el vertical slice (`Reference → Resolved Context → CAP-002`)
 | **BLOCKED** | El script/herramienta se ejecutó de verdad (no se omitió), pero no hay mecanismo de autenticación real disponible en el entorno — `retrievalStatus: SOURCE_UNAVAILABLE`/`UNAUTHORIZED`, con `error` explícito. **No es un fallo de diseño** — es un prerrequisito de entorno faltante, documentado con su causa exacta. Ej. Jira vía REST en una sesión anterior sin credenciales (`EXEC-20260908-002`) — nótese que el mismo patrón, vía MCP y en dos sesiones distintas, sí llegó a `SUCCESS` (`EXEC-20260908-004`, `EXEC-20260908-005`). |
 
 `BLOCKED` nunca se reescribe como `SUCCESS` sin que el mecanismo real exista — ver
-`../evidence/EXEC-20260908-002.md` para el caso real que permaneció `BLOCKED`, y
-`../evidence/EXEC-20260908-004.md`/`../evidence/EXEC-20260908-005.md` para los casos
-reales que sí alcanzaron `SUCCESS`.
+[`EXEC-20260908-002`](../records/jira-MOA-1234/EXEC-20260908-002/evidence.md) para el caso
+real que permaneció `BLOCKED`, y
+[`EXEC-20260908-004`](../records/jira-ARMOA277-191/EXEC-20260908-004/evidence.md) /
+[`EXEC-20260908-005`](../records/jira-ARMOA277-180/EXEC-20260908-005/evidence.md) para los
+casos reales que sí alcanzaron `SUCCESS`.
 
 **Cada comando de este documento fue validado en esta sesión, salvo donde se marca
 explícitamente `EXECUTABLE` (no `EXECUTED`)** — no hay instrucciones ficticias acá.

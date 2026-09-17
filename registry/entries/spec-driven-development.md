@@ -33,7 +33,7 @@
 | **Adopters** | DataAgro (nivel Lite, real). Ninguno confirmado para el nivel Full | FACT |
 | **Last Review** | 2026-09-08 | G5.1 |
 | **Reusable Asset** *(nuevo en G5.1)* | [`capabilities/workflows/spec-driven-development/WORKFLOW.md`](../../capabilities/workflows/spec-driven-development/WORKFLOW.md) | Generalización de ambos niveles, con la distinción de madurez explícita — no una copia de ninguno de los 2 harnesses reales |
-| **Evidence Reference** | `evidence/EXEC-20260907-001.md`, `evidence/EXEC-20260908-001.md` — ambas ejecuciones de CAP-002 usaron tickets reales (`MOA-1816`, `MOA-1765`) que son, a su vez, instancias reales de este Workflow en su nivel Lite | Cruce de evidencia entre CAP-002 y CAP-004, verificado, no coincidencia forzada |
+| **Evidence Reference** | [`EXEC-20260907-001`](../../records/jira-MOA-1816/EXEC-20260907-001/evidence.md), [`EXEC-20260908-001`](../../records/jira-MOA-1765/EXEC-20260908-001/evidence.md) — ambas ejecuciones de CAP-002 usaron tickets reales (`MOA-1816`, `MOA-1765`) que son, a su vez, instancias reales de este Workflow en su nivel Lite | Cruce de evidencia entre CAP-002 y CAP-004, verificado, no coincidencia forzada |
 
 ## Nota de clasificación (G5.1, corregida 2026-09-09)
 

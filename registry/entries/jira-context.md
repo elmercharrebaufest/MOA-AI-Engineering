@@ -29,9 +29,9 @@
 | **Model** | No aplica | — |
 | **Autonomy** | No aplica — no es Agent | — |
 | **HITL** | No requerido para el READ acotado en sí; si el `Resolved Context` alimenta una decisión de alto impacto, el HITL aplica en la capability consumidora, no acá | PROPOSAL |
-| **Evaluation** | model-assisted (`EXEC-20260908-004`, `EXEC-20260908-005`, `EXEC-20260909-001`, `EXEC-20260917-001`) — no humana | Ver `evaluation/EXEC-20260908-004.md`, `evaluation/EXEC-20260908-005.md`, `evaluation/EXEC-20260909-001.md` y `evaluation/EXEC-20260917-001.md` |
+| **Evaluation** | model-assisted (`EXEC-20260908-004`, `EXEC-20260908-005`, `EXEC-20260909-001`, `EXEC-20260917-001`) — no humana | Ver fila "Evaluation Reference" abajo |
 | **Observability** | NOT FOUND | `retrieval_status`/`provenance` preparados, no instrumentados |
-| **Metrics** | NOT MEASURED | Ver `measurements/EXEC-20260908-004.md`, `measurements/EXEC-20260908-005.md`, `measurements/EXEC-20260909-001.md` y `measurements/EXEC-20260917-001.md` |
+| **Metrics** | NOT MEASURED | Ver fila "Metric Reference" abajo |
 | **Adopters** | Ninguno | — |
 | **Last Review** | Esta actividad | — |
 | **Evidence Reference** | [`EXEC-20260908-002`](../../records/jira-MOA-1234/EXEC-20260908-002/evidence.md) (`BLOCKED`, REST), [`EXEC-20260908-004`](../../records/jira-ARMOA277-191/EXEC-20260908-004/evidence.md) (`SUCCESS`, MCP, issue Error/Bug, hasta CAP-002), [`EXEC-20260908-005`](../../records/jira-ARMOA277-180/EXEC-20260908-005/evidence.md) (`SUCCESS`, MCP, issue Tarea/Task, hasta CAP-002), [`EXEC-20260909-001`](../../records/jira-ARMOA277-45/EXEC-20260909-001/evidence.md) (`SUCCESS`, MCP, issue Test/Xray, hasta CAP-002), [`EXEC-20260917-001`](../../records/jira-ARMOA277-194/EXEC-20260917-001/evidence.md) (`SUCCESS`, MCP, issue Historia/Story, hasta CAP-002) | 5 ejecuciones reales, ninguna simulada |
@@ -47,18 +47,22 @@ el benchmark (scope wildcard `product-owner`) — extrae y formaliza únicamente
 de menor riesgo (scope acotado `architect`), como plantilla obligatoria para cualquier
 integración de Jira futura.
 
-## Qué falta para `VERIFIED` (actualizado tras `EXEC-20260908-005`)
+## Qué falta para `VERIFIED` (actualizado tras `EXEC-20260917-001`)
 
-Existe evidencia inicial de generalización a dos tipos de issue reales con diferente
-nivel de completitud de información (`EXEC-20260908-004`, issue tipo Error/Bug con
-descripción; `EXEC-20260908-005`, issue tipo Tarea/Task sin descripción). Esto **no
-equivale a `VERIFIED`** — sigue faltando, sin excepción:
+Existe evidencia de generalización a cuatro tipos de issue reales con diferente nivel de
+completitud de información (`EXEC-20260908-004`, Error/Bug con descripción;
+`EXEC-20260908-005`, Tarea/Task sin descripción; `EXEC-20260909-001`, Test/Xray con
+descripción; `EXEC-20260917-001`, Historia/Story sin descripción) y **2 de las 4** con
+actor de ejecución independiente (`EXEC-20260909-001`/`PILOT-003`, `EXEC-20260917-001`).
+Esto **no equivale a `VERIFIED`** — sigue faltando, sin excepción:
 
-1. **Evaluación humana independiente** — las únicas evaluaciones existentes
-   (`evaluation/EXEC-20260908-004.md`, `evaluation/EXEC-20260908-005.md`) son
-   `model-assisted`, hechas por el mismo actor que ejecutó ambos vertical slices.
+1. **Evaluación humana independiente** — las 4 evaluaciones existentes (ver "Evaluation
+   Reference" abajo) son `model-assisted`, incluidas las 2 con actor de ejecución
+   independiente — independencia de actor y de evaluación son ejes distintos.
 2. **Confirmación de un usuario real de MOA/Baufest** distinto del actor que diseñó/probó
-   el patrón, ejecutándolo sobre su propio issue en su flujo de trabajo real.
+   el patrón, ejecutándolo sobre su propio issue en su flujo de trabajo real — **este
+   punto ya ocurrió 2 veces** (`PILOT-003` y `EXEC-20260917-001`), pero sin evaluación
+   independiente todavía no cierra el gap por completo.
 3. **Resolución de `Owner`/`Maintainer`/`Data Classification`** — siguen `REQUIRES
    VALIDATION` (`../../governance/BLOCKED-DECISIONS.md` #1, #3), sin relación con esta
    ejecución técnica.

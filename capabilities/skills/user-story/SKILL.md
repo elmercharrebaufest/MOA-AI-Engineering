@@ -157,8 +157,23 @@ un humano, después de leer esto, decida contactar a alguien por su cuenta. Ver
 capability.
 
 **Nunca inventar un nombre** — si el Resolved Context no trae `reporter`/`assignee` real
-(campo `metadata` vacío o ausente), la recomendación dice "contactar al PO/referente
-funcional real de este ticket", sin nombre propio inventado.
+(campo `metadata` vacío o ausente), la recomendación lo dice de forma explícita y le da a
+la persona la acción concreta que falta, no una referencia vaga:
+
+```text
+   Sugerencia: no pude identificar quién reportó o es dueño de esta historia con el
+   contexto que traje de Jira — revisá los campos "Reporter"/"Assignee" del ticket
+   directamente en Jira antes de contactar al PO real, para completar [qué falta
+   exactamente].
+```
+
+**Por qué esta aclaración importa (feedback real de developer)**: decir solo "contactar
+al PO/referente" sin más deja a la persona sin saber si el nombre no estaba disponible o
+si el agente lo omitió a propósito, y sin saber si tiene que ir a buscarlo. La regla es:
+si el Resolved Context **sí** trae `reporter`/`assignee`, usalo por su nombre real — la
+persona no necesita entrar a Jira ella misma, ese dato ya viajó en la ejecución de
+Context Acquisition. Solo cuando el campo viene vacío se le pide explícitamente a la
+persona que lo busque en Jira — nunca como paso por defecto.
 
 ## How to use this capability
 
@@ -320,9 +335,10 @@ le pasa como entrada.
 **Obligatorio, sin excepción**: un PO/referente de negocio debe validar la historia antes
 de pasar a Planning/desarrollo. Ninguna ejecución de esta skill hasta ahora (7/7) tuvo
 HITL real — todas fueron autoevaluadas (`model-assisted`), sin evaluador humano
-confirmado, **independientemente de que la 6ta (`EXEC-20260909-001`) sí tenga un actor de
-ejecución independiente** — son 2 ejes distintos, ver nota en "Ejemplos". No tratar una
-historia generada como aprobada sin esa revisión.
+confirmado, **independientemente de que la 6ta y la 7ma (`EXEC-20260909-001`,
+`EXEC-20260917-001`) sí tengan un actor de ejecución independiente** — son 2 ejes
+distintos, ver nota en "Ejemplos". No tratar una historia generada como aprobada sin esa
+revisión.
 
 ## Ejemplos
 
@@ -334,10 +350,11 @@ Provider: [`EXEC-20260908-003`](../../../records/ado-7/EXEC-20260908-003/evidenc
 (Azure DevOps), [`EXEC-20260908-004`](../../../records/jira-ARMOA277-191/EXEC-20260908-004/evidence.md)
 y [`EXEC-20260908-005`](../../../records/jira-ARMOA277-180/EXEC-20260908-005/evidence.md) (Jira/MCP),
 [`EXEC-20260909-001`](../../../records/jira-ARMOA277-45/EXEC-20260909-001/evidence.md)
-(Jira/MCP, `ARMOA277-45`) — **la única con actor de ejecución independiente** (developer
-real, no quien diseñó el modelo, ver `PILOT-003`) — y
+(Jira/MCP, `ARMOA277-45`) y
 [`EXEC-20260917-001`](../../../records/jira-ARMOA277-194/EXEC-20260917-001/evidence.md)
-(Jira/MCP, `ARMOA277-194`, primer issue tipo `Historia`/Story disponible en el proyecto).
+(Jira/MCP, `ARMOA277-194`, primer issue tipo `Historia`/Story disponible en el proyecto) —
+**las 2 únicas con actor de ejecución independiente** (developers reales, no quien diseñó
+el modelo; la primera ver `PILOT-003`).
 
 ## Criterios de calidad
 
@@ -350,7 +367,7 @@ real, no quien diseñó el modelo, ver `PILOT-003`) — y
 ## Criterios de evaluación
 
 Ver Evaluation Contract (`../../../architecture/evidence-evaluation-measurement.md` §2).
-Criterios ya aplicados 5 veces: estructura, claridad, criterios de aceptación
+Criterios ya aplicados 7 veces: estructura, claridad, criterios de aceptación
 verificables, ausencia de ambigüedad, trazabilidad, consistencia con convenciones del
 proyecto, ajuste del rol al catálogo (agregado en G4.6, ver nota de rol arriba).
 
@@ -360,8 +377,8 @@ proyecto, ajuste del rol al catálogo (agregado en G4.6, ver nota de rol arriba)
 distintos) y 7 ejecuciones reales completas de punta a punta (2 Direct Context: G4.4,
 G4.6; 5 Connected Context: `EXEC-20260908-003/004/005`, `EXEC-20260909-001`,
 `EXEC-20260917-001`), todas `PARTIAL` en su evaluación — ninguna evaluación es
-independiente todavía, aunque una sí tuvo actor de ejecución independiente
-(`EXEC-20260909-001`, ver `PILOT-003`) — ver
+independiente todavía, aunque 2 sí tuvieron actor de ejecución independiente
+(`EXEC-20260909-001` ver `PILOT-003`, y `EXEC-20260917-001`) — ver
 [`registry/entries/user-story.md`](../../../registry/entries/user-story.md). Esta versión
 en `capabilities/` generaliza la estructura común a las 3 instancias, sin copiar el
 contenido de dominio de ninguna.

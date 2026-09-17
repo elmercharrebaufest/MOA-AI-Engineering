@@ -102,11 +102,12 @@ de llegar a CAP-002 — el resto del camino (Human Review → Evidence → Evalu
 Measurement → Feedback) es **idéntico** en ambos modelos. Ambas variantes ya tienen al
 menos una ejecución real de punta a punta: Modelo A en `EXEC-20260907-001`/
 `EXEC-20260908-001`; Modelo B en `EXEC-20260908-003` (Azure DevOps) y en
-`EXEC-20260908-004`/`EXEC-20260908-005`/`EXEC-20260909-001` (Jira, vía MCP real, sobre tres
-tipos de issue distintos: Bug, Tarea, Test/Xray) — existe evidencia de generalización a
-tres tipos de issue reales con diferente nivel de completitud de información, y la última
-(`EXEC-20260909-001`) además con un actor independiente (`PILOT-003`) — sin que esto
-equivalga a `VERIFIED`.
+`EXEC-20260908-004`/`EXEC-20260908-005`/`EXEC-20260909-001`/`EXEC-20260917-001` (Jira, vía
+MCP real, sobre cuatro tipos de issue distintos: Bug, Tarea, Test/Xray, Historia/Story) —
+existe evidencia de generalización a cuatro tipos de issue reales con diferente nivel de
+completitud de información, y las últimas 2 (`EXEC-20260909-001`, `EXEC-20260917-001`)
+además con un actor independiente (`PILOT-003` y ARMOA277-194) — sin que esto equivalga a
+`VERIFIED`.
 
 
 ### Qué es Common Core y qué es Team Adaptation en este Golden Path (G4.5)
@@ -122,9 +123,9 @@ equivalga a `VERIFIED`.
 
 | Disciplina | Contrato | Estado real hoy |
 |---|---|---|
-| Evidence | `../architecture/evaluation-observability.md` + Evidence Contract (`../architecture/evidence-evaluation-measurement.md#1-evidence`) | **Producido 6 veces** — ver [`../evidence/README.md`](../evidence/README.md) (índice completo, apunta a `../records/<tarea>/<EXEC-ID>/evidence.md`) |
-| Evaluation | Evaluation Contract (§8) | **Producido 6 veces, `PARTIAL` en las 6, ninguna independiente** (la 6ta, `EXEC-20260909-001`, tuvo un actor de ejecución independiente — `PILOT-003` — pero su evaluación sigue siendo `model-assisted`; son ejes distintos) — ver [`../evaluation/README.md`](../evaluation/README.md) |
-| Measurement | Measurement Result Contract (§10) | **`NOT MEASURED` en las 6** — sin baseline; los puntos disponibles (2 Direct Context, 4 Connected Context sobre 3 tipos de issue distintos) no forman una serie comparable — ver [`../measurements/README.md`](../measurements/README.md) |
+| Evidence | `../architecture/evaluation-observability.md` + Evidence Contract (`../architecture/evidence-evaluation-measurement.md#1-evidence`) | **Producido 7 veces** — ver [`../evidence/README.md`](../evidence/README.md) (índice completo, apunta a `../records/<tarea>/<EXEC-ID>/evidence.md`) |
+| Evaluation | Evaluation Contract (§8) | **Producido 7 veces, `PARTIAL` en las 7, ninguna independiente** (la 6ta y la 7ma, `EXEC-20260909-001` y `EXEC-20260917-001`, tuvieron un actor de ejecución independiente — `PILOT-003` y ARMOA277-194 — pero su evaluación sigue siendo `model-assisted`; son ejes distintos) — ver [`../evaluation/README.md`](../evaluation/README.md) |
+| Measurement | Measurement Result Contract (§10) | **`NOT MEASURED` en las 7** — sin baseline; los puntos disponibles (2 Direct Context, 5 Connected Context sobre 4 tipos de issue distintos) no forman una serie comparable — ver [`../measurements/README.md`](../measurements/README.md) |
 | Feedback | `../adoption/contribution-guide.md` | **Obtenido una vez, real** — `PILOT-003` (`EXEC-20260909-001`) produjo feedback literal de un developer real, ya parcialmente accionado (la fricción de navegación reportada motivó la restructuración de `evidence/`/`evaluation/`/`measurements/` a `records/` task-centric). Piloto **`EN CURSO`** — 4 de 7 preguntas del protocolo de `contribution-guide.md` siguen sin respuesta literal, ver [detalle](../docs/history/track-1/pilots/PILOT-003-armoa277-45-cold-start-independiente/feedback-record.md) |
 | Contribution | Contribution Model (`../adoption/contribution-guide.md`) | Mecanismo definido y ejercido una vez (`PILOT-003`) — todavía no una contribución formal aceptada al Common Core |
 

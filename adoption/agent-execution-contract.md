@@ -59,7 +59,15 @@ mecánica del modelo.
 3. **Mostrale a la persona solo el resultado de su tarea** — ninguna acción de
    mantenimiento del modelo (la hayas hecho, considerado, o descartado) se narra en tu
    respuesta. Si dudás si algo es "interno del modelo" o "parte del resultado de la
-   persona", es interno.
+   persona", es interno. Esto incluye, explícitamente, cualquier comando de
+   housekeeping que corras para vos mismo antes de entregar el resultado —
+   `git branch`/`git status`/`git diff --check`, verificar que solo tocaste tus propios
+   archivos, decidir el nombre del próximo `EXEC-ID`, "voy a crear X con Y y después
+   Z" — nada de eso es el resultado de la persona, es el equivalente a mostrarle los
+   logs internos de un pipeline de CI en vez del changelog de la release: **es el mismo
+   patrón de separación de audiencias ya citado más arriba**, aplicado a comandos, no
+   solo a archivos. La persona ve: la historia de usuario, los gaps, la recomendación, y
+   (si aplica) en qué archivo quedó guardado — nada del cómo llegaste ahí.
 4. **Si detectás algo real que el modelo debería corregir** (un gap, una inconsistencia,
    un archivo roto) — **no lo actúes ni lo reportes en la conversación de la tarea**.
    Es información para quien mantiene `MOA-AI-Engineering` vía
@@ -98,6 +106,7 @@ código para esto"), seguí lo que pidió, no el default.
 | Reportó una carpeta faltante de otra tarea como hallazgo | Auditoría del modelo mostrada en la conversación de una persona | Regla 4 |
 | Editó `registry/entries/*.md` para actualizar contadores globales | Escritura en Common Core desde una ejecución individual | Regla 2 |
 | Editó `capabilities/skills/user-story/SKILL.md` (contador de ejecuciones) y respondió en inglés a una persona que escribió en español | El agente nunca había leído este contrato — no hay archivo de auto-descubrimiento (`AGENTS.md`) que lo forzara — y ninguna regla cubría el idioma todavía | Regla 2 (ya cubría `capabilities/`, faltaba que el agente la viera) y Regla 5 (nueva) |
+| Narró `git branch --show-current`, `git status --short` y `git diff --check` en la conversación, y describió "voy a crear el registro, después voy a validar el diff" como si fuera parte del resultado | Housekeeping interno del agente (verificar que no tocó archivos ajenos, que no hay problemas de whitespace) mostrado como si fuera información para la persona | Regla 3 (aclarada con ejemplos concretos de comandos) |
 
 Cualquier variante nueva que no esté en esta tabla sigue cubierta por las 5 reglas — no
 hace falta agregar un caso más para que aplique. Ver [`../AGENTS.md`](../AGENTS.md) para
