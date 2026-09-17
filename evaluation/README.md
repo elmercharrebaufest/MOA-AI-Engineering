@@ -16,5 +16,5 @@ pasar a adopción real).
 
 ## Cómo generar un registro nuevo
 
-Ver [`../adoption/getting-started.md`](../adoption/getting-started.md) — declará tus
-criterios **antes** de mirar el resultado, y completá el Evaluation Contract.
+Ver [`../adoption/getting-started.md`](../adoption/getting-started.md) — los criterios
+se declaran **antes** de mirar el resultado, y luego se completa el Evaluation Contract.

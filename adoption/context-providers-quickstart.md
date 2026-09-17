@@ -31,16 +31,16 @@ depender del arquitecto.
 Azure DevOps (variables de entorno, **nunca hardcoded**):
 
 ```powershell
-$env:AZURE_DEVOPS_ORG = "https://dev.azure.com/<tu-organizacion>"
-$env:AZURE_DEVOPS_PROJECT = "<tu-proyecto>"   # requerido solo para pull_request
+$env:AZURE_DEVOPS_ORG = "https://dev.azure.com/<organizacion>"
+$env:AZURE_DEVOPS_PROJECT = "<proyecto>"   # requerido solo para pull_request
 ```
 
 Jira (Prioridad 2, REST):
 
 ```powershell
-$env:JIRA_BASE_URL = "https://<tu-org>.atlassian.net"
-$env:JIRA_EMAIL = "tu-email@empresa.com"
-$env:JIRA_API_TOKEN = "<tu-token-real, nunca commiteado>"
+$env:JIRA_BASE_URL = "https://<organizacion>.atlassian.net"
+$env:JIRA_EMAIL = "email@empresa.com"
+$env:JIRA_API_TOKEN = "<token-real, nunca commiteado>"
 ```
 
 **Estado**: `CONFIGURED` una vez seteadas — ningún valor de ejemplo de este documento es
@@ -141,8 +141,9 @@ Cualquiera de los 2 scripts anteriores produce un `Resolved Context` que cumple
 Traduce el `Resolved Context` (sin importar si vino de Jira o Azure DevOps) al mismo
 bloque `Ticket:/Requirement:/Context:` que
 [`../capabilities/skills/user-story/SKILL.md`](../capabilities/skills/user-story/SKILL.md)
-ya acepta. Pegá esa salida en el patrón de ejecución de CAP-002 (sección "Execution
-prompt pattern" de esa skill) con tu asistente de IA (Copilot, Claude, u otro).
+ya acepta. Esa salida se pega en el patrón de ejecución de CAP-002 (sección "Execution
+prompt pattern" de esa skill), con el asistente de IA que corresponda (Copilot, Claude,
+u otro).
 
 **Estado**: `EXECUTABLE` — vertical slice completo de punta a punta probado durante la
 construcción (Work Item real → Resolved Context real → CAP-002 real); ese ejemplo se

@@ -8,9 +8,9 @@ una tarea de forma correcta, rápida y sin ruido.
 
 ## El principio — no es una lista de casos, es un límite ya existente en el modelo
 
-`MOA-AI-Engineering` ya distingue **Team Adaptation** (lo que un equipo/persona hace en su
-propio contexto) de **Common Core** (lo compartido — Registry, Golden Paths, capability
-model — que solo cambia por revisión deliberada, el Assessment Gate, ver
+`MOA-AI-Engineering` ya distingue **Team Adaptation** (lo que un equipo o persona hace en
+su propio contexto) de **Common Core** (lo compartido — Registry, Golden Paths,
+capability model — que solo cambia por revisión deliberada, el Assessment Gate, ver
 [`../architecture/operating-model.md`](../architecture/operating-model.md)). **Ejecutar
 una tarea real para una persona es Team Adaptation, punto** — nunca Common Core. El
 límite no es una regla nueva inventada para este documento: es el mismo límite que ya
@@ -23,8 +23,8 @@ sostenida de ingeniería."* Una práctica de ingeniería madura es predecible, a
 silenciosa sobre su propio funcionamiento interno — no una herramienta que narra su
 proceso a quien solo quiere un resultado. Esto es lo mismo que ya rige, en la misma
 sección del KO, el enfoque human-in-the-loop: *"validación y corrección humana estricta
-antes de integrar cualquier salida"* — la persona valida **su** resultado, no la
-mecánica del modelo.
+antes de integrar cualquier salida"* — la persona valida su resultado, no la mecánica
+del modelo.
 
 **De prácticas de SDLC maduro, ya aplicadas en otros mecanismos de este repositorio**:
 
@@ -43,89 +43,93 @@ mecánica del modelo.
   ninguna capacidad ni su estado saltan etapas).
 - **Separación de audiencias** — este mismo documento existe separado de
   `getting-started.md` por la misma razón que un runbook operativo se separa de un
-  documento de arquitectura: quien ejecuta una tarea puntual y quien diseña/mantiene el
+  documento de arquitectura: quien ejecuta una tarea puntual y quien diseña o mantiene el
   sistema necesitan información distinta, y mezclarlas degrada la experiencia de ambos.
 
 ## El contrato, en 5 reglas
 
-1. **Leé solo**: la capability que vas a usar (`capabilities/<tipo>/<nombre>/`) y, si
-   existe, `records/<fuente>-<tu-tarea>/` (para no duplicar una ejecución ya hecha sobre
-   la misma tarea — esto sigue siendo correcto, no lo elimines). Nada más, salvo que la
-   persona te lo pida explícitamente.
-2. **Escribí solo**: dentro de `records/<fuente>-<tu-tarea>/<EXEC-ID>/`
+1. **Leer solo**: la capability que se va a usar (`capabilities/<tipo>/<nombre>/`) y, si
+   existe, `records/<fuente>-<tarea>/` (para no duplicar una ejecución ya hecha sobre la
+   misma tarea — esto sigue siendo correcto). Nada más, salvo que la persona lo pida
+   explícitamente.
+2. **Escribir solo**: dentro de `records/<fuente>-<tarea>/<EXEC-ID>/`
    (`evidence.md`/`evaluation.md`/`measurement.md`, usando
    [`templates/`](templates/)). Nunca `registry/`, `golden-paths/`, `capabilities/`,
    ni ningún otro archivo compartido del Common Core.
-3. **Mostrale a la persona solo el resultado de su tarea** — ninguna acción de
-   mantenimiento del modelo (la hayas hecho, considerado, o descartado) se narra en tu
-   respuesta. Si dudás si algo es "interno del modelo" o "parte del resultado de la
-   persona", es interno. Esto incluye, explícitamente, cualquier comando de
-   housekeeping que corras para vos mismo antes de entregar el resultado —
+3. **Mostrar a la persona solo el resultado de su tarea** — ninguna acción de
+   mantenimiento del modelo (haya sido hecha, considerada, o descartada) se narra en la
+   respuesta. Ante la duda de si algo es "interno del modelo" o "parte del resultado de
+   la persona", corresponde tratarlo como interno. Esto incluye, explícitamente,
+   cualquier comando de housekeeping que se ejecute antes de entregar el resultado —
    `git branch`/`git status`/`git diff --check`, cualquier paso de validación del propio
-   editor/herramienta ("Checked X, no problems found"), verificar que solo tocaste tus
-   propios archivos, decidir el nombre del próximo `EXEC-ID`, "voy a crear X con Y y
-   después Z" — nada de eso es el resultado de la persona, es el equivalente a mostrarle
-   los logs internos de un pipeline de CI en vez del changelog de la release: **es el
-   mismo patrón de separación de audiencias ya citado más arriba**, aplicado a comandos,
-   no solo a archivos.
+   editor/herramienta ("Checked X, no problems found"), verificar que solo se tocaron
+   los propios archivos, decidir el nombre del próximo `EXEC-ID`, "ahora se va a crear X
+   y después Y" — nada de eso es el resultado de la persona, es el equivalente a
+   mostrarle los logs internos de un pipeline de CI en vez del changelog de la release:
+   **es el mismo patrón de separación de audiencias ya citado más arriba**, aplicado a
+   comandos, no solo a archivos.
 
    **Prueba general, para no depender de que esta lista prevea cada caso nuevo**: si lo
-   que estás por escribir en el chat es la salida cruda de una herramienta — un comando,
-   una búsqueda, un archivo temporal/cache, un mensaje de error de la herramienta misma
-   (ej. "No matches found... .*ignore files...") — en vez de texto que vos redactaste
-   como parte de la historia/los gaps/la recomendación, **no se muestra, sin excepción**.
+   que se va a escribir en el chat es la salida cruda de una herramienta — un comando,
+   una búsqueda, un archivo temporal o de caché, un mensaje de error de la herramienta
+   misma (ej. "No matches found... .*ignore files...") — en vez de texto redactado como
+   parte de la historia, los gaps o la recomendación, **no se muestra, sin excepción**.
    No hace falta que aparezca en la tabla de ejemplos de abajo para que la regla
-   aplique — la prueba es "¿esto lo generó una herramienta o lo redacté yo como parte del
-   resultado?", no "¿ya vi este caso exacto antes?".
+   aplique — la prueba es "¿esto lo generó una herramienta, o fue redactado como parte
+   del resultado?", no "¿ya se vio este caso exacto antes?".
 
-   **Además, evitá repetir la misma consulta a una herramienta externa (MCP, CLI) sobre
-   la misma referencia dentro de una misma ejecución** — si ya tenés el resultado, no lo
-   vuelvas a pedir; es el mismo principio de *least privilege/least context* ya citado
-   arriba, aplicado a llamadas, no solo a archivos leídos.
+   **Además, debe evitarse repetir la misma consulta a una herramienta externa (MCP,
+   CLI) sobre la misma referencia dentro de una misma ejecución** — si el resultado ya
+   está disponible, no corresponde volver a solicitarlo; es el mismo principio de
+   *least privilege/least context* ya citado arriba, aplicado a llamadas, no solo a
+   archivos leídos.
 
    **Lo que sí es del resultado y no debe omitirse** (confirmado con feedback real —
-   sacarlo por error rompe la regla tanto como mostrar de más): la historia de usuario,
+   omitirlo por error rompe la regla tanto como mostrar de más): la historia de usuario,
    los gaps, la recomendación, y **la ruta completa y real del archivo donde quedó
    guardada la ejecución** (`records/<fuente>-<tarea>/<EXEC-ID>/evidence.md`, no solo el
    nombre `evidence.md` suelto) — la persona necesita esa ruta para poder abrir,
-   compartir o auditar su propio resultado sin tener que pedirla. La distinción no es
-   "mostrar menos", es "mostrar el destino, nunca el camino para llegar ahí". **La ruta
-   completa va en la última frase de tu respuesta** (el cierre, lo que la persona lee al
-   final) — no alcanza con mencionarla una vez en medio del proceso y volver a decir
-   solo `evidence.md` al cerrar.
-4. **Si detectás algo real que el modelo debería corregir** (un gap, una inconsistencia,
-   un archivo roto) — **no lo actúes ni lo reportes en la conversación de la tarea**.
-   Es información para quien mantiene `MOA-AI-Engineering` vía
-   [`contribution-guide.md`](contribution-guide.md), en un canal separado — no para la
-   persona que solo quiere avanzar con su ticket.
-5. **Respondé en el idioma en el que te escribe la persona, y hacelo correctamente.**
-   Este proyecto y su comunidad de uso son de habla hispana — no cambies a inglés salvo
-   que te lo pidan en inglés. Esto también es parte de "mostrale a la persona solo lo que
-   le sirve" (regla 3): una respuesta en un idioma que la persona no pidió es fricción,
-   no ayuda. **Incluye escribir español real, con tildes y demás signos** (`gestión`, no
-   `gestion`; `Jesús`, no `Jesus`; `¿Qué...?`, no `Que...?`) — un archivo sin acentos no
-   es un error menor de estilo, es el mismo tipo de defecto que un linter marcaría en
-   cualquier otro artefacto de este repositorio.
+   compartir o auditar su propio resultado sin tener que solicitarla. La distinción no
+   es "mostrar menos", es "mostrar el destino, nunca el camino para llegar ahí". **La
+   ruta completa debe ir en la última frase de la respuesta** (el cierre, lo que la
+   persona lee al final) — no alcanza con mencionarla una vez en medio del proceso y
+   volver a decir solo `evidence.md` al cerrar.
+4. **Si se detecta algo real que el modelo debería corregir** (un gap, una
+   inconsistencia, un archivo roto) — **no debe actuarse ni reportarse en la
+   conversación de la tarea**. Es información para quien mantiene
+   `MOA-AI-Engineering` vía [`contribution-guide.md`](contribution-guide.md), en un
+   canal separado — no para la persona que solo quiere avanzar con su ticket.
+5. **La respuesta debe darse en el idioma en el que escribe la persona, y de forma
+   correcta.** Este proyecto y su comunidad de uso son de habla hispana — no corresponde
+   cambiar a inglés salvo que se solicite explícitamente. Esto también es parte de
+   "mostrar a la persona solo lo que le sirve" (regla 3): una respuesta en un idioma que
+   la persona no pidió es fricción, no ayuda. **Incluye escribir español real, con
+   tildes y demás signos** (`gestión`, no `gestion`; `Jesús`, no `Jesus`; `¿Qué...?`, no
+   `Que...?`) — un archivo sin acentos no es un error menor de estilo, es el mismo tipo
+   de defecto que un linter marcaría en cualquier otro artefacto de este repositorio.
+   Tampoco corresponde usar voseo argentino ni otro regionalismo — el registro debe ser
+   español estándar y formal.
 
-## Si te dan solo una referencia de tarea, sin más indicación
+## Si se recibe solo una referencia de tarea, sin más indicación
 
-**Comportamiento por defecto: actuá, no preguntes primero.** Si la persona te da
+**Comportamiento por defecto: actuar, no preguntar primero.** Si la persona da
 únicamente una referencia (`ARMOA277-XXX`, `MOA-XXXX`) sin decir qué necesita, y no hay
-ninguna ejecución previa de esa misma tarea —**traé el detalle vía el Context Provider
-correspondiente y aplicá CAP-002 (`user-story`) directamente**, sin preguntar antes "¿qué
-querés hacer con esto?". No es una suposición nueva: es el patrón real que ya ocurrió en
-las 5 ejecuciones reales anteriores de Connected Context — ninguna preguntó primero, y el
-KO describe exactamente este comportamiento (*"Rovo Agent analiza el ticket al momento de
-su creación, detecta ambigüedades y genera preguntas para el PO antes del
-refinamiento"* — analiza y actúa, genera preguntas **sobre el contenido del ticket**, no
-sobre la intención de la persona).
+ninguna ejecución previa de esa misma tarea — corresponde traer el detalle vía el
+Context Provider correspondiente y aplicar CAP-002 (`user-story`) directamente, sin
+preguntar antes "¿qué se quiere hacer con esto?". No es una suposición nueva: es el
+patrón real que ya ocurrió en las ejecuciones reales anteriores de Connected Context —
+ninguna preguntó primero, y el KO describe exactamente este comportamiento (*"Rovo
+Agent analiza el ticket al momento de su creación, detecta ambigüedades y genera
+preguntas para el PO antes del refinamiento"* — analiza y actúa, genera preguntas
+**sobre el contenido del ticket**, no sobre la intención de la persona).
 
-**Cuándo sí preguntar**: si el contenido real del ticket (tipo de issue, título,
-descripción) sugiere claramente que CAP-002 no aplica (ej. es un bug de código, una tarea
-de infraestructura, algo sin relación con requerimientos) — ahí preguntá qué necesita la
-persona, porque la ambigüedad es real, no por precaución genérica. Si la persona
-**pide algo distinto explícitamente** ("traeme el detalle nomás", "quiero implementar
-código para esto"), seguí lo que pidió, no el default.
+**Cuándo sí corresponde preguntar**: si el contenido real del ticket (tipo de issue,
+título, descripción) sugiere claramente que CAP-002 no aplica (por ejemplo, es un bug de
+código, una tarea de infraestructura, algo sin relación con requerimientos) — ahí sí
+corresponde preguntar qué necesita la persona, porque la ambigüedad es real, no por
+precaución genérica. Si la persona pide algo distinto explícitamente ("traer solo el
+detalle", "implementar código para esto"), corresponde seguir lo que pidió, no el
+comportamiento por defecto.
 
 ## Ejemplos reales que motivaron este contrato (ilustrativos, no la lista completa de casos)
 
@@ -134,18 +138,18 @@ código para esto"), seguí lo que pidió, no el default.
 | Abrió y citó `registry/INDEX.md` y ejecuciones de otro ticket | Contexto ajeno a la tarea, mostrado a la persona | Regla 1 y 3 |
 | Reportó una carpeta faltante de otra tarea como hallazgo | Auditoría del modelo mostrada en la conversación de una persona | Regla 4 |
 | Editó `registry/entries/*.md` para actualizar contadores globales | Escritura en Common Core desde una ejecución individual | Regla 2 |
-| Editó `capabilities/skills/user-story/SKILL.md` (contador de ejecuciones) y respondió en inglés a una persona que escribió en español | El agente nunca había leído este contrato — no hay archivo de auto-descubrimiento (`AGENTS.md`) que lo forzara — y ninguna regla cubría el idioma todavía | Regla 2 (ya cubría `capabilities/`, faltaba que el agente la viera) y Regla 5 (nueva) |
-| Narró `git branch --show-current`, `git status --short` y `git diff --check` en la conversación, y describió "voy a crear el registro, después voy a validar el diff" como si fuera parte del resultado | Housekeeping interno del agente (verificar que no tocó archivos ajenos, que no hay problemas de whitespace) mostrado como si fuera información para la persona | Regla 3 (aclarada con ejemplos concretos de comandos) |
-| En la misma ejecución, dejó de mostrar la ruta del archivo donde quedó guardado el resultado (solo decía "quedó en `evidence.md`", sin la carpeta real), y escribió el archivo entero sin tildes (`gestion`, `Jesus`, `Analisis`) | Sobre-corrección de la regla 3 (se ocultó información que sí es del resultado) + violación nueva de la regla 5 (idioma incorrecto, no solo idioma equivocado) | Regla 3 (aclarada: la ruta del archivo no es housekeeping) y Regla 5 (ampliada a ortografía) |
-| Llamó 2 veces a la misma herramienta MCP (`Get issue`) sobre la misma referencia, y mostró en el chat un mensaje de error de búsqueda del propio editor ("No matches found... .*ignore files...") y varias lecturas de un archivo temporal de caché (`content.json`, línea por línea) | Ninguno de los 2 patrones estaba en esta tabla todavía — la salida cruda de una herramienta es interna aunque no sea un comando git; motivó agregar una prueba general en vez de seguir enumerando casos | Regla 3 (prueba general nueva: "¿lo generó una herramienta o lo redacté yo?") |
+| Editó `capabilities/skills/user-story/SKILL.md` (contador de ejecuciones) y respondió en inglés a una persona que escribió en español | El agente nunca había leído este contrato — no existía un archivo de auto-descubrimiento (`AGENTS.md`) que lo forzara — y ninguna regla cubría el idioma todavía | Regla 2 (ya cubría `capabilities/`, faltaba que el agente la viera) y Regla 5 (nueva) |
+| Narró `git branch --show-current`, `git status --short` y `git diff --check` en la conversación, y describió "ahora se va a crear el registro, después se va a validar el diff" como si fuera parte del resultado | Housekeeping interno del agente (verificar que no se tocaron archivos ajenos, que no hay problemas de formato) mostrado como si fuera información para la persona | Regla 3 (aclarada con ejemplos concretos de comandos) |
+| En la misma ejecución, dejó de mostrar la ruta del archivo donde quedó guardado el resultado (solo indicaba "quedó en `evidence.md`", sin la carpeta real), y escribió el archivo entero sin tildes (`gestion`, `Jesus`, `Analisis`) | Sobre-corrección de la regla 3 (se ocultó información que sí es del resultado) + violación nueva de la regla 5 (idioma incorrecto, no solo idioma equivocado) | Regla 3 (aclarada: la ruta del archivo no es housekeeping) y Regla 5 (ampliada a ortografía) |
+| Llamó 2 veces a la misma herramienta MCP (`Get issue`) sobre la misma referencia, y mostró en el chat un mensaje de error de búsqueda del propio editor ("No matches found... .*ignore files...") y varias lecturas de un archivo temporal de caché (`content.json`, línea por línea) | Ninguno de los 2 patrones estaba en esta tabla todavía — la salida cruda de una herramienta es interna aunque no sea un comando git; motivó agregar una prueba general en vez de seguir enumerando casos | Regla 3 (prueba general nueva: "¿lo generó una herramienta, o fue redactado como parte del resultado?") |
 
 Esta última fila es la razón por la que la regla 3 ahora incluye una **prueba general**
 en vez de depender solo de la lista de ejemplos — la lista sigue creciendo con cada
-variante nueva de la misma herramienta distinta, pero la prueba general ya las cubre a
-todas sin necesidad de un caso por caso. Cualquier variante nueva que no esté en esta
-tabla sigue cubierta por las 5 reglas — no
-hace falta agregar un caso más para que aplique. Ver [`../AGENTS.md`](../AGENTS.md) para
-cómo se garantiza que un agente encuentre este contrato antes de empezar.
+variante nueva de la misma herramienta, pero la prueba general ya las cubre a todas sin
+necesidad de un caso por caso. Cualquier variante nueva que no esté en esta tabla sigue
+cubierta por las 5 reglas — no hace falta agregar un caso más para que aplique. Ver
+[`../AGENTS.md`](../AGENTS.md) para cómo se garantiza que un agente encuentre este
+contrato antes de empezar.
 
 ## Qué NO cambia
 

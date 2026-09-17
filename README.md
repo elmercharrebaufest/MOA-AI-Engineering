@@ -37,7 +37,7 @@ desarrolladores, POs, QA. Se **consume y adapta**, no se impone.
 | [`read-only-code-reviewer`](capabilities/agents/read-only-code-reviewer/AGENT.md) (CAP-003) | Agent | Code review acotado al diff, sin poder de escritura |
 | [`spec-driven-development`](capabilities/workflows/spec-driven-development/WORKFLOW.md) (CAP-004) | Workflow | Llevar un ticket a código verificado, con trazabilidad |
 | [`repository-governance`](capabilities/instructions/repository-governance/INSTRUCTIONS.md) (CAP-005) | Instruction | Declarar qué puede/no puede hacer un asistente sin supervisión |
-| [`stack-best-practices-template`](capabilities/skills/stack-best-practices-template/SKILL.md) (CAP-006) | Skill | Plantilla para documentar buenas prácticas de tu stack real |
+| [`stack-best-practices-template`](capabilities/skills/stack-best-practices-template/SKILL.md) (CAP-006) | Skill | Plantilla para documentar las buenas prácticas del stack real de cada equipo |
 
 Catálogo completo con evidencia: [`registry/INDEX.md`](registry/INDEX.md). Catálogo
 consumible: [`capabilities/README.md`](capabilities/README.md).
@@ -55,11 +55,11 @@ dos es `Corporate Standard`.
 
 ## Quiero usar IA en mi proyecto
 
-Si es tu primera vez, seguí en orden:
+Si es la primera vez, conviene seguir este orden:
 
 1. [`adoption/getting-started.md`](adoption/getting-started.md) — la guía paso a paso.
 2. [`adoption/adoption-flow.md`](adoption/adoption-flow.md) — el modelo mental completo.
-3. [`adoption/execution-model.md`](adoption/execution-model.md) — cómo ejecutar sobre tu
+3. [`adoption/execution-model.md`](adoption/execution-model.md) — cómo ejecutar sobre el
    proyecto real.
 
 ```text
@@ -67,8 +67,9 @@ Necesidad → Golden Path → Capability → Adapt → Execute →
 Evidence → Evaluate → Measure → Improve
 ```
 
-**No necesitás copiar este repositorio dentro de tu proyecto.** Adoptás únicamente las
-capacidades puntuales que necesitás — el resto queda acá como catálogo de referencia.
+**No es necesario copiar este repositorio dentro de otro proyecto.** Se adoptan
+únicamente las capacidades puntuales que se necesiten — el resto queda como catálogo de
+referencia.
 
 ## 6. Flujo de adopción
 
@@ -79,12 +80,12 @@ Evaluate → Measure → Feedback/Contribute → Promotion/Iteration
 
 ## 7. ¿Cómo adopto/adapto una capacidad?
 
-Copiá la estructura, adaptá el contenido a tu dominio. Qué podés cambiar libremente y qué
-no: [`adoption/team-adaptation.md`](adoption/team-adaptation.md).
+Se copia la estructura y se adapta el contenido al dominio propio. Qué se puede cambiar
+libremente y qué no: [`adoption/team-adaptation.md`](adoption/team-adaptation.md).
 
 ## 8. ¿Cómo evalúo?
 
-Declarás tus criterios *antes* de mirar el resultado y completás el Evaluation Contract —
+Los criterios se declaran *antes* de mirar el resultado, y se completa el Evaluation Contract —
 ver [`architecture/evidence-evaluation-measurement.md`](architecture/evidence-evaluation-measurement.md#2-evaluation).
 Un resultado `model-assisted` (autoevaluación) **no sustituye** una evaluación humana
 independiente.
@@ -102,7 +103,7 @@ Reportar feedback o proponer que algo se vuelva reutilizable:
 
 ## 11. ¿Dónde encuentro arquitectura, gobierno y seguridad?
 
-| Qué buscás | Dónde |
+| Qué se busca | Dónde |
 |---|---|
 | Arquitectura de referencia (canónica y vigente) | [`architecture/reference-architecture.md`](architecture/reference-architecture.md) |
 | Modelo de capacidades (Instruction/Skill/Workflow/Agent/Knowledge-RAG/Integration/MCP) | [`architecture/capability-model.md`](architecture/capability-model.md) |

@@ -1,6 +1,6 @@
 # Capabilities — Biblioteca reusable de MOA-AI-Engineering
 
-Punto de entrada. Si necesitás saber **qué existe y podés usar hoy**, empezá acá.
+Punto de entrada. Este documento responde qué existe y qué se puede usar hoy.
 
 ## Qué es esto
 
@@ -29,7 +29,7 @@ cada una.
 | `read-only-code-reviewer` | Agent | [`agents/read-only-code-reviewer/AGENT.md`](agents/read-only-code-reviewer/AGENT.md) | Code review acotado al diff, sin poder de escritura | [CAP-003](../registry/entries/dotnet-code-reviewer.md) |
 | `spec-driven-development` | Workflow | [`workflows/spec-driven-development/WORKFLOW.md`](workflows/spec-driven-development/WORKFLOW.md) | Llevar un ticket de spec a código verificado, con trazabilidad | [CAP-004](../registry/entries/spec-driven-development.md) |
 | `repository-governance` | Instruction | [`instructions/repository-governance/INSTRUCTIONS.md`](instructions/repository-governance/INSTRUCTIONS.md) | Declarar qué puede/no puede hacer un asistente sin supervisión | [CAP-005](../registry/entries/repository-governance.md) |
-| `stack-best-practices-template` | Skill | [`skills/stack-best-practices-template/SKILL.md`](skills/stack-best-practices-template/SKILL.md) | Plantilla para documentar buenas prácticas de tu stack real | [CAP-006](../registry/entries/stack-best-practices-template.md) |
+| `stack-best-practices-template` | Skill | [`skills/stack-best-practices-template/SKILL.md`](skills/stack-best-practices-template/SKILL.md) | Plantilla para documentar las buenas prácticas del stack real de cada equipo | [CAP-006](../registry/entries/stack-best-practices-template.md) |
 
 ## Cómo se llegó a esta lista (y qué quedó afuera, a propósito)
 

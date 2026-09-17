@@ -30,7 +30,7 @@ AGENTS.md con matriz ALWAYS/ASK FIRST/NEVER, completada con contenido real del e
 consultar solo cuando la tarea lo amerita (no siempre — eso sería Instruction).
 **Camino real**: `azure-devops-cli` (CAP-001) para operar Azure DevOps;
 `user-story` (CAP-002) para refinar requerimientos; `stack-best-practices-template`
-(CAP-006) para documentar las convenciones reales de tu stack.
+(CAP-006) para documentar las convenciones reales del stack propio.
 **No hacer**: copiar el contenido de la skill de otro equipo con un stack distinto —
 `stack-best-practices-template` existe precisamente porque 2 instancias reales
 (`dotnet-best-practices` en Scato Logística y Orquestador) probaron que el contenido no

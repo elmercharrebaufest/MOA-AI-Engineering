@@ -7,17 +7,17 @@
 ## Regla de oro: primero lo que la persona puede hacer, después el detalle
 
 Si `hitl_required: true` y todavía no hay revisión humana, **eso va primero, como una
-invitación directa** ("¿ya revisaste el resultado? esto es tu oportunidad de confirmarlo")
-— no como una nota al pie después de una tabla de 9 criterios técnicos. La tabla de
-criterios va después, para quien quiera el detalle.
+invitación directa** ("¿ya se revisó el resultado? esta es la oportunidad de
+confirmarlo") — no como una nota al pie después de una tabla de 9 criterios técnicos. La
+tabla de criterios va después, para quien quiera el detalle.
 
 ## Cómo usar esta plantilla
 
-1. **Declará los criterios ANTES de mirar el resultado** — si ya viste el resultado y
-   recién ahora escribís los criterios, no es una evaluación honesta.
-2. Copiá este archivo a `evaluation/EXEC-<fecha>-<número>.md`, mismo `execution_id` que
+1. **Declarar los criterios ANTES de mirar el resultado** — si ya se vio el resultado y
+   recién ahora se escriben los criterios, no es una evaluación honesta.
+2. Copiar este archivo a `evaluation/EXEC-<fecha>-<número>.md`, mismo `execution_id` que
    el Evidence Record que evalúa.
-3. Completá el `method` real — `model-assisted` (autoevaluación por el mismo actor que
+3. Completar el `method` real — `model-assisted` (autoevaluación por el mismo actor que
    ejecutó) **no sustituye** una evaluación humana independiente, sin excepción.
 
 ## Evaluation Contract
@@ -33,14 +33,15 @@ criterios va después, para quien quiera el detalle.
 | `rationale` | *(justificación del resultado — no un campo opcional)* |
 | `evaluated_at` | *(fecha)* |
 | `hitl_required` | *(`true`/`false` — si esta evaluación requería validación humana)* |
-| `hitl_confirmed_by` | *(quién confirmó, si `hitl_required = true`; si no hay nadie confirmado, decilo)* |
+| `hitl_confirmed_by` | *(quién confirmó, si `hitl_required = true`; si no hay nadie confirmado, corresponde decirlo explícitamente)* |
 
 ## Cómo escribir la justificación (`rationale`) y el texto alrededor
 
-Escribilo en lenguaje simple, como si le explicaras a alguien por qué diste ese resultado
-— no como un reporte técnico. Mismo criterio que en `evidence-record.md`: evitá jerga
-interna, evitá encadenar IDs de otras ejecuciones en el medio de una oración, y contá el
-resultado en vez de describir el método de clasificación usado para llegar a él.
+Corresponde escribirla en lenguaje simple, como si se le estuviera explicando a alguien
+por qué se llegó a ese resultado — no como un reporte técnico. Mismo criterio que en
+`evidence-record.md`: evitar jerga interna, evitar encadenar IDs de otras ejecuciones en
+el medio de una oración, y contar el resultado en vez de describir el método de
+clasificación usado para llegar a él.
 
 ## Qué NO hacer
 
@@ -50,6 +51,6 @@ resultado en vez de describir el método de clasificación usado para llegar a �
 
 ## Después de completar esto
 
-Si hay baseline disponible, seguí con
+Si hay baseline disponible, corresponde continuar con
 [`measurement-record.md`](measurement-record.md). Si no, el ciclo de esta ejecución
 termina acá — y eso es un resultado válido.

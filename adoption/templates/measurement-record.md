@@ -4,21 +4,22 @@
 > [`../../architecture/evidence-evaluation-measurement.md`](../../architecture/evidence-evaluation-measurement.md#3-measurement).
 > Esta plantilla **no redefine** ese contrato.
 
-## Regla de oro: decilo directo primero, justificalo después
+## Regla de oro: decirlo directo primero, justificarlo después
 
-Si `status: NOT MEASURED`, la primera línea del archivo debe decir eso en criollo ("todavía
-no hay nada medido acá, y está bien que sea así") — no arrancar con un análisis de tamaño
-de muestra. La justificación estadística/técnica va después, para quien la necesite.
+Si `status: NOT MEASURED`, la primera línea del archivo debe decirlo en lenguaje llano
+("todavía no hay nada medido acá, y está bien que sea así") — no arrancar con un
+análisis de tamaño de muestra. La justificación estadística o técnica va después, para
+quien la necesite.
 
 ## Cómo usar esta plantilla
 
-1. Copiá este archivo a `measurements/EXEC-<fecha>-<número>.md`.
-2. **Si no existe baseline, no lo inventes.** Completá:
+1. Copiar este archivo a `measurements/EXEC-<fecha>-<número>.md`.
+2. **Si no existe baseline, no debe inventarse.** Corresponde completar:
    - `status: NOT MEASURED`
    - `baseline_reference: REQUIRES VALIDATION`
 
    Eso es un resultado válido y honesto — no una plantilla a medio completar.
-3. Nunca conviertas la ausencia de dato en `0` ni en un porcentaje estimado.
+3. Nunca debe convertirse la ausencia de dato en `0` ni en un porcentaje estimado.
 
 ## Measurement Result Contract
 
@@ -26,7 +27,7 @@ de muestra. La justificación estadística/técnica va después, para quien la n
 |---|---|
 | `capability_id` | *(ID del Registry)* |
 | `capability_version` | *(versión medida)* |
-| `metric_id` | *(si coincide con una de `../../metrics/framework.md`, reutilizala; si es nueva, declarala)* |
+| `metric_id` | *(si coincide con una de `../../metrics/framework.md`, reutilizarla; si es nueva, declararla)* |
 | `metric_name` | *(nombre legible)* |
 | `metric_definition` | *(cómo se calcula, en una frase verificable — sin esto no es una métrica)* |
 | `value` | *(el valor medido — obligatorio solo si `status = MEASURED`)* |
@@ -36,15 +37,15 @@ de muestra. La justificación estadística/técnica va después, para quien la n
 | `source` | *(`moa-metrics` (referencia) o `local measurement` — con quién/cómo)* |
 | `calculation_reference` | *(link a query, o descripción del conteo manual)* |
 | `measured_at` | *(fecha)* |
-| `owner` | *(quién es responsable del dato — `REQUIRES VALIDATION` si no confirmado)* |
+| `owner` | *(quién es responsable del dato — `REQUIRES VALIDATION` si no está confirmado)* |
 | `confidence/status` | *(`MEASURED` / `NOT MEASURED` / `NO DATA`)* |
 
 ## Cómo escribir la justificación de `NOT MEASURED`/`NO DATA`
 
-Explicá en lenguaje simple por qué no hay dato todavía (poca muestra, sin baseline, sin
-evaluación humana) — no como un análisis estadístico formal. Mismo criterio que en los
-otros 2 templates: nada de jerga interna ni de encadenar referencias a otras ejecuciones
-en el medio del texto.
+Corresponde explicar en lenguaje simple por qué no hay dato todavía (poca muestra, sin
+baseline, sin evaluación humana) — no como un análisis estadístico formal. Mismo
+criterio que en los otros 2 templates: nada de jerga interna ni de encadenar referencias
+a otras ejecuciones en el medio del texto.
 
 ## Reglas duras, sin excepción
 
@@ -54,5 +55,5 @@ en el medio del texto.
 
 ## Después de completar esto
 
-Seguí con [`../contribution-guide.md`](../contribution-guide.md) si encontraste algo que
-valdría la pena compartir con otros equipos.
+Corresponde continuar con [`../contribution-guide.md`](../contribution-guide.md) si se
+encontró algo que valdría la pena compartir con otros equipos.

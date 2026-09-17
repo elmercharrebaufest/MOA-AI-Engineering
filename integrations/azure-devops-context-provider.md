@@ -115,7 +115,7 @@ mecanismo produjo un contexto dado.
 Un equipo con Azure DevOps ya configurado en su entorno puede usar este patrón para
 resolver un Work Item hacia contexto, y pasarlo a cualquier capability que acepte
 `Resolved Context` (ej. CAP-002, ver
-[`../capabilities/skills/user-story/SKILL.md`](../capabilities/skills/user-story/SKILL.md#context-input)).
+[`../capabilities/skills/user-story/SKILL.md`](../capabilities/skills/user-story/SKILL.md#entrada)).
 No reemplaza el flujo manual (Direct Context) — es una alternativa, no una obligación.
 
 ## Implementación ejecutable

@@ -10,38 +10,39 @@
 **Quien abre este archivo quiere ver el resultado de su tarea, no un reporte de cómo
 funciona el modelo.** Hallazgo real de un developer que probó esto: el archivo hablaba de
 "esta es la ejecución más importante de las 6... la primera con actor independiente de
-quien diseñó el modelo" antes de mostrar su historia de usuario — eso es información
-nuestra (de gobierno de `MOA-AI-Engineering`), no algo que la persona necesite para
-trabajar. Nunca más así.
+quien diseñó el modelo" antes de mostrar la historia de usuario — eso es información de
+gobierno de `MOA-AI-Engineering`, no algo que la persona necesite para trabajar. No debe
+repetirse.
 
 **Orden obligatorio del archivo**:
 
 1. **El resultado real, primero, sin ninguna introducción sobre el modelo o el proceso**
    — lo que la persona pidió (la historia, el análisis, el código, lo que sea), directo.
-2. Un párrafo corto (opcional) de "¿y ahora qué hago?" si aplica.
+2. Un párrafo corto (opcional) de "¿y ahora qué corresponde hacer?" si aplica.
 3. Recién después, separado con una línea horizontal (`---`) o un bloque `<details>`
    colegable, el detalle de trazabilidad: de dónde salió el dato, qué herramienta se usó,
-   la tabla de campos del contrato. Marcalo explícitamente como "no hace falta leer esto
-   para usar el resultado de arriba".
+   la tabla de campos del contrato. Debe marcarse explícitamente como "no hace falta leer
+   esto para usar el resultado de arriba".
 
 **Nunca en el archivo, en ningún lugar**: comparaciones con otras ejecuciones ("es la más
 significativa de las 6", "a diferencia de EXEC-XXXX"), quién diseñó el modelo, ni jerga de
 clasificación interna (`CONTROLLED DRY-RUN`, "2 ejes distintos"). Eso es contenido para
 `docs/history/` o para el Registry, nunca para el archivo que la persona realmente abre.
 
-**La misma regla aplica a tu respuesta en el chat, no solo a este archivo** — y a
+**La misma regla aplica a la respuesta en el chat, no solo a este archivo** — y a
 cualquier archivo compartido del modelo (`registry/`, índices, otras tareas de
-`records/`): nunca los leas, edites ni menciones como parte de ejecutar la tarea de una
-persona. Ver [`agent-execution-contract.md`](../agent-execution-contract.md) para el
-contrato completo — es corto, léelo antes de continuar.
+`records/`): no deben leerse, editarse ni mencionarse como parte de ejecutar la tarea de
+una persona. Ver [`agent-execution-contract.md`](../agent-execution-contract.md) para el
+contrato completo — es corto, conviene leerlo antes de continuar.
 
 ## Cómo usar esta plantilla
 
-1. Copiá este archivo a `records/<fuente>-<tarea>/EXEC-<fecha>-<número>/evidence.md`
+1. Copiar este archivo a `records/<fuente>-<tarea>/EXEC-<fecha>-<número>/evidence.md`
    (una carpeta por tarea, ver `evidence/README.md` para la convención completa).
-2. Completá cada campo de la tabla — si un campo no aplica todavía, usá el valor honesto
-   (`NOT EVALUATED`, `NOT MEASURED`), nunca lo dejes ambiguo ni lo inventes.
-3. Versioná el archivo junto con tu código (commit normal, sin infraestructura especial).
+2. Completar cada campo de la tabla — si un campo no aplica todavía, usar el valor
+   honesto (`NOT EVALUATED`, `NOT MEASURED`), nunca dejarlo ambiguo ni inventarlo.
+3. Versionar el archivo junto con el código (commit normal, sin infraestructura
+   especial).
 
 ## Evidence Contract (va en la parte de trazabilidad, al final del archivo — ver "Regla de oro" arriba)
 
@@ -52,7 +53,7 @@ contrato completo — es corto, léelo antes de continuar.
 | `execution_id` | *(identificador único de esta ejecución — ej. EXEC-20260101-001)* |
 | `executed_at` | *(fecha/hora)* |
 | `actor` | *(quién ejecutó — persona o "human+AI assistant"; nunca dejar implícito)* |
-| `repository` | *(repo donde se ejecutó)* |
+| `repository` | *(repositorio donde se ejecutó)* |
 | `branch` | *(rama donde se ejecutó)* |
 | `input_reference` | *(referencia al insumo — ej. link a un ticket; NO el contenido completo si es sensible)* |
 | `output_reference` | *(referencia al resultado — normalmente, "arriba en este mismo archivo")* |
@@ -63,26 +64,27 @@ contrato completo — es corto, léelo antes de continuar.
 
 ## Cómo escribir el texto libre (además del orden de arriba)
 
-Escribí cualquier explicación **como si se la contaras a un colega**, no como un reporte
-de auditoría. Evitá:
+La explicación debe escribirse **como si se le estuviera contando a un colega**, no como
+un reporte de auditoría. Conviene evitar:
 
 - Hablar del proceso en vez del resultado.
 - Meter IDs de otras ejecuciones en el medio de la oración.
-- Jerga interna de clasificación — si el concepto importa, explicalo con palabras
-  comunes.
+- Jerga interna de clasificación — si el concepto importa, corresponde explicarlo con
+  palabras comunes.
 - Frases tipo "ver sección de abajo" en cada párrafo — cortan la lectura.
 
-Si dudás, releé lo que escribiste en voz alta: si suena a que alguien está describiendo
-un sistema en vez de contarte qué pasó, reescribilo.
+Ante la duda, conviene releer el texto en voz alta: si suena a que alguien está
+describiendo un sistema en vez de contar qué pasó, corresponde reescribirlo.
 
 ## Qué NO registrar acá
 
 - Secretos, credenciales, tokens.
-- Contenido sensible completo — usá referencias (paths, IDs, links), no el payload.
-- Un resultado que todavía no ocurrió — completá esto **después** de ejecutar, no antes.
+- Contenido sensible completo — usar referencias (paths, IDs, links), no el payload.
+- Un resultado que todavía no ocurrió — este campo se completa **después** de ejecutar,
+  no antes.
 
 ## Después de completar esto
 
-Seguí con [`evaluation-record.md`](evaluation-record.md) para registrar si el resultado
-es correcto, y [`measurement-record.md`](measurement-record.md) para registrar impacto
-(si hay baseline).
+Corresponde continuar con [`evaluation-record.md`](evaluation-record.md) para registrar
+si el resultado es correcto, y [`measurement-record.md`](measurement-record.md) para
+registrar impacto (si hay baseline).

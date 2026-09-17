@@ -37,7 +37,7 @@
 | **Metric Reference** | Ninguna todavía | — |
 | **Reusable Asset** *(nuevo en G5.1)* | [`capabilities/skills/user-story/SKILL.md`](../../capabilities/skills/user-story/SKILL.md) | Generalización de las 3 instancias reales — **sin catálogo de roles fijo**, corrigiendo una brecha encontrada durante la construcción (rol "operador de planta" ausente del catálogo original de DataAgro) |
 | **Action Type** *(nuevo, campo agregado al implementar Context Acquisition & Resolution)* | READ (no accede a sistemas externos; produce texto, no actúa sobre ningún sistema) | Sin cambios respecto a la evidencia ya existente — CAP-002 nunca declaró `ACT` |
-| **Context Requirements** *(actualizado tras el vertical slice de Context Acquisition & Resolution)* | `Direct Context o Resolved Context, indistintamente` — ver [`SKILL.md`](../../capabilities/skills/user-story/SKILL.md#context-input) | Ambos modos quedaron probados de punta a punta durante la construcción — ninguno tiene evidencia de uso real todavía |
+| **Context Requirements** | `Direct Context o Resolved Context, indistintamente` — ver [`SKILL.md`](../../capabilities/skills/user-story/SKILL.md#entrada) | Ambos modos quedaron probados de punta a punta durante la construcción — ninguno tiene evidencia de uso real todavía |
 
 ## Nota de selección
 
