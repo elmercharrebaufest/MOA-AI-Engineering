@@ -40,7 +40,7 @@ contrasta esto contra lo que el repositorio efectivamente construyó desde enton
 
 | Etapa del SDLC | Capacidad real que la cubre | Golden Path | Estado real |
 |---|---|---|---|
-| Recepción del requerimiento / Refinamiento / User Stories / Estimation | **CAP-002** (`user-story`) + **CAP-007** (Azure DevOps) / **CAP-008** (Jira, vía Atlassian Rovo MCP real — ya no solo config, con invocación real confirmada) | [Golden Path #1 — AI-Assisted Requirements](../golden-paths/README.md#1-ai-assisted-requirements) | `HARDENED` — **7 ejecuciones reales**, la 6ta y 7ma con actor independiente (`EXEC-20260909-001`/`PILOT-003`, `EXEC-20260917-001`/ARMOA277-194). Ninguna evaluación es todavía humana independiente. **Cumplimiento explícito del KO** para esta etapa (*"Rovo Agent... genera preguntas para el PO antes del refinamiento"*): CAP-002 ahora produce, además de los gaps, una **recomendación de próximo paso** cuando la historia no está lista (a quién contactar, real si el Resolved Context lo trae — nunca inventado) — la acción la toma el reporter/PO, nunca el agente (`READ`, no `ACT`, ver `security-governance.md` §1.5) |
+| Recepción del requerimiento / Refinamiento / User Stories / Estimation | **CAP-002** (`user-story`) + **CAP-007** (Azure DevOps) / **CAP-008** (Jira, vía Atlassian Rovo MCP real) | [Golden Path #1 — AI-Assisted Requirements](../golden-paths/README.md#1-ai-assisted-requirements) | `CONFIGURED` — mecanismo probado de punta a punta durante la construcción, pruebas purgadas al pasar a adopción real; evidencia real en curso sobre `ARMOA277-194`. **Cumplimiento explícito del KO** para esta etapa (*"Rovo Agent... genera preguntas para el PO antes del refinamiento"*): CAP-002 produce, además de los gaps, una **recomendación de próximo paso** cuando la historia no está lista (a quién contactar, real si el Resolved Context lo trae — nunca inventado, prioriza `reporter` sobre `assignee`) — la acción la toma el reporter/PO, nunca el agente (`READ`, no `ACT`, ver `security-governance.md` §1.5) |
 | Planning / Development | **CAP-004** (`spec-driven-development`, nivel Lite) + **CAP-005** (`repository-governance`) | [Golden Path #2 — AI-Assisted Development](../golden-paths/README.md#2-ai-assisted-development) | `PROPOSAL` fortalecido — evidencia real del Workflow que lo alimenta (DataAgro, 2 tickets; `moa-sdlc` nivel Full ejecutado hasta `tester` en `MOA-1765`), sin Evidence Record propio del camino completo |
 | Design | *(parcial, dentro de CAP-004)* — `design.md` es un artefacto real del Workflow (nivel Full, `moa-sdlc`) | — | Cubierto solo como parte de spec-driven-development, no como capacidad independiente |
 | Code Review | **CAP-003** (`.NET Code Reviewer`) + **CAP-006** (`stack-best-practices-template`) | [Golden Path #4 — AI Code Review](../golden-paths/README.md#4-ai-code-review) | `PROPOSAL` fortalecido — patrón real en 2 repos (Orquestador, Scato Logística), cero Evidence Records de una ejecución real de este Golden Path específico |
@@ -64,8 +64,9 @@ El hallazgo central de DORA sobre adopción de IA en el ciclo de entrega de soft
 que el resto del ciclo (testing, deployment, coordinación) automáticamente se mantenga al
 mismo ritmo, a menos que existan capacidades organizacionales sólidas de base (control de
 versiones, batches pequeños, plataforma de calidad). Aplicado a la tabla de arriba: MOA
-tiene cobertura real fuerte en **Requirements** (el más maduro, `HARDENED`) y evidencia
-parcial en **Development** y **Code Review**, pero **cero cobertura real en Testing/QA**
+tiene su mecanismo más maduro en **Requirements** (`CONFIGURED`, evidencia real en curso)
+y evidencia parcial en **Development** y **Code Review**, pero **cero cobertura real en
+Testing/QA**
 — exactamente el tipo de desequilibrio que DORA advierte que genera cuellos de botella
 nuevos si el desarrollo se acelera sin que QA lo acompañe. Esto no es una recomendación de
 agregar una capacidad de QA sin evidencia (regla dura del assessment), es una razón

@@ -42,8 +42,8 @@ Measurement → Human Validation → Reusable Capability → Common Core
 2. **Candidate**: agregá una entrada en `../registry/entries/` describiéndola (`Corporate
    Standard: N`, honesto). Esto no requiere aprobación de nadie — es autoservicio.
 3. **Evidence**: completá al menos un Evidence Record real (no inventado) — ver
-   [`../records/jira-MOA-1816/EXEC-20260907-001/evidence.md`](../records/jira-MOA-1816/EXEC-20260907-001/evidence.md)
-   como ejemplo.
+   [`../adoption/templates/evidence-record.md`](../adoption/templates/evidence-record.md)
+   como plantilla.
 4. **Assessment**: aplicá el rubric de 14 dimensiones de
    `../architecture/assessment-gate.md` vos mismo, como primer filtro.
 5. **Evaluation**: completá un Evaluation Record — si podés conseguir una revisión de

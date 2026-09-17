@@ -125,20 +125,13 @@ y por la sección "READ vs. ACT" de `security-governance.md` — **no se habilit
 - El servidor `com.atlassian/atlassian-mcp-server` real, con scope acotado
   (`getJiraIssue`), tiene evidencia de **configuración** (`CONFIGURATION VERIFIED`) en los
   agents `architect` de Orquestador y Scato Logística.
-- **Actualización (`EXEC-20260908-004`, `EXEC-20260908-005`)**: este patrón específico
-  (Reference → Resolved Context → CAP-002) **ahora tiene evidencia de ejecución real**
-  vía MCP (Prioridad 1) en dos ejecuciones sobre issues distintos —
-  `getJiraIssue` invocado realmente por un runtime GitHub Copilot Agent (VS Code) contra
-  un issue real tipo Error/Bug (`ARMOA277-191`, `EXEC-20260908-004`) y contra un segundo
-  issue real tipo Tarea/Task (`ARMOA277-180`, `EXEC-20260908-005`), ambos en el tenant
-  `baufest.atlassian.net`, con el Resolved Context resultante consumido realmente por
-  CAP-002 en ambos casos. `Real Use Status: EXECUTED` — **no `VERIFIED`**: sigue sin
-  evaluación humana independiente (ver
-  [`../registry/entries/jira-context.md`](../registry/entries/jira-context.md)). Existe
-  evidencia inicial de generalización a dos tipos de issue reales con diferente nivel de
-  completitud de información. Detalle completo en
-  [`EXEC-20260908-004`](../records/jira-ARMOA277-191/EXEC-20260908-004/evidence.md) y
-  [`EXEC-20260908-005`](../records/jira-ARMOA277-180/EXEC-20260908-005/evidence.md).
+- **Este patrón específico (Reference → Resolved Context → CAP-002) quedó probado de
+  punta a punta durante la construcción**, vía MCP (Prioridad 1), sobre varios issues
+  reales de tipo distinto — `getJiraIssue` invocado realmente por un runtime GitHub
+  Copilot Agent (VS Code), con el Resolved Context resultante consumido realmente por
+  CAP-002. Esas pruebas se purgaron al pasar a adopción real. `Real Use Status:
+  CONFIGURED` — sin ejecuciones reales registradas todavía (ver
+  [`../registry/entries/jira-context.md`](../registry/entries/jira-context.md)).
 
 ## Uso esperado
 
@@ -170,25 +163,23 @@ el navegador) — **nunca** un token en un archivo.
 
 **El script REST (Prioridad 2, fallback)** —
 [`scripts/jira-context.ps1`](scripts/jira-context.ps1) — sigue existiendo para escenarios
-headless/no interactivos (ej. un pipeline de CI, o la sesión que registró
-[`EXEC-20260908-002.md`](../records/jira-MOA-1234/EXEC-20260908-002/evidence.md), que no tenía un cliente MCP
+headless/no interactivos (ej. un pipeline de CI, o una sesión sin cliente MCP
 interactivo disponible). **No es el runtime principal** — no reemplaza al flujo MCP para
 un desarrollador trabajando en VS Code.
 
 ## Ejecución interactiva: histórico vs. esta actualización
 
-**Nota histórica, preservada tal cual se documentó originalmente**: la sesión que generó
-[`EXEC-20260908-002.md`](../records/jira-MOA-1234/EXEC-20260908-002/evidence.md) (Claude Code, sin interfaz
-gráfica ni control de navegador) no podía abrir VS Code, instalar una extensión desde su
-galería, ni completar un flujo de consentimiento OAuth 2.1 en un navegador — esa
-limitación era real *para ese runtime específico*, no una configuración faltante. Esa
-sesión solo pudo probar la Prioridad 2 (REST), y quedó `BLOCKED` por falta de
-credenciales — ver el registro de evidencia correspondiente.
+**Nota histórica, preservada tal cual se documentó originalmente**: una sesión sin
+interfaz gráfica ni control de navegador (Claude Code) no podía abrir VS Code, instalar
+una extensión desde su galería, ni completar un flujo de consentimiento OAuth 2.1 en un
+navegador — esa limitación era real *para ese runtime específico*, no una configuración
+faltante. Esa sesión solo pudo probar la Prioridad 2 (REST), y quedó `BLOCKED` por falta
+de credenciales.
 
-**Actualización (`EXEC-20260908-004`, `EXEC-20260908-005`)**: esta limitación **no es
-universal** — era específica del runtime de esa sesión anterior, no del patrón en sí. Una
-sesión distinta, corriendo como **GitHub Copilot Agent en VS Code**, con el servidor
-`Atlassian Rovo MCP` ya cargado y autenticado (OAuth 2.1 ya resuelto por el cliente MCP
+**Esta limitación no es universal** — era específica del runtime de esa sesión anterior,
+no del patrón en sí. Una sesión distinta, corriendo como **GitHub Copilot Agent en VS
+Code**, con el servidor `Atlassian Rovo MCP` ya cargado y autenticado (OAuth 2.1 ya
+resuelto por el cliente MCP
 antes de esta sesión), **sí pudo invocar `getJiraIssue` directamente** — sin script, sin
 variables de entorno, sin token almacenado en ningún archivo, en dos ejecuciones reales
 sobre issues de tipo distinto. La afirmación categórica anterior ("ninguna
@@ -196,19 +187,12 @@ sesión de este tipo puede ejecutar la prueba interactiva") queda corregida: dep
 runtime/cliente MCP disponible en la sesión, no es una imposibilidad estructural de
 "cualquier sesión de agente".
 
-**Ejecución real de Prioridad 1 (MCP), primera ejecución**: `SUCCESS` — ver
-[`EXEC-20260908-004`](../records/jira-ARMOA277-191/EXEC-20260908-004/evidence.md) (issue tipo
-Error/Bug, `ARMOA277-191`), registrado honestamente, no simulado.
+**Prioridad 1 (MCP)**: probado durante la construcción sobre varios issues reales de tipo
+distinto — `SUCCESS` en todos, registrado honestamente, no simulado; esos registros se
+purgaron al pasar a adopción real.
 
-**Ejecución real de Prioridad 1 (MCP), segunda ejecución**: `SUCCESS` — ver
-[`EXEC-20260908-005`](../records/jira-ARMOA277-180/EXEC-20260908-005/evidence.md) (issue tipo
-Tarea/Task, `ARMOA277-180`, sin descripción cargada), registrado honestamente, no
-simulado. Existe evidencia inicial de generalización a dos tipos de issue reales con
-diferente nivel de completitud de información — esto no equivale a `VERIFIED`.
-
-**Ejecución real de Prioridad 2 (REST), sesión anterior**: `BLOCKED` — ver
-[`EXEC-20260908-002`](../records/jira-MOA-1234/EXEC-20260908-002/evidence.md), registrado
-honestamente, no simulado.
+**Prioridad 2 (REST)**: probado durante la construcción sin credenciales disponibles —
+`BLOCKED`, registrado honestamente, no simulado.
 
 Quick Start completo:
 [`../adoption/context-providers-quickstart.md`](../adoption/context-providers-quickstart.md).

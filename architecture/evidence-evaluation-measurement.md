@@ -161,38 +161,15 @@ evaluaciones" o "todas las mediciones" across tareas) — el contenido real vive
 
 ## 6. Registros reales existentes
 
-6 registros de ejecución real aplicaron (o intentaron aplicar) estos 3 contratos, ninguno
-simulado — ver [`../evidence/README.md`](../evidence/README.md),
+**Sin registros todavía.** El mecanismo (Direct Context, Connected Context vía CAP-007 y
+CAP-008/MCP real) quedó probado de punta a punta durante la construcción, sobre varios
+tipos de issue/work item reales — esas ejecuciones fueron pruebas del mecanismo por quien
+lo diseñó, purgadas deliberadamente al pasar a la etapa real de adopción, para no contar
+como "evidencia real de uso" algo que no lo era. La evidencia real empieza con la prueba
+en curso de un developer real de MOA sobre `ARMOA277-194` — ver
+[`../evidence/README.md`](../evidence/README.md),
 [`../evaluation/README.md`](../evaluation/README.md) y
-[`../measurements/README.md`](../measurements/README.md) para el índice completo, y
-[`../records/`](../records/) para el contenido real de cada uno:
-
-- **`EXEC-20260908-002`** — `BLOCKED`. Intento histórico de Connected Context (Jira) vía
-  REST (Prioridad 2, sin MCP/credenciales disponibles en ese entorno). Preservado tal
-  cual como evidencia histórica — **no convertido en éxito**.
-- **`EXEC-20260908-003`** — `EXECUTED`. Azure DevOps → Resolved Context (CAP-007) →
-  CAP-002, primer vertical slice real de punta a punta.
-- **`EXEC-20260908-004`** — `EXECUTED`. Jira real → Atlassian Rovo MCP → `getJiraIssue` →
-  Resolved Context (CAP-008) → CAP-002, sobre un issue real tipo Error/Bug
-  (`ARMOA277-191`).
-- **`EXEC-20260908-005`** — `EXECUTED`. Jira real → Atlassian Rovo MCP → `getJiraIssue` →
-  Resolved Context (CAP-008) → CAP-002, sobre un segundo issue real tipo Tarea/Task
-  (`ARMOA277-180`), sin descripción cargada.
-- **`EXEC-20260909-001`** — `EXECUTED`. Jira real → Atlassian Rovo MCP → `getJiraIssue` →
-  Resolved Context (CAP-008) → CAP-002, sobre un tercer issue real tipo Test/Xray
-  (`ARMOA277-45`) — primer **actor de ejecución independiente** (`PILOT-003`).
-- **`EXEC-20260917-001`** — `EXECUTED`. Jira real → Atlassian Rovo MCP → `getJiraIssue` →
-  Resolved Context (CAP-008) → CAP-002, sobre un cuarto issue real tipo Historia/Story
-  (`ARMOA277-194`) — segundo **actor de ejecución independiente**, primera ejecución que
-  incluye la sección de Recomendación de CAP-002.
-
-**Para CAP-008 (`jira-context`) en particular**: 5 registros de ejecución relacionados —
-1 `BLOCKED` (`EXEC-20260908-002`) y 4 `SUCCESS` (`EXEC-20260908-004`,
-`EXEC-20260908-005`, `EXEC-20260909-001`, `EXEC-20260917-001`). Existe evidencia de
-generalización a cuatro tipos de issue reales con diferente nivel de completitud de
-información. `Real Use Status` continúa siendo `EXECUTED` — **no se declara `VERIFIED`**:
-la validación humana independiente sigue pendiente, y el Measurement de las 6 ejecuciones
-continúa `NOT MEASURED` porque todavía no existe baseline cuantitativo.
+[`../measurements/README.md`](../measurements/README.md) para el estado vivo.
 
 ## Historial
 

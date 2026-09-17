@@ -58,15 +58,10 @@ real.
 
 **Este es el mecanismo Prioridad 1** — el script REST de la sección 4 es el fallback
 headless, no el runtime real de un desarrollador. Pasos verificados contra la
-documentación oficial de Atlassian (citada abajo). **Actualización**: estos pasos ya
-tienen 4 ejecuciones reales registradas (`EXEC-20260908-004`, `EXEC-20260908-005`,
-`EXEC-20260909-001`, `EXEC-20260917-001`) — sesiones de GitHub Copilot Agent en VS Code,
-con el servidor MCP ya instalado/autenticado, invocaron `getJiraIssue` real sobre cuatro
-issues reales de tipo distinto; la tercera y la cuarta (`EXEC-20260909-001`,
-`EXEC-20260917-001`) además con developers reales de MOA como actor independiente
-(`PILOT-003` y ARMOA277-194 respectivamente), sin conocimiento previo de este repositorio.
-Los pasos 1 y 2
-(instalación, primer OAuth) siguen siendo
+documentación oficial de Atlassian (citada abajo) y probados de punta a punta durante la
+construcción — sesiones de GitHub Copilot Agent en VS Code invocaron `getJiraIssue` real
+sobre varios issues de tipo distinto (esas pruebas se purgaron al pasar a adopción real).
+Los pasos 1 y 2 (instalación, primer OAuth) siguen siendo
 inherentemente interactivos y requieren una persona real la primera vez — una vez hechos,
 el paso 3 (invocar la herramienta) puede repetirlo cualquier sesión de agente que reutilice
 esa configuración/autenticación ya existente (ver detalle en
@@ -90,47 +85,24 @@ esa configuración/autenticación ya existente (ver detalle en
 
 ## 4. Jira test
 
-**Vía MCP (Prioridad 1, runtime real) — `EXECUTED`, ver `EXEC-20260908-004` y
-`EXEC-20260908-005`**: pedirle a
-Copilot Agent que invoque `getJiraIssue` sobre un issue real. No hay un comando de
-terminal para esto — lo ejecuta el cliente MCP directamente.
+**Vía MCP (Prioridad 1, runtime real)**: pedirle a Copilot Agent que invoque
+`getJiraIssue` sobre un issue real. No hay un comando de terminal para esto — lo ejecuta
+el cliente MCP directamente. Probado durante la construcción sobre varios issues reales
+de tipo distinto, con resultado `retrievalStatus: SUCCESS` y Resolved Context consumido
+por CAP-002 — ejemplos purgados al pasar a adopción real. **No se simuló ningún
+resultado, ni se realizó ninguna operación `WRITE` sobre Jira.**
 
-**Estado real, EXECUTED**: sobre el issue real `ARMOA277-191` (tipo Error/Bug, tenant
-`baufest.atlassian.net`), con el servidor `Atlassian Rovo MCP` ya autenticado en la
-sesión: resultado `retrievalStatus: SUCCESS`, Resolved Context real consumido por CAP-002
-— ver [`EXEC-20260908-004`](../records/jira-ARMOA277-191/EXEC-20260908-004/evidence.md) para el JSON
-completo, real, sin editar, y la salida real de CAP-002. Una segunda ejecución real,
-sobre el issue `ARMOA277-180` (tipo Tarea/Task, sin descripción cargada), confirmó el
-mismo resultado (`SUCCESS`) con un nivel de completitud de información distinto — ver
-[`EXEC-20260908-005`](../records/jira-ARMOA277-180/EXEC-20260908-005/evidence.md). Una
-tercera ejecución (`ARMOA277-45`, tipo Test/Xray) y una cuarta (`ARMOA277-194`, tipo
-Historia/Story) confirmaron el mismo patrón con actor de ejecución independiente en ambas
-— ver [`EXEC-20260909-001`](../records/jira-ARMOA277-45/EXEC-20260909-001/evidence.md) y
-[`EXEC-20260917-001`](../records/jira-ARMOA277-194/EXEC-20260917-001/evidence.md). **No se
-simuló ningún resultado, ni se realizó ninguna operación `WRITE` sobre Jira.**
-
-**Vía REST (Prioridad 2, fallback headless — sin cliente MCP disponible en esa sesión)**:
+**Vía REST (Prioridad 2, fallback headless — sin cliente MCP disponible)**:
 
 ```powershell
 cd integrations/scripts
 ./jira-context.ps1 -Reference "PROY-1234"
 ```
 
-**Estado real, EXECUTED en una sesión anterior** (con `Reference: MOA-1234`, sin
-credenciales disponibles en ese entorno): resultado `retrievalStatus:
-SOURCE_UNAVAILABLE`, `BLOCKED` — ver
-[`EXEC-20260908-002`](../records/jira-MOA-1234/EXEC-20260908-002/evidence.md) para el JSON
-completo, real, sin editar. **No se simuló un resultado exitoso.**
-
-**Nota histórica** (de la sesión que generó `EXEC-20260908-002`, preservada tal cual):
-esa sesión (Claude Code, sin interfaz gráfica ni control de navegador) no podía completar
-el flujo interactivo de instalación/OAuth 2.1, y por eso solo pudo probar la Prioridad 2
-(REST). **Esta limitación no es universal** — era específica de ese runtime, no del
-patrón: `EXEC-20260908-004` y `EXEC-20260908-005` demuestran que una sesión GitHub Copilot
-Agent, con el cliente
-MCP ya autenticado, sí puede invocar `getJiraIssue` real de punta a punta, incluso sobre
-issues de tipo distinto. Ver el detalle
-completo en
+Probado durante la construcción sin credenciales disponibles en ese entorno: resultado
+`retrievalStatus: SOURCE_UNAVAILABLE`, `BLOCKED` — comportamiento correcto (no se simula
+un éxito), no una limitación del patrón: con el cliente MCP autenticado, la Prioridad 1
+sí llega a `SUCCESS` de punta a punta. Ver el detalle completo en
 [`../integrations/jira-context-provider.md`](../integrations/jira-context-provider.md#ejecución-interactiva-histórico-vs-esta-actualización).
 
 ## 5. Azure DevOps test
@@ -149,11 +121,9 @@ $env:AZURE_DEVOPS_ORG = "https://dev.azure.com/<org>"
 ./azure-devops-context.ps1 -Reference "<ID real>" -ResourceType work_item -OutFile resolved-context.json
 ```
 
-**Estado**: `EXECUTED` — las 2 rutas de error y el camino de éxito completo se validaron
-en esta sesión, incluyendo un vertical slice real de punta a punta (Work Item #7 real →
-Resolved Context → CAP-002) — ver
-[`EXEC-20260908-003`](../records/ado-7/EXEC-20260908-003/evidence.md) para el detalle
-completo, comandos y salidas reales, sin editar.
+**Estado**: `EXECUTABLE` — las 2 rutas de error y el camino de éxito completo (Work Item
+→ Resolved Context → CAP-002) quedaron probados durante la construcción; ese ejemplo se
+purgó al pasar a adopción real — sin ejecuciones reales registradas todavía.
 
 ## 6. Context resolution
 
@@ -174,21 +144,16 @@ bloque `Ticket:/Requirement:/Context:` que
 ya acepta. Pegá esa salida en el patrón de ejecución de CAP-002 (sección "Execution
 prompt pattern" de esa skill) con tu asistente de IA (Copilot, Claude, u otro).
 
-**Estado**: `EXECUTED` — vertical slice completo de punta a punta corrido en esta sesión
-(Work Item real → Resolved Context real → CAP-002 real) — ver
-[`EXEC-20260908-003`](../records/ado-7/EXEC-20260908-003/evidence.md).
+**Estado**: `EXECUTABLE` — vertical slice completo de punta a punta probado durante la
+construcción (Work Item real → Resolved Context real → CAP-002 real); ese ejemplo se
+purgó al pasar a adopción real.
 
 ## 8. Evidence
 
 Cada ejecución real de cualquiera de los caminos (MCP o los 3 scripts REST) debe
 registrarse con el
 [Evidence Contract](../architecture/evidence-evaluation-measurement.md#1-evidence) — ver
-[`EXEC-20260908-002`](../records/jira-MOA-1234/EXEC-20260908-002/evidence.md) como ejemplo de un
-`BLOCKED` real (no un éxito, y así se registró) y
-[`EXEC-20260908-004`](../records/jira-ARMOA277-191/EXEC-20260908-004/evidence.md) /
-[`EXEC-20260908-005`](../records/jira-ARMOA277-180/EXEC-20260908-005/evidence.md) como ejemplos de un
-`SUCCESS` real de punta a punta (Jira vía MCP → CAP-002), sobre dos tipos de issue
-distintos.
+[`../evidence/README.md`](../evidence/README.md) para el estado vivo.
 
 ## 9. Evaluation
 
@@ -197,11 +162,7 @@ Al evaluar un Resolved Context real, separar explícitamente:
 2. **Evaluación humana** — ¿una persona confirmó que el contenido resuelto preserva el
    significado real del issue/work item, sin inventar información?
 3. **Evaluación asistida** (`model-assisted`) — no sustituye la humana, igual que en
-   CAP-002 (ver `../architecture/evidence-evaluation-measurement.md` §2). Ver
-   [`EXEC-20260908-004`](../records/jira-ARMOA277-191/EXEC-20260908-004/evaluation.md) y
-   [`EXEC-20260908-005`](../records/jira-ARMOA277-180/EXEC-20260908-005/evaluation.md) como ejemplos
-   reales — resultado `PARTIAL` en ambas, precisamente porque solo existe evaluación
-   asistida.
+   CAP-002 (ver `../architecture/evidence-evaluation-measurement.md` §2).
 
 **No declarar una evaluación independiente si no existe** — mismo principio ya vigente en
 todo el repositorio.
@@ -224,15 +185,11 @@ a nivel de todo el vertical slice (`Reference → Resolved Context → CAP-002`)
 
 | Estado del vertical slice | Cuándo aplica |
 |---|---|
-| **SUCCESS** | `retrievalStatus: SUCCESS` o `PARTIAL` **y** CAP-002 se ejecutó sobre ese contexto — ej. Azure DevOps, Work Item #7 (`EXEC-20260908-003`); Jira vía MCP, issue `ARMOA277-191` (`EXEC-20260908-004`) e issue `ARMOA277-180` (`EXEC-20260908-005`) |
-| **BLOCKED** | El script/herramienta se ejecutó de verdad (no se omitió), pero no hay mecanismo de autenticación real disponible en el entorno — `retrievalStatus: SOURCE_UNAVAILABLE`/`UNAUTHORIZED`, con `error` explícito. **No es un fallo de diseño** — es un prerrequisito de entorno faltante, documentado con su causa exacta. Ej. Jira vía REST en una sesión anterior sin credenciales (`EXEC-20260908-002`) — nótese que el mismo patrón, vía MCP y en dos sesiones distintas, sí llegó a `SUCCESS` (`EXEC-20260908-004`, `EXEC-20260908-005`). |
+| **SUCCESS** | `retrievalStatus: SUCCESS` o `PARTIAL` **y** CAP-002 se ejecutó sobre ese contexto |
+| **BLOCKED** | El script/herramienta se ejecutó de verdad (no se omitió), pero no hay mecanismo de autenticación real disponible en el entorno — `retrievalStatus: SOURCE_UNAVAILABLE`/`UNAUTHORIZED`, con `error` explícito. **No es un fallo de diseño** — es un prerrequisito de entorno faltante, documentado con su causa exacta |
 
-`BLOCKED` nunca se reescribe como `SUCCESS` sin que el mecanismo real exista — ver
-[`EXEC-20260908-002`](../records/jira-MOA-1234/EXEC-20260908-002/evidence.md) para el caso
-real que permaneció `BLOCKED`, y
-[`EXEC-20260908-004`](../records/jira-ARMOA277-191/EXEC-20260908-004/evidence.md) /
-[`EXEC-20260908-005`](../records/jira-ARMOA277-180/EXEC-20260908-005/evidence.md) para los
-casos reales que sí alcanzaron `SUCCESS`.
+`BLOCKED` nunca se reescribe como `SUCCESS` sin que el mecanismo real exista.
 
-**Cada comando de este documento fue validado en esta sesión, salvo donde se marca
-explícitamente `EXECUTABLE` (no `EXECUTED`)** — no hay instrucciones ficticias acá.
+**Todos los comandos de este documento fueron validados durante la construcción** — los
+ejemplos concretos se purgaron al pasar a adopción real; no hay instrucciones ficticias
+acá.

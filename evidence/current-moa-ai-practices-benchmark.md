@@ -243,10 +243,10 @@ y [`../architecture/evaluation-observability.md`](../architecture/evaluation-obs
 - **Measurement**: **NOT FOUND a nivel de equipo** — `moa-metrics` (Baufest, no un equipo
   de MOA) implementa 8/8 indicadores propuestos por el KO con ETL real y tests, pero sin
   baseline real medido en producción confirmado (Blocked Decision #7 sigue abierta).
-- **Los 2 únicos registros reales que aplican los 3 contratos de punta a punta**
-  (`evidence/EXEC-20260907-001.md`, `evidence/EXEC-20260908-001.md`) fueron generados por
-  el mismo agente que diseñó la capacidad — **no son ejecuciones independientes de un
-  equipo de MOA** (ya documentado en `evidence/README.md`, no se reinterpreta acá).
+- **Los registros que en su momento aplicaron los 3 contratos de punta a punta** fueron
+  generados por el mismo agente que diseñó la capacidad — pruebas del mecanismo, no
+  ejecuciones independientes de un equipo de MOA, purgadas al pasar a adopción real (ver
+  `evidence/README.md` para el estado vivo).
 
 **Conclusión de esta sección (FACT)**: el modelo Evidence/Evaluation/Measurement de
 `MOA-AI-Engineering` es internamente consistente, pero **cero equipos de MOA lo practican

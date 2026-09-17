@@ -7,10 +7,10 @@ description: Plantillas para historias de usuario, criterios de aceptación (Giv
 
 **Capability Registry**: [`CAP-002`](../../../registry/entries/user-story.md).
 **Golden Path**: [`AI-Assisted Requirements`](../../../golden-paths/README.md#1-ai-assisted-requirements)
-— única capacidad que consume, con **7 ejecuciones reales** (`EXEC-20260907-001`,
-`EXEC-20260908-001` con Direct Context; `EXEC-20260908-003`, `EXEC-20260908-004`,
-`EXEC-20260908-005`, `EXEC-20260909-001`, `EXEC-20260917-001` con Connected Context vía
-Context Provider — `EXEC-20260909-001` con **actor independiente**, ver "Ejemplos" abajo).
+— única capacidad que consume. Mecanismo probado de punta a punta durante la
+construcción (Direct Context y Connected Context vía Context Provider); esas pruebas se
+purgaron al pasar a adopción real — **sin ejecuciones reales registradas todavía**, ver
+[`../../../evidence/README.md`](../../../evidence/README.md) para el estado vivo.
 **Clasificación (G5.1)**: **REUSABLE CAPABILITY** — ADAPT. La **estructura** (Historia/
 Criterios/Reglas/Gaps) es Common Core; el **contenido** (roles, ejemplos, dominio) es
 Team Adaptation obligatoria, no opcional — ver nota de roles más abajo.
@@ -348,28 +348,17 @@ le pasa como entrada.
 ## HITL
 
 **Obligatorio, sin excepción**: un PO/referente de negocio debe validar la historia antes
-de pasar a Planning/desarrollo. Ninguna ejecución de esta skill hasta ahora (7/7) tuvo
-HITL real — todas fueron autoevaluadas (`model-assisted`), sin evaluador humano
-confirmado, **independientemente de que la 6ta y la 7ma (`EXEC-20260909-001`,
-`EXEC-20260917-001`) sí tengan un actor de ejecución independiente** — son 2 ejes
-distintos, ver nota en "Ejemplos". No tratar una historia generada como aprobada sin esa
-revisión.
+de pasar a Planning/desarrollo. El mecanismo fue probado durante la construcción sin
+HITL real en ninguna prueba — esas pruebas se purgaron al pasar a adopción real. No
+tratar una historia generada como aprobada sin esa revisión.
 
 ## Ejemplos
 
-Ver 2 ejecuciones reales completas con Direct Context, con historia + criterios + reglas
-+ gaps genuinos: [`EXEC-20260907-001`](../../../records/jira-MOA-1816/EXEC-20260907-001/evidence.md)
-(MOA-1816, DataAgro) y [`EXEC-20260908-001`](../../../records/jira-MOA-1765/EXEC-20260908-001/evidence.md)
-(MOA-1765, DataAgro). Ver además 5 ejecuciones reales con Connected Context vía Context
-Provider: [`EXEC-20260908-003`](../../../records/ado-7/EXEC-20260908-003/evidence.md)
-(Azure DevOps), [`EXEC-20260908-004`](../../../records/jira-ARMOA277-191/EXEC-20260908-004/evidence.md)
-y [`EXEC-20260908-005`](../../../records/jira-ARMOA277-180/EXEC-20260908-005/evidence.md) (Jira/MCP),
-[`EXEC-20260909-001`](../../../records/jira-ARMOA277-45/EXEC-20260909-001/evidence.md)
-(Jira/MCP, `ARMOA277-45`) y
-[`EXEC-20260917-001`](../../../records/jira-ARMOA277-194/EXEC-20260917-001/evidence.md)
-(Jira/MCP, `ARMOA277-194`, primer issue tipo `Historia`/Story disponible en el proyecto) —
-**las 2 únicas con actor de ejecución independiente** (developers reales, no quien diseñó
-el modelo; la primera ver `PILOT-003`).
+El mecanismo (Direct Context y Connected Context vía Context Provider, Jira/MCP y Azure
+DevOps) quedó probado de punta a punta durante la construcción, sobre varios tipos de
+issue reales — esas ejecuciones fueron pruebas del mecanismo, purgadas deliberadamente al
+pasar a adopción real. Ver [`../../../evidence/README.md`](../../../evidence/README.md)
+para la evidencia real de uso en curso.
 
 ## Criterios de calidad
 
@@ -381,22 +370,18 @@ el modelo; la primera ver `PILOT-003`).
 
 ## Criterios de evaluación
 
-Ver Evaluation Contract (`../../../architecture/evidence-evaluation-measurement.md` §2).
-Criterios ya aplicados 7 veces: estructura, claridad, criterios de aceptación
-verificables, ausencia de ambigüedad, trazabilidad, consistencia con convenciones del
-proyecto, ajuste del rol al catálogo (agregado en G4.6, ver nota de rol arriba).
+Ver Evaluation Contract (`../../../architecture/evidence-evaluation-measurement.md` §2):
+estructura, claridad, criterios de aceptación verificables, ausencia de ambigüedad,
+trazabilidad, consistencia con convenciones del proyecto, ajuste del rol al catálogo.
 
 ## Evidencia / origen
 
 3 instancias reales de origen (DataAgro, Scato Logística, Orquestador — 2 originadores
-distintos) y 7 ejecuciones reales completas de punta a punta (2 Direct Context: G4.4,
-G4.6; 5 Connected Context: `EXEC-20260908-003/004/005`, `EXEC-20260909-001`,
-`EXEC-20260917-001`), todas `PARTIAL` en su evaluación — ninguna evaluación es
-independiente todavía, aunque 2 sí tuvieron actor de ejecución independiente
-(`EXEC-20260909-001` ver `PILOT-003`, y `EXEC-20260917-001`) — ver
-[`registry/entries/user-story.md`](../../../registry/entries/user-story.md). Esta versión
-en `capabilities/` generaliza la estructura común a las 3 instancias, sin copiar el
-contenido de dominio de ninguna.
+distintos). El mecanismo de ejecución de punta a punta (Direct Context y Connected
+Context) quedó probado durante la construcción — esas pruebas se purgaron al pasar a
+adopción real, ver [`registry/entries/user-story.md`](../../../registry/entries/user-story.md)
+para el estado vivo. Esta versión en `capabilities/` generaliza la estructura común a las
+3 instancias, sin copiar el contenido de dominio de ninguna.
 
 ## Versión
 

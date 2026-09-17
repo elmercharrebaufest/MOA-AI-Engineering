@@ -18,8 +18,8 @@
 | **Branch** | `main` | FACT |
 | **Integration Status** | No integrado a ningún repo de equipo — patrón de referencia | FACT |
 | **Configuration Status** | **VERIFIED** para el patrón/documento en sí | Contrato completo y sin ambigüedad |
-| **Real Use Status** | **EXECUTED** | 5 ejecuciones reales registradas. `EXEC-20260908-002`: Prioridad 2 (REST fallback), `retrievalStatus: SOURCE_UNAVAILABLE` (`BLOCKED` por falta de credenciales/MCP en ese entorno). `EXEC-20260908-004`: Prioridad 1 (MCP real, `com.atlassian/atlassian-mcp-server/getJiraIssue`), `retrievalStatus: SUCCESS` sobre issue real `ARMOA277-191` (tipo Error/Bug, tenant `baufest.atlassian.net`), con Resolved Context consumido realmente por CAP-002. `EXEC-20260908-005`: Prioridad 1 (MCP real), `retrievalStatus: SUCCESS` sobre issue real `ARMOA277-180` (tipo Tarea/Task, mismo tenant), segunda ejecución de punta a punta sobre un tipo de issue distinto. `EXEC-20260909-001`: Prioridad 1 (MCP real), `retrievalStatus: SUCCESS` sobre issue real `ARMOA277-45` (tipo Test/Xray, mismo tenant), tercera ejecución de punta a punta sobre un tercer tipo de issue distinto. `EXEC-20260917-001`: Prioridad 1 (MCP real), `retrievalStatus: SUCCESS` sobre issue real `ARMOA277-194` (tipo Historia/Story, mismo tenant, sin descripción), cuarta ejecución de punta a punta sobre un cuarto tipo de issue distinto. **Sigue sin ser `VERIFIED`** — ninguna de las 5 ejecuciones tuvo evaluación humana independiente (autoevaluada `model-assisted` en los 4 casos donde hubo evaluación) |
-| **Lifecycle State** | Pilot | 5 ejecuciones reales registradas (1 `BLOCKED`, 4 `SUCCESS` de punta a punta hasta CAP-002 sobre tipos de issue distintos), autoevaluación `model-assisted` en las 4 ejecuciones exitosas — sin HITL/evaluación humana independiente confirmada, no alcanza para graduar de `Pilot` |
+| **Real Use Status** | **CONFIGURED** | El mecanismo (Prioridad 1 MCP real y Prioridad 2 REST fallback) quedó probado de punta a punta durante la construcción, sobre 4 tipos de issue reales distintos — esas ejecuciones fueron pruebas del mecanismo, purgadas deliberadamente al pasar a adopción real. **Sin ejecuciones reales registradas todavía** — evidencia real en curso sobre `ARMOA277-194` |
+| **Lifecycle State** | Pilot | Mecanismo probado, sin evidencia de uso real registrada todavía — no alcanza para graduar de `Pilot` |
 | **Corporate Standard** | N | Requiere Assessment Gate |
 | **Version** | `1.0-pattern` | — |
 | **Risk** | Bajo-Medio — READ-only y scope acotado reducen el riesgo respecto al hallazgo wildcard original, pero MCP sigue sujeto al gobierno específico de `security-governance.md` §2 (identidad/auditoría `REQUIRES VALIDATION` para cualquier MCP real) | Ver `security-governance.md` §1.5 y §2 |
@@ -29,14 +29,14 @@
 | **Model** | No aplica | — |
 | **Autonomy** | No aplica — no es Agent | — |
 | **HITL** | No requerido para el READ acotado en sí; si el `Resolved Context` alimenta una decisión de alto impacto, el HITL aplica en la capability consumidora, no acá | PROPOSAL |
-| **Evaluation** | model-assisted (`EXEC-20260908-004`, `EXEC-20260908-005`, `EXEC-20260909-001`, `EXEC-20260917-001`) — no humana | Ver fila "Evaluation Reference" abajo |
+| **Evaluation** | Ninguna todavía | Ver fila "Evaluation Reference" abajo |
 | **Observability** | NOT FOUND | `retrieval_status`/`provenance` preparados, no instrumentados |
 | **Metrics** | NOT MEASURED | Ver fila "Metric Reference" abajo |
 | **Adopters** | Ninguno | — |
 | **Last Review** | Esta actividad | — |
-| **Evidence Reference** | [`EXEC-20260908-002`](../../records/jira-MOA-1234/EXEC-20260908-002/evidence.md) (`BLOCKED`, REST), [`EXEC-20260908-004`](../../records/jira-ARMOA277-191/EXEC-20260908-004/evidence.md) (`SUCCESS`, MCP, issue Error/Bug, hasta CAP-002), [`EXEC-20260908-005`](../../records/jira-ARMOA277-180/EXEC-20260908-005/evidence.md) (`SUCCESS`, MCP, issue Tarea/Task, hasta CAP-002), [`EXEC-20260909-001`](../../records/jira-ARMOA277-45/EXEC-20260909-001/evidence.md) (`SUCCESS`, MCP, issue Test/Xray, hasta CAP-002), [`EXEC-20260917-001`](../../records/jira-ARMOA277-194/EXEC-20260917-001/evidence.md) (`SUCCESS`, MCP, issue Historia/Story, hasta CAP-002) | 5 ejecuciones reales, ninguna simulada |
-| **Evaluation Reference** | [`EXEC-20260908-004`](../../records/jira-ARMOA277-191/EXEC-20260908-004/evaluation.md), [`EXEC-20260908-005`](../../records/jira-ARMOA277-180/EXEC-20260908-005/evaluation.md), [`EXEC-20260909-001`](../../records/jira-ARMOA277-45/EXEC-20260909-001/evaluation.md), [`EXEC-20260917-001`](../../records/jira-ARMOA277-194/EXEC-20260917-001/evaluation.md) — las 4 `PARTIAL`, `model-assisted` | Sin evaluación humana independiente todavía |
-| **Metric Reference** | [`EXEC-20260908-004`](../../records/jira-ARMOA277-191/EXEC-20260908-004/measurement.md), [`EXEC-20260908-005`](../../records/jira-ARMOA277-180/EXEC-20260908-005/measurement.md), [`EXEC-20260909-001`](../../records/jira-ARMOA277-45/EXEC-20260909-001/measurement.md), [`EXEC-20260917-001`](../../records/jira-ARMOA277-194/EXEC-20260917-001/measurement.md) — las 4 `NOT MEASURED` | Sin baseline |
+| **Evidence Reference** | Ninguna todavía — ver [`../../evidence/README.md`](../../evidence/README.md) para el estado vivo | Sin registros reales de uso |
+| **Evaluation Reference** | Ninguna todavía | — |
+| **Metric Reference** | Ninguna todavía | — |
 | **Reusable Asset** | [`integrations/jira-context-provider.md`](../../integrations/jira-context-provider.md), implementación ejecutable en [`integrations/scripts/jira-context.ps1`](../../integrations/scripts/jira-context.ps1) | Patrón + código real, READ-only, sin wildcard, con consideraciones de prompt injection y data sensitivity documentadas |
 
 ## Nota de selección
@@ -47,22 +47,16 @@ el benchmark (scope wildcard `product-owner`) — extrae y formaliza únicamente
 de menor riesgo (scope acotado `architect`), como plantilla obligatoria para cualquier
 integración de Jira futura.
 
-## Qué falta para `VERIFIED` (actualizado tras `EXEC-20260917-001`)
+## Qué falta para `VERIFIED`
 
-Existe evidencia de generalización a cuatro tipos de issue reales con diferente nivel de
-completitud de información (`EXEC-20260908-004`, Error/Bug con descripción;
-`EXEC-20260908-005`, Tarea/Task sin descripción; `EXEC-20260909-001`, Test/Xray con
-descripción; `EXEC-20260917-001`, Historia/Story sin descripción) y **2 de las 4** con
-actor de ejecución independiente (`EXEC-20260909-001`/`PILOT-003`, `EXEC-20260917-001`).
-Esto **no equivale a `VERIFIED`** — sigue faltando, sin excepción:
+El mecanismo quedó probado de punta a punta durante la construcción, sobre 4 tipos de
+issue reales distintos — esas pruebas se purgaron deliberadamente al pasar a adopción
+real, para no contar como evidencia de uso algo ejecutado por quien diseñó el propio
+patrón. Sigue faltando, sin excepción:
 
-1. **Evaluación humana independiente** — las 4 evaluaciones existentes (ver "Evaluation
-   Reference" abajo) son `model-assisted`, incluidas las 2 con actor de ejecución
-   independiente — independencia de actor y de evaluación son ejes distintos.
-2. **Confirmación de un usuario real de MOA/Baufest** distinto del actor que diseñó/probó
-   el patrón, ejecutándolo sobre su propio issue en su flujo de trabajo real — **este
-   punto ya ocurrió 2 veces** (`PILOT-003` y `EXEC-20260917-001`), pero sin evaluación
-   independiente todavía no cierra el gap por completo.
+1. **Evidencia real de uso** — la prueba en curso de un developer real de MOA sobre
+   `ARMOA277-194` es el primer caso que cuenta.
+2. **Evaluación humana independiente** — todavía no ocurrió sobre ninguna ejecución real.
 3. **Resolución de `Owner`/`Maintainer`/`Data Classification`** — siguen `REQUIRES
    VALIDATION` (`../../governance/BLOCKED-DECISIONS.md` #1, #3), sin relación con esta
    ejecución técnica.

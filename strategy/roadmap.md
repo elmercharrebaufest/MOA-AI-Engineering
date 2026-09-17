@@ -59,13 +59,13 @@ actualizado con cada fase); esta sección resume, no duplica.
   evidencia real de DataAgro, Scato Logística, Orquestador y `moa-sdlc` (herramienta de
   referencia de Baufest, no equipo de MOA), pasadas por el pipeline de
   `assessment/README.md`.
-- **Golden Paths**: 6 documentados, 1 (`AI-Assisted Requirements`) con 7 ejecuciones
-  reales — las últimas 2 con actor independiente (`PILOT-003` y ARMOA277-194, ver
-  `golden-paths/README.md`).
-- **Evidence/Evaluation/Measurement Contracts**: definidos y aplicados 7 veces sobre
-  requerimientos reales.
+- **Golden Paths**: 6 documentados, 1 (`AI-Assisted Requirements`) con el mecanismo
+  probado de punta a punta durante la construcción — pruebas purgadas al pasar a
+  adopción real, evidencia real en curso (ver `golden-paths/README.md`).
+- **Evidence/Evaluation/Measurement Contracts**: definidos, mecanismo probado durante la
+  construcción — sin registros reales todavía.
 - **Context Acquisition & Resolution**: implementado como cross-cutting concern, con 2
-  patrones reales (Azure DevOps, Jira/MCP).
+  patrones (Azure DevOps, Jira/MCP), mecanismo probado durante la construcción.
 - Catálogo real de servidores MCP: **todavía no existe** — 2 hallazgos de MCP real sin
   gobierno confirmado quedaron escalados como Blocked Decisions (`governance/BLOCKED-DECISIONS.md`
   #4, #12), no como catálogo aprobado.

@@ -14,49 +14,26 @@ Cada Golden Path se define con: objetivo, entrada, pasos, capacidades utilizadas
 `../architecture/capability-model.md`), HITL, evaluación, métricas, salida, criterios de
 éxito.
 
-**Estado por Golden Path**: de los 6 Golden Paths documentados, **solo el #1
-(AI-Assisted Requirements) tiene
-ejecuciones reales** y está `HARDENED` en el sentido definido por G4.5/G4.6 (evidencia real,
-7 ejecuciones — las últimas 2 con actor de ejecución independiente (`PILOT-003` y una
-ejecución posterior sobre `ARMOA277-194`) — sin llegar a validado de punta a punta: la
-evaluación sigue siendo `model-assisted` en las 7).
-**Los Golden Paths #2 a #6 siguen
-siendo `PROPOSAL` — definición conceptual únicamente, sin ejecución real todavía** (mismo
-estado declarado a nivel de documento desde G3.3). Se mantienen documentados a propósito
-(mapean patrones con evidencia real en el relevamiento — ver `../architecture/assessment-gate.md`), no
-como relleno — pero no deben leerse como "listos para usar" solo por estar escritos.
+**Estado por Golden Path**: de los 6 Golden Paths documentados, el #1 (AI-Assisted
+Requirements) es el único con el mecanismo probado de punta a punta — las ejecuciones que
+lo probaron durante la construcción (dry-runs propios, `PILOT-003`) fueron pruebas del
+mecanismo, purgadas al pasar a adopción real; no cuentan como evidencia de uso. La
+evidencia real de este Golden Path empieza con la prueba en curso de un developer real de
+MOA sobre `ARMOA277-194` — ver `../evidence/README.md` para el estado vivo. **Los Golden
+Paths #2 a #6 siguen siendo `PROPOSAL`** — definición conceptual únicamente, sin ejecución
+real todavía.
 
 ---
 
 ## 1. AI-Assisted Requirements
 
-**Estado: HARDENED en G4.5, con evidencia acumulada hasta 7 ejecuciones reales — la 6ta
-(`EXEC-20260909-001`) y la 7ma (`EXEC-20260917-001`, ARMOA277-194) tienen actor real
-independiente.** Único Golden Path
-del producto — deliberadamente no se creó un segundo (regla vigente desde G4.2). Consume
-**CAP-002** (`user-story`,
-[`../registry/entries/user-story.md`](../registry/entries/user-story.md)). Tiene **7
-ejecuciones reales registradas**: `EXEC-20260907-001` (MOA-1816, G4.4) y `EXEC-20260908-001`
-(MOA-1765, G4.6) — Direct Context, CONTROLLED DRY-RUN del mismo agente que diseñó el
-modelo; `EXEC-20260908-003/004/005` — Connected Context vía Context Provider, mismo agente;
-y **`EXEC-20260909-001`** (`ARMOA277-45`, vía Jira/MCP) — Connected Context, ejecutada por
-un **developer real de MOA en una sesión independiente** (`PILOT-003`,
-[detalle completo](../docs/history/track-1/pilots/PILOT-003-armoa277-45-cold-start-independiente/README.md)),
-la primera vez que alguien distinto de quien construyó `MOA-AI-Engineering` usa el Golden
-Path sin guía; y **`EXEC-20260917-001`** (`ARMOA277-194`, vía Jira/MCP), una segunda
-ejecución independiente real, sobre un cuarto tipo de issue distinto (Historia/Story) y ya
-bajo el `agent-execution-contract.md` — el resultado del developer quedó enfocado en su
-propia tarea, sin narrar acciones internas del modelo. **Esto no vuelve `VERIFIED` a
-ninguna de las dos**: la independencia del actor y la
-independencia de la evaluación son ejes distintos — la evaluación de `EXEC-20260909-001`
-y de `EXEC-20260917-001` sigue siendo `model-assisted`
-([`evaluation.md`](../records/jira-ARMOA277-45/EXEC-20260909-001/evaluation.md),
-[`evaluation.md`](../records/jira-ARMOA277-194/EXEC-20260917-001/evaluation.md)), sin HITL
-humano confirmado. Ver
-[el historial del segundo controlled dry-run](../docs/history/track-1/G4.6-Independent-Adoption-and-Validation.md)
-para el detalle de G4.6, y `PILOT-003` para el detalle de la ejecución independiente —
-incluye fricción real reportada por el developer (navegar `evidence/`/`registry/` mezclado
-con contenido de otros equipos), ya corregida parcialmente en `adoption/getting-started.md`.
+**Estado: mecanismo probado durante la construcción (dry-runs propios + `PILOT-003`),
+purgado como evidencia de uso al pasar a adopción real.** Único Golden Path del producto
+— deliberadamente no se creó un segundo (regla vigente desde G4.2). Consume **CAP-002**
+(`user-story`, [`../registry/entries/user-story.md`](../registry/entries/user-story.md)).
+**Sin ejecuciones reales registradas todavía** — la evidencia real empieza con la prueba
+en curso de un developer real de MOA sobre `ARMOA277-194` (vía Jira/MCP, bajo
+`agent-execution-contract.md`). Ver `../evidence/README.md` para el estado vivo.
 
 - **Objetivo**: reducir ambigüedad y tiempo de refinamiento de un requerimiento antes de
   que llegue a desarrollo.
@@ -86,9 +63,7 @@ paso "Adaptar roles/contexto". Ninguna de las 2 variantes crea una capability nu
 User → Direct Context → CAP-002 → Human Review → Evidence → Evaluation → Measurement → Feedback
 ```
 
-**Modelo B — Connected Context** (con evidencia real de ejecución — actualizado tras el
-vertical slice de Context Acquisition & Resolution; **no `VERIFIED`**, sin evaluación
-humana independiente todavía):
+**Modelo B — Connected Context**:
 ```text
 User → Reference → Context Acquisition → Resolved Context → CAP-002 →
 Human Review → Evidence → Evaluation → Measurement → Feedback
@@ -99,15 +74,10 @@ En Modelo B, la `Reference` (ej. `MOA-1234`) se resuelve vía
 [`jira-context-provider`](../integrations/jira-context-provider.md) (ambos READ-only,
 sección "Ver también" de [`../integrations/catalog.md`](../integrations/catalog.md)) antes
 de llegar a CAP-002 — el resto del camino (Human Review → Evidence → Evaluation →
-Measurement → Feedback) es **idéntico** en ambos modelos. Ambas variantes ya tienen al
-menos una ejecución real de punta a punta: Modelo A en `EXEC-20260907-001`/
-`EXEC-20260908-001`; Modelo B en `EXEC-20260908-003` (Azure DevOps) y en
-`EXEC-20260908-004`/`EXEC-20260908-005`/`EXEC-20260909-001`/`EXEC-20260917-001` (Jira, vía
-MCP real, sobre cuatro tipos de issue distintos: Bug, Tarea, Test/Xray, Historia/Story) —
-existe evidencia de generalización a cuatro tipos de issue reales con diferente nivel de
-completitud de información, y las últimas 2 (`EXEC-20260909-001`, `EXEC-20260917-001`)
-además con un actor independiente (`PILOT-003` y ARMOA277-194) — sin que esto equivalga a
-`VERIFIED`.
+Measurement → Feedback) es **idéntico** en ambos modelos. El mecanismo de ambos modelos
+fue probado de punta a punta durante la construcción (pruebas ya purgadas, ver arriba) —
+la evidencia real de uso empieza con la prueba en curso sobre `ARMOA277-194` (Modelo B,
+Jira/MCP).
 
 
 ### Qué es Common Core y qué es Team Adaptation en este Golden Path (G4.5)
@@ -116,26 +86,22 @@ además con un actor independiente (`PILOT-003` y ARMOA277-194) — sin que esto
 |---|---|---|
 | La secuencia de 4 pasos (estructurar→criterios→reglas→gaps) | **Common Core** | Es el patrón/estructura — reusable independientemente del dominio |
 | El formato Historia/Criterios Given-When-Then/RN-XX | **Common Core** | Convención transversal, ya convergente en 3 repos (`../architecture/assessment-gate.md`) |
-| El contenido de ejemplos/roles/dominio de cada historia concreta | **Team Adaptation** | Cada equipo lo completa con su propio contexto — confirmado en `EXEC-20260907-001` (rol inferido) y en `EXEC-20260908-001` (rol real del dominio, "operador de planta", ausente del catálogo de roles de la propia skill — hallazgo de G4.6) |
+| El contenido de ejemplos/roles/dominio de cada historia concreta | **Team Adaptation** | Cada equipo lo completa con su propio contexto (confirmado durante las pruebas del mecanismo, ya purgadas — el hallazgo de que el catálogo de roles debía quedar abierto, no cerrado, se mantiene en la propia `SKILL.md`) |
 | Quién valida (HITL) y con qué mandato | **Team Adaptation, hoy sin definir** | Depende de cada equipo — y de Blocked #1 a nivel Common Core para el caso de promoción |
 
 ### Evidence / Evaluation / Measurement / Feedback / Contribution — estado real (no aspiracional)
 
 | Disciplina | Contrato | Estado real hoy |
 |---|---|---|
-| Evidence | `../architecture/evaluation-observability.md` + Evidence Contract (`../architecture/evidence-evaluation-measurement.md#1-evidence`) | **Producido 7 veces** — ver [`../evidence/README.md`](../evidence/README.md) (índice completo, apunta a `../records/<tarea>/<EXEC-ID>/evidence.md`) |
-| Evaluation | Evaluation Contract (§8) | **Producido 7 veces, `PARTIAL` en las 7, ninguna independiente** (la 6ta y la 7ma, `EXEC-20260909-001` y `EXEC-20260917-001`, tuvieron un actor de ejecución independiente — `PILOT-003` y ARMOA277-194 — pero su evaluación sigue siendo `model-assisted`; son ejes distintos) — ver [`../evaluation/README.md`](../evaluation/README.md) |
-| Measurement | Measurement Result Contract (§10) | **`NOT MEASURED` en las 7** — sin baseline; los puntos disponibles (2 Direct Context, 5 Connected Context sobre 4 tipos de issue distintos) no forman una serie comparable — ver [`../measurements/README.md`](../measurements/README.md) |
-| Feedback | `../adoption/contribution-guide.md` | **Obtenido una vez, real** — `PILOT-003` (`EXEC-20260909-001`) produjo feedback literal de un developer real, ya parcialmente accionado (la fricción de navegación reportada motivó la restructuración de `evidence/`/`evaluation/`/`measurements/` a `records/` task-centric). Piloto **`EN CURSO`** — 4 de 7 preguntas del protocolo de `contribution-guide.md` siguen sin respuesta literal, ver [detalle](../docs/history/track-1/pilots/PILOT-003-armoa277-45-cold-start-independiente/feedback-record.md) |
-| Contribution | Contribution Model (`../adoption/contribution-guide.md`) | Mecanismo definido y ejercido una vez (`PILOT-003`) — todavía no una contribución formal aceptada al Common Core |
+| Evidence | Evidence Contract (`../architecture/evidence-evaluation-measurement.md#1-evidence`) | **Sin registros todavía** — ver [`../evidence/README.md`](../evidence/README.md) |
+| Evaluation | Evaluation Contract (§8) | **Sin registros todavía** — ver [`../evaluation/README.md`](../evaluation/README.md) |
+| Measurement | Measurement Result Contract (§10) | **Sin registros todavía** — ver [`../measurements/README.md`](../measurements/README.md) |
+| Feedback | `../adoption/contribution-guide.md` | Mecanismo definido, sin feedback real registrado todavía sobre la etapa actual de adopción |
+| Contribution | Contribution Model (`../adoption/contribution-guide.md`) | Mecanismo definido, sin contribución formal aceptada al Common Core |
 
-**No se declara este Golden Path "validado" ni "listo para producción"** — 7 ejecuciones,
-las últimas 2 con actor de ejecución real e independiente pero sin evaluación
-independiente ni medición, refuerzan la evidencia inicial y suman la primera señal real de
-adopción por alguien distinto de quien construyó el modelo, pero no bastan todavía para
-promoción (ver `../architecture/assessment-gate.md` y el
-[historial del Independence Test](../docs/history/track-1/G4.6-Independent-Adoption-and-Validation.md) §14,
-y `PILOT-003` para el detalle de la ejecución independiente más reciente).
+**No se declara este Golden Path "validado" ni "listo para producción"** — el mecanismo
+está probado, pero la evidencia de uso real recién empieza (ver `../evidence/README.md`
+para el estado vivo).
 
 ### How to adopt this Golden Path
 
@@ -189,13 +155,12 @@ equipo nuevo sin depender del arquitecto, que es un problema distinto.
 
 ## 2. AI-Assisted Development
 
-**Estado: fortalecido en G5.1 (todavía PROPOSAL, no HARDENED)** — antes solo mencionaba
+**Estado: fortalecido en G5.1 (todavía PROPOSAL)** — antes solo mencionaba
 `_sdd/` como Workflow posible sin materializarlo; ahora consume 2 capacidades reales
 materializadas: [`CAP-005`](../registry/entries/repository-governance.md)
 (`capabilities/instructions/repository-governance/`) y
 [`CAP-004`](../registry/entries/spec-driven-development.md)
-(`capabilities/workflows/spec-driven-development/`). **No se declara HARDENED** porque,
-a diferencia del Golden Path #1, ningún Evidence/Evaluation/Measurement Record propio de
+(`capabilities/workflows/spec-driven-development/`). Ningún Evidence/Evaluation/Measurement Record propio de
 *este* Golden Path existe todavía — lo que existe es evidencia real del Workflow que lo
 alimenta (2 tickets DataAgro procesados vía CAP-004 nivel Lite), no una ejecución de punta
 a punta del propio camino "leer instructions → consultar skill → generar código → tests →
@@ -240,7 +205,7 @@ PR".
 
 ## 4. AI Code Review
 
-**Estado: fortalecido en G5.1 (todavía PROPOSAL, no HARDENED)** — el patrón de Agent ahora
+**Estado: fortalecido en G5.1 (todavía PROPOSAL)** — el patrón de Agent ahora
 está materializado como capacidad reusable
 ([`CAP-003`](../registry/entries/dotnet-code-reviewer.md),
 `capabilities/agents/read-only-code-reviewer/`), y su dependencia de skill de stack
@@ -248,9 +213,8 @@ también ([`CAP-006`](../registry/entries/stack-best-practices-template.md),
 `capabilities/skills/stack-best-practices-template/`). **Segunda instancia real
 encontrada en G5.1**: además de Orquestador (ya conocido), **Scato Logística** también
 tiene un agent `dotnet-code-reviewer` real (`model: claude-opus-5`) — refuerza que este
-patrón converge de forma independiente, no es un caso aislado. Sigue sin HARDENED: cero
-Evidence Records de una ejecución real de este Golden Path (ni siquiera un CONTROLLED
-DRY-RUN, a diferencia del Golden Path #1).
+patrón converge de forma independiente, no es un caso aislado. Cero Evidence Records de
+una ejecución real de este Golden Path todavía.
 
 - **Objetivo**: detectar problemas de calidad/seguridad antes de merge, sin reemplazar la
   revisión humana.

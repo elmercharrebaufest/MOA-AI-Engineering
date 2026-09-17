@@ -48,12 +48,10 @@ Reference:
 MOA-1234
 ```
 
-Esta brecha ya tiene ejecuciones reales que la cierran de punta a punta, ambas
-`EXECUTED` y **READ-only** ([`../evidence/README.md`](../evidence/README.md)):
-[`EXEC-20260908-003`](../records/ado-7/EXEC-20260908-003/evidence.md) (Azure DevOps → Resolved Context
-→ CAP-002) y [`EXEC-20260908-004`](../records/jira-ARMOA277-191/EXEC-20260908-004/evidence.md) /
-[`EXEC-20260908-005`](../records/jira-ARMOA277-180/EXEC-20260908-005/evidence.md) (Jira, vía Atlassian Rovo MCP →
-Resolved Context → CAP-002). Son ejemplos de Connected Context sobre 2 sistemas
+Esta brecha ya tiene el mecanismo probado de punta a punta durante la construcción,
+**READ-only** ([`../evidence/README.md`](../evidence/README.md) para el estado vivo):
+Azure DevOps → Resolved Context → CAP-002, y Jira (vía Atlassian Rovo MCP) →
+Resolved Context → CAP-002. Son ejemplos de Connected Context sobre 2 sistemas
 concretos — no dependencias obligatorias del modelo, que sigue siendo
 provider-agnostic. Esta versión define el contrato y los primeros 2 patrones concretos
 (Azure DevOps, Jira — ver [`../integrations/`](../integrations/catalog.md)), ambos

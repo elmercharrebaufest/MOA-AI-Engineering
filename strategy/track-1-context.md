@@ -238,9 +238,8 @@ de Jira/MCP (Fuente A). La práctica se analiza junto con principios de Context
 Engineering y tool governance (Fuente B). El MOA Target Pattern resultante (Fuente C)
 desacopla el proveedor mediante Context Acquisition + Resolved Context
 (`../architecture/context-acquisition-resolution.md`), permitiendo reutilizar la
-capacidad con Jira, Azure DevOps u otros proveedores autorizados — evidencia real ya
-registrada para ambos proveedores (`EXEC-20260908-003` vía Azure DevOps,
-`EXEC-20260908-004`/`EXEC-20260908-005` vía Jira/MCP, ver
+capacidad con Jira, Azure DevOps u otros proveedores autorizados — mecanismo probado
+para ambos proveedores durante la construcción, ver
 [`../registry/entries/user-story.md`](../registry/entries/user-story.md))."
 
 Otro ejemplo: *no* "Scato usa distintos modelos, por lo tanto MOA debe usar esos
@@ -561,23 +560,19 @@ capacidades es real y usable, con condiciones:
   Instruction. Los 2 patrones de tipo Integration/API y MCP (CAP-007, CAP-008) viven en
   [`../integrations/`](../integrations/catalog.md), no en `capabilities/`, por diseño —
   ver sección 8.
-- **Golden Paths**: 6 documentados, **solo 1 (AI-Assisted Requirements) tiene ejecuciones
-  reales** (`HARDENED` en el sentido de evidencia real, no de validación independiente) —
-  los otros 5 son `PROPOSAL` conceptual. Ese único Golden Path tiene ya 7 ejecuciones
-  reales, las últimas 2 con un actor de ejecución independiente (`PILOT-003` y
-  ARMOA277-194, sección 13).
+- **Golden Paths**: 6 documentados, solo 1 (AI-Assisted Requirements) tiene su mecanismo
+  probado de punta a punta — los otros 5 son `PROPOSAL` conceptual. Las ejecuciones que
+  probaron ese mecanismo durante la construcción (dry-runs propios, `PILOT-003`) fueron
+  pruebas del mecanismo, purgadas al pasar a adopción real — la evidencia real empieza
+  con la prueba en curso sobre `ARMOA277-194` (sección 13).
 - **Adoption Model**: guía paso a paso, modelo de ejecución de 12 pasos, plantillas
   operativas de Adoption/Execution/Evidence/Evaluation/Measurement Record, y un contrato
   dedicado para agentes ejecutando tareas reales
   ([`../adoption/agent-execution-contract.md`](../adoption/agent-execution-contract.md)).
-- **Evidence/Evaluation/Measurement contracts**: definidos y aplicados **7 veces** —
-  `records/` (restructurado a task-centric, ver [`../evidence/README.md`](../evidence/README.md))
-  tiene 7 ejecuciones reales: 2 `CONTROLLED DRY-RUN` con Direct Context y 5 con Connected
-  Context (Azure DevOps + Jira/MCP sobre 4 tipos de issue). Las primeras 5 fueron del mismo
-  actor que diseñó el modelo; la 6ta y 7ma (`EXEC-20260909-001`/`PILOT-003`,
-  `EXEC-20260917-001`/ARMOA277-194) tuvieron un actor de
-  ejecución real e independiente — su evaluación, como las otras, sigue siendo
-  `model-assisted`, no independiente.
+- **Evidence/Evaluation/Measurement contracts**: definidos, mecanismo probado de punta a
+  punta durante la construcción (Direct Context y Connected Context, Azure DevOps +
+  Jira/MCP) — esas pruebas se purgaron al pasar a adopción real. Sin ejecuciones reales
+  registradas todavía, ver [`../evidence/README.md`](../evidence/README.md).
 - **Governance**: pipeline de agentes (`TRIGGER→CONTEXT→DECISION→ACTION→VALIDATION→AUDIT`),
   niveles de gobierno (Corporate/Reusable/Team-Specific), human-in-the-loop obligatorio
   para acciones de alto impacto.
@@ -680,22 +675,20 @@ de decisión la deja como `REQUIRES VALIDATION`, se mantiene así acá.
   internamente (con las contradicciones señaladas en este documento).
 - **Validado técnicamente**: las 6 capacidades tienen configuración `VERIFIED` (archivos
   reales, bien formados, leídos completos).
-- **Ejecutado**: **7 ejecuciones reales** de CAP-002 sobre trabajo real (2 Direct Context,
-  5 Connected Context vía Azure DevOps/Jira) — `EXECUTED`, no `VERIFIED`.
-- **Validado por humanos**: **ninguna** — las 7 evaluaciones existentes son
-  `model-assisted`; ninguna tiene un evaluador humano independiente confirmado.
-- **Medido**: **ninguna** capacidad tiene medición real — los 7 registros de Measurement
-  son `NOT MEASURED`, sin baseline.
-- **Probado en adopción independiente**: **parcialmente — 1 de 2 ejes cumplidos, 2 veces**.
-  Existen ya **2 actores de ejecución reales e independientes** (`PILOT-003`/
-  `EXEC-20260909-001` y una segunda ejecución sobre `ARMOA277-194`/`EXEC-20260917-001`):
-  developers de MOA, sin conocimiento previo de este repositorio, resolvieron por su
-  cuenta una tarea real de Jira y eligieron/ejecutaron CAP-002. **No** existe todavía una
-  **evaluación independiente** de ninguno de los 2 resultados — sigue `model-assisted` —
-  ni el primer piloto está cerrado (quedan 4 de 7 preguntas de feedback sin responder, ver
-  [`PILOT-003`](../docs/history/track-1/pilots/PILOT-003-armoa277-45-cold-start-independiente/README.md)).
-  Independencia de actor e independencia de evaluación son ejes distintos, sin confundirse
-  (mismo principio de la sección 11).
+- **Ejecutado**: `CONFIGURED` — el mecanismo de CAP-002 (Direct Context, Connected Context
+  vía Azure DevOps/Jira) fue probado de punta a punta durante la construcción; esas
+  pruebas se purgaron deliberadamente al pasar a adopción real, para no contar como
+  evidencia de uso algo ejecutado por quien diseñó la capacidad. **Sin ejecuciones reales
+  registradas todavía** — la evidencia real empieza con la prueba en curso de un
+  developer real de MOA sobre `ARMOA277-194`.
+- **Validado por humanos**: **ninguna** todavía.
+- **Medido**: **ninguna** capacidad tiene medición real — sin baseline.
+- **Probado en adopción independiente**: **todavía no, formalmente** — los intentos
+  previos (`PILOT-003` y varias corridas anteriores sobre `ARMOA277-194`) fueron pruebas
+  del mecanismo durante la etapa de testing, purgadas. La prueba en curso de un developer
+  real de MOA sobre `ARMOA277-194` es la que cuenta como evidencia real de adopción
+  independiente una vez que quede registrada, y todavía no tendría evaluación
+  independiente.
 
 **Estado consolidado (tal como lo declara el propio [`../README.md`](../README.md))**:
 **READY WITH CONDITIONS** — utilizable hoy, pero nada debe presentarse como "validado"
@@ -712,13 +705,12 @@ nuevas:
    implementación debe anticiparse a la aprobación.
 3. **Validar técnicamente** cualquier cambio que se implemente, antes de exponerlo como
    disponible.
-4. **Cerrar el piloto real ya en curso** (`PILOT-003`) y ejecutar pilotos adicionales con
-   otros equipos/personas de MOA — condición explícita para superar el estado `EXECUTED`
-   sin `VERIFIED` (el actor de `PILOT-003` ya es independiente; falta la evaluación
-   independiente y las 4 preguntas de feedback pendientes).
-5. **Obtener feedback humano real** — parcialmente cumplido: `PILOT-003` ya produjo
-   feedback literal real (y motivó una mejora concreta, la restructuración de
-   `records/`), pero el piloto sigue `EN CURSO` — faltan 4 de 7 preguntas del protocolo.
+4. **Cerrar el piloto real en curso** (developer de MOA sobre `ARMOA277-194`) y ejecutar
+   pilotos adicionales con otros equipos/personas de MOA — condición para alcanzar
+   `EXECUTED` con evidencia real de uso, más allá del mecanismo ya probado.
+5. **Obtener feedback humano real** — en curso: el developer ya reportó feedback real
+   sobre múltiples ejecuciones, que ya motivó mejoras concretas (`agent-execution-contract.md`,
+   la Recomendación de CAP-002) — el piloto sigue abierto.
 6. **Medir cuando exista baseline** — no antes; no inventar un baseline para poder medir.
 7. **Cerrar condiciones de entrega** — resolver, o dejar explícitamente abiertas con
    dueño asignado, las Blocked Decisions más estructurales (sección 16).
@@ -734,9 +726,9 @@ Track 1 se considera terminado cuando, como mínimo:
 - Al menos una capacidad alcanzó el estado `Human Validation` del Capability Lifecycle
   (evaluación independiente, no `model-assisted` del mismo actor).
 - Al menos un Golden Path tiene una ejecución real por un equipo de MOA distinto del que
-  construyó la capacidad. **Parcialmente satisfecho**: `PILOT-003` (`EXEC-20260909-001`)
-  ya es una ejecución real por un developer de MOA independiente — pero el piloto sigue
-  `EN CURSO` (feedback incompleto), así que este criterio no se marca cerrado todavía.
+  construyó la capacidad. **En curso, no satisfecho todavía**: un developer real de MOA
+  está probando activamente sobre `ARMOA277-194` — el criterio se marca cerrado cuando
+  esa ejecución quede registrada como evidencia real.
 - Blocked Decision #1 (mandato de gobierno del Common Core) está resuelta — sin esto,
   ninguna promoción a `Common Core = Y` tiene validez formal.
 - Existe al menos un baseline real medido para al menos una capacidad — no una proyección.

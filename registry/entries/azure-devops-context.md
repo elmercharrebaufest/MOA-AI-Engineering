@@ -18,8 +18,8 @@
 | **Branch** | `main` | FACT |
 | **Integration Status** | No integrado a ningún repo de equipo — es un patrón de referencia | FACT |
 | **Configuration Status** | **VERIFIED** para el patrón/documento en sí (contrato completo, sin ambigüedad) | El patrón está completo; no hay "configuración real" adicional que verificar más allá del documento mismo |
-| **Real Use Status** | **EXECUTED** | 1 ejecución real de punta a punta (`EXEC-20260908-003`) — Work Item real (#7, proyecto "AWS Portal de créditos", org `molinosagro`) → Resolved Context real → CAP-002 real. Primer vertical slice completo del modelo |
-| **Lifecycle State** | Pilot | Primera ejecución real registrada (`../lifecycle.md`) |
+| **Real Use Status** | **CONFIGURED** | El mecanismo quedó probado de punta a punta durante la construcción (Work Item real #7, proyecto "AWS Portal de créditos") — esa ejecución fue una prueba del mecanismo, purgada deliberadamente al pasar a adopción real. Sin ejecuciones reales registradas todavía |
+| **Lifecycle State** | Pilot | Mecanismo probado, sin evidencia de uso real registrada todavía (`../lifecycle.md`) |
 | **Corporate Standard** | N | Ningún patrón nuevo se promueve automáticamente — requiere Assessment Gate |
 | **Version** | `1.0-pattern` | — |
 | **Risk** | Bajo — READ-only, sin credenciales, sin llamadas reales desde este repo | Ver `security-governance.md` §1.5 |
@@ -34,9 +34,9 @@
 | **Metrics** | NOT FOUND | — |
 | **Adopters** | Ninguno | Patrón recién definido |
 | **Last Review** | Esta actividad | — |
-| **Evidence Reference** | [`EXEC-20260908-003`](../../records/ado-7/EXEC-20260908-003/evidence.md) | Ejecución real completa, `status: EXECUTED` |
-| **Evaluation Reference** | [`EXEC-20260908-003`](../../records/ado-7/EXEC-20260908-003/evaluation.md) | `PARTIAL`, `model-assisted`, no independiente |
-| **Metric Reference** | [`EXEC-20260908-003`](../../records/ado-7/EXEC-20260908-003/measurement.md) | `NOT MEASURED` — sin baseline |
+| **Evidence Reference** | Ninguna todavía | Sin registros reales de uso |
+| **Evaluation Reference** | Ninguna todavía | — |
+| **Metric Reference** | Ninguna todavía | — |
 | **Reusable Asset** | [`integrations/azure-devops-context-provider.md`](../../integrations/azure-devops-context-provider.md), implementación ejecutable en [`integrations/scripts/azure-devops-context.ps1`](../../integrations/scripts/azure-devops-context.ps1) | Patrón + código real, probado en sus rutas de error (`INVALID_REFERENCE`, `SOURCE_UNAVAILABLE`) contra este entorno; pendiente de ejecución real contra un Work Item/PR concreto |
 
 ## Nota de selección

@@ -8,28 +8,16 @@ ejecución anidada adentro — ver la nota de convención al final de este archi
 
 ## Registros
 
+**Sin registros todavía.** Las ejecuciones que probaron el mecanismo durante la
+construcción (Direct Context y Connected Context vía CAP-007/CAP-008) fueron pruebas
+propias de quien diseñó la capacidad — se purgaron deliberadamente al pasar a la etapa
+real de adopción, para no contar como "evidencia real de uso" algo que no lo era. La
+evidencia real empieza con la prueba en curso de un developer real de MOA sobre
+`ARMOA277-194` (Jira/MCP) — esta tabla se completa cuando esa ejecución quede registrada.
+
 | Ejecución | Tarea | Capacidad | Qué documenta |
 |---|---|---|---|
-| [`EXEC-20260907-001`](../records/jira-MOA-1816/EXEC-20260907-001/evidence.md) | MOA-1816 | CAP-002 (`user-story`) | CONTROLLED DRY-RUN sobre MOA-1816 (DataAgro) |
-| [`EXEC-20260908-001`](../records/jira-MOA-1765/EXEC-20260908-001/evidence.md) | MOA-1765 | CAP-002 (`user-story`) | CONTROLLED DRY-RUN sobre MOA-1765 (DataAgro) |
 | [`current-moa-ai-practices-benchmark.md`](current-moa-ai-practices-benchmark.md) | — | Todas (benchmark, no una ejecución) | Benchmark de prácticas reales de AI Engineering en 6 repos de MOA (DataAgro, Scato Logística, Orquestador, MoaOperaciones, ScatoPuerto, moa-sdlc) — entrada de evidencia para decisión arquitectónica, no propuesta final |
-| [`EXEC-20260908-002`](../records/jira-MOA-1234/EXEC-20260908-002/evidence.md) | MOA-1234 (referencia de prueba, no real) | CAP-008 (`jira-context`) | Ejecución real del vertical slice Jira → Resolved Context — `status: FAILED` honesto (`BLOCKED`, sin credenciales/MCP disponibles en este entorno), no simulado |
-| [`EXEC-20260908-003`](../records/ado-7/EXEC-20260908-003/evidence.md) | ADO Work Item #7 | CAP-007 (`azure-devops-context`) + CAP-002 (`user-story`) | **Primer vertical slice completo de punta a punta**: Work Item real #7 (proyecto "AWS Portal de créditos") → Resolved Context real → CAP-002 real — `status: EXECUTED` |
-| [`EXEC-20260908-004`](../records/jira-ARMOA277-191/EXEC-20260908-004/evidence.md) | ARMOA277-191 | CAP-008 (`jira-context`) + CAP-002 (`user-story`) | **Primer vertical slice real de Connected Context vía MCP (Prioridad 1)**: issue real `ARMOA277-191` (tipo Error/Bug, tenant `baufest.atlassian.net`) → Atlassian Rovo MCP `getJiraIssue` → Resolved Context real → CAP-002 real — `status: EXECUTED` |
-| [`EXEC-20260908-005`](../records/jira-ARMOA277-180/EXEC-20260908-005/evidence.md) | ARMOA277-180 | CAP-008 (`jira-context`) + CAP-002 (`user-story`) | **Segundo vertical slice real de Connected Context vía MCP (Prioridad 1)**: issue real `ARMOA277-180` (tipo Tarea/Task, sin descripción, mismo tenant) → Atlassian Rovo MCP `getJiraIssue` → Resolved Context real → CAP-002 real — `status: EXECUTED`, demuestra generalización a un tipo de issue distinto |
-| [`EXEC-20260909-001`](../records/jira-ARMOA277-45/EXEC-20260909-001/evidence.md) | ARMOA277-45 | CAP-008 (`jira-context`) + CAP-002 (`user-story`) | **Tercer vertical slice real de Connected Context vía MCP (Prioridad 1), primera con actor independiente (`PILOT-003`)**: issue real `ARMOA277-45` (tipo Test/Xray, con descripción, mismo tenant/proyecto) → Atlassian Rovo MCP `getJiraIssue` → Resolved Context real → CAP-002 real — `status: EXECUTED`, tercer tipo de issue distinto probado |
-| [`EXEC-20260917-001`](../records/jira-ARMOA277-194/EXEC-20260917-001/evidence.md) | ARMOA277-194 | CAP-008 (`jira-context`) + CAP-002 (`user-story`) | **Cuarto vertical slice real de Connected Context vía MCP (Prioridad 1), segunda con actor independiente**: issue real `ARMOA277-194` (tipo Historia/Story, sin descripción, mismo tenant/proyecto) → Atlassian Rovo MCP `getJiraIssue` → Resolved Context real → CAP-002 real, incluye la nueva sección de Recomendación — `status: EXECUTED`, cuarto tipo de issue distinto probado |
-
-**Ninguno es una evaluación independiente todavía** (`EXEC-20260909-001` y
-`EXEC-20260917-001` sí tuvieron un actor independiente — ver arriba; su evaluación sigue
-siendo `model-assisted`, ejes distintos). El resto de las ejecuciones fueron generadas por
-el mismo agente que diseñó la capacidad. Ver el propio archivo de cada registro para el
-detalle completo y la clasificación exacta (`status: EXECUTED`, no `VERIFIED`).
-
-**Nota de estabilidad**: la carpeta de `EXEC-20260917-001` fue observada apareciendo y
-desapareciendo del disco varias veces durante la sesión en que se registró esta fila —
-consistente con el developer iterando pruebas sobre la misma tarea real. Si el archivo no
-está presente al navegarlo, no asumir que el registro nunca existió.
 
 ## Convención de carpetas (`records/<fuente>-<tarea>/<EXEC-ID>/`)
 

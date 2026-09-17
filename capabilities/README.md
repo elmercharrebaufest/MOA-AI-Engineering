@@ -121,13 +121,11 @@ capabilities/
 **Sigue sin existir `capabilities/integrations/`** — la decisión original de no
 materializar los hallazgos de MCP como capability dentro de esta carpeta sigue vigente: el
 gobierno de MCP (identidad, scope, auditoría) todavía no existe en MOA
-(`../governance/BLOCKED-DECISIONS.md` #4). **Actualización**: esta iniciativa sí tiene ya
-4 ejecuciones reales de un MCP real hosted (Atlassian Rovo MCP, `getJiraIssue`, ver
-`EXEC-20260908-004`/`EXEC-20260908-005`/`EXEC-20260909-001`/`EXEC-20260917-001` — las 2
-últimas con actor de ejecución independiente, `PILOT-003` y ARMOA277-194) — pero MOA no ha
-desplegado, ni tiene previsto
-desplegar, un servidor MCP propio; esas ejecuciones no cambian el gobierno pendiente de
-MCP como mecanismo general. Al
+(`../governance/BLOCKED-DECISIONS.md` #4). El mecanismo (Atlassian Rovo MCP,
+`getJiraIssue`) quedó probado de punta a punta durante la construcción — esas pruebas se
+purgaron al pasar a adopción real, y no cambiaban el gobierno pendiente de MCP como
+mecanismo general de todos modos, porque MOA no ha desplegado, ni tiene previsto
+desplegar, un servidor MCP propio. Al
 formalizar Context Acquisition & Resolution como Cross-Cutting Concern
 ([`../architecture/context-acquisition-resolution.md`](../architecture/context-acquisition-resolution.md)),
 se crearon 2 **patrones** de adquisición de contexto READ-only —
