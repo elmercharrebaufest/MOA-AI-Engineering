@@ -5,6 +5,12 @@ combinación de capacidades sin tener que descubrir por sí mismo qué combinar 
 orden. Ver [`../use-cases/catalog.md`](../use-cases/catalog.md) para los casos de uso
 concretos que informan estos caminos.
 
+¿Primera vez acá? Antes de este detalle técnico, conviene ver qué le ofrece este modelo
+al rol propio
+([`../README.md#3-para-quién-es-y-qué-le-ofrece-a-cada-rol`](../README.md#3-para-quién-es-y-qué-le-ofrece-a-cada-rol))
+y qué hace cada capacidad en lenguaje simple
+([`../capabilities/README.md#qué-hace-cada-capacidad-explicado-simple`](../capabilities/README.md#qué-hace-cada-capacidad-explicado-simple)).
+
 Cada Golden Path se define con: objetivo, entrada, pasos, capacidades utilizadas, HITL,
 evaluación, métricas, salida, criterios de éxito.
 
@@ -53,6 +59,16 @@ En el segundo caso, la referencia (por ejemplo, `MOA-1234`) se resuelve mediante
 [`jira-context-provider`](../integrations/jira-context-provider.md) — ambos de solo
 lectura, ver [`../integrations/catalog.md`](../integrations/catalog.md). El resto del
 camino es idéntico en ambos casos.
+
+### Empaquetado alternativo: Agent en vez de Skill
+
+Un equipo que prefiera un rol persistente de Product Owner en vez de invocar la skill
+directamente puede usar
+[`product-owner`](../capabilities/agents/product-owner/AGENT.md) (CAP-012) — misma
+lógica de refinamiento de CAP-002, con consulta directa del ticket vía MCP Atlassian de
+solo lectura y alcance acotado (`getJiraIssue`, nunca wildcard). `PROPOSAL`, sin
+ejecución real todavía — ver la entrada del Registry para el detalle de evidencia y el
+hallazgo de seguridad real que motivó el diseño del scope acotado.
 
 ### Qué se adapta y qué no
 
@@ -127,16 +143,27 @@ Consume [`CAP-005`](../registry/entries/repository-governance.md)
 - **Entrada**: historia de usuario + contexto del repositorio (Instructions de capa).
 - **Pasos**: leer las instructions de la capa afectada, consultar skills de dominio si
   corresponde, generar o proponer código siguiendo el Workflow de spec-driven-development
-  (nivel Lite recomendado como punto de partida), generar tests, abrir PR.
-- **Capacidades**: Instruction (`CAP-005`), Skill de dominio, Workflow (`CAP-004`).
-- **Revisión humana**: obligatoria antes de merge — nunca automatizar el merge.
+  (nivel Lite recomendado como punto de partida), generar tests, abrir PR, y — al
+  terminar — verificar cumplimiento de criterios y cerrar el ticket.
+- **Capacidades**: Instruction (`CAP-005`), Skill de dominio, Workflow (`CAP-004`),
+  [`pr-description`](../capabilities/skills/pr-description/SKILL.md) (CAP-009) para la
+  apertura del PR, [`ticket-closure-assist`](../capabilities/skills/ticket-closure-assist/SKILL.md)
+  (CAP-011) para el cierre — ambas `PROPOSAL`, sin ejecución real todavía.
+- **Revisión humana**: obligatoria antes de merge — nunca automatizar el merge. Igual de
+  obligatoria antes de publicar la descripción del PR o el comentario de cierre.
 - **Evaluación**: ¿el código compila, pasa los tests, sigue las convenciones declaradas
-  en las instructions?
+  en las instructions? ¿la descripción del PR corresponde al diff real? ¿el cierre
+  verifica evidencia real, no una suposición?
 - **Métricas**: productividad de los developers, porcentaje de código generado con IA
   (ver [`../metrics/framework.md`](../metrics/framework.md)).
-- **Salida**: PR abierto, con tests.
+- **Salida**: PR abierto, con tests, y ticket cerrado con evidencia verificada.
 - **Criterios de éxito**: menor tiempo de desarrollo sin aumento de bugs — cruzar con el
   Golden Path 4 (Code Review) antes de afirmar esto.
+
+**Nota de alcance**: `pr-description` y `ticket-closure-assist` cubren, respectivamente,
+las etapas del KO "Apertura del PR" y "Cierre del ticket" — se incorporan a este Golden
+Path en vez de crear uno nuevo por cada etapa, porque ambas extienden el mismo ciclo de
+desarrollo que ya describe este camino, de punta a punta.
 
 ## 3. AI-Assisted QA
 
@@ -144,8 +171,11 @@ Consume [`CAP-005`](../registry/entries/repository-governance.md)
 - **Entrada**: historia de usuario con criterios de aceptación.
 - **Pasos**: derivar casos de prueba de los criterios, realizar revisión humana de los
   casos, automatizar si corresponde, ejecutar, reportar resultados.
-- **Capacidades**: una skill de generación de casos de prueba y un workflow de
-  regresión automatizada — ninguna materializada todavía.
+- **Capacidades**: [`test-case-generation`](../capabilities/skills/test-case-generation/SKILL.md)
+  (CAP-010) para la generación de casos — `PROPOSAL`, sin ejecución real todavía. La
+  automatización de regresión (workflow vía MCP Playwright) sigue sin capacidad ni
+  propuesta — depende de un mecanismo de ejecución que no existe en ningún repo de MOA,
+  ver `../architecture/ai-sdlc.md` (etapa "Test de regresión", `REQUIRES VALIDATION`).
 - **Revisión humana**: obligatoria — QA debe validar los casos generados antes de
   considerarlos parte de la cobertura oficial.
 - **Evaluación**: ¿los casos generados cubren los criterios de aceptación reales?
@@ -210,6 +240,12 @@ Consume [`CAP-003`](../registry/entries/dotnet-code-reviewer.md)
   explícito.
 - **Criterios de éxito**: cero incidentes de seguridad, acceso auditable de punta a
   punta.
+
+**Ejemplo de referencia**: [`product-owner`](../capabilities/agents/product-owner/AGENT.md)
+(CAP-012) declara `tools: ["com.atlassian/atlassian-mcp-server/getJiraIssue"]` —una sola
+operación de lectura, nunca wildcard— como corrección directa del hallazgo de riesgo real
+señalado en `governance/BLOCKED-DECISIONS.md` #4 sobre la instancia real de Scato
+Logística/Orquestador.
 
 ---
 

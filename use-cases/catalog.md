@@ -7,33 +7,26 @@ pero sin detalle suficiente para evaluarlo).
 > **EXISTING no significa "listo para reutilizar en otros equipos".** Solo indica que hay
 > evidencia real de que el caso de uso existe en el repo citado. Antes de proponerlo a
 > otro equipo, debe pasar por el pipeline de assessment de
-> [`../assessment/README.md`](../assessment/README.md). Ver también
-> [`../docs/history/track-1/relevamiento-capacidades-g2.md`](../docs/history/track-1/relevamiento-capacidades-g2.md)
-> para el relevamiento por capacidad (no solo por caso de uso) que incluye equipos con
-> repos de código real (DataAgro, Scato Logística, etc.), más allá de `moa-sdlc`/`moa-metrics`.
+> [`../assessment/README.md`](../assessment/README.md).
 
-## Desarrollo y evolutivos (equipo Enterprise Applications / .NET — `moa-sdlc`)
+## Desarrollo y evolutivos (KO Interno, pág. 24-26)
 
 | Caso de uso | Etapa SDLC | Estado | Evidencia |
 |---|---|---|---|
-| Spec-Driven Development asistido (requirements/design/tasks por feature) | Refinement, Planning, Design | **EXISTING** | `moa-sdlc/_sdd/specs/`, feature real `MOA-1765-DistribuidorCupos` |
-| Generación de tests para lógica nueva/modificada | Unit Testing | **EXISTING** | `moa-sdlc/AGENTS.md`, regla ALWAYS |
-| Revisión de calidad previa a SonarQube | Code Review | **EXISTING** | `moa-sdlc/.github/skills/sonarqube-quality-review.md`, `.github/instructions/code-quality-review.instructions.md` |
-| Revisión de seguridad de código | Code Review | **EXISTING** | `moa-sdlc/.github/instructions/security-review.instructions.md`, rol `security-reviewer` |
-| PR automático con descripción y vínculo a Jira | Pull Request | **PROPOSED** | KO Interno pág. 24 — no se encontró evidencia de implementación en `moa-sdlc` |
+| PR automático con descripción y vínculo a Jira | Pull Request | **PROPOSED** — capacidad diseñada: [`pr-description`](../registry/entries/pr-description.md) (CAP-009) | KO Interno pág. 24 |
 | Code review automático (GitHub Copilot Code Review for Azure DevOps) | Code Review | **PROPOSED** | KO Interno pág. 25 |
-| Generación automática de casos de prueba desde el ticket | QA / Functional Testing | **PROPOSED** | KO Interno pág. 25 |
-| Tests de regresión automáticos vía MCP Playwright | Regression Testing | **PROPOSED** | KO Interno pág. 25 |
-| Registro de horas y cierre de ticket asistido | Documentation/Knowledge Mgmt | **PROPOSED** | KO Interno pág. 26 |
+| Generación automática de casos de prueba desde el ticket | QA / Functional Testing | **PROPOSED** — capacidad diseñada: [`test-case-generation`](../registry/entries/test-case-generation.md) (CAP-010) | KO Interno pág. 25 |
+| Tests de regresión automáticos vía MCP Playwright | Regression Testing | **REQUIRES VALIDATION** — depende de un MCP Playwright sin evidencia real en ningún repo; sin capacidad propuesta todavía, ver `architecture/ai-sdlc.md` | KO Interno pág. 25 |
+| Registro de horas y cierre de ticket asistido | Documentation/Knowledge Mgmt | **PROPOSED** — capacidad diseñada: [`ticket-closure-assist`](../registry/entries/ticket-closure-assist.md) (CAP-011) | KO Interno pág. 26 |
 | Análisis proactivo de logs de producción (App Insights + BD) | Operations / Incident Mgmt | **PROPOSED** | KO Interno pág. 26 |
 | Agentes DevOps para diagnóstico de fallos de build (`gh cli`) | CI/CD, Build | **PROPOSED** | KO Interno pág. 26 |
 
-## Métricas y adopción (equipo Data / métricas — `moa-metrics`)
+## Métricas y adopción (KO Interno, pág. 16-18)
 
 | Caso de uso | Etapa SDLC | Estado | Evidencia |
 |---|---|---|---|
-| ETL de métricas de adopción/productividad/calidad desde Jira, Azure DevOps, Copilot, SonarQube | Continuous Improvement | **EXISTING** | `moa-metrics/ia-sdlc/connectors/`, `indicators/`, warehouse documentado |
-| Dashboard ejecutivo de métricas (Power BI) | Continuous Improvement | **PROPOSED** | KO Interno pág. 16, 18; fuera de alcance explícito de `moa-metrics` (solo calcula datos, no construye el dashboard) |
+| ETL de métricas de adopción/productividad/calidad desde Jira, Azure DevOps, Copilot, SonarQube | Continuous Improvement | **REQUIRES VALIDATION** | KO Interno pág. 16-18 — sin capacidad ni evidencia dentro de este modelo base |
+| Dashboard ejecutivo de métricas (Power BI) | Continuous Improvement | **PROPOSED** | KO Interno pág. 16, 18 |
 
 ## Operación y soporte (KO Interno, pág. 27)
 

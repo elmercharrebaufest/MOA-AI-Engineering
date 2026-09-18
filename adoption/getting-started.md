@@ -40,6 +40,13 @@ un tutorial de cómo usar Copilot o Claude. No es necesario copiar todo el repos
 dentro de otro proyecto — se adoptan únicamente las capacidades puntuales que se
 necesiten, el resto queda como referencia.
 
+¿Todavía no queda claro qué le ofrece esto al rol propio (Product Owner, developer,
+revisor de código, QA, arquitecto)? Ver
+[`../README.md#3-para-quién-es-y-qué-le-ofrece-a-cada-rol`](../README.md#3-para-quién-es-y-qué-le-ofrece-a-cada-rol)
+antes de seguir — resume, por rol, qué existe hoy y qué resuelve. El detalle de qué hace
+cada capacidad concreta, en lenguaje simple, está en
+[`../capabilities/README.md#qué-hace-cada-capacidad-explicado-simple`](../capabilities/README.md#qué-hace-cada-capacidad-explicado-simple).
+
 ## 2. El camino más corto
 
 No hace falta ninguna herramienta nueva para adoptar esto — el propio asistente de IA
@@ -125,8 +132,10 @@ Project Execution
   Agent, un Workflow, una Instruction).
 - **Execution** = aplicar esa capability sobre un proyecto real, una vez.
 
-Catálogo completo: [`../registry/INDEX.md`](../registry/INDEX.md) (con evidencia) o
-[`../capabilities/README.md`](../capabilities/README.md) (archivos listos para copiar).
+Qué hace cada una, en lenguaje simple:
+[`../capabilities/README.md#qué-hace-cada-capacidad-explicado-simple`](../capabilities/README.md#qué-hace-cada-capacidad-explicado-simple).
+Catálogo técnico completo: [`../registry/INDEX.md`](../registry/INDEX.md) (con evidencia)
+o [`../capabilities/README.md`](../capabilities/README.md) (archivos listos para copiar).
 
 ## 6. Evaluar antes de adoptar
 

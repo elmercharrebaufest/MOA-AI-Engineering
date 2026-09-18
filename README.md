@@ -19,35 +19,56 @@ resultados entre equipos, ni promover con confianza lo que sí demostró valor. 
 repositorio da la estructura para cerrar esa brecha: Common Core + Team Adaptation,
 capacidades reutilizables, un Registry, y contratos de Evidence/Evaluation/Measurement.
 
-## 3. ¿Para quién es?
+## 3. ¿Para quién es, y qué le ofrece a cada rol?
 
 Cualquier equipo de MOA (DataAgro, Scato Logística, Scato Puerto, MOA Operaciones,
-Orquestador, u otro futuro) que quiera incorporar IA en su SDLC de forma sistemática —
-desarrolladores, POs, QA. Se **consume y adapta**, no se impone.
+Orquestador, u otro futuro) que quiera incorporar IA en su SDLC de forma sistemática. Se
+**consume y adapta**, no se impone — cada rol elige qué le sirve, cuándo, y sigue siendo
+responsable de revisar el resultado antes de darlo por bueno.
 
-## 4. ¿Qué puedo utilizar actualmente?
+| Rol | Qué le ofrece este modelo hoy |
+|---|---|
+| **Product Owner / analista** | Convertir un ticket escrito de cualquier forma en una historia de usuario con criterios de aceptación claros y sus ambigüedades ya señaladas, antes de llegar al refinamiento — con la opción de que el asistente busque el ticket directamente en Jira/Azure DevOps, sin copiarlo a mano |
+| **Developer** | Un patrón para ordenar el desarrollo por pasos y roles con registro de cada uno, reglas claras de qué puede hacer el asistente de IA sin preguntar en ese repositorio, y ayuda para operar Azure DevOps por CLI y para redactar la descripción del Pull Request a partir del ticket y el diff real |
+| **Revisor de código** | Una segunda mirada automática sobre el diff antes de aprobar un Pull Request — señala problemas de seguridad, errores sin manejar y tests faltantes, pero nunca modifica código ni sustituye la revisión humana |
+| **QA / Tester** | Casos de prueba derivados directamente de los criterios de aceptación de la historia, para dedicar el tiempo a lo que es más difícil de anticipar, y una verificación de que un ticket cumple sus criterios antes de cerrarlo |
+| **Arquitecto / referente técnico** | Un Registry con evidencia real de qué prácticas de IA ya funcionan en otros equipos de MOA, criterios explícitos para crear un Agent o habilitar una integración nueva sin improvisar, y un modelo de riesgo para MCP/integraciones |
+| **Cualquier rol** | Un mismo lenguaje y una misma estructura (Golden Path → Capability → Evidence → Evaluation → Measurement) para no reinventar el proceso de adoptar IA en cada equipo por separado |
 
-**6 capacidades reales**, cada una con evidencia y clasificación honesta (ninguna es
-`Corporate Standard: Y` todavía):
+Detalle de qué hace cada capacidad concreta, explicado en lenguaje simple:
+[`capabilities/README.md`](capabilities/README.md#qué-hace-cada-capacidad-explicado-simple).
 
-| Capacidad | Tipo | Para qué sirve |
+## 4. ¿Qué puedo utilizar actualmente, etapa por etapa del KO?
+
+El KO Interno de Track 1 define 11 etapas del SDLC (pág. 23-26). Este modelo sigue esas
+11 etapas al pie, una por una — ninguna queda sin analizar. Para cada una, hoy hay una de
+3 situaciones: **cubierta con evidencia real** (al menos un equipo de MOA ya la usa),
+**cubierta con una propuesta** (lista para pilotear, ningún equipo la probó todavía), o
+**pendiente de relevamiento** (se decidió explícitamente no proponer nada todavía, por
+falta de evidencia suficiente incluso para una propuesta razonable).
+
+| # | Etapa del KO | Cómo está cubierta hoy |
 |---|---|---|
-| [`azure-devops-cli`](capabilities/skills/azure-devops-cli/SKILL.md) (CAP-001) | Skill | Operar Azure DevOps por CLI sin inventar sintaxis |
-| [`user-story`](capabilities/skills/user-story/SKILL.md) (CAP-002) | Skill | Estructurar requerimientos en historias de usuario |
-| [`read-only-code-reviewer`](capabilities/agents/read-only-code-reviewer/AGENT.md) (CAP-003) | Agent | Code review acotado al diff, sin poder de escritura |
-| [`spec-driven-development`](capabilities/workflows/spec-driven-development/WORKFLOW.md) (CAP-004) | Workflow | Llevar un ticket a código verificado, con trazabilidad |
-| [`repository-governance`](capabilities/instructions/repository-governance/INSTRUCTIONS.md) (CAP-005) | Instruction | Declarar qué puede/no puede hacer un asistente sin supervisión |
-| [`stack-best-practices-template`](capabilities/skills/stack-best-practices-template/SKILL.md) (CAP-006) | Skill | Plantilla para documentar las buenas prácticas del stack real de cada equipo |
+| 1 | Recepción del requerimiento | ✅ Real — [`user-story`](capabilities/skills/user-story/SKILL.md) (CAP-002) + traer el ticket automáticamente ([CAP-007](registry/entries/azure-devops-context.md)/[CAP-008](registry/entries/jira-context.md)). Además, propuesta: [`product-owner`](capabilities/agents/product-owner/AGENT.md) (CAP-012), la misma función como Agent |
+| 2 | Refinamiento y estimación | ✅ Real — misma capacidad que la etapa 1 |
+| 3 | Planning | ✅ Real — [`spec-driven-development`](capabilities/workflows/spec-driven-development/WORKFLOW.md) (CAP-004) + [`repository-governance`](capabilities/instructions/repository-governance/INSTRUCTIONS.md) (CAP-005) |
+| 4 | Desarrollo del código | ✅ Real — misma capacidad que la etapa 3, más [`azure-devops-cli`](capabilities/skills/azure-devops-cli/SKILL.md) (CAP-001) |
+| 5 | Apertura del PR | 🆕 Propuesta — [`pr-description`](capabilities/skills/pr-description/SKILL.md) (CAP-009) |
+| 6 | Code Review | ✅ Real — [`read-only-code-reviewer`](capabilities/agents/read-only-code-reviewer/AGENT.md) (CAP-003) + [`stack-best-practices-template`](capabilities/skills/stack-best-practices-template/SKILL.md) (CAP-006) |
+| 7 | Testing funcional (QA) | 🆕 Propuesta — [`test-case-generation`](capabilities/skills/test-case-generation/SKILL.md) (CAP-010) |
+| 8 | Test de regresión | ⏸️ Pendiente de relevamiento — depende de un MCP Playwright sin evidencia real en ningún equipo; proponer la integración sin eso primero sería inventar sin base |
+| 9 | Cierre del ticket | 🆕 Propuesta — [`ticket-closure-assist`](capabilities/skills/ticket-closure-assist/SKILL.md) (CAP-011) |
+| 10 | Soporte productivo | ⏸️ Pendiente de relevamiento — el KO propone 5 líneas de trabajo, ninguna con evidencia todavía; antes de proponer algo, corresponde preguntarle a un equipo real de soporte |
+| 11 | Build & CI | ✅ Real — [`azure-devops-cli`](capabilities/skills/azure-devops-cli/SKILL.md) (CAP-001) |
 
-Catálogo completo con evidencia: [`registry/INDEX.md`](registry/INDEX.md). Catálogo
-consumible: [`capabilities/README.md`](capabilities/README.md).
-
-Además, el Registry contiene 2 patrones transversales de Context Acquisition
-(CAP-007 Azure DevOps Context y CAP-008 Jira Context), que no se materializan bajo
-`capabilities/` porque representan patrones de adquisición de contexto, no capabilities
-de negocio — ver [`registry/entries/azure-devops-context.md`](registry/entries/azure-devops-context.md)
-y [`registry/entries/jira-context.md`](registry/entries/jira-context.md). Ninguno de los
-dos es `Corporate Standard`.
+**Ninguna fila de esta tabla es aspiracional ni inventada** — "✅ Real" no significa
+"terminado y medido" (todavía no hay baseline en ningún caso), y "🆕 Propuesta" no
+significa "no sirve" — significa que está lista para usarse pero corresponde pilotearla
+antes de confiar en ella como en una capacidad ya probada. Detalle completo, con la
+evidencia exacta de cada fila: [`architecture/ai-sdlc.md`](architecture/ai-sdlc.md). Qué
+hace cada capacidad, en lenguaje simple:
+[`capabilities/README.md`](capabilities/README.md#qué-hace-cada-capacidad-explicado-simple).
+Catálogo técnico completo con evidencia: [`registry/INDEX.md`](registry/INDEX.md).
 
 ## 5. ¿Cómo empiezo?
 
@@ -150,12 +171,6 @@ Ejemplo real: CAP-002 (`user-story`) → refinamiento de un requerimiento real d
 → historia + criterios + reglas + análisis de gaps → Evidence Record → Evaluation Record
 (`PARTIAL`, no independiente) → Measurement Result (`NOT MEASURED`, sin baseline). No se
 completa la cadena inventando el eslabón que falta.
-
-## `moa-sdlc` y `moa-metrics`
-
-Son herramientas de referencia de Baufest, **no equipos de MOA** — se tratan como
-evidencia/candidatos a evaluar, nunca como fuente de gobierno. Detalle:
-[`teams/README.md`](teams/README.md).
 
 ## Historial de construcción
 

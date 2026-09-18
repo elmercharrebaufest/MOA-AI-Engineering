@@ -36,19 +36,28 @@ contrasta esto contra lo que el repositorio efectivamente construyó desde enton
 
 ## Cobertura real hoy — capacidades del Registry vs. etapas del SDLC (FACT, actualizado 2026-09-17)
 
-**Esto es lo que realmente existe con evidencia** (Registry, 8 entradas, `docs/history/track-1/G5.1-Reusable-Capability-Library.md`), contrastado etapa por etapa contra el mapeo del KO de arriba — no una proyección. Ninguna fila de esta tabla es aspiracional: cada capacidad citada tiene al menos `Real Use Status: EXECUTED` (ver `registry/INDEX.md`).
+**Registry, 12 entradas** (`registry/INDEX.md`): 8 con origen en evidencia real de al
+menos un equipo (`docs/history/track-1/G5.1-Reusable-Capability-Library.md`) y 4 nuevas
+(CAP-009 a CAP-012, agregadas en este trabajo de cobertura de las 11 etapas del KO) que
+son propuestas directas, sin instancia real de origen — ver la nota de clasificación en
+cada una de esas 4 entradas. Ninguna fila de esta tabla es aspiracional en el sentido de
+"inventada": cada capacidad citada tiene su propio `Real Use Status` declarado en
+`registry/INDEX.md` — hoy `CONFIGURED` como mínimo (documentada y bien formada), no
+necesariamente `EXECUTED`; ninguna entrada del Registry llegó todavía a `VERIFIED`.
 
 | Etapa del SDLC | Capacidad real que la cubre | Golden Path | Estado real |
 |---|---|---|---|
-| Recepción del requerimiento / Refinamiento / User Stories / Estimation | **CAP-002** (`user-story`) + **CAP-007** (Azure DevOps) / **CAP-008** (Jira, vía Atlassian Rovo MCP real) | [Golden Path #1 — AI-Assisted Requirements](../golden-paths/README.md#1-ai-assisted-requirements) | `CONFIGURED` — mecanismo probado de punta a punta durante la construcción, pruebas purgadas al pasar a adopción real; evidencia real en curso sobre `ARMOA277-194`. **Cumplimiento explícito del KO** para esta etapa (*"Rovo Agent... genera preguntas para el PO antes del refinamiento"*): CAP-002 produce, además de los gaps, una **recomendación de próximo paso** cuando la historia no está lista (a quién contactar, real si el Resolved Context lo trae — nunca inventado, prioriza `reporter` sobre `assignee`) — la acción la toma el reporter/PO, nunca el agente (`READ`, no `ACT`, ver `security-governance.md` §1.5) |
-| Planning / Development | **CAP-004** (`spec-driven-development`, nivel Lite) + **CAP-005** (`repository-governance`) | [Golden Path #2 — AI-Assisted Development](../golden-paths/README.md#2-ai-assisted-development) | `PROPOSAL` fortalecido — evidencia real del Workflow que lo alimenta (DataAgro, 2 tickets; `moa-sdlc` nivel Full ejecutado hasta `tester` en `MOA-1765`), sin Evidence Record propio del camino completo |
-| Design | *(parcial, dentro de CAP-004)* — `design.md` es un artefacto real del Workflow (nivel Full, `moa-sdlc`) | — | Cubierto solo como parte de spec-driven-development, no como capacidad independiente |
+| Recepción del requerimiento / Refinamiento / User Stories / Estimation | **CAP-002** (`user-story`) + **CAP-007** (Azure DevOps) / **CAP-008** (Jira, vía Atlassian Rovo MCP real) + **CAP-012** (`product-owner`, empaquetado alternativo como Agent) | [Golden Path #1 — AI-Assisted Requirements](../golden-paths/README.md#1-ai-assisted-requirements) | `CONFIGURED` (CAP-002/007/008) — mecanismo probado de punta a punta durante la construcción, pruebas purgadas al pasar a adopción real; evidencia real en curso sobre `ARMOA277-194`. **Cumplimiento explícito del KO** para esta etapa (*"Rovo Agent... genera preguntas para el PO antes del refinamiento"*): CAP-002 produce, además de los gaps, una **recomendación de próximo paso** cuando la historia no está lista (a quién contactar, real si el Resolved Context lo trae — nunca inventado, prioriza `reporter` sobre `assignee`) — la acción la toma el reporter/PO, nunca el agente (`READ`, no `ACT`, ver `security-governance.md` §1.5). CAP-012 es `PROPOSAL` — Agent nuevo que empaqueta la misma lógica con scope MCP acotado, motivado por el hallazgo real del `product-owner` de Scato Logística/Orquestador (uso intensivo real, pero con MCP wildcard) |
+| Planning / Development | **CAP-004** (`spec-driven-development`, nivel Lite) + **CAP-005** (`repository-governance`) | [Golden Path #2 — AI-Assisted Development](../golden-paths/README.md#2-ai-assisted-development) | `PROPOSAL` fortalecido — evidencia real del Workflow que lo alimenta (DataAgro, 2 tickets, nivel Lite), sin Evidence Record propio del camino completo. El nivel Full (6 roles, contratos JSON) es `PROPOSAL` conceptual, sin evidencia de ejecución real de ningún equipo de MOA |
+| Design | *(parcial, dentro de CAP-004)* — un artefacto de diseño (`design.md`) forma parte del nivel Full propuesto del Workflow | — | `PROPOSAL` conceptual — sin evidencia de ejecución real; cubierto solo como parte de spec-driven-development, no como capacidad independiente |
+| Pull Request (apertura) | **CAP-009** (`pr-description`) | [Golden Path #2 — AI-Assisted Development](../golden-paths/README.md#2-ai-assisted-development) | `PROPOSAL` — capacidad nueva, sin ejecución real ni piloto de ningún equipo todavía. Cierra la brecha `NOT FOUND` de la versión anterior de esta tabla — reutiliza el Resolved Context de CAP-007/CAP-008, no define una integración nueva |
 | Code Review | **CAP-003** (`.NET Code Reviewer`) + **CAP-006** (`stack-best-practices-template`) | [Golden Path #4 — AI Code Review](../golden-paths/README.md#4-ai-code-review) | `PROPOSAL` fortalecido — patrón real en 2 repos (Orquestador, Scato Logística), cero Evidence Records de una ejecución real de este Golden Path específico |
+| Testing funcional (QA) | **CAP-010** (`test-case-generation`) | [Golden Path #3 — AI-Assisted QA](../golden-paths/README.md#3-ai-assisted-qa) | `PROPOSAL` — capacidad nueva, sin ejecución real ni piloto de ningún equipo todavía. Consume los criterios de aceptación ya producidos por CAP-002, no define un formato propio |
+| Test de regresión | *(sin capacidad materializada ni propuesta)* — depende de un mecanismo de ejecución automática (MCP Playwright) sin evidencia real en ningún repo relevado | [Golden Path #3 — AI-Assisted QA](../golden-paths/README.md#3-ai-assisted-qa) | **REQUIRES VALIDATION** — proponer esta integración sin evidencia ni piloto violaría la regla dura del assessment (`assessment/README.md`); el próximo paso es validar un caso de uso real de MCP Playwright, no construir la integración |
+| Cierre del ticket | **CAP-011** (`ticket-closure-assist`) | [Golden Path #2 — AI-Assisted Development](../golden-paths/README.md#2-ai-assisted-development) | `PROPOSAL` — capacidad nueva, sin ejecución real ni piloto de ningún equipo todavía. **Corrección respecto a la versión anterior de esta tabla**: esta etapa no figuraba, ni siquiera como `NOT FOUND` — defecto de documentación corregido acá |
+| Soporte productivo / Incident Management / Troubleshooting | *(sin capacidad materializada)* — el KO propone 5 líneas de trabajo (triage, respuesta Nivel 1, comunicaciones, cierre asistido, detección de recurrencia) | — | **REQUIRES VALIDATION** — sin evidencia de implementación (ver sección "Operación y soporte" abajo). **Deliberadamente sin propuesta de capacidad todavía** — la amplitud (5 líneas distintas, sin evidencia de ninguna) y el riesgo de sobredimensionar contenido (lección real de `dotnet-best-practices`, abandonado en Scato Logística por costo de tokens) hacen prioritario relevar con un equipo real de soporte antes de proponer algo — ver las 5 preguntas de relevamiento en la sección "Operación y soporte" |
 | Build & CI / Release / Deployment | **CAP-001** (`azure-devops-cli`) | — (sin Golden Path propio) | `CONFIGURED` — 2 instancias reales casi idénticas, cero ejecuciones registradas como capability (uso real vía CLI ya confirmado en historial de commits/PRs, pero no vía Evidence Record) |
-| Pull Request (apertura) | *(sin capacidad materializada)* — el KO lo describe (Copilot + Skills + MCP Jira + MCP ADO), sin evidencia de implementación real en ningún repo relevado | — | **NOT FOUND** |
-| Unit Testing / QA / Functional Testing / Regression Testing | *(sin capacidad materializada)* | [Golden Path #3 — AI-Assisted QA](../golden-paths/README.md#3-ai-assisted-qa) | `PROPOSAL` conceptual únicamente — el KO menciona MCP Playwright, sin evidencia real en ningún repo |
-| Soporte productivo / Incident Management / Troubleshooting | *(sin capacidad materializada)* — el KO propone 5 líneas de trabajo (triage, respuesta Nivel 1, comunicaciones, cierre asistido, detección de recurrencia) | — | **REQUIRES VALIDATION** — sin evidencia de implementación (ver sección "Operación y soporte" abajo) |
-| MCP / Integration Onboarding *(transversal, no una etapa)* | **CAP-007/CAP-008** como patrones de referencia | [Golden Path #6 — MCP / Integration Onboarding](../golden-paths/README.md#6-mcp--integration-onboarding) | `PROPOSAL` — el propio Golden Path señala que debería aplicarse retroactivamente al MCP Atlassian de Orquestador, algo que todavía no ocurrió |
+| MCP / Integration Onboarding *(transversal, no una etapa)* | **CAP-007/CAP-008** como patrones de referencia + **CAP-012** como ejemplo de scope acotado aplicado | [Golden Path #6 — MCP / Integration Onboarding](../golden-paths/README.md#6-mcp--integration-onboarding) | `PROPOSAL` — el propio Golden Path señala que debería aplicarse retroactivamente al MCP Atlassian de Orquestador, algo que todavía no ocurrió |
 
 **Etapas sin ninguna capacidad ni Golden Path, ni siquiera conceptual**: Idea, Discovery,
 Business Analysis, Architecture *(fuera de lo parcial ya anotado en CAP-004)*,
@@ -66,12 +75,12 @@ mismo ritmo, a menos que existan capacidades organizacionales sólidas de base (
 versiones, batches pequeños, plataforma de calidad). Aplicado a la tabla de arriba: MOA
 tiene su mecanismo más maduro en **Requirements** (`CONFIGURED`, evidencia real en curso)
 y evidencia parcial en **Development** y **Code Review**, pero **cero cobertura real en
-Testing/QA**
+Testing/QA** — solo una propuesta sin ejecución (CAP-010, agregada en este trabajo)
 — exactamente el tipo de desequilibrio que DORA advierte que genera cuellos de botella
-nuevos si el desarrollo se acelera sin que QA lo acompañe. Esto no es una recomendación de
-agregar una capacidad de QA sin evidencia (regla dura del assessment), es una razón
-concreta para priorizar la validación de un caso de uso real de QA/testing **antes** de
-seguir sumando cobertura en las etapas ya fuertes. Fuente:
+nuevos si el desarrollo se acelera sin que QA lo acompañe. Proponer CAP-010 no resuelve
+este desequilibrio por sí mismo — solo lo hace un piloto real con un equipo de QA; la
+razón concreta de priorizar esa validación **antes** de seguir sumando cobertura en las
+etapas ya fuertes sigue vigente. Fuente:
 [DORA — State of AI-assisted Software Development 2025](https://dora.dev/dora-report-2025/).
 
 ## Gaps frente al alcance completo del encuadre fundacional de la iniciativa (REQUIRES VALIDATION)
@@ -96,3 +105,21 @@ disponible** — no se debe inferir contenido para ellas sin nueva fuente.
 
 **[REQUIRES VALIDATION]** Estas 5 líneas están descritas como propuesta del KO; no hay
 evidencia de que ya estén implementadas.
+
+### Próximo paso — relevamiento con un equipo real de soporte, antes de proponer una capacidad
+
+A diferencia de las demás brechas cerradas en este trabajo (CAP-009 a CAP-011), acá no se
+propone todavía una capacidad piloto — la amplitud (5 líneas distintas) y la lección real
+de `dotnet-best-practices` (contenido abandonado en Scato Logística por costo de tokens)
+hacen prioritario preguntarle a un equipo real de soporte/operaciones antes de escribir
+nada:
+
+1. ¿Cuáles de estas 5 líneas, si alguna, ya se resuelven hoy de forma informal (aunque sea
+   sin IA)?
+2. ¿Qué sistema de logs/monitoreo real está disponible (App Insights, otro) y quién tiene
+   acceso hoy?
+3. ¿Existe algún historial de incidentes clasificado o buscable, que sirva de base para
+   "3 casos históricos similares" (línea 2)?
+4. ¿Qué formato real de comunicación de estado (ANS u otro) se usa hoy, y quién lo redacta?
+5. Si se tuviera que elegir **una sola** de las 5 líneas para pilotear primero, ¿cuál
+   generaría el mayor impacto con el menor riesgo?

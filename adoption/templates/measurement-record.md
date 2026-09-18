@@ -34,7 +34,7 @@ quien la necesite.
 | `unit` | *(%, horas, cantidad, etc. — obligatorio si hay `value`)* |
 | `period` | *(ventana de tiempo que cubre la medición)* |
 | `baseline_reference` | *(a qué se compara — `REQUIRES VALIDATION` si no existe baseline)* |
-| `source` | *(`moa-metrics` (referencia) o `local measurement` — con quién/cómo)* |
+| `source` | *(fuente centralizada de métricas (referencia, si existe) o `local measurement` — con quién/cómo)* |
 | `calculation_reference` | *(link a query, o descripción del conteo manual)* |
 | `measured_at` | *(fecha)* |
 | `owner` | *(quién es responsable del dato — `REQUIRES VALIDATION` si no está confirmado)* |

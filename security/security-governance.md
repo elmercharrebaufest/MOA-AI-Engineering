@@ -4,7 +4,7 @@
 **sintetiza y extiende** [`../governance/ai-governance.md`](../governance/ai-governance.md)
 y [`../governance/agent-governance.md`](../governance/agent-governance.md) — ambos
 se mantienen (contienen detalle todavía válido: la matriz de autonomía con ejemplos reales
-de DataAgro/Scato Logística/`moa-sdlc`, y el pipeline TRIGGER→CONTEXT→DECISION→ACTION→
+de DataAgro/Scato Logística, y el pipeline TRIGGER→CONTEXT→DECISION→ACTION→
 VALIDATION→AUDIT). Este documento agrega el **modelo de riesgo proporcional** y el
 **gobierno específico de MCP** que la evidencia de G3.2.5 volvió urgente.
 
@@ -179,8 +179,7 @@ Antes de habilitar cualquier MCP nuevo (Jira, Confluence, Azure DevOps, SQL Serv
 Playwright — todos PROPOSED según `../integrations/catalog.md`):
 
 1. Completar la tabla de la sección 1 (modelo de riesgo).
-2. Confirmar identidad/autenticación (cuenta de servicio, no personal — principio ya
-   fijado en sesión previa sobre credenciales de `moa-metrics`).
+2. Confirmar identidad/autenticación (cuenta de servicio, no personal).
 3. Confirmar scope mínimo necesario, explícito (no wildcards salvo justificación).
 4. Confirmar mecanismo de auditoría antes de la primera ejecución real, no después.
 5. Registrar en `capability-registry.md` con `Integration Status` explícito.
@@ -203,7 +202,7 @@ seguridad tan válido como declarar restricciones en prosa**.
    columna "Data sensitivity" de la sección 1 — sin esta política, cualquier evaluación de
    riesgo sobre datos AFIP/SAP se hace sin criterio objetivo, caso por caso.
 3. **Modelo de credenciales de integración**: personal vs. cuenta de servicio — sin
-   decisión formal (ya señalado en trabajo previo sobre `moa-metrics`).
+   decisión formal.
 
 ## 5. Qué NO se hace en esta fase
 

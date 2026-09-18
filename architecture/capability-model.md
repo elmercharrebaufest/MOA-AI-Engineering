@@ -101,15 +101,15 @@ un Workflow — un camino de adopción completo, no solo una tarea. **Criterio d
 desambiguación con Agent** (agregado en G3.3 Corrections, cierra un solapamiento real
 encontrado en la revisión final): si la secuencia de pasos y el actor de cada paso son
 fijos de antemano y no requieren que el sistema decida dinámicamente "qué hacer o con qué
-herramienta", es Workflow — aunque tenga varios roles (ej. el harness de 6 roles de
-`moa-sdlc` es un Workflow con roles fijos, no una orquestación de Agents autónomos, porque
-la secuencia spec-author→implementer→tester→reviewer→security-reviewer→human-approver no
+herramienta", es Workflow — aunque tenga varios roles (ej. un harness de 6 roles con
+secuencia fija spec-author→implementer→tester→reviewer→security-reviewer→human-approver
+sigue siendo Workflow, no una orquestación de Agents autónomos, porque la secuencia no
 cambia dinámicamente). Si el sistema debe decidir en tiempo de ejecución qué paso o
 herramienta usar, es Agent (o una orquestación de Agents).
-**Evidencia real (FACT — G2, G3.2)**: VERIFIED en DataAgro (`_sdd/`, 1 caso real
-`MOA-1765`) y `moa-sdlc` (harness de 6 roles con contrato JSON, `AGENTS-CONTRACTS.md` —
-el ejemplo más formalizado de Workflow encontrado). **NOT FOUND** en Scato Logística ni
-Orquestador (confirmado, no tienen `_sdd/`).
+**Evidencia real (FACT — G2, G3.2)**: VERIFIED en DataAgro (`_sdd/`, nivel Lite, 2 casos
+reales `MOA-1765`/`MOA-1816`). Un nivel Full (6 roles, contrato JSON) existe como
+propuesta conceptual (CAP-004), sin evidencia de ejecución real de ningún equipo de MOA.
+**NOT FOUND** en Scato Logística ni Orquestador (confirmado, no tienen `_sdd/`).
 
 ### 4. Agent
 
@@ -153,16 +153,17 @@ repo. No se implementa RAG en esta actividad.
 ### 6. Integration / API
 
 **Qué es**: conexión programática directa a un sistema externo (no vía protocolo MCP,
-sino integración a medida — ej. los conectores Python de `moa-metrics`).
+sino integración a medida — ej. un conector REST hecho a medida contra la API de un
+sistema puntual).
 **Cuándo usarla**: cuando se necesita extraer/enviar datos de un sistema externo de forma
-controlada y con un propósito específico y acotado (ej. ETL de métricas).
+controlada y con un propósito específico y acotado (ej. traer el contenido de un ticket).
 **Cuándo NO usarla**: si un agente necesita descubrir y usar la herramienta
 dinámicamente — eso es el rol de MCP.
 **Relación**: MCP puede exponer una Integration/API existente de forma estandarizada para
 que un Agent la use; no son excluyentes.
-**Evidencia real (FACT)**: EXISTING — Jira API, Azure DevOps Repos API, GitHub Copilot
-Metrics API, SonarQube API, todas implementadas como conectores Python reales en
-`moa-metrics` (ver `../integrations/catalog.md`).
+**Evidencia real (FACT)**: `azure-devops-context` (CAP-007) — patrón de Context
+Acquisition & Resolution, mecanismo probado durante la construcción, sin ejecuciones
+reales registradas todavía (ver `../registry/entries/azure-devops-context.md`).
 
 ### 7. MCP (Model Context Protocol)
 
@@ -213,10 +214,9 @@ Adaptation a candidata de Common Core (Assessment Gate).
 **Cuándo NO se confunde**: con Observability (qué pasó durante la ejecución) ni con
 Metrics (qué impacto tuvo en el negocio) — las 3 son disciplinas independientes
 (Principio #9).
-**Evidencia real**: no se encontró una práctica de evaluación formal en ningún repo — lo
-más cercano son roles de revisión humana manual (`reviewer`, `security-reviewer` en
-`moa-sdlc`; QA manual en `MOA-1765`, sin sign-off). Brecha fundacional confirmada desde
-G3.1.
+**Evidencia real**: no se encontró una práctica de evaluación formal en ningún repo de
+MOA — lo más cercano es la QA manual real sobre `MOA-1765`/`MOA-1816` en DataAgro, sin
+sign-off registrado. Brecha fundacional confirmada desde G3.1.
 
 ### Observability
 
@@ -235,9 +235,9 @@ alcance de G3.3).
 Evaluation (correctness) ni a Observability (ejecución).
 **Regla explícita (Principio de G3.3)**: la cantidad de Agents/Skills creados **no es un
 KPI de éxito**.
-**Evidencia real (FACT)**: `moa-metrics` implementa 8/8 indicadores propuestos por el KO,
-con ETL real, tests, warehouse. Se trata como **STRONG CANDIDATE → ASSESS → VALIDATE →
-PROMOTE** (no se redefine automáticamente como estándar corporativo — ver
+**Evidencia real**: `NOT FOUND` — ninguna capacidad de este Registry mide su propio
+impacto todavía; el framework de indicadores propuestos por el KO está definido
+(`../metrics/framework.md`, `../metrics/kpis.md`), pendiente de un baseline real (ver
 `evaluation-observability.md`).
 
 ## Matriz resumen
@@ -249,10 +249,10 @@ PROMOTE** (no se redefine automáticamente como estándar corporativo — ver
 | Prompt *(pre-artifact)* | No evidenciado como artefacto propio | — | No aplica | No aplica |
 | Instruction | VERIFIED, maduro (3 repos) | Determinístico (regla pasiva) | Baja prioridad | No aplica |
 | Skill | VERIFIED, maduro (3 repos) | Determinístico (contenido cargado on-demand) | Media prioridad | No aplica |
-| Workflow | VERIFIED (DataAgro, `moa-sdlc`) | Determinístico | Alta prioridad | Media (trazar transiciones de estado) |
+| Workflow | VERIFIED (DataAgro, nivel Lite); nivel Full conceptual, sin evidencia real | Determinístico | Alta prioridad | Media (trazar transiciones de estado) |
 | Agent | VERIFIED config, uso real sin confirmar (3 repos) | Dinámico | **Alta prioridad** | **Alta prioridad** |
 | Knowledge/RAG | NOT FOUND en evidencia revisada | — | Alta (antes de confiar en recuperación) | Media |
-| Integration/API | EXISTING (`moa-metrics`) | Determinístico | Media | Media |
+| Integration/API | CONFIGURED (CAP-007, patrón de Context Acquisition) | Determinístico | Media | Media |
 | MCP | 1 referencia CONFIGURATION VERIFIED, resto PROPOSED | Dinámico (habilita a Agents) | **Alta prioridad** | **Alta prioridad — obligatoria antes de producción** |
 
 ### Cross-Cutting Concerns (4)
@@ -261,5 +261,5 @@ PROMOTE** (no se redefine automáticamente como estándar corporativo — ver
 |---|---|---|
 | Evaluation | Brecha fundacional (NOT FOUND) | Cualquiera de las 7 capacidades |
 | Observability | Brecha fundacional (NOT FOUND) | Cualquiera de las 7, prioritario en Agent/MCP |
-| Metrics | `moa-metrics` (STRONG CANDIDATE) | El efecto agregado de cualquier capacidad en uso |
+| Metrics | NOT FOUND — ninguna capacidad mide su propio impacto todavía | El efecto agregado de cualquier capacidad en uso |
 | Context Acquisition & Resolution | Contrato definido (`context-acquisition-resolution.md`), 2 patrones concretos (Azure DevOps, Jira) — ninguno con evidencia de resolución automática real todavía | Antes de cualquiera de las 7 capacidades, no sobre su resultado |

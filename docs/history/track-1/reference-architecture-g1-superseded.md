@@ -29,8 +29,8 @@
 │ DataAgro · Scato Logística · MOA Operaciones ·             │
 │ Scato Puerto · Orquestador · [otros equipos — a incorporar]│
 │                                                             │
-│ (moa-sdlc / moa-metrics: herramientas de referencia de     │
-│  Baufest para la iniciativa, no repos de un equipo de MOA) │
+│ (dos herramientas de referencia interna de Baufest para la │
+│  iniciativa — SDLC y Metrics —, no repos de un equipo de MOA) │
 └─────────────────────────────────────────────────────────┘
 ```
 
@@ -66,16 +66,19 @@ piloto → medición → gobierno → validación → recién ahí reutilizació
 
 ## Implementaciones existentes que validan este modelo (FACT)
 
-- **`moa-sdlc`**: implementa la capa TEAM SPECIFIC para desarrollo .NET, con un patrón de
-  gobierno de agentes (`AGENTS.md`) y SDD (`_sdd/specs/`). **Candidata a evaluar** (no
-  candidata confirmada a promoción) — ver `assessment/relevamiento-capacidades.md` y
+- **Una herramienta de referencia interna de Baufest para desarrollo dirigido por specs**:
+  implementa la capa TEAM SPECIFIC para desarrollo .NET, con un patrón de gobierno de
+  agentes (`AGENTS.md`) y SDD (`_sdd/specs/`). **Candidata a evaluar** (no candidata
+  confirmada a promoción) — ver `assessment/relevamiento-capacidades.md` y
   `governance/agent-governance.md`.
-- **`moa-metrics`**: implementa el conector real hacia GitHub Copilot API, Azure DevOps
-  Repos API, Jira API y SonarQube API, con un pipeline ETL y cálculo de 8 de los 8
-  indicadores propuestos en el KO. Es la base técnica real de `metrics/framework.md`.
+- **Otra herramienta de referencia interna de Baufest, para métricas**: implementa el
+  conector real hacia GitHub Copilot API, Azure DevOps Repos API, Jira API y SonarQube
+  API, con un pipeline ETL y cálculo de 8 de los 8 indicadores propuestos en el KO. Es la
+  base técnica real de `metrics/framework.md`.
 - **`DataAgro/DataAgro`** y **`Scato Logística`** (repos de equipos reales, fuera de este
   workspace de Baufest): tienen patrones de gobierno de agentes (`AGENTS.md`, agentes por
-  rol, skills) más maduros y formalizados que los de `moa-sdlc`. Son la evidencia más
+  rol, skills) más maduros y formalizados que los de la herramienta de referencia de SDLC.
+  Son la evidencia más
   fuerte de capa TEAM SPECIFIC real en producción — igualmente **candidatos a evaluar**,
   no candidatos confirmados a REUSABLE. Ver `assessment/relevamiento-capacidades.md`.
 

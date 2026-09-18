@@ -48,35 +48,23 @@ todos son candidatos a evaluar por igual — ver `assessment/relevamiento-capaci
   verde, marcar requisito manual sin sign-off, desactivar seguridad/CORS/JWT.
 - **Scato Logística** (`AGENTS.md`, equipo real de MOA): matriz propia integrada con sus
   agentes/skills por rol y sus instructions por capa (ver `assessment/relevamiento-capacidades.md`).
-- **`moa-sdlc`** (herramienta de referencia de Baufest, **no un equipo de MOA**): ALWAYS =
-  generar tests, actualizar trazabilidad, crear branches desde ticket real; ASK FIRST =
-  instalar dependencias, migraciones, cambiar contratos de API; NEVER = `git push`/PR
-  autónomo, deploy autónomo, desactivar validaciones de seguridad, exponer secretos.
 
-**[REQUIRES VALIDATION]** Ninguna de estas 3 matrices se adopta como estándar sin pasar
+**[REQUIRES VALIDATION]** Ninguna de estas 2 matrices se adopta como estándar sin pasar
 por el pipeline de assessment. Cada equipo debe construir la propia, informada por estos
 ejemplos pero no copiándolos literalmente.
 
 ## Roles de agente — patrones observados (FACT, evidencia múltiple, ninguna es "la referencia")
 
-Se encontraron patrones de roles de agente en tres repos, con distinto origen y nivel de
+Se encontraron patrones de roles de agente en dos repos, con distinto origen y nivel de
 integración — se documentan en paralelo, no en orden de preferencia:
 
-- **`moa-sdlc`** (herramienta de referencia de Baufest, **no un equipo de MOA)**: harness
-  de 6 roles con feedback loop (`AGENTS-HARNESS.md`, `AGENTS-CONTRACTS.md` — contrato JSON
-  explícito, el más formal en cuanto a especificación):
-  ```text
-  spec-author → implementer → tester → reviewer → security-reviewer → human-approver
-        ↑                                                       ↓
-        └───────────────────── feedback loop / fix cycle ─────┘
-  ```
 - **DataAgro** (equipo real de MOA): 6 agentes por rol (`architect`, `dba-migraciones`,
   `kendo-grid-builder`, `product-owner`, `qa-tester`, `release-manager`), sin pipeline de
   feedback loop formalizado entre ellos.
 - **Scato Logística** (equipo real de MOA): 13 agentes por rol (incluye especialistas de
   dominio como `afip-integration`, `wf-activity-refactor`, `xamlx-documenter`), con
   AGENTS.md que cruza referencias reales a cuándo invocar cada uno — el más integrado de
-  los tres.
+  los dos.
 
 Ningún patrón está promovido a REUSABLE. Todos son candidatos a evaluar (ver
 `assessment/relevamiento-capacidades.md` para el detalle completo con evidencia real y

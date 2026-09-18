@@ -310,10 +310,11 @@ Los 6 repos del workspace se usaron como fuente, nunca como destino de escritura
 G3.2/G3.2.5/G4.2-G4.6 (branches de Orquestador, autoría, patrones de DataAgro/Scato
 Logística/Scato Puerto/MOA Operaciones) — **no se re-auditaron los 5 repos desde cero en
 G5** (instrucción explícita: no rehacer fases). Se confirma, por curiosidad durante la
-revisión de G5, que `lifecycle.md` (G3.3) ya mencionaba `MOA-1765` como caso real de
-`moa-sdlc` sin cerrar — coincide, sin contradicción, con el ticket elegido
-independientemente en G4.6 para el segundo piloto de CAP-002 (rutas de evidencia
-distintas: `moa-sdlc`/harness SDD vs. skill `user-story` directa).
+revisión de G5, que `lifecycle.md` (G3.3) ya mencionaba `MOA-1765` como caso real de una
+herramienta de referencia interna de Baufest (no un equipo de MOA) sin cerrar — coincide,
+sin contradicción, con el ticket elegido independientemente en G4.6 para el segundo piloto
+de CAP-002 (rutas de evidencia distintas: esa herramienta de referencia/harness SDD vs.
+skill `user-story` directa).
 
 ## 23. External Evidence
 

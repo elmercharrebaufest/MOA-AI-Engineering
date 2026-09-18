@@ -63,7 +63,7 @@ Ver detalle en [`../strategy/maturity-model.md`](../strategy/maturity-model.md),
 
 1. **Baseline medido** del primer semestre 2026 (el KO asume que existe una "media
    actual" pero no la publica en el documento fuente — **[REQUIRES VALIDATION]**).
-2. SonarQube efectivamente instalado y conectado (`moa-metrics` ya tiene el conector
-   listo, falta confirmar la fuente real).
-3. Confirmar que `moa-metrics` está corriendo en producción y alimentando un warehouse
-   real, no solo el código de los conectores/indicadores.
+2. SonarQube efectivamente instalado y conectado a una fuente real de datos — sin
+   evidencia de esto en ningún equipo de MOA.
+3. Confirmar que existe un pipeline de indicadores corriendo en producción y alimentando
+   un warehouse real, no solo una propuesta o un catálogo de indicadores en papel.

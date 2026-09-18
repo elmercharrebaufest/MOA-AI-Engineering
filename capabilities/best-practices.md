@@ -109,10 +109,6 @@ dedicada (no personal), scope explícito y mínimo (nunca wildcard `/*` sin just
 documentada), y auditoría antes de la primera ejecución real. **Esta iniciativa no
 implementa ningún MCP** — es una decisión de gobierno pendiente (`../governance/BLOCKED-DECISIONS.md`
 #4), no una capacidad para materializar todavía.
-**Integraciones directas (no-MCP) reales**: `moa-metrics` tiene 4 conectores REST reales
-(Jira, Azure DevOps, GitHub Copilot Metrics, SonarQube) — código de aplicación, no un
-patrón de capability reusable en el sentido de esta biblioteca (son específicos del
-pipeline de métricas).
 
 ## Evaluation
 
@@ -129,18 +125,19 @@ nunca depender de un solo modo.
 ## Observability
 
 **Estado real en MOA**: `NOT FOUND` de forma sistemática — brecha fundacional desde G3.1,
-sin cambios en G5.1. `moa-sdlc` define un esquema de log de auditoría (nivel Full de
-`spec-driven-development`) pero sin evidencia de que esté en uso.
+sin cambios desde entonces. El nivel Full de `spec-driven-development` (CAP-004) propone
+un esquema de log de auditoría, pero sin evidencia de que esté en uso real.
 **Recomendación (PROPOSAL)**: priorizar Observability para cualquier capacidad con
 autonomía (Agent, MCP) antes de escalar su nivel de autonomía — no es necesaria para
 Instructions/Skills estáticas sin ejecución propia.
 
 ## Metrics
 
-**Estado real en MOA**: `moa-metrics` implementa 8/8 indicadores propuestos por el KO, con
-ETL real y tests — el artefacto de medición más maduro de todo el relevamiento. Sigue
-siendo `STRONG CANDIDATE → ASSESS → VALIDATE → PROMOTE`, no promovido automáticamente
-(`../architecture/assessment-gate.md`).
+**Estado real dentro de este modelo base**: `NOT FOUND` — ninguna capacidad de este
+Registry mide su propio impacto todavía (ver `Metrics` en cada entrada). El framework de
+métricas e indicadores propuestos por el KO está definido en
+[`../metrics/framework.md`](../metrics/framework.md) y
+[`../metrics/kpis.md`](../metrics/kpis.md), pendiente de un baseline real.
 **Hallazgo EXPERIMENTAL de G5.1**: Scato Logística tiene un `copilot-config.yml` real que
 asigna un modelo distinto por agente según criticidad/costo (ej. `security-review` forzado
 a un modelo premium, con nota de benchmark "17/18 tareas exitosas | 0 USD costo AI"). Es

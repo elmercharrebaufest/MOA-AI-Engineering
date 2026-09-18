@@ -41,13 +41,15 @@ corrigieron; el resto ya estaba correcto o se confirmó sin necesidad de cambios
    **evaluación** (sigue `model-assisted`, sin resolver — no se mezclan los 2 ejes).
 2. **Cambios reales pendientes de commit desde antes de esta fase** (registrados
    informalmente como "G5.2" en 3 archivos, sin documento de fase propio): la corrección
-   de que `moa-sdlc` (nivel Full de `spec-driven-development`) tiene evidencia real de
-   ejecución hasta `tester` sobre `MOA-1765-DistribuidorCupos` (build verde, 1228/1228
-   NUnit). Se incorporó como baseline de esta fase en vez de rehacerse.
+   de que una herramienta de referencia interna de Baufest (no un equipo de MOA; nivel Full
+   de `spec-driven-development`) tiene evidencia real de ejecución hasta `tester` sobre
+   `MOA-1765-DistribuidorCupos` (build verde, 1228/1228 NUnit). Se incorporó como baseline
+   de esta fase en vez de rehacerse.
 
 ## 4. Re-relevamiento de evidencia interna (Fase 1 del plan acordado con el usuario)
 
-Se verificó `git log` real de los 6 repos relevantes (los 5 del CORE + `moa-sdlc`): **cero
+Se verificó `git log` real de los 6 repos relevantes (los 5 del CORE + esa herramienta de
+referencia): **cero
 commits posteriores al 2026-09-09** (fecha del relevamiento de G5.1) en cualquiera de los
 6. Conclusión: no había evidencia nueva que relevar — el inventario de G5.1 seguía vigente
 tal cual, y el re-escaneo completo de archivos se evitó por no aportar nada verificable

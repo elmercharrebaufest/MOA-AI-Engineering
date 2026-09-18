@@ -18,11 +18,27 @@ independiente) → `VERIFIED` (ejecución independiente + evaluación humana con
 | [CAP-001](entries/azure-devops-cli.md) | azure-devops-cli | Skill | Scato Logística, Orquestador | N | VERIFIED | CONFIGURED | Bajo |
 | [CAP-002](entries/user-story.md) | user-story | Skill | DataAgro, Scato Logística, Orquestador | N | VERIFIED (2/3) · PARTIAL (DataAgro) | **CONFIGURED** — mecanismo probado durante la construcción (pruebas purgadas al pasar a adopción real); sin ejecuciones reales registradas todavía, evidencia real en curso sobre `ARMOA277-194` | Bajo |
 | [CAP-003](entries/dotnet-code-reviewer.md) | .NET Code Reviewer | Agent | Orquestador, Scato Logística | N | VERIFIED | CONFIGURED | Bajo (por diseño) |
-| [CAP-004](entries/spec-driven-development.md) | spec-driven-development | Workflow | DataAgro (Lite, real), `moa-sdlc` (Full, real hasta `tester`) | N | VERIFIED | EXECUTED (ambos niveles — nivel Full: `spec-author`+`implementer`+`tester` reales, `MOA-1765-DistribuidorCupos`, sin `reviewer`/`security-reviewer`/`human-approver`) | Bajo (Lite) / Medio (Full) |
-| [CAP-005](entries/repository-governance.md) | repository-governance | Instruction | DataAgro, Scato Logística, Orquestador, `moa-sdlc` | N | VERIFIED | CONFIGURED | Bajo |
+| [CAP-004](entries/spec-driven-development.md) | spec-driven-development | Workflow | DataAgro (Lite, real) | N | VERIFIED (Lite) | EXECUTED (nivel Lite, 2 tickets reales). Nivel Full: `PROPOSAL` conceptual, sin evidencia de ejecución real | Bajo (Lite) / Medio (Full) |
+| [CAP-005](entries/repository-governance.md) | repository-governance | Instruction | DataAgro, Scato Logística, Orquestador | N | VERIFIED | CONFIGURED | Bajo |
 | [CAP-006](entries/stack-best-practices-template.md) | stack-best-practices-template | Skill | Scato Logística, Orquestador | N | VERIFIED | CONFIGURED | Bajo |
 | [CAP-007](entries/azure-devops-context.md) | azure-devops-context | Integration/API | Ninguno todavía (patrón de referencia) | N | VERIFIED (documento) | CONFIGURED — mecanismo probado durante la construcción, pruebas purgadas; sin ejecuciones reales registradas todavía | Bajo |
 | [CAP-008](entries/jira-context.md) | jira-context | MCP | Ninguno todavía (patrón de referencia) | N | VERIFIED (documento) | CONFIGURED — mecanismo probado durante la construcción (MCP real, incluido 1 caso `BLOCKED` histórico), pruebas purgadas; sin ejecuciones reales registradas todavía, evidencia real en curso sobre `ARMOA277-194` | Bajo-Medio |
+| [CAP-009](entries/pr-description.md) | pr-description | Skill | Ninguno todavía (propuesta) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo |
+| [CAP-010](entries/test-case-generation.md) | test-case-generation | Skill | Ninguno todavía (propuesta) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo |
+| [CAP-011](entries/ticket-closure-assist.md) | ticket-closure-assist | Skill | Ninguno todavía (propuesta) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo |
+| [CAP-012](entries/product-owner.md) | product-owner | Agent | Ninguno todavía (propuesta, corrige un hallazgo real de Scato Logística/Orquestador) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo |
+
+**CAP-009 a CAP-012** *(nuevas, cobertura de las 11 etapas del KO, G6)*: a diferencia de
+todas las entradas anteriores, no son generalizaciones de una instancia real (CAP-001 a
+CAP-006) ni patrones extraídos de evidencia real (CAP-007/008) — son **propuestas
+directas**, justificadas por KO Interno + External Best Practice + Architectural
+Judgment, sin ejecución real ni piloto de ningún equipo todavía. Cierran las etapas del
+KO que hasta ahora no tenían ni capacidad ni propuesta (Apertura del PR, Testing
+funcional/QA, Cierre del ticket) y corrigen un hallazgo de seguridad real (scope MCP
+wildcard del `product-owner` de Scato Logística/Orquestador). Ver
+[`../architecture/ai-sdlc.md`](../architecture/ai-sdlc.md) para el mapeo completo contra
+las 11 etapas y las 2 que quedan deliberadamente sin propuesta (Test de regresión,
+Soporte productivo).
 
 **CAP-007/008** *(nuevas, agregadas al implementar Context Acquisition & Resolution)*: a
 diferencia de CAP-001 a CAP-006, no son generalizaciones de una capacidad ya ejecutada por
@@ -48,8 +64,8 @@ acá — quedaron clasificados TEAM-SPECIFIC o EXPERIMENTAL, con su razón docum
 
 ## Por tipo
 
-- **Skill**: CAP-001, CAP-002, CAP-006
-- **Agent**: CAP-003
+- **Skill**: CAP-001, CAP-002, CAP-006, CAP-009, CAP-010, CAP-011
+- **Agent**: CAP-003, CAP-012
 - **Workflow**: CAP-004
 - **Instruction**: CAP-005
 - **Integration/API**: CAP-007 (patrón, READ-only, mecanismo probado durante la construcción, sin ejecuciones reales registradas todavía)
@@ -65,18 +81,19 @@ acá — quedaron clasificados TEAM-SPECIFIC o EXPERIMENTAL, con su razón docum
 - **Scato Logística**: CAP-001, CAP-002, CAP-003, CAP-005, CAP-006
 - **Orquestador**: CAP-001, CAP-002, CAP-003, CAP-005, CAP-006 — todas en rama
   `master-logistica`, ninguna en `master`
-- **`moa-sdlc`** (herramienta de referencia de Baufest, no equipo de MOA): CAP-004 (Full,
-  sin evidencia de ejecución), CAP-005
+- **Ninguno todavía**: CAP-004 (nivel Full, conceptual), CAP-009, CAP-010, CAP-011,
+  CAP-012 — propuestas sin adopción real
 
 ## ¿Puedo adoptarla?
 
-Ninguna de las 8 entradas del Registry está promovida a Corporate Standard. Las entradas pueden
+Ninguna de las 12 entradas del Registry está promovida a Corporate Standard. Las entradas pueden
 corresponder a capacidades reutilizables, patrones reutilizables, candidatos a Common
-Core o activos Team-Specific según su clasificación individual — `Corporate Standard: N`
+Core, propuestas nuevas sin evidencia de origen, o activos Team-Specific según su
+clasificación individual — `Corporate Standard: N`
 no implica por sí mismo que una entrada sea Team-Specific (ver la clasificación propia de
 cada entrada: CAP-001/002 Reusable Capability, CAP-003/004/006 Reusable Pattern, CAP-005
 Reusable Governance Pattern / Common Core Candidate, CAP-007/008 Context Acquisition
-Pattern — ninguna es Team-Specific en sentido
+Pattern, CAP-009/010/011/012 Propuesta nueva — ninguna es Team-Specific en sentido
 estricto, todas son candidatas evaluadas). Cualquier equipo puede consultarlas y
 adaptarlas por su cuenta (autonomía de equipo), pero **ninguna está todavía promovida
 como estándar corporativo** — adoptarlas hoy es replicar/adaptar un patrón con evidencia
@@ -109,8 +126,8 @@ Ver cada entrada individual — todas fueron verificadas por lectura directa de 
 G4.2 había evaluado el formato de 4 capas (`copilot-instructions.md`+`instructions/`+
 `skills/`+`agents/`) y decidido **no registrarlo**, por no encajar limpiamente en la
 taxonomía de 7 tipos y por alcance deliberado del MVP ("2 o 3 entradas como máximo"). En
-G5.1, con evidencia de 4 instancias independientes (DataAgro, Scato Logística,
-Orquestador, `moa-sdlc`) y el campo `Type: Instruction` de `capability-model.md` como
+G5.1, con evidencia de 3 instancias independientes (DataAgro, Scato Logística,
+Orquestador) y el campo `Type: Instruction` de `capability-model.md` como
 encaje correcto (es una regla que se aplica siempre, no un Standard aparte), se
 **reconsidera esa decisión** y se registra como **CAP-005**. Se documenta el cambio
 explícitamente, en vez de dejar la afirmación anterior sin corregir.

@@ -100,12 +100,12 @@ impacto en producción.
 
 ## 3. Measurement
 
-**Mecanismo elegido**: cuando la capacidad y el equipo ya están cubiertos por
-`moa-metrics` (ver `../metrics/kpis.md`), el `source` del Measurement Result apunta ahí.
-Cuando no, el equipo completa un **Measurement Result** como archivo versionado en su
-propio repo o en `measurements/` — mismo contrato, mismo formato, sin esperar acceso a
-infraestructura ajena. El mecanismo es "llenar un archivo con un schema fijo", no una
-herramienta nueva.
+**Mecanismo elegido**: cuando la capacidad y el equipo ya están cubiertos por un pipeline
+de métricas centralizado (ver `../metrics/kpis.md`), el `source` del Measurement Result
+apunta ahí. Cuando no, el equipo completa un **Measurement Result** como archivo
+versionado en su propio repo o en `measurements/` — mismo contrato, mismo formato, sin
+esperar acceso a infraestructura ajena. El mecanismo es "llenar un archivo con un schema
+fijo", no una herramienta nueva.
 
 ### Measurement Result Contract
 
@@ -120,7 +120,7 @@ herramienta nueva.
 | `unit` | Unidad (%, horas, cantidad, etc.) | Obligatorio si hay `value` |
 | `period` | Ventana de tiempo que cubre la medición | Obligatorio |
 | `baseline_reference` | A qué se compara — `REQUIRES VALIDATION` si no existe baseline | Obligatorio (aunque sea REQUIRES VALIDATION) |
-| `source` | `moa-metrics` (referencia) o `local measurement` (con quién/cómo) | Obligatorio |
+| `source` | fuente centralizada de métricas (referencia, si existe) o `local measurement` (con quién/cómo) | Obligatorio |
 | `calculation_reference` | Cómo se llegó al valor — link a query, o descripción del conteo manual | Obligatorio |
 | `measured_at` | Fecha | Obligatorio |
 | `owner` | Quién es responsable del dato — `REQUIRES VALIDATION` si no confirmado | Obligatorio (aunque sea REQUIRES VALIDATION) |
@@ -149,8 +149,7 @@ artefacto, `evidence/`, `evaluation/`, `measurements/`) tras feedback real de un
 independiente (`PILOT-003`) que reportó fricción real navegando entre las 3 carpetas para
 ver todo lo de su propia tarea. Alineado a 2 estándares oficiales verificados: [GitHub
 Spec Kit](https://github.com/github/spec-kit/blob/main/spec-driven.md) (una carpeta por
-unidad de trabajo — mismo patrón que `moa-sdlc` ya usa en `_sdd/specs/<ticket>/`) y el
-modelo de `runs` anidados de la API de GitHub Actions
+unidad de trabajo) y el modelo de `runs` anidados de la API de GitHub Actions
 (`GET /repos/{owner}/{repo}/actions/runs/{run_id}/artifacts`, para ejecuciones repetibles
 de la misma tarea).
 

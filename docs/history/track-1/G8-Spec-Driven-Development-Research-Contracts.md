@@ -6,7 +6,8 @@ evidencia real. Precondición: G7 (records/ por tarea). Solo se modificó
 
 ## 1. Disparador
 
-Al validar contra el .md CORE si `moa-sdlc` había adoptado buenas prácticas de GitHub
+Al validar contra el .md CORE si una herramienta de referencia interna de Baufest (no un
+equipo de MOA) había adoptado buenas prácticas de GitHub
 (Spec Kit), surgió una comparación literal archivo-por-archivo entre nuestro modelo
 (CAP-004) y Spec Kit — 2 artefactos de Spec Kit (`research.md`, `contracts/`) no tenían
 equivalente formal en `capabilities/workflows/spec-driven-development/WORKFLOW.md`. El
@@ -17,7 +18,7 @@ adoptable" — decisión suya, no una inferencia mía.
 
 | Artefacto | Evidencia interna real | Decisión |
 |---|---|---|
-| `research.md` | **Sí existe, informal** — `moa-sdlc/_sdd/specs/MOA-1765-DistribuidorCupos/plan-distribucionCuposSL-v2.md` + `_old_v1.md` + `req/` ya cumplen esta función, sin el nombre formal | Formalizado — `CONFIGURED` por reclasificación de evidencia ya real, no una capacidad inventada |
+| `research.md` | **Sí existe, informal** — dentro de esa herramienta de referencia, `_sdd/specs/MOA-1765-DistribuidorCupos/plan-distribucionCuposSL-v2.md` + `_old_v1.md` + `req/` ya cumplen esta función, sin el nombre formal | Formalizado — `CONFIGURED` por reclasificación de evidencia ya real, no una capacidad inventada |
 | `contracts/` | **No se encontró** ninguna instancia real en ningún repo de MOA relevado | Incorporado como `NOT FOUND`/PROPOSAL puro — gap real identificado (endpoints reales sin contrato pre-implementación, ej. `R16` de `MOA-1765`), no evidencia de uso |
 
 Ambos quedan **opcionales**, no obligatorios — condicionados a que la feature real lo

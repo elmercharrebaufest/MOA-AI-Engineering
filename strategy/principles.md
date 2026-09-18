@@ -30,5 +30,5 @@ MOA (ver pregunta abierta en [`roadmap.md`](roadmap.md)).
 | Human-in-the-loop | Todo agente documentado en `governance/agent-governance.md` debe declarar su punto de validación humana (paso VALIDATION del pipeline). |
 | Team autonomy within governance | Estructura de 3 capas: `governance/` (corporate), `templates/`+capacidades promovidas (reusable), `teams/<equipo>/` (team-specific). |
 | Evidence over assumptions | Todo dato cuantitativo en `metrics/kpis.md` está marcado como medido (FACT) o proyectado (PROPOSAL), nunca se presenta como logro confirmado sin baseline. |
-| Reuse before reinventing | `teams/README.md` referencia los repos reales de los equipos (DataAgro, Scato Logística, etc.) y las herramientas de Baufest (`moa-sdlc`, `moa-metrics`) en vez de duplicar su contenido. |
+| Reuse before reinventing | `teams/README.md` referencia los repos reales de los equipos (DataAgro, Scato Logística, etc.) en vez de duplicar su contenido. |
 | Start small / Crawl-Walk-Run | Este repositorio arranca con estructura reducida (ver README) y crece por fases (ver `roadmap.md`). |

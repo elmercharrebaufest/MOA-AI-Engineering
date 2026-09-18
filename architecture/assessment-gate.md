@@ -79,7 +79,6 @@ todos los casos; el Solutions Architect decide con esto como insumo, no como ver
 | Agent `.NET Code Reviewer` (patrón de solo-lectura) | Alto | Alta (patrón de diseño) | **Bajo por diseño** (sin `tools: edit`) | Sin evaluación de si sus hallazgos son correctos | **ADOPT el patrón de gobierno** (scope acotado + sin escritura + severidad estructurada), **VALIDATE el contenido** antes de reutilizarlo tal cual |
 | MCP `com.atlassian/atlassian-mcp-server` | Desconocido (no se sabe qué resuelve en producción) | N/A | **Sin evidencia — Security/Data/Risk todos REQUIRES VALIDATION** | Sin evidencia | **VALIDATE — con prioridad de seguridad**, no de reutilización |
 | Mecanismo `handoffs` entre Agents | Alto si funciona | Alta (mecanismo) | Medio (orquestación sin supervisión intermedia documentada) | Sin evidencia de ejecución real | **VALIDATE** |
-| 8 indicadores de `moa-metrics` | Alto (cubren 6 de 7 categorías de `metrics/framework.md`) | Alta | Bajo (son de solo lectura sobre datos ya extraídos) | Implementados con tests, sin baseline real en producción | **STRONG CANDIDATE → ASSESS → VALIDATE → PROMOTE** (instrucción explícita de G3.3: no redefinir automáticamente como estándar) |
 
 Ningún ítem de esta tabla queda promovido por este documento — es insumo para que el
 Solutions Architect decida.

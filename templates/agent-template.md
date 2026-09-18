@@ -23,7 +23,7 @@
 
 ## Matriz de autonomía
 
-(Ver formato exigido y ejemplos paralelos —DataAgro, Scato Logística, `moa-sdlc`— en `governance/agent-governance.md`; ninguno de esos ejemplos es el patrón obligatorio, cada equipo declara su propia matriz)
+(Ver formato exigido y ejemplos paralelos —DataAgro, Scato Logística— en `governance/agent-governance.md`; ninguno de esos ejemplos es el patrón obligatorio, cada equipo declara su propia matriz)
 
 | Nivel | Acciones |
 |---|---|

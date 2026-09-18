@@ -286,3 +286,51 @@ cuáles se usan realmente y cuáles quedaron configurados sin adopción real. An
 agregar más, tiene sentido validar el impacto real de lo que ya existe — es el mismo
 principio que el propio KO plantea: no se trata de sumar herramientas, sino de
 sostener una práctica de ingeniería con datos reales detrás.
+
+## 7. Hallazgos reales de la reunión (2026-09-18)
+
+**Nota sobre esta sección**: lo que sigue es testimonio directo del equipo en la
+reunión, no evidencia leída de código como en las secciones 1 y 2 — se marca aparte
+para no mezclar ambos tipos de fuente.
+
+**Historia real del equipo — no es convergencia independiente, es la misma gente**: el
+equipo trabajó primero en Orquestador (uso intensivo de los agentes `product-owner`
+—para refinar tareas de usuario— y `architect`) y luego pasó a Scato Logística,
+llevándose sus propias herramientas. Esto explica algo que quedaba como pregunta
+abierta: varios patrones que el relevamiento original interpretó como "convergencia
+independiente entre repos" (por ejemplo, `AGENTS.md` en 4 repos distintos) podrían
+explicarse, al menos en parte, por el mismo equipo moviéndose de un proyecto a otro,
+no por 4 equipos inventando lo mismo por separado. Vale la pena confirmarlo
+formalmente.
+
+**El agente `product-owner` de Orquestador, en uso real e intensivo para refinar
+requerimientos** — es prácticamente la misma función que resuelve `user-story`
+(CAP-002) en la base común. Refuerza que esa capacidad responde a una necesidad real,
+ya validada por el propio equipo antes de que existiera la versión generalizada.
+
+**La skill `dotnet-best-practices` se dejó de usar por consumo elevado de tokens** —
+el equipo la cargaba junto con el agente `dotnet-code-reviewer`, pero la abandonó por
+ese motivo. Es una limitación real y concreta que no estaba documentada en ningún
+lugar del repositorio: cargar una skill de buenas prácticas extensa en cada revisión
+tiene un costo de tokens que puede volverse prohibitivo. Vale la pena tenerlo en cuenta
+para `stack-best-practices-template` (CAP-006) — la plantilla genérica de la base común
+podría tener el mismo problema si un equipo la completa con demasiado detalle.
+
+**La skill `abm-mvc` sigue en uso** — confirma lo que ya sabíamos por el código: se
+originó en Orquestador (no en Scato Logística), y el equipo se la llevó al pasar de un
+proyecto al otro.
+
+**Homologación de diseño/estilos sin Bootstrap** — en vez de depender de la librería de
+estilos Bootstrap, el equipo usa un agente/proceso llamado `design.md` para homologar
+diseño y estilos, tanto en Orquestador como en Scato Logística. No es lo mismo que un
+proceso de definición de requerimientos funcionales (la brecha señalada en la
+recomendación 6.3 sigue siendo real) — es específico de consistencia visual. No se
+inspeccionó el contenido real de este agente/documento todavía; queda como un hallazgo
+a profundizar, no algo ya evaluado.
+
+**Los agentes de la carpeta `agents-scato-logistica`** (`CSharpExpert`,
+`Thinking-Beast-Mode`, `arch`, `plan`, `api-architect`, `dotnet-upgrade`,
+`expert-dotnet-software-engineer`) son plantillas públicas/genéricas de la comunidad,
+sin nada específico del dominio de Scato — confirmado por el propio equipo: **las usa
+cada developer por su cuenta, no es una práctica estandarizada del equipo**. Es
+exactamente el patrón de conocimiento heterogéneo que el KO ya señalaba.

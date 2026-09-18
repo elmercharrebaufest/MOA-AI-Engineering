@@ -138,8 +138,6 @@ estado del lifecycle formal.
 | Patrón AGENTS.md + Agents + Skills + Instructions (DataAgro) | **Pilot** | Configuración madura, sin Evaluation/Measure documentados |
 | Ídem (Scato Logística) | **Pilot** (más integrado que DataAgro, mismo estado formal) | Ídem |
 | Ídem (Orquestador, `feature/cardless4`) | **Pilot** — con matiz: nunca llegó a integrarse a `master` | Configuración madura + 1 evidencia de uso real el mismo día de creación (skill `abm-mvc`) — el caso más avanzado encontrado, pero igual sin Evaluation/Measure formales |
-| `moa-sdlc` (harness SDD, `AGENTS-CONTRACTS.md`) | **Pilot**, con 1 caso real (`MOA-1765`) sin cerrar (sin QA sign-off) | No completó Evaluation/Measure |
-| 8 indicadores de `moa-metrics` | **Measure** (el más avanzado del relevamiento) — pero sin baseline real (Blocked, ver `metrics/kpis.md`) | Implementados, con tests, pero sin evidencia de estar corriendo en producción con datos reales |
 
 Ninguna capacidad relevada hasta G3.2.5 llegó a **Human Validation** ni **Common Core**
 bajo este modelo.

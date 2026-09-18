@@ -54,11 +54,11 @@ actualizado con cada fase); esta sección resume, no duplica.
   equipos reales de MOA, templates.
 
 ### Evolution (completada — G4.1 a G5.1, no "siguiente fase")
-- **Capability Registry real**: 8 entradas (`registry/INDEX.md`), 6 capacidades
-  materializadas y reutilizables (`capabilities/README.md`) — generalizadas desde
-  evidencia real de DataAgro, Scato Logística, Orquestador y `moa-sdlc` (herramienta de
-  referencia de Baufest, no equipo de MOA), pasadas por el pipeline de
-  `assessment/README.md`.
+- **Capability Registry real**: 12 entradas (`registry/INDEX.md`), 6 capacidades
+  materializadas y reutilizables con evidencia real (`capabilities/README.md`) —
+  generalizadas desde evidencia real de DataAgro, Scato Logística y Orquestador, pasadas
+  por el pipeline de `assessment/README.md`. Las 4 restantes (CAP-009 a CAP-012) son
+  propuestas nuevas, sin evidencia de origen real todavía (ver Iteration más abajo).
 - **Golden Paths**: 6 documentados, 1 (`AI-Assisted Requirements`) con el mecanismo
   probado de punta a punta durante la construcción — pruebas purgadas al pasar a
   adopción real, evidencia real en curso (ver `golden-paths/README.md`).
@@ -71,8 +71,8 @@ actualizado con cada fase); esta sección resume, no duplica.
   #4, #12), no como catálogo aprobado.
 - Onboarding de equipos sin implementación aún (Data, QA, Security, DevOps, Operations):
   **sigue sin resolver** — ningún equipo nuevo se incorporó todavía.
-- Baseline real medido con `moa-metrics`: **sigue sin resolver** — todas las mediciones
-  registradas son `NOT MEASURED` por falta de baseline (`measurements/README.md`).
+- Baseline real medido: **sigue sin resolver** — todas las mediciones registradas son
+  `NOT MEASURED` por falta de baseline (`measurements/README.md`).
 
 ### Iteration (en curso)
 - Ciclo de mejora de prompts/skills/agentes en base a auditorías reales — aplicado en
@@ -81,6 +81,21 @@ actualizado con cada fase); esta sección resume, no duplica.
 - Revisión de gobierno y métricas por ciclo, según el modelo de 5 pasos del KO — pendiente
   de la resolución de las 12 Blocked Decisions (ver sección de preguntas abiertas, más
   abajo).
+- **Cobertura de las 11 etapas del SDLC del KO, etapa por etapa (2026-09-18)**: de las 11
+  etapas de `architecture/ai-sdlc.md` (pág. 23-26 del KO), 4 quedaban sin capacidad ni
+  propuesta (Apertura del PR, Testing funcional/QA, Cierre del ticket — este último ni
+  figuraba en la tabla, defecto de documentación corregido en el mismo trabajo) y 1
+  quedaba con la clasificación de un rol clave (Product Owner) sin una versión Agent que
+  corrigiera un hallazgo real de seguridad. Se agregaron 4 capacidades nuevas al Registry
+  (CAP-009 `pr-description`, CAP-010 `test-case-generation`, CAP-011
+  `ticket-closure-assist`, CAP-012 `product-owner`), todas `PROPOSAL`, justificadas por
+  Existing Practice + External Best Practice + Architectural Judgment
+  (`assessment/README.md`), sin ejecución real ni piloto de ningún equipo todavía. Dos
+  etapas quedan deliberadamente sin propuesta, por decisión explícita: Test de regresión
+  (depende de un MCP Playwright sin evidencia real en ningún repo) y Soporte productivo
+  (5 líneas de trabajo del KO, ninguna con evidencia — se define primero un relevamiento
+  con un equipo real, no una capacidad). Detalle completo en
+  [`../architecture/ai-sdlc.md`](../architecture/ai-sdlc.md).
 
 **Estado declarado por el propio repositorio**: `READY WITH CONDITIONS` (`README.md`) — no
 "Foundation en curso". Ver `strategy/track-1-context.md` §12 y §17 para el detalle
@@ -103,9 +118,11 @@ impacto y evidencia, viven únicamente en
 estructural: quién tiene mandato para aprobar/gobernar el Common Core, #1). De las 5
 preguntas originales de este documento (discovery temprano, G1), el estado real hoy es:
 
-1. ¿`moa-sdlc`/`moa-metrics` se referencian o se consolidan dentro de este repo? —
-   **Resuelta**: se referencian como evidencia/candidatos, nunca como fuente de gobierno
-   (`teams/README.md`).
+1. ¿Otras herramientas de referencia de Baufest se referencian o se consolidan dentro de
+   este repo? — **Resuelta, revertida el 2026-09-18**: no. Este modelo base
+   (`MOA-AI-Engineering`) es el entregable de la iniciativa Track 1 — no nombra proyectos
+   que no forman parte de él, aunque hayan existido en paralelo dentro de Track 1 en un
+   sentido más amplio.
 2. ¿Hay más material de referencia fuera de este workspace? — Sigue abierta, no escalada
    como Blocked Decision formal (bajo impacto arquitectónico).
 3. ¿Los equipos ya mapeados son los únicos alcanzados por Track 1? — Sigue abierta, sin

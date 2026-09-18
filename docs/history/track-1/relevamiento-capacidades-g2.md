@@ -4,7 +4,8 @@
 [`../../../assessment/README.md`](../../../assessment/README.md) — comprender qué existe
 realmente en MOA y relevar las prácticas de los distintos equipos. Cubre 13
 repositorios: 11 repos de código de equipos de MOA + los 2 repos de implementación de la
-propia iniciativa (`moa-sdlc`, `moa-metrics`).
+propia iniciativa (dos herramientas de referencia interna de Baufest — no equipos de MOA —
+orientadas, respectivamente, a desarrollo dirigido por specs y a métricas).
 
 **Qué NO es este documento:**
 - No es un catálogo de estándares reutilizables.
@@ -39,8 +40,8 @@ foco es la capacidad de IA Engineering, no la lógica de dominio.
 | Documentación generada por IA | Automation / Knowledge | `_DocumentacionCopilot/` | Reducir el costo de mantener documentación de un sistema legacy grande (~1963 archivos .cs) |
 | CI/CD | — | `.github` con workflows presentes | Precondición técnica para cerrar el loop de code review/testing automatizado |
 
-Nivel de formalización: **alto** — comparable o superior al patrón documentado en
-`moa-sdlc`.
+Nivel de formalización: **alto** — comparable o superior al patrón documentado en la
+herramienta de referencia de SDLC.
 
 ### Scato Logística (monolito) — repo `Scato Logistica/Scato%20Logistica`
 
@@ -56,7 +57,7 @@ Nivel de formalización: **alto** — comparable o superior al patrón documenta
 Nivel de formalización: **el más alto observado en todo el relevamiento** (12 agentes +
 13 skills + automatización propia).
 
-### `moa-sdlc` (repo de la iniciativa, template + 1 caso real de MOA)
+### Herramienta de referencia de SDLC (repo de la iniciativa, template + 1 caso real de MOA)
 
 | Capacidad | Tipo | Evidencia (FACT) | Nota |
 |---|---|---|---|
@@ -66,7 +67,7 @@ Nivel de formalización: **el más alto observado en todo el relevamiento** (12 
 | Skill: sonarqube-quality-review | Skill | `.github/skills/sonarqube-quality-review.md` | — |
 | Caso real en curso: `MOA-1765-DistribuidorCupos` (DataAgro), estado `draft`, sin QA sign-off | Use case | `_sdd/specs/MOA-1765-DistribuidorCupos/`, `feature.json` | Estimación manual de ahorro: 69% en desarrollo, 48% total (81.5h→42.75h) — **estimación, no medición real todavía** |
 
-### `moa-metrics` (repo de la iniciativa, medición)
+### Herramienta de referencia de Metrics (repo de la iniciativa, medición)
 
 | Capacidad | Tipo | Evidencia (FACT) | Nota |
 |---|---|---|---|
@@ -103,13 +104,13 @@ una pregunta para los equipos/líderes, no una conclusión de este relevamiento.
 | Tipo de capacidad | Dónde hay evidencia real (FACT) | Equipos sin evidencia |
 |---|---|---|
 | Prompt | No se encontró evidencia aislada (los prompts observados están embebidos en skills/instructions) | — |
-| Instruction | DataAgro, Scato Logística, `moa-sdlc` | Resto |
-| Skill | DataAgro (9), Scato Logística (13), `moa-sdlc` (1) | Resto |
-| Workflow (spec-driven dev) | DataAgro, `moa-sdlc` | Scato Logística (no se confirmó `_sdd/` ahí — REQUIRES VALIDATION), resto |
+| Instruction | DataAgro, Scato Logística, herramienta de referencia de SDLC | Resto |
+| Skill | DataAgro (9), Scato Logística (13), herramienta de referencia de SDLC (1) | Resto |
+| Workflow (spec-driven dev) | DataAgro, herramienta de referencia de SDLC | Scato Logística (no se confirmó `_sdd/` ahí — REQUIRES VALIDATION), resto |
 | Knowledge / RAG | Wiki de Scato Logística (no implementado como RAG, es documentación estática) | Todos (ningún RAG real encontrado) |
-| Agent | DataAgro (5 roles), Scato Logística (12 roles), `moa-sdlc` (6 roles en pipeline) | Resto |
-| MCP / API / Tool | `moa-metrics` (4 conectores API, no MCP formal) | Ningún servidor MCP real encontrado en ningún repo — todo lo de MCP en el KO/`MOA-AI-Engineering` es PROPOSAL, no FACT |
-| Automation | DataAgro (`_DocumentacionCopilot`), Scato Logística (`AiEnablement`), `moa-metrics` (ETL) | Resto |
+| Agent | DataAgro (5 roles), Scato Logística (12 roles), herramienta de referencia de SDLC (6 roles en pipeline) | Resto |
+| MCP / API / Tool | herramienta de referencia de Metrics (4 conectores API, no MCP formal) | Ningún servidor MCP real encontrado en ningún repo — todo lo de MCP en el KO/`MOA-AI-Engineering` es PROPOSAL, no FACT |
+| Automation | DataAgro (`_DocumentacionCopilot`), Scato Logística (`AiEnablement`), herramienta de referencia de Metrics (ETL) | Resto |
 
 **Lectura del relevamiento**: la brecha no es "quién usa IA y quién no" (todos, según el
 KO) — es **quién formalizó esa práctica como capacidad versionada, gobernada y potencialmente medible**, y quién sigue en modo puramente informal/individual. Esto es

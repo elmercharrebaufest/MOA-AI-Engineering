@@ -15,12 +15,14 @@ carpetas... no es mejor que se guarden en directorios individuales por tareas."*
 
 ## 2. Las 2 fuentes, aplicadas sin atajos (mismo pipeline que el resto del repo)
 
-- **Internal MOA Evidence**: `moa-sdlc` ya usa `_sdd/specs/<TICKET>-<slug>/` — una carpeta
-  por ticket, con todo el contenido de la spec adentro.
+- **Internal MOA Evidence**: una herramienta de referencia interna de Baufest (no un equipo
+  de MOA) ya usa `_sdd/specs/<TICKET>-<slug>/` — una carpeta por ticket, con todo el
+  contenido de la spec adentro.
 - **AI Engineering Expertise / External Practice**, verificado con fuentes reales (no de
   memoria): [GitHub Spec Kit](https://github.com/github/spec-kit/blob/main/spec-driven.md)
   usa exactamente el mismo patrón (`specs/[###-feature]/`) — confirmado que **no** define
-  snapshots por versión, confía en `git log` como historial, igual que `moa-sdlc`. La API
+  snapshots por versión, confía en `git log` como historial, igual que esa herramienta de
+  referencia. La API
   oficial de GitHub Actions (`GET /repos/{owner}/{repo}/actions/runs/{run_id}/artifacts`)
   confirma el patrón complementario que sí necesitábamos: repo → `run_id` → artifacts,
   para el caso de ejecuciones repetibles de la misma unidad de trabajo.

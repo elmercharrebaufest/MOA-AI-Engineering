@@ -100,8 +100,8 @@ en qué rama vive.
 ## Qué NO es este documento
 
 - No es una base de datos — es el modelo de datos conceptual.
-- No es un mandato de qué herramienta usar para implementarlo (Airtable, una tabla en
-  `moa-metrics`, un archivo YAML por capacidad) — esa es una decisión técnica diferida a
+- No es un mandato de qué herramienta usar para implementarlo (Airtable, una base de
+  datos propia, un archivo YAML por capacidad) — esa es una decisión técnica diferida a
   una fase posterior a G3.3.
 - No pre-llena entradas reales todavía — la tabla de ejemplo de arriba usa un solo caso
   (`azure-devops-cli`) de forma ilustrativa; poblar el Registry completo con las

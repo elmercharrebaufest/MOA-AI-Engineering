@@ -46,23 +46,10 @@ prompt. Se requiere mapear estos equipos MOA reales contra esas categorías.
 
 ## Relación con las implementaciones existentes (corregido 2026-09-04)
 
-**Aclaración de alcance**: `moa-sdlc` y `moa-metrics` no son equipos de MOA — son
-herramientas de referencia construidas por Baufest para la iniciativa. No se usan para
-"calificar" el nivel de madurez de ningún equipo real; se listan acá solo como ejemplos
-de implementación posibles, entre otros:
-
-- `moa-sdlc` (template SDD + agentes .NET, herramienta de Baufest) muestra roles de
-  agente definidos, matriz de gobierno (`AGENTS.md`) y patrones reutilizables —
-  consistente con las características del eje Automatización de WALK, como ejemplo.
-- **DataAgro** y **Scato Logística** (equipos reales de MOA) tienen evidencia directa,
-  validada por lectura de código el 2026-09-04, de Agents/Skills/Instructions
-  formalizados — Scato Logística en particular con mayor integración cruzada que el
-  patrón de `moa-sdlc`. Ver `docs/history/track-1/relevamiento-capacidades-g2.md` para el detalle. Esto
-  no cambia automáticamente su nivel KO (CRAWL/WALK) porque **configuración formalizada
-  no equivale a uso real, proceso ni resultados medidos** (ver
-  `docs/history/track-1/relevamiento-capacidades-g2.md` — uso efectivo queda REQUIRES VALIDATION en
-  ambos).
-- `moa-metrics` (pipeline de indicadores, herramienta de Baufest) es **un ejemplo posible**
-  de implementación del eje Medición — no la única vía ni un requisito para que un equipo
-  avance de CRAWL a WALK; cualquier equipo podría construir su propia medición y llegar al
-  mismo eje por otro camino.
+**DataAgro** y **Scato Logística** (equipos reales de MOA) tienen evidencia directa,
+validada por lectura de código el 2026-09-04, de Agents/Skills/Instructions
+formalizados. Ver `docs/history/track-1/relevamiento-capacidades-g2.md` para el detalle.
+Esto no cambia automáticamente su nivel KO (CRAWL/WALK) porque **configuración
+formalizada no equivale a uso real, proceso ni resultados medidos** (ver
+`docs/history/track-1/relevamiento-capacidades-g2.md` — uso efectivo queda REQUIRES
+VALIDATION en ambos).

@@ -13,7 +13,7 @@
 |---|---|---|
 | **CORPORATE** | Principios, seguridad, responsible AI, protección de datos, gobierno, métricas, human-in-the-loop | Este repositorio (`strategy/`, `governance/`, `metrics/`) |
 | **REUSABLE** | Skills, agents, prompts, instructions, patrones MCP, templates, patrones de arquitectura | Este repositorio, una vez promovidos desde un equipo |
-| **TEAM SPECIFIC** | Adaptaciones, casos de uso y flujos de cada equipo | Repos de cada equipo real de MOA (DataAgro, Scato Logística, MOA Operaciones, Scato Puerto, Orquestador — ver `teams/README.md`). `moa-sdlc`/`moa-metrics` son herramientas de referencia de Baufest para la iniciativa, no repos de un equipo de MOA. |
+| **TEAM SPECIFIC** | Adaptaciones, casos de uso y flujos de cada equipo | Repos de cada equipo real de MOA (DataAgro, Scato Logística, MOA Operaciones, Scato Puerto, Orquestador — ver `teams/README.md`). |
 
 ## Human-in-the-loop obligatorio (FACT — encuadre fundacional de la iniciativa + KO Interno pág. 14, 21)
 
@@ -28,10 +28,9 @@ código propuesto antes de su integración."*
 
 ## Patrones de gobierno observados (FACT — evidencia múltiple, ver `governance/agent-governance.md`)
 
-Se encontraron matrices de autonomía reales en `moa-sdlc` (herramienta de referencia de
-Baufest, no un equipo de MOA), y en **DataAgro** y **Scato Logística** (equipos reales de
-MOA, validado por lectura directa el 2026-09-04). Ninguna de las tres es "el" patrón de
-referencia — se documentan en paralelo en
+Se encontraron matrices de autonomía reales en **DataAgro** y **Scato Logística** (equipos
+reales de MOA, validado por lectura directa el 2026-09-04). Ninguna de las dos es "el"
+patrón de referencia — se documentan en paralelo en
 [`governance/agent-governance.md`](agent-governance.md), como candidatas a evaluar antes
 de proponerse como REUSABLE. El formato de 3 niveles (ALWAYS/ASK FIRST/NEVER) sí es una
 definición propia del Common Core, independiente de cualquier repo puntual.

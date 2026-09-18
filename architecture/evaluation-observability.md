@@ -58,7 +58,7 @@ encontró.
 
 **Para Metrics, la tensión es distinta y se nombra explícitamente**: la
 recolección/ejecución puede permanecer distribuida (cada equipo mide en su propio
-contexto, como ya hace `moa-metrics` sobre datos de varios repos), **pero el modelo de
+contexto), **pero el modelo de
 medición necesita suficiente consistencia común para permitir comparabilidad
 transversal** — sin definiciones compartidas de qué cuenta como "HU refinada" o
 "requerimiento", ningún dato es comparable entre DataAgro y Scato Logística. Esta es una
@@ -79,7 +79,7 @@ G3.3.
 | Deterministic tests | Capacidades con salida verificable exactamente (ej. un Workflow que genera código que debe compilar) | NOT FOUND como práctica formal |
 | Scenario tests | Casos de uso concretos con resultado esperado conocido | NOT FOUND |
 | Regression | Verificar que un cambio no rompe comportamiento previo | NOT FOUND para capacidades de IA (sí existe para código: NUnit/tests en varios repos, pero eso evalúa el código generado indirectamente, no la capacidad de IA en sí) |
-| Human evaluation | Revisión humana estructurada del output | El más cercano a lo real: roles `reviewer`/`security-reviewer` de `moa-sdlc`, QA manual de `MOA-1765` (sin sign-off) |
+| Human evaluation | Revisión humana estructurada del output | NOT FOUND — sin evidencia real de evaluación humana estructurada en ningún equipo de MOA |
 | Agent/tool-use evaluation | ¿El agente eligió la herramienta/acción correcta? | NOT FOUND — ningún repo registra si un Agent usó bien sus `tools` |
 | Acceptance criteria | Criterios explícitos de éxito, definidos antes de ejecutar | Existen para features de negocio (Given/When/Then en `user-story`) — **no existen para capacidades de IA mismas** |
 
@@ -133,19 +133,12 @@ Productivity, Quality, Delivery, Automation, Developer Experience, Business Impa
 éxito** — es, a lo sumo, una métrica de `Automation`/`Adoption` de la capacidad de
 construir capacidades, no de su valor.
 
-### Tratamiento de los 8 indicadores de `moa-metrics`
+### Estado real de indicadores de impacto
 
-No se redefinen automáticamente como estándar corporativo:
-
-```
-STRONG CANDIDATE → ASSESS → VALIDATE → PROMOTE
-```
-
-Están en **STRONG CANDIDATE**: implementados con tests, pipeline ETL real, cubren 6/7
-categorías del framework — pero sin baseline real medido en producción (brecha heredada
-desde el inicio, ver `../metrics/kpis.md`). Pasan a **ASSESS** cuando alguien los someta al
-rubric de `assessment-gate.md`; a **VALIDATE** si el Solutions Architect confirma que
-corren en producción con datos reales; a **PROMOTE** solo después de eso.
+**Evidencia real**: `NOT FOUND` — ninguna capacidad de este Registry mide su propio
+impacto todavía. El framework de indicadores propuestos por el KO está definido
+(`../metrics/framework.md`, `../metrics/kpis.md`), pendiente de un baseline real medido en
+producción.
 
 ## 4. Relación entre las 3 y el resto del modelo
 
