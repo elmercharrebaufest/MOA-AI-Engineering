@@ -5,7 +5,7 @@ description: Plantilla para documentar las buenas prácticas específicas del st
 
 # stack-best-practices-template
 
-**Capability Registry**: [`CAP-006`](../../../registry/entries/stack-best-practices-template.md).
+**Capability Registry**: [`CAP-013`](../../../registry/entries/stack-best-practices-template.md).
 **Golden Path**: [`AI Code Review`](../../../golden-paths/README.md#4-ai-code-review) —
 es la skill que un Agent de code review (ver
 [`capabilities/agents/read-only-code-reviewer/`](../../agents/read-only-code-reviewer/AGENT.md))

@@ -115,7 +115,7 @@ del modelo.
 **Comportamiento por defecto: actuar, no preguntar primero.** Si la persona da
 únicamente una referencia (`ARMOA277-XXX`, `MOA-XXXX`) sin decir qué necesita, y no hay
 ninguna ejecución previa de esa misma tarea — corresponde traer el detalle vía el
-Context Provider correspondiente y aplicar CAP-002 (`user-story`) directamente, sin
+Context Provider correspondiente y aplicar CAP-001 (`user-story`) directamente, sin
 preguntar antes "¿qué se quiere hacer con esto?". No es una suposición nueva: es el
 patrón real que ya ocurrió en las ejecuciones reales anteriores de Connected Context —
 ninguna preguntó primero, y el KO describe exactamente este comportamiento (*"Rovo
@@ -124,7 +124,7 @@ preguntas para el PO antes del refinamiento"* — analiza y actúa, genera pregu
 **sobre el contenido del ticket**, no sobre la intención de la persona).
 
 **Cuándo sí corresponde preguntar**: si el contenido real del ticket (tipo de issue,
-título, descripción) sugiere claramente que CAP-002 no aplica (por ejemplo, es un bug de
+título, descripción) sugiere claramente que CAP-001 no aplica (por ejemplo, es un bug de
 código, una tarea de infraestructura, algo sin relación con requerimientos) — ahí sí
 corresponde preguntar qué necesita la persona, porque la ambigüedad es real, no por
 precaución genérica. Si la persona pide algo distinto explícitamente ("traer solo el

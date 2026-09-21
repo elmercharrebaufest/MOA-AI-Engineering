@@ -49,7 +49,7 @@ datos**:
 
 | Campo | Descripción | Obligatorio |
 |---|---|---|
-| `capability_id` | ID del Registry (ej. `CAP-002`) | Sí |
+| `capability_id` | ID del Registry (ej. `CAP-001`) | Sí |
 | `capability_version` | Hash/versión de la capacidad usada (ver `capability-registry.md`, campo `Version`) | Sí |
 | `execution_id` | Identificador único de esta ejecución puntual | Sí |
 | `executed_at` | Fecha/hora de ejecución | Sí |
@@ -160,8 +160,8 @@ evaluaciones" o "todas las mediciones" across tareas) — el contenido real vive
 
 ## 6. Registros reales existentes
 
-**Sin registros todavía.** El mecanismo (Direct Context, Connected Context vía CAP-007 y
-CAP-008/MCP real) quedó probado de punta a punta durante la construcción, sobre varios
+**Sin registros todavía.** El mecanismo (Direct Context, Connected Context vía CAP-002 y
+CAP-003/MCP real) quedó probado de punta a punta durante la construcción, sobre varios
 tipos de issue/work item reales — esas ejecuciones fueron pruebas del mecanismo por quien
 lo diseñó, purgadas deliberadamente al pasar a la etapa real de adopción, para no contar
 como "evidencia real de uso" algo que no lo era. La evidencia real empieza con la prueba

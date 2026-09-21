@@ -14,7 +14,7 @@ evidencia suficiente).
 | **SharePoint / Microsoft Graph** | **REQUIRES VALIDATION** | Sin evidencia de integración real en ningún repo de equipo de MOA. |
 | **Confluence** | **REQUIRES VALIDATION** | Mencionada en el KO como repositorio de documentación (Baufest). No se encontró conector ni evidencia de integración técnica en ningún repo. |
 | **MCP servers (Jira, Confluence, Azure DevOps, SQL Server)** | **PROPOSED** | KO Interno (pág. 16): *"Garantizar el acceso por MCP para las herramientas existentes."* Sin evidencia de gobierno de MCP (auth/scope/auditoría) documentada en ningún repo de equipo de MOA. |
-| **MCP Atlassian (`com.atlassian/atlassian-mcp-server`)** | **CONFIGURATION VERIFIED / REAL USE REQUIRES VALIDATION** *(para las configuraciones wildcard encontradas en equipos)* | Referenciado en agents de DataAgro, Scato Logística y Orquestador (rama `feature/cardless4` en este último, **no integrada a `master`**), con scope `/*` en algunos casos (sin acotar a solo lectura). Sin evidencia de identidad, autenticación, ni ejecución real **para esas configuraciones wildcard específicas**. Ver [`../security/security-governance.md`](../security/security-governance.md) — prioridad de revisión de seguridad. **Actualización**: el patrón acotado (scope único `getJiraIssue`, CAP-008) quedó probado de punta a punta durante la construcción — esas pruebas se purgaron al pasar a adopción real, sin ejecuciones reales registradas todavía (ver [`../evidence/README.md`](../evidence/README.md)) — y esto tampoco valida ni extiende a las configuraciones wildcard de los repos de equipo, que siguen `REQUIRES VALIDATION`. |
+| **MCP Atlassian (`com.atlassian/atlassian-mcp-server`)** | **CONFIGURATION VERIFIED / REAL USE REQUIRES VALIDATION** *(para las configuraciones wildcard encontradas en equipos)* | Referenciado en agents de DataAgro, Scato Logística y Orquestador (rama `feature/cardless4` en este último, **no integrada a `master`**), con scope `/*` en algunos casos (sin acotar a solo lectura). Sin evidencia de identidad, autenticación, ni ejecución real **para esas configuraciones wildcard específicas**. Ver [`../security/security-governance.md`](../security/security-governance.md) — prioridad de revisión de seguridad. **Actualización**: el patrón acotado (scope único `getJiraIssue`, CAP-003) quedó probado de punta a punta durante la construcción — esas pruebas se purgaron al pasar a adopción real, sin ejecuciones reales registradas todavía (ver [`../evidence/README.md`](../evidence/README.md)) — y esto tampoco valida ni extiende a las configuraciones wildcard de los repos de equipo, que siguen `REQUIRES VALIDATION`. |
 | **MCP Azure DevOps (`mcp.dev.azure.com/molinosagro`)** | **CONFIGURATION VERIFIED / REAL USE REQUIRES VALIDATION** | `.vscode/mcp.json` real en DataAgro, apuntando a un servidor MCP con nombre de organización real de MOA. Ver [`../security/security-governance.md`](../security/security-governance.md). |
 | **Application Insights** | **PROPOSED** | KO Interno (pág. 16): *"Para centralizar los logs de aplicación y poder alimentar información de errores productivos a los agentes."* Sin evidencia de implementación. |
 | **Power BI (tablero de métricas)** | **PROPOSED** | KO Interno (pág. 16, 18): tablero ejecutivo con datos de GitHub y Jira. No se encontró el dashboard en sí implementado en ningún repo relevado. |
@@ -28,8 +28,23 @@ Resolution, [`../architecture/context-acquisition-resolution.md`](../architectur
 **ambos READ-only**, extraídos de las filas EXISTING/CONFIGURATION VERIFIED de esta tabla
 (Azure DevOps CLI y MCP Atlassian con scope acotado, no del wildcard):
 
-- [`azure-devops-context-provider.md`](azure-devops-context-provider.md) — [CAP-007](../registry/entries/azure-devops-context.md)
-- [`jira-context-provider.md`](jira-context-provider.md) — [CAP-008](../registry/entries/jira-context.md)
+- [`azure-devops-context-provider.md`](azure-devops-context-provider.md) — [CAP-002](../registry/entries/azure-devops-context.md)
+- [`jira-context-provider.md`](jira-context-provider.md) — [CAP-003](../registry/entries/jira-context.md)
+
+## Ver también — Production Diagnostics Provider (nuevo, 2026-09-21)
+
+[`production-diagnostics-provider.md`](production-diagnostics-provider.md) — 2 scripts
+reales (AWS CloudWatch, Azure Application Insights), READ-only, para las 4 consultas de
+referencia que ya usa [CAP-017](../registry/entries/production-incident-investigation.md).
+`PROPOSAL`, sin ejecución real todavía.
+
+## Ver también — Capability Distribution (nuevo, 2026-09-21)
+
+[`capability-distribution.md`](capability-distribution.md) — mecanismo de sync por Pull
+Request para propagar `capabilities/agents/` y `capabilities/skills/` a repos de equipo
+cuando cambia el contenido canónico de `MOA-AI-Engineering`. No es un Context Provider (no
+adquiere contexto, escribe PRs); se documenta acá por ser infraestructura transversal del
+mismo tipo. `PROPOSAL`, sin ejecución real.
 
 ## Nota sobre gobierno de MCP (pendiente — ver `governance/ai-governance.md`)
 

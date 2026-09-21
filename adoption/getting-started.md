@@ -56,7 +56,7 @@ accesible en algún lugar del entorno, se le puede dar la siguiente instrucción
 asistente, en modo agente:
 
 ```text
-Se necesita adoptar la capability CAP-002 (user-story) de MOA-AI-Engineering en este
+Se necesita adoptar la capability CAP-001 (user-story) de MOA-AI-Engineering en este
 repositorio.
 
 1. Leer capabilities/skills/user-story/SKILL.md del repositorio MOA-AI-Engineering.
@@ -71,7 +71,7 @@ repositorio.
 Con eso, la capability queda en el repositorio, adaptada al dominio real. A partir de
 ahí:
 
-1. Con el asistente, sobre un ticket real: *"Usar la capability CAP-002 user-story para
+1. Con el asistente, sobre un ticket real: *"Usar la capability CAP-001 user-story para
    refinar este ticket: [ticket real]"*.
 2. Revisar el resultado antes de considerarlo aprobado.
 3. Registrar la evidencia propia, en el repositorio del equipo: pedirle al asistente que
@@ -158,9 +158,18 @@ el cuerpo de la entrada (Propósito, Cuándo usarla, Instrucciones).
 1. Abrir la capability elegida (`capabilities/<tipo>/<nombre>/`).
 2. Leer su propósito, cuándo usarla y cuándo no.
 3. Identificar qué entrada necesita y qué salida produce.
-4. Copiar su estructura al mecanismo de IA que use el equipo (`.github/skills/`,
-   `.github/agents/`, u otro — ver el mapeo en
-   [`../capabilities/README.md`](../capabilities/README.md)).
+4. Traer su contenido al repositorio del equipo — **2 caminos, según qué se necesita**:
+   - **Uso puntual, una sola vez** (probar una capability sobre un ticket real antes de
+     comprometerse): copiarla a mano al mecanismo de IA que use el equipo
+     (`.github/skills/`, `.github/agents/`, u otro — ver el mapeo en
+     [`../capabilities/README.md`](../capabilities/README.md)). Siempre disponible, sin
+     pedir nada a nadie.
+   - **Adopción del equipo, en curso** (el equipo quiere que `agents`/`skills` se
+     mantengan al día automáticamente, sin copiar a mano cada vez que cambian): sumar el
+     repo al mecanismo de distribución por Pull Request —
+     [`capability-distribution-quickstart.md`](capability-distribution-quickstart.md).
+     Requiere una decisión de gobierno (agregar el repo a una lista explícita) y permisos
+     de escritura configurados una sola vez — después, los PRs llegan solos.
 5. Adaptar el contenido de dominio: roles, ejemplos, reglas del contexto real.
 6. No modificar los contratos comunes (Evidence, Evaluation, Measurement, formato de la
    capability).

@@ -5,7 +5,7 @@ description: Plantilla para la estructura de gobierno de un repositorio con asis
 
 # repository-governance
 
-**Capability Registry**: [`CAP-005`](../../../registry/entries/repository-governance.md).
+**Capability Registry**: [`CAP-006`](../../../registry/entries/repository-governance.md).
 Es una precondición implícita de cualquier flujo asistido por IA — sin esto, ningún otro
 flujo declara autonomía o revisión humana de forma útil.
 

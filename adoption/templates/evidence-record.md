@@ -48,7 +48,7 @@ contrato completo — es corto, conviene leerlo antes de continuar.
 
 | Campo | Valor |
 |---|---|
-| `capability_id` | *(ej. CAP-002 — ID del Registry)* |
+| `capability_id` | *(ej. CAP-001 — ID del Registry)* |
 | `capability_version` | *(hash/versión de la capacidad usada)* |
 | `execution_id` | *(identificador único de esta ejecución — ej. EXEC-20260101-001)* |
 | `executed_at` | *(fecha/hora)* |

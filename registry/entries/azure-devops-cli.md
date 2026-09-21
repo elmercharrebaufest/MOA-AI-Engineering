@@ -1,8 +1,8 @@
-# CAP-001 — azure-devops-cli
+# CAP-008 — azure-devops-cli
 
 | Campo | Valor | Evidencia / clasificación |
 |---|---|---|
-| **ID** | CAP-001 | — |
+| **ID** | CAP-008 | — |
 | **Name** | azure-devops-cli | FACT |
 | **Type** | Skill | FACT — sigue la convención `.github/skills/*/SKILL.md` |
 | **Purpose** | Ejecutar operaciones de Azure DevOps (pipelines, builds, PRs, variable groups) vía CLI, con verificación de entorno obligatoria antes de cualquier tarea, sin que el asistente invente sintaxis de memoria | FACT — leído completo en ambos repos |
@@ -16,7 +16,7 @@
 | **Branch** | Scato Logística: `master`. Orquestador: `master-logistica` | FACT — verificado con `git ls-tree`/`git merge-base` |
 | **Integration Status** | Scato Logística: **integrado** a `master`. Orquestador: **integrado a `master-logistica`** (rama de larga vida, último commit 2026-08-18, confirmada ancestro de `feature/cardless4`) — **NO integrado a `master`** de Orquestador. **Corrección respecto a G3.2/G3.2.5**: esas fases habían caracterizado la evidencia de Orquestador como viviendo solo en una rama feature no integrada; el relevamiento de G4.2 encontró que en realidad está integrada en `master-logistica`, una rama distinta y activamente mantenida — no es el mismo hallazgo de riesgo que se había reportado antes | FACT, con corrección explícita |
 | **Configuration Status** | **VERIFIED** | Contenido completo leído en ambos repos (G3.2.5): mismos 4 pre-checks (`az --version`, extensión, `az account show`, `az devops configure --list`), mismos 2 archivos de referencia (`pipelines-and-builds.md`, `variables-and-agents.md`) — evidencia fuerte de origen común |
-| **Real Use Status** | **CONFIGURED** *(terminología unificada en G4.5 — escala `NOT FOUND / CONFIGURED / EXECUTED / VERIFIED`, la misma que CAP-002)* | Configuración VERIFIED, pero cero ejecuciones registradas como capability (uso real vía CLI confirmado en historial de commits/PRs, no vía Evidence Record) — **no se infiere de Configuration Status**, es la ausencia real de un Evidence Record lo que fija este valor |
+| **Real Use Status** | **CONFIGURED** *(terminología unificada en G4.5 — escala `NOT FOUND / CONFIGURED / EXECUTED / VERIFIED`, la misma que CAP-001)* | Configuración VERIFIED, pero cero ejecuciones registradas como capability (uso real vía CLI confirmado en historial de commits/PRs, no vía Evidence Record) — **no se infiere de Configuration Status**, es la ausencia real de un Evidence Record lo que fija este valor |
 | **Lifecycle State** | Pilot | Configuración madura, sin Evaluation/Measure documentados (`lifecycle.md`, Capability Lifecycle) |
 | **Corporate Standard** | N | Ninguna capacidad relevada completó el Assessment Gate |
 | **Version** | Sin versionado semántico formal. Proxy de Configuration version: Scato Logística = commit `8bff906e` (introducción), posible actualización en `be9ae170` (2026-08-24, diff exacto no verificado — REQUIRES VALIDATION). Orquestador = commit `872911c` | FACT (hashes) / REQUIRES VALIDATION (diff exacto de la actualización) |
@@ -37,7 +37,7 @@
 | **Metric Reference** *(nuevo en G4.3)* | `NOT MEASURED` | Ídem |
 | **Reusable Asset** *(nuevo en G5.1)* | [`capabilities/skills/azure-devops-cli/SKILL.md`](../../capabilities/skills/azure-devops-cli/SKILL.md) | Generalización de las 2 instancias reales — no una copia literal de ninguna |
 | **Action Type** *(nuevo, campo agregado al implementar Context Acquisition & Resolution)* | BOTH | Pre-checks obligatorios = READ; subcomandos posteriores (ej. crear PR) = ACT, según cuál se invoque — ver `security-governance.md` §1.5 |
-| **Context Requirements** *(nuevo)* | No aplica directamente — es una capacidad de operaciones generales, no un Context Provider. El subconjunto de "resolver contexto" quedó extraído en CAP-007 | Revisión explícita en esta actividad, sin cambio de contenido de la skill misma |
+| **Context Requirements** *(nuevo)* | No aplica directamente — es una capacidad de operaciones generales, no un Context Provider. El subconjunto de "resolver contexto" quedó extraído en CAP-002 | Revisión explícita en esta actividad, sin cambio de contenido de la skill misma |
 
 ## Nota de selección
 

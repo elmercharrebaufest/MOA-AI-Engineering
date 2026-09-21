@@ -1,15 +1,15 @@
-# CAP-010 — test-case-generation
+# CAP-014 — test-case-generation
 
-**Nota de clasificación**: misma categoría que CAP-009 — propuesta directa, no
+**Nota de clasificación**: misma categoría que CAP-011 — propuesta directa, no
 generalización de una instancia real. Ver esa entrada para el criterio completo. Queda
 `PROPOSAL` hasta que un equipo real la pilotee.
 
 | Campo | Valor | Evidencia / clasificación |
 |---|---|---|
-| **ID** | CAP-010 | — |
+| **ID** | CAP-014 | — |
 | **Name** | test-case-generation | FACT (existe el archivo) |
 | **Type** | Skill | FACT |
-| **Purpose** | Derivar casos de prueba funcionales a partir de los criterios de aceptación de una historia de usuario (CAP-002) | FACT |
+| **Purpose** | Derivar casos de prueba funcionales a partir de los criterios de aceptación de una historia de usuario (CAP-001) | FACT |
 | **Owner** | REQUIRES VALIDATION | `governance/BLOCKED-DECISIONS.md` #1 |
 | **Maintainer** | REQUIRES VALIDATION | Ídem |
 | **Origin** | No aplica — no hay instancia real de ningún equipo. KO Interno pág. 25 (*"Copilot + Skills + MCP Jira/Confluence propone casos de prueba automáticamente en el ticket"*) | FACT (cita del KO) |
@@ -40,8 +40,8 @@ generalización de una instancia real. Ver esa entrada para el criterio completo
 | **Evaluation Reference** | Ninguna todavía | — |
 | **Metric Reference** | Ninguna todavía | — |
 | **Reusable Asset** | [`capabilities/skills/test-case-generation/SKILL.md`](../../capabilities/skills/test-case-generation/SKILL.md) | — |
-| **Action Type** | READ (no ejecuta tests ni publica el comentario por sí misma) | Mismo principio que CAP-002/007/008/009 |
-| **Context Requirements** | Criterios de aceptación de CAP-002 + opcionalmente Resolved Context (CAP-007/CAP-008) | Reutiliza mecanismos ya existentes |
+| **Action Type** | READ (no ejecuta tests ni publica el comentario por sí misma) | Mismo principio que CAP-001/002/003/011 |
+| **Context Requirements** | Criterios de aceptación de CAP-001 + opcionalmente Resolved Context (CAP-002/CAP-003) | Reutiliza mecanismos ya existentes |
 
 ## Nota de selección
 

@@ -1,7 +1,7 @@
 # Context Providers — Quick Start
 
 **Para quién es**: un desarrollador que quiere ejecutar el vertical slice real
-`Jira/Azure DevOps → Resolved Context → CAP-002 (user-story)` en su propio entorno, sin
+`Jira/Azure DevOps → Resolved Context → CAP-001 (user-story)` en su propio entorno, sin
 depender del arquitecto.
 
 **Estado de cada paso, distinguido sin excepción** (Principio central del modelo,
@@ -19,7 +19,7 @@ depender del arquitecto.
 
 - PowerShell (Windows) o PowerShell Core (`pwsh`, cualquier plataforma).
 - Para Azure DevOps: Azure CLI (`az`) con la extensión `azure-devops` instalada, sesión
-  autenticada (`az login`) — mismo prerequisito ya vigente para CAP-001
+  autenticada (`az login`) — mismo prerequisito ya vigente para CAP-008
   (`azure-devops-cli`).
 - Para Jira: **uno** de los 2 mecanismos:
   - Un cliente MCP real (VS Code + Copilot) con `com.atlassian/atlassian-mcp-server`
@@ -89,7 +89,7 @@ esa configuración/autenticación ya existente (ver detalle en
 `getJiraIssue` sobre un issue real. No hay un comando de terminal para esto — lo ejecuta
 el cliente MCP directamente. Probado durante la construcción sobre varios issues reales
 de tipo distinto, con resultado `retrievalStatus: SUCCESS` y Resolved Context consumido
-por CAP-002 — ejemplos purgados al pasar a adopción real. **No se simuló ningún
+por CAP-001 — ejemplos purgados al pasar a adopción real. **No se simuló ningún
 resultado, ni se realizó ninguna operación `WRITE` sobre Jira.**
 
 **Vía REST (Prioridad 2, fallback headless — sin cliente MCP disponible)**:
@@ -122,7 +122,7 @@ $env:AZURE_DEVOPS_ORG = "https://dev.azure.com/<org>"
 ```
 
 **Estado**: `EXECUTABLE` — las 2 rutas de error y el camino de éxito completo (Work Item
-→ Resolved Context → CAP-002) quedaron probados durante la construcción; ese ejemplo se
+→ Resolved Context → CAP-001) quedaron probados durante la construcción; ese ejemplo se
 purgó al pasar a adopción real — sin ejecuciones reales registradas todavía.
 
 ## 6. Context resolution
@@ -132,21 +132,21 @@ Cualquiera de los 2 scripts anteriores produce un `Resolved Context` que cumple
 — ver ese archivo para el mapeo exacto hacia el contrato conceptual de
 [`../architecture/context-acquisition-resolution.md`](../architecture/context-acquisition-resolution.md).
 
-## 7. CAP-002 execution
+## 7. CAP-001 execution
 
 ```powershell
-./invoke-cap002-with-context.ps1 -ContextFile resolved-context.json
+./invoke-cap001-with-context.ps1 -ContextFile resolved-context.json
 ```
 
 Traduce el `Resolved Context` (sin importar si vino de Jira o Azure DevOps) al mismo
 bloque `Ticket:/Requirement:/Context:` que
 [`../capabilities/skills/user-story/SKILL.md`](../capabilities/skills/user-story/SKILL.md)
-ya acepta. Esa salida se pega en el patrón de ejecución de CAP-002 (sección "Execution
+ya acepta. Esa salida se pega en el patrón de ejecución de CAP-001 (sección "Execution
 prompt pattern" de esa skill), con el asistente de IA que corresponda (Copilot, Claude,
 u otro).
 
 **Estado**: `EXECUTABLE` — vertical slice completo de punta a punta probado durante la
-construcción (Work Item real → Resolved Context real → CAP-002 real); ese ejemplo se
+construcción (Work Item real → Resolved Context real → CAP-001 real); ese ejemplo se
 purgó al pasar a adopción real.
 
 ## 8. Evidence
@@ -163,7 +163,7 @@ Al evaluar un Resolved Context real, separar explícitamente:
 2. **Evaluación humana** — ¿una persona confirmó que el contenido resuelto preserva el
    significado real del issue/work item, sin inventar información?
 3. **Evaluación asistida** (`model-assisted`) — no sustituye la humana, igual que en
-   CAP-002 (ver `../architecture/evidence-evaluation-measurement.md` §2).
+   CAP-001 (ver `../architecture/evidence-evaluation-measurement.md` §2).
 
 **No declarar una evaluación independiente si no existe** — mismo principio ya vigente en
 todo el repositorio.
@@ -182,11 +182,11 @@ todo el repositorio.
 ### Interpretación de SUCCESS / BLOCKED a nivel de vertical slice
 
 Distinto del `retrievalStatus` granular del contrato (sección "Troubleshooting" arriba),
-a nivel de todo el vertical slice (`Reference → Resolved Context → CAP-002`):
+a nivel de todo el vertical slice (`Reference → Resolved Context → CAP-001`):
 
 | Estado del vertical slice | Cuándo aplica |
 |---|---|
-| **SUCCESS** | `retrievalStatus: SUCCESS` o `PARTIAL` **y** CAP-002 se ejecutó sobre ese contexto |
+| **SUCCESS** | `retrievalStatus: SUCCESS` o `PARTIAL` **y** CAP-001 se ejecutó sobre ese contexto |
 | **BLOCKED** | El script/herramienta se ejecutó de verdad (no se omitió), pero no hay mecanismo de autenticación real disponible en el entorno — `retrievalStatus: SOURCE_UNAVAILABLE`/`UNAUTHORIZED`, con `error` explícito. **No es un fallo de diseño** — es un prerrequisito de entorno faltante, documentado con su causa exacta |
 
 `BLOCKED` nunca se reescribe como `SUCCESS` sin que el mecanismo real exista.

@@ -1,0 +1,34 @@
+# Plantilla de Azure Pipeline -- ver ../capability-distribution.md.
+# Dispara sync-capability-distribution.ps1 SOLO cuando cambia capabilities/agents/** o
+# capabilities/skills/** en la rama principal de MOA-AI-Engineering -- un cambio de
+# documentacion (architecture/, registry/, etc.) no dispara este pipeline.
+#
+# Requiere, por cada equipo que lo adopte (Team Adaptation -- nada de esto viene resuelto):
+#   - Reemplazar <nombre-real> por el nombre real de la rama principal de este repo.
+#   - Configurar una Service Connection de Azure DevOps con permiso de lectura sobre este
+#     repo y de escritura (crear rama + PR, nunca push directo a main) sobre cada repo
+#     destino listado en capability-distribution-targets.json.
+#   - Completar capability-distribution-targets.json con los repos reales aprobados.
+
+trigger:
+  branches:
+    include:
+      - <nombre-real-de-la-rama-principal>
+  paths:
+    include:
+      - capabilities/agents/*
+      - capabilities/skills/*
+      - capabilities/instructions/*
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - task: AzureCLI@2
+    displayName: 'Sync capabilities a repos de equipo (PR automatico)'
+    inputs:
+      azureSubscription: '<nombre-de-la-service-connection>'
+      scriptType: 'pscore'
+      scriptLocation: 'scriptPath'
+      scriptPath: 'integrations/scripts/sync-capability-distribution.ps1'
+      arguments: '-TargetsFile $(Build.SourcesDirectory)/integrations/scripts/capability-distribution-targets.json'

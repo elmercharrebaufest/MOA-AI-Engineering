@@ -1,8 +1,8 @@
-# CAP-004 — spec-driven-development
+# CAP-005 — spec-driven-development
 
 | Campo | Valor | Evidencia / clasificación |
 |---|---|---|
-| **ID** | CAP-004 | — |
+| **ID** | CAP-005 | — |
 | **Name** | spec-driven-development | FACT |
 | **Type** | Workflow | FACT — proceso multi-paso con estado, roles fijos, sin razonamiento dinámico (`capability-model.md`, criterio de desambiguación con Agent) |
 | **Purpose** | Llevar un requerimiento desde ticket real hasta código verificado, con trazabilidad explícita y sin inventar contenido de requerimiento | FACT — 2 niveles de madurez, ver "Nota de clasificación" |
@@ -33,7 +33,7 @@
 | **Adopters** | DataAgro (nivel Lite, real). Ninguno confirmado para el nivel Full | FACT |
 | **Last Review** | 2026-09-18 | Corregido — ver nota de clasificación |
 | **Reusable Asset** | [`capabilities/workflows/spec-driven-development/WORKFLOW.md`](../../capabilities/workflows/spec-driven-development/WORKFLOW.md) | Generalización del nivel Lite, con el nivel Full documentado como propuesta conceptual, no una copia de ningún harness real |
-| **Evidence Reference** | Tickets reales `MOA-1816`/`MOA-1765` en `_sdd/` de DataAgro — instancias reales de este Workflow en su nivel Lite (las pruebas de CAP-002 que también usaron estos tickets como input fueron pruebas del mecanismo, ya purgadas, sin relación con esta evidencia) | Evidencia del Workflow en sí, independiente del estado de las pruebas de CAP-002 |
+| **Evidence Reference** | Tickets reales `MOA-1816`/`MOA-1765` en `_sdd/` de DataAgro — instancias reales de este Workflow en su nivel Lite (las pruebas de CAP-001 que también usaron estos tickets como input fueron pruebas del mecanismo, ya purgadas, sin relación con esta evidencia) | Evidencia del Workflow en sí, independiente del estado de las pruebas de CAP-001 |
 
 ## Nota de clasificación (corregida 2026-09-18)
 
@@ -41,7 +41,7 @@ El nivel Lite (DataAgro) tiene evidencia real de uso, con código y tests reales
 El nivel Full (6 roles, contratos JSON, gate formal de `security-reviewer`) es un patrón
 conceptual, descrito en la literatura de spec-driven-development y contrastado contra
 GitHub Spec Kit (External Practice) — **sin evidencia de ejecución real de ningún equipo
-de MOA todavía**. Se registra como una sola entrada (CAP-004) con ambos niveles
+de MOA todavía**. Se registra como una sola entrada (CAP-005) con ambos niveles
 explícitos, en vez de 2 entradas separadas, porque comparten el mismo origen conceptual y
 la distinción de madurez es más útil visible en un solo lugar que fragmentada. Antes de
 recomendar el nivel Full a un equipo real, corresponde pilotearlo primero — no adoptarlo

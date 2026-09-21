@@ -5,7 +5,7 @@ description: Deriva casos de prueba funcionales a partir de los criterios de ace
 
 # test-case-generation
 
-**Capability Registry**: [`CAP-010`](../../../registry/entries/test-case-generation.md).
+**Capability Registry**: [`CAP-014`](../../../registry/entries/test-case-generation.md).
 **Golden Path**: [`AI-Assisted QA`](../../../golden-paths/README.md#3-ai-assisted-qa).
 **Estado**: `PROPOSAL` — sin ejecución real ni piloto de ningún equipo todavía. Ver la
 entrada del Registry para el detalle de evidencia.
@@ -13,14 +13,14 @@ entrada del Registry para el detalle de evidencia.
 ## Propósito
 
 Derivar casos de prueba funcionales a partir de los criterios de aceptación ya definidos
-por [`user-story`](../user-story/SKILL.md) (CAP-002), para que QA dedique el tiempo a
+por [`user-story`](../user-story/SKILL.md) (CAP-001), para que QA dedique el tiempo a
 validación exploratoria y de negocio en vez de a redactar desde cero los casos que ya se
 desprenden directamente de los criterios.
 
 ## Cuándo usarla
 
 - Ya existe una historia de usuario con criterios de aceptación en formato Given/When/Then
-  (CAP-002), y se necesita traducirlos a casos de prueba ejecutables por una persona.
+  (CAP-001), y se necesita traducirlos a casos de prueba ejecutables por una persona.
 
 ## Cuándo NO usarla
 
@@ -33,7 +33,7 @@ desprenden directamente de los criterios.
 
 ## Entradas
 
-Una historia de usuario con criterios de aceptación reales (salida de CAP-002, o
+Una historia de usuario con criterios de aceptación reales (salida de CAP-001, o
 equivalente si el equipo ya tiene sus propios criterios documentados).
 
 ## Salidas
@@ -58,7 +58,7 @@ Resultado esperado: [el resultado del criterio Then, expresado de forma verifica
 
 Cada criterio de aceptación de la historia debe tener al menos un caso — no traducir solo
 el camino feliz. Si la historia ya distingue camino feliz / validación o error / caso
-borde (formato de CAP-002), mantener esa misma distinción en los casos generados.
+borde (formato de CAP-001), mantener esa misma distinción en los casos generados.
 
 ### 3. Casos no cubiertos por los criterios
 
@@ -80,13 +80,13 @@ Ticket:
 MOA-XXXX
 
 Criterios de aceptación:
-[los criterios reales de CAP-002 para esta historia, sin parafrasear]
+[los criterios reales de CAP-001 para esta historia, sin parafrasear]
 ```
 
 ### Patrón de ejecución
 
 ```
-Usa la capability CAP-010 test-case-generation.
+Usa la capability CAP-014 test-case-generation.
 
 Criterios de aceptación reales:
 [los criterios, tal como fueron redactados]
@@ -114,8 +114,8 @@ Mismo mecanismo que el resto del Registry —
 ## Dependencias
 
 Reutiliza los criterios de aceptación producidos por
-[`user-story`](../../../registry/entries/user-story.md) (CAP-002) y, cuando el ticket se
-resuelve automáticamente, el Resolved Context de CAP-007/CAP-008 — no define un mecanismo
+[`user-story`](../../../registry/entries/user-story.md) (CAP-001) y, cuando el ticket se
+resuelve automáticamente, el Resolved Context de CAP-002/CAP-003 — no define un mecanismo
 de acceso a tickets propio.
 
 ## Herramientas / permisos
@@ -138,9 +138,9 @@ TEAM-SPECIFIC (`docs/history/track-1/G5.1-Reusable-Capability-Library.md`).
 estructurados (Given/When/Then, BDD) es práctica estándar de la industria, la misma base
 que usan frameworks BDD como Cucumber/SpecFlow. **Architectural Judgment**: en vez de
 inventar un formato de criterios nuevo, esta skill consume directamente el output ya
-validado de CAP-002 — reutiliza, no duplica.
+validado de CAP-001 — reutiliza, no duplica.
 
 ## Compatibilidad / adaptación
 
-Portable a cualquier equipo que ya use CAP-002 — sin contenido específico de dominio que
+Portable a cualquier equipo que ya use CAP-001 — sin contenido específico de dominio que
 adaptar.

@@ -33,7 +33,7 @@ Context:
 "..."
 ```
 
-Este es el modo que **ya funciona hoy** — es como CAP-002 (`user-story`) se ejecutó en
+Este es el modo que **ya funciona hoy** — es como CAP-001 (`user-story`) se ejecutó en
 sus 2 evidencias reales ([`../evidence/README.md`](../evidence/README.md)). No requiere
 ningún cambio para seguir funcionando así.
 
@@ -49,8 +49,8 @@ MOA-1234
 
 Esta brecha ya tiene el mecanismo probado de punta a punta durante la construcción,
 **READ-only** ([`../evidence/README.md`](../evidence/README.md) para el estado vivo):
-Azure DevOps → Resolved Context → CAP-002, y Jira (vía Atlassian Rovo MCP) →
-Resolved Context → CAP-002. Son ejemplos de Connected Context sobre 2 sistemas
+Azure DevOps → Resolved Context → CAP-001, y Jira (vía Atlassian Rovo MCP) →
+Resolved Context → CAP-001. Son ejemplos de Connected Context sobre 2 sistemas
 concretos — no dependencias obligatorias del modelo, que sigue siendo
 provider-agnostic. Esta versión define el contrato y los primeros 2 patrones concretos
 (Azure DevOps, Jira — ver [`../integrations/`](../integrations/catalog.md)), ambos
@@ -76,7 +76,7 @@ Context Acquisition / Resolution
    Resolved Context ◄───────────────┘
    │
    ▼
-Capability (ej. CAP-002)
+Capability (ej. CAP-001)
 ```
 
 Da igual si el `Resolved Context` viene de Direct o Connected — la capability recibe la
@@ -133,9 +133,9 @@ en camelCase. Ver
 [`../integrations/scripts/resolved-context.schema.json`](../integrations/scripts/resolved-context.schema.json)
 para el JSON Schema completo con esta nota documentada en el propio archivo.
 
-- [`../integrations/scripts/azure-devops-context.ps1`](../integrations/scripts/azure-devops-context.ps1) — CAP-007, READ-only, `az` CLI.
-- [`../integrations/scripts/jira-context.ps1`](../integrations/scripts/jira-context.ps1) — CAP-008, READ-only, REST (fallback documentado — MCP `getJiraIssue` es Prioridad 1, ver [`../integrations/scripts/mcp.template.json`](../integrations/scripts/mcp.template.json)).
-- [`../integrations/scripts/invoke-cap002-with-context.ps1`](../integrations/scripts/invoke-cap002-with-context.ps1) — adaptador hacia CAP-002, sin tocar la capability misma.
+- [`../integrations/scripts/azure-devops-context.ps1`](../integrations/scripts/azure-devops-context.ps1) — CAP-002, READ-only, `az` CLI.
+- [`../integrations/scripts/jira-context.ps1`](../integrations/scripts/jira-context.ps1) — CAP-003, READ-only, REST (fallback documentado — MCP `getJiraIssue` es Prioridad 1, ver [`../integrations/scripts/mcp.template.json`](../integrations/scripts/mcp.template.json)).
+- [`../integrations/scripts/invoke-cap001-with-context.ps1`](../integrations/scripts/invoke-cap001-with-context.ps1) — adaptador hacia CAP-001, sin tocar la capability misma.
 - Quick Start completo: [`../adoption/context-providers-quickstart.md`](../adoption/context-providers-quickstart.md).
 
 `retrieval_status` en la implementación real usa una enumeración más granular que la
@@ -147,7 +147,7 @@ simplificación previa), no un campo nuevo.
 ## Qué NO implementa esta versión
 
 - Ningún servicio distribuido, ningún cache, ninguna infraestructura de resolución.
-- Ninguna resolución automática dentro de CAP-002 ni de ninguna otra capability existente
+- Ninguna resolución automática dentro de CAP-001 ni de ninguna otra capability existente
   — la resolución es un paso previo y externo, no una función interna de la capability.
 - Ningún Context Provider más allá de Azure DevOps y Jira en esta primera ola — SharePoint,
   Confluence, Git u otros quedan `REQUIRES VALIDATION`/futuro, sin diseño todavía.

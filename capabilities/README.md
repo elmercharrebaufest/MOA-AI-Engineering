@@ -31,57 +31,85 @@ Para quien recién llega y solo necesita entender qué hace cada cosa, sin tecni
 Siguiendo el orden en que normalmente aparecen en el trabajo diario de un ticket:
 
 **Refinar un requerimiento**
-- **`user-story`** (CAP-002) — toma un ticket escrito de cualquier forma y lo convierte
+- **`user-story`** (CAP-001) — toma un ticket escrito de cualquier forma y lo convierte
   en una historia de usuario completa: con criterios de aceptación claros, reglas de
   negocio explícitas y una lista de preguntas pendientes, para que el equipo llegue al
   refinamiento con menos ambigüedad. **En uso real** en 3 equipos de MOA.
-- **`product-owner`** (CAP-012) — hace exactamente lo mismo que `user-story`, pero como
+- **`product-owner`** (CAP-004) — hace exactamente lo mismo que `user-story`, pero como
   un rol de asistente permanente que puede ir directo a buscar el ticket en Jira, en vez
   de que alguien tenga que copiarlo y pegarlo a mano. Solo puede leer el ticket, nunca
   comentarlo ni cambiarlo. **Propuesta nueva, todavía sin probar por ningún equipo.**
 
 **Desarrollar y abrir el Pull Request**
-- **`spec-driven-development`** (CAP-004) — organiza el desarrollo de un ticket en pasos y
+- **`spec-driven-development`** (CAP-005) — organiza el desarrollo de un ticket en pasos y
   roles claros (quien especifica, quien escribe el código, quien lo prueba), dejando
   registro de cada paso en vez de perder ese detalle en el camino. **En uso real** en 2
   equipos, con una versión simple (recomendada para empezar) y una más completa.
-- **`repository-governance`** (CAP-005) — un archivo que le dice al asistente de IA qué
+- **`spec-review`** (CAP-007) — audita lo que generó `spec-driven-development` (¿quedó
+  algo ambiguo sin resolver? ¿alguna tarea no cubre nada de lo pedido?), sin escribir
+  contenido nuevo. **Propuesta nueva, todavía sin probar por ningún equipo.**
+- **`spec-reader`** (CAP-018) — responde preguntas sobre lo que ya está documentado (¿qué
+  hace esta feature? ¿cuáles son sus criterios?), citando siempre de dónde sale la
+  respuesta — nunca inventa ni completa con conocimiento general. No escribe ni audita,
+  solo consulta. **Propuesta nueva, todavía sin probar por ningún equipo.**
+- **`repository-governance`** (CAP-006) — un archivo que le dice al asistente de IA qué
   puede hacer siempre sin preguntar, qué debe confirmar antes, y qué nunca debe hacer en
   ese repositorio, para que su comportamiento sea predecible. **En uso real** en 4
   repositorios.
-- **`azure-devops-cli`** (CAP-001) — ayuda a operar Azure DevOps desde la línea de
+- **`azure-devops-cli`** (CAP-008) — ayuda a operar Azure DevOps desde la línea de
   comandos sin tener que buscar la sintaxis exacta de cada comando. **En uso real** en 2
   equipos.
-- **`pr-description`** (CAP-009) — redacta el título y la descripción de un Pull Request
+- **`ticket-kickoff`** (CAP-010) — un rol de asistente que, con tu aprobación, encadena
+  todo lo anterior: investiga el ticket, arma un plan técnico con horas estimadas, y —
+  solo si aprobás el plan — implementa el código él mismo en un espacio de trabajo
+  aislado (usando `git-worktree-setup`, CAP-009, para no pisar otras tareas en paralelo),
+  dejándolo listo para que lo revises antes de publicar. Es la única capacidad de este
+  catálogo que puede editar código real — siempre detrás de tu aprobación explícita.
+  **Propuesta nueva, todavía sin probar por ningún equipo.**
+- **`pr-description`** (CAP-011) — redacta el título y la descripción de un Pull Request
   a partir del ticket de origen y del cambio real de código, para no escribirlo desde
   cero cada vez. **Propuesta nueva, todavía sin probar por ningún equipo.**
 
 **Revisar el código**
-- **`read-only-code-reviewer`** (CAP-003) — revisa un cambio de código y señala problemas
+- **`read-only-code-reviewer`** (CAP-012) — revisa un cambio de código y señala problemas
   de seguridad, errores sin manejar, tests faltantes o de mala calidad — pero no puede
   modificar ningún archivo por sí mismo, solo informa. Es una segunda mirada antes de que
   una persona apruebe el cambio, nunca la reemplaza. **En uso real** en 2 equipos.
-- **`stack-best-practices-template`** (CAP-006) — una plantilla vacía para que cada
+- **`stack-best-practices-template`** (CAP-013) — una plantilla vacía para que cada
   equipo documente las reglas reales de su propio stack tecnológico, para que
   `read-only-code-reviewer` las aplique correctamente. No trae contenido — las reglas de
   un stack no sirven para otro.
 
 **Probar y cerrar el ticket**
-- **`test-case-generation`** (CAP-010) — a partir de los criterios de aceptación de una
+- **`test-case-generation`** (CAP-014) — a partir de los criterios de aceptación de una
   historia de usuario, redacta los casos de prueba que se desprenden directamente de
   ellos, para que QA dedique el tiempo a lo que es más difícil de anticipar. **Propuesta
   nueva, todavía sin probar por ningún equipo.**
-- **`ticket-closure-assist`** (CAP-011) — antes de cerrar un ticket, revisa si sus
-  criterios de aceptación realmente se cumplieron (con evidencia real, no una suposición)
-  y redacta un borrador del comentario de cierre. **Propuesta nueva, todavía sin probar
-  por ningún equipo.**
+- **`regression-test-generation`** (CAP-015) — mirando un caso de prueba ya redactado,
+  decide si conviene automatizarlo (con un criterio explícito, no a ojo) y, si conviene,
+  genera el código del test siguiendo la estructura que el repo ya use. No lo ejecuta
+  automáticamente en ningún pipeline — eso sigue dependiendo de una integración que hoy
+  ningún equipo de MOA tiene. **Propuesta nueva, todavía sin probar por ningún equipo.**
+- **`ticket-closure-assist`** (CAP-016) — antes de cerrar un ticket, revisa si sus
+  criterios de aceptación realmente se cumplieron (con evidencia real, no una suposición),
+  estima cuántas horas cargar a partir del historial real de commits, y redacta un
+  borrador del comentario de cierre. **Propuesta nueva, todavía sin probar por ningún
+  equipo.**
 
 **Traer el contenido de un ticket automáticamente**
-- **`azure-devops-context`** (CAP-007) y **`jira-context`** (CAP-008) — con solo dar la
+- **`azure-devops-context`** (CAP-002) y **`jira-context`** (CAP-003) — con solo dar la
   referencia de un ticket o Work Item (por ejemplo, `MOA-1234`), el asistente trae su
   contenido real automáticamente, en vez de que alguien tenga que copiarlo y pegarlo a
   mano. Ambos son de solo lectura. El mecanismo quedó probado durante la construcción; la
   evidencia de uso real por un equipo está en curso.
+
+**Investigar un problema en producción**
+- **`production-incident-investigation`** (CAP-017) — dado un error o incidente real
+  (pegado a mano, o consultado de una plataforma de monitoreo si el equipo ya tiene una
+  conectada), busca la causa más probable citando evidencia real, sin modificar nada.
+  Cubre solo el diagnóstico — no cubre las otras 4 líneas de soporte que menciona el KO
+  (comunicación al cliente, cierre asistido, detección de recurrencia), que siguen sin
+  propuesta. **Propuesta nueva, todavía sin probar por ningún equipo.**
 
 **Qué significa "en uso real" vs. "propuesta nueva"**: "en uso real" quiere decir que al
 menos un equipo de MOA ya tenía esa práctica funcionando por su cuenta, y este repositorio
@@ -94,21 +122,21 @@ ningún caso, está impuesta como estándar obligatorio.
 
 Referencia rápida con el tipo de cada capacidad, dónde está el archivo, y el link a su
 entrada completa del Registry (con la evidencia detallada detrás de cada una). Se divide
-en 2 tablas — no porque unas valgan más que otras, sino porque el origen de la evidencia
-es distinto (ver la nota debajo de la segunda tabla).
+en varias tablas — no porque unas valgan más que otras, sino porque el origen de la
+evidencia es distinto en cada grupo.
 
 ### Con evidencia real de al menos un equipo de MOA (6)
 
 | Capacidad | Tipo | Dónde | Para qué | Registry |
 |---|---|---|---|---|
-| `azure-devops-cli` | Skill | [`skills/azure-devops-cli/SKILL.md`](skills/azure-devops-cli/SKILL.md) | Operar Azure DevOps por CLI sin inventar sintaxis | [CAP-001](../registry/entries/azure-devops-cli.md) |
-| `user-story` | Skill | [`skills/user-story/SKILL.md`](skills/user-story/SKILL.md) | Estructurar requerimientos en historias de usuario | [CAP-002](../registry/entries/user-story.md) |
-| `read-only-code-reviewer` | Agent | [`agents/read-only-code-reviewer/AGENT.md`](agents/read-only-code-reviewer/AGENT.md) | Code review acotado al diff, sin poder de escritura | [CAP-003](../registry/entries/dotnet-code-reviewer.md) |
-| `spec-driven-development` | Workflow | [`workflows/spec-driven-development/WORKFLOW.md`](workflows/spec-driven-development/WORKFLOW.md) | Llevar un ticket de spec a código verificado, con trazabilidad | [CAP-004](../registry/entries/spec-driven-development.md) |
-| `repository-governance` | Instruction | [`instructions/repository-governance/INSTRUCTIONS.md`](instructions/repository-governance/INSTRUCTIONS.md) | Declarar qué puede/no puede hacer un asistente sin supervisión | [CAP-005](../registry/entries/repository-governance.md) |
-| `stack-best-practices-template` | Skill | [`skills/stack-best-practices-template/SKILL.md`](skills/stack-best-practices-template/SKILL.md) | Plantilla para documentar las buenas prácticas del stack real de cada equipo | [CAP-006](../registry/entries/stack-best-practices-template.md) |
+| `azure-devops-cli` | Skill | [`skills/azure-devops-cli/SKILL.md`](skills/azure-devops-cli/SKILL.md) | Operar Azure DevOps por CLI sin inventar sintaxis | [CAP-008](../registry/entries/azure-devops-cli.md) |
+| `user-story` | Skill | [`skills/user-story/SKILL.md`](skills/user-story/SKILL.md) | Estructurar requerimientos en historias de usuario | [CAP-001](../registry/entries/user-story.md) |
+| `read-only-code-reviewer` | Agent | [`agents/read-only-code-reviewer/AGENT.md`](agents/read-only-code-reviewer/AGENT.md) | Code review acotado al diff, sin poder de escritura | [CAP-012](../registry/entries/dotnet-code-reviewer.md) |
+| `spec-driven-development` | Workflow | [`workflows/spec-driven-development/WORKFLOW.md`](workflows/spec-driven-development/WORKFLOW.md) | Llevar un ticket de spec a código verificado, con trazabilidad | [CAP-005](../registry/entries/spec-driven-development.md) |
+| `repository-governance` | Instruction | [`instructions/repository-governance/INSTRUCTIONS.md`](instructions/repository-governance/INSTRUCTIONS.md) | Declarar qué puede/no puede hacer un asistente sin supervisión | [CAP-006](../registry/entries/repository-governance.md) |
+| `stack-best-practices-template` | Skill | [`skills/stack-best-practices-template/SKILL.md`](skills/stack-best-practices-template/SKILL.md) | Plantilla para documentar las buenas prácticas del stack real de cada equipo | [CAP-013](../registry/entries/stack-best-practices-template.md) |
 
-### Propuestas nuevas — sin evidencia de origen todavía (CAP-009 a CAP-012)
+### Propuestas nuevas — sin evidencia de origen todavía (CAP-004, CAP-011, CAP-014, CAP-016)
 
 **Distinción deliberada respecto a la tabla de arriba**: las 6 capacidades anteriores son
 generalizaciones de patrones reales ya en uso por al menos un equipo de MOA. Las 4 de
@@ -120,10 +148,29 @@ todavía. Ver el detalle de evidencia de cada una en su entrada del Registry.
 
 | Capacidad | Tipo | Dónde | Para qué | Registry |
 |---|---|---|---|---|
-| `pr-description` | Skill | [`skills/pr-description/SKILL.md`](skills/pr-description/SKILL.md) | Título/descripción de PR a partir del ticket y el diff real | [CAP-009](../registry/entries/pr-description.md) |
-| `test-case-generation` | Skill | [`skills/test-case-generation/SKILL.md`](skills/test-case-generation/SKILL.md) | Derivar casos de prueba de los criterios de aceptación | [CAP-010](../registry/entries/test-case-generation.md) |
-| `ticket-closure-assist` | Skill | [`skills/ticket-closure-assist/SKILL.md`](skills/ticket-closure-assist/SKILL.md) | Verificar criterios y redactar el borrador de cierre del ticket | [CAP-011](../registry/entries/ticket-closure-assist.md) |
-| `product-owner` | Agent | [`agents/product-owner/AGENT.md`](agents/product-owner/AGENT.md) | Empaquetado como Agent de la lógica de `user-story`, con MCP acotado | [CAP-012](../registry/entries/product-owner.md) |
+| `pr-description` | Skill | [`skills/pr-description/SKILL.md`](skills/pr-description/SKILL.md) | Título/descripción de PR a partir del ticket y el diff real | [CAP-011](../registry/entries/pr-description.md) |
+| `test-case-generation` | Skill | [`skills/test-case-generation/SKILL.md`](skills/test-case-generation/SKILL.md) | Derivar casos de prueba de los criterios de aceptación | [CAP-014](../registry/entries/test-case-generation.md) |
+| `ticket-closure-assist` | Skill | [`skills/ticket-closure-assist/SKILL.md`](skills/ticket-closure-assist/SKILL.md) | Verificar criterios y redactar el borrador de cierre del ticket | [CAP-016](../registry/entries/ticket-closure-assist.md) |
+| `product-owner` | Agent | [`agents/product-owner/AGENT.md`](agents/product-owner/AGENT.md) | Empaquetado como Agent de la lógica de `user-story`, con MCP acotado | [CAP-004](../registry/entries/product-owner.md) |
+
+### Propuestas con evidencia externa de un cliente de Baufest (CAP-007, CAP-009, CAP-010, CAP-015, CAP-017, CAP-018)
+
+**Distinción respecto a las 2 tablas de arriba**: no son generalizaciones de un equipo de
+MOA (como CAP-001, CAP-005, CAP-006, CAP-008, CAP-012, CAP-013), ni propuestas sin ninguna
+instancia de referencia (como CAP-004, CAP-011, CAP-014, CAP-016) — tienen una instancia
+real de origen, pero de un **cliente distinto de
+Baufest (Camuzzi), no un equipo de MOA** (reunión 2026-09-21). Mismo tratamiento que el
+resto: `PROPOSAL`, nunca `Corporate Standard`, contenido generalizado sin copiar nombres
+de repos ni convenciones específicas de ese cliente.
+
+| Capacidad | Tipo | Dónde | Para qué | Registry |
+|---|---|---|---|---|
+| `git-worktree-setup` | Agent | [`agents/git-worktree-setup/AGENT.md`](agents/git-worktree-setup/AGENT.md) | Aislar el trabajo de cada tarea en su propio `git worktree` | [CAP-009](../registry/entries/git-worktree-setup.md) |
+| `ticket-kickoff` | Agent (orquestador) | [`agents/ticket-kickoff/AGENT.md`](agents/ticket-kickoff/AGENT.md) | Investigar, planificar e implementar un ticket, con 2 checkpoints humanos | [CAP-010](../registry/entries/ticket-kickoff.md) |
+| `spec-review` | Skill | [`skills/spec-review/SKILL.md`](skills/spec-review/SKILL.md) | Auditar los artefactos de `spec-driven-development` | [CAP-007](../registry/entries/spec-review.md) |
+| `regression-test-generation` | Skill | [`skills/regression-test-generation/SKILL.md`](skills/regression-test-generation/SKILL.md) | Clasificar y generar código de test de regresión | [CAP-015](../registry/entries/regression-test-generation.md) |
+| `production-incident-investigation` | Agent | [`agents/production-incident-investigation/AGENT.md`](agents/production-incident-investigation/AGENT.md) | Investigar la causa raíz de un incidente de producción | [CAP-017](../registry/entries/production-incident-investigation.md) |
+| `spec-reader` | Agent | [`agents/spec-reader/AGENT.md`](agents/spec-reader/AGENT.md) | Responder preguntas sobre specs ya documentadas, con citas | [CAP-018](../registry/entries/spec-reader.md) |
 
 ### Patrones de adquisición de contexto (2)
 
@@ -136,8 +183,8 @@ razón completa de por qué no están en las tablas anteriores.
 
 | Capacidad | Tipo | Dónde | Para qué | Registry |
 |---|---|---|---|---|
-| `azure-devops-context` | Integration/API | [`../integrations/azure-devops-context-provider.md`](../integrations/azure-devops-context-provider.md) | Traer automáticamente el contenido real de un Work Item de Azure DevOps | [CAP-007](../registry/entries/azure-devops-context.md) |
-| `jira-context` | MCP | [`../integrations/jira-context-provider.md`](../integrations/jira-context-provider.md) | Traer automáticamente el contenido real de un ticket de Jira, vía MCP Atlassian | [CAP-008](../registry/entries/jira-context.md) |
+| `azure-devops-context` | Integration/API | [`../integrations/azure-devops-context-provider.md`](../integrations/azure-devops-context-provider.md) | Traer automáticamente el contenido real de un Work Item de Azure DevOps | [CAP-002](../registry/entries/azure-devops-context.md) |
+| `jira-context` | MCP | [`../integrations/jira-context-provider.md`](../integrations/jira-context-provider.md) | Traer automáticamente el contenido real de un ticket de Jira, vía MCP Atlassian | [CAP-003](../registry/entries/jira-context.md) |
 
 ## Cómo se llegó a esta lista (y qué quedó afuera, a propósito)
 
@@ -196,16 +243,117 @@ tiene una plataforma única sancionada): el mapeo de archivos/convenciones cambi
 ser la plataforma con evidencia interna real dominante) — no es una nueva arquitectura,
 es una aclaración de cómo se usa la ya existente.
 
-## Cómo usar una capacidad
+### Camino más maduro — distribución automática (investigado y resuelto, 2026-09-21)
 
-1. Abrí el archivo de la capacidad (no solo esta tabla) — cada una tiene: cuándo usarla,
-   cuándo NO, entradas/salidas, seguridad, HITL, ejemplos, y qué adaptar.
+Copiar el archivo a mano a cada repo (como describe la tabla de arriba) es el camino que
+funciona hoy, pero no el más maduro posible. Se investigó a fondo, contra fuentes
+oficiales, si existe un camino automático — el resultado, sin especular, es este:
+
+**GitHub Agent Plugins 1.0 no aplica a MOA.** GitHub/VS Code tienen, desde agosto 2026,
+una especificación oficial (repo especial `.github` de organización, agents/skills/
+instructions distribuidos automáticamente a todo developer que abre un repo de esa
+organización) — confirmada con documentación oficial y una demostración real de un cliente
+distinto de Baufest (no de MOA). Pero ese mecanismo depende de que el repo tenga su remote
+en github.com bajo esa organización — y los repos reales de MOA están en **Azure DevOps**
+(`az repos pr create`, Work Items — ver CAP-008/CAP-002). Se investigaron además 3
+mecanismos adicionales de GitHub Enterprise que podrían no depender del hosting del repo;
+ninguno resultó aplicable (detalle completo en
+[`../TRACK-1/analisis-camuzzi-agent-plugins.md`](../TRACK-1/analisis-camuzzi-agent-plugins.md)).
+
+**Lo que sí aplica, en 2 partes:**
+
+1. **Para Code Review (una sola etapa del KO)**: Azure DevOps tiene su propio mecanismo
+   nativo — instrucciones de Copilot a nivel organización/proyecto/repositorio,
+   configurables en Azure DevOps Settings, sin necesidad de GitHub. Real, en preview
+   público, requiere permisos de Project Collection Administrator para habilitarlo (ver
+   `governance/BLOCKED-DECISIONS.md` #13).
+2. **Para el resto del ciclo (agents/skills usados durante el desarrollo)**: no existe una
+   función nativa de plataforma — ni de Azure DevOps ni de GitHub — que resuelva esto para
+   repos alojados en Azure DevOps. El camino elegido es
+   [`../integrations/capability-distribution.md`](../integrations/capability-distribution.md):
+   un mecanismo de sync por Pull Request, reutilizando el mismo comando (`az repos pr
+   create`) que ya usan en producción Scato Logística y Orquestador — nunca push directo,
+   siempre revisión humana del equipo dueño del repo. `PROPOSAL`, sin ejecución real
+   todavía.
+
+`MOA-AI-Engineering` (este repositorio) sigue siendo, siempre, la **fuente** del modelo —
+donde vive el Registry, la documentación y cada capacidad. Ningún mecanismo de
+distribución (ni el de Azure DevOps para Code Review, ni el sync por PR) reemplaza esa
+fuente — son formas distintas de que el contenido llegue desde acá hasta cada repo de
+equipo, igual que hoy un equipo copia una capacidad a mano a su propio repo.
+
+## Cómo usar una capacidad — ejemplo concreto, de punta a punta
+
+No hace falta instalar nada nuevo — el propio asistente de IA que ya usás (Copilot,
+Claude, el que esté disponible en tu proyecto) hace el trabajo mecánico. Ejemplo real,
+con `user-story` (CAP-001), aplicable de la misma forma a cualquier otra capacidad de
+este catálogo.
+
+**Antes del Paso 1 — decidir cómo va a llegar el contenido a tu repo.** Hay 2 caminos, no
+uno solo:
+
+- **¿Solo querés probarla una vez, sobre un ticket real?** → seguí el Paso 1 de abajo
+  (copia manual, vía agente). Sin pedir nada a nadie, disponible ahora mismo.
+- **¿Tu equipo va a adoptarla de forma continua, y querés que se mantenga actualizada
+  sola cuando cambie acá?** → no copies a mano — sumá tu repo al mecanismo de
+  distribución automática por Pull Request. Ver
+  [`../integrations/capability-distribution.md`](../integrations/capability-distribution.md)
+  y la guía paso a paso:
+  [`../adoption/capability-distribution-quickstart.md`](../adoption/capability-distribution-quickstart.md).
+  Requiere una decisión de gobierno (agregar tu repo a una lista explícita) — una vez
+  hecho, los `agents`/`skills` te llegan como Pull Request cada vez que cambian, sin que
+  nadie tenga que copiar nada.
+
+**Paso 1 — traer la capacidad a tu repositorio (camino manual, uso puntual).** Con
+`MOA-AI-Engineering` clonado o accesible en tu entorno, en tu propio repositorio de
+aplicación, en modo agente:
+
+```text
+Se necesita adoptar la capability CAP-001 (user-story) de MOA-AI-Engineering en este
+repositorio.
+
+1. Leer capabilities/skills/user-story/SKILL.md del repositorio MOA-AI-Engineering.
+2. Copiar su contenido a este repositorio, en la carpeta que se use para
+   instrucciones/skills de IA (si no existe ninguna, preguntar antes de crear una
+   nueva).
+3. En la sección "Sobre el rol", preguntar primero qué roles reales existen en este
+   dominio antes de completarla — no inventar roles.
+4. Mostrar el archivo final antes de guardarlo.
+```
+
+**Paso 2 — usarla sobre un ticket real de tu proyecto.**
+
+```text
+Usar la capability CAP-001 user-story para refinar este ticket: [pegar el ticket real
+de tu proyecto acá]
+```
+
+**Paso 3 — revisar el resultado** antes de darlo por bueno (nunca se aprueba una salida
+de IA solo por generarse), y **registrar la evidencia** copiando
+[`../adoption/templates/evidence-record.md`](../adoption/templates/evidence-record.md)
+a algo como `records/<tarea>/evidence.md` en tu propio repositorio, completado con el
+resultado real.
+
+Con esto ya tenés el primer resultado real. El resto de este documento (tablas, qué se
+adapta y qué no) es para cuando quieras el panorama completo o adoptar más de una
+capacidad — la guía completa, paso a paso, con más detalle de configuración por
+plataforma (Jira/Azure DevOps/Copilot) y cómo evaluar/medir, está en
+[`../adoption/getting-started.md`](../adoption/getting-started.md).
+
+## Cómo usar cualquier otra capacidad
+
+Mismo patrón que el ejemplo de arriba, cambiando solo el nombre de la capability y el
+archivo a leer — y la misma decisión de arriba (copia puntual vs. distribución
+automática) aplica igual:
+
+1. Abrí el archivo de la capacidad (no solo la tabla de este documento) — cada una
+   tiene: cuándo usarla, cuándo NO, entradas/salidas, seguridad, HITL, ejemplos, y qué
+   adaptar.
 2. Copiá **la estructura**, no el contenido literal de otro equipo — cada capacidad
    generalizada está deliberadamente sin contenido de dominio específico donde ese
    contenido no es portable (ver `stack-best-practices-template` como el caso más
    explícito).
-3. Completá el Evidence/Evaluation/Measurement Contract cuando la ejecutes — ver
-   [`../adoption/getting-started.md`](../adoption/getting-started.md).
+3. Completá el Evidence/Evaluation/Measurement Contract cuando la ejecutes.
 
 ## Best Practices
 
@@ -220,8 +368,8 @@ las cuales tiene todavía una capacidad materializada):
 capabilities/
 ├── README.md          este archivo
 ├── best-practices.md   guía práctica por tipo de capacidad
-├── skills/              6 capacidades (3 con evidencia real, 3 propuestas — CAP-009/010/011)
-├── agents/              2 capacidades (1 con evidencia real, 1 propuesta — CAP-012)
+├── skills/              8 capacidades (3 con evidencia real, 5 propuestas — CAP-007/011/014/015/016)
+├── agents/              6 capacidades (1 con evidencia real, 5 propuestas — CAP-004/009/010/017/018)
 ├── instructions/         1 capacidad
 └── workflows/            1 capacidad
 ```
@@ -237,8 +385,8 @@ desplegar, un servidor MCP propio. Al
 formalizar Context Acquisition & Resolution como Cross-Cutting Concern
 ([`../architecture/context-acquisition-resolution.md`](../architecture/context-acquisition-resolution.md)),
 se crearon 2 **patrones** de adquisición de contexto READ-only —
-[CAP-007](../registry/entries/azure-devops-context.md) (Azure DevOps) y
-[CAP-008](../registry/entries/jira-context.md) (Jira) — pero **viven en
+[CAP-002](../registry/entries/azure-devops-context.md) (Azure DevOps) y
+[CAP-003](../registry/entries/jira-context.md) (Jira) — pero **viven en
 [`../integrations/`](../integrations/catalog.md), no en `capabilities/`**, precisamente
 porque no son capacidades de negocio seleccionables de la misma forma que Skill/Agent/
 Workflow/Instruction — son la implementación concreta de un concern transversal. Ver

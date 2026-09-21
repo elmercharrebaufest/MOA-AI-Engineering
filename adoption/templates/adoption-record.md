@@ -25,7 +25,7 @@ dejar trazabilidad de la decisión, no para gobierno formal (eso sigue viviendo 
 | `repository` | *(repositorio donde se va a usar la capability)* |
 | `sdlc_activity` | *(qué actividad del SDLC se va a mejorar — ej. "refinamiento de requerimientos")* |
 | `golden_path` | *(qué Golden Path se sigue, si aplica — ver `../../golden-paths/README.md`)* |
-| `capability_id` | *(ID del Registry — ej. CAP-002)* |
+| `capability_id` | *(ID del Registry — ej. CAP-001)* |
 | `capability_version` | *(versión de la capability al momento de adoptar)* |
 | `objective` | *(qué se espera lograr, en una frase concreta)* |
 | `reason_for_adoption` | *(por qué esta capability y no otra, o por qué ninguna existente y se va a proponer una)* |

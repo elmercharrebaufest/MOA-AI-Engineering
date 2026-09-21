@@ -5,7 +5,7 @@ description: Genera título, descripción y sugerencia de revisores de un Pull R
 
 # pr-description
 
-**Capability Registry**: [`CAP-009`](../../../registry/entries/pr-description.md).
+**Capability Registry**: [`CAP-011`](../../../registry/entries/pr-description.md).
 **Golden Path**: [`AI-Assisted Development`](../../../golden-paths/README.md#2-ai-assisted-development).
 **Estado**: `PROPOSAL` — sin ejecución real ni piloto de ningún equipo todavía. Ver la
 entrada del Registry para el detalle de evidencia.
@@ -21,7 +21,7 @@ el cambio hace realmente.
 
 - Al terminar el desarrollo de una historia de usuario o fix, antes de abrir el PR.
 - Cuando el ticket de origen ya está resuelto (vía Context Acquisition & Resolution,
-  CAP-007/CAP-008) y el diff local existe.
+  CAP-002/CAP-003) y el diff local existe.
 
 ## Cuándo NO usarla
 
@@ -32,7 +32,7 @@ el cambio hace realmente.
 
 ## Entradas
 
-El ticket de origen (Resolved Context de CAP-007/CAP-008, o descripción manual) y el diff
+El ticket de origen (Resolved Context de CAP-002/CAP-003, o descripción manual) y el diff
 real de los cambios (`git diff` contra la rama base).
 
 ## Salidas
@@ -76,6 +76,26 @@ según el criterio habitual del equipo.
 
 **Nunca inventar un nombre de revisor.**
 
+### 4. Checklist de cierre
+
+Agregar siempre, al final de la descripción, un checklist genérico para que quien abre el
+PR lo complete antes de pedir revisión — no asumir que algo se cumplió:
+
+```text
+## Checklist
+- [ ] El código compila sin errores
+- [ ] Se ejecutaron las pruebas correspondientes
+- [ ] No se incluyen credenciales ni datos sensibles
+- [ ] La descripción de arriba corresponde al diff real (no a lo que el ticket pedía
+      originalmente, si hubo cambios de alcance)
+```
+
+### 5. Verificar si ya existe un PR abierto para la misma rama
+
+Antes de redactar contenido nuevo, si hay forma de consultarlo (CLI/integración ya
+configurada por el equipo), verificar si ya existe un PR abierto para esa rama. Si existe,
+señalarlo y mostrar su referencia en vez de proponer uno nuevo — evita duplicados.
+
 ## Cómo usar esta capability
 
 ### Entrada
@@ -85,7 +105,7 @@ Ticket:
 MOA-XXXX
 
 Requirement:
-"[el mismo Resolved Context ya usado por CAP-002, sin modificar]"
+"[el mismo Resolved Context ya usado por CAP-001, sin modificar]"
 
 Diff:
 [salida real de git diff contra la rama base]
@@ -94,7 +114,7 @@ Diff:
 ### Patrón de ejecución
 
 ```
-Usa la capability CAP-009 pr-description.
+Usa la capability CAP-011 pr-description.
 
 Ticket de origen:
 [Ticket:/Requirement: del Resolved Context, si existe]
@@ -127,8 +147,8 @@ Mismo mecanismo que el resto del Registry —
 ## Dependencias
 
 Reutiliza el Resolved Context ya producido por
-[`azure-devops-context`](../../../registry/entries/azure-devops-context.md) (CAP-007) o
-[`jira-context`](../../../registry/entries/jira-context.md) (CAP-008) — no define un
+[`azure-devops-context`](../../../registry/entries/azure-devops-context.md) (CAP-002) o
+[`jira-context`](../../../registry/entries/jira-context.md) (CAP-003) — no define un
 mecanismo de acceso a tickets propio.
 
 ## Herramientas / permisos
@@ -151,10 +171,14 @@ PR", `NOT FOUND`). **External Best Practice**: la generación de descripción de
 del diff es una función ya estándar de GitHub Copilot ([Copilot pull request
 summaries](https://docs.github.com/en/copilot/how-tos/agents/copilot-coding-agent/create-a-pr-description)).
 **Architectural Judgment**: en vez de crear una integración nueva hacia Azure DevOps/Jira,
-esta skill reutiliza el Resolved Context que CAP-007/CAP-008 ya resuelven — evita duplicar
-lógica de adquisición de contexto.
+esta skill reutiliza el Resolved Context que CAP-002/CAP-003 ya resuelven — evita duplicar
+lógica de adquisición de contexto. El checklist de cierre y la verificación de PR duplicado
+(pasos 4 y 5) se agregaron tras contrastar contra una instancia real de un cliente de
+Baufest (Camuzzi, skill `create-pull-request`, reunión 2026-09-18) — evidencia externa, no
+de un equipo de MOA, generalizada sin copiar contenido específico de ese cliente (nombres de
+repo, convención de ramas).
 
 ## Compatibilidad / adaptación
 
-Portable a cualquier equipo que ya use Context Acquisition & Resolution (CAP-007/CAP-008)
-— sin contenido específico de dominio que adaptar, a diferencia de CAP-002.
+Portable a cualquier equipo que ya use Context Acquisition & Resolution (CAP-002/CAP-003)
+— sin contenido específico de dominio que adaptar, a diferencia de CAP-001.

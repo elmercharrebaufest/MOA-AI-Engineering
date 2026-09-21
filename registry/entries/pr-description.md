@@ -1,8 +1,8 @@
-# CAP-009 — pr-description
+# CAP-011 — pr-description
 
 **Nota de clasificación**: primera entrada del Registry cuyo origen no es la
-generalización de una instancia real de un equipo de MOA (a diferencia de CAP-001 a
-CAP-006), ni un patrón nuevo extraído de evidencia real (a diferencia de CAP-007/CAP-008)
+generalización de una instancia real de un equipo de MOA (a diferencia de CAP-008 a
+CAP-013), ni un patrón nuevo extraído de evidencia real (a diferencia de CAP-002/CAP-003)
 — es una propuesta directa, justificada por el KO Interno + práctica externa +
 reutilización de infraestructura ya construida (Context Acquisition & Resolution). Queda
 `PROPOSAL` hasta que un equipo real la pilotee, exactamente con el mismo criterio que ya
@@ -10,7 +10,7 @@ aplica `assessment/README.md` a cualquier capacidad sin evidencia de uso.
 
 | Campo | Valor | Evidencia / clasificación |
 |---|---|---|
-| **ID** | CAP-009 | — |
+| **ID** | CAP-011 | — |
 | **Name** | pr-description | FACT (existe el archivo) |
 | **Type** | Skill | FACT |
 | **Purpose** | Generar título, descripción y sugerencia de revisores de un PR a partir del ticket de origen y el diff real | FACT |
@@ -25,7 +25,7 @@ aplica `assessment/README.md` a cualquier capacidad sin evidencia de uso.
 | **Integration Status** | No integrada a ningún repo de equipo todavía | FACT |
 | **Configuration Status** | VERIFIED — contenido completo escrito y revisado en esta sesión | FACT |
 | **Real Use Status** | **CONFIGURED** — mecanismo documentado, cero ejecuciones reales, sin evidencia de equipo real todavía | FACT |
-| **Lifecycle State** | Proposal | Ni siquiera en Pilot — no hay ejecución real todavía, a diferencia de CAP-002/007/008 |
+| **Lifecycle State** | Proposal | Ni siquiera en Pilot — no hay ejecución real todavía, a diferencia de CAP-001/002/003 |
 | **Corporate Standard** | N | Sin evidencia de uso real |
 | **Version** | Sin versionado semántico | — |
 | **Risk** | Bajo | Solo lectura de diff y de ticket ya resuelto; no ejecuta ninguna acción sobre Azure DevOps/Jira |
@@ -44,8 +44,8 @@ aplica `assessment/README.md` a cualquier capacidad sin evidencia de uso.
 | **Evaluation Reference** | Ninguna todavía | — |
 | **Metric Reference** | Ninguna todavía | — |
 | **Reusable Asset** | [`capabilities/skills/pr-description/SKILL.md`](../../capabilities/skills/pr-description/SKILL.md) | — |
-| **Action Type** | READ (no abre el PR por sí misma; produce texto para que un humano lo publique) | Mismo principio que CAP-002/007/008 — ver `security/security-governance.md` §1.5 |
-| **Context Requirements** | Resolved Context (CAP-007/CAP-008) + diff real de `git diff` | Reutiliza el mecanismo ya existente, no define uno propio |
+| **Action Type** | READ (no abre el PR por sí misma; produce texto para que un humano lo publique) | Mismo principio que CAP-001/002/003 — ver `security/security-governance.md` §1.5 |
+| **Context Requirements** | Resolved Context (CAP-002/CAP-003) + diff real de `git diff` | Reutiliza el mecanismo ya existente, no define uno propio |
 
 ## Nota de selección
 

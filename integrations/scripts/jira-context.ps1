@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Jira Context Provider -- implementacion real de CAP-008.
+    Jira Context Provider -- implementacion real de CAP-003.
     Reference -> Jira (READ-only, scope acotado) -> Resolved Context (JSON).
 
 .DESCRIPTION

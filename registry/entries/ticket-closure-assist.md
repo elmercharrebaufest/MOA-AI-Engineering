@@ -1,12 +1,12 @@
-# CAP-011 — ticket-closure-assist
+# CAP-016 — ticket-closure-assist
 
-**Nota de clasificación**: misma categoría que CAP-009/CAP-010 — propuesta directa, no
-generalización de una instancia real. Ver CAP-009 para el criterio completo. Queda
+**Nota de clasificación**: misma categoría que CAP-011/CAP-014 — propuesta directa, no
+generalización de una instancia real. Ver CAP-011 para el criterio completo. Queda
 `PROPOSAL` hasta que un equipo real la pilotee.
 
 | Campo | Valor | Evidencia / clasificación |
 |---|---|---|
-| **ID** | CAP-011 | — |
+| **ID** | CAP-016 | — |
 | **Name** | ticket-closure-assist | FACT (existe el archivo) |
 | **Type** | Skill | FACT |
 | **Purpose** | Verificar cumplimiento de criterios de aceptación y redactar un borrador de comentario de cierre de ticket | FACT |
@@ -40,8 +40,8 @@ generalización de una instancia real. Ver CAP-009 para el criterio completo. Qu
 | **Evaluation Reference** | Ninguna todavía | — |
 | **Metric Reference** | Ninguna todavía | — |
 | **Reusable Asset** | [`capabilities/skills/ticket-closure-assist/SKILL.md`](../../capabilities/skills/ticket-closure-assist/SKILL.md) | — |
-| **Action Type** | READ (redacta un borrador; nunca cambia el estado del ticket ni publica el comentario por sí misma) | Deliberadamente más conservador que el propio KO, que propone `ACT` para esta etapa — mismo principio `READ` de CAP-002/007/008/009/010 |
-| **Context Requirements** | Criterios de aceptación de CAP-002 + evidencia real de cumplimiento (tests/PR/validación de QA) | Reutiliza mecanismos ya existentes |
+| **Action Type** | READ (redacta un borrador; nunca cambia el estado del ticket ni publica el comentario por sí misma) | Deliberadamente más conservador que el propio KO, que propone `ACT` para esta etapa — mismo principio `READ` de CAP-001/002/003/011/014 |
+| **Context Requirements** | Criterios de aceptación de CAP-001 + evidencia real de cumplimiento (tests/PR/validación de QA) | Reutiliza mecanismos ya existentes |
 
 ## Nota de selección
 

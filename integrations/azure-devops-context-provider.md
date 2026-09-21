@@ -1,12 +1,12 @@
 # Azure DevOps Context Provider (pattern)
 
-**Registry**: [`CAP-007`](../registry/entries/azure-devops-context.md).
+**Registry**: [`CAP-002`](../registry/entries/azure-devops-context.md).
 **Cross-Cutting Concern que implementa**: [`../architecture/context-acquisition-resolution.md`](../architecture/context-acquisition-resolution.md)
 — Modelo B (Connected Context).
 **Action Type**: **READ**. No implementa `ACT`.
 **Origen del patrón**: generalización de la Skill real `azure-devops-cli`
-([CAP-001](../registry/entries/azure-devops-cli.md), evidencia real en Scato Logística y
-Orquestador) — **no es una copia literal** de ninguna de las 2 instancias. CAP-001 opera
+([CAP-008](../registry/entries/azure-devops-cli.md), evidencia real en Scato Logística y
+Orquestador) — **no es una copia literal** de ninguna de las 2 instancias. CAP-008 opera
 Azure DevOps en general (pipelines, PRs, builds); este patrón extrae específicamente el
 subconjunto de esa capacidad que resuelve **contexto a partir de una referencia**, y lo
 formaliza contra el contrato de Resolved Context.
@@ -58,7 +58,7 @@ retrieval_status: resolved | failed | not_found
 ## Dependencia
 
 - Azure CLI (`az`) con la extensión `azure-devops` — **mismo mecanismo ya real** que
-  `azure-devops-cli` (CAP-001), no una herramienta nueva.
+  `azure-devops-cli` (CAP-008), no una herramienta nueva.
 - Sesión autenticada contra la organización de Azure DevOps del equipo. **Esto es Team
   Adaptation, no Common Core**: la organización/proyecto configurados dependen de cada
   equipo — este patrón no asume ni documenta ningún nombre de organización real.
@@ -66,7 +66,7 @@ retrieval_status: resolved | failed | not_found
 ## Autenticación requerida
 
 **No definida por este patrón.** Depende de la cuenta/token con el que `az` esté
-autenticado en el entorno de cada equipo — mismo principio ya vigente en CAP-001: *"esta
+autenticado en el entorno de cada equipo — mismo principio ya vigente en CAP-008: *"esta
 skill no define ni eleva permisos, opera con los que ya existen en el entorno"*. Este
 documento **no incluye ningún token, credencial, ni nombre de organización real**.
 
@@ -103,7 +103,7 @@ mecanismo produjo un contexto dado.
 ## Evidencia
 
 - El mecanismo subyacente (`az` CLI + extensión `azure-devops`) tiene evidencia real de
-  uso en 2 repos de equipos de MOA (ver CAP-001).
+  uso en 2 repos de equipos de MOA (ver CAP-008).
 - **Este patrón específico de resolución de contexto (Reference → Resolved Context) quedó
   probado de punta a punta durante la construcción** (Work Item #7, proyecto "AWS
   Portal de créditos", org `molinosagro`) — esa prueba se purgó al pasar a adopción real.
@@ -114,19 +114,19 @@ mecanismo produjo un contexto dado.
 
 Un equipo con Azure DevOps ya configurado en su entorno puede usar este patrón para
 resolver un Work Item hacia contexto, y pasarlo a cualquier capability que acepte
-`Resolved Context` (ej. CAP-002, ver
+`Resolved Context` (ej. CAP-001, ver
 [`../capabilities/skills/user-story/SKILL.md`](../capabilities/skills/user-story/SKILL.md#entrada)).
 No reemplaza el flujo manual (Direct Context) — es una alternativa, no una obligación.
 
 ## Implementación ejecutable
 
 - [`scripts/azure-devops-context.ps1`](scripts/azure-devops-context.ps1) — script real,
-  usa `az` CLI (mismo mecanismo que CAP-001), READ-only, sin credenciales hardcoded.
+  usa `az` CLI (mismo mecanismo que CAP-008), READ-only, sin credenciales hardcoded.
 - [`scripts/resolved-context.schema.json`](scripts/resolved-context.schema.json) —
   serialización JSON del contrato de `../architecture/context-acquisition-resolution.md`
   (no un contrato nuevo — ver la nota del propio schema).
-- [`scripts/invoke-cap002-with-context.ps1`](scripts/invoke-cap002-with-context.ps1) —
-  adaptador hacia CAP-002, sin tocar CAP-002 mismo.
+- [`scripts/invoke-cap001-with-context.ps1`](scripts/invoke-cap001-with-context.ps1) —
+  adaptador hacia CAP-001, sin tocar CAP-001 mismo.
 - Quick Start ejecutable completo:
   [`../adoption/context-providers-quickstart.md`](../adoption/context-providers-quickstart.md).
 

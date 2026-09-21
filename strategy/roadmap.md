@@ -54,11 +54,12 @@ actualizado con cada fase); esta sección resume, no duplica.
   equipos reales de MOA, templates.
 
 ### Evolution (completada — G4.1 a G5.1, no "siguiente fase")
-- **Capability Registry real**: 12 entradas (`registry/INDEX.md`), 6 capacidades
+- **Capability Registry real**: 18 entradas (`registry/INDEX.md`), 6 capacidades
   materializadas y reutilizables con evidencia real (`capabilities/README.md`) —
   generalizadas desde evidencia real de DataAgro, Scato Logística y Orquestador, pasadas
-  por el pipeline de `assessment/README.md`. Las 4 restantes (CAP-009 a CAP-012) son
-  propuestas nuevas, sin evidencia de origen real todavía (ver Iteration más abajo).
+  por el pipeline de `assessment/README.md`. Las 11 restantes son propuestas nuevas, sin
+  evidencia de origen de un equipo de MOA todavía (ver Iteration más abajo para el detalle
+  completo de cada tanda).
 - **Golden Paths**: 6 documentados, 1 (`AI-Assisted Requirements`) con el mecanismo
   probado de punta a punta durante la construcción — pruebas purgadas al pasar a
   adopción real, evidencia real en curso (ver `golden-paths/README.md`).
@@ -79,7 +80,7 @@ actualizado con cada fase); esta sección resume, no duplica.
   G5.1 (correcciones a `capability-registry.md`, `README.md`, `golden-paths.md` tras
   auditoría de consistencia).
 - Revisión de gobierno y métricas por ciclo, según el modelo de 5 pasos del KO — pendiente
-  de la resolución de las 12 Blocked Decisions (ver sección de preguntas abiertas, más
+  de la resolución de las 13 Blocked Decisions (ver sección de preguntas abiertas, más
   abajo).
 - **Cobertura de las 11 etapas del SDLC del KO, etapa por etapa (2026-09-18)**: de las 11
   etapas de `architecture/ai-sdlc.md` (pág. 23-26 del KO), 4 quedaban sin capacidad ni
@@ -87,8 +88,8 @@ actualizado con cada fase); esta sección resume, no duplica.
   figuraba en la tabla, defecto de documentación corregido en el mismo trabajo) y 1
   quedaba con la clasificación de un rol clave (Product Owner) sin una versión Agent que
   corrigiera un hallazgo real de seguridad. Se agregaron 4 capacidades nuevas al Registry
-  (CAP-009 `pr-description`, CAP-010 `test-case-generation`, CAP-011
-  `ticket-closure-assist`, CAP-012 `product-owner`), todas `PROPOSAL`, justificadas por
+  (CAP-011 `pr-description`, CAP-014 `test-case-generation`, CAP-016
+  `ticket-closure-assist`, CAP-004 `product-owner`), todas `PROPOSAL`, justificadas por
   Existing Practice + External Best Practice + Architectural Judgment
   (`assessment/README.md`), sin ejecución real ni piloto de ningún equipo todavía. Dos
   etapas quedan deliberadamente sin propuesta, por decisión explícita: Test de regresión
@@ -96,6 +97,53 @@ actualizado con cada fase); esta sección resume, no duplica.
   (5 líneas de trabajo del KO, ninguna con evidencia — se define primero un relevamiento
   con un equipo real, no una capacidad). Detalle completo en
   [`../architecture/ai-sdlc.md`](../architecture/ai-sdlc.md).
+- **Incorporación de evidencia externa de un cliente de Baufest — Camuzzi (2026-09-21)**:
+  reunión real (Hernan Lavrencic) mostró un setup de SDLC-IA más maduro en distribución
+  técnica que MOA — un repo especial `.github` de organización que propaga agents/
+  instructions/skills automáticamente a todos los repos, vía la especificación oficial
+  **Agent Plugins 1.0** (GitHub/VS Code, agosto 2026), verificada con documentación oficial
+  y evidencia visual directa del video de la reunión. Se agregaron 5 capacidades nuevas al
+  Registry (CAP-009 `git-worktree-setup`, CAP-010 `ticket-kickoff` — primer orquestador
+  real del modelo, con `edit` acotado por 2 checkpoints humanos —, CAP-007 `spec-review`,
+  CAP-015 `regression-test-generation`, CAP-017 `production-incident-investigation`), todas
+  `PROPOSAL` con evidencia externa (no de un equipo de MOA), cerrando de forma deliberadamente
+  parcial las 2 etapas que habían quedado sin propuesta el 2026-09-18 (Test de regresión:
+  solo generación de código, sin ejecución en pipeline; Soporte productivo: solo 1 de las 5
+  líneas del KO). Se agregó Blocked Decision #13 (confirmar disponibilidad del plan de
+  GitHub/Agent Plugins 1.0 para MOA) y una sección en `capabilities/README.md` documentando
+  el mecanismo como camino de distribución más maduro, pendiente de esa confirmación.
+- **Renumeración del Registry por orden de etapa del KO (2026-09-21)**: a pedido del
+  usuario, los 17 CAP-ID pasaron de reflejar el orden de descubrimiento (accidente
+  histórico) a reflejar la secuencia real de las 11 etapas del KO — CAP-001 es ahora
+  `user-story` (etapa 1) y CAP-017 `production-incident-investigation` (etapa 10). Se
+  actualizaron los 60 archivos del modelo vivo (nunca `docs/history/track-1/`, registro
+  histórico) con verificación cruzada de cada link — sin discrepancias encontradas.
+- **Revisión de fidelidad contra el contenido completo de Camuzzi (2026-09-21)**: lectura
+  de los agents/skills que no se habían leído completos en la primera pasada. Se
+  fortaleció CAP-017 (`production-incident-investigation`) con 3 patrones concretos que
+  faltaban (resolución de servicio, verificación de acceso antes de consultar, consultas
+  de referencia reutilizables); se agregó **CAP-018 `spec-reader`** — un rol read-only de
+  consulta sobre specs ya escritas, con citas, que no duplica a CAP-005 (escribe) ni CAP-007
+  (audita calidad) — hallazgo genuino de la segunda lectura, no de la primera; y se
+  incorporó a CAP-010 (`ticket-kickoff`) la disciplina de "nunca asumir el comando de
+  build, leer la documentación real primero" observada en el agent `Dev Runner` de ese
+  mismo cliente.
+- **Investigación y diseño de distribución automática de capacidades (2026-09-21)**: al
+  probar en vivo el mecanismo Agent Plugins 1.0 de GitHub (organización de prueba
+  `elmer-charre`), se detectó que los repos reales de MOA están en Azure DevOps, no
+  GitHub (ver CAP-008/CAP-002) — el mecanismo no aplica. Investigación posterior en
+  fuentes oficiales (Microsoft Learn, GitHub Docs) y de comunidad confirmó: (a) Azure
+  DevOps tiene un mecanismo nativo real para Code Review (instrucciones a nivel
+  organización/proyecto/repositorio, en preview público) — recomendado para esa etapa
+  puntual; (b) ningún mecanismo nativo de plataforma cubre el resto del ciclo (agents/
+  skills usados durante el desarrollo) para repos en Azure DevOps. Se diseñó e implementó
+  [`integrations/capability-distribution.md`](../integrations/capability-distribution.md)
+  — sync por Pull Request, reutilizando `az repos pr create` (mismo mecanismo real de
+  CAP-008), nunca push directo, siempre revisión humana — con su script ejecutable,
+  plantilla de configuración y pipeline de ejemplo. `PROPOSAL`, sin ejecución real ni
+  piloto todavía. Se actualizó Blocked Decision #13 reflejando la pregunta vigente (permisos
+  de Azure DevOps y curaduría de la lista de repos destino, no disponibilidad de plan de
+  GitHub).
 
 **Estado declarado por el propio repositorio**: `READY WITH CONDITIONS` (`README.md`) — no
 "Foundation en curso". Ver `strategy/track-1-context.md` §12 y §17 para el detalle
@@ -112,7 +160,7 @@ detalle completo en [`metrics/kpis.md`](../metrics/kpis.md).
 
 ## Preguntas abiertas para MOA
 
-**No duplicar el tracking en 2 lugares** — las 12 decisiones bloqueadas reales, con su
+**No duplicar el tracking en 2 lugares** — las 13 decisiones bloqueadas reales, con su
 impacto y evidencia, viven únicamente en
 [`../governance/BLOCKED-DECISIONS.md`](../governance/BLOCKED-DECISIONS.md) (la más
 estructural: quién tiene mandato para aprobar/gobernar el Common Core, #1). De las 5

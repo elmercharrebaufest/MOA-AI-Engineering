@@ -9,7 +9,7 @@ ejecución anidada adentro — ver la nota de convención al final de este archi
 ## Registros
 
 **Sin registros todavía.** Las ejecuciones que probaron el mecanismo durante la
-construcción (Direct Context y Connected Context vía CAP-007/CAP-008) fueron pruebas
+construcción (Direct Context y Connected Context vía CAP-002/CAP-003) fueron pruebas
 propias de quien diseñó la capacidad — se purgaron deliberadamente al pasar a la etapa
 real de adopción, para no contar como "evidencia real de uso" algo que no lo era. La
 evidencia real empieza con la prueba en curso de un developer real de MOA sobre
@@ -34,7 +34,7 @@ contratos de una misma ejecución, en un solo lugar navegable.
 
 | Carpeta | Capacidad | Qué documenta |
 |---|---|---|
-| [`../docs/history/track-1/pilots/PILOT-001-moa-operaciones-cap005/`](../docs/history/track-1/pilots/PILOT-001-moa-operaciones-cap005/README.md) | CAP-005 (`repository-governance`) | Primer intento de adopción independiente — borrador de `AGENTS.md` para MoaOperaciones (repo real sin ninguna capacidad de IA formalizada). `status: PARTIAL`, no integrado al repo real, pendiente de revisión humana del equipo de MoaOperaciones |
+| [`../docs/history/track-1/pilots/PILOT-001-moa-operaciones-cap005/`](../docs/history/track-1/pilots/PILOT-001-moa-operaciones-cap005/README.md) | CAP-006 (`repository-governance`) | Primer intento de adopción independiente — borrador de `AGENTS.md` para MoaOperaciones (repo real sin ninguna capacidad de IA formalizada). `status: PARTIAL`, no integrado al repo real, pendiente de revisión humana del equipo de MoaOperaciones |
 
 ## Cómo generar un registro nuevo
 

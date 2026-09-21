@@ -1,12 +1,12 @@
 <#
 .SYNOPSIS
-    Azure DevOps Context Provider -- implementacion real de CAP-007.
+    Azure DevOps Context Provider -- implementacion real de CAP-002.
     Reference -> Azure DevOps (az CLI, READ-only) -> Resolved Context (JSON, ver resolved-context.schema.json).
 
 .DESCRIPTION
     Patron: integrations/azure-devops-context-provider.md. Este script es la implementacion
     ejecutable de ese patron -- no introduce un mecanismo nuevo, usa az CLI (el mismo mecanismo
-    ya real de CAP-001 azure-devops-cli). READ-only, sin excepcion: solo `work-item show` y
+    ya real de CAP-008 azure-devops-cli). READ-only, sin excepcion: solo `work-item show` y
     `pr show`, nunca create/update.
 
     La organizacion/proyecto NUNCA quedan hardcoded -- se piden por parametro o por variable

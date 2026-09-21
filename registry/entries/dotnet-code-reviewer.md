@@ -1,8 +1,8 @@
-# CAP-003 — .NET Code Reviewer
+# CAP-012 — .NET Code Reviewer
 
 | Campo | Valor | Evidencia / clasificación |
 |---|---|---|
-| **ID** | CAP-003 | — |
+| **ID** | CAP-012 | — |
 | **Name** | `.NET Code Reviewer` (`dotnet-code-reviewer.agent.md`) | FACT |
 | **Type** | Agent | FACT |
 | **Purpose** | Code review de .NET acotado al diff (`git diff --staged`/`HEAD~1 HEAD`, no el repo completo), evaluando seguridad OWASP, manejo de errores, calidad de tests, SOLID, clean code y performance por versión de .NET, con salida estructurada por severidad (Critical/Major/Minor) | FACT — contenido completo leído (G3.2.5) |

@@ -5,7 +5,7 @@ description: Ejecutar operaciones de Azure DevOps (pipelines, builds, PRs, varia
 
 # azure-devops-cli
 
-**Capability Registry**: [`CAP-001`](../../../registry/entries/azure-devops-cli.md).
+**Capability Registry**: [`CAP-008`](../../../registry/entries/azure-devops-cli.md).
 Se usa como capacidad de soporte dentro de cualquier flujo que necesite operar Azure
 DevOps (por ejemplo, al abrir un PR como parte de un flujo de desarrollo asistido).
 

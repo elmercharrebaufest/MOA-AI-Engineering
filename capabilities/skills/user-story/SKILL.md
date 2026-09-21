@@ -5,7 +5,7 @@ description: Plantillas para historias de usuario, criterios de aceptación (Giv
 
 # user-story
 
-**Capability Registry**: [`CAP-002`](../../../registry/entries/user-story.md).
+**Capability Registry**: [`CAP-001`](../../../registry/entries/user-story.md).
 **Golden Path**: [`AI-Assisted Requirements`](../../../golden-paths/README.md#1-ai-assisted-requirements).
 **Clasificación**: la **estructura** (Historia/Criterios/Reglas/Gaps) es común a
 cualquier equipo que la use; el **contenido** (roles, ejemplos, dominio) lo completa cada
@@ -178,7 +178,7 @@ Ejemplo de instrucción para el asistente de IA — adaptar a la interfaz real d
 herramienta utilizada:
 
 ```
-Usa la capability CAP-002 user-story.
+Usa la capability CAP-001 user-story.
 
 Analiza el siguiente requerimiento real.
 

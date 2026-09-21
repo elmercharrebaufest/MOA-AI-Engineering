@@ -5,7 +5,7 @@ description: Verifica el cumplimiento de los criterios de aceptación de un tick
 
 # ticket-closure-assist
 
-**Capability Registry**: [`CAP-011`](../../../registry/entries/ticket-closure-assist.md).
+**Capability Registry**: [`CAP-016`](../../../registry/entries/ticket-closure-assist.md).
 **Golden Path**: [`AI-Assisted Development`](../../../golden-paths/README.md#2-ai-assisted-development)
 (extensión — ver nota en ese Golden Path).
 **Estado**: `PROPOSAL` — sin ejecución real ni piloto de ningún equipo todavía. Ver la
@@ -28,11 +28,11 @@ cambiar el estado del ticket por sí misma.
 - Para cambiar el estado del ticket automáticamente — esta skill redacta un borrador, la
   acción de cerrar el ticket la toma siempre una persona.
 - Cuando los criterios de aceptación no están definidos — sin ellos no hay contra qué
-  verificar cumplimiento; corresponde primero completar CAP-002.
+  verificar cumplimiento; corresponde primero completar CAP-001.
 
 ## Entradas
 
-Los criterios de aceptación de la historia (CAP-002) y evidencia real de que se
+Los criterios de aceptación de la historia (CAP-001) y evidencia real de que se
 cumplieron (tests pasando, PR mergeado, validación de QA) — nunca una suposición de que
 "probablemente" se cumplieron.
 
@@ -61,7 +61,34 @@ de verificarlo con el contexto disponible, declararlo explícitamente:
    corresponde que [PO/QA] lo confirme antes de cerrar el ticket.
 ```
 
-### 2. Borrador de comentario de cierre
+### 2. Estimación de horas desde el historial real de Git (si el equipo lo requiere)
+
+En vez de solo recordarle a la persona que cargue horas, se puede estimar un punto de
+partida real a partir del historial de commits de la rama — la persona sigue confirmando
+antes de cargar nada:
+
+1. Identificar los días con commits en la rama (`git log <rama-base>..HEAD`).
+2. Por día, estimar la duración de la sesión a partir de los timestamps: un solo commit o
+   un rango menor a 30 minutos → 1 hora; un rango entre 30 minutos y 4 horas → el rango real
+   redondeado a la media hora más cercana; un rango mayor a 4 horas → capear en 4 horas
+   (evita sobreestimar por pausas largas sin actividad real).
+3. Si ya hay horas cargadas para algún día, restarlas del estimado de ese día — nunca
+   duplicar.
+4. Presentar el detalle día por día y el total, **nunca cargarlo directamente** — es una
+   sugerencia para que la persona confirme o ajuste.
+
+```text
+⏱️ Estimación de horas para MOA-XXXX (desde el historial de Git)
+
+📅 <fecha> → estimado: Xh | ya registrado: Yh | a cargar: Zh (commits: hh:mm, hh:mm)
+...
+Total a cargar: Nh
+
+Esto es una estimación derivada de la actividad en Git, no un reemplazo del criterio de
+quien registra las horas — confirmar o ajustar antes de cargar.
+```
+
+### 3. Borrador de comentario de cierre
 
 ```text
 Resumen de cierre
@@ -69,13 +96,14 @@ Resumen de cierre
 Criterios verificados: [N de M]
 [detalle de la verificación del paso 1]
 
-Registro de horas: [recordatorio si el equipo lo requiere — nunca inventar un valor]
+Registro de horas: [estimación del paso 2, si el equipo lo requiere — nunca un valor
+inventado sin base en el historial real]
 ```
 
-### 3. Recomendación si hay criterios sin verificar
+### 4. Recomendación si hay criterios sin verificar
 
 Si algún criterio queda `❌` o `❓`, la skill no recomienda cerrar el ticket todavía —
-debe decirlo explícitamente, igual que la Recomendación de CAP-002 ante gaps bloqueantes.
+debe decirlo explícitamente, igual que la Recomendación de CAP-001 ante gaps bloqueantes.
 
 ## Cómo usar esta capability
 
@@ -86,7 +114,7 @@ Ticket:
 MOA-XXXX
 
 Criterios de aceptación:
-[los mismos criterios reales de CAP-002]
+[los mismos criterios reales de CAP-001]
 
 Evidencia de cumplimiento:
 [tests, PR, validación de QA disponibles — real, no inventada]
@@ -95,7 +123,7 @@ Evidencia de cumplimiento:
 ### Patrón de ejecución
 
 ```
-Usa la capability CAP-011 ticket-closure-assist.
+Usa la capability CAP-016 ticket-closure-assist.
 
 Criterios de aceptación reales:
 [los criterios]
@@ -125,8 +153,8 @@ Mismo mecanismo que el resto del Registry —
 
 ## Dependencias
 
-Reutiliza los criterios de aceptación de CAP-002 y, cuando aplica, el Resolved Context de
-CAP-007/CAP-008 — no define un mecanismo de acceso a tickets propio.
+Reutiliza los criterios de aceptación de CAP-001 y, cuando aplica, el Resolved Context de
+CAP-002/CAP-003 — no define un mecanismo de acceso a tickets propio.
 
 ## Herramientas / permisos
 
@@ -147,12 +175,15 @@ la fila faltante como parte de este mismo trabajo (`architecture/ai-sdlc.md`, et
 de horas y actualiza estado automáticamente"*) — nótese que el KO propone incluso la
 actualización automática de estado; esta propuesta es deliberadamente más conservadora
 (solo borrador, nunca acción directa), por el mismo principio `READ` antes que `ACT` que
-ya rige CAP-002/007/008. **External Best Practice**: verificar criterios de aceptación
+ya rige CAP-001/002/003. **External Best Practice**: verificar criterios de aceptación
 contra evidencia real antes de cerrar un ticket es una práctica estándar de Definition of
 Done en metodologías ágiles. **Architectural Judgment**: reutiliza los criterios ya
-producidos por CAP-002, evita construir un mecanismo de verificación nuevo.
+producidos por CAP-001, evita construir un mecanismo de verificación nuevo. La estimación
+de horas desde Git (paso 2) se agregó tras contrastar contra una instancia real de un
+cliente de Baufest (Camuzzi, skill `log-work`, reunión 2026-09-18) — evidencia externa, no
+de un equipo de MOA, generalizada sin copiar contenido específico de ese cliente.
 
 ## Compatibilidad / adaptación
 
-Portable a cualquier equipo que ya use CAP-002 — sin contenido específico de dominio que
+Portable a cualquier equipo que ya use CAP-001 — sin contenido específico de dominio que
 adaptar. El recordatorio de registro de horas es opcional, según si el equipo lo requiere.

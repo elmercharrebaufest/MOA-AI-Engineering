@@ -1,0 +1,15 @@
+{
+  "_comment": "Plantilla -- sin repos reales de MOA. Ver ../capability-distribution.md. Un repo solo se agrega aca por decision explicita de gobierno, nunca automaticamente.",
+  "organization": "https://dev.azure.com/<org-real-de-MOA>",
+  "targets": [
+    {
+      "_comment": "Ejemplo de forma esperada -- borrar o reemplazar antes de usar",
+      "project": "<Nombre del proyecto de Azure DevOps>",
+      "repository": "<Nombre del repositorio>",
+      "targetBranch": "<rama principal real del equipo, ej. master>",
+      "syncAgents": true,
+      "syncSkills": true,
+      "syncInstructionsIfMissing": true
+    }
+  ]
+}

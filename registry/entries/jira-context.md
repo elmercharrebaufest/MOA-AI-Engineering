@@ -1,8 +1,8 @@
-# CAP-008 — jira-context
+# CAP-003 — jira-context
 
 | Campo | Valor | Evidencia / clasificación |
 |---|---|---|
-| **ID** | CAP-008 | — |
+| **ID** | CAP-003 | — |
 | **Name** | jira-context | FACT (nombre asignado en esta actividad) |
 | **Type** | MCP | Patrón basado en descubrimiento gobernado de un método específico (`getJiraIssue`) sobre `com.atlassian/atlassian-mcp-server` — no un conector directo a medida |
 | **Purpose** | Resolver una referencia a un issue de Jira hacia un `Resolved Context` consumible por cualquier capability, con scope de lectura estrictamente acotado | PROPOSAL — patrón nuevo, generalizado a partir de evidencia real |

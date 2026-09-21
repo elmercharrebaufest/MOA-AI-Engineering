@@ -12,7 +12,7 @@ tools: [execute, read, search]
 
 # read-only-code-reviewer
 
-**Capability Registry**: [`CAP-003`](../../../registry/entries/dotnet-code-reviewer.md).
+**Capability Registry**: [`CAP-012`](../../../registry/entries/dotnet-code-reviewer.md).
 **Golden Path**: [`AI Code Review`](../../../golden-paths/README.md#4-ai-code-review).
 
 ## Propósito

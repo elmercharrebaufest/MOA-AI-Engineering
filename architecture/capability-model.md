@@ -108,7 +108,7 @@ cambia dinámicamente). Si el sistema debe decidir en tiempo de ejecución qué 
 herramienta usar, es Agent (o una orquestación de Agents).
 **Evidencia real (FACT — G2, G3.2)**: VERIFIED en DataAgro (`_sdd/`, nivel Lite, 2 casos
 reales `MOA-1765`/`MOA-1816`). Un nivel Full (6 roles, contrato JSON) existe como
-propuesta conceptual (CAP-004), sin evidencia de ejecución real de ningún equipo de MOA.
+propuesta conceptual (CAP-005), sin evidencia de ejecución real de ningún equipo de MOA.
 **NOT FOUND** en Scato Logística ni Orquestador (confirmado, no tienen `_sdd/`).
 
 ### 4. Agent
@@ -161,7 +161,7 @@ controlada y con un propósito específico y acotado (ej. traer el contenido de 
 dinámicamente — eso es el rol de MCP.
 **Relación**: MCP puede exponer una Integration/API existente de forma estandarizada para
 que un Agent la use; no son excluyentes.
-**Evidencia real (FACT)**: `azure-devops-context` (CAP-007) — patrón de Context
+**Evidencia real (FACT)**: `azure-devops-context` (CAP-002) — patrón de Context
 Acquisition & Resolution, mecanismo probado durante la construcción, sin ejecuciones
 reales registradas todavía (ver `../registry/entries/azure-devops-context.md`).
 
@@ -252,7 +252,7 @@ impacto todavía; el framework de indicadores propuestos por el KO está definid
 | Workflow | VERIFIED (DataAgro, nivel Lite); nivel Full conceptual, sin evidencia real | Determinístico | Alta prioridad | Media (trazar transiciones de estado) |
 | Agent | VERIFIED config, uso real sin confirmar (3 repos) | Dinámico | **Alta prioridad** | **Alta prioridad** |
 | Knowledge/RAG | NOT FOUND en evidencia revisada | — | Alta (antes de confiar en recuperación) | Media |
-| Integration/API | CONFIGURED (CAP-007, patrón de Context Acquisition) | Determinístico | Media | Media |
+| Integration/API | CONFIGURED (CAP-002, patrón de Context Acquisition) | Determinístico | Media | Media |
 | MCP | 1 referencia CONFIGURATION VERIFIED, resto PROPOSED | Dinámico (habilita a Agents) | **Alta prioridad** | **Alta prioridad — obligatoria antes de producción** |
 
 ### Cross-Cutting Concerns (4)

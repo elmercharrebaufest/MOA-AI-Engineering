@@ -114,7 +114,7 @@ Observability, no hay forma de confirmar si el MCP de Atlassian o el de Azure De
 encontrados se ejecutaron alguna vez.
 
 **Nota agregada al implementar Context Acquisition & Resolution**: los 2 patrones nuevos
-de Context Provider (CAP-007, CAP-008) dejan **preparados**, no instrumentados, los campos
+de Context Provider (CAP-002, CAP-003) dejan **preparados**, no instrumentados, los campos
 `retrieval_status` y `provenance` del Resolved Context Contract
 ([`context-acquisition-resolution.md`](context-acquisition-resolution.md)) — cubren
 directamente las señales "Execution" y "Errors" de la tabla de arriba para el caso

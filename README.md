@@ -29,45 +29,52 @@ responsable de revisar el resultado antes de darlo por bueno.
 | Rol | Qué le ofrece este modelo hoy |
 |---|---|
 | **Product Owner / analista** | Convertir un ticket escrito de cualquier forma en una historia de usuario con criterios de aceptación claros y sus ambigüedades ya señaladas, antes de llegar al refinamiento — con la opción de que el asistente busque el ticket directamente en Jira/Azure DevOps, sin copiarlo a mano |
-| **Developer** | Un patrón para ordenar el desarrollo por pasos y roles con registro de cada uno, reglas claras de qué puede hacer el asistente de IA sin preguntar en ese repositorio, y ayuda para operar Azure DevOps por CLI y para redactar la descripción del Pull Request a partir del ticket y el diff real |
+| **Developer** | Un patrón para ordenar el desarrollo por pasos y roles con registro de cada uno, reglas claras de qué puede hacer el asistente de IA sin preguntar en ese repositorio, ayuda para operar Azure DevOps por CLI y para redactar la descripción del Pull Request a partir del ticket y el diff real, y — si se prefiere delegar más — un asistente que investiga el ticket, arma un plan y lo implementa él mismo tras tu aprobación explícita, en un espacio de trabajo aislado para no pisar otras tareas en paralelo |
 | **Revisor de código** | Una segunda mirada automática sobre el diff antes de aprobar un Pull Request — señala problemas de seguridad, errores sin manejar y tests faltantes, pero nunca modifica código ni sustituye la revisión humana |
-| **QA / Tester** | Casos de prueba derivados directamente de los criterios de aceptación de la historia, para dedicar el tiempo a lo que es más difícil de anticipar, y una verificación de que un ticket cumple sus criterios antes de cerrarlo |
+| **QA / Tester** | Casos de prueba derivados directamente de los criterios de aceptación de la historia, un criterio explícito para decidir qué conviene automatizar (con el código de test generado), y una verificación de que un ticket cumple sus criterios antes de cerrarlo |
+| **Soporte / Operaciones** | Un primer diagnóstico de causa raíz ante un error de producción, citando evidencia real (logs, código) en vez de arrancar la investigación desde cero |
 | **Arquitecto / referente técnico** | Un Registry con evidencia real de qué prácticas de IA ya funcionan en otros equipos de MOA, criterios explícitos para crear un Agent o habilitar una integración nueva sin improvisar, y un modelo de riesgo para MCP/integraciones |
 | **Cualquier rol** | Un mismo lenguaje y una misma estructura (Golden Path → Capability → Evidence → Evaluation → Measurement) para no reinventar el proceso de adoptar IA en cada equipo por separado |
 
-Detalle de qué hace cada capacidad concreta, explicado en lenguaje simple:
-[`capabilities/README.md`](capabilities/README.md#qué-hace-cada-capacidad-explicado-simple).
+**Lectura obligatoria antes de continuar**: [`capabilities/README.md`](capabilities/README.md#qué-hace-cada-capacidad-explicado-simple)
+explica, en lenguaje simple, qué hace cada capacidad concreta — y, más abajo en ese mismo
+documento, un ejemplo real de punta a punta de cómo operar una en tu propio proyecto.
+No es opcional: sin esa lectura, la tabla de la sección 4 (abajo) se entiende a medias.
 
 ## 4. ¿Qué puedo utilizar actualmente, etapa por etapa del KO?
 
 El KO Interno de Track 1 define 11 etapas del SDLC (pág. 23-26). Este modelo sigue esas
 11 etapas al pie, una por una — ninguna queda sin analizar. Para cada una, hoy hay una de
 3 situaciones: **cubierta con evidencia real** (al menos un equipo de MOA ya la usa),
-**cubierta con una propuesta** (lista para pilotear, ningún equipo la probó todavía), o
-**pendiente de relevamiento** (se decidió explícitamente no proponer nada todavía, por
-falta de evidencia suficiente incluso para una propuesta razonable).
+**cubierta con una propuesta** (lista para pilotear, ningún equipo la probó todavía — en 2
+etapas, la propuesta es deliberadamente parcial, cubre una parte de lo que pide el KO y
+deja el resto pendiente), o **pendiente de relevamiento** (se decidió explícitamente no
+proponer nada todavía, por falta de evidencia suficiente incluso para una propuesta
+razonable).
 
 | # | Etapa del KO | Cómo está cubierta hoy |
 |---|---|---|
-| 1 | Recepción del requerimiento | ✅ Real — [`user-story`](capabilities/skills/user-story/SKILL.md) (CAP-002) + traer el ticket automáticamente ([CAP-007](registry/entries/azure-devops-context.md)/[CAP-008](registry/entries/jira-context.md)). Además, propuesta: [`product-owner`](capabilities/agents/product-owner/AGENT.md) (CAP-012), la misma función como Agent |
+| 1 | Recepción del requerimiento | ✅ Real — [`user-story`](capabilities/skills/user-story/SKILL.md) (CAP-001) + traer el ticket automáticamente ([CAP-002](registry/entries/azure-devops-context.md)/[CAP-003](registry/entries/jira-context.md)). Además, propuesta: [`product-owner`](capabilities/agents/product-owner/AGENT.md) (CAP-004), la misma función como Agent |
 | 2 | Refinamiento y estimación | ✅ Real — misma capacidad que la etapa 1 |
-| 3 | Planning | ✅ Real — [`spec-driven-development`](capabilities/workflows/spec-driven-development/WORKFLOW.md) (CAP-004) + [`repository-governance`](capabilities/instructions/repository-governance/INSTRUCTIONS.md) (CAP-005) |
-| 4 | Desarrollo del código | ✅ Real — misma capacidad que la etapa 3, más [`azure-devops-cli`](capabilities/skills/azure-devops-cli/SKILL.md) (CAP-001) |
-| 5 | Apertura del PR | 🆕 Propuesta — [`pr-description`](capabilities/skills/pr-description/SKILL.md) (CAP-009) |
-| 6 | Code Review | ✅ Real — [`read-only-code-reviewer`](capabilities/agents/read-only-code-reviewer/AGENT.md) (CAP-003) + [`stack-best-practices-template`](capabilities/skills/stack-best-practices-template/SKILL.md) (CAP-006) |
-| 7 | Testing funcional (QA) | 🆕 Propuesta — [`test-case-generation`](capabilities/skills/test-case-generation/SKILL.md) (CAP-010) |
-| 8 | Test de regresión | ⏸️ Pendiente de relevamiento — depende de un MCP Playwright sin evidencia real en ningún equipo; proponer la integración sin eso primero sería inventar sin base |
-| 9 | Cierre del ticket | 🆕 Propuesta — [`ticket-closure-assist`](capabilities/skills/ticket-closure-assist/SKILL.md) (CAP-011) |
-| 10 | Soporte productivo | ⏸️ Pendiente de relevamiento — el KO propone 5 líneas de trabajo, ninguna con evidencia todavía; antes de proponer algo, corresponde preguntarle a un equipo real de soporte |
-| 11 | Build & CI | ✅ Real — [`azure-devops-cli`](capabilities/skills/azure-devops-cli/SKILL.md) (CAP-001) |
+| 3 | Planning | ✅ Real — [`spec-driven-development`](capabilities/workflows/spec-driven-development/WORKFLOW.md) (CAP-005) + [`repository-governance`](capabilities/instructions/repository-governance/INSTRUCTIONS.md) (CAP-006). Además, propuesta: [`ticket-kickoff`](capabilities/agents/ticket-kickoff/AGENT.md) (CAP-010), orquesta investigación + plan + implementación con 2 checkpoints humanos |
+| 4 | Desarrollo del código | ✅ Real — misma capacidad que la etapa 3, más [`azure-devops-cli`](capabilities/skills/azure-devops-cli/SKILL.md) (CAP-008). Además, propuestas: `ticket-kickoff` (CAP-010) con [`git-worktree-setup`](capabilities/agents/git-worktree-setup/AGENT.md) (CAP-009) para aislar tareas en paralelo, [`spec-review`](capabilities/skills/spec-review/SKILL.md) (CAP-007) para auditar los artefactos de CAP-005, y [`spec-reader`](capabilities/agents/spec-reader/AGENT.md) (CAP-018) para consultarlos sin escribir ni auditar |
+| 5 | Apertura del PR | 🆕 Propuesta — [`pr-description`](capabilities/skills/pr-description/SKILL.md) (CAP-011) |
+| 6 | Code Review | ✅ Real — [`read-only-code-reviewer`](capabilities/agents/read-only-code-reviewer/AGENT.md) (CAP-012) + [`stack-best-practices-template`](capabilities/skills/stack-best-practices-template/SKILL.md) (CAP-013) |
+| 7 | Testing funcional (QA) | 🆕 Propuesta — [`test-case-generation`](capabilities/skills/test-case-generation/SKILL.md) (CAP-014) |
+| 8 | Test de regresión | 🆕 Propuesta (parcial) — [`regression-test-generation`](capabilities/skills/regression-test-generation/SKILL.md) (CAP-015) clasifica y genera el código del test; la ejecución automática en pipeline (MCP Playwright) sigue pendiente de relevamiento, sin evidencia real en ningún equipo |
+| 9 | Cierre del ticket | 🆕 Propuesta — [`ticket-closure-assist`](capabilities/skills/ticket-closure-assist/SKILL.md) (CAP-016) |
+| 10 | Soporte productivo | 🆕 Propuesta (parcial) — [`production-incident-investigation`](capabilities/agents/production-incident-investigation/AGENT.md) (CAP-017) cubre 3 de 5 líneas del KO: diagnóstico de causa raíz, borrador de comunicación de estado y borrador de cierre. Detección de recurrencia se resuelve con herramienta nativa por plataforma (Azure Observability Agent / Amazon DevOps Guru — ver el Registry), no con una capacidad nueva. Respuesta Nivel 1 sigue pendiente de relevamiento con un equipo real de soporte |
+| 11 | Build & CI | ✅ Real — [`azure-devops-cli`](capabilities/skills/azure-devops-cli/SKILL.md) (CAP-008) |
 
 **Ninguna fila de esta tabla es aspiracional ni inventada** — "✅ Real" no significa
 "terminado y medido" (todavía no hay baseline en ningún caso), y "🆕 Propuesta" no
 significa "no sirve" — significa que está lista para usarse pero corresponde pilotearla
 antes de confiar en ella como en una capacidad ya probada. Detalle completo, con la
-evidencia exacta de cada fila: [`architecture/ai-sdlc.md`](architecture/ai-sdlc.md). Qué
-hace cada capacidad, en lenguaje simple:
-[`capabilities/README.md`](capabilities/README.md#qué-hace-cada-capacidad-explicado-simple).
+evidencia exacta de cada fila: [`architecture/ai-sdlc.md`](architecture/ai-sdlc.md).
+
+**¿Ya entendiste qué hace cada capacidad y ahora querés saber cómo operarla en tu propio
+proyecto?** El ejemplo real de punta a punta (paso 1, 2 y 3, copiar/pegar) está en
+[`capabilities/README.md#cómo-usar-una-capacidad--ejemplo-concreto-de-punta-a-punta`](capabilities/README.md#cómo-usar-una-capacidad--ejemplo-concreto-de-punta-a-punta).
 Catálogo técnico completo con evidencia: [`registry/INDEX.md`](registry/INDEX.md).
 
 ## 5. ¿Cómo empiezo?
@@ -167,7 +174,7 @@ AI capability → SDLC activity → resultado técnico/de negocio →
 Evidence → Evaluation → Measurement → valor para MOA
 ```
 
-Ejemplo real: CAP-002 (`user-story`) → refinamiento de un requerimiento real de DataAgro
+Ejemplo real: CAP-001 (`user-story`) → refinamiento de un requerimiento real de DataAgro
 → historia + criterios + reglas + análisis de gaps → Evidence Record → Evaluation Record
 (`PARTIAL`, no independiente) → Measurement Result (`NOT MEASURED`, sin baseline). No se
 completa la cadena inventando el eslabón que falta.

@@ -29,8 +29,8 @@ flowchart TD
 | Concepto | Qué es | Dónde vive | Ejemplo |
 |---|---|---|---|
 | **Golden Path** | El camino — en qué orden combinar capacidades para un tipo de necesidad | [`../golden-paths/README.md`](../golden-paths/README.md) | "AI-Assisted Requirements": estructurar → criterios → reglas → gaps |
-| **Capability** | El activo reutilizable concreto que se usa dentro del camino | [`../capabilities/`](../capabilities/README.md) + [`../registry/`](../registry/INDEX.md) | CAP-002 (`user-story`) |
-| **Execution** | La aplicación de esa capability sobre el proyecto real, una vez | El repositorio propio, registrada con [`templates/execution-record.md`](templates/execution-record.md) | Aplicar CAP-002 al ticket MOA-1234 |
+| **Capability** | El activo reutilizable concreto que se usa dentro del camino | [`../capabilities/`](../capabilities/README.md) + [`../registry/`](../registry/INDEX.md) | CAP-001 (`user-story`) |
+| **Execution** | La aplicación de esa capability sobre el proyecto real, una vez | El repositorio propio, registrada con [`templates/execution-record.md`](templates/execution-record.md) | Aplicar CAP-001 al ticket MOA-1234 |
 
 Un Golden Path puede usar más de una Capability. Una Capability puede ejecutarse muchas
 veces (una Execution por vez). Nunca al revés.

@@ -10,7 +10,7 @@ camino real, no el ideal. Clasificación de evidencia aplicada sin excepción: *
 **Usar cuando**: una regla debe aplicarse siempre que se trabaje en una ruta/capa
 específica, sin que nadie tenga que acordarse de mencionarla.
 **Camino real**: completar [`repository-governance`](instructions/repository-governance/INSTRUCTIONS.md)
-(CAP-005) — un `AGENTS.md` con matriz ALWAYS/ASK FIRST/NEVER, más `.instructions.md` por
+(CAP-006) — un `AGENTS.md` con matriz ALWAYS/ASK FIRST/NEVER, más `.instructions.md` por
 capa si el repo lo justifica.
 **No hacer**: instructions genéricas sin contenido accionable ("escribí buen código") —
 si no cambia el comportamiento de un asistente de forma verificable, no es una Instruction
@@ -19,7 +19,7 @@ si no cambia el comportamiento de un asistente de forma verificable, no es una I
 ```text
 Necesito que el asistente respete reglas de mi proyecto siempre
         ↓
-Instruction: repository-governance (CAP-005)
+Instruction: repository-governance (CAP-006)
         ↓
 AGENTS.md con matriz ALWAYS/ASK FIRST/NEVER, completada con contenido real del equipo
 ```
@@ -28,9 +28,9 @@ AGENTS.md con matriz ALWAYS/ASK FIRST/NEVER, completada con contenido real del e
 
 **Usar cuando**: hay conocimiento de dominio o procedimiento que un asistente debe
 consultar solo cuando la tarea lo amerita (no siempre — eso sería Instruction).
-**Camino real**: `azure-devops-cli` (CAP-001) para operar Azure DevOps;
-`user-story` (CAP-002) para refinar requerimientos; `stack-best-practices-template`
-(CAP-006) para documentar las convenciones reales del stack propio.
+**Camino real**: `azure-devops-cli` (CAP-008) para operar Azure DevOps;
+`user-story` (CAP-001) para refinar requerimientos; `stack-best-practices-template`
+(CAP-013) para documentar las convenciones reales del stack propio.
 **No hacer**: copiar el contenido de la skill de otro equipo con un stack distinto —
 `stack-best-practices-template` existe precisamente porque 2 instancias reales
 (`dotnet-best-practices` en Scato Logística y Orquestador) probaron que el contenido no
@@ -41,7 +41,7 @@ Necesito mejorar Requirements
         ↓
 Golden Path: AI-Assisted Requirements
         ↓
-Skill: user-story (CAP-002)
+Skill: user-story (CAP-001)
         ↓
 Human Review
         ↓
@@ -52,7 +52,7 @@ Evidence → Evaluation → Measurement
 
 **Usar cuando**: el problema requiere razonamiento dinámico o selección de herramienta —
 no cuando la secuencia de pasos ya es conocida de antemano (eso es Workflow).
-**Camino real**: `read-only-code-reviewer` (CAP-003) — el patrón mejor gobernado
+**Camino real**: `read-only-code-reviewer` (CAP-012) — el patrón mejor gobernado
 encontrado en todo el relevamiento.
 **No hacer**: agregar `tools: edit` a un Agent de revisión "para que también arregle lo
 que encuentra" — eso destruye el control de seguridad estructural que es la razón de ser
@@ -62,7 +62,7 @@ un problema real (`governance/agent-governance.md`).
 ```text
 Necesito Code Review asistido por IA
         ↓
-Reusable Agent Pattern: read-only-code-reviewer (CAP-003)
+Reusable Agent Pattern: read-only-code-reviewer (CAP-012)
         ↓
 Least Privilege — tools sin "edit"
         ↓
@@ -80,7 +80,7 @@ principio de forma literal, no solo declarativa.
 
 **Usar cuando**: la secuencia de pasos es fija y conocida de antemano, sin razonamiento
 dinámico sobre qué hacer o con qué herramienta.
-**Camino real**: `spec-driven-development` (CAP-004) — **empezar por el nivel Lite** (3
+**Camino real**: `spec-driven-development` (CAP-005) — **empezar por el nivel Lite** (3
 roles, evidencia real de 2 tickets), escalar al nivel Full (6 roles, contratos JSON) solo
 si el equipo necesita un gate formal de `security-reviewer` y puede mantenerlo.
 **No hacer**: adoptar el nivel Full "porque está mejor especificado" — mejor especificado
@@ -125,7 +125,7 @@ nunca depender de un solo modo.
 ## Observability
 
 **Estado real en MOA**: `NOT FOUND` de forma sistemática — brecha fundacional desde G3.1,
-sin cambios desde entonces. El nivel Full de `spec-driven-development` (CAP-004) propone
+sin cambios desde entonces. El nivel Full de `spec-driven-development` (CAP-005) propone
 un esquema de log de auditoría, pero sin evidencia de que esté en uso real.
 **Recomendación (PROPOSAL)**: priorizar Observability para cualquier capacidad con
 autonomía (Agent, MCP) antes de escalar su nivel de autonomía — no es necesaria para

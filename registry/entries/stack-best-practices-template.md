@@ -1,8 +1,8 @@
-# CAP-006 — stack-best-practices-template
+# CAP-013 — stack-best-practices-template
 
 | Campo | Valor | Evidencia / clasificación |
 |---|---|---|
-| **ID** | CAP-006 | — |
+| **ID** | CAP-013 | — |
 | **Name** | stack-best-practices-template | FACT |
 | **Type** | Skill | FACT — referencia especializada cargada on-demand por un Agent de code review |
 | **Purpose** | Plantilla de estructura para documentar buenas prácticas específicas del stack de un equipo, cargable por un Agent de code review — el género es reusable, el contenido no | FACT |
@@ -26,7 +26,7 @@
 | **Tools** | Ninguna — contenido de referencia | FACT |
 | **Model** | No aplica | — |
 | **Autonomy** | No aplica directo (Skill) | — |
-| **HITL** | No declarado dentro de la skill misma — el HITL real ocurre en el Agent que la carga (`CAP-003`) | PARTIAL |
+| **HITL** | No declarado dentro de la skill misma — el HITL real ocurre en el Agent que la carga (`CAP-012`) | PARTIAL |
 | **Evaluation** | NOT FOUND | Sin evidencia de que su contenido haya sido validado contra el código real más allá de la revisión de quien la escribió |
 | **Observability** | NOT FOUND | — |
 | **Metrics** | NOT FOUND | — |

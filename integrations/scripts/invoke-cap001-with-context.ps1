@@ -1,14 +1,14 @@
 <#
 .SYNOPSIS
-    Adaptador: Resolved Context (JSON) -> input real de CAP-002 (user-story).
+    Adaptador: Resolved Context (JSON) -> input real de CAP-001 (user-story).
 
 .DESCRIPTION
-    Esto es lo que preserva "CAP-002 debe permanecer independiente del sistema origen":
-    CAP-002 (capabilities/skills/user-story/SKILL.md) no cambia -- este script vive
+    Esto es lo que preserva "CAP-001 debe permanecer independiente del sistema origen":
+    CAP-001 (capabilities/skills/user-story/SKILL.md) no cambia -- este script vive
     afuera, en integrations/, y solo traduce un Resolved Context (sin importar si vino de
-    Jira o de Azure DevOps) al mismo bloque Ticket/Requirement/Context que CAP-002 ya
-    acepta desde su version original. No existe, ni existira, un "cap-002-jira.ps1"
-    separado de un "cap-002-azuredevops.ps1" -- es el mismo adaptador para cualquier
+    Jira o de Azure DevOps) al mismo bloque Ticket/Requirement/Context que CAP-001 ya
+    acepta desde su version original. No existe, ni existira, un "CAP-001-jira.ps1"
+    separado de un "CAP-001-azuredevops.ps1" -- es el mismo adaptador para cualquier
     Resolved Context.
 
 .PARAMETER ContextFile
@@ -21,7 +21,7 @@
 
 .EXAMPLE
     ./azure-devops-context.ps1 -Reference 12345 -ResourceType work_item -OutFile ctx.json
-    ./invoke-cap002-with-context.ps1 -ContextFile ctx.json
+    ./invoke-cap001-with-context.ps1 -ContextFile ctx.json
 #>
 param(
     [Parameter(Mandatory = $true)]
@@ -40,8 +40,8 @@ if (-not (Test-Path $ContextFile)) {
 $ctx = Get-Content $ContextFile -Raw | ConvertFrom-Json
 
 if ($ctx.retrievalStatus -ne 'SUCCESS' -and $ctx.retrievalStatus -ne 'PARTIAL') {
-    Write-Host "No se genera input para CAP-002: retrievalStatus = $($ctx.retrievalStatus)." -ForegroundColor Yellow
-    Write-Host "CAP-002 no debe ejecutarse sobre un contexto que no se resolvio -- no se completa con contenido inventado."
+    Write-Host "No se genera input para CAP-001: retrievalStatus = $($ctx.retrievalStatus)." -ForegroundColor Yellow
+    Write-Host "CAP-001 no debe ejecutarse sobre un contexto que no se resolvio -- no se completa con contenido inventado."
     exit 1
 }
 
@@ -70,5 +70,5 @@ Write-Output $block
 
 if ($ctx.retrievalStatus -eq 'PARTIAL') {
     Write-Host ""
-    Write-Host "AVISO: retrievalStatus = PARTIAL -- el Resolved Context esta incompleto. Revisar antes de ejecutar CAP-002." -ForegroundColor Yellow
+    Write-Host "AVISO: retrievalStatus = PARTIAL -- el Resolved Context esta incompleto. Revisar antes de ejecutar CAP-001." -ForegroundColor Yellow
 }

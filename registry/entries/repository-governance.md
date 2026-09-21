@@ -1,8 +1,8 @@
-# CAP-005 — repository-governance
+# CAP-006 — repository-governance
 
 | Campo | Valor | Evidencia / clasificación |
 |---|---|---|
-| **ID** | CAP-005 | — |
+| **ID** | CAP-006 | — |
 | **Name** | repository-governance | FACT |
 | **Type** | Instruction | FACT — regla estructural aplicada siempre, no cargada on-demand (Skill) ni con razonamiento dinámico (Agent) |
 | **Purpose** | Declarar en un lugar predecible qué puede hacer un asistente de IA sin pedir permiso, qué debe confirmar antes, y qué nunca debe hacer — vía la convención de 4 capas (`copilot-instructions.md`/`AGENTS.md` + `instructions/` + `skills/` + `agents/`) | FACT |

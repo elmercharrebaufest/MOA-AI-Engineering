@@ -1,6 +1,6 @@
 # Jira Context Provider (pattern)
 
-**Registry**: [`CAP-008`](../registry/entries/jira-context.md).
+**Registry**: [`CAP-003`](../registry/entries/jira-context.md).
 **Cross-Cutting Concern que implementa**: [`../architecture/context-acquisition-resolution.md`](../architecture/context-acquisition-resolution.md)
 — Modelo B (Connected Context).
 **Action Type**: **READ**. **No implementa `ACT`** — regla explícita, ver sección
@@ -125,11 +125,11 @@ y por la sección "READ vs. ACT" de `security-governance.md` — **no se habilit
 - El servidor `com.atlassian/atlassian-mcp-server` real, con scope acotado
   (`getJiraIssue`), tiene evidencia de **configuración** (`CONFIGURATION VERIFIED`) en los
   agents `architect` de Orquestador y Scato Logística.
-- **Este patrón específico (Reference → Resolved Context → CAP-002) quedó probado de
+- **Este patrón específico (Reference → Resolved Context → CAP-001) quedó probado de
   punta a punta durante la construcción**, vía MCP (Prioridad 1), sobre varios issues
   reales de tipo distinto — `getJiraIssue` invocado realmente por un runtime GitHub
   Copilot Agent (VS Code), con el Resolved Context resultante consumido realmente por
-  CAP-002. Esas pruebas se purgaron al pasar a adopción real. `Real Use Status:
+  CAP-001. Esas pruebas se purgaron al pasar a adopción real. `Real Use Status:
   CONFIGURED` — sin ejecuciones reales registradas todavía (ver
   [`../registry/entries/jira-context.md`](../registry/entries/jira-context.md)).
 
@@ -137,7 +137,7 @@ y por la sección "READ vs. ACT" de `security-governance.md` — **no se habilit
 
 Un equipo con Jira y un mecanismo de acceso ya configurado puede usar este patrón para
 resolver un issue hacia contexto y pasarlo a cualquier capability que acepte `Resolved
-Context` (ej. CAP-002). No reemplaza el flujo manual — es una alternativa.
+Context` (ej. CAP-001). No reemplaza el flujo manual — es una alternativa.
 
 ## Arquitectura runtime — Runtime Adapter
 
