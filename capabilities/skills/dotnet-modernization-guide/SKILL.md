@@ -50,6 +50,12 @@ alcance automático de la modernización** — son definiciones de negocio sensi
 estos archivos sin revisión específica es alto riesgo — se documentan y migran aparte,
 nunca dentro del mismo flujo automático que el resto del código.
 
+**Segunda restricción, confirmada por `moa-sdlc` (Existing Practice real, DataAgro)**: no
+migrar un proyecto legacy a .NET moderno solo porque es técnicamente posible — solo
+cuando hay una necesidad real (nueva feature que lo requiere, fin de soporte, riesgo de
+seguridad concreto); y nunca romper un contrato de API público sin aprobación explícita
+del equipo dueño de los consumidores reales de esa API.
+
 ### 3. Empezar con un piloto chico, no con el repo completo
 
 La guía oficial lo recomienda para cualquier primera vez; para MOA es doblemente

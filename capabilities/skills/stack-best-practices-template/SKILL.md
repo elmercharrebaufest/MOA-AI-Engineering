@@ -112,6 +112,24 @@ un asistente de IA resuelve cada caso de forma distinta e inconsistente).
   [`../dotnet-modernization-guide/SKILL.md`](../dotnet-modernization-guide/SKILL.md)
   (CAP-020) — guía completa de modernización, no duplicada acá.
 
+## Reglas genéricas reales confirmadas por `moa-sdlc` (Existing Practice, DataAgro — 2026-09-22)
+
+A diferencia de las referencias oficiales de arriba, esto **sí es Existing Practice real
+de MOA** (no doc externa) — reglas ya en uso en DataAgro, generalizadas sin copiar el
+contenido específico del dominio de ese equipo (Autofac/EF6/Kendo UI no se generalizan,
+son 100% de esa instancia):
+
+- **Arquitectura/capas (sección 2)**: separar claramente componentes/servicios/guards en
+  Angular — nunca mezclar lógica de UI con acceso a datos en el mismo archivo.
+- **Manejo de errores/seguridad (secciones 3 y 6)**: nunca confiar en validación hecha
+  solo del lado del cliente — se revalida siempre del lado del servidor, sin excepción.
+- **Testing (sección 7)**: cobertura de tests unitarios esperada explícitamente sobre
+  servicios, pipes y guards de Angular — no solo sobre componentes visuales.
+- **Regla transversal, no solo de un stack**: "nunca deshabilitar una validación o un
+  analyzer para ocultar un problema, en vez de corregirlo" — coincide exactamente con la
+  misma regla ya presente en la Base mínima de CAP-006 (desactivar validaciones de
+  seguridad), ahora con una segunda fuente real e independiente que la confirma.
+
 ## Criterios de calidad
 
 - Declara la versión exacta del stack, no un nombre genérico de tecnología.
