@@ -287,7 +287,8 @@ Ver el punto 3.
    developer instala directamente desde la URL real del repositorio, sin necesitar permisos
    de administración de Azure DevOps. `PROPOSAL`, estructura construida, sin instalación
    real probada todavía — un punto concreto (autenticación contra repositorio privado)
-   sigue sin confirmar.
+   sigue sin confirmar. Guía paso a paso:
+   [`../adoption/agent-plugin-quickstart.md`](../adoption/agent-plugin-quickstart.md).
 
 Las 3 no compiten entre sí — cubren necesidades distintas (gobierno centralizado vs.
 autoservicio individual vs. una etapa puntual del KO).

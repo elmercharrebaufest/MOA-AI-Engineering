@@ -61,6 +61,8 @@ propagación automática (que sigue sin aplicar a MOA por estar en Azure DevOps,
 
 ## Implementación
 
+- Quick Start paso a paso para instalar (para cualquier persona, no solo developers):
+  [`../adoption/agent-plugin-quickstart.md`](../adoption/agent-plugin-quickstart.md).
 - [`../plugin.json`](../plugin.json) — manifiesto en la raíz del repositorio.
 - [`../skills/`](../skills/) — espejo de `capabilities/skills/`, mantenido junto con la
   fuente (no reemplaza `capabilities/skills/` como fuente de verdad).

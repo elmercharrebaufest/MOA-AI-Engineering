@@ -47,9 +47,12 @@ flowchart LR
 3. **Seleccionar capability** → [`getting-started.md`](getting-started.md) §5 +
    [`../registry/INDEX.md`](../registry/INDEX.md)
 4. **Adoptar/adaptar** → [`getting-started.md`](getting-started.md) §7 +
-   [`team-adaptation.md`](team-adaptation.md) — si tu equipo quiere que
-   `agents`/`skills` lleguen solos cuando cambien, en vez de copiarlos a mano cada vez:
-   [`capability-distribution-quickstart.md`](capability-distribution-quickstart.md)
+   [`team-adaptation.md`](team-adaptation.md) — 3 caminos sin copiar a mano: instalación
+   individual por VS Code ([`agent-plugin-quickstart.md`](agent-plugin-quickstart.md)),
+   distribución automática por equipo
+   ([`capability-distribution-quickstart.md`](capability-distribution-quickstart.md)), o
+   diagnóstico de producción
+   ([`production-diagnostics-quickstart.md`](production-diagnostics-quickstart.md))
 5. **Ejecutar sobre trabajo real** → [`getting-started.md`](getting-started.md) §8 +
    [`execution-model.md`](execution-model.md)
 6. **Generar Evidence** → [`getting-started.md`](getting-started.md) §9 +
