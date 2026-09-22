@@ -62,6 +62,15 @@ propagación automática (que sigue sin aplicar a MOA por estar en Azure DevOps,
    todos los plugins instalados) — confirmado en la referencia oficial de comandos de
    GitHub Copilot CLI. Por VS Code: automático cada 24 horas si `extensions.autoUpdate`
    está activo, o a mano con **"Extensions: Check for Extension Updates"**.
+   **Hallazgo real (2026-09-22)**: en Windows, `copilot plugin update` puede fallar con
+   *"Access is denied. (os error 5)"* — bug conocido y reportado hoy mismo en GitHub
+   Copilot CLI, todavía abierto y sin confirmación oficial
+   ([#4095](https://github.com/github/copilot-cli/issues/4095),
+   [#4937](https://github.com/github/copilot-cli/issues/4937)), no un problema de este
+   repositorio. Causa reportada: la extensión de Copilot en VS Code mantiene handles de
+   archivo sobre la carpeta de plugins instalados mientras VS Code está abierto. Cerrar
+   VS Code por completo y repetir el comando resolvió el problema para otros usuarios que
+   reportaron el mismo error.
 5. **Desinstalar**: por terminal, `copilot plugin uninstall ai-engineering`. Por VS Code:
    en la vista **"Agent Plugins - Installed"**, clic derecho sobre el plugin →
    **"Uninstall"** — confirmado en la documentación oficial de Agent Plugins.
