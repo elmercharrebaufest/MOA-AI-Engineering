@@ -58,8 +58,13 @@ propagación automática (que sigue sin aplicar a MOA por estar en Azure DevOps,
    lo instalado por esta última vía.
 3. Aceptar el prompt de confianza (VS Code lo muestra siempre en la primera instalación de
    una fuente nueva).
-4. **Actualizar**: automático cada 24 horas si `extensions.autoUpdate` está activo, o a
-   mano con **"Extensions: Check for Extension Updates"**.
+4. **Actualizar**: por terminal, `copilot plugin update ai-engineering` (o `--all` para
+   todos los plugins instalados) — confirmado en la referencia oficial de comandos de
+   GitHub Copilot CLI. Por VS Code: automático cada 24 horas si `extensions.autoUpdate`
+   está activo, o a mano con **"Extensions: Check for Extension Updates"**.
+5. **Desinstalar**: por terminal, `copilot plugin uninstall ai-engineering`. Por VS Code:
+   en la vista **"Agent Plugins - Installed"**, clic derecho sobre el plugin →
+   **"Uninstall"** — confirmado en la documentación oficial de Agent Plugins.
 
 ## Qué falta confirmar (actualizado 2026-09-22, primera prueba real ya ocurrió)
 

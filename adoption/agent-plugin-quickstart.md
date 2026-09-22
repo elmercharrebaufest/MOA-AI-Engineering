@@ -70,12 +70,31 @@ Agents, algo que todavía no está confirmado.
 
 ## 4. Actualizar
 
-No hace falta hacer nada manualmente si `extensions.autoUpdate` está activo en VS Code
-(se actualiza solo, cada 24 horas). Para controlarlo de forma manual:
+**Por terminal (GitHub Copilot CLI, camino confirmado en la documentación oficial)**:
 
-1. Paleta de comandos → **"Extensions: Check for Extension Updates"**.
+```
+copilot plugin update ai-engineering
+```
 
-## 5. Alternativa: que llegue recomendado sin configurar nada
+Para actualizar todos los plugins instalados a la vez: `copilot plugin update --all`. Si
+no se recuerda el nombre exacto instalado, `copilot plugin list` muestra todos.
+
+**Por la interfaz de VS Code**: no hace falta hacer nada manualmente si
+`extensions.autoUpdate` está activo (se actualiza solo, cada 24 horas). Para controlarlo
+a mano: paleta de comandos → **"Extensions: Check for Extension Updates"**.
+
+## 5. Desinstalar
+
+**Por terminal (GitHub Copilot CLI, camino confirmado en la documentación oficial)**:
+
+```
+copilot plugin uninstall ai-engineering
+```
+
+**Por la interfaz de VS Code**: en la vista **"Agent Plugins - Installed"**, clic derecho
+sobre el plugin → **"Uninstall"**.
+
+## 6. Alternativa: que llegue recomendado sin configurar nada
 
 Si el equipo agrega esto al archivo `.github/copilot/settings.json` de su propio
 repositorio (Portal de Créditos, por ejemplo), **cualquiera que abra ese repo lo recibe
