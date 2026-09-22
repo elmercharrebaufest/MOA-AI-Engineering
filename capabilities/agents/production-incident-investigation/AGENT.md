@@ -119,17 +119,25 @@ explícitamente, y nunca se envían/publican solas):
 
 **Implementación ejecutable real, para las 2 plataformas con evidencia de uso en MOA**:
 [`../../../integrations/production-diagnostics-provider.md`](../../../integrations/production-diagnostics-provider.md)
-(AWS CloudWatch / Azure Application Insights) — estos 4 tipos de consulta ya corren como
+(AWS CloudWatch / Azure Application Insights) — estos 5 tipos de consulta ya corren como
 script real (`-QueryType`), no solo como descripción. Para on-premise, sigue sin mecanismo
 nativo identificado (`REQUIRES VALIDATION`).
 
-No es sintaxis obligatoria — son los 4 tipos de consulta que más valor aportan para un
+No es sintaxis obligatoria — son los 5 tipos de consulta que más valor aportan para un
 primer diagnóstico, para no partir de cero cada vez:
 
 - **Excepciones recientes**: últimas excepciones en una ventana de tiempo, con tipo,
   mensaje y el identificador de la operación/request afectada.
 - **Requests fallidos**: pedidos con error en una ventana de tiempo, con código de
   resultado, duración e identificador de operación.
+- **Dependencias fallidas** *(agregada 2026-09-22)*: llamadas salientes de la app a otro
+  recurso (Blob Storage, Cognitive Services, Azure AD B2C, SQL, una API externa como un
+  motor de decisiones) que fallaron — con el recurso/endpoint real contra el que falló,
+  no solo el error de la app en sí. Es la consulta que responde directo al caso "el error
+  está en un recurso de Azure del que depende la app, no en la app misma" — solo
+  disponible hoy en Azure Application Insights (la tabla `dependencies`); CloudWatch Logs
+  no tiene un equivalente estructurado — un error de este tipo en AWS aparece dentro de
+  `recent-exceptions`/`failed-requests` si la app lo loguea, no en una consulta separada.
 - **Performance**: percentiles de duración (p50/p95/p99) por endpoint/operación, para
   detectar degradación antes de que sea un incidente reportado.
 - **Timeline de una operación puntual**: todo lo relacionado a un identificador de

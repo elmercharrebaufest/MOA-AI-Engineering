@@ -15,10 +15,13 @@ y Scato Logística; AWS (ECS/RDS) ya en uso real de producción en Portal de Cr�
 ScatoPuerto. **External Best Practice**: mismo mecanismo oficial de consulta que cada
 plataforma documenta (`aws logs start-query`/`get-query-results` para CloudWatch Logs
 Insights; `az monitor app-insights query` para Application Insights) — no una API
-inventada. **Architectural Judgment**: las 4 consultas (excepciones recientes, requests
-fallidos, performance, timeline de operación) son las mismas que ya define CAP-017 — este
-patrón no inventa un vocabulario nuevo, solo lo hace ejecutable contra las 2 plataformas
-reales de MOA.
+inventada. **Architectural Judgment**: las 5 consultas (excepciones recientes, requests
+fallidos, dependencias fallidas, performance, timeline de operación) son las mismas que ya
+define CAP-017 — este patrón no inventa un vocabulario nuevo, solo lo hace ejecutable
+contra las 2 plataformas reales de MOA. La consulta de dependencias fallidas (agregada
+2026-09-22) solo existe hoy del lado de Azure (tabla `dependencies` de Application
+Insights) — es la que responde al caso real de "el error está en un recurso de Azure del
+que depende la app (Blob Storage, Cognitive Services, Azure AD B2C), no en la app misma".
 
 ## Alcance — qué cubre y qué no
 
@@ -45,8 +48,10 @@ CAP-017 lo cita como evidencia real en el reporte de investigación
 ## Input común a ambos scripts
 
 ```
-QueryType: recent-exceptions | failed-requests | performance | operation-timeline
+QueryType: recent-exceptions | failed-requests | failed-dependencies | performance | operation-timeline
 (operation-timeline requiere además el ID de operación/request puntual)
+(failed-dependencies solo disponible en azure-appinsights-diagnostics.ps1 — sin
+ equivalente estructurado en CloudWatch Logs, ver aws-cloudwatch-diagnostics.ps1)
 ```
 
 ## Output común (ambos scripts, mismo contrato)

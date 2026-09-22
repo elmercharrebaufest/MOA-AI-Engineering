@@ -2,9 +2,10 @@
 .SYNOPSIS
     Azure Application Insights Diagnostics -- implementacion real del patron
     ../production-diagnostics-provider.md, mitad Azure. Consulta Application Insights via
-    KQL, READ-only, para las mismas 4 consultas de referencia que ya usa CAP-017
+    KQL, READ-only, para las 5 consultas de referencia que ya usa CAP-017
     (production-incident-investigation): excepciones recientes, requests fallidos,
-    performance, timeline de una operacion puntual.
+    dependencias fallidas (llamadas a otros recursos de Azure), performance, timeline de
+    una operacion puntual.
 
 .DESCRIPTION
     Usa Azure CLI (`az monitor app-insights query`) -- el mecanismo real y oficial de
@@ -21,8 +22,12 @@
     $env:APPINSIGHTS_APP_ID.
 
 .PARAMETER QueryType
-    Una de las 4 consultas de referencia de CAP-017: 'recent-exceptions',
-    'failed-requests', 'performance', 'operation-timeline'.
+    Una de las 5 consultas de referencia de CAP-017: 'recent-exceptions',
+    'failed-requests', 'failed-dependencies', 'performance', 'operation-timeline'.
+    'failed-dependencies' es para cuando el error no es de la app en si, sino de un
+    recurso del que depende (Blob Storage, Cognitive Services, Azure AD B2C, SQL, una API
+    externa) -- el mismo caso que analizar el error directo contra el endpoint real del
+    servicio.
 
 .PARAMETER TimespanHours
     Ventana de tiempo hacia atras, en horas (ej. 24). Default: 24.
@@ -44,7 +49,7 @@ param(
     [string]$AppId = $env:APPINSIGHTS_APP_ID,
 
     [Parameter(Mandatory = $true)]
-    [ValidateSet('recent-exceptions', 'failed-requests', 'performance', 'operation-timeline')]
+    [ValidateSet('recent-exceptions', 'failed-requests', 'failed-dependencies', 'performance', 'operation-timeline')]
     [string]$QueryType,
 
     [int]$TimespanHours = 24,
@@ -95,13 +100,19 @@ if ($QueryType -eq 'operation-timeline' -and -not $OperationId) {
     exit 1
 }
 
-# Las 4 consultas de referencia de CAP-017, en sintaxis real de KQL sobre Application Insights.
+# Las 5 consultas de referencia de CAP-017, en sintaxis real de KQL sobre Application Insights.
 $kqlQuery = switch ($QueryType) {
     'recent-exceptions' {
         'exceptions | order by timestamp desc | project timestamp, type, outerMessage, operation_Id | take 50'
     }
     'failed-requests' {
         'requests | where success == false | order by timestamp desc | project timestamp, name, resultCode, duration, operation_Id | take 50'
+    }
+    'failed-dependencies' {
+        # dependencies = llamadas salientes de la app a otro recurso (Blob Storage, Cognitive
+        # Services, Azure AD B2C, SQL, una API externa como el Motor de Decisiones). 'type' y
+        # 'target' identifican el recurso/endpoint real contra el que fallo la llamada.
+        'dependencies | where success == false | order by timestamp desc | project timestamp, type, target, name, resultCode, duration, operation_Id | take 50'
     }
     'performance' {
         'requests | summarize avgDuration=avg(duration), p50=percentile(duration,50), p95=percentile(duration,95), p99=percentile(duration,99) by bin(timestamp, 5m), name'
