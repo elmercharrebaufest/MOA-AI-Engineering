@@ -91,6 +91,27 @@ Esta plantilla no incluye contenido de ejemplo específico de stack, a propósit
 cualquier ejemplo concreto (reglas de una versión específica de un ORM, de un framework
 de testing, etc.) pertenece a la instancia real de cada equipo.
 
+## Referencias oficiales para los stacks reales confirmados de MOA (2026-09-22)
+
+**Excepción deliberada a la regla de arriba**: no es contenido a copiar tal cual — es el
+punto de partida oficial para que cada equipo complete su propia sección 5
+(Concurrencia/async), a diferencia de dejarlo librado a que la IA improvise una regla
+distinta cada sesión (motivo explícito de esta sección: sin una regla clara declarada,
+un asistente de IA resuelve cada caso de forma distinta e inconsistente).
+
+- **Angular** (MOA tiene 3 versiones reales — 10.1.4, 20.3.7, 21.2.14, ver
+  `teams/README.md`): para proyectos en Angular moderno (20+), la guía oficial
+  ([angular.dev/guide/signals](https://angular.dev/guide/signals), verificado
+  2026-09-22) presenta `signal()`/`computed()`/`effect()` como el sistema de
+  reactividad recomendado para código nuevo — **no lo declara obligatorio de forma
+  absoluta** (RxJS sigue soportado vía interop), así que cada equipo declara
+  explícitamente en su propia skill si exige Signals para código nuevo o no, en vez de
+  dejarlo ambiguo. Para el proyecto en 10.1.4 (Scato Logística/Scato Puerto), Signals no
+  aplica — es una versión anterior a esa API.
+- **.NET Framework → .NET moderno**: ver
+  [`../dotnet-modernization-guide/SKILL.md`](../dotnet-modernization-guide/SKILL.md)
+  (CAP-020) — guía completa de modernización, no duplicada acá.
+
 ## Criterios de calidad
 
 - Declara la versión exacta del stack, no un nombre genérico de tecnología.

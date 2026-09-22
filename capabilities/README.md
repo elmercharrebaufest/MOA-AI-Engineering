@@ -182,6 +182,7 @@ está en la primera tabla justamente para no dar a entender que es de uso genera
 | Capacidad | Tipo | Dónde | Para qué | Registry |
 |---|---|---|---|---|
 | `workflow-documenter` | Agent | [`agents/workflow-documenter/AGENT.md`](agents/workflow-documenter/AGENT.md) | Documentar workflows WF4.5 (`.xamlx`) y diagnosticar workflows `Faulted` — **solo si el proyecto usa WF4.5** | [CAP-019](../registry/entries/workflow-documenter.md) |
+| `dotnet-modernization-guide` | Skill | [`skills/dotnet-modernization-guide/SKILL.md`](skills/dotnet-modernization-guide/SKILL.md) | Guía para usar bien el agente oficial de modernización .NET de Copilot, con restricciones reales de MOA | [CAP-020](../registry/entries/dotnet-modernization-guide.md) |
 
 ### Patrones de adquisición de contexto (2)
 

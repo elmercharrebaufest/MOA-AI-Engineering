@@ -34,6 +34,7 @@ independiente) → `VERIFIED` (ejecución independiente + evaluación humana con
 | [CAP-017](entries/production-incident-investigation.md) | production-incident-investigation | Agent | Ninguno todavía (propuesta, evidencia externa Camuzzi/Baufest) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo (por diseño, sin `edit`) |
 | [CAP-018](entries/spec-reader.md) | spec-reader | Agent | Ninguno todavía (propuesta, evidencia externa Camuzzi/Baufest) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo (por diseño, sin `edit`) |
 | [CAP-019](entries/workflow-documenter.md) | workflow-documenter | Agent | Ninguno todavía (propuesta, generalizada de Scato Logística — **opt-in, solo proyectos con WF4.5**) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales de la versión generalizada (la instancia de origen sí tiene ejecución real) | Bajo |
+| [CAP-020](entries/dotnet-modernization-guide.md) | dotnet-modernization-guide | Skill | Ninguno todavía (propuesta — guía sobre el agente oficial de Microsoft, no herramienta propia) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo |
 
 **CAP-004, CAP-011, CAP-014, CAP-016** *(cobertura de las 11 etapas del KO, 2026-09-18)*: a
 diferencia de todas las entradas anteriores, no son generalizaciones de una instancia real
@@ -80,7 +81,7 @@ acá — quedaron clasificados TEAM-SPECIFIC o EXPERIMENTAL, con su razón docum
 
 ## Por tipo
 
-- **Skill**: CAP-001, CAP-007, CAP-008, CAP-011, CAP-013, CAP-014, CAP-015, CAP-016
+- **Skill**: CAP-001, CAP-007, CAP-008, CAP-011, CAP-013, CAP-014, CAP-015, CAP-016, CAP-020
 - **Agent**: CAP-004, CAP-009, CAP-010 (orquestador), CAP-012, CAP-017, CAP-018, CAP-019 (opt-in, solo WF4.5)
 - **Workflow**: CAP-005
 - **Instruction**: CAP-006
@@ -106,7 +107,7 @@ acá — quedaron clasificados TEAM-SPECIFIC o EXPERIMENTAL, con su razón docum
 
 ## ¿Puedo adoptarla?
 
-Ninguna de las 19 entradas del Registry está promovida a Corporate Standard. Las entradas pueden
+Ninguna de las 20 entradas del Registry está promovida a Corporate Standard. Las entradas pueden
 corresponder a capacidades reutilizables, patrones reutilizables, candidatos a Common
 Core, propuestas nuevas sin evidencia de origen, o activos Team-Specific según su
 clasificación individual — `Corporate Standard: N`
