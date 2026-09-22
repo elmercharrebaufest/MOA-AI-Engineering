@@ -3,5 +3,6 @@
   "name": "ai-engineering",
   "version": "0.1.0",
   "description": "Biblioteca reusable de capacidades de AI Engineering de Molinos Agro (Track 1) -- skills y agents generalizados desde evidencia real de equipos de MOA y evidencia externa, con Human-in-the-Loop explicito. PROPOSAL -- sin ejecucion real ni piloto de ningun equipo todavia.",
+  "repository": "https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering",
   "keywords": ["moa", "sdlc", "copilot", "capability-registry"]
 }

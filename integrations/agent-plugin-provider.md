@@ -31,14 +31,17 @@ propagación automática (que sigue sin aplicar a MOA por estar en Azure DevOps,
 | Instructions (`capabilities/instructions/`) | **No, a propósito** | Instructions son 100% Team Adaptation (matriz de autonomía propia de cada equipo) — un plugin instalado globalmente no debe traer contenido que cada equipo tiene que completar con lo suyo. Sigue siendo copia manual, ver `capabilities/README.md` |
 | MCP servers (`mcp.json`) | No todavía | Ningún servidor MCP de MOA tiene gobierno de identidad/scope/auditoría confirmado (`governance/BLOCKED-DECISIONS.md` #4) — no se empaqueta configuración MCP sin eso resuelto |
 
-## Cómo lo instala un developer (una vez migrado a Azure DevOps)
+## Cómo lo instala un developer
 
-1. Agregar la URL real del repositorio como marketplace — en su configuración de usuario
-   de VS Code, o mejor, commiteada en el repo del equipo (`.github/copilot/settings.json`,
-   sección `extraKnownMarketplaces`) para que cualquiera que abra ese repo la reciba
-   recomendada, sin configurarla a mano.
+**URL real del repositorio** (ya migrado):
+`https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering`
+
+1. Agregar esa URL como marketplace — en la configuración de usuario de VS Code
+   (`chat.plugins.marketplaces`), o mejor, commiteada en el repo del equipo
+   (`.github/copilot/settings.json`, sección `extraKnownMarketplaces`) para que cualquiera
+   que abra ese repo la reciba recomendada, sin configurarla a mano.
 2. Instalar desde la Extensions view (`@agentPlugins`) o con el comando
-   **"Chat: Install Plugin From Source"**, pegando la URL directamente.
+   **"Chat: Install Plugin From Source"**, pegando esa URL directamente.
 3. Aceptar el prompt de confianza (VS Code lo muestra siempre en la primera instalación de
    una fuente nueva).
 4. **Actualizar**: automático cada 24 horas si `extensions.autoUpdate` está activo, o a
