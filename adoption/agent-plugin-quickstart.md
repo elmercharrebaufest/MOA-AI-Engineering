@@ -10,9 +10,10 @@ sin que cada developer instale nada por su cuenta — para eso está
 [`capability-distribution-quickstart.md`](capability-distribution-quickstart.md) (requiere
 un administrador de Azure DevOps).
 
-**Estado**: `PROPOSAL` — la estructura está lista, **todavía nadie lo probó de verdad**.
-Sos, muy probablemente, la primera persona en intentarlo — si algo no funciona como acá
-dice, es información real y valiosa para corregir la guía, avisá igual.
+**Estado**: `EXECUTED` (2026-09-22) — **primera instalación real ya ocurrió, vía GitHub
+Copilot CLI, con éxito**. Salida real: *"Plugin 'ai-engineering' installed successfully.
+Installed 10 skills."* Sigue habiendo 1 cosa importante sin confirmar (ver paso 3) y 1
+aviso real a tener en cuenta (ver "Aviso importante" antes del paso 2b).
 
 ## 1. Prerequisitos
 
@@ -26,55 +27,45 @@ dice, es información real y valiosa para corregir la guía, avisá igual.
 carpeta en particular** — se instala una sola vez por máquina, queda en una ubicación
 global del usuario, y después aplica a cualquier proyecto que abras en VS Code.
 
-1. Abrí la paleta de comandos (`Ctrl+Shift+P` / `Cmd+Shift+P`).
-2. Escribí y elegí: **"Chat: Install Plugin From Source"**.
-3. Pegá esta URL:
-   ```
-   https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering
-   ```
-   **Punto sin confirmar (2026-09-22)**: la documentación oficial de VS Code describe el
-   formato soportado como *"una URL completa terminada en `.git`"* — nuestra URL real no
-   termina así, y la documentación no aclara si es un requisito estricto o solo el
-   formato del ejemplo, ni menciona Azure DevOps en ningún lado. Si esta URL no
-   funciona, probá agregándole `.git` al final:
-   ```
-   https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering.git
-   ```
-   (Azure DevOps suele aceptar el sufijo `.git` aunque no lo muestre en su URL
-   estándar — es habitual en la mayoría de los servidores git). Contanos cuál de las 2
-   funcionó.
-4. VS Code va a mostrar un aviso de confianza la primera vez — revisalo y confirmá.
-5. Si te pide autenticarte, usá las mismas credenciales que ya usás para Azure DevOps
-   (Git Credential Manager). **Este paso también sigue sin probarse con nadie real** —
-   si falla o pide algo distinto, es el dato más importante que nos podés dar.
-
-## 2b. Alternativa por línea de comandos (si preferís terminal a la UI de VS Code)
-
-VS Code en sí no tiene un comando de instalación por terminal — pero **GitHub Copilot
-CLI** (herramienta separada, comando `copilot`, se instala aparte de VS Code) sí lo
-tiene, y su documentación oficial dice explícitamente que acepta cualquier URL de Git,
-no solo GitHub (verificado 2026-09-22) — mismo punto sin confirmar del sufijo `.git`
-que el paso 2, probá primero sin él:
+**Camino confirmado — por terminal, con GitHub Copilot CLI** (esta es la forma que ya
+funcionó de verdad):
 
 ```
 copilot plugin install https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering
 ```
 
-**No hace falta estar parado en ninguna carpeta en particular** — la instalación queda
-en una ubicación global del usuario (`~/.copilot/installed-plugins/...`), no dentro de
-ningún repositorio. Se instala una sola vez por máquina, y después aplica a cualquier
-proyecto que abras — da igual desde qué carpeta corriste el comando. Mismo
-comportamiento que la instalación por UI de VS Code (también queda en una carpeta
-global, no dentro del repo).
+Si no tenés instalada GitHub Copilot CLI, el propio comando te ofrece instalarla en el
+momento (respondé `y`). La URL funciona **tal cual, sin agregarle `.git` al final** —
+confirmado con una instalación real. No hace falta estar parado en ninguna carpeta en
+particular — queda en una ubicación global del usuario (`~/.copilot/installed-plugins/...`)
+y después aplica a cualquier proyecto que abras.
 
-VS Code detecta automáticamente los plugins instalados por esta vía. **Tampoco probado
-todavía con nadie real** — si preferís este camino, contanos cómo salió, es el mismo tipo
-de dato valioso que el paso 2.
+**Aviso importante (hallazgo real, 2026-09-22)**: al instalar vas a ver este mensaje:
 
-## 3. Confirmar que funcionó
+> *"Warning: Direct plugin installs (repos, URLs, local paths) are deprecated. Only
+> plugin@marketplace installs will be supported in a future release."*
 
-Abrí Copilot Chat en modo Agent, y preguntale qué agents/skills tiene disponibles — debería
-reconocer los de este modelo (por ejemplo, `user-story`, `read-only-code-reviewer`).
+El comando de arriba **funciona hoy**, pero GitHub lo va a discontinuar más adelante —
+no hace falta hacer nada distinto por ahora, es solo para que no te sorprenda el aviso.
+Detalle de cómo se resolverá esto cuando corresponda:
+[`../integrations/agent-plugin-provider.md`](../integrations/agent-plugin-provider.md#aviso-de-deprecación-hallazgo-real-2026-09-22).
+
+## 2b. Alternativa por la interfaz de VS Code (todavía sin confirmar)
+
+Si preferís no usar la terminal: paleta de comandos (`Ctrl+Shift+P` / `Cmd+Shift+P`) →
+**"Chat: Install Plugin From Source"** → pegar la misma URL de arriba. **Esta vía
+todavía no la probó nadie real** (la que sí se confirmó fue la de terminal) — si la
+probás, contanos si te pidió autenticarte y cómo.
+
+## 3. Confirmar que funcionó — con un chequeo extra importante
+
+Abrí Copilot Chat en modo Agent, y preguntale qué agents/skills tiene disponibles.
+
+**Punto crítico a confirmar (la instalación real solo mencionó "10 skills", nada de
+Agents)**: preguntale explícitamente por un **Agent**, no solo por Skills — por ejemplo
+*"¿reconocés el agent `ticket-kickoff` o `workflow-documenter`?"*. Si Copilot Chat no los
+reconoce, es información real importante — puede ser que solo se hayan instalado las
+Skills y no los Agents, algo que todavía no confirmamos.
 
 ## 4. Actualizar
 

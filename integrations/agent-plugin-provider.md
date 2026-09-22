@@ -4,9 +4,12 @@
 él mismo, mismo tratamiento que [Capability Distribution](capability-distribution.md) y
 [Context Acquisition & Resolution](../architecture/context-acquisition-resolution.md).
 
-**Estado**: `PROPOSAL` — estructura construida, **sin instalación real probada todavía**.
-Hay una parte concreta sin confirmar (ver "Qué falta confirmar" abajo) — no se afirma que
-funcione de punta a punta hasta que alguien lo pruebe de verdad.
+**Estado**: `EXECUTED` (corregido 2026-09-22) — **primera instalación real confirmada**,
+vía GitHub Copilot CLI, con la URL real de Azure DevOps sin modificar. Salida real:
+*"Plugin 'ai-engineering' installed successfully. Installed 10 skills."* Queda un punto
+importante sin verificar (¿se instalaron también los Agents, o solo los Skills? — ver
+"Qué falta confirmar") y un hallazgo nuevo que afecta la continuidad del método (ver
+"Aviso de deprecación").
 
 ## Origen de este patrón
 
@@ -58,24 +61,47 @@ propagación automática (que sigue sin aplicar a MOA por estar en Azure DevOps,
 4. **Actualizar**: automático cada 24 horas si `extensions.autoUpdate` está activo, o a
    mano con **"Extensions: Check for Extension Updates"**.
 
-## Qué falta confirmar (sin especular, pendiente de prueba real)
+## Qué falta confirmar (actualizado 2026-09-22, primera prueba real ya ocurrió)
 
-- **El formato de la URL en sí (el más importante, corregido 2026-09-22)**: la
-  documentación real dice que el formato "HTTPS git remote" es una URL terminada en
-  `.git` — la URL real de MOA (`.../_git/ai-engineering`) no termina así, y la página no
-  aclara si es un requisito estricto ni menciona Azure DevOps. Probar primero la URL tal
-  cual; si falla, probar agregando `.git` al final
-  (`.../_git/ai-engineering.git`) — Azure DevOps suele aceptar ese sufijo aunque no lo
-  muestre en su URL estándar.
-- **Autenticación contra el repositorio privado de Azure DevOps**: la documentación oficial
-  no especifica cómo VS Code resuelve las credenciales para un repositorio privado que no
-  es GitHub. Es razonable esperar que reutilice las credenciales de git que el developer ya
-  tiene configuradas contra Azure DevOps (Git Credential Manager) — pero es una inferencia,
-  no un hecho confirmado. **Este es el primer punto a probar en la práctica.**
-- La estructura exacta de `com.github.copilot/agents/` (namespace reverse-domain) está
-  reconstruida a partir de la documentación oficial y un ejemplo de estructura de carpetas
-  citado ahí — no hay una confirmación explícita adicional de que este sea el único formato
-  válido. Se corrige si la instalación real muestra algo distinto.
+- ~~El formato de la URL~~ — **resuelto**: la URL real sin sufijo `.git` funcionó tal
+  cual, confirmado en la primera instalación real (vía GitHub Copilot CLI).
+- ~~Autenticación contra el repositorio privado~~ — **resuelto para el camino CLI**: no
+  hizo falta ningún paso de autenticación manual — la CLI se instaló sola (con
+  confirmación) y accedió al repositorio sin pedir credenciales aparte. Sigue sin
+  confirmar si la vía de VS Code (Extensions view / "Install Plugin From Source") pide
+  algo distinto — nadie la probó todavía, solo la vía CLI.
+- **Nuevo, sin confirmar: ¿se instalaron los Agents, o solo los Skills?** La salida real
+  dice *"Installed 10 skills"* — que coincide exactamente con la cantidad real de Skills
+  de este repositorio, pero **no menciona nada de los 7 Agents ni del Workflow**. Puede
+  ser que el mensaje de resumen solo cuente Skills aunque instaló todo, o puede ser que
+  `com.github.copilot/agents/` no se haya reconocido como esperábamos. **Se confirma
+  abriendo Copilot Chat en modo Agent y preguntando si reconoce, por ejemplo,
+  `ticket-kickoff` o `workflow-documenter`** — no se asume ninguna de las 2 posibilidades
+  sin esa prueba.
+- La estructura exacta de `com.github.copilot/agents/` (namespace reverse-domain) sigue
+  sin confirmación adicional más allá de la reconstrucción original — el punto de arriba
+  es, en los hechos, la forma de confirmarla o refutarla.
+
+## Aviso de deprecación (hallazgo real, 2026-09-22)
+
+La instalación real mostró esta advertencia textual: *"Direct plugin installs (repos,
+URLs, local paths) are deprecated. Only plugin@marketplace installs will be supported in
+a future release."* — el método que documentamos **funciona hoy, pero GitHub lo va a
+retirar**. El reemplazo oficial (verificado en la documentación real de GitHub Copilot
+CLI) es un flujo de 2 pasos:
+
+```
+copilot plugin marketplace add <fuente>
+copilot plugin install <nombre-del-plugin>@<nombre-del-marketplace>
+```
+
+**No se implementa este cambio todavía, a propósito** — la documentación real distingue
+entre un repositorio "marketplace" (una colección que lista varios plugins) y un
+repositorio de "un solo plugin" (que es lo que es `ai-engineering` hoy, con `plugin.json`
+en la raíz), y no queda claro si nuestro mismo repositorio puede servir como su propio
+marketplace o si hace falta una estructura aparte. Es una pregunta real de diseño, no
+algo para resolver adivinando — queda pendiente de investigar antes de migrar, sin
+apuro porque el método actual sigue funcionando mientras tanto.
 
 ## Implementación
 
