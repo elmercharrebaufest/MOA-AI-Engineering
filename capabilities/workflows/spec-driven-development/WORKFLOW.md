@@ -47,8 +47,12 @@ Agent.
 
 ## Entradas
 
-Un ticket real (Jira u otro sistema), nunca inventado ni parafraseado de memoria — el
-requerimiento se lee de la fuente real antes de generar el spec.
+Un ticket real (Jira, Azure DevOps u otro sistema), nunca inventado ni parafraseado de
+memoria — el requerimiento se lee de la fuente real antes de generar el spec. **Si la
+tarea no tiene ticket en ningún sistema**, este Workflow completo puede no justificarse
+(ver "Cuándo NO usarlo") — para una tarea chica sin ticket, alcanza con describirla
+directamente y aplicar `repository-governance` (CAP-006) más la skill de dominio que
+corresponda, sin el estado ni la trazabilidad completa de este Workflow.
 
 ## Salidas
 

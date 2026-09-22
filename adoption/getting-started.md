@@ -78,7 +78,11 @@ usar sobre un ticket real.
 Una vez que la capacidad está disponible (por cualquiera de los 3 caminos):
 
 1. Con el asistente, sobre un ticket real: *"Usar la capability CAP-001 user-story para
-   refinar este ticket: [ticket real]"*.
+   refinar este ticket: [ticket real]"*. **¿La tarea no tiene ticket en ningún sistema?**
+   No hace falta crear uno — se describe la tarea directamente en el mensaje, en lugar de
+   dar una referencia. El modelo nunca requirió Jira específicamente: funciona igual con
+   un ticket de Azure DevOps, o sin ningún ticket, con la tarea descrita a mano (ver
+   [`../golden-paths/README.md#dos-formas-de-aportar-el-contexto`](../golden-paths/README.md#dos-formas-de-aportar-el-contexto)).
 2. Revisar el resultado antes de considerarlo aprobado.
 3. Registrar la evidencia propia, en el repositorio del equipo: pedirle al asistente que
    copie [`templates/evidence-record.md`](templates/evidence-record.md) a algo como
