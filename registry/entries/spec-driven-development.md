@@ -28,7 +28,7 @@
 | **Autonomy** | No aplica directo (Workflow, no Agent) — los roles son fijos, no hay selección dinámica de herramienta | FACT |
 | **HITL** | **Explícito y verificado con evidencia real**: `qaManualPending` con `signOff: null` en ambos tickets reales — ningún requisito manual se marcó cubierto sin confirmación humana | FACT |
 | **Evaluation** | NOT FOUND | Ningún nivel tiene evidencia de evaluación formal del proceso |
-| **Observability** | PARTIAL (nivel Full) — el esquema de log de auditoría está definido (timestamp/rol/acción/evidencia/estado) como propuesta, sin ejemplo de ejecución real que lo confirme en uso. NOT FOUND (nivel Lite) | FACT |
+| **Observability** | PARTIAL (nivel Full) — el esquema de log de auditoría (corregido 2026-09-22: es el esquema real de `moa-sdlc`, no una propuesta) tiene evidencia de uso real en ese repositorio, pero no hay evidencia todavía de que esta versión generalizada se haya ejecutado con ese log real en ningún equipo de MOA. NOT FOUND (nivel Lite) | FACT |
 | **Metrics** | NOT FOUND | — |
 | **Adopters** | DataAgro — ambos niveles (Lite confirmado con 2 tickets completos; Full con la arquitectura real de `moa-sdlc` en uso, ejecución de ciclo completo sin confirmar todavía) | FACT |
 | **Last Review** | 2026-09-18 | Corregido — ver nota de clasificación |

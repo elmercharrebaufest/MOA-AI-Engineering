@@ -125,11 +125,37 @@ nunca depender de un solo modo.
 ## Observability
 
 **Estado real en MOA**: `NOT FOUND` de forma sistemática — brecha fundacional desde G3.1,
-sin cambios desde entonces. El nivel Full de `spec-driven-development` (CAP-005) propone
-un esquema de log de auditoría, pero sin evidencia de que esté en uso real.
+sin cambios desde entonces, con una excepción real: el esquema de log de auditoría del
+nivel Full de `spec-driven-development` (CAP-005) **ya tiene evidencia de uso real** en
+`moa-sdlc`/DataAgro (corregido 2026-09-22) — pero esta versión generalizada de MOA
+todavía no tiene ejecución propia con ese log.
 **Recomendación (PROPOSAL)**: priorizar Observability para cualquier capacidad con
 autonomía (Agent, MCP) antes de escalar su nivel de autonomía — no es necesaria para
 Instructions/Skills estáticas sin ejecución propia.
+
+## Revisión de código en tiempo real (IDE) — distinto de la investigación de incidentes
+
+**No confundir con CAP-017** (`production-incident-investigation`): CAP-017 y los scripts
+reales de [`../integrations/production-diagnostics-provider.md`](../integrations/production-diagnostics-provider.md)
+son para **cuando ya ocurrió un error en producción** (AWS CloudWatch / Azure Application
+Insights) — reactivo, sobre una aplicación ya desplegada. Esto es distinto: revisar el
+código **mientras se escribe, en el editor**, antes de que llegue a un PR o a producción.
+
+**Estado real en MOA**: `NOT FOUND` — sin evidencia de ninguna herramienta de análisis en
+tiempo real configurada en ningún repo relevado.
+
+**EXTERNAL EVIDENCE (2026)**: SonarQube for IDE — análisis estático en tiempo real dentro
+del editor, con corrección sugerida al momento de escribir el código, no recién en la
+revisión de PR. Conecta directo con algo que el propio KO ya planea (pág. 16, 22:
+instalar SonarQube) — no es una herramienta nueva sin relación con el plan de MOA, es la
+misma herramienta, en el punto del ciclo donde más temprano puede detectar un problema.
+Snyk Code es la opción equivalente enfocada específicamente en vulnerabilidades de
+seguridad, con hallazgos en el propio editor y en el flujo de PR.
+
+**Recomendación (PROPOSAL)**: no construir una capacidad propia — igual que con la
+modernización .NET (CAP-020) y el Code Review nativo de Azure DevOps, activar SonarQube
+for IDE cuando SonarQube ya esté instalado (KO, plan ya existente) es el camino de menor
+esfuerzo y mayor cobertura — antes de evaluar cualquier herramienta adicional.
 
 ## Metrics
 

@@ -114,6 +114,29 @@ antes de implementar — permite revisar `requirements.md`/`design.md`/`tasks.md
 código de por medio) y un PR final de implementación — ambos con aprobación humana
 explícita, nunca merge automático de ninguno de los 2.
 
+**Contrato real de entrada/salida por rol** (condensado — el esquema completo con
+ejemplos vive en `moa-sdlc/.github/AGENTS-CONTRACTS.md`, no se duplica acá):
+
+- **Entrada**: identificador del ticket, rol, estado actual, rutas a los archivos de spec
+  reales, contexto (branch/ambiente/stack), y `constraints` explícitos (`mustNotChange`:
+  archivos que no se tocan sin aprobación aparte; `mustAskBefore`: acciones que requieren
+  confirmación antes de ejecutarse — instalar un paquete nuevo, cambiar el modelo de
+  datos, cambiar un contrato público).
+- **Salida**: estado (`success`/`failed`/`blocked`), la transición de estado real
+  (`from`/`to`), resumen, artefactos tocados, evidencia (tests ejecutados + resultados +
+  validaciones manuales), riesgos detectados, y el próximo rol que sigue.
+
+**Log de auditoría real, por cada ejecución**: `timestamp`, `featureId`, `agentRole`,
+`actor` (agente o humano), qué se pidió, qué se hizo, qué se produjo, evidencia de
+verificación, estado, errores/advertencias, y próximo paso — mismo campo por campo que ya
+usa `moa-sdlc` en producción, no un diseño nuevo.
+
+**Reintentos y reversión** (regla dura, no negociable): máximo 1-2 reintentos ante un
+fallo claramente transitorio y reproducible — si persiste, se bloquea la transición y
+vuelve al rol responsable, nunca se reintenta indefinidamente. Si un cambio rompe
+compatibilidad o hay riesgo de seguridad detectado, se revierte o aísla antes de seguir —
+nunca se avanza "para no perder el trabajo hecho".
+
 ## Dependencias
 
 - Un sistema de tickets real (Jira u otro) — nunca operar sin una fuente de verdad

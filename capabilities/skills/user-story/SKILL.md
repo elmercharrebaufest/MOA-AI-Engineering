@@ -238,8 +238,7 @@ Detalle completo en [`../../../adoption/getting-started.md`](../../../adoption/g
 
 ### Revisión humana
 
-Obligatoria, sin excepción: un PO o referente funcional debe revisar el resultado antes
-de Planning/desarrollo. Una salida de IA no queda aprobada solo por generarse.
+Obligatoria — ver "Revisión humana obligatoria" más abajo, mismo criterio.
 
 ### Evidencia
 

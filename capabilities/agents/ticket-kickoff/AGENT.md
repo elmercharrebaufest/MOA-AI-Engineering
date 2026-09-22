@@ -179,6 +179,25 @@ CAP-001/CAP-004 (investigación/refinamiento), CAP-002/CAP-003 (resolución de c
 CAP-009 (entorno aislado), CAP-011 (contenido de PR), CAP-016 (borrador de cierre). No
 duplica la lógica de ninguna — las invoca.
 
+## Gestión de sesión larga (2026-09-22)
+
+Es el único orquestador de sesión potencialmente larga de este Registry — el costo real
+de una sesión de IA no crece de forma lineal con su duración (ver
+`capabilities/best-practices.md`, sección de optimización de tokens). Reglas concretas:
+
+- Si un ticket real requiere más de 1 sesión para completarse (por ejemplo, por
+  corte de jornada), no reabrir la conversación completa desde cero — retomar
+  indicando explícitamente en qué paso del flujo de 8 pasos se había quedado, igual que
+  ya recomienda el agente oficial de modernización .NET (CAP-020) para sus propias
+  sesiones largas.
+- Delegar a los sub-agentes (CAP-001/004/009/011/016) en vez de acumular su
+  razonamiento dentro de la propia sesión de este agente — ya es el diseño elegido, esto
+  confirma que es correcto también por motivo de costo, no solo de separación de
+  responsabilidades.
+- No releer archivos ya leídos en la misma sesión sin una razón concreta (el ticket
+  cambió, hay una duda real sobre el contenido) — reutilizar lo ya confirmado en vez de
+  volver a consultarlo "para estar seguro".
+
 ## Herramientas / permisos
 
 `tools: [read, edit, execute, search, agent, todo]` — `edit` está acotado por los constraints
