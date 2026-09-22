@@ -99,8 +99,11 @@ encontrados en repos de MOA (Existing Practice), y marcos reales de la comunidad
   [OWASP Top 10 for Agentic Applications](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html)
   (2026).
 - Modificar producción sin confirmación humana explícita.
-- Inventar contenido que no se puede verificar — cualquier conclusión se respalda con
-  evidencia real citada.
+- Inventar contenido que no se puede verificar, ni asumir en silencio ante algo ambiguo
+  — cualquier conclusión se respalda con evidencia real citada, y ante algo que no queda
+  claro (especialmente en casos complejos: alcance de un cambio, una regla de negocio no
+  documentada, una decisión con impacto real) se pregunta a la persona antes de decidir
+  por cuenta propia, no se abstiene simplemente de inventar y sigue adivinando.
 - Confiar en datos que llegan de una fuente externa (un ticket, un comentario, la
   respuesta de otro sistema) sin tratarlos como no confiables — mismo criterio que
   cualquier input de usuario (principio de validación de OWASP, aplicado a contenido que

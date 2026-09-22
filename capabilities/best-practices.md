@@ -149,6 +149,41 @@ como candidato a `REUSABLE PATTERN` en una fase futura — no antes.
 **Regla explícita, sin excepción**: la cantidad de Agents/Skills/capabilities creadas
 **no es un KPI de éxito** (`capability-model.md`).
 
+## Optimización de tokens — criterio de diseño obligatorio, no opcional
+
+**Estado real en MOA**: ya hay una lección real y costosa — `dotnet-best-practices` (la
+instancia original detrás de CAP-013) fue **abandonada** en Scato Logística y Orquestador
+por exceso de contenido, cargando demasiado en cada consulta. No es un riesgo
+hipotético, ya pasó.
+
+**EXTERNAL EVIDENCE (2026)**, confirma y agrega precisión a esa lección:
+- Un conjunto acotado y relevante de contenido rinde mejor que uno exhaustivo pero
+  disperso — la comparación citada en la industria es "2.000 tokens relevantes superan a
+  20.000 sueltos". Aplica directo a cómo se escribe cada Skill/Instruction de este
+  Registry: acotado y accionable, no una referencia completa de la tecnología.
+- Las Skills, tal como ya están diseñadas en este modelo (cargadas solo cuando el
+  asistente las considera relevantes, no siempre), siguen el patrón correcto — una
+  biblioteca de 20 skills cuesta casi nada hasta que una se vuelve relevante. **No
+  rediseñar esta arquitectura** — ya está alineada con la práctica recomendada.
+- El contenido que se repite siempre (instructions base, reglas fijas) rinde mejor si se
+  mantiene estable — los sistemas de cacheo de prompts reducen el costo real hasta un
+  90% cuando el contenido inicial no cambia entre ejecuciones.
+- Sesiones largas de un mismo Agent se encarecen de forma no lineal — relevante para
+  CAP-010 (`ticket-kickoff`), el único orquestador de sesión potencialmente larga de este
+  Registry.
+
+**Reglas concretas a aplicar en toda capacidad nueva de este Registry**:
+1. Preferir contenido acotado y accionable sobre una referencia exhaustiva de la
+   tecnología — si hace falta más detalle, **referenciar la documentación oficial real**,
+   no copiarla adentro de la capacidad.
+2. No duplicar el mismo contenido en más de un lugar del modelo — un dato vive en un solo
+   archivo, el resto enlaza.
+3. Mantener estable el contenido que se repite siempre (instructions base) — evitar
+   reescribirlo sin necesidad real, para no perder el beneficio del cacheo.
+4. En Agents orquestadores de sesión larga, delegar a sub-agentes acotados en vez de
+   acumular todo el contexto en una sola sesión extensa (ya es el patrón de CAP-010 —
+   confirma que el diseño ya elegido es correcto por este motivo también).
+
 ## EXTERNAL EVIDENCE — fuentes usadas en G5.1 para contrastar estas prácticas
 
 - GitHub Docs — Agent Skills, Custom Agents, Repository Custom Instructions: confirma que
