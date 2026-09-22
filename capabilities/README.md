@@ -183,6 +183,7 @@ está en la primera tabla justamente para no dar a entender que es de uso genera
 |---|---|---|---|---|
 | `workflow-documenter` | Agent | [`agents/workflow-documenter/AGENT.md`](agents/workflow-documenter/AGENT.md) | Documentar workflows WF4.5 (`.xamlx`) y diagnosticar workflows `Faulted` — **solo si el proyecto usa WF4.5** | [CAP-019](../registry/entries/workflow-documenter.md) |
 | `dotnet-modernization-guide` | Skill | [`skills/dotnet-modernization-guide/SKILL.md`](skills/dotnet-modernization-guide/SKILL.md) | Guía para usar bien el agente oficial de modernización .NET de Copilot, con restricciones reales de MOA | [CAP-020](../registry/entries/dotnet-modernization-guide.md) |
+| `sprint-batch-analysis` | Skill | [`skills/sprint-batch-analysis/SKILL.md`](skills/sprint-batch-analysis/SKILL.md) | Analizar todos los tickets del sprint antes de planning, en un solo lote — nunca publica en el sistema origen | [CAP-021](../registry/entries/sprint-batch-analysis.md) |
 
 ### Patrones de adquisición de contexto (2)
 

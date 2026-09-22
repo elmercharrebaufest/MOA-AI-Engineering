@@ -127,6 +127,10 @@ encontrados en repos de MOA (Existing Practice), y marcos reales de la comunidad
 - No hardcodear configuración específica de un ambiente (desarrollo/QA/producción) en el
   código — mismo patrón ya observado como buena práctica genérica en evidencia externa de
   un cliente de Baufest.
+- Después de cualquier escritura sobre un sistema externo (ticket, PR, recurso real),
+  verificarla con una lectura real posterior y citar el resultado concreto — nunca dar
+  una escritura por exitosa solo porque el comando no devolvió error (mismo patrón
+  confirmado por evidencia externa de un cliente de Baufest, ya aplicado en CAP-008).
 
 ## Dependencias
 

@@ -55,6 +55,18 @@ respuesta inventada.
    necesario — consultar siempre la sintaxis real (`az <comando> --help`) ante cualquier
    duda, en vez de recordarla.
 4. Reportar el resultado real de la ejecución, no una interpretación optimista.
+5. **Antes de cualquier operación de escritura no familiar** (crear PR, actualizar un
+   Work Item, cambiar una variable de pipeline), leer primero el estado actual del
+   recurso — nunca escribir a ciegas sobre algo no leído.
+6. **Después de escribir, verificar con una lectura real** (releer el PR/Work Item
+   creado) y citar el resultado concreto (ID, URL) — no dar la escritura por exitosa solo
+   porque el comando no devolvió error.
+7. **Nunca escribir contenido de prueba/placeholder** (ej. "test", "prueba") en un
+   recurso real de Azure DevOps para validar que la conectividad de escritura funciona —
+   para eso, usar un comando de solo lectura (`az repos pr show`, `az boards work-item
+   show`) antes de la escritura real. Patrón confirmado como buena práctica real por un
+   cliente de Baufest (Camuzzi) — nunca contaminar un ticket o PR real con contenido de
+   prueba.
 
 ## Dependencias
 

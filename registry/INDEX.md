@@ -19,7 +19,7 @@ independiente) → `VERIFIED` (ejecución independiente + evaluación humana con
 | [CAP-002](entries/azure-devops-context.md) | azure-devops-context | Integration/API | Ninguno todavía (patrón de referencia) | N | VERIFIED (documento) | CONFIGURED — mecanismo probado durante la construcción, pruebas purgadas; sin ejecuciones reales registradas todavía | Bajo |
 | [CAP-003](entries/jira-context.md) | jira-context | MCP | Ninguno todavía (patrón de referencia) | N | VERIFIED (documento) | CONFIGURED — mecanismo probado durante la construcción (MCP real, incluido 1 caso `BLOCKED` histórico), pruebas purgadas; sin ejecuciones reales registradas todavía, evidencia real en curso sobre `ARMOA277-194` | Bajo-Medio |
 | [CAP-004](entries/product-owner.md) | product-owner | Agent | Ninguno todavía (propuesta, corrige un hallazgo real de Scato Logística/Orquestador) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo |
-| [CAP-005](entries/spec-driven-development.md) | spec-driven-development | Workflow | DataAgro (Lite, real) | N | VERIFIED (Lite) | EXECUTED (nivel Lite, 2 tickets reales). Nivel Full: `PROPOSAL` conceptual, sin evidencia de ejecución real | Bajo (Lite) / Medio (Full) |
+| [CAP-005](entries/spec-driven-development.md) | spec-driven-development | Workflow | DataAgro (Lite y Full — ver corrección 2026-09-22) | N | VERIFIED (ambos niveles) | EXECUTED (nivel Lite, 2 tickets reales). Nivel Full: **CONFIGURED con origen real** (`moa-sdlc`, en uso por DataAgro), sin ticket confirmado que haya completado el ciclo hasta `done` | Bajo (Lite) / Medio (Full) |
 | [CAP-006](entries/repository-governance.md) | repository-governance | Instruction | DataAgro, Scato Logística, Orquestador | N | VERIFIED | CONFIGURED | Bajo |
 | [CAP-007](entries/spec-review.md) | spec-review | Skill | Ninguno todavía (propuesta, evidencia externa Camuzzi/Baufest) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo |
 | [CAP-008](entries/azure-devops-cli.md) | azure-devops-cli | Skill | Scato Logística, Orquestador | N | VERIFIED | CONFIGURED | Bajo |
@@ -35,6 +35,7 @@ independiente) → `VERIFIED` (ejecución independiente + evaluación humana con
 | [CAP-018](entries/spec-reader.md) | spec-reader | Agent | Ninguno todavía (propuesta, evidencia externa Camuzzi/Baufest) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo (por diseño, sin `edit`) |
 | [CAP-019](entries/workflow-documenter.md) | workflow-documenter | Agent | Ninguno todavía (propuesta, generalizada de Scato Logística — **opt-in, solo proyectos con WF4.5**) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales de la versión generalizada (la instancia de origen sí tiene ejecución real) | Bajo |
 | [CAP-020](entries/dotnet-modernization-guide.md) | dotnet-modernization-guide | Skill | Ninguno todavía (propuesta — guía sobre el agente oficial de Microsoft, no herramienta propia) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo |
+| [CAP-021](entries/sprint-batch-analysis.md) | sprint-batch-analysis | Skill | Ninguno todavía (propuesta, evidencia externa Camuzzi/Baufest, corrige comportamiento de escritura del original) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo |
 
 **CAP-004, CAP-011, CAP-014, CAP-016** *(cobertura de las 11 etapas del KO, 2026-09-18)*: a
 diferencia de todas las entradas anteriores, no son generalizaciones de una instancia real
@@ -81,7 +82,7 @@ acá — quedaron clasificados TEAM-SPECIFIC o EXPERIMENTAL, con su razón docum
 
 ## Por tipo
 
-- **Skill**: CAP-001, CAP-007, CAP-008, CAP-011, CAP-013, CAP-014, CAP-015, CAP-016, CAP-020
+- **Skill**: CAP-001, CAP-007, CAP-008, CAP-011, CAP-013, CAP-014, CAP-015, CAP-016, CAP-020, CAP-021
 - **Agent**: CAP-004, CAP-009, CAP-010 (orquestador), CAP-012, CAP-017, CAP-018, CAP-019 (opt-in, solo WF4.5)
 - **Workflow**: CAP-005
 - **Instruction**: CAP-006
@@ -107,7 +108,7 @@ acá — quedaron clasificados TEAM-SPECIFIC o EXPERIMENTAL, con su razón docum
 
 ## ¿Puedo adoptarla?
 
-Ninguna de las 20 entradas del Registry está promovida a Corporate Standard. Las entradas pueden
+Ninguna de las 21 entradas del Registry está promovida a Corporate Standard. Las entradas pueden
 corresponder a capacidades reutilizables, patrones reutilizables, candidatos a Common
 Core, propuestas nuevas sin evidencia de origen, o activos Team-Specific según su
 clasificación individual — `Corporate Standard: N`

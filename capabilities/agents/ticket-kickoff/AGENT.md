@@ -148,8 +148,23 @@ seguir.
 específico para ejecutarse (no solo compilar/testear) y no está claro cuál usar, listá las
 opciones reales encontradas en la documentación y preguntá — nunca elijas uno a ciegas ni
 ejecutes la app sin esa confirmación. Compilá y corré los tests del repo afectado con el
-comando confirmado. Si falla, corregí dentro del alcance del ticket o reportá si el fallo
-es preexistente.
+comando confirmado.
+
+**Si algo falla, seguí este protocolo de 3 niveles, en orden** (generalizado de un patrón
+real de un cliente de Baufest, Camuzzi, agent `Dev Runner`):
+
+1. Mostrá el error real relevante (no todo el stack trace si es muy largo).
+2. Buscá la solución en la documentación real del repositorio (README, `docs/`,
+   `ARCHITECTURE.md` si existe) — nunca en conocimiento general no verificado contra este
+   repo.
+3. Según lo que encuentres:
+   - **Solución documentada en el repo**: aplicala dentro del alcance del ticket.
+   - **Solución no documentada, pero la evidencia sugiere una**: describila con claridad
+     y **preguntá antes de aplicarla** — no es lo mismo que una solución ya escrita por el
+     propio equipo.
+   - **Sin solución encontrada en la documentación disponible**: reportá el fallo con el
+     error exacto y el contexto — nunca fuerces un arreglo a ciegas, y nunca lo declares
+     "preexistente" sin evidencia real de que ya fallaba antes de este cambio.
 
 ### 8. Cierre
 
