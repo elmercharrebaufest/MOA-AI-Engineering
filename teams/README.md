@@ -11,10 +11,9 @@ otro. Este repositorio no reemplaza los repos de cada equipo — los referencia.
 
 ## Equipos reales de MOA con evidencia directa
 
-**Actualizado 2026-09-22** — relevamiento de infraestructura real sobre los 6 repos
-disponibles (`git`/archivos de configuración reales, no inferencia). El stack tecnológico
-exacto por proyecto se está confirmando (ver nota al final de esta sección); esta tabla se
-completa apenas esté listo.
+**Actualizado 2026-09-22** — relevamiento de infraestructura y stack tecnológico real
+sobre los 6 repos disponibles (archivos de proyecto reales — `.csproj`, `package.json` —
+no inferencia).
 
 | Equipo | Repositorio(s) real(es) | Dónde corre en producción (FACT) | Madurez de IA (FACT, relevamiento 2026-09-04) |
 |---|---|---|---|
@@ -30,9 +29,32 @@ híbrida real — on-premise sigue siendo el núcleo operativo de 3 equipos (Sca
 Orquestador, MoaOperaciones), AWS ya está en producción real para 2 (Portal de Créditos,
 base de datos de Scato Puerto), y Azure aparece en todos lados como capa de **servicios e
 identidad** (Application Insights, Blob Storage, Cognitive Services, Entra ID/AD B2C), no
-como plataforma de cómputo principal en ningún caso relevado. Detalle completo con cada
-archivo citado: ver el historial de esta sesión de trabajo (no duplicado acá para no
-quedar desactualizado si cambia la infraestructura real).
+como plataforma de cómputo principal en ningún caso relevado.
+
+## Stack tecnológico real (FACT — archivos de proyecto reales, 2026-09-22)
+
+**Patrón general en los 6 repos**: la parte "legacy" de cada equipo es **.NET Framework
+clásico** (`packages.config`, `TargetFrameworkVersion` entre v4.5 y v4.8.1); los módulos
+nuevos o reescritos conviven en el mismo repo como proyectos **.NET moderno (SDK-style,
+.NET 6/7/8/10)** independientes. El frontend Angular aparece en 3 generaciones distintas
+según la antigüedad del proyecto. **No hay evidencia de Python ni Java en ningún repo** —
+investigado explícitamente (`.py`, `requirements.txt`, `pyproject.toml`, `*.java`,
+`pom.xml`), sin ningún resultado en los 6 repos.
+
+| Equipo | .NET Framework (legacy) | .NET moderno (SDK-style) | Angular |
+|---|---|---|---|
+| DataAgro | v4.5.2 / v4.7.2 (16 proyectos, 100% del repo) | — | — |
+| MOA Operaciones | v4.8 (v4.5.2 en `SustitucionMOASecurity`) | — | **20.3.7** (`SustitucionMOAQRCamionesWeb`, + Tailwind CSS + Express para SSR) |
+| Orquestador | v4.7.2 (`Orquestador`, 12 proyectos) | .NET 6.0 (`Intercomunicador`); .NET 8.0 (`OrquestadorAkka`, Akka.NET) | — |
+| Scato Logística | v4.5 / v4.5.2 / v4.7.2 (`Scato%20Logistica`, 16 proyectos) | .NET 7.0 (`QaTools`); .NET 8.0 (`WebApiCoreAfip`, `OrquestadorAkka`); **.NET 10.0** (`PocScatoLogisticaAws`, POC Lambdas) | **10.1.4** (`WebPuerto`) |
+| Scato Puerto | v4.5 / v4.6.1 / v4.8.1 (`scatopuerto`) | .NET 8.0 (`scatopuertoAPINet`) | **10.1.4** (`WebPuerto`, misma app que Scato Logística) |
+| Portal de Créditos | — (100% moderno) | **.NET 8.0** (`backend-net`, ASP.NET Core Web API, AWS SDK S3, PostgreSQL/Npgsql, Serilog) | **21.2.14** (`frontend-angular`, la versión más nueva de todo el relevamiento) |
+
+**Lectura para la iniciativa**: MOA tiene una historia real y activa de modernización
+.NET Framework → .NET moderno, con evidencia concreta en 4 de 6 equipos (Orquestador,
+Scato Logística, Scato Puerto, y el propio Portal de Créditos ya 100% moderno) — no es una
+necesidad hipotética, ya está en marcha. Lo mismo con Angular: 3 generaciones conviviendo
+(10.1.4 → 20.3.7 → 21.2.14) muestra la misma dinámica del lado frontend.
 
 ## Equipos del framework sin implementación documentada aún (REQUIRES VALIDATION)
 
