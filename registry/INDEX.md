@@ -36,6 +36,14 @@ independiente) → `VERIFIED` (ejecución independiente + evaluación humana con
 | [CAP-019](entries/workflow-documenter.md) | workflow-documenter | Agent | Ninguno todavía (propuesta, generalizada de Scato Logística — **opt-in, solo proyectos con WF4.5**) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales de la versión generalizada (la instancia de origen sí tiene ejecución real) | Bajo |
 | [CAP-020](entries/dotnet-modernization-guide.md) | dotnet-modernization-guide | Skill | Ninguno todavía (propuesta — guía sobre el agente oficial de Microsoft, no herramienta propia) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo |
 | [CAP-021](entries/sprint-batch-analysis.md) | sprint-batch-analysis | Skill | Ninguno todavía (propuesta, evidencia externa Camuzzi/Baufest, corrige comportamiento de escritura del original) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo |
+| [CAP-022](entries/documentation-style.md) | documentation-style | Instruction | Ninguno todavía (regla nacida de una corrección real dentro de esta misma iniciativa, no de un repo de equipo de MOA ni de un cliente externo) | N | VERIFIED (documento) | CONFIGURED — ya aplicada de forma retroactiva sobre este repositorio, sin adopción externa todavía | Bajo |
+
+**CAP-022** *(nueva, 2026-09-22)*: a diferencia de CAP-006 (convergencia de 3 repos de
+equipo) y de las propuestas con evidencia externa de Camuzzi, nace de una corrección real
+y repetida detectada dentro de esta misma iniciativa (voseo argentino y contenido extenso
+sin valor real en versiones tempranas de esta documentación) — se formaliza como
+Instruction para que la regla se aplique siempre, no solo mientras se recuerde
+explícitamente. Ver [`entries/documentation-style.md`](entries/documentation-style.md).
 
 **CAP-004, CAP-011, CAP-014, CAP-016** *(cobertura de las 11 etapas del KO, 2026-09-18)*: a
 diferencia de todas las entradas anteriores, no son generalizaciones de una instancia real
@@ -85,7 +93,7 @@ acá — quedaron clasificados TEAM-SPECIFIC o EXPERIMENTAL, con su razón docum
 - **Skill**: CAP-001, CAP-007, CAP-008, CAP-011, CAP-013, CAP-014, CAP-015, CAP-016, CAP-020, CAP-021
 - **Agent**: CAP-004, CAP-009, CAP-010 (orquestador), CAP-012, CAP-017, CAP-018, CAP-019 (opt-in, solo WF4.5)
 - **Workflow**: CAP-005
-- **Instruction**: CAP-006
+- **Instruction**: CAP-006, CAP-022
 - **Integration/API**: CAP-002 (patrón, READ-only, mecanismo probado durante la construcción, sin ejecuciones reales registradas todavía)
 - **MCP**: CAP-003 (patrón, READ-only, scope acotado, mecanismo probado durante la construcción vía Atlassian Rovo MCP real — pruebas purgadas al pasar a adopción real; el servidor MCP invocado es real (Atlassian Rovo, hosted), no significa que MOA haya desplegado un servidor MCP propio)
 - **Knowledge/RAG**: sin entradas todavía (ver
@@ -108,7 +116,7 @@ acá — quedaron clasificados TEAM-SPECIFIC o EXPERIMENTAL, con su razón docum
 
 ## ¿Puedo adoptarla?
 
-Ninguna de las 21 entradas del Registry está promovida a Corporate Standard. Las entradas pueden
+Ninguna de las 22 entradas del Registry está promovida a Corporate Standard. Las entradas pueden
 corresponder a capacidades reutilizables, patrones reutilizables, candidatos a Common
 Core, propuestas nuevas sin evidencia de origen, o activos Team-Specific según su
 clasificación individual — `Corporate Standard: N`
@@ -117,7 +125,8 @@ cada entrada: CAP-001/008 Reusable Capability, CAP-005/012/013 Reusable Pattern,
 Reusable Governance Pattern / Common Core Candidate, CAP-002/003 Context Acquisition
 Pattern, y las 10 propuestas nuevas sin evidencia de un equipo de MOA (CAP-004, CAP-007,
 CAP-009 a CAP-011, CAP-014 a CAP-018), más CAP-019 (generalizada de un equipo real de
-MOA — Scato Logística — pero deliberadamente opt-in, no transversal) — ninguna es
+MOA — Scato Logística — pero deliberadamente opt-in, no transversal) y CAP-022 (regla
+nacida de una corrección real dentro de esta misma iniciativa) — ninguna es
 Team-Specific en sentido estricto, todas son candidatas evaluadas). Cualquier equipo puede consultarlas y
 adaptarlas por su cuenta (autonomía de equipo), pero **ninguna está todavía promovida
 como estándar corporativo** — adoptarlas hoy es replicar/adaptar un patrón con evidencia

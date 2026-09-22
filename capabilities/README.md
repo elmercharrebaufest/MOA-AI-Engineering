@@ -56,6 +56,11 @@ Siguiendo el orden en que normalmente aparecen en el trabajo diario de un ticket
   puede hacer siempre sin preguntar, qué debe confirmar antes, y qué nunca debe hacer en
   ese repositorio, para que su comportamiento sea predecible. **En uso real** en 4
   repositorios.
+- **`documentation-style`** (CAP-022) — regla de estilo para toda la documentación de
+  este modelo: español formal y natural (nunca voseo), contenido acotado que aporta valor
+  real, sin relleno. Aplica siempre, igual que `repository-governance`, pero a cómo se
+  escribe en vez de a qué puede hacer un asistente. **Ya aplicada de forma retroactiva
+  sobre este mismo repositorio**, sin adopción externa todavía.
 - **`azure-devops-cli`** (CAP-008) — ayuda a operar Azure DevOps desde la línea de
   comandos sin tener que buscar la sintaxis exacta de cada comando. **En uso real** en 2
   equipos.
@@ -135,6 +140,7 @@ evidencia es distinto en cada grupo.
 | `spec-driven-development` | Workflow | [`workflows/spec-driven-development/WORKFLOW.md`](workflows/spec-driven-development/WORKFLOW.md) | Llevar un ticket de spec a código verificado, con trazabilidad | [CAP-005](../registry/entries/spec-driven-development.md) |
 | `repository-governance` | Instruction | [`instructions/repository-governance/INSTRUCTIONS.md`](instructions/repository-governance/INSTRUCTIONS.md) | Declarar qué puede/no puede hacer un asistente sin supervisión | [CAP-006](../registry/entries/repository-governance.md) |
 | `stack-best-practices-template` | Skill | [`skills/stack-best-practices-template/SKILL.md`](skills/stack-best-practices-template/SKILL.md) | Plantilla para documentar las buenas prácticas del stack real de cada equipo | [CAP-013](../registry/entries/stack-best-practices-template.md) |
+| `documentation-style` | Instruction | [`instructions/documentation-style/INSTRUCTIONS.md`](instructions/documentation-style/INSTRUCTIONS.md) | Lenguaje formal, natural y acotado en toda la documentación del modelo | [CAP-022](../registry/entries/documentation-style.md) |
 
 ### Propuestas nuevas — sin evidencia de origen todavía (CAP-004, CAP-011, CAP-014, CAP-016)
 
@@ -400,7 +406,7 @@ capabilities/
 ├── best-practices.md   guía práctica por tipo de capacidad
 ├── skills/              8 capacidades (3 con evidencia real, 5 propuestas — CAP-007/011/014/015/016)
 ├── agents/              7 capacidades (1 con evidencia real, 5 propuestas de Camuzzi — CAP-004/009/010/017/018 —, 1 generalizada de un equipo real de MOA pero opt-in — CAP-019)
-├── instructions/         1 capacidad
+├── instructions/         2 capacidades
 └── workflows/            1 capacidad
 ```
 

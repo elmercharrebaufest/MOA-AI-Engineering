@@ -11,7 +11,10 @@ camino real, no el ideal. Clasificación de evidencia aplicada sin excepción: *
 específica, sin que nadie tenga que acordarse de mencionarla.
 **Camino real**: completar [`repository-governance`](instructions/repository-governance/INSTRUCTIONS.md)
 (CAP-006) — un `AGENTS.md` con matriz ALWAYS/ASK FIRST/NEVER, más `.instructions.md` por
-capa si el repo lo justifica.
+capa si el repo lo justifica. Para el estilo de la documentación misma (lenguaje formal,
+sin voseo, contenido acotado), aplicar [`documentation-style`](instructions/documentation-style/INSTRUCTIONS.md)
+(CAP-022) — misma lógica que CAP-006, pero sobre cómo se escribe en vez de sobre qué
+puede hacer un asistente.
 **No hacer**: instructions genéricas sin contenido accionable ("escribir buen código") —
 si no cambia el comportamiento de un asistente de forma verificable, no es una Instruction
 útil.
