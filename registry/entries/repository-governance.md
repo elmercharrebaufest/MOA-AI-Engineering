@@ -5,7 +5,7 @@
 | **ID** | CAP-006 | — |
 | **Name** | repository-governance | FACT |
 | **Type** | Instruction | FACT — regla estructural aplicada siempre, no cargada on-demand (Skill) ni con razonamiento dinámico (Agent) |
-| **Purpose** | Declarar en un lugar predecible qué puede hacer un asistente de IA sin pedir permiso, qué debe confirmar antes, y qué nunca debe hacer — vía la convención de 4 capas (`copilot-instructions.md`/`AGENTS.md` + `instructions/` + `skills/` + `agents/`) | FACT |
+| **Purpose** | Declarar en un lugar predecible qué puede hacer un asistente de IA sin pedir permiso, qué debe confirmar antes, y qué nunca debe hacer — vía la convención de 4 capas (`copilot-instructions.md`/`AGENTS.md` + `instructions/` + `skills/` + `agents/`). Incluye una "Base mínima reutilizable" con contenido real listo para heredar (no solo plantilla vacía) | FACT |
 | **Owner** | REQUIRES VALIDATION | `BLOCKED-DECISIONS.md` #1 |
 | **Maintainer** | REQUIRES VALIDATION | Ídem |
 | **Origin** | Convención encontrada de forma independiente en 3 repos: DataAgro, Scato Logística, Orquestador (rama `master-logistica`) | FACT — ya evaluada como "ADOPT como convención" en `../../architecture/assessment-gate.md`, materializada posteriormente |
@@ -34,6 +34,19 @@
 | **Last Review** | 2026-09-08 | G5.1 |
 | **Reusable Asset** *(nuevo en G5.1)* | [`capabilities/instructions/repository-governance/INSTRUCTIONS.md`](../../capabilities/instructions/repository-governance/INSTRUCTIONS.md) | Plantilla generalizada de la matriz ALWAYS/ASK FIRST/NEVER + la convención de 4 capas, sin contenido literal de ninguna instancia real |
 | **Evidence Reference** | No aplica — esta capacidad no tiene un Evidence Record puntual (es transversal, no una ejecución única); su evidencia son las 4 instancias reales citadas en `Origin` | Distinción explícita, no una omisión |
+
+## Base mínima reutilizable — agregada 2026-09-22
+
+A diferencia del resto de la matriz (contenido 100% por equipo), se agregó una sección con
+reglas ALWAYS/ASK FIRST/NEVER **reales, listas para heredar** — no una plantilla vacía.
+**Existing Practice**: reglas ya vigentes y repetidas en otras capacidades de este modelo
+(CAP-008, CAP-010, CAP-012, CAP-017), más 2 hallazgos reales de seguridad ya encontrados en
+repos de MOA (deshabilitación de validación SSL en `afip-cpe-ctg` de Scato Logística,
+`governance/BLOCKED-DECISIONS.md` #12; scope MCP wildcard repetido en 3 repos, Blocked
+Decision #4). **External Best Practice**: OWASP Agentic Security Initiative / AI Agent
+Security Cheat Sheet (2026), NIST SSDF (SP 800-218) — ambos citados explícitamente en el
+`INSTRUCTIONS.md`. Ningún equipo pierde la obligación de completar su propia matriz — esto
+es el punto de partida, no un reemplazo.
 
 ## Clasificación — corregida en G5.2
 
