@@ -51,8 +51,19 @@ cada capacidad concreta, en lenguaje simple, está en
 
 **No hace falta clonar ni copiar nada.** El camino más rápido hoy es instalar este
 repositorio como plugin de VS Code — 2 minutos, sin depender de ningún administrador:
-[`agent-plugin-quickstart.md`](agent-plugin-quickstart.md). Con eso, Copilot Chat ya
-reconoce todas las capacidades (agents/skills), listas para usar sobre un ticket real.
+[`agent-plugin-quickstart.md`](agent-plugin-quickstart.md).
+
+El modelo tiene 4 tipos de capacidad — esto es lo que el plugin trae, y lo que no:
+
+| Tipo | ¿El plugin lo instala? | Por qué |
+|---|---|---|
+| **Agents** (incluye los que otro Agent invoca como sub-agente, ej. `ticket-kickoff` → `product-owner`) | Sí | — |
+| **Skills** | Sí | — |
+| **Workflows** (ej. `spec-driven-development`) | Sí | — |
+| **Instructions** (ej. `repository-governance`) | **No, a propósito** | Cada equipo la completa con su propia matriz de autonomía — instalarla igual para todos rompería esa regla. Se sigue copiando a mano, ver [`../capabilities/README.md`](../capabilities/README.md) |
+
+Con el plugin instalado, Copilot Chat ya reconoce agents/skills/workflows, listos para
+usar sobre un ticket real.
 
 **Alternativas**, según lo que se necesite (ver el detalle completo de las 3 en
 [`../capabilities/README.md`](../capabilities/README.md), sección "Camino más maduro"):
