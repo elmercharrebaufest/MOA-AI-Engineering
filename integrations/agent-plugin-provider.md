@@ -40,8 +40,11 @@ propagación automática (que sigue sin aplicar a MOA por estar en Azure DevOps,
    (`chat.plugins.marketplaces`), o mejor, commiteada en el repo del equipo
    (`.github/copilot/settings.json`, sección `extraKnownMarketplaces`) para que cualquiera
    que abra ese repo la reciba recomendada, sin configurarla a mano.
-2. Instalar desde la Extensions view (`@agentPlugins`) o con el comando
-   **"Chat: Install Plugin From Source"**, pegando esa URL directamente.
+2. Instalar desde la Extensions view (`@agentPlugins`), con el comando
+   **"Chat: Install Plugin From Source"** (pegando esa URL directamente), o por terminal
+   con **GitHub Copilot CLI** (herramienta separada de VS Code): `copilot plugin install
+   <URL>` — acepta cualquier URL de Git, no solo GitHub. VS Code detecta automáticamente
+   lo instalado por esta última vía.
 3. Aceptar el prompt de confianza (VS Code lo muestra siempre en la primera instalación de
    una fuente nueva).
 4. **Actualizar**: automático cada 24 horas si `extensions.autoUpdate` está activo, o a

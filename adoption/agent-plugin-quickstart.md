@@ -33,6 +33,21 @@ dice, es información real y valiosa para corregir la guía, avisá igual.
    (Git Credential Manager). **Este paso es el que todavía no probamos con nadie real** —
    si falla o pide algo distinto, es el dato más importante que nos podés dar.
 
+## 2b. Alternativa por línea de comandos (si preferís terminal a la UI de VS Code)
+
+VS Code en sí no tiene un comando de instalación por terminal — pero **GitHub Copilot
+CLI** (herramienta separada, comando `copilot`, se instala aparte de VS Code) sí lo
+tiene, y acepta cualquier URL de Git, no solo GitHub (verificado en documentación oficial
+2026-09-22):
+
+```
+copilot plugin install https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering
+```
+
+VS Code detecta automáticamente los plugins instalados por esta vía. **Tampoco probado
+todavía con nadie real** — si preferís este camino, contanos cómo salió, es el mismo tipo
+de dato valioso que el paso 2.
+
 ## 3. Confirmar que funcionó
 
 Abrí Copilot Chat en modo Agent, y preguntale qué agents/skills tiene disponibles — debería
