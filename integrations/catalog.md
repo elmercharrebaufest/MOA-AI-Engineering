@@ -31,6 +31,13 @@ Resolution, [`../architecture/context-acquisition-resolution.md`](../architectur
 - [`azure-devops-context-provider.md`](azure-devops-context-provider.md) — [CAP-002](../registry/entries/azure-devops-context.md)
 - [`jira-context-provider.md`](jira-context-provider.md) — [CAP-003](../registry/entries/jira-context.md)
 
+## Ver también — Agent Plugin Provider (nuevo, 2026-09-22)
+
+[`agent-plugin-provider.md`](agent-plugin-provider.md) — instalación vía Agent Plugins 1.0
+de VS Code (marketplace hosting-agnostic, confirmado que funciona con URLs de Azure
+DevOps). Camino de autoservicio individual, sin necesitar permisos de administración.
+`PROPOSAL`, estructura construida, sin instalación real probada.
+
 ## Ver también — Production Diagnostics Provider (nuevo, 2026-09-21)
 
 [`production-diagnostics-provider.md`](production-diagnostics-provider.md) — 2 scripts

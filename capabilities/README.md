@@ -260,21 +260,37 @@ mecanismos adicionales de GitHub Enterprise que podrían no depender del hosting
 ninguno resultó aplicable (detalle completo en
 [`../TRACK-1/analisis-camuzzi-agent-plugins.md`](../TRACK-1/analisis-camuzzi-agent-plugins.md)).
 
-**Lo que sí aplica, en 2 partes:**
+**Actualización (2026-09-22) — corrección importante**: sí existe un camino nativo para el
+resto del ciclo, distinto del repo especial `.github` de organización descartado arriba.
+Ver el punto 3.
+
+**Lo que sí aplica, en 3 partes:**
 
 1. **Para Code Review (una sola etapa del KO)**: Azure DevOps tiene su propio mecanismo
    nativo — instrucciones de Copilot a nivel organización/proyecto/repositorio,
    configurables en Azure DevOps Settings, sin necesidad de GitHub. Real, en preview
    público, requiere permisos de Project Collection Administrator para habilitarlo (ver
    `governance/BLOCKED-DECISIONS.md` #13).
-2. **Para el resto del ciclo (agents/skills usados durante el desarrollo)**: no existe una
-   función nativa de plataforma — ni de Azure DevOps ni de GitHub — que resuelva esto para
-   repos alojados en Azure DevOps. El camino elegido es
-   [`../integrations/capability-distribution.md`](../integrations/capability-distribution.md):
-   un mecanismo de sync por Pull Request, reutilizando el mismo comando (`az repos pr
-   create`) que ya usan en producción Scato Logística y Orquestador — nunca push directo,
-   siempre revisión humana del equipo dueño del repo. `PROPOSAL`, sin ejecución real
-   todavía.
+2. **Para distribución automática, sin acción del developer**:
+   [`../integrations/capability-distribution.md`](../integrations/capability-distribution.md)
+   — sync por Pull Request, reutilizando `az repos pr create` (Scato Logística/Orquestador
+   ya lo usan en producción). El cambio le llega al equipo sin que nadie lo pida, siempre
+   con revisión humana antes de aceptarlo. Requiere que un administrador de Azure DevOps
+   habilite el permiso de escritura del pipeline — no es autoservicio.
+3. **Para adopción individual, sin pedirle nada a un administrador**:
+   [`../integrations/agent-plugin-provider.md`](../integrations/agent-plugin-provider.md) —
+   **Agent Plugins 1.0 de VS Code sí aplica a Azure DevOps**, distinto del repo especial
+   `.github` de organización descartado arriba. Es un mecanismo de "marketplace" de
+   plugins, verificado contra documentación oficial: acepta cualquier URL de repositorio
+   Git por HTTPS, no solo GitHub.com — la propia documentación de VS Code lista
+   `https://dev.azure.com/org/project/_git/repo` como formato soportado. Cualquier
+   developer instala directamente desde la URL real del repositorio, sin necesitar permisos
+   de administración de Azure DevOps. `PROPOSAL`, estructura construida, sin instalación
+   real probada todavía — un punto concreto (autenticación contra repositorio privado)
+   sigue sin confirmar.
+
+Las 3 no compiten entre sí — cubren necesidades distintas (gobierno centralizado vs.
+autoservicio individual vs. una etapa puntual del KO).
 
 `MOA-AI-Engineering` (este repositorio) sigue siendo, siempre, la **fuente** del modelo —
 donde vive el Registry, la documentación y cada capacidad. Ningún mecanismo de
