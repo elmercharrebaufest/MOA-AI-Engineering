@@ -22,6 +22,10 @@ dice, es información real y valiosa para corregir la guía, avisá igual.
 
 ## 2. Instalar (una sola vez)
 
+**No hace falta tener ningún repositorio propio abierto ni estar parado en ninguna
+carpeta en particular** — se instala una sola vez por máquina, queda en una ubicación
+global del usuario, y después aplica a cualquier proyecto que abras en VS Code.
+
 1. Abrí la paleta de comandos (`Ctrl+Shift+P` / `Cmd+Shift+P`).
 2. Escribí y elegí: **"Chat: Install Plugin From Source"**.
 3. Pegá esta URL exacta:
@@ -43,6 +47,13 @@ tiene, y acepta cualquier URL de Git, no solo GitHub (verificado en documentaci�
 ```
 copilot plugin install https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering
 ```
+
+**No hace falta estar parado en ninguna carpeta en particular** — la instalación queda
+en una ubicación global del usuario (`~/.copilot/installed-plugins/...`), no dentro de
+ningún repositorio. Se instala una sola vez por máquina, y después aplica a cualquier
+proyecto que abras — da igual desde qué carpeta corriste el comando. Mismo
+comportamiento que la instalación por UI de VS Code (también queda en una carpeta
+global, no dentro del repo).
 
 VS Code detecta automáticamente los plugins instalados por esta vía. **Tampoco probado
 todavía con nadie real** — si preferís este camino, contanos cómo salió, es el mismo tipo
