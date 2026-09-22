@@ -90,16 +90,17 @@ horas con `extensions.autoUpdate`) — evita el conflicto que causa el error.
 Si de todas formas se prefiere la terminal: cerrar VS Code por completo antes de correr
 el comando resuelve el error.
 
-## 5. Desinstalar
+## 5. Desinstalar por completo
 
-**Por terminal (GitHub Copilot CLI, camino confirmado en la documentación oficial)**:
-
-```
-copilot plugin uninstall ai-engineering
-```
-
-**Por la interfaz de VS Code**: en la vista **"Agent Plugins - Installed"**, clic derecho
+**Recomendado**: en la vista **"Agent Plugins - Installed"** de VS Code, clic derecho
 sobre el plugin → **"Uninstall"**.
+
+Por terminal también funciona: `copilot plugin uninstall ai-engineering`. Si da el mismo
+error de Windows que "Actualizar" (*"Access is denied"*), cerrar VS Code por completo y
+repetir el comando.
+
+Con cualquiera de los 2 caminos no queda nada instalado — no hace falta borrar ningún
+archivo a mano.
 
 ## 6. Alternativa: que llegue recomendado sin configurar nada
 

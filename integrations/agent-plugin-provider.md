@@ -65,9 +65,10 @@ propagación automática (que sigue sin aplicar a MOA por estar en Azure DevOps,
    (os error 5)"* — bug conocido de GitHub Copilot CLI, no de este repositorio
    ([#4095](https://github.com/github/copilot-cli/issues/4095)); cerrar VS Code por
    completo antes de correr el comando lo resuelve.
-5. **Desinstalar**: por terminal, `copilot plugin uninstall ai-engineering`. Por VS Code:
-   en la vista **"Agent Plugins - Installed"**, clic derecho sobre el plugin →
-   **"Uninstall"** — confirmado en la documentación oficial de Agent Plugins.
+5. **Desinstalar**: **recomendado, desde VS Code** — vista **"Agent Plugins -
+   Installed"**, clic derecho sobre el plugin → **"Uninstall"**. Por terminal,
+   `copilot plugin uninstall ai-engineering` también funciona, con el mismo riesgo del
+   bug de Windows del punto anterior.
 
 ## Qué falta confirmar (actualizado 2026-09-22, primera prueba real ya ocurrió)
 
