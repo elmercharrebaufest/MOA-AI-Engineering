@@ -28,21 +28,33 @@ global del usuario, y después aplica a cualquier proyecto que abras en VS Code.
 
 1. Abrí la paleta de comandos (`Ctrl+Shift+P` / `Cmd+Shift+P`).
 2. Escribí y elegí: **"Chat: Install Plugin From Source"**.
-3. Pegá esta URL exacta:
+3. Pegá esta URL:
    ```
    https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering
    ```
+   **Punto sin confirmar (2026-09-22)**: la documentación oficial de VS Code describe el
+   formato soportado como *"una URL completa terminada en `.git`"* — nuestra URL real no
+   termina así, y la documentación no aclara si es un requisito estricto o solo el
+   formato del ejemplo, ni menciona Azure DevOps en ningún lado. Si esta URL no
+   funciona, probá agregándole `.git` al final:
+   ```
+   https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering.git
+   ```
+   (Azure DevOps suele aceptar el sufijo `.git` aunque no lo muestre en su URL
+   estándar — es habitual en la mayoría de los servidores git). Contanos cuál de las 2
+   funcionó.
 4. VS Code va a mostrar un aviso de confianza la primera vez — revisalo y confirmá.
 5. Si te pide autenticarte, usá las mismas credenciales que ya usás para Azure DevOps
-   (Git Credential Manager). **Este paso es el que todavía no probamos con nadie real** —
+   (Git Credential Manager). **Este paso también sigue sin probarse con nadie real** —
    si falla o pide algo distinto, es el dato más importante que nos podés dar.
 
 ## 2b. Alternativa por línea de comandos (si preferís terminal a la UI de VS Code)
 
 VS Code en sí no tiene un comando de instalación por terminal — pero **GitHub Copilot
 CLI** (herramienta separada, comando `copilot`, se instala aparte de VS Code) sí lo
-tiene, y acepta cualquier URL de Git, no solo GitHub (verificado en documentación oficial
-2026-09-22):
+tiene, y su documentación oficial dice explícitamente que acepta cualquier URL de Git,
+no solo GitHub (verificado 2026-09-22) — mismo punto sin confirmar del sufijo `.git`
+que el paso 2, probá primero sin él:
 
 ```
 copilot plugin install https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering

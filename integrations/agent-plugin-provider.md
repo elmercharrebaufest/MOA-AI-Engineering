@@ -12,10 +12,18 @@ funcione de punta a punta hasta que alguien lo pruebe de verdad.
 
 **External Best Practice**: especificación oficial **Agent Plugins 1.0** de VS Code
 ([Agent Plugins in VS Code](https://code.visualstudio.com/docs/agent-customization/agent-plugins),
-verificado 2026-09-22) — confirmado que el mecanismo de "plugin marketplace" acepta
-cualquier URL de repositorio Git por HTTPS, **no solo GitHub.com** (la propia documentación
-lista explícitamente el formato `https://dev.azure.com/org/project/_git/repo`). **Existing
-Practice (evidencia externa)**: un cliente de Baufest con un setup de SDLC-IA más maduro en
+releída completa y verbatim 2026-09-22) — el mecanismo de "plugin marketplace" acepta URLs
+HTTPS de Git como una de sus 4 categorías de formato soportado, **no exclusivo de
+GitHub.com** en principio. **Corrección importante (2026-09-22)**: una consulta anterior a
+esta página había devuelto un ejemplo con formato `https://dev.azure.com/org/project/_git/repo`
+como si estuviera citado textualmente en la documentación — releída la página completa,
+**ese ejemplo no existe ahí**, fue un dato agregado por el resumen automático de esa
+consulta anterior, no contenido real de la página. Lo que sí dice la documentación real,
+textual: el formato "HTTPS git remote" es *"una URL completa terminada en `.git`"* — la
+URL real de MOA no termina así, y la página no aclara si es estricto ni menciona Azure
+DevOps en ningún lado. Ver "Qué falta confirmar" abajo — este es ahora el punto más
+importante sin resolver, no solo la autenticación. **Existing Practice (evidencia
+externa)**: un cliente de Baufest con un setup de SDLC-IA más maduro en
 distribución técnica ya usa este mismo mecanismo en forma de "plugin opt-in"
 (`plugins/core-suite/plugin.json`), separado de su mecanismo de propagación automática por
 organización — este patrón adopta esa misma idea (plugin explícito, opt-in), no la
@@ -52,6 +60,13 @@ propagación automática (que sigue sin aplicar a MOA por estar en Azure DevOps,
 
 ## Qué falta confirmar (sin especular, pendiente de prueba real)
 
+- **El formato de la URL en sí (el más importante, corregido 2026-09-22)**: la
+  documentación real dice que el formato "HTTPS git remote" es una URL terminada en
+  `.git` — la URL real de MOA (`.../_git/ai-engineering`) no termina así, y la página no
+  aclara si es un requisito estricto ni menciona Azure DevOps. Probar primero la URL tal
+  cual; si falla, probar agregando `.git` al final
+  (`.../_git/ai-engineering.git`) — Azure DevOps suele aceptar ese sufijo aunque no lo
+  muestre en su URL estándar.
 - **Autenticación contra el repositorio privado de Azure DevOps**: la documentación oficial
   no especifica cómo VS Code resuelve las credenciales para un repositorio privado que no
   es GitHub. Es razonable esperar que reutilice las credenciales de git que el developer ya
