@@ -93,12 +93,26 @@ Ninguno de los 2 es obligatorio — son condicionales a que la feature real lo j
 
 ## Instrucciones adicionales (nivel Full — solo si se justifica escalar)
 
+**Origen real (corregido 2026-09-22)**: esto ya no es un diseño conceptual — es la
+generalización de la arquitectura real de `moa-sdlc`, en uso por DataAgro (ver
+`registry/entries/spec-driven-development.md` para el detalle de evidencia).
+
 Sobre el nivel Lite, agregá: un rol `security-reviewer` con permiso de lectura sobre
 configuración/secretos pero sin poder aprobar cambios con hallazgos críticos sin
 corregir; un rol `human-approver` como gate final explícito antes de cerrar; contratos
 JSON de entrada/salida por rol; y un log de auditoría estructurado. Ver
 [`registry/entries/spec-driven-development.md`](../../../registry/entries/spec-driven-development.md)
 para el detalle completo del esquema.
+
+**Máquina de estados real** (7 estados, no una lista abierta):
+`draft → spec_ready → approved → in_progress → verified → reviewed → done`. Cada
+transición requiere que el rol correspondiente confirme el criterio de salida de la etapa
+anterior — nunca se salta un estado.
+
+**2 Pull Requests por ticket, no uno solo**: un PR de spec (contra la rama de destino,
+antes de implementar — permite revisar `requirements.md`/`design.md`/`tasks.md` sin
+código de por medio) y un PR final de implementación — ambos con aprobación humana
+explícita, nunca merge automático de ninguno de los 2.
 
 ## Dependencias
 
