@@ -172,6 +172,17 @@ de repos ni convenciones específicas de ese cliente.
 | `production-incident-investigation` | Agent | [`agents/production-incident-investigation/AGENT.md`](agents/production-incident-investigation/AGENT.md) | Investigar la causa raíz de un incidente de producción | [CAP-017](../registry/entries/production-incident-investigation.md) |
 | `spec-reader` | Agent | [`agents/spec-reader/AGENT.md`](agents/spec-reader/AGENT.md) | Responder preguntas sobre specs ya documentadas, con citas | [CAP-018](../registry/entries/spec-reader.md) |
 
+### Propuesta opt-in, generalizada de un equipo real de MOA (CAP-019)
+
+**Distinción respecto a las 3 tablas anteriores**: tiene evidencia real e interna de MOA
+(no es de Camuzzi), pero **no es transversal** — a diferencia de CAP-001/005/006/008/012/013,
+no aplica a todo equipo, solo a proyectos reales con Windows Workflow Foundation 4.5. No
+está en la primera tabla justamente para no dar a entender que es de uso general.
+
+| Capacidad | Tipo | Dónde | Para qué | Registry |
+|---|---|---|---|---|
+| `workflow-documenter` | Agent | [`agents/workflow-documenter/AGENT.md`](agents/workflow-documenter/AGENT.md) | Documentar workflows WF4.5 (`.xamlx`) y diagnosticar workflows `Faulted` — **solo si el proyecto usa WF4.5** | [CAP-019](../registry/entries/workflow-documenter.md) |
+
 ### Patrones de adquisición de contexto (2)
 
 No son Skill/Agent/Workflow/Instruction — son la implementación concreta de traer
@@ -386,7 +397,7 @@ capabilities/
 ├── README.md          este archivo
 ├── best-practices.md   guía práctica por tipo de capacidad
 ├── skills/              8 capacidades (3 con evidencia real, 5 propuestas — CAP-007/011/014/015/016)
-├── agents/              6 capacidades (1 con evidencia real, 5 propuestas — CAP-004/009/010/017/018)
+├── agents/              7 capacidades (1 con evidencia real, 5 propuestas de Camuzzi — CAP-004/009/010/017/018 —, 1 generalizada de un equipo real de MOA pero opt-in — CAP-019)
 ├── instructions/         1 capacidad
 └── workflows/            1 capacidad
 ```

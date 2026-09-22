@@ -33,6 +33,7 @@ independiente) → `VERIFIED` (ejecución independiente + evaluación humana con
 | [CAP-016](entries/ticket-closure-assist.md) | ticket-closure-assist | Skill | Ninguno todavía (propuesta) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo |
 | [CAP-017](entries/production-incident-investigation.md) | production-incident-investigation | Agent | Ninguno todavía (propuesta, evidencia externa Camuzzi/Baufest) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo (por diseño, sin `edit`) |
 | [CAP-018](entries/spec-reader.md) | spec-reader | Agent | Ninguno todavía (propuesta, evidencia externa Camuzzi/Baufest) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo (por diseño, sin `edit`) |
+| [CAP-019](entries/workflow-documenter.md) | workflow-documenter | Agent | Ninguno todavía (propuesta, generalizada de Scato Logística — **opt-in, solo proyectos con WF4.5**) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales de la versión generalizada (la instancia de origen sí tiene ejecución real) | Bajo |
 
 **CAP-004, CAP-011, CAP-014, CAP-016** *(cobertura de las 11 etapas del KO, 2026-09-18)*: a
 diferencia de todas las entradas anteriores, no son generalizaciones de una instancia real
@@ -80,7 +81,7 @@ acá — quedaron clasificados TEAM-SPECIFIC o EXPERIMENTAL, con su razón docum
 ## Por tipo
 
 - **Skill**: CAP-001, CAP-007, CAP-008, CAP-011, CAP-013, CAP-014, CAP-015, CAP-016
-- **Agent**: CAP-004, CAP-009, CAP-010 (orquestador), CAP-012, CAP-017, CAP-018
+- **Agent**: CAP-004, CAP-009, CAP-010 (orquestador), CAP-012, CAP-017, CAP-018, CAP-019 (opt-in, solo WF4.5)
 - **Workflow**: CAP-005
 - **Instruction**: CAP-006
 - **Integration/API**: CAP-002 (patrón, READ-only, mecanismo probado durante la construcción, sin ejecuciones reales registradas todavía)
@@ -93,18 +94,19 @@ acá — quedaron clasificados TEAM-SPECIFIC o EXPERIMENTAL, con su razón docum
 
 - **DataAgro**: CAP-001 (Configuration Status: PARTIAL — contenido no leído completo),
   CAP-005 (Lite, real), CAP-006
-- **Scato Logística**: CAP-008, CAP-001, CAP-012, CAP-006, CAP-013
+- **Scato Logística**: CAP-008, CAP-001, CAP-012, CAP-006, CAP-013, CAP-019 (origen; propuesta opt-in, no adoptada todavía en su forma generalizada)
 - **Orquestador**: CAP-008, CAP-001, CAP-012, CAP-006, CAP-013 — todas en rama
   `master-logistica`, ninguna en `master`
 - **Ninguno todavía**: CAP-005 (nivel Full, conceptual), CAP-004, CAP-007, CAP-009 a
-  CAP-011, CAP-014 a CAP-018 — propuestas sin adopción real (CAP-004, CAP-011, CAP-014,
+  CAP-011, CAP-014 a CAP-019 — propuestas sin adopción real (CAP-004, CAP-011, CAP-014,
   CAP-016 con evidencia externa mixta KO/comunidad; CAP-007, CAP-009, CAP-010, CAP-015,
   CAP-017, CAP-018 con evidencia externa de un cliente de Baufest — Camuzzi, no un equipo
-  de MOA)
+  de MOA; **CAP-019 generalizada de Scato Logística, opt-in, solo para proyectos con
+  WF4.5**)
 
 ## ¿Puedo adoptarla?
 
-Ninguna de las 18 entradas del Registry está promovida a Corporate Standard. Las entradas pueden
+Ninguna de las 19 entradas del Registry está promovida a Corporate Standard. Las entradas pueden
 corresponder a capacidades reutilizables, patrones reutilizables, candidatos a Common
 Core, propuestas nuevas sin evidencia de origen, o activos Team-Specific según su
 clasificación individual — `Corporate Standard: N`
@@ -112,8 +114,9 @@ no implica por sí mismo que una entrada sea Team-Specific (ver la clasificació
 cada entrada: CAP-001/008 Reusable Capability, CAP-005/012/013 Reusable Pattern, CAP-006
 Reusable Governance Pattern / Common Core Candidate, CAP-002/003 Context Acquisition
 Pattern, y las 10 propuestas nuevas sin evidencia de un equipo de MOA (CAP-004, CAP-007,
-CAP-009 a CAP-011, CAP-014 a CAP-018) — ninguna es Team-Specific en sentido
-estricto, todas son candidatas evaluadas). Cualquier equipo puede consultarlas y
+CAP-009 a CAP-011, CAP-014 a CAP-018), más CAP-019 (generalizada de un equipo real de
+MOA — Scato Logística — pero deliberadamente opt-in, no transversal) — ninguna es
+Team-Specific en sentido estricto, todas son candidatas evaluadas). Cualquier equipo puede consultarlas y
 adaptarlas por su cuenta (autonomía de equipo), pero **ninguna está todavía promovida
 como estándar corporativo** — adoptarlas hoy es replicar/adaptar un patrón con evidencia
 real, no consumir un Common Core ya aprobado por gobierno.
