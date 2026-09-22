@@ -72,7 +72,7 @@ Este repositorio (implementación/análisis) — inspecciona evidencia real en r
 documentación de MOA, materializa decisiones ya tomadas, genera documentación y
 artefactos, identifica inconsistencias, señala incertidumbres y dependencias
         ↓
-Contenido de MOA-AI-Engineering
+Contenido de ai-engineering
 ```
 
 Las decisiones de qué capacidad se adopta, adapta, descarta, o se promueve a REUSABLE, son

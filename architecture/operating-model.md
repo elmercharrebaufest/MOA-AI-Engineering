@@ -15,9 +15,9 @@ Common Core — sin asumir estructura organizacional no evidenciada.
 > Common Core ≠ centralizar todo. Team autonomy debe preservarse. (Principios
 > arquitectónicos #10, #11 de G3.3)
 
-MOA-AI-Engineering **no reemplaza** el trabajo de ningún equipo — es una capacidad de
+ai-engineering **no reemplaza** el trabajo de ningún equipo — es una capacidad de
 soporte que un equipo puede consumir, adaptar, y a la que puede contribuir. El repositorio
-`MOA-AI-Engineering` es la **implementación de referencia** de esa capacidad, no la
+`ai-engineering` es la **implementación de referencia** de esa capacidad, no la
 totalidad de la organización que la sostiene (esa organización — quién la financia, quién
 la gobierna formalmente — sigue **REQUIRES VALIDATION**, ver Blocked Decision #1).
 
@@ -25,7 +25,7 @@ la gobierna formalmente — sigue **REQUIRES VALIDATION**, ver Blocked Decision 
 
 ```mermaid
 graph TD
-    MAE["MOA-AI-Engineering"]
+    MAE["ai-engineering"]
     MAE --> CC["COMMON CORE"]
     MAE --> TA["TEAM ADAPTATION"]
 
@@ -59,7 +59,7 @@ graph TD
 **Qué es** (PROPOSAL, corrigiendo una imprecisión de la fase Foundation): una **capacidad
 organizacional y técnica** — principios, gobierno, un pipeline de assessment, un modelo de
 capacidades, patrones reusables, evaluación, observabilidad, métricas, un registro, y
-enablement. El repositorio `MOA-AI-Engineering` es su base de referencia versionada, no su
+enablement. El repositorio `ai-engineering` es su base de referencia versionada, no su
 totalidad — el Common Core también incluye procesos y personas que hoy **no están
 evidenciados** (ver Blocked Decision #1).
 

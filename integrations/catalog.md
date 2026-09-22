@@ -49,7 +49,7 @@ referencia que ya usa [CAP-017](../registry/entries/production-incident-investig
 
 [`capability-distribution.md`](capability-distribution.md) — mecanismo de sync por Pull
 Request para propagar `capabilities/agents/` y `capabilities/skills/` a repos de equipo
-cuando cambia el contenido canónico de `MOA-AI-Engineering`. No es un Context Provider (no
+cuando cambia el contenido canónico de `ai-engineering`. No es un Context Provider (no
 adquiere contexto, escribe PRs); se documenta acá por ser infraestructura transversal del
 mismo tipo. `PROPOSAL`, sin ejecución real.
 

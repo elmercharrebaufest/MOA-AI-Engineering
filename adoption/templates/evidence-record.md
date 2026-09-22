@@ -11,7 +11,7 @@
 funciona el modelo.** Hallazgo real de un developer que probó esto: el archivo hablaba de
 "esta es la ejecución más importante de las 6... la primera con actor independiente de
 quien diseñó el modelo" antes de mostrar la historia de usuario — eso es información de
-gobierno de `MOA-AI-Engineering`, no algo que la persona necesite para trabajar. No debe
+gobierno de `ai-engineering`, no algo que la persona necesite para trabajar. No debe
 repetirse.
 
 **Orden obligatorio del archivo**:

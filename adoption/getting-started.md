@@ -31,7 +31,7 @@ flowchart TD
 
 ## 1. Qué es esto
 
-`MOA-AI-Engineering` es la base común de AI Engineering para MOA — principios,
+`ai-engineering` es la base común de AI Engineering para MOA — principios,
 gobierno, un Registry de capacidades reales, Golden Paths, y contratos para generar
 evidencia, evaluar y medir.
 

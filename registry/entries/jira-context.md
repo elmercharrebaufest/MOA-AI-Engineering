@@ -14,7 +14,7 @@
 | **Originator** | N/A — patrón derivado, no autoría de equipo | — |
 | **Team** | Ninguno todavía — sin adopción real | — |
 | **Domain** | Transversal | INFERENCE |
-| **Repository** | `MOA-AI-Engineering` únicamente | FACT |
+| **Repository** | `ai-engineering` únicamente | FACT |
 | **Branch** | `main` | FACT |
 | **Integration Status** | No integrado a ningún repo de equipo — patrón de referencia | FACT |
 | **Configuration Status** | **VERIFIED** para el patrón/documento en sí | Contrato completo y sin ambigüedad |

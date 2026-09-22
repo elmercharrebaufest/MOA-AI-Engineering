@@ -2,7 +2,7 @@
 
 ## Principio (FACT — brief de la iniciativa)
 
-> "MOA-AI-Engineering establece la base común; cada equipo decide qué adoptar, adaptar o
+> "ai-engineering establece la base común; cada equipo decide qué adoptar, adaptar o
 > no utilizar según sus necesidades, manteniendo los principios y controles
 > corporativos."
 
@@ -69,7 +69,7 @@ Arquitectura. Para cada uno, antes de crear contenido en `teams/<equipo>/`, se d
 
 ## Cómo un equipo nuevo se incorpora a este modelo
 
-1. Crear su propio repositorio o carpeta de trabajo (no dentro de `MOA-AI-Engineering`).
+1. Crear su propio repositorio o carpeta de trabajo (no dentro de `ai-engineering`).
 2. Documentar su caso de uso inicial con [`../templates/use-case-template.md`](../templates/use-case-template.md).
 3. Consultar `governance/ai-governance.md` y `governance/agent-governance.md` para los
    controles corporativos mínimos (human-in-the-loop, matriz de autonomía).

@@ -51,7 +51,7 @@ pasos secuenciales entre sí, ambas consumen la misma Evidence por separado.
    le falta (ver [`team-adaptation.md`](team-adaptation.md) para qué se adapta y qué
    no).
 6. **Ejecutar con la herramienta IA disponible** — Copilot, Claude, u otro asistente
-   compatible con el equipo. `MOA-AI-Engineering` define el patrón y los controles, no
+   compatible con el equipo. `ai-engineering` define el patrón y los controles, no
    obliga a un proveedor.
 7. **Human Review operativo** — una lectura humana rápida del resultado, antes de
    decidir si sigue adelante o si hay que reintentar. Ver la distinción con la

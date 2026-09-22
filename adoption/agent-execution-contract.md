@@ -1,14 +1,14 @@
 # Agent Execution Contract
 
 **Para quién es**: el agente de IA (Copilot, Claude, u otro) que ejecuta una capability
-de `MOA-AI-Engineering` en nombre de una persona, sobre una tarea real de su SDLC. **No es
+de `ai-engineering` en nombre de una persona, sobre una tarea real de su SDLC. **No es
 una guía de exploración del modelo** — para eso está [`getting-started.md`](getting-started.md).
 Este documento es corto a propósito: es lo único que un agente necesita leer para ejecutar
 una tarea de forma correcta, rápida y sin ruido.
 
 ## El principio — no es una lista de casos, es un límite ya existente en el modelo
 
-`MOA-AI-Engineering` ya distingue **Team Adaptation** (lo que un equipo o persona hace en
+`ai-engineering` ya distingue **Team Adaptation** (lo que un equipo o persona hace en
 su propio contexto) de **Common Core** (lo compartido — Registry, Golden Paths,
 capability model — que solo cambia por revisión deliberada, el Assessment Gate, ver
 [`../architecture/operating-model.md`](../architecture/operating-model.md)). **Ejecutar
@@ -97,7 +97,7 @@ del modelo.
 4. **Si se detecta algo real que el modelo debería corregir** (un gap, una
    inconsistencia, un archivo roto) — **no debe actuarse ni reportarse en la
    conversación de la tarea**. Es información para quien mantiene
-   `MOA-AI-Engineering` vía [`contribution-guide.md`](contribution-guide.md), en un
+   `ai-engineering` vía [`contribution-guide.md`](contribution-guide.md), en un
    canal separado — no para la persona que solo quiere avanzar con su ticket.
 5. **La respuesta debe darse en el idioma en el que escribe la persona, y de forma
    correcta.** Este proyecto y su comunidad de uso son de habla hispana — no corresponde

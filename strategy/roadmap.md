@@ -2,7 +2,7 @@
 
 ## Cómo se relacionan los 3 procesos que aparecen en este repositorio (aclaración, 2026-09-04)
 
-Conviven 3 formulaciones de proceso en `MOA-AI-Engineering` — no son 3 procesos
+Conviven 3 formulaciones de proceso en `ai-engineering` — no son 3 procesos
 distintos, son 3 niveles de detalle del mismo ciclo:
 
 1. **4 pasos del KO** (pág. 14, ver `vision.md`/principios): empezar por la plataforma →
@@ -168,7 +168,7 @@ preguntas originales de este documento (discovery temprano, G1), el estado real 
 
 1. ¿Otras herramientas de referencia de Baufest se referencian o se consolidan dentro de
    este repo? — **Resuelta, revertida el 2026-09-18**: no. Este modelo base
-   (`MOA-AI-Engineering`) es el entregable de la iniciativa Track 1 — no nombra proyectos
+   (`ai-engineering`) es el entregable de la iniciativa Track 1 — no nombra proyectos
    que no forman parte de él, aunque hayan existido en paralelo dentro de Track 1 en un
    sentido más amplio.
 2. ¿Hay más material de referencia fuera de este workspace? — Sigue abierta, no escalada

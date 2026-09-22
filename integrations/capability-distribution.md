@@ -56,7 +56,7 @@ adoptar un archivo de workspace.
 ## Propósito
 
 Cuando cambia el contenido canónico de `capabilities/agents/` o `capabilities/skills/` en
-`MOA-AI-Engineering`, abrir automáticamente un Pull Request en cada repo de equipo que
+`ai-engineering`, abrir automáticamente un Pull Request en cada repo de equipo que
 adoptó este mecanismo, con esos archivos actualizados — para que el equipo revise y decida
 si lo adopta, sin tener que copiar nada a mano.
 
@@ -73,7 +73,7 @@ si lo adopta, sin tener que copiar nada a mano.
 ## Flujo
 
 ```text
-Cambio real en capabilities/agents/** o capabilities/skills/** (rama principal de MOA-AI-Engineering)
+Cambio real en capabilities/agents/** o capabilities/skills/** (rama principal de ai-engineering)
         ↓
 Azure Pipeline disparado (filtro de path — no dispara por cambios de documentación)
         ↓

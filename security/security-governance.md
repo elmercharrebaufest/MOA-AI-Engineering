@@ -164,7 +164,7 @@ con el comentario "no remover, AFIP no valida certificado en todos los ambientes
 **no es un hallazgo de MCP** — es un riesgo de integridad de datos en tránsito
 (vulnerable a un ataque man-in-the-middle) para comunicación con un sistema regulatorio
 real. **No se modifica el código de Scato Logística desde este repositorio** (fuera de
-alcance — es un repo de equipo, no `MOA-AI-Engineering`) — se documenta acá porque el
+alcance — es un repo de equipo, no `ai-engineering`) — se documenta acá porque el
 código lo declara explícitamente como intencional en un artefacto de IA Engineering (una
 Skill), lo cual lo hace visible y evaluable de una forma que no lo sería si estuviera
 enterrado en el código de aplicación sin documentar. **Recomendación, no una acción

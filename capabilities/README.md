@@ -1,4 +1,4 @@
-# Capabilities — Biblioteca reusable de MOA-AI-Engineering
+# Capabilities — Biblioteca reusable de ai-engineering
 
 Punto de entrada. Este documento responde qué existe y qué se puede usar hoy.
 
@@ -213,14 +213,14 @@ portabilidad, evidencia de uso, reusabilidad, y contraste con buenas prácticas 
 
 ## De dónde viene una capacidad y a dónde va
 
-`MOA-AI-Engineering` contiene la **fuente/patrón reusable** — no el runtime ejecutable
+`ai-engineering` contiene la **fuente/patrón reusable** — no el runtime ejecutable
 de ningún equipo. Copiar un archivo de acá a un repo de equipo **no lo convierte
 automáticamente en capacidad corporativa** — sigue siendo Team-Specific hasta que pase
 por Assessment/Human Governance (`../architecture/assessment-gate.md`), sin importar
 cuántas veces se copie.
 
 ```text
-MOA-AI-Engineering Capability Source   (capabilities/)
+ai-engineering Capability Source   (capabilities/)
               ↓
       Platform Mapping                 (depende del proveedor del equipo)
               ↓
@@ -229,14 +229,14 @@ Team Repository Runtime Implementation (el equipo la adapta y ejecuta)
 
 Ejemplo — Skill (GitHub Copilot):
 ```text
-MOA-AI-Engineering/capabilities/skills/user-story/SKILL.md
+ai-engineering/capabilities/skills/user-story/SKILL.md
               ↓
 Team Repository/.github/skills/user-story/SKILL.md
 ```
 
 Ejemplo — Agent (GitHub Copilot):
 ```text
-MOA-AI-Engineering/capabilities/agents/read-only-code-reviewer/AGENT.md
+ai-engineering/capabilities/agents/read-only-code-reviewer/AGENT.md
               ↓
 Team Repository/.github/agents/read-only-code-reviewer.agent.md
               (el equipo completa `model:` según su plataforma real — ver la nota en
@@ -306,7 +306,7 @@ Ver el punto 3.
 Las 3 no compiten entre sí — cubren necesidades distintas (gobierno centralizado vs.
 autoservicio individual vs. una etapa puntual del KO).
 
-`MOA-AI-Engineering` (este repositorio) sigue siendo, siempre, la **fuente** del modelo —
+`ai-engineering` (este repositorio) sigue siendo, siempre, la **fuente** del modelo —
 donde vive el Registry, la documentación y cada capacidad. Ningún mecanismo de
 distribución (ni el de Azure DevOps para Code Review, ni el sync por PR) reemplaza esa
 fuente — son formas distintas de que el contenido llegue desde acá hasta cada repo de
@@ -339,10 +339,10 @@ uno solo:
 aplicación, en modo agente:
 
 ```text
-Se necesita adoptar la capability CAP-001 (user-story) de MOA-AI-Engineering en este
+Se necesita adoptar la capability CAP-001 (user-story) de ai-engineering en este
 repositorio.
 
-1. Leer capabilities/skills/user-story/SKILL.md del repositorio MOA-AI-Engineering.
+1. Leer capabilities/skills/user-story/SKILL.md del repositorio ai-engineering.
 2. Copiar su contenido a este repositorio, en la carpeta que se use para
    instrucciones/skills de IA (si no existe ninguna, preguntar antes de crear una
    nueva).

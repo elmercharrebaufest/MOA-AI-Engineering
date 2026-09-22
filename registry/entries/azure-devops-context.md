@@ -14,7 +14,7 @@
 | **Originator** | N/A — patrón derivado, no autoría de equipo | — |
 | **Team** | Ninguno todavía — sin adopción real | — |
 | **Domain** | Transversal — Azure DevOps es infraestructura común | INFERENCE, igual que CAP-008 |
-| **Repository** | `MOA-AI-Engineering` únicamente — no vive en ningún repo de equipo todavía | FACT |
+| **Repository** | `ai-engineering` únicamente — no vive en ningún repo de equipo todavía | FACT |
 | **Branch** | `main` | FACT |
 | **Integration Status** | No integrado a ningún repo de equipo — es un patrón de referencia | FACT |
 | **Configuration Status** | **VERIFIED** para el patrón/documento en sí (contrato completo, sin ambigüedad) | El patrón está completo; no hay "configuración real" adicional que verificar más allá del documento mismo |

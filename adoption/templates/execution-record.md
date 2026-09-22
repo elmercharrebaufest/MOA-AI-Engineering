@@ -30,7 +30,7 @@ contrato canónico.
 | `golden_path` | *(Golden Path seguido, si aplica)* |
 | `capability_id` | *(ID del Registry)* |
 | `capability_version` | *(versión usada en esta ejecución)* |
-| `tool` | *(asistente de IA usado — Copilot, Claude, u otro; MOA-AI-Engineering no obliga a uno)* |
+| `tool` | *(asistente de IA usado — Copilot, Claude, u otro; ai-engineering no obliga a uno)* |
 | `model` | *(modelo concreto, si se conoce y es relevante)* |
 | `input_reference` | *(referencia al insumo real — ticket, requerimiento, diff, etc.)* |
 | `context_provided` | *(qué contexto adicional se le dio al asistente — instructions, skill, ejemplos)* |

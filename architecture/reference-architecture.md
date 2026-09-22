@@ -1,7 +1,7 @@
 # Reference Architecture
 
 **Estado**: PROPOSAL — arquitectura de referencia canónica y vigente de
-`MOA-AI-Engineering`. Reemplaza y consolida la
+`ai-engineering`. Reemplaza y consolida la
 [versión histórica de la fase Foundation](../docs/history/track-1/reference-architecture-g1-superseded.md)
 — ese archivo se conserva por su contenido FACT todavía válido (stack del KO), pero no es
 la referencia arquitectónica activa. Este documento conecta `operating-model.md`,
@@ -71,13 +71,13 @@ graph TB
 **Qué es**: los equipos/servicios de MOA con evidencia real (`../teams/README.md`).
 **Responsabilidad**: entregar valor de negocio en su dominio — no es responsabilidad de
 este layer producir capacidades reusables (aunque puede hacerlo).
-**Límite**: este layer no está gobernado por `MOA-AI-Engineering` — lo consume
+**Límite**: este layer no está gobernado por `ai-engineering` — lo consume
 opcionalmente.
 
 ### 2. Team Adaptation Layer
 
 **Qué es**: las capacidades de IA específicas de cada equipo (`capability-model.md`),
-vivan donde vivan (repo del equipo, no en `MOA-AI-Engineering`).
+vivan donde vivan (repo del equipo, no en `ai-engineering`).
 **Responsabilidad**: el equipo mantiene sus propias capacidades, decide qué consumir del
 Common Core, y decide qué proponer para promoción.
 **Límite**: nada de este layer se considera Common Core solo por existir, ni por existir

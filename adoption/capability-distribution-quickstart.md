@@ -1,7 +1,7 @@
 # Capability Distribution — Quick Start
 
 **Para quién es**: cualquier persona de un equipo (developer, tech lead, arquitecto) que
-quiere que `capabilities/agents/` y `capabilities/skills/` de `MOA-AI-Engineering` lleguen
+quiere que `capabilities/agents/` y `capabilities/skills/` de `ai-engineering` lleguen
 a su propio repositorio automáticamente, sin que alguien tenga que copiarlos a mano cada
 vez que cambian. Patrón completo: [`../integrations/capability-distribution.md`](../integrations/capability-distribution.md).
 
@@ -25,7 +25,7 @@ sigue siendo el camino más simple, sin pedirle nada a nadie.
 ## 2. Decisión de gobierno — agregar tu repo a la lista
 
 Nada llega a tu repo hasta que alguien lo pide explícitamente. Abrí un Pull Request a
-`MOA-AI-Engineering` agregando tu repo en
+`ai-engineering` agregando tu repo en
 [`../integrations/scripts/capability-distribution-targets.json`](../integrations/scripts/capability-distribution-targets.json):
 
 ```json
@@ -48,7 +48,7 @@ completó.
 Quien administre tu Azure DevOps completa la plantilla
 [`../integrations/scripts/capability-distribution-pipeline.yml`](../integrations/scripts/capability-distribution-pipeline.yml)
 con el nombre real de tu rama principal y el nombre real de la Service Connection. Este
-pipeline corre en `MOA-AI-Engineering` (o donde tu organización decida alojarlo) — no algo
+pipeline corre en `ai-engineering` (o donde tu organización decida alojarlo) — no algo
 que instalás en tu propio repo.
 
 ## 4. Primera prueba, en modo seguro
@@ -79,7 +79,7 @@ mergeado, no hay que instalar nada más: los archivos ya están en `.github/agen
 ## 7. De ahí en adelante
 
 Cada cambio real en `capabilities/agents/` o `capabilities/skills/` de
-`MOA-AI-Engineering` te genera un PR nuevo, solo. No hay que acordarse de nada — solo
+`ai-engineering` te genera un PR nuevo, solo. No hay que acordarse de nada — solo
 revisar el PR cuando aparece.
 
 ## Qué NO hace este mecanismo

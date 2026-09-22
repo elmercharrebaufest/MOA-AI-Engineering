@@ -1,11 +1,11 @@
 # Adoption Kit
 
-**Para quién es esto**: un equipo de MOA que quiere empezar a usar `MOA-AI-Engineering`
+**Para quién es esto**: un equipo de MOA que quiere empezar a usar `ai-engineering`
 sobre un proyecto real — no para quien diseña la arquitectura (esa documentación vive en
 [`../architecture/`](../architecture/)). Esta carpeta es **práctica y operativa**:
 responde qué corresponde hacer, paso a paso.
 
-> **No es necesario copiar todo `MOA-AI-Engineering` dentro de otro proyecto.** Es la
+> **No es necesario copiar todo `ai-engineering` dentro de otro proyecto.** Es la
 > base común/referencia — cada equipo adopta únicamente las capacidades puntuales que
 > necesita, el resto queda como catálogo.
 
