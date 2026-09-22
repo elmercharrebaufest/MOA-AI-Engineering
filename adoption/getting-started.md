@@ -49,27 +49,22 @@ cada capacidad concreta, en lenguaje simple, está en
 
 ## 2. El camino más corto
 
-No hace falta ninguna herramienta nueva para adoptar esto — el propio asistente de IA
-del equipo (Copilot, Claude, el que ya esté en uso) puede hacer todo el trabajo mecánico.
-Estando en el propio repositorio de aplicación, con `MOA-AI-Engineering` clonado o
-accesible en algún lugar del entorno, se le puede dar la siguiente instrucción al
-asistente, en modo agente:
+**No hace falta clonar ni copiar nada.** El camino más rápido hoy es instalar este
+repositorio como plugin de VS Code — 2 minutos, sin depender de ningún administrador:
+[`agent-plugin-quickstart.md`](agent-plugin-quickstart.md). Con eso, Copilot Chat ya
+reconoce todas las capacidades (agents/skills), listas para usar sobre un ticket real.
 
-```text
-Se necesita adoptar la capability CAP-001 (user-story) de MOA-AI-Engineering en este
-repositorio.
+**Alternativas**, según lo que se necesite (ver el detalle completo de las 3 en
+[`../capabilities/README.md`](../capabilities/README.md), sección "Camino más maduro"):
 
-1. Leer capabilities/skills/user-story/SKILL.md del repositorio MOA-AI-Engineering.
-2. Copiar su contenido a este repositorio, en la carpeta que se use para
-   instrucciones/skills de IA (si no existe ninguna, preguntar antes de crear una
-   nueva).
-3. En la sección "Sobre el rol", preguntar primero qué roles reales existen en este
-   dominio antes de completarla — no inventar roles.
-4. Mostrar el archivo final antes de guardarlo.
-```
+- El equipo quiere que los cambios le lleguen solos, sin que cada developer instale nada:
+  [`capability-distribution-quickstart.md`](capability-distribution-quickstart.md).
+- Solo se quiere probar una capacidad puntual, una sola vez, sin instalar nada: copiar a
+  mano el archivo de la capacidad elegida (`capabilities/skills/<nombre>/SKILL.md` o
+  `capabilities/agents/<nombre>/AGENT.md`) al repositorio propio — sigue siendo válido
+  para una prueba rápida, ver [`../capabilities/README.md`](../capabilities/README.md).
 
-Con eso, la capability queda en el repositorio, adaptada al dominio real. A partir de
-ahí:
+Una vez que la capacidad está disponible (por cualquiera de los 3 caminos):
 
 1. Con el asistente, sobre un ticket real: *"Usar la capability CAP-001 user-story para
    refinar este ticket: [ticket real]"*.

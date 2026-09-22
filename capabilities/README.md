@@ -322,7 +322,7 @@ uno solo:
   nadie tenga que copiar nada.
 
 **Paso 1 — traer la capacidad a tu repositorio (camino manual, uso puntual).** Con
-`MOA-AI-Engineering` clonado o accesible en tu entorno, en tu propio repositorio de
+`ai-engineering` clonado o accesible en tu entorno, en tu propio repositorio de
 aplicación, en modo agente:
 
 ```text
