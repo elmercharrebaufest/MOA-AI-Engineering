@@ -59,13 +59,13 @@ Siguiendo el orden en que normalmente aparecen en el trabajo diario de un ticket
 - **`azure-devops-cli`** (CAP-008) — ayuda a operar Azure DevOps desde la línea de
   comandos sin tener que buscar la sintaxis exacta de cada comando. **En uso real** en 2
   equipos.
-- **`ticket-kickoff`** (CAP-010) — un rol de asistente que, con tu aprobación, encadena
-  todo lo anterior: investiga el ticket, arma un plan técnico con horas estimadas, y —
-  solo si aprobás el plan — implementa el código él mismo en un espacio de trabajo
-  aislado (usando `git-worktree-setup`, CAP-009, para no pisar otras tareas en paralelo),
-  dejándolo listo para que lo revises antes de publicar. Es la única capacidad de este
-  catálogo que puede editar código real — siempre detrás de tu aprobación explícita.
-  **Propuesta nueva, todavía sin probar por ningún equipo.**
+- **`ticket-kickoff`** (CAP-010) — un rol de asistente que, con aprobación explícita,
+  encadena todo lo anterior: investiga el ticket, arma un plan técnico con horas
+  estimadas, y — solo si el plan se aprueba — implementa el código él mismo en un
+  espacio de trabajo aislado (usando `git-worktree-setup`, CAP-009, para no pisar otras
+  tareas en paralelo), dejándolo listo para revisión antes de publicar. Es la única
+  capacidad de este catálogo que puede editar código real — siempre detrás de una
+  aprobación explícita. **Propuesta nueva, todavía sin probar por ningún equipo.**
 - **`pr-description`** (CAP-011) — redacta el título y la descripción de un Pull Request
   a partir del ticket de origen y del cambio real de código, para no escribirlo desde
   cero cada vez. **Propuesta nueva, todavía sin probar por ningún equipo.**
@@ -314,19 +314,19 @@ equipo, igual que hoy un equipo copia una capacidad a mano a su propio repo.
 
 ## Cómo usar una capacidad — ejemplo concreto, de punta a punta
 
-No hace falta instalar nada nuevo — el propio asistente de IA que ya usás (Copilot,
-Claude, el que esté disponible en tu proyecto) hace el trabajo mecánico. Ejemplo real,
+No hace falta instalar nada nuevo — el propio asistente de IA ya disponible (Copilot,
+Claude, el que esté en uso en el proyecto) hace el trabajo mecánico. Ejemplo real,
 con `user-story` (CAP-001), aplicable de la misma forma a cualquier otra capacidad de
 este catálogo.
 
-**Antes del Paso 1 — decidir cómo va a llegar el contenido a tu repo.** Hay 2 caminos, no
+**Antes del Paso 1 — decidir cómo va a llegar el contenido al repo.** Hay 2 caminos, no
 uno solo:
 
-- **¿Solo querés probarla una vez, sobre un ticket real?** → seguí el Paso 1 de abajo
-  (copia manual, vía agente). Sin pedir nada a nadie, disponible ahora mismo.
-- **¿Tu equipo va a adoptarla de forma continua, y querés que se mantenga actualizada
-  sola cuando cambie acá?** → no copies a mano — sumá tu repo al mecanismo de
-  distribución automática por Pull Request. Ver
+- **¿Solo se necesita probarla una vez, sobre un ticket real?** → seguir el Paso 1 de
+  abajo (copia manual, vía agente). Sin pedir nada a nadie, disponible ahora mismo.
+- **¿El equipo va a adoptarla de forma continua, y se necesita que se mantenga
+  actualizada sola cuando cambie acá?** → no copiar a mano — sumar el repo al mecanismo
+  de distribución automática por Pull Request. Ver
   [`../integrations/capability-distribution.md`](../integrations/capability-distribution.md)
   y la guía paso a paso:
   [`../adoption/capability-distribution-quickstart.md`](../adoption/capability-distribution-quickstart.md).
@@ -361,11 +361,11 @@ de tu proyecto acá]
 **Paso 3 — revisar el resultado** antes de darlo por bueno (nunca se aprueba una salida
 de IA solo por generarse), y **registrar la evidencia** copiando
 [`../adoption/templates/evidence-record.md`](../adoption/templates/evidence-record.md)
-a algo como `records/<tarea>/evidence.md` en tu propio repositorio, completado con el
+a algo como `records/<tarea>/evidence.md` en el propio repositorio, completado con el
 resultado real.
 
-Con esto ya tenés el primer resultado real. El resto de este documento (tablas, qué se
-adapta y qué no) es para cuando quieras el panorama completo o adoptar más de una
+Con esto ya queda el primer resultado real. El resto de este documento (tablas, qué se
+adapta y qué no) es para cuando se necesite el panorama completo o adoptar más de una
 capacidad — la guía completa, paso a paso, con más detalle de configuración por
 plataforma (Jira/Azure DevOps/Copilot) y cómo evaluar/medir, está en
 [`../adoption/getting-started.md`](../adoption/getting-started.md).
@@ -379,11 +379,11 @@ automática) aplica igual:
 1. Abrí el archivo de la capacidad (no solo la tabla de este documento) — cada una
    tiene: cuándo usarla, cuándo NO, entradas/salidas, seguridad, HITL, ejemplos, y qué
    adaptar.
-2. Copiá **la estructura**, no el contenido literal de otro equipo — cada capacidad
+2. Copiar **la estructura**, no el contenido literal de otro equipo — cada capacidad
    generalizada está deliberadamente sin contenido de dominio específico donde ese
    contenido no es portable (ver `stack-best-practices-template` como el caso más
    explícito).
-3. Completá el Evidence/Evaluation/Measurement Contract cuando la ejecutes.
+3. Completar el Evidence/Evaluation/Measurement Contract al ejecutarla.
 
 ## Best Practices
 

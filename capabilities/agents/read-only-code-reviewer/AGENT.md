@@ -51,16 +51,16 @@ cada uno con ubicación exacta (archivo:línea) y una sugerencia concreta.
 
 ## Instrucciones
 
-1. Determiná el framework/versión objetivo del código en el diff — leé las Instructions
-   de la capa afectada, o preguntá si no es determinable.
-2. Cargá la skill de buenas prácticas del stack real, si existe
-   (`capabilities/skills/stack-best-practices-template/` completada por el equipo) — no
-   apliques reglas de un stack distinto al real.
-3. Revisá el diff (no el repo completo) contra: seguridad, manejo de errores, calidad de
-   tests, SOLID/clean code, y performance apropiada a la versión real del stack.
-4. Reportá hallazgos por severidad, con ubicación y sugerencia — nunca modifiques
-   archivos ni ejecutes comandos de build/test que alteren el estado del repo.
-5. Terminá siempre con un resumen: cantidad de hallazgos por severidad, y una
+1. Determinar el framework/versión objetivo del código en el diff — leer las
+   Instructions de la capa afectada, o preguntar si no es determinable.
+2. Cargar la skill de buenas prácticas del stack real, si existe
+   (`capabilities/skills/stack-best-practices-template/` completada por el equipo) —
+   nunca aplicar reglas de un stack distinto al real.
+3. Revisar el diff (no el repo completo) contra: seguridad, manejo de errores, calidad
+   de tests, SOLID/clean code, y performance apropiada a la versión real del stack.
+4. Reportar hallazgos por severidad, con ubicación y sugerencia — nunca modificar
+   archivos ni ejecutar comandos de build/test que alteren el estado del repo.
+5. Terminar siempre con un resumen: cantidad de hallazgos por severidad, y una
    recomendación explícita de si el cambio está listo para revisión humana final.
 
 ## Dependencias

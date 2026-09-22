@@ -38,5 +38,5 @@ contratos de una misma ejecución, en un solo lugar navegable.
 
 ## Cómo generar un registro nuevo
 
-Ver [`../adoption/getting-started.md`](../adoption/getting-started.md) — completá el
+Ver [`../adoption/getting-started.md`](../adoption/getting-started.md) — completar el
 Evidence Contract al ejecutar cualquier capacidad de [`../capabilities/`](../capabilities/README.md).

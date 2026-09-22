@@ -20,52 +20,52 @@ pegados en un archivo que después se commitea.
 nada de esto para empezar. Se le puede pegar el log o el error real, a mano, directamente en
 la conversación con el asistente — así funciona CAP-017 hoy, sin ninguna integración.
 
-## Si tu aplicación usa Azure (Application Insights)
+## Si la aplicación usa Azure (Application Insights)
 
 1. Iniciar sesión real de Azure CLI: `az login` (con una cuenta que tenga permiso de
-   lectura sobre el recurso de Application Insights de tu equipo — pedíselo a quien lo
-   administre si no lo tenés).
-2. Pedile a quien administre ese recurso el **App ID** (no es una contraseña, es un
-   identificador del recurso) y guardalo como variable de entorno:
-   `$env:APPINSIGHTS_APP_ID = "<el App ID que te dieron>"`
+   lectura sobre el recurso de Application Insights del equipo — solicitarlo a quien lo
+   administre si no está disponible).
+2. Solicitar a quien administre ese recurso el **App ID** (no es una contraseña, es un
+   identificador del recurso) y guardarlo como variable de entorno:
+   `$env:APPINSIGHTS_APP_ID = "<el App ID real>"`
 3. Correr el script real:
    ```
    ./integrations/scripts/azure-appinsights-diagnostics.ps1 -QueryType recent-exceptions -TimespanHours 24
    ```
-4. Si además querés el modo que detecta patrones de error solo, en segundo plano (el
-   "Observability Agent" de Azure), necesitás que alguien con permisos de administración de
-   la suscripción de Azure de tu equipo te habilite el acceso — no es algo que un
-   developer configure por su cuenta, y es independiente del script de arriba.
+4. Si además se necesita el modo que detecta patrones de error solo, en segundo plano
+   (el "Observability Agent" de Azure), hace falta que alguien con permisos de
+   administración de la suscripción de Azure del equipo habilite el acceso — no es algo
+   que un developer configure por su cuenta, y es independiente del script de arriba.
 
-## Si tu aplicación usa AWS (CloudWatch)
+## Si la aplicación usa AWS (CloudWatch)
 
-1. Pedile a quien administre la cuenta de AWS de tu equipo un acceso de **solo lectura**
-   sobre CloudWatch Logs (nunca de escritura).
-2. Guardalo como variables de entorno:
+1. Solicitar a quien administre la cuenta de AWS del equipo un acceso de **solo
+   lectura** sobre CloudWatch Logs (nunca de escritura).
+2. Guardarlo como variables de entorno:
    ```
-   $env:AWS_ACCESS_KEY_ID = "<el que te dieron>"
-   $env:AWS_SECRET_ACCESS_KEY = "<el que te dieron>"
+   $env:AWS_ACCESS_KEY_ID = "<el valor real>"
+   $env:AWS_SECRET_ACCESS_KEY = "<el valor real>"
    $env:AWS_REGION = "us-east-1"
    ```
-   (`us-east-1` es la región real donde ya corren aplicaciones de MOA en AWS — confirmalo
-   igual con quien te dio el acceso, puede variar por equipo.)
-3. Correr el script real (necesita además el nombre real del log group de tu app):
+   (`us-east-1` es la región real donde ya corren aplicaciones de MOA en AWS —
+   conviene confirmarlo igual con quien otorgó el acceso, puede variar por equipo.)
+3. Correr el script real (necesita además el nombre real del log group de la app):
    ```
-   ./integrations/scripts/aws-cloudwatch-diagnostics.ps1 -LogGroupName /ecs/<tu-app> -QueryType recent-exceptions -StartTime 2026-09-21T00:00:00Z
+   ./integrations/scripts/aws-cloudwatch-diagnostics.ps1 -LogGroupName /ecs/<nombre-real> -QueryType recent-exceptions -StartTime 2026-09-21T00:00:00Z
    ```
 
-## Si tu aplicación corre on-premise
+## Si la aplicación corre on-premise
 
-No hay ningún token que configurar acá. Depende de qué manera de ver logs ya tenga tu
-equipo hoy (archivos de log locales, un servidor de logs propio). Si tu equipo todavía no
+No hay ningún token que configurar acá. Depende de qué manera de ver logs ya tenga el
+equipo hoy (archivos de log locales, un servidor de logs propio). Si el equipo todavía no
 tiene ninguna, es una conversación con quien gobierne esa infraestructura dentro de MOA —
 este modelo no la resuelve por sí solo.
 
 ## Resumen
 
-| Dónde corre tu app | Qué necesitás pedir | A quién | Script real |
+| Dónde corre la app | Qué se necesita pedir | A quién | Script real |
 |---|---|---|---|
-| Azure | Sesión `az login` + App ID de Application Insights | Administrador del recurso de Azure de tu equipo | `azure-appinsights-diagnostics.ps1` |
-| AWS | Acceso de solo lectura a CloudWatch Logs + nombre del log group | Administrador de la cuenta de AWS de tu equipo | `aws-cloudwatch-diagnostics.ps1` |
-| On-premise | Depende de la herramienta de logs que ya tengan | Quien gobierne esa infraestructura en tu equipo |
-| Ninguna configurada todavía | Nada — pegá el log a mano | No hace falta pedir nada |
+| Azure | Sesión `az login` + App ID de Application Insights | Administrador del recurso de Azure del equipo | `azure-appinsights-diagnostics.ps1` |
+| AWS | Acceso de solo lectura a CloudWatch Logs + nombre del log group | Administrador de la cuenta de AWS del equipo | `aws-cloudwatch-diagnostics.ps1` |
+| On-premise | Depende de la herramienta de logs que ya tengan | Quien gobierne esa infraestructura en el equipo |
+| Ninguna configurada todavía | Nada — pegar el log a mano | No hace falta pedir nada |

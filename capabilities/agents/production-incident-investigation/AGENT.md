@@ -94,8 +94,9 @@ explícitamente, y nunca se envían/publican solas):
    qué servicio corresponde a qué recurso de monitoreo — no la inventes ni la adivines acá.
 2. **Verificar el acceso a la plataforma de monitoreo antes de consultar nada** — sesión
    activa, permisos y alcance correctos. Si no hay sesión o apunta al recurso equivocado,
-   asistí el proceso de autenticación real del mecanismo que el equipo use (nunca pidas ni
-   muestres tokens/contraseñas en el chat) y confirmá el acceso correcto antes de seguir.
+   asistir el proceso de autenticación real del mecanismo que el equipo use (nunca pedir
+   ni mostrar tokens/contraseñas en el chat) y confirmar el acceso correcto antes de
+   seguir.
 3. **Identificar qué evidencia está realmente disponible** — nunca asumir acceso a una
    plataforma de monitoreo que no está confirmada como conectada y gobernada.
 4. Si hay logs/errores pegados directamente, analizarlos tal cual — sin completar campos
@@ -155,16 +156,16 @@ Incidente reportado:
 [descripción real del problema — mensaje de error, comportamiento observado]
 
 Evidencia disponible:
-[logs pegados, curl que reproduce el error, o "consultá <plataforma real ya conectada>
+[logs pegados, curl que reproduce el error, o "consultar <plataforma real ya conectada>
 acotado a este incidente" — nunca inventada]
 
-Investigá y proponé causas probables, citando evidencia real (archivo:línea, timestamp,
+Investigar y proponer causas probables, citando evidencia real (archivo:línea, timestamp,
 mensaje exacto) para cada una.
 
-No inventes logs ni asumas acceso a sistemas que no están confirmados como disponibles.
-Si la evidencia no alcanza, decilo explícitamente.
+No inventar logs ni asumir acceso a sistemas que no están confirmados como disponibles.
+Si la evidencia no alcanza, decirlo explícitamente.
 
-(Opcional) Además, preparame un borrador de comunicación de estado / un borrador de cierre
+(Opcional) Además, preparar un borrador de comunicación de estado / un borrador de cierre
 a partir de esta misma investigación.
 ```
 

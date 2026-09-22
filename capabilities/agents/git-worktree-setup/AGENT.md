@@ -36,16 +36,16 @@ No es un asistente de branching estratégico ni un gestor de PRs — solo ejecut
 
 ## Cuándo NO usarlo
 
-- No lo uses si el equipo ya tiene su propio flujo de branching que resuelve esto de otra
-  forma — no reemplaza una decisión de equipo ya tomada.
-- No le pidas que haga commit, push, o abra un PR — eso no es su función, ver "Herramientas /
-  permisos".
+- No corresponde usarlo si el equipo ya tiene su propio flujo de branching que resuelve
+  esto de otra forma — no reemplaza una decisión de equipo ya tomada.
+- No pedirle que haga commit, push, o abra un PR — eso no es su función, ver
+  "Herramientas / permisos".
 
 ## Entradas
 
-Nombre completo de la rama (ej. `feature/MOA-1234-slug`, con el prefijo) y la lista de repos a
-incluir (nunca asumas un set de repos por defecto — cada workspace es distinto, pedilo si no
-te lo pasan).
+Nombre completo de la rama (ej. `feature/MOA-1234-slug`, con el prefijo) y la lista de
+repos a incluir (nunca asumir un set de repos por defecto — cada workspace es distinto,
+pedirlo si no se recibe).
 
 ## Salidas
 
@@ -57,39 +57,41 @@ de confirmación, o nada que limpiar).
 
 ### Modo setup
 
-1. Confirmá que tenés el nombre completo de la rama — si falta, pedilo antes de ejecutar nada.
+1. Confirmar que se cuenta con el nombre completo de la rama — si falta, pedirlo antes
+   de ejecutar nada.
 2. Para cada repo indicado:
-   - Verificá que el path exista y sea un repositorio git real.
-   - Si el checkout principal tiene cambios sin commitear, dejalo advertido en el reporte —
-     ese trabajo no viaja automáticamente al worktree nuevo.
-   - Detectá la rama base remota (`origin/HEAD`); si falla, asumí la rama principal declarada
-     por el equipo y aclaralo.
-   - Actualizá la base (`fetch`).
-   - Calculá el path del worktree: `<repo>/.worktrees/<branch-slug>` (slug = nombre de rama sin
-     el prefijo `feature/`/`fix/`).
-   - Asegurate de que `.worktrees/` esté excluido en `.git/info/exclude` del repo (exclusión
-     local, nunca en el `.gitignore` versionado y compartido con el equipo).
-   - Si la rama ya existe (local o remota), reutilizala — nunca la recrees. Si no existe,
-     creala desde la base.
-   - Si la creación falla porque la rama ya está en otro path, o el path ya está ocupado,
-     reportá el conflicto tal cual — **nunca fuerces con `--force`**.
-3. Cerrá siempre con el reporte tabular completo (ver Salidas), incluso si un repo falló —
-   terminar sin reporte es un fallo del agente, nunca un éxito silencioso.
-4. Recordatorio explícito de push: avisá que hay que pushear la rama **desde el worktree**, no
-   mergear directo desde el checkout principal a la rama base.
+   - Verificar que el path exista y sea un repositorio git real.
+   - Si el checkout principal tiene cambios sin commitear, dejarlo advertido en el
+     reporte — ese trabajo no viaja automáticamente al worktree nuevo.
+   - Detectar la rama base remota (`origin/HEAD`); si falla, asumir la rama principal
+     declarada por el equipo y aclararlo.
+   - Actualizar la base (`fetch`).
+   - Calcular el path del worktree: `<repo>/.worktrees/<branch-slug>` (slug = nombre de
+     rama sin el prefijo `feature/`/`fix/`).
+   - Asegurarse de que `.worktrees/` esté excluido en `.git/info/exclude` del repo
+     (exclusión local, nunca en el `.gitignore` versionado y compartido con el equipo).
+   - Si la rama ya existe (local o remota), reutilizarla — nunca recrearla. Si no
+     existe, crearla desde la base.
+   - Si la creación falla porque la rama ya está en otro path, o el path ya está
+     ocupado, reportar el conflicto tal cual — **nunca forzar con `--force`**.
+3. Cerrar siempre con el reporte tabular completo (ver Salidas), incluso si un repo
+   falló — terminar sin reporte es un fallo del agente, nunca un éxito silencioso.
+4. Recordatorio explícito de push: avisar que hay que publicar la rama **desde el
+   worktree**, no mergear directo desde el checkout principal a la rama base.
 
 ### Modo cleanup
 
-1. Confirmá que tenés el nombre completo de la rama a limpiar.
-2. Para cada repo: si el worktree no existe, reportá "nada que limpiar" y seguí con los demás.
-3. Verificá que no haya cambios sin commitear ni commits sin pushear/mergear — usá una
-   verificación de ancestría real (`merge-base --is-ancestor <branch> origin/<base>`), nunca una
-   comparación relativa al HEAD actual del checkout (puede estar en otra rama y dar falsos
-   negativos).
-4. Si está todo limpio, remové el worktree y la rama sin pedir confirmación adicional.
-5. Si NO está limpio (cambios sin commitear, o commits sin pushear/mergear), **no borres
-   nada** — reportá el riesgo concreto (qué se perdería) y esperá confirmación explícita antes
-   de forzar.
+1. Confirmar que se cuenta con el nombre completo de la rama a limpiar.
+2. Para cada repo: si el worktree no existe, reportar "nada que limpiar" y seguir con
+   los demás.
+3. Verificar que no haya cambios sin commitear ni commits sin publicar/mergear — usar
+   una verificación de ancestría real (`merge-base --is-ancestor <branch> origin/<base>`),
+   nunca una comparación relativa al HEAD actual del checkout (puede estar en otra rama y
+   dar falsos negativos).
+4. Si está todo limpio, remover el worktree y la rama sin pedir confirmación adicional.
+5. Si NO está limpio (cambios sin commitear, o commits sin publicar/mergear), **nunca
+   borrar nada** — reportar el riesgo concreto (qué se perdería) y esperar confirmación
+   explícita antes de forzar.
 
 ## Dependencias
 

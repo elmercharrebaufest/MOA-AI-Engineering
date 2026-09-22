@@ -12,7 +12,7 @@ específica, sin que nadie tenga que acordarse de mencionarla.
 **Camino real**: completar [`repository-governance`](instructions/repository-governance/INSTRUCTIONS.md)
 (CAP-006) — un `AGENTS.md` con matriz ALWAYS/ASK FIRST/NEVER, más `.instructions.md` por
 capa si el repo lo justifica.
-**No hacer**: instructions genéricas sin contenido accionable ("escribí buen código") —
+**No hacer**: instructions genéricas sin contenido accionable ("escribir buen código") —
 si no cambia el comportamiento de un asistente de forma verificable, no es una Instruction
 útil.
 

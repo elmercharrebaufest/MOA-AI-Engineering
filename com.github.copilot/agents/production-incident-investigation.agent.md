@@ -94,8 +94,9 @@ explícitamente, y nunca se envían/publican solas):
    qué servicio corresponde a qué recurso de monitoreo — no la inventes ni la adivines acá.
 2. **Verificar el acceso a la plataforma de monitoreo antes de consultar nada** — sesión
    activa, permisos y alcance correctos. Si no hay sesión o apunta al recurso equivocado,
-   asistí el proceso de autenticación real del mecanismo que el equipo use (nunca pidas ni
-   muestres tokens/contraseñas en el chat) y confirmá el acceso correcto antes de seguir.
+   asistir el proceso de autenticación real del mecanismo que el equipo use (nunca pedir
+   ni mostrar tokens/contraseñas en el chat) y confirmar el acceso correcto antes de
+   seguir.
 3. **Identificar qué evidencia está realmente disponible** — nunca asumir acceso a una
    plataforma de monitoreo que no está confirmada como conectada y gobernada.
 4. Si hay logs/errores pegados directamente, analizarlos tal cual — sin completar campos
@@ -119,17 +120,25 @@ explícitamente, y nunca se envían/publican solas):
 
 **Implementación ejecutable real, para las 2 plataformas con evidencia de uso en MOA**:
 [`../../../integrations/production-diagnostics-provider.md`](../../../integrations/production-diagnostics-provider.md)
-(AWS CloudWatch / Azure Application Insights) — estos 4 tipos de consulta ya corren como
+(AWS CloudWatch / Azure Application Insights) — estos 5 tipos de consulta ya corren como
 script real (`-QueryType`), no solo como descripción. Para on-premise, sigue sin mecanismo
 nativo identificado (`REQUIRES VALIDATION`).
 
-No es sintaxis obligatoria — son los 4 tipos de consulta que más valor aportan para un
+No es sintaxis obligatoria — son los 5 tipos de consulta que más valor aportan para un
 primer diagnóstico, para no partir de cero cada vez:
 
 - **Excepciones recientes**: últimas excepciones en una ventana de tiempo, con tipo,
   mensaje y el identificador de la operación/request afectada.
 - **Requests fallidos**: pedidos con error en una ventana de tiempo, con código de
   resultado, duración e identificador de operación.
+- **Dependencias fallidas** *(agregada 2026-09-22)*: llamadas salientes de la app a otro
+  recurso (Blob Storage, Cognitive Services, Azure AD B2C, SQL, una API externa como un
+  motor de decisiones) que fallaron — con el recurso/endpoint real contra el que falló,
+  no solo el error de la app en sí. Es la consulta que responde directo al caso "el error
+  está en un recurso de Azure del que depende la app, no en la app misma" — solo
+  disponible hoy en Azure Application Insights (la tabla `dependencies`); CloudWatch Logs
+  no tiene un equivalente estructurado — un error de este tipo en AWS aparece dentro de
+  `recent-exceptions`/`failed-requests` si la app lo loguea, no en una consulta separada.
 - **Performance**: percentiles de duración (p50/p95/p99) por endpoint/operación, para
   detectar degradación antes de que sea un incidente reportado.
 - **Timeline de una operación puntual**: todo lo relacionado a un identificador de
@@ -147,16 +156,16 @@ Incidente reportado:
 [descripción real del problema — mensaje de error, comportamiento observado]
 
 Evidencia disponible:
-[logs pegados, curl que reproduce el error, o "consultá <plataforma real ya conectada>
+[logs pegados, curl que reproduce el error, o "consultar <plataforma real ya conectada>
 acotado a este incidente" — nunca inventada]
 
-Investigá y proponé causas probables, citando evidencia real (archivo:línea, timestamp,
+Investigar y proponer causas probables, citando evidencia real (archivo:línea, timestamp,
 mensaje exacto) para cada una.
 
-No inventes logs ni asumas acceso a sistemas que no están confirmados como disponibles.
-Si la evidencia no alcanza, decilo explícitamente.
+No inventar logs ni asumir acceso a sistemas que no están confirmados como disponibles.
+Si la evidencia no alcanza, decirlo explícitamente.
 
-(Opcional) Además, preparame un borrador de comunicación de estado / un borrador de cierre
+(Opcional) Además, preparar un borrador de comunicación de estado / un borrador de cierre
 a partir de esta misma investigación.
 ```
 

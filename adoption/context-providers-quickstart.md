@@ -76,7 +76,7 @@ esa configuración/autenticación ya existente (ver detalle en
    su propia cuenta real. **Nunca** un token en `mcp.json` ni en ningún archivo de este
    repositorio.
 3. **Prueba READ**: con Copilot en modo Agent, pedirle que use la herramienta
-   `getJiraIssue` sobre un issue real (ej. *"usá getJiraIssue para traer el issue
+   `getJiraIssue` sobre un issue real (ej. *"usar getJiraIssue para traer el issue
    PROY-1234"*) — el propio cliente MCP invoca la herramienta, no un script.
 
 **Fuentes** (verificadas 2026-09-08, no inventadas):

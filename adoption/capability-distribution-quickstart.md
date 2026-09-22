@@ -5,7 +5,7 @@ quiere que `capabilities/agents/` y `capabilities/skills/` de `ai-engineering` l
 a su propio repositorio automáticamente, sin que alguien tenga que copiarlos a mano cada
 vez que cambian. Patrón completo: [`../integrations/capability-distribution.md`](../integrations/capability-distribution.md).
 
-**No es esto si...** solo querés probar una capacidad una vez sobre un ticket real — para
+**No corresponde este camino si...** solo se quiere probar una capacidad una vez sobre un ticket real — para
 eso, la copia manual vía agente (Paso 1 de
 [`../capabilities/README.md`](../capabilities/README.md#cómo-usar-una-capacidad--ejemplo-concreto-de-punta-a-punta))
 sigue siendo el camino más simple, sin pedirle nada a nadie.
@@ -45,11 +45,11 @@ completó.
 
 ## 3. Configurar el pipeline (una sola vez)
 
-Quien administre tu Azure DevOps completa la plantilla
+Quien administre el Azure DevOps del equipo completa la plantilla
 [`../integrations/scripts/capability-distribution-pipeline.yml`](../integrations/scripts/capability-distribution-pipeline.yml)
-con el nombre real de tu rama principal y el nombre real de la Service Connection. Este
-pipeline corre en `ai-engineering` (o donde tu organización decida alojarlo) — no algo
-que instalás en tu propio repo.
+con el nombre real de la rama principal del equipo y el nombre real de la Service
+Connection. Este pipeline corre en `ai-engineering` (o donde la organización decida
+alojarlo) — no es algo que se instala en el propio repo del equipo.
 
 ## 4. Primera prueba, en modo seguro
 
@@ -62,7 +62,7 @@ cambiaría en tu repo, sin crear rama ni PR:
   -WhatIf
 ```
 
-Revisá la salida. Si el resultado tiene sentido, seguí al paso 5.
+Revisar la salida. Si el resultado tiene sentido, continuar con el paso 5.
 
 ## 5. Primer Pull Request real
 
@@ -84,7 +84,7 @@ revisar el PR cuando aparece.
 
 ## Qué NO hace este mecanismo
 
-- No sobreescribe tu `instructions/` si ya tenés una propia.
+- No sobreescribe el `instructions/` del equipo si ya existe uno propio.
 - No toca código de negocio ni ningún archivo fuera de `.github/agents/` y
   `.github/skills/` (y, condicionalmente, `.github/instructions/`).
 - No mergea nada por su cuenta.

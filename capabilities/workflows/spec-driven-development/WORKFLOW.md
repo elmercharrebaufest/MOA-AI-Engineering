@@ -79,17 +79,17 @@ Ninguno de los 2 es obligatorio — son condicionales a que la feature real lo j
 
 ## Instrucciones (nivel Lite — recomendado como punto de partida)
 
-1. **Spec Author**: leé el ticket real (nunca inventes contenido); si hubo
-   investigación o decisión real antes de poder escribir el spec, dejala en
-   `research.md` (opcional); producí `requirements.md` en formato EARS; si la feature
-   expone o consume una API, declará su forma esperada en `contracts/` (opcional) antes
+1. **Spec Author**: leer el ticket real (nunca inventar contenido); si hubo
+   investigación o decisión real antes de poder escribir el spec, dejarla en
+   `research.md` (opcional); producir `requirements.md` en formato EARS; si la feature
+   expone o consume una API, declarar su forma esperada en `contracts/` (opcional) antes
    de pasar a Implementer.
-2. **Implementer**: implementá contra el spec, generá tests, actualizá la trazabilidad
-   con los archivos reales tocados por cada requisito.
-3. **Reviewer**: verificá que el código cumple el spec y que los tests están en verde —
-   nunca marques un requisito de tipo manual como cubierto sin sign-off humano real.
+2. **Implementer**: implementar contra el spec, generar tests, actualizar la
+   trazabilidad con los archivos reales tocados por cada requisito.
+3. **Reviewer**: verificar que el código cumple el spec y que los tests están en verde —
+   nunca marcar un requisito de tipo manual como cubierto sin sign-off humano real.
 4. El estado de avance vive en un archivo de progreso no versionado (memoria de trabajo,
-   no artefacto de producto) — nunca commitees el estado de sesión junto al código.
+   no artefacto de producto) — nunca commitear el estado de sesión junto al código.
 
 ## Instrucciones adicionales (nivel Full — solo si se justifica escalar)
 
@@ -97,7 +97,7 @@ Ninguno de los 2 es obligatorio — son condicionales a que la feature real lo j
 generalización de la arquitectura real de `moa-sdlc`, en uso por DataAgro (ver
 `registry/entries/spec-driven-development.md` para el detalle de evidencia).
 
-Sobre el nivel Lite, agregá: un rol `security-reviewer` con permiso de lectura sobre
+Sobre el nivel Lite, agregar: un rol `security-reviewer` con permiso de lectura sobre
 configuración/secretos pero sin poder aprobar cambios con hallazgos críticos sin
 corregir; un rol `human-approver` como gate final explícito antes de cerrar; contratos
 JSON de entrada/salida por rol; y un log de auditoría estructurado. Ver

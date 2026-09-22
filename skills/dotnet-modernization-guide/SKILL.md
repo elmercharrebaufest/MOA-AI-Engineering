@@ -72,8 +72,8 @@ excepción para .NET, es la misma regla de siempre.
 
 ### 5. Ser específico, no vago, al darle instrucciones al agente
 
-La guía oficial lo remarca con ejemplos reales (*"Actualizá el proyecto Data.Access a
-.NET 10"*, no *"actualizá todo"*) — mismo criterio de evidencia real que rige el resto de
+La guía oficial lo remarca con ejemplos reales (*"Actualizar el proyecto Data.Access a
+.NET 10"*, no *"actualizar todo"*) — mismo criterio de evidencia real que rige el resto de
 este modelo: nunca una instrucción genérica cuando se puede ser preciso.
 
 ## Revisión humana

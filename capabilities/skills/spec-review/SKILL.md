@@ -107,10 +107,10 @@ cuenta propia** — siempre requiere respuesta real de quien corresponda.
 ```
 Usa la capability CAP-007 spec-review sobre [carpeta de la feature real].
 
-Aplicá los checks de requirements.md, tasks.md y feature.json.
+Aplicar los checks de requirements.md, tasks.md y feature.json.
 
-No inventes hallazgos ni resuelvas ambigüedades por tu cuenta — solo reportá lo que
-encontrás, con ubicación exacta.
+No inventar hallazgos ni resolver ambigüedades por cuenta propia — solo reportar lo que
+se encuentra, con ubicación exacta.
 ```
 
 ### Revisión humana

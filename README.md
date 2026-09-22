@@ -72,8 +72,8 @@ significa "no sirve" — significa que está lista para usarse pero corresponde 
 antes de confiar en ella como en una capacidad ya probada. Detalle completo, con la
 evidencia exacta de cada fila: [`architecture/ai-sdlc.md`](architecture/ai-sdlc.md).
 
-**¿Ya entendiste qué hace cada capacidad y ahora querés saber cómo operarla en tu propio
-proyecto?** El ejemplo real de punta a punta (paso 1, 2 y 3, copiar/pegar) está en
+**¿Ya está claro qué hace cada capacidad y falta saber cómo operarla en un proyecto
+propio?** El ejemplo real de punta a punta (paso 1, 2 y 3, copiar/pegar) está en
 [`capabilities/README.md#cómo-usar-una-capacidad--ejemplo-concreto-de-punta-a-punta`](capabilities/README.md#cómo-usar-una-capacidad--ejemplo-concreto-de-punta-a-punta).
 Catálogo técnico completo con evidencia: [`registry/INDEX.md`](registry/INDEX.md).
 

@@ -79,26 +79,63 @@ Ninguno de los 2 es obligatorio — son condicionales a que la feature real lo j
 
 ## Instrucciones (nivel Lite — recomendado como punto de partida)
 
-1. **Spec Author**: leé el ticket real (nunca inventes contenido); si hubo
-   investigación o decisión real antes de poder escribir el spec, dejala en
-   `research.md` (opcional); producí `requirements.md` en formato EARS; si la feature
-   expone o consume una API, declará su forma esperada en `contracts/` (opcional) antes
+1. **Spec Author**: leer el ticket real (nunca inventar contenido); si hubo
+   investigación o decisión real antes de poder escribir el spec, dejarla en
+   `research.md` (opcional); producir `requirements.md` en formato EARS; si la feature
+   expone o consume una API, declarar su forma esperada en `contracts/` (opcional) antes
    de pasar a Implementer.
-2. **Implementer**: implementá contra el spec, generá tests, actualizá la trazabilidad
-   con los archivos reales tocados por cada requisito.
-3. **Reviewer**: verificá que el código cumple el spec y que los tests están en verde —
-   nunca marques un requisito de tipo manual como cubierto sin sign-off humano real.
+2. **Implementer**: implementar contra el spec, generar tests, actualizar la
+   trazabilidad con los archivos reales tocados por cada requisito.
+3. **Reviewer**: verificar que el código cumple el spec y que los tests están en verde —
+   nunca marcar un requisito de tipo manual como cubierto sin sign-off humano real.
 4. El estado de avance vive en un archivo de progreso no versionado (memoria de trabajo,
-   no artefacto de producto) — nunca commitees el estado de sesión junto al código.
+   no artefacto de producto) — nunca commitear el estado de sesión junto al código.
 
 ## Instrucciones adicionales (nivel Full — solo si se justifica escalar)
 
-Sobre el nivel Lite, agregá: un rol `security-reviewer` con permiso de lectura sobre
+**Origen real (corregido 2026-09-22)**: esto ya no es un diseño conceptual — es la
+generalización de la arquitectura real de `moa-sdlc`, en uso por DataAgro (ver
+`registry/entries/spec-driven-development.md` para el detalle de evidencia).
+
+Sobre el nivel Lite, agregar: un rol `security-reviewer` con permiso de lectura sobre
 configuración/secretos pero sin poder aprobar cambios con hallazgos críticos sin
 corregir; un rol `human-approver` como gate final explícito antes de cerrar; contratos
 JSON de entrada/salida por rol; y un log de auditoría estructurado. Ver
 [`registry/entries/spec-driven-development.md`](../../../registry/entries/spec-driven-development.md)
 para el detalle completo del esquema.
+
+**Máquina de estados real** (7 estados, no una lista abierta):
+`draft → spec_ready → approved → in_progress → verified → reviewed → done`. Cada
+transición requiere que el rol correspondiente confirme el criterio de salida de la etapa
+anterior — nunca se salta un estado.
+
+**2 Pull Requests por ticket, no uno solo**: un PR de spec (contra la rama de destino,
+antes de implementar — permite revisar `requirements.md`/`design.md`/`tasks.md` sin
+código de por medio) y un PR final de implementación — ambos con aprobación humana
+explícita, nunca merge automático de ninguno de los 2.
+
+**Contrato real de entrada/salida por rol** (condensado — el esquema completo con
+ejemplos vive en `moa-sdlc/.github/AGENTS-CONTRACTS.md`, no se duplica acá):
+
+- **Entrada**: identificador del ticket, rol, estado actual, rutas a los archivos de spec
+  reales, contexto (branch/ambiente/stack), y `constraints` explícitos (`mustNotChange`:
+  archivos que no se tocan sin aprobación aparte; `mustAskBefore`: acciones que requieren
+  confirmación antes de ejecutarse — instalar un paquete nuevo, cambiar el modelo de
+  datos, cambiar un contrato público).
+- **Salida**: estado (`success`/`failed`/`blocked`), la transición de estado real
+  (`from`/`to`), resumen, artefactos tocados, evidencia (tests ejecutados + resultados +
+  validaciones manuales), riesgos detectados, y el próximo rol que sigue.
+
+**Log de auditoría real, por cada ejecución**: `timestamp`, `featureId`, `agentRole`,
+`actor` (agente o humano), qué se pidió, qué se hizo, qué se produjo, evidencia de
+verificación, estado, errores/advertencias, y próximo paso — mismo campo por campo que ya
+usa `moa-sdlc` en producción, no un diseño nuevo.
+
+**Reintentos y reversión** (regla dura, no negociable): máximo 1-2 reintentos ante un
+fallo claramente transitorio y reproducible — si persiste, se bloquea la transición y
+vuelve al rol responsable, nunca se reintenta indefinidamente. Si un cambio rompe
+compatibilidad o hay riesgo de seguridad detectado, se revierte o aísla antes de seguir —
+nunca se avanza "para no perder el trabajo hecho".
 
 ## Dependencias
 

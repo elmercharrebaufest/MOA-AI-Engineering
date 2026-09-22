@@ -58,9 +58,9 @@ específico, o una búsqueda libre por concepto. Si es ambigua, preguntá antes 
 
 ### 2. Localizar specs relevantes
 
-Buscá en los repos/carpetas donde el equipo guarda las specs de CAP-005. Si hay varias
-candidatas, listalas y pedí confirmar cuál profundizar, salvo que la pregunta abarque a
-todas.
+Buscar en los repos/carpetas donde el equipo guarda las specs de CAP-005. Si hay varias
+candidatas, listarlas y pedir confirmación de cuál profundizar, salvo que la pregunta
+abarque a todas.
 
 ### 3. Responder con trazabilidad, siempre
 
@@ -79,14 +79,14 @@ todas.
 ```
 
 Cada afirmación debe apuntar al ID específico (`FR-N`, `AC-N`, `T-N`) del que sale, no solo
-al nombre del archivo. Si citás texto literal, entrecomillalo.
+al nombre del archivo. Si se cita texto literal, va entre comillas.
 
 ### 4. Cuándo no hay resultados
 
-Si tras la búsqueda no encontrás nada relevante, decilo así, textual:
+Si tras la búsqueda no se encuentra nada relevante, decirlo así, textual:
 
 ```text
-No hay specs documentadas sobre <tema>. ¿Querés generar una con CAP-005
+No hay specs documentadas sobre <tema>. ¿Se necesita generar una con CAP-005
 (spec-driven-development)?
 ```
 
@@ -96,8 +96,8 @@ explícita, no como respuesta.
 
 ### 5. Respetar el estado de la spec
 
-Si la spec consultada está en estado `Draft` o tiene ambigüedades sin resolver, avisá al
-usuario que la información puede cambiar — no la presentes como definitiva.
+Si la spec consultada está en estado `Draft` o tiene ambigüedades sin resolver, avisar al
+usuario que la información puede cambiar — nunca presentarla como definitiva.
 
 ## Cómo usar esta capability
 
@@ -108,10 +108,10 @@ Usa la capability CAP-018 spec-reader.
 
 Pregunta: [la pregunta real sobre una feature/módulo/ticket ya documentado]
 
-Buscá en las specs existentes y respondé citando archivo + ID exacto.
+Buscar en las specs existentes y responder citando archivo + ID exacto.
 
-Si no hay nada documentado sobre esto, decilo explícitamente — no completes con
-conocimiento general ni inventes contenido.
+Si no hay nada documentado sobre esto, decirlo explícitamente — nunca completar con
+conocimiento general ni inventar contenido.
 ```
 
 ### Revisión humana

@@ -94,9 +94,9 @@ Criterios de aceptación reales:
 Genera un caso de prueba funcional por cada criterio, siguiendo el formato
 Precondición/Pasos/Resultado esperado.
 
-No inventes criterios que no estén en la lista.
-Si encontrás un escenario relevante que ningún criterio cubre, señalalo como gap, no lo
-conviertas en un caso de prueba inventado.
+No inventar criterios que no estén en la lista.
+Si aparece un escenario relevante que ningún criterio cubre, señalarlo como gap, nunca
+convertirlo en un caso de prueba inventado.
 ```
 
 ### Revisión humana
