@@ -80,19 +80,38 @@ Para actualizar todos los plugins instalados a la vez: `copilot plugin update --
 no se recuerda el nombre exacto instalado, `copilot plugin list` muestra todos.
 
 **Hallazgo real (2026-09-22)**: en Windows, este comando puede fallar con *"Failed to
-update plugin: Access is denied. (os error 5)"*. No es un problema de este repositorio —
-es un bug conocido de GitHub Copilot CLI en Windows, reportado hoy mismo y todavía
-abierto, sin confirmación oficial de GitHub
-([issue #4095](https://github.com/github/copilot-cli/issues/4095),
-[issue #4937](https://github.com/github/copilot-cli/issues/4937)). La causa que describe
-quien reportó el bug: mientras VS Code está abierto, su extensión de Copilot mantiene
-handles de archivo sobre la carpeta de plugins instalados, y Windows deniega el
-reemplazo. **Solución que funcionó para otros usuarios**: cerrar todas las ventanas de
-VS Code por completo y repetir el comando.
+update plugin: Access is denied. (os error 5)"*.
 
-**Por la interfaz de VS Code**: no hace falta hacer nada manualmente si
-`extensions.autoUpdate` está activo (se actualiza solo, cada 24 horas). Para controlarlo
-a mano: paleta de comandos → **"Extensions: Check for Extension Updates"**.
+**Causa raíz — externa, no corregible desde este repositorio**: es un bug conocido de
+GitHub Copilot CLI en Windows, reportado hoy mismo y todavía abierto, sin confirmación
+oficial de GitHub ([issue #4095](https://github.com/github/copilot-cli/issues/4095),
+[issue #4937](https://github.com/github/copilot-cli/issues/4937)). Mientras VS Code está
+abierto, su extensión de Copilot mantiene handles de archivo sobre la carpeta de plugins
+instalados; cuando el CLI (un proceso aparte) intenta reemplazar esa carpeta, Windows
+deniega el acceso. El problema vive en la interacción entre 2 herramientas de GitHub/
+Microsoft — no hay ningún cambio posible de nuestro lado que lo corrija.
+
+**Solución que sí resuelve la causa (no un parche)**: cerrar todas las ventanas de VS
+Code por completo antes de correr el comando — elimina la condición real que provoca el
+error, confirmado por otros usuarios con el mismo bug. No es una alternativa "más
+confiable", es la forma correcta de ejecutar este comando en Windows hasta que GitHub lo
+corrija.
+
+**Alternativa que evita el CLI por completo, si el bug se repite seguido**: administrar
+el plugin desde la propia interfaz de VS Code (ver 2b más abajo) en vez de la terminal —
+como ahí es VS Code el único proceso que toca esa carpeta, no compite consigo mismo por
+el mismo archivo. Esta vía **todavía no la confirmó ningún developer real** — es la
+siguiente prueba recomendada si el problema del CLI se vuelve frecuente. Por la interfaz
+de VS Code: no hace falta hacer nada manualmente si `extensions.autoUpdate` está activo
+(se actualiza solo, cada 24 horas); a mano, paleta de comandos →
+**"Extensions: Check for Extension Updates"**.
+
+**Alternativa para todo el equipo, sin depender del CLI ni de VS Code en absoluto**: si
+el problema se vuelve recurrente para varias personas, considerar
+[`capability-distribution-quickstart.md`](capability-distribution-quickstart.md) — el
+contenido llega por Pull Request al repo del equipo, sin usar `copilot plugin` en ningún
+paso, así que este bug no aplica ahí. Requiere un administrador de Azure DevOps, no es
+autoservicio individual.
 
 ## 5. Desinstalar
 

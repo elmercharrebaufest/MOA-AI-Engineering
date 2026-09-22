@@ -62,15 +62,23 @@ propagación automática (que sigue sin aplicar a MOA por estar en Azure DevOps,
    todos los plugins instalados) — confirmado en la referencia oficial de comandos de
    GitHub Copilot CLI. Por VS Code: automático cada 24 horas si `extensions.autoUpdate`
    está activo, o a mano con **"Extensions: Check for Extension Updates"**.
-   **Hallazgo real (2026-09-22)**: en Windows, `copilot plugin update` puede fallar con
-   *"Access is denied. (os error 5)"* — bug conocido y reportado hoy mismo en GitHub
-   Copilot CLI, todavía abierto y sin confirmación oficial
-   ([#4095](https://github.com/github/copilot-cli/issues/4095),
-   [#4937](https://github.com/github/copilot-cli/issues/4937)), no un problema de este
-   repositorio. Causa reportada: la extensión de Copilot en VS Code mantiene handles de
-   archivo sobre la carpeta de plugins instalados mientras VS Code está abierto. Cerrar
-   VS Code por completo y repetir el comando resolvió el problema para otros usuarios que
-   reportaron el mismo error.
+
+   **Hallazgo real (2026-09-22) — bug de Windows en el CLI, causa raíz externa**: el
+   comando de terminal puede fallar con *"Access is denied. (os error 5)"*. Es un bug
+   conocido de GitHub Copilot CLI en Windows, reportado hoy mismo y todavía abierto, sin
+   confirmación oficial ([#4095](https://github.com/github/copilot-cli/issues/4095),
+   [#4937](https://github.com/github/copilot-cli/issues/4937)) — no un problema de este
+   repositorio ni algo corregible desde acá. Causa: mientras VS Code está abierto, su
+   extensión de Copilot mantiene handles de archivo sobre la carpeta de plugins
+   instalados; el CLI, un proceso aparte, no puede reemplazarla y Windows deniega el
+   acceso. **Solución que elimina la causa** (no un parche): cerrar VS Code por completo
+   antes de correr el comando — confirmado por otros usuarios con el mismo bug.
+   **Alternativa más robusta a mediano plazo**: instalar/actualizar desde la propia
+   interfaz de VS Code (paso 2, camino por Extensions view) en vez del CLI, porque ahí no
+   hay 2 procesos compitiendo por el mismo archivo — sin confirmar todavía por ningún
+   developer real, ver "Qué falta confirmar" abajo. Para equipos donde el problema se
+   repite seguido, [Capability Distribution](capability-distribution.md) no usa
+   `copilot plugin` en ningún paso, así que este bug no aplica ahí.
 5. **Desinstalar**: por terminal, `copilot plugin uninstall ai-engineering`. Por VS Code:
    en la vista **"Agent Plugins - Installed"**, clic derecho sobre el plugin →
    **"Uninstall"** — confirmado en la documentación oficial de Agent Plugins.
@@ -95,6 +103,11 @@ propagación automática (que sigue sin aplicar a MOA por estar en Azure DevOps,
 - La estructura exacta de `com.github.copilot/agents/` (namespace reverse-domain) sigue
   sin confirmación adicional más allá de la reconstrucción original — el punto de arriba
   es, en los hechos, la forma de confirmarla o refutarla.
+- **Nuevo, prioridad alta: ¿el camino por la interfaz de VS Code evita el bug de Windows
+  del CLI?** (ver "Actualizar" arriba). Es la hipótesis con más chance de ser una
+  solución real y duradera, no solo un workaround — falta que algún developer real la
+  pruebe (instalar y actualizar desde la Extensions view, no desde la terminal) y
+  reporte si el error reaparece o no.
 
 ## Aviso de deprecación (hallazgo real, 2026-09-22)
 
