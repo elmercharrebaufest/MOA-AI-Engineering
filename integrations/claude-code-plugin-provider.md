@@ -67,24 +67,29 @@ releídos completos 2026-09-23) — estructuralmente muy cercano a lo que ya ten
 formato de Azure DevOps sin el sufijo `.git`):
 `https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering`
 
-1. Registrar el repositorio como marketplace:
-   ```
-   /plugin marketplace add https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering
-   ```
-2. Instalar el plugin desde ese marketplace:
-   ```
-   /plugin install ai-engineering@ai-engineering
-   ```
+**2 entornos distintos, con comandos distintos (hallazgo real, 2026-09-23)**: los
+comandos `/plugin marketplace add`/`/plugin install` son de la **CLI de terminal** — en
+la **extensión de Claude Code para VS Code** devuelven *"/plugin isn't available in this
+environment"*. Ahí corresponde usar el diálogo gráfico (`/plugins`) o el enlace de un
+solo clic — ver el detalle paso a paso en
+[`../adoption/claude-code-plugin-quickstart.md`](../adoption/claude-code-plugin-quickstart.md).
+
+**Por terminal**:
+1. `/plugin marketplace add https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering`
+2. `/plugin install ai-engineering@ai-engineering`
 3. Si Claude Code pide `/reload-plugins` para activarlo, correrlo.
-4. **Actualizar**: `/plugin marketplace update ai-engineering` trae los cambios más
-   recientes; Claude Code también actualiza en segundo plano según su propia
-   configuración de auto-update.
-5. **Desinstalar**: `/plugin uninstall ai-engineering@ai-engineering`.
+
+**Extensión de VS Code**: enlace de un clic
+(`vscode://anthropic.claude-code/install-plugin?plugin=ai-engineering&marketplace=<URL>`),
+o `/plugins` → pestaña Marketplaces → agregar la URL → pestaña Plugins → Install.
+
+**Actualizar/Desinstalar**: mismo patrón de 2 entornos — ver el Quick Start para el
+detalle de cada uno.
 
 ## Qué falta confirmar
 
-- **Instalación real, de punta a punta** — nadie la probó todavía. Es el paso siguiente
-  antes de subir el `Estado` de este documento.
+- **Instalación real, de punta a punta, en cualquiera de los 2 entornos** — nadie la
+  completó todavía. Es el paso siguiente antes de subir el `Estado` de este documento.
 - **Si `skills/` (ya compartido con VS Code) funciona sin cambios en Claude Code** — la
   estructura de carpetas coincide, pero el frontmatter real de nuestros `SKILL.md`
   incluye un campo `name` que los ejemplos de la documentación de Claude Code no
