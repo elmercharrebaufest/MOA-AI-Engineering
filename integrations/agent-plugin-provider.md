@@ -66,17 +66,13 @@ propagación automática (que sigue sin aplicar a MOA por estar en Azure DevOps,
    <URL>` — acepta cualquier URL de Git, no solo GitHub.
 3. Aceptar el prompt de confianza (VS Code lo muestra siempre en la primera instalación de
    una fuente nueva).
-4. **Actualizar**: **recomendado, desde la propia interfaz de VS Code** — automático
-   cada 24 horas si `extensions.autoUpdate` está activo, o a mano con
-   **"Extensions: Check for Extension Updates"**. Por terminal, `copilot plugin update
-   ai-engineering` también funciona, pero en Windows puede fallar con *"Access is denied.
-   (os error 5)"* — bug conocido de GitHub Copilot CLI, no de este repositorio
-   ([#4095](https://github.com/github/copilot-cli/issues/4095)); cerrar VS Code por
-   completo antes de correr el comando lo resuelve.
-5. **Desinstalar**: **recomendado, desde VS Code** — vista **"Agent Plugins -
-   Installed"**, clic derecho sobre el plugin → **"Uninstall"**. Por terminal,
-   `copilot plugin uninstall ai-engineering` también funciona, con el mismo riesgo del
-   bug de Windows del punto anterior.
+4. **Actualizar**: desde VS Code — automático cada 24 horas si `extensions.autoUpdate`
+   está activo, o a mano con **"Extensions: Check for Extension Updates"**. Por terminal
+   (`copilot plugin update`), en Windows falla con *"Access is denied. (os error 5)"* —
+   bug conocido de GitHub Copilot CLI, no de este repositorio — usar VS Code en su lugar.
+5. **Desinstalar**: desde VS Code — vista **"Agent Plugins - Installed"**, clic derecho
+   sobre el plugin → **"Uninstall"**. Por terminal (`copilot plugin uninstall`), mismo
+   error de Windows que Actualizar — usar VS Code en su lugar.
 
 ## Qué falta confirmar (actualizado 2026-09-23)
 
@@ -93,9 +89,9 @@ propagación automática (que sigue sin aplicar a MOA por estar en Azure DevOps,
 - ~~La estructura exacta de `com.github.copilot/agents/` (namespace reverse-domain)~~ —
   **resuelta por el mismo hallazgo de arriba**: si Copilot Chat reconoce los Agents con
   su descripción real, la estructura fue interpretada correctamente.
-- **Instalar desde VS Code** (paso 2) ya está confirmado, sin el bug de Windows del CLI.
-  **Sigue sin confirmar si Actualizar/Desinstalar desde VS Code también lo evitan** —
-  falta que algún developer real lo pruebe y reporte si el error reaparece o no.
+- ~~¿Actualizar/Desinstalar desde VS Code evita el bug de Windows del CLI?~~ —
+  **resuelto (2026-09-23)**: confirmado que Actualizar y Desinstalar por terminal no
+  funcionan en Windows; por VS Code sí.
 
 ## Aviso de deprecación (hallazgo real, 2026-09-22)
 
