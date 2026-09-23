@@ -84,7 +84,24 @@ También se actualiza solo, sin hacer nada, dentro de las próximas 24 horas, si
 
 ## 5. Desinstalar
 
-Buscar `@agentPlugins` en la vista Extensions → abrir `ai-engineering` → **"Uninstall"**.
+Buscar `@agentPlugins` en la vista Extensions → abrir `ai-engineering` → **"Uninstall"** →
+aceptar la confirmación.
+
+**Si hay más de una copia instalada** (mismo nombre `ai-engineering` repetido en la
+lista): distinguirlas por la versión que muestra el detalle de cada una — la instalada por
+el camino recomendado (marketplace) siempre va a tener la versión más reciente. Desinstalar
+solo la copia vieja, dejando la del marketplace.
+
+**Verificar que se borró de verdad** (el Uninstall desde VS Code a veces no confirma con
+claridad): abrir una terminal con GitHub Copilot CLI disponible y correr
+
+```
+copilot plugin list
+```
+
+Ese comando es de solo lectura, no le afecta el bug de Windows de `update`/`install`. Si la
+copia que se quiso borrar sigue apareciendo ahí, no se eliminó — repetir el Uninstall o
+reportarlo como bloqueo real de la plataforma.
 
 ## 6. Alternativa: que llegue recomendado sin configurar nada
 
