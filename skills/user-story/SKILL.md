@@ -38,8 +38,9 @@ Y"), con o sin ticket asociado.
 ## Salidas
 
 Historia de usuario + criterios de aceptación + reglas de negocio + análisis de gaps —
-lista para revisión humana, no para desarrollo directo sin esa revisión. Si hay gaps
-bloqueantes, incluye además una recomendación de próximo paso.
+lista para revisión humana, no para desarrollo directo sin esa revisión. **Siempre**
+cierra con una frase explícita de qué corresponde hacer con el resultado — nunca termina
+en el análisis de gaps sin decir qué sigue, haya o no gaps bloqueantes (ver sección 5).
 
 ## Instrucciones
 
@@ -118,10 +119,16 @@ Antes de reportar un gap, corresponde verificar contra la documentación técnic
 del propio requerimiento — no reportar como ambigüedad algo que ya fue decidido y
 documentado en otro lugar.
 
-### 5. Recomendación (cuando hay gaps bloqueantes)
+### 5. Cierre — siempre, nunca terminar en el análisis de gaps sin más
 
-Si la historia no está lista para Planning/desarrollo, debe sumarse una recomendación de
-próximo paso, no solo la lista de preguntas:
+**Hallazgo real (2026-09-23)**: un developer real usó esta skill dos veces (una con gaps
+sin resolver, otra después de responderlos) y en ambos casos el resultado terminaba en
+seco — no sabía si eso era todo, si faltaba algo, o qué se suponía que hiciera con el
+resultado. La salida siempre necesita una frase de cierre explícita; cuál frase depende
+de si quedan gaps bloqueantes o no.
+
+**Si la historia NO está lista** (quedan gaps bloqueantes sin resolver), sumar una
+recomendación de próximo paso, no solo la lista de preguntas:
 
 ```text
 📌 Recomendación: [1 frase — la historia no está lista para Planning/desarrollo por
@@ -151,6 +158,29 @@ corresponde decirlo de forma explícita e indicar la acción concreta que falta:
    Sugerencia: no fue posible identificar quién reportó esta historia con el contexto
    disponible — revisar el campo "Reporter" del ticket directamente en Jira antes de
    contactar al PO real, para completar [qué falta exactamente].
+```
+
+**Si la historia SÍ está lista** (no quedan gaps bloqueantes — ya sea porque nunca los
+hubo, o porque la persona ya los respondió en el mismo intercambio), cerrar igual, con una
+frase corta que lo diga explícitamente — nunca terminar en la última sección de contenido
+sin más:
+
+```text
+✅ Historia lista para revisión humana (PO o referente de negocio) — no se publicó ni se
+   pegó en ningún lado automáticamente. El siguiente paso es que una persona la revise y
+   decida si pasa así a Planning/desarrollo, o si necesita otro ajuste.
+```
+
+Si la propia historia mezcla contenido técnico de implementación (nombres de archivo,
+tablas, servicios concretos) porque hizo falta verificar contra el código real, sumar
+además una frase señalándolo — no corresponde asumir en silencio que ese detalle técnico
+queda mezclado con el requisito para siempre:
+
+```text
+ℹ️ Esta versión incluye detalle técnico de implementación (ver "Notas Técnicas") porque
+   fue necesario para no dejar un gap sin resolver. Si el equipo separa requisito de
+   diseño técnico (ej. con `spec-driven-development`, CAP-005), corresponde mover esa
+   sección a un documento de diseño aparte antes de continuar.
 ```
 
 ## Cómo usar esta capability
@@ -217,9 +247,10 @@ RN-01: [restricción real]
 ### Análisis de gaps
 ❓ [pregunta real que bloquea implementación, si existe alguna]
 
-### Recomendación (solo si hay gaps bloqueantes)
-📌 [1 frase de por qué no está lista + a quién contactar, si el contexto trae un
-   nombre real — nunca inventado]
+### Cierre (siempre, sin excepción)
+📌 [si quedan gaps bloqueantes: 1 frase de por qué no está lista + a quién contactar] o
+✅ [si no quedan gaps bloqueantes: 1 frase confirmando que está lista para revisión
+   humana, y que no se publicó nada automáticamente]
 ```
 
 ### Si ya existe una ejecución para este ticket
@@ -238,8 +269,7 @@ Detalle completo en [`../../../adoption/getting-started.md`](../../../adoption/g
 
 ### Revisión humana
 
-Obligatoria, sin excepción: un PO o referente funcional debe revisar el resultado antes
-de Planning/desarrollo. Una salida de IA no queda aprobada solo por generarse.
+Obligatoria — ver "Revisión humana obligatoria" más abajo, mismo criterio.
 
 ### Evidencia
 

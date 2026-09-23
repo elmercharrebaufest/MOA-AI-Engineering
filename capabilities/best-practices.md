@@ -5,6 +5,23 @@ camino real, no el ideal. Clasificación de evidencia aplicada sin excepción: *
 (evidencia interna verificada), **EXTERNAL EVIDENCE** (fuente externa citada), **PROPOSAL**
 (recomendación de esta iniciativa, no decisión oficial de MOA).
 
+## Regla transversal — toda capacidad cierra diciendo qué corresponde hacer
+
+**Hallazgo real (2026-09-23)**: un developer real usó `user-story` (CAP-001) y, aunque el
+resultado era bueno, no sabía si había terminado ni qué se suponía que hiciera con él —
+la salida cortaba justo después del contenido, sin ninguna frase de cierre. La causa:
+la skill solo pedía una recomendación de próximo paso *cuando había gaps bloqueantes* —
+condición que no cubre el caso, igual de común, de que todo salga bien.
+
+**Regla, aplicable a cualquier Skill/Agent/Workflow de este Registry**: la salida nunca
+termina en el último bloque de contenido sin más — siempre cierra con una frase explícita
+de qué corresponde hacer (revisar, aprobar, contactar a alguien, pasar al siguiente paso),
+sin condicionarla a que haya un problema. Ya lo hacía bien `read-only-code-reviewer`
+(CAP-012, "Terminar siempre con un resumen... y una recomendación explícita"); se corrigió
+en `user-story` (CAP-001) tras este hallazgo. Al escribir o revisar cualquier capacidad
+nueva, corresponde verificar que su sección de salida no dependa de una condición para
+decir qué sigue.
+
 ## Instructions
 
 **Usar cuando**: una regla debe aplicarse siempre que se trabaje en una ruta/capa
