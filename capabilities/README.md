@@ -305,8 +305,9 @@ Ver los puntos 3 y 4.
    administrador**:
    [`../integrations/agent-plugin-provider.md`](../integrations/agent-plugin-provider.md) —
    Agent Plugins 1.0 de VS Code, confirmado real contra Azure DevOps. `EXECUTED`,
-   instalación real confirmada por 2 caminos (terminal y VS Code), con Agents y Skills
-   reconocidos. Guía paso a paso:
+   instalación real confirmada por 3 caminos, con Agents y Skills reconocidos —
+   recomendado, vía marketplace (`copilot plugin marketplace add` + `install`), por ser el
+   único que GitHub no tiene marcado para discontinuar. Guía paso a paso:
    [`../adoption/agent-plugin-quickstart.md`](../adoption/agent-plugin-quickstart.md).
 4. **Para adopción individual con Claude Code**: mismo objetivo que el punto 3, pero es
    un ecosistema separado — instalar uno no instala el otro.
