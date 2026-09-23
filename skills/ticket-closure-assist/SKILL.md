@@ -131,7 +131,7 @@ Criterios de aceptación reales:
 Evidencia de cumplimiento disponible:
 [la evidencia real]
 
-Verificá cada criterio contra la evidencia y redactá el borrador de comentario de cierre.
+Verificar cada criterio contra la evidencia y redactar el borrador de comentario de cierre.
 
 No marques como cumplido ningún criterio sin evidencia real citada.
 No cambies el estado del ticket — esto es solo un borrador para que una persona lo revise

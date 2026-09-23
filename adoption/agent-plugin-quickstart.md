@@ -47,6 +47,9 @@ tal cual, sin agregarle `.git` al final.
 Abrir Copilot Chat en modo Agent y preguntarle si reconoce, por ejemplo, `ticket-kickoff`
 o `workflow-documenter`.
 
+**¿Y ahora qué se escribe?** [`how-to-use.md`](how-to-use.md) — describir la tarea real
+en las propias palabras alcanza, sin necesitar nombrar ninguna capacidad por su ID.
+
 ## 4. Actualizar
 
 Desde VS Code: paleta de comandos → **"Extensions: Check for Extension Updates"** (o

@@ -108,7 +108,7 @@ explícitamente, y nunca se envían/publican solas):
    faltantes con suposiciones.
 5. Si hay una integración real y gobernada con una plataforma de monitoreo, consultarla
    acotado al incidente puntual (rango de tiempo, request/usuario/componente afectado) —
-   nunca hacer una exploración abierta sin acotar. Usá una de las consultas de referencia
+   nunca hacer una exploración abierta sin acotar. Usar una de las consultas de referencia
    de la sección siguiente como punto de partida, adaptada al incidente real.
 6. Buscar en el código real del repo los puntos que podrían explicar el error encontrado —
    citar archivo y línea, no una suposición genérica del tipo de bug.

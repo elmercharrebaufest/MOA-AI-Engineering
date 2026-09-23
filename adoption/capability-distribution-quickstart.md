@@ -24,7 +24,7 @@ sigue siendo el camino más simple, sin pedirle nada a nadie.
 
 ## 2. Decisión de gobierno — agregar tu repo a la lista
 
-Nada llega a tu repo hasta que alguien lo pide explícitamente. Abrí un Pull Request a
+Nada llega a tu repo hasta que alguien lo pide explícitamente. Abrir un Pull Request a
 `ai-engineering` agregando tu repo en
 [`../integrations/scripts/capability-distribution-targets.json`](../integrations/scripts/capability-distribution-targets.json):
 

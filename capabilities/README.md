@@ -362,11 +362,13 @@ repositorio.
 4. Mostrar el archivo final antes de guardarlo.
 ```
 
-**Paso 2 — usarla sobre un ticket real de tu proyecto.**
+**Paso 2 — usarla sobre un ticket real de tu proyecto.** No hace falta nombrar "CAP-001"
+— ese ID es solo una referencia interna de este repositorio, el asistente no lo necesita.
+Alcanza con describir la tarea (detalle completo: [`../adoption/how-to-use.md`](../adoption/how-to-use.md)):
 
 ```text
-Usar la capability CAP-001 user-story para refinar este ticket: [pegar el ticket real
-de tu proyecto acá]
+Ayudame a refinar este ticket en una historia de usuario con criterios de aceptación:
+[pegar el ticket real de tu proyecto acá]
 ```
 
 **Paso 3 — revisar el resultado** antes de darlo por bueno (nunca se aprueba una salida
@@ -387,7 +389,7 @@ Mismo patrón que el ejemplo de arriba, cambiando solo el nombre de la capabilit
 archivo a leer — y la misma decisión de arriba (copia puntual vs. distribución
 automática) aplica igual:
 
-1. Abrí el archivo de la capacidad (no solo la tabla de este documento) — cada una
+1. Abrir el archivo de la capacidad (no solo la tabla de este documento) — cada una
    tiene: cuándo usarla, cuándo NO, entradas/salidas, seguridad, HITL, ejemplos, y qué
    adaptar.
 2. Copiar **la estructura**, no el contenido literal de otro equipo — cada capacidad

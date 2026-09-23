@@ -75,18 +75,17 @@ usar sobre un ticket real.
   `capabilities/agents/<nombre>/AGENT.md`) al repositorio propio — sigue siendo válido
   para una prueba rápida, ver [`../capabilities/README.md`](../capabilities/README.md).
 
-Una vez que la capacidad está disponible (por cualquiera de los 3 caminos):
+Una vez que la capacidad está disponible (por cualquiera de los 3 caminos), **qué escribir
+exactamente**: [`how-to-use.md`](how-to-use.md) — en 2 líneas, sin IDs del Registry ni
+jerga. Resumen: describir la tarea real en las propias palabras (ej. *"Ayudame a refinar
+este requerimiento: [requerimiento real]"*), revisar el resultado, y — si se quiere dejar
+registro — copiar [`templates/evidence-record.md`](templates/evidence-record.md) a
+`records/<tarea>/evidence.md` con el resultado real.
 
-1. Con el asistente, sobre un ticket real: *"Usar la capability CAP-001 user-story para
-   refinar este ticket: [ticket real]"*. **¿La tarea no tiene ticket en ningún sistema?**
-   No hace falta crear uno — se describe la tarea directamente en el mensaje, en lugar de
-   dar una referencia. El modelo nunca requirió Jira específicamente: funciona igual con
-   un ticket de Azure DevOps, o sin ningún ticket, con la tarea descrita a mano (ver
-   [`../golden-paths/README.md#dos-formas-de-aportar-el-contexto`](../golden-paths/README.md#dos-formas-de-aportar-el-contexto)).
-2. Revisar el resultado antes de considerarlo aprobado.
-3. Registrar la evidencia propia, en el repositorio del equipo: pedirle al asistente que
-   copie [`templates/evidence-record.md`](templates/evidence-record.md) a algo como
-   `records/<tarea>/evidence.md` y lo complete con el resultado real.
+**¿La tarea no tiene ticket en ningún sistema?** No hace falta crear uno — se describe la
+tarea directamente en el mensaje. El modelo nunca requirió Jira específicamente: funciona
+igual con un ticket de Azure DevOps, o sin ningún ticket (ver
+[`../golden-paths/README.md#dos-formas-de-aportar-el-contexto`](../golden-paths/README.md#dos-formas-de-aportar-el-contexto)).
 
 Con esto ya se obtiene el primer resultado. El resto de esta guía es para cuando se
 quiera el panorama completo o adoptar más de una capability.

@@ -116,7 +116,7 @@ Estructura de automatización existente del repo (si la hay):
 1. Clasificá el caso (Candidato / Manual / Diferido) con la fórmula de ROI, justificando
    cada factor.
 2. Si es Candidato, mostrame el plan de archivos antes de generar nada.
-3. Generá el código siguiendo la estructura real del repo — nunca inventes una nueva sin
+3. Generar el código siguiendo la estructura real del repo — nunca inventar una nueva sin
    avisar.
 
 No inventes selectores, datos de prueba, ni asumas que el código generado funciona sin

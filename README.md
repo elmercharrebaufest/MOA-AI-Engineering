@@ -79,15 +79,20 @@ Catálogo técnico completo con evidencia: [`registry/INDEX.md`](registry/INDEX.
 
 ## 5. ¿Cómo empiezo?
 
-[`adoption/getting-started.md`](adoption/getting-started.md) — guía práctica paso a paso.
+**¿Ya está instalado y solo falta saber qué escribir?**
+[`adoption/how-to-use.md`](adoption/how-to-use.md) — la respuesta corta, sin jerga.
+
+Para el resto: [`adoption/getting-started.md`](adoption/getting-started.md) — guía
+práctica paso a paso.
 
 ## Quiero usar IA en mi proyecto
 
 Si es la primera vez, conviene seguir este orden:
 
-1. [`adoption/getting-started.md`](adoption/getting-started.md) — la guía paso a paso.
-2. [`adoption/adoption-flow.md`](adoption/adoption-flow.md) — el modelo mental completo.
-3. [`adoption/execution-model.md`](adoption/execution-model.md) — cómo ejecutar sobre el
+1. [`adoption/how-to-use.md`](adoption/how-to-use.md) — qué escribir, una vez instalado.
+2. [`adoption/getting-started.md`](adoption/getting-started.md) — la guía paso a paso.
+3. [`adoption/adoption-flow.md`](adoption/adoption-flow.md) — el modelo mental completo.
+4. [`adoption/execution-model.md`](adoption/execution-model.md) — cómo ejecutar sobre el
    proyecto real.
 
 ```text
