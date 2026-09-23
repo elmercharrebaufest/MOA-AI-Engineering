@@ -103,11 +103,10 @@ cuenta propia** — siempre requiere respuesta real de quien corresponda.
 ### 5. Cierre, siempre
 
 ```text
-🔴 Con hallazgos de alta prioridad: no corresponde avanzar de rol (Spec Author →
-   Implementer, o Implementer → Reviewer) hasta resolverlos — indicar cuáles bloquean.
-✅ Sin hallazgos de alta prioridad: la spec está lista para seguir con
-   `spec-driven-development` (CAP-005) — el rol siguiente decide si avanza, esta skill
-   no lo hace por sí misma.
+🔴 Con hallazgos de alta prioridad: no corresponde avanzar al siguiente paso del
+   desarrollo hasta resolverlos — indicar cuáles bloquean.
+✅ Sin hallazgos de alta prioridad: la spec está lista para seguir adelante — la persona
+   a cargo decide si avanza, esta skill no lo hace por sí misma.
 ```
 
 ## Cómo usar esta capability

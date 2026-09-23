@@ -105,9 +105,10 @@ hasta un máximo razonable de reintentos (ej. 3) antes de escalar el problema a 
 
 ```text
 🤖 Candidato, código generado: revisar antes de agregarlo al repo — corresponde incluirlo
-   en el mismo PR de la feature (ver `pr-description`, CAP-011).
-📋 Manual: no se genera código — el caso queda para ejecución manual de QA, ver
-   `test-case-generation` (CAP-014) si todavía no está redactado como caso ejecutable.
+   en el mismo Pull Request de la feature.
+📋 Manual: no se genera código — el caso queda para ejecución manual de QA; si todavía no
+   está redactado como caso ejecutable, corresponde pedirle al asistente que lo derive
+   de los criterios de aceptación primero.
 ⏳ Diferido: no se genera código todavía — corresponde revisitarlo cuando el flujo se
    estabilice, no queda ninguna acción pendiente ahora.
 ```

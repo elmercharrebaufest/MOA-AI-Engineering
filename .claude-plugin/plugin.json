@@ -1,6 +1,6 @@
 {
   "name": "ai-engineering",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Biblioteca reusable de capacidades de AI Engineering de Molinos Agro (Track 1) -- skills, agents y workflows generalizados desde evidencia real de equipos de MOA y evidencia externa, con Human-in-the-Loop explicito. Primera ejecucion real registrada (CAP-001); el resto del Registry sigue en fase de piloto.",
   "author": {
     "name": "Baufest / Molinos Agro"

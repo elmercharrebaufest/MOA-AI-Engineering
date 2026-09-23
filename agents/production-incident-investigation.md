@@ -116,10 +116,9 @@ explícitamente, y nunca se envían/publican solas):
    enviarlos/publicarlos: quedan como texto para que una persona los revise y decida.
 10. **Nunca modificar código, configuración, ni datos** — ver Herramientas / permisos.
 11. **Cierre, siempre**: terminar con una frase explícita de qué corresponde hacer —
-    revisar el reporte y decidir la corrección real (nunca aplicarla este Agent), y si
-    hay causa raíz en código propio, corresponde continuar con
-    `spec-driven-development` (CAP-005) para el fix, con revisión humana antes de
-    desplegar.
+    revisar el reporte y decidir la corrección real (nunca aplicarla este Agent); si hay
+    causa raíz en código propio, corresponde pedirle al asistente que implemente el fix,
+    con revisión humana antes de desplegar.
 
 ## Consultas de referencia (adaptar al mecanismo real de consulta del equipo)
 

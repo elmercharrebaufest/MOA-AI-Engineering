@@ -64,9 +64,9 @@ cualquier Agent que declare `Load and apply skill: <nombre>`.
 ## Cierre, siempre
 
 Una vez completada, guardar el archivo real dentro del repositorio del equipo (no queda
-como borrador suelto) y avisar explícitamente que `read-only-code-reviewer` (CAP-012) ya
-puede cargarla — esta plantilla no se autoaplica ni notifica a ningún Agent por su
-cuenta.
+como borrador suelto) y avisar explícitamente que ya está lista para que el asistente de
+revisión de código la use — esta plantilla no se autoaplica ni notifica a ningún Agent
+por su cuenta.
 
 ## Dependencias
 

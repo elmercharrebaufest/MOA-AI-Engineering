@@ -168,10 +168,15 @@ sin más:
 ```text
 ✅ Historia lista para revisión humana (PO o referente de negocio) — no se publicó ni se
    pegó en ningún lado automáticamente. El siguiente paso es que una persona la revise y
-   la apruebe explícitamente; con esa aprobación, corresponde pasar a
-   `spec-driven-development` (nivel Lite) para arrancar el desarrollo — esta skill no
-   hace ese paso.
+   la apruebe; con esa aprobación, corresponde pedirle al asistente que empiece a
+   implementarla — documentando primero qué se va a hacer, generando tests, y con
+   revisión humana antes de dar el trabajo por terminado. Esta skill no hace ese paso.
 ```
+
+**Nunca nombrar la capacidad siguiente por su ID o nombre técnico** (`CAP-005`,
+`spec-driven-development`) en el texto que lee la persona — mismo criterio que
+[`how-to-use.md`](../../../adoption/how-to-use.md): describir la acción en lenguaje
+natural alcanza, el asistente reconoce sola qué corresponde usar.
 
 **Hallazgo real (2026-09-23), un escalón más adelante del anterior**: un developer real
 respondió los gaps con el PO, recibió la historia ya refinada, y no supo qué seguía
@@ -186,9 +191,9 @@ queda mezclado con el requisito para siempre:
 
 ```text
 ℹ️ Esta versión incluye detalle técnico de implementación (ver "Notas Técnicas") porque
-   fue necesario para no dejar un gap sin resolver. Si el equipo separa requisito de
-   diseño técnico (ej. con `spec-driven-development`, CAP-005), corresponde mover esa
-   sección a un documento de diseño aparte antes de continuar.
+   fue necesario para no dejar un gap sin resolver. Si el equipo prefiere separar el
+   requisito del diseño técnico, corresponde mover esa sección a un documento aparte
+   antes de continuar.
 ```
 
 ## Cómo usar esta capability
@@ -258,7 +263,7 @@ RN-01: [restricción real]
 ### Cierre (siempre, sin excepción)
 📌 [si quedan gaps bloqueantes: 1 frase de por qué no está lista + a quién contactar] o
 ✅ [si no quedan gaps bloqueantes: lista para revisión humana; con la aprobación,
-   corresponde pasar a `spec-driven-development` para arrancar el desarrollo]
+   corresponde pedirle al asistente que empiece a implementarla]
 ```
 
 ### Si ya existe una ejecución para este ticket

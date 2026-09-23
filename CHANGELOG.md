@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.1] — 2026-09-23
+
+**Corregido**
+- 7 de los cierres agregados en `0.3.0` nombraban la capacidad siguiente por su ID o
+  nombre técnico (`spec-driven-development`, `CAP-005`, `pr-description`, `CAP-011`,
+  etc.) — hallazgo real: ese mismo lenguaje es justo lo que `how-to-use.md` ya evita.
+  Se reescriben en lenguaje natural ("pedirle al asistente que...").
+
 Versión del plugin (`plugin.json` y `.claude-plugin/plugin.json`) — sigue
 [SemVer](https://semver.org/lang/es/): `MAJOR.MINOR.PATCH`. Se sube la versión cada vez
 que cambia el contenido empaquetado (`skills/`, `com.github.copilot/agents/`, `agents/`,

@@ -75,9 +75,9 @@ contemplan, señalarlo como gap — no inventar un criterio nuevo para justifica
 
 ```text
 ✅ Casos listos para revisión de QA — no se publicaron como comentario del ticket
-   automáticamente. Con la validación de QA, corresponde decidir cuáles conviene
-   automatizar con `regression-test-generation` (CAP-015) y cuáles quedan como
-   ejecución manual — esta skill no toma esa decisión por sí misma.
+   automáticamente. Con la validación de QA, corresponde pedirle al asistente que evalúe
+   cuáles conviene automatizar y cuáles quedan como ejecución manual — esta skill no
+   toma esa decisión por sí misma.
 ```
 
 ## Cómo usar esta capability
