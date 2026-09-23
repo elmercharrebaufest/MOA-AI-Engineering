@@ -4,12 +4,14 @@
 él mismo, mismo tratamiento que [Capability Distribution](capability-distribution.md) y
 [Context Acquisition & Resolution](../architecture/context-acquisition-resolution.md).
 
-**Estado**: `EXECUTED` (corregido 2026-09-22) — **primera instalación real confirmada**,
-vía GitHub Copilot CLI, con la URL real de Azure DevOps sin modificar. Salida real:
-*"Plugin 'ai-engineering' installed successfully. Installed 10 skills."* Queda un punto
+**Estado**: `EXECUTED` (actualizado 2026-09-23) — **instalación real confirmada por 2
+caminos**: por terminal (GitHub Copilot CLI, 2026-09-22, salida real *"Plugin
+'ai-engineering' installed successfully. Installed 10 skills."*) y por la interfaz de VS
+Code (2026-09-23, comando **"Chat: Install Plugin From Source"**, plugin visible en el
+panel "Extensions: Agent Plugins" con nombre y descripción reales). Queda un punto
 importante sin verificar (¿se instalaron también los Agents, o solo los Skills? — ver
-"Qué falta confirmar") y un hallazgo nuevo que afecta la continuidad del método (ver
-"Aviso de deprecación").
+"Qué falta confirmar") y un hallazgo nuevo que afecta la continuidad del método por
+terminal (ver "Aviso de deprecación").
 
 ## Origen de este patrón
 
@@ -51,11 +53,11 @@ propagación automática (que sigue sin aplicar a MOA por estar en Azure DevOps,
    (`chat.plugins.marketplaces`), o mejor, commiteada en el repo del equipo
    (`.github/copilot/settings.json`, sección `extraKnownMarketplaces`) para que cualquiera
    que abra ese repo la reciba recomendada, sin configurarla a mano.
-2. Instalar desde la Extensions view (`@agentPlugins`), con el comando
-   **"Chat: Install Plugin From Source"** (pegando esa URL directamente), o por terminal
+2. **Recomendado**: instalar desde la paleta de comandos de VS Code con
+   **"Chat: Install Plugin From Source"** (pegando esa URL directamente) — confirmado
+   real, queda visible en el panel "Extensions: Agent Plugins". Alternativa por terminal
    con **GitHub Copilot CLI** (herramienta separada de VS Code): `copilot plugin install
-   <URL>` — acepta cualquier URL de Git, no solo GitHub. VS Code detecta automáticamente
-   lo instalado por esta última vía.
+   <URL>` — acepta cualquier URL de Git, no solo GitHub.
 3. Aceptar el prompt de confianza (VS Code lo muestra siempre en la primera instalación de
    una fuente nueva).
 4. **Actualizar**: **recomendado, desde la propia interfaz de VS Code** — automático
@@ -74,11 +76,10 @@ propagación automática (que sigue sin aplicar a MOA por estar en Azure DevOps,
 
 - ~~El formato de la URL~~ — **resuelto**: la URL real sin sufijo `.git` funcionó tal
   cual, confirmado en la primera instalación real (vía GitHub Copilot CLI).
-- ~~Autenticación contra el repositorio privado~~ — **resuelto para el camino CLI**: no
-  hizo falta ningún paso de autenticación manual — la CLI se instaló sola (con
-  confirmación) y accedió al repositorio sin pedir credenciales aparte. Sigue sin
-  confirmar si la vía de VS Code (Extensions view / "Install Plugin From Source") pide
-  algo distinto — nadie la probó todavía, solo la vía CLI.
+- ~~Autenticación contra el repositorio privado~~ — **resuelto en los 2 caminos**: por
+  CLI no hizo falta ningún paso de autenticación manual. Por la interfaz de VS Code
+  ("Chat: Install Plugin From Source", 2026-09-23) tampoco se observó ningún prompt de
+  autenticación adicional al instalar.
 - **Nuevo, sin confirmar: ¿se instalaron los Agents, o solo los Skills?** La salida real
   dice *"Installed 10 skills"* — que coincide exactamente con la cantidad real de Skills
   de este repositorio, pero **no menciona nada de los 7 Agents ni del Workflow**. Puede
@@ -90,11 +91,9 @@ propagación automática (que sigue sin aplicar a MOA por estar en Azure DevOps,
 - La estructura exacta de `com.github.copilot/agents/` (namespace reverse-domain) sigue
   sin confirmación adicional más allá de la reconstrucción original — el punto de arriba
   es, en los hechos, la forma de confirmarla o refutarla.
-- **Nuevo, prioridad alta: ¿el camino por la interfaz de VS Code evita el bug de Windows
-  del CLI?** (ver "Actualizar" arriba). Es la hipótesis con más chance de ser una
-  solución real y duradera, no solo un workaround — falta que algún developer real la
-  pruebe (instalar y actualizar desde la Extensions view, no desde la terminal) y
-  reporte si el error reaparece o no.
+- **Instalar desde VS Code** (paso 2) ya está confirmado, sin el bug de Windows del CLI.
+  **Sigue sin confirmar si Actualizar/Desinstalar desde VS Code también lo evitan** —
+  falta que algún developer real lo pruebe y reporte si el error reaparece o no.
 
 ## Aviso de deprecación (hallazgo real, 2026-09-22)
 

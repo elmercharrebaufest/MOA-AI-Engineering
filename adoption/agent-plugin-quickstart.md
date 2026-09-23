@@ -10,10 +10,10 @@ todo el mundo, sin que cada developer instale nada por su cuenta — para eso es
 [`capability-distribution-quickstart.md`](capability-distribution-quickstart.md) (requiere
 un administrador de Azure DevOps).
 
-**Estado**: `EXECUTED` (2026-09-22) — **primera instalación real ya ocurrió, vía GitHub
-Copilot CLI, con éxito**. Salida real: *"Plugin 'ai-engineering' installed successfully.
-Installed 10 skills."* Sigue habiendo 1 cosa importante sin confirmar (ver paso 3) y 1
-aviso real a tener en cuenta (ver "Aviso importante" antes del paso 2b).
+**Estado**: `EXECUTED` (2026-09-23) — **confirmado por 2 caminos reales**: por terminal
+(GitHub Copilot CLI, 2026-09-22) y por la interfaz de VS Code (2026-09-23). Sigue
+habiendo 1 cosa importante sin confirmar (ver paso 3) y 1 aviso real a tener en cuenta
+(ver "Aviso importante" más abajo).
 
 ## 1. Prerequisitos
 
@@ -27,35 +27,36 @@ aviso real a tener en cuenta (ver "Aviso importante" antes del paso 2b).
 particular** — se instala una sola vez por máquina, queda en una ubicación global del
 usuario, y después aplica a cualquier proyecto que se abra en VS Code.
 
-**Camino confirmado — por terminal, con GitHub Copilot CLI** (esta es la forma que ya
-funcionó de verdad):
+**Recomendado — desde la propia interfaz de VS Code** (confirmado real, 2026-09-23):
+paleta de comandos (`Ctrl+Shift+P` / `Cmd+Shift+P`) → **"Chat: Install Plugin From
+Source"** → pegar esta URL:
+
+```
+https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering
+```
+
+El plugin queda instalado y visible en el panel **"Extensions: Agent Plugins"**, con el
+nombre y la descripción reales de `ai-engineering`.
+
+**Alternativa — por terminal, con GitHub Copilot CLI** (confirmado real, 2026-09-22):
 
 ```
 copilot plugin install https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering
 ```
 
 Si GitHub Copilot CLI no está instalada, el propio comando ofrece instalarla en el
-momento (responder `y`). La URL funciona **tal cual, sin agregarle `.git` al final** —
-confirmado con una instalación real. No hace falta estar en ninguna carpeta en
-particular — queda en una ubicación global del usuario (`~/.copilot/installed-plugins/...`)
-y después aplica a cualquier proyecto que se abra.
+momento (responder `y`). La URL funciona **tal cual, sin agregarle `.git` al final**.
 
-**Aviso importante (hallazgo real, 2026-09-22)**: al instalar, aparece este mensaje:
+**Aviso importante (hallazgo real, 2026-09-22)**: por terminal, al instalar, aparece este
+mensaje:
 
 > *"Warning: Direct plugin installs (repos, URLs, local paths) are deprecated. Only
 > plugin@marketplace installs will be supported in a future release."*
 
-El comando de arriba **funciona hoy**, pero GitHub lo va a discontinuar más adelante —
-no hace falta hacer nada distinto por ahora, es solo para que el aviso no sorprenda.
-Detalle de cómo se resolverá esto cuando corresponda:
+El comando **funciona hoy**, pero GitHub lo va a discontinuar más adelante — no hace
+falta hacer nada distinto por ahora. Detalle de cómo se resolverá esto cuando
+corresponda:
 [`../integrations/agent-plugin-provider.md`](../integrations/agent-plugin-provider.md#aviso-de-deprecación-hallazgo-real-2026-09-22).
-
-## 2b. Alternativa por la interfaz de VS Code (todavía sin confirmar)
-
-Si se prefiere no usar la terminal: paleta de comandos (`Ctrl+Shift+P` / `Cmd+Shift+P`) →
-**"Chat: Install Plugin From Source"** → pegar la misma URL de arriba. **Esta vía
-todavía no la probó nadie real** (la que sí se confirmó fue la de terminal) — si se
-prueba, es útil reportar si pidió autenticarse y cómo.
 
 ## 3. Confirmar que funcionó — con un chequeo extra importante
 
