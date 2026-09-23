@@ -16,7 +16,7 @@
 | **Branch** | DataAgro: `dev` (confirmado rama principal real vía `origin/HEAD`, no `master`). Scato Logística: `master`. Orquestador: `master-logistica` | FACT |
 | **Integration Status** | DataAgro: integrado a `dev`. Scato Logística: integrado a `master`. Orquestador: integrado a `master-logistica`, **NO** a `master` (misma corrección de contexto que en CAP-008) | FACT |
 | **Configuration Status** | **VERIFIED** para Scato Logística y Orquestador (contenido completo leído y comparado en G3.2.5). **PARTIAL** para DataAgro — la existencia del archivo está confirmada (listado de directorio), pero **su contenido específico no fue leído completo en ninguna sesión hasta ahora** — no se sobreestima esta entrada | Mixto, declarado explícitamente por repo |
-| **Real Use Status** | **CONFIGURED** — el mecanismo (Direct Context y Connected Context vía Context Provider) quedó probado de punta a punta durante la construcción, pero esas ejecuciones fueron pruebas del mecanismo por quien diseñó la capability, purgadas deliberadamente al pasar a adopción real (no cuentan como evidencia de uso). **Sin ejecuciones reales registradas todavía** — la evidencia real empieza con la prueba en curso de un developer real de MOA sobre `ARMOA277-194` (Jira/MCP) | Ver `Evidence Reference` abajo para el estado vivo |
+| **Real Use Status** | **EXECUTED** (actualizado 2026-09-23) — primera ejecución real registrada: un developer de Portal de Créditos (AWS) invocó la Skill en lenguaje natural, sin nombrar ningún ID, vía el Agent Plugin de VS Code/Copilot ya instalado. Copilot reconoció y cargó la Skill sola. `NOT EVALUATED` todavía — falta revisión humana del resultado antes de subir a `VERIFIED` | Ver `Evidence Reference` abajo |
 | **Lifecycle State** | Pilot | Mecanismo probado, sin evidencia de uso real registrada todavía — no alcanza para `Measure`/`Human Validation` (`lifecycle.md`) |
 | **Corporate Standard** | N | Sin decisión de gobierno — sin evidencia de uso real todavía |
 | **Version** | Sin versionado semántico. Proxy: DataAgro = `20b6363a3`; Scato Logística = `8bff906e`; Orquestador = `872911c` | FACT (hashes) |
@@ -30,9 +30,9 @@
 | **Evaluation** | NOT FOUND | — |
 | **Observability** | NOT FOUND | — |
 | **Metrics** | NOT FOUND | — |
-| **Adopters** | Ninguno confirmado | Los 3 orígenes son independientes, no hay evidencia de adopción cruzada entre los 3 repos |
-| **Last Review** | 2026-09-08 | — |
-| **Evidence Reference** | Ninguna todavía — ver [`../../evidence/README.md`](../../evidence/README.md) para el estado vivo | Sin registros reales de uso |
+| **Adopters** | Portal de Créditos (AWS) — primer adoptante real de la versión generalizada, vía Agent Plugin, 2026-09-23. Los 3 orígenes (DataAgro/Scato Logística/Orquestador) siguen sin evidencia de adopción cruzada entre sí | FACT |
+| **Last Review** | 2026-09-23 | — |
+| **Evidence Reference** | [`records/armoa277-1-campos-propios/EXEC-20260923-001/evidence.md`](../../records/armoa277-1-campos-propios/EXEC-20260923-001/evidence.md) | Primera ejecución real registrada |
 | **Evaluation Reference** | Ninguna todavía | — |
 | **Metric Reference** | Ninguna todavía | — |
 | **Reusable Asset** *(nuevo en G5.1)* | [`capabilities/skills/user-story/SKILL.md`](../../capabilities/skills/user-story/SKILL.md) | Generalización de las 3 instancias reales — **sin catálogo de roles fijo**, corrigiendo una brecha encontrada durante la construcción (rol "operador de planta" ausente del catálogo original de DataAgro) |

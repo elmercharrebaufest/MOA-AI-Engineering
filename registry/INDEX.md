@@ -22,7 +22,7 @@ como el primer caso real.
 
 | ID | Nombre | Tipo | Repos | Corporate Standard | Configuration Status | Real Use Status | Riesgo |
 |---|---|---|---|---|---|---|---|
-| [CAP-001](entries/user-story.md) | user-story | Skill | DataAgro, Scato Logística, Orquestador | N | VERIFIED (2/3) · PARTIAL (DataAgro) | **CONFIGURED** — mecanismo probado durante la construcción (pruebas purgadas al pasar a adopción real); sin ejecuciones reales registradas todavía, evidencia real en curso sobre `ARMOA277-194` | Bajo |
+| [CAP-001](entries/user-story.md) | user-story | Skill | DataAgro, Scato Logística, Orquestador, Portal de Créditos (AWS) | N | VERIFIED (2/3) · PARTIAL (DataAgro) | **EXECUTED** (2026-09-23) — primera ejecución real, vía Agent Plugin, sobre Portal de Créditos. `NOT EVALUATED` todavía | Bajo |
 | [CAP-002](entries/azure-devops-context.md) | azure-devops-context | Integration/API | Ninguno todavía (patrón de referencia) | N | VERIFIED (documento) | CONFIGURED — mecanismo probado durante la construcción, pruebas purgadas; sin ejecuciones reales registradas todavía | Bajo |
 | [CAP-003](entries/jira-context.md) | jira-context | MCP | Ninguno todavía (patrón de referencia) | N | VERIFIED (documento) | CONFIGURED — mecanismo probado durante la construcción (MCP real, incluido 1 caso `BLOCKED` histórico), pruebas purgadas; sin ejecuciones reales registradas todavía, evidencia real en curso sobre `ARMOA277-194` | Bajo-Medio |
 | [CAP-004](entries/product-owner.md) | product-owner | Agent | Ninguno todavía (propuesta, corrige un hallazgo real de Scato Logística/Orquestador) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo |

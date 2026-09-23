@@ -8,16 +8,14 @@ ejecución anidada adentro — ver la nota de convención al final de este archi
 
 ## Registros
 
-**Sin registros todavía.** Las ejecuciones que probaron el mecanismo durante la
-construcción (Direct Context y Connected Context vía CAP-002/CAP-003) fueron pruebas
-propias de quien diseñó la capacidad — se purgaron deliberadamente al pasar a la etapa
-real de adopción, para no contar como "evidencia real de uso" algo que no lo era. La
-evidencia real empieza con la prueba en curso de un developer real de MOA sobre
-`ARMOA277-194` (Jira/MCP) — esta tabla se completa cuando esa ejecución quede registrada.
+Las ejecuciones que probaron el mecanismo durante la construcción (Direct Context y
+Connected Context vía CAP-002/CAP-003) fueron pruebas propias de quien diseñó la
+capacidad — se purgaron deliberadamente al pasar a la etapa real de adopción, para no
+contar como "evidencia real de uso" algo que no lo era.
 
 | Ejecución | Tarea | Capacidad | Qué documenta |
 |---|---|---|---|
-| *(vacío)* | — | — | Sin ejecuciones registradas todavía |
+| [EXEC-20260923-001](../records/armoa277-1-campos-propios/EXEC-20260923-001/evidence.md) | Portal de Créditos — cambio "Detalle Inmueble" → "Campos Propios" / "Localidad" → "Partido" (`ARMOA277-1`, Fase 1) | CAP-001 (`user-story`) | Primera ejecución real del mecanismo de distribución vía Agent Plugin (VS Code/Copilot) — la Skill se invocó en lenguaje natural, sin nombrar ningún ID, y Copilot la reconoció sola. `status: EXECUTED`, evaluación humana pendiente |
 
 ## Convención de carpetas (`records/<fuente>-<tarea>/<EXEC-ID>/`)
 
