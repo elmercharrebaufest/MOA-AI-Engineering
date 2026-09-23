@@ -52,8 +52,24 @@ en las propias palabras alcanza, sin necesitar nombrar ninguna capacidad por su 
 
 ## 4. Actualizar
 
-Desde VS Code: paleta de comandos → **"Extensions: Check for Extension Updates"** (o
-automático cada 24 horas, con `extensions.autoUpdate` activo).
+**Automático, sin hacer nada**: si `extensions.autoUpdate` está activo en VS Code (es el
+valor por defecto), el plugin se actualiza solo, dentro de las próximas 24 horas — no
+hace falta ninguna acción.
+
+**Para forzarlo ahora, en vez de esperar**:
+
+1. Abrir la paleta de comandos: `Ctrl+Shift+P` (Windows/Linux) o `Cmd+Shift+P` (Mac).
+2. Escribir `Extensions: Check for Extension Updates` y seleccionar ese comando de la
+   lista (aunque el nombre diga "Extension", cubre también los Agent Plugins instalados,
+   como `ai-engineering` — es el mismo mecanismo de actualización de VS Code).
+3. VS Code revisa todo lo instalado y actualiza lo que tenga una versión nueva
+   disponible — no hace falta seleccionar `ai-engineering` en particular.
+4. Para confirmar que trajo lo último: repetir el paso 3 del Quick Start (preguntarle a
+   Copilot Chat si reconoce una capacidad agregada recientemente).
+
+**Si `extensions.autoUpdate` está desactivado** y se quiere dejarlo en automático:
+paleta de comandos → `Preferences: Open User Settings` → buscar `Extensions: Auto Update`
+→ activarlo.
 
 ## 5. Desinstalar
 
