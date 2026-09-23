@@ -46,16 +46,22 @@ contenido que realmente aporta algo nuevo.
 1. **Español formal, simple y natural — nunca voseo argentino ni otra informalidad
    regional.** Usar infinitivo o forma impersonal para instrucciones ("Verificar el
    entorno", no "Verificá el entorno" ni "Tenés que verificar").
-2. **Contenido acotado y accionable, no exhaustivo.** Si hace falta más detalle, enlazar
+2. **Evitar la pregunta impersonal con "¿Se + verbo...?" dirigida al lector** ("¿Se usa
+   Claude Code?", "¿Se necesita generar una spec?") — evitar el voseo no significa caer
+   en una construcción pasiva forzada; suena a formulario, no a alguien explicando algo.
+   Reformular como afirmación condicional ("Con Claude Code, este camino no aplica —
+   ver...") o con un verbo que no necesite el "se" ("Corresponde generar una spec antes
+   de seguir").
+3. **Contenido acotado y accionable, no exhaustivo.** Si hace falta más detalle, enlazar
    a la fuente real (documentación oficial, otro archivo de este mismo modelo) en vez de
    copiarla adentro.
-3. **Cada actualización aporta valor verificable.** No agregar texto de relleno,
+4. **Cada actualización aporta valor verificable.** No agregar texto de relleno,
    resúmenes que repiten lo ya dicho, ni la misma explicación reformulada en más de un
    lugar — un dato vive en un solo archivo, el resto enlaza.
-4. **Nunca inventar contenido ni especular.** Toda afirmación se respalda con evidencia
+5. **Nunca inventar contenido ni especular.** Toda afirmación se respalda con evidencia
    real citada (archivo y línea, commit, fuente externa verificada); ante algo ambiguo se
    pregunta a la persona antes de decidir, no se completa por cuenta propia.
-5. **Sin lenguaje de marketing ni autorreferencial de IA** ("solución revolucionaria",
+6. **Sin lenguaje de marketing ni autorreferencial de IA** ("solución revolucionaria",
    "de última generación", "como asistente de IA puedo..."). Se escribe como
    documentación técnica, no como una presentación.
 

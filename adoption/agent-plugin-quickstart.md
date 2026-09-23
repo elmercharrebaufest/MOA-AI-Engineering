@@ -6,8 +6,8 @@ su propio trabajo, sin copiar archivos a mano y sin depender de que un administr
 configure nada. Patrón completo:
 [`../integrations/agent-plugin-provider.md`](../integrations/agent-plugin-provider.md).
 
-**¿Se usa Claude Code en vez de GitHub Copilot?** Es una herramienta separada, con su
-propio mecanismo de plugin — este Quick Start no aplica ahí. Ver
+**Con Claude Code en vez de GitHub Copilot, este Quick Start no aplica** — es una
+herramienta separada, con su propio mecanismo de plugin. Ver
 [`claude-code-plugin-quickstart.md`](claude-code-plugin-quickstart.md).
 
 **No corresponde este camino si...** el equipo quiere que el cambio llegue automático a

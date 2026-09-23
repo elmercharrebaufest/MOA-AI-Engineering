@@ -91,8 +91,8 @@ al nombre del archivo. Si se cita texto literal, va entre comillas.
 Si tras la búsqueda no se encuentra nada relevante, decirlo así, textual:
 
 ```text
-No hay specs documentadas sobre <tema>. ¿Se necesita generar una con CAP-005
-(spec-driven-development)?
+No hay specs documentadas sobre <tema>. Corresponde generar una con CAP-005
+(spec-driven-development) antes de seguir.
 ```
 
 **Nunca inventes contenido ni sugieras "probablemente exista en..."**. Proponer búsquedas
