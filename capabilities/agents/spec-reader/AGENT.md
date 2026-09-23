@@ -53,8 +53,8 @@ inventada o completada con conocimiento general del dominio.
 
 ### 1. Entender la pregunta
 
-Identificá si la pregunta es sobre una feature/ticket puntual, un módulo, un criterio
-específico, o una búsqueda libre por concepto. Si es ambigua, preguntá antes de buscar.
+Identificar si la pregunta es sobre una feature/ticket puntual, un módulo, un criterio
+específico, o una búsqueda libre por concepto. Si es ambigua, preguntar antes de buscar.
 
 ### 2. Localizar specs relevantes
 
@@ -98,6 +98,14 @@ explícita, no como respuesta.
 
 Si la spec consultada está en estado `Draft` o tiene ambigüedades sin resolver, avisar al
 usuario que la información puede cambiar — nunca presentarla como definitiva.
+
+### 6. Cierre, siempre
+
+```text
+✅ Respuesta citada contra la fuente real de arriba. Si se va a tomar una decisión sobre
+   esto, corresponde confirmar que la spec sigue vigente antes de actuar — esta skill
+   solo consulta, no valida vigencia por su cuenta.
+```
 
 ## Cómo usar esta capability
 

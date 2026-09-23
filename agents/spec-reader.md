@@ -1,14 +1,9 @@
 ---
 name: spec-reader
 description: Responde preguntas sobre lo que ya está documentado en las specs de spec-driven-development (requirements.md/design.md/tasks.md), siempre citando archivo + ID exacto. Nunca escribe ni edita specs. Usar cuando se pregunte qué hace una feature, cuáles son sus criterios, o qué está documentado sobre un tema.
-tools: Read, Grep, Glob, TodoWrite
+tools: [read, search, todo]
 ---
 
-> **Frontmatter adaptado al formato real de subagentes de Claude Code** — la fuente
-> canónica ([`capabilities/agents/spec-reader/AGENT.md`](../capabilities/agents/spec-reader/AGENT.md))
-> usa nombres de herramienta genéricos (`read`/`search`/`todo`); acá se tradujeron a los
-> nombres reales de Claude Code. Sin `Write` ni `Edit`, por diseño — nunca escribe specs.
->
 > **`model` deliberadamente ausente del frontmatter** — cada equipo lo completa según su
 > plataforma real.
 
@@ -58,8 +53,8 @@ inventada o completada con conocimiento general del dominio.
 
 ### 1. Entender la pregunta
 
-Identificá si la pregunta es sobre una feature/ticket puntual, un módulo, un criterio
-específico, o una búsqueda libre por concepto. Si es ambigua, preguntá antes de buscar.
+Identificar si la pregunta es sobre una feature/ticket puntual, un módulo, un criterio
+específico, o una búsqueda libre por concepto. Si es ambigua, preguntar antes de buscar.
 
 ### 2. Localizar specs relevantes
 
@@ -103,6 +98,14 @@ explícita, no como respuesta.
 
 Si la spec consultada está en estado `Draft` o tiene ambigüedades sin resolver, avisar al
 usuario que la información puede cambiar — nunca presentarla como definitiva.
+
+### 6. Cierre, siempre
+
+```text
+✅ Respuesta citada contra la fuente real de arriba. Si se va a tomar una decisión sobre
+   esto, corresponde confirmar que la spec sigue vigente antes de actuar — esta skill
+   solo consulta, no valida vigencia por su cuenta.
+```
 
 ## Cómo usar esta capability
 

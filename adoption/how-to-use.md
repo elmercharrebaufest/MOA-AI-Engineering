@@ -18,7 +18,7 @@ capacidad de forma explícita, se usa su nombre real (ej. `user-story`), nunca e
 
 **Refinar un requerimiento**:
 ```
-Ayudame a refinar este requerimiento en una historia de usuario con criterios de
+Necesito refinar este requerimiento en una historia de usuario con criterios de
 aceptación: [pegar el requerimiento real acá]
 ```
 

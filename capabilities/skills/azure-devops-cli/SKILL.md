@@ -67,6 +67,9 @@ respuesta inventada.
    show`) antes de la escritura real. Patrón confirmado como buena práctica real por un
    cliente de Baufest (Camuzzi) — nunca contaminar un ticket o PR real con contenido de
    prueba.
+8. **Cierre, siempre**: reportar el resultado real y su referencia concreta (ID, URL) —
+   nunca terminar sin decir si la operación pedida quedó hecha, pendiente de otro paso, o
+   requiere que la persona confirme algo antes de seguir.
 
 ## Dependencias
 

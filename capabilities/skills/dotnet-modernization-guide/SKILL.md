@@ -76,6 +76,13 @@ La guía oficial lo remarca con ejemplos reales (*"Actualizar el proyecto Data.A
 .NET 10"*, no *"actualizar todo"*) — mismo criterio de evidencia real que rige el resto de
 este modelo: nunca una instrucción genérica cuando se puede ser preciso.
 
+### 6. Cierre, siempre
+
+Al terminar cada checkpoint (`assessment.md`, `plan.md`, `tasks.md`), decir explícitamente
+si corresponde aprobar y avanzar al siguiente, o si algo necesita ajuste antes de seguir
+— nunca dejar que el flujo oficial avance sin que la persona sepa en qué checkpoint está
+parada.
+
 ## Revisión humana
 
 Obligatoria en cada checkpoint del flujo oficial (assessment, plan, tasks) — esta guía no

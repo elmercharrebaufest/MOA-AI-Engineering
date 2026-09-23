@@ -100,6 +100,16 @@ Si dice "aplicá los fixes" o similar: se pueden agregar headers faltantes o mov
 técnico de `requirements.md` a `tasks.md`. **Nunca resolver un `[NEEDS CLARIFICATION]` por
 cuenta propia** — siempre requiere respuesta real de quien corresponda.
 
+### 5. Cierre, siempre
+
+```text
+🔴 Con hallazgos de alta prioridad: no corresponde avanzar de rol (Spec Author →
+   Implementer, o Implementer → Reviewer) hasta resolverlos — indicar cuáles bloquean.
+✅ Sin hallazgos de alta prioridad: la spec está lista para seguir con
+   `spec-driven-development` (CAP-005) — el rol siguiente decide si avanza, esta skill
+   no lo hace por sí misma.
+```
+
 ## Cómo usar esta capability
 
 ### Patrón de ejecución

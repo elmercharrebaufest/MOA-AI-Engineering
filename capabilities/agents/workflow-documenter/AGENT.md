@@ -94,6 +94,14 @@ inventar un tipo de error genérico), ubicar el punto exacto del workflow donde 
 proponer causa probable con la misma disciplina de evidencia que CAP-017
 (`production-incident-investigation`) — nunca forzar una conclusión sin base real.
 
+### 7. Cierre, siempre
+
+```text
+✅ Documentación y diagrama listos para revisión — la descripción de negocio marcada como
+   pendiente (si la hay) la completa una persona que conozca el proceso real; ningún
+   archivo `.xamlx` original quedó modificado.
+```
+
 ## Herramientas / permisos
 
 `tools: [read, execute, search, todo]` — `execute` se limita a correr el parser sobre

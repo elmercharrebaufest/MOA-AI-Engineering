@@ -88,10 +88,10 @@ explícitamente, y nunca se envían/publican solas):
 ## Instrucciones
 
 1. **Resolver a qué servicio/componente se refiere el incidente**, si el equipo tiene más
-   de uno bajo monitoreo. No asumas cuál es — si el usuario dice "el backend" o "el
-   pago" y hay varios componentes posibles, preguntá cuál exactamente antes de investigar.
-   Mantené (fuera de este archivo, en la configuración real del equipo) la tabla real de
-   qué servicio corresponde a qué recurso de monitoreo — no la inventes ni la adivines acá.
+   de uno bajo monitoreo. Nunca asumir cuál es — si el usuario dice "el backend" o "el
+   pago" y hay varios componentes posibles, preguntar cuál exactamente antes de investigar.
+   Mantener (fuera de este archivo, en la configuración real del equipo) la tabla real de
+   qué servicio corresponde a qué recurso de monitoreo — nunca inventarla ni adivinarla acá.
 2. **Verificar el acceso a la plataforma de monitoreo antes de consultar nada** — sesión
    activa, permisos y alcance correctos. Si no hay sesión o apunta al recurso equivocado,
    asistir el proceso de autenticación real del mecanismo que el equipo use (nunca pedir
@@ -115,6 +115,11 @@ explícitamente, y nunca se envían/publican solas):
    mismo reporte** — nunca volver a consultar la plataforma de monitoreo para esto, y nunca
    enviarlos/publicarlos: quedan como texto para que una persona los revise y decida.
 10. **Nunca modificar código, configuración, ni datos** — ver Herramientas / permisos.
+11. **Cierre, siempre**: terminar con una frase explícita de qué corresponde hacer —
+    revisar el reporte y decidir la corrección real (nunca aplicarla este Agent), y si
+    hay causa raíz en código propio, corresponde continuar con
+    `spec-driven-development` (CAP-005) para el fix, con revisión humana antes de
+    desplegar.
 
 ## Consultas de referencia (adaptar al mecanismo real de consulta del equipo)
 

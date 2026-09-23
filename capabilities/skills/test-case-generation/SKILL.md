@@ -71,6 +71,15 @@ contemplan, señalarlo como gap — no inventar un criterio nuevo para justifica
    el PO lo revise antes de darlo por cerrado.
 ```
 
+### 4. Cierre, siempre
+
+```text
+✅ Casos listos para revisión de QA — no se publicaron como comentario del ticket
+   automáticamente. Con la validación de QA, corresponde decidir cuáles conviene
+   automatizar con `regression-test-generation` (CAP-015) y cuáles quedan como
+   ejecución manual — esta skill no toma esa decisión por sí misma.
+```
+
 ## Cómo usar esta capability
 
 ### Entrada

@@ -367,7 +367,7 @@ repositorio.
 Alcanza con describir la tarea (detalle completo: [`../adoption/how-to-use.md`](../adoption/how-to-use.md)):
 
 ```text
-Ayudame a refinar este ticket en una historia de usuario con criterios de aceptación:
+Necesito refinar este ticket en una historia de usuario con criterios de aceptación:
 [pegar el ticket real de tu proyecto acá]
 ```
 

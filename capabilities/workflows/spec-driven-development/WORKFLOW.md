@@ -94,6 +94,10 @@ Ninguno de los 2 es obligatorio — son condicionales a que la feature real lo j
    nunca marcar un requisito de tipo manual como cubierto sin sign-off humano real.
 4. El estado de avance vive en un archivo de progreso no versionado (memoria de trabajo,
    no artefacto de producto) — nunca commitear el estado de sesión junto al código.
+5. **Cierre, siempre**: con el Reviewer aprobando, corresponde abrir el Pull Request —
+   `pr-description` (CAP-011) redacta título y descripción a partir del diff real — y,
+   una vez mergeado, cerrar el ticket con `ticket-closure-assist` (CAP-016). Este
+   Workflow no hace ninguna de las 2 cosas por sí mismo.
 
 ## Instrucciones adicionales (nivel Full — solo si se justifica escalar)
 

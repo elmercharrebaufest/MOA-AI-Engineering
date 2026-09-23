@@ -77,7 +77,7 @@ usar sobre un ticket real.
 
 Una vez que la capacidad está disponible (por cualquiera de los 3 caminos), **qué escribir
 exactamente**: [`how-to-use.md`](how-to-use.md) — en 2 líneas, sin IDs del Registry ni
-jerga. Resumen: describir la tarea real en las propias palabras (ej. *"Ayudame a refinar
+jerga. Resumen: describir la tarea real en las propias palabras (ej. *"Necesito refinar
 este requerimiento: [requerimiento real]"*), revisar el resultado, y — si se quiere dejar
 registro — copiar [`templates/evidence-record.md`](templates/evidence-record.md) a
 `records/<tarea>/evidence.md` con el resultado real.

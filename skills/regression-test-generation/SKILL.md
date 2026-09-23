@@ -101,6 +101,17 @@ real — nunca asumir que el código generado funciona sin haberlo corrido. Si f
 lo que esté al alcance (errores de sintaxis, selectores evidentes) y volver a intentar,
 hasta un máximo razonable de reintentos (ej. 3) antes de escalar el problema a la persona.
 
+### 4. Cierre, siempre — según la clasificación del paso 1
+
+```text
+🤖 Candidato, código generado: revisar antes de agregarlo al repo — corresponde incluirlo
+   en el mismo PR de la feature (ver `pr-description`, CAP-011).
+📋 Manual: no se genera código — el caso queda para ejecución manual de QA, ver
+   `test-case-generation` (CAP-014) si todavía no está redactado como caso ejecutable.
+⏳ Diferido: no se genera código todavía — corresponde revisitarlo cuando el flujo se
+   estabilice, no queda ninguna acción pendiente ahora.
+```
+
 ## Cómo usar esta capability
 
 ### Patrón de ejecución
@@ -113,13 +124,13 @@ Usa la capability CAP-015 regression-test-generation sobre este caso de prueba:
 Estructura de automatización existente del repo (si la hay):
 [framework, carpetas, convenciones reales — o "no existe ninguna todavía"]
 
-1. Clasificá el caso (Candidato / Manual / Diferido) con la fórmula de ROI, justificando
+1. Clasificar el caso (Candidato / Manual / Diferido) con la fórmula de ROI, justificando
    cada factor.
-2. Si es Candidato, mostrame el plan de archivos antes de generar nada.
+2. Si es Candidato, mostrar el plan de archivos antes de generar nada.
 3. Generar el código siguiendo la estructura real del repo — nunca inventar una nueva sin
    avisar.
 
-No inventes selectores, datos de prueba, ni asumas que el código generado funciona sin
+No inventar selectores ni datos de prueba, ni asumir que el código generado funciona sin
 poder verificarlo.
 ```
 

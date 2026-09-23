@@ -49,17 +49,24 @@ cualquier Agent que declare `Load and apply skill: <nombre>`.
 2. **Arquitectura/capas**: mapa real de las capas del proyecto y qué convención sigue
    cada una.
 3. **Manejo de errores**: patrón real usado (excepciones, result objects, códigos de
-   error) — no asumas un patrón genérico si el proyecto ya tiene uno propio.
+   error) — no asumir un patrón genérico si el proyecto ya tiene uno propio.
 4. **Acceso a datos**: reglas específicas de la versión real del ORM/ODM (patrones de
    N+1, tracking vs. no-tracking, versión soportada).
 5. **Concurrencia/async**: reglas específicas de lo que la versión del framework soporta
-   realmente — no asumas que async/await está disponible sin confirmar la versión del
+   realmente — no asumir que async/await está disponible sin confirmar la versión del
    runtime.
 6. **Inyección de dependencias / scoping**: patrón y contenedor reales, con las reglas de
    scope específicas del framework de hosting real.
 7. **Testing**: framework y versión reales, convenciones de mocking.
 8. **Checklist de revisión**: lista corta y verificable, no una repetición de las
    secciones anteriores en otro formato.
+
+## Cierre, siempre
+
+Una vez completada, guardar el archivo real dentro del repositorio del equipo (no queda
+como borrador suelto) y avisar explícitamente que `read-only-code-reviewer` (CAP-012) ya
+puede cargarla — esta plantilla no se autoaplica ni notifica a ningún Agent por su
+cuenta.
 
 ## Dependencias
 

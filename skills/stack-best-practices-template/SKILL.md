@@ -49,17 +49,24 @@ cualquier Agent que declare `Load and apply skill: <nombre>`.
 2. **Arquitectura/capas**: mapa real de las capas del proyecto y qué convención sigue
    cada una.
 3. **Manejo de errores**: patrón real usado (excepciones, result objects, códigos de
-   error) — no asumas un patrón genérico si el proyecto ya tiene uno propio.
+   error) — no asumir un patrón genérico si el proyecto ya tiene uno propio.
 4. **Acceso a datos**: reglas específicas de la versión real del ORM/ODM (patrones de
    N+1, tracking vs. no-tracking, versión soportada).
 5. **Concurrencia/async**: reglas específicas de lo que la versión del framework soporta
-   realmente — no asumas que async/await está disponible sin confirmar la versión del
+   realmente — no asumir que async/await está disponible sin confirmar la versión del
    runtime.
 6. **Inyección de dependencias / scoping**: patrón y contenedor reales, con las reglas de
    scope específicas del framework de hosting real.
 7. **Testing**: framework y versión reales, convenciones de mocking.
 8. **Checklist de revisión**: lista corta y verificable, no una repetición de las
    secciones anteriores en otro formato.
+
+## Cierre, siempre
+
+Una vez completada, guardar el archivo real dentro del repositorio del equipo (no queda
+como borrador suelto) y avisar explícitamente que `read-only-code-reviewer` (CAP-012) ya
+puede cargarla — esta plantilla no se autoaplica ni notifica a ningún Agent por su
+cuenta.
 
 ## Dependencias
 
@@ -90,6 +97,45 @@ produce un hallazgo real sobre código (ver
 Esta plantilla no incluye contenido de ejemplo específico de stack, a propósito —
 cualquier ejemplo concreto (reglas de una versión específica de un ORM, de un framework
 de testing, etc.) pertenece a la instancia real de cada equipo.
+
+## Referencias oficiales para los stacks reales confirmados de MOA (2026-09-22)
+
+**Excepción deliberada a la regla de arriba**: no es contenido a copiar tal cual — es el
+punto de partida oficial para que cada equipo complete su propia sección 5
+(Concurrencia/async), a diferencia de dejarlo librado a que la IA improvise una regla
+distinta cada sesión (motivo explícito de esta sección: sin una regla clara declarada,
+un asistente de IA resuelve cada caso de forma distinta e inconsistente).
+
+- **Angular** (MOA tiene 3 versiones reales — 10.1.4, 20.3.7, 21.2.14, ver
+  `teams/README.md`): para proyectos en Angular moderno (20+), la guía oficial
+  ([angular.dev/guide/signals](https://angular.dev/guide/signals), verificado
+  2026-09-22) presenta `signal()`/`computed()`/`effect()` como el sistema de
+  reactividad recomendado para código nuevo — **no lo declara obligatorio de forma
+  absoluta** (RxJS sigue soportado vía interop), así que cada equipo declara
+  explícitamente en su propia skill si exige Signals para código nuevo o no, en vez de
+  dejarlo ambiguo. Para el proyecto en 10.1.4 (Scato Logística/Scato Puerto), Signals no
+  aplica — es una versión anterior a esa API.
+- **.NET Framework → .NET moderno**: ver
+  [`../dotnet-modernization-guide/SKILL.md`](../dotnet-modernization-guide/SKILL.md)
+  (CAP-020) — guía completa de modernización, no duplicada acá.
+
+## Reglas genéricas reales confirmadas por `moa-sdlc` (Existing Practice, DataAgro — 2026-09-22)
+
+A diferencia de las referencias oficiales de arriba, esto **sí es Existing Practice real
+de MOA** (no doc externa) — reglas ya en uso en DataAgro, generalizadas sin copiar el
+contenido específico del dominio de ese equipo (Autofac/EF6/Kendo UI no se generalizan,
+son 100% de esa instancia):
+
+- **Arquitectura/capas (sección 2)**: separar claramente componentes/servicios/guards en
+  Angular — nunca mezclar lógica de UI con acceso a datos en el mismo archivo.
+- **Manejo de errores/seguridad (secciones 3 y 6)**: nunca confiar en validación hecha
+  solo del lado del cliente — se revalida siempre del lado del servidor, sin excepción.
+- **Testing (sección 7)**: cobertura de tests unitarios esperada explícitamente sobre
+  servicios, pipes y guards de Angular — no solo sobre componentes visuales.
+- **Regla transversal, no solo de un stack**: "nunca deshabilitar una validación o un
+  analyzer para ocultar un problema, en vez de corregirlo" — coincide exactamente con la
+  misma regla ya presente en la Base mínima de CAP-006 (desactivar validaciones de
+  seguridad), ahora con una segunda fuente real e independiente que la confirma.
 
 ## Criterios de calidad
 

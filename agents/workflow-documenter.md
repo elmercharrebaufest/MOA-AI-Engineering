@@ -1,14 +1,9 @@
 ---
 name: workflow-documenter
 description: Documenta workflows de Windows Workflow Foundation (WF4.5, archivos .xamlx) — genera Markdown legible con variables, diagrama de flujo y problemas estructurales detectados. También ayuda a diagnosticar workflows en estado Faulted. Usar SOLO en proyectos reales que usen WF4.5.
-tools: Read, Bash, Grep, Glob, TodoWrite
+tools: [read, execute, search, todo]
 ---
 
-> **Frontmatter adaptado al formato real de subagentes de Claude Code** — la fuente
-> canónica ([`capabilities/agents/workflow-documenter/AGENT.md`](../capabilities/agents/workflow-documenter/AGENT.md))
-> usa nombres de herramienta genéricos (`read`/`execute`/`search`/`todo`); acá se
-> tradujeron a los nombres reales de Claude Code.
->
 > **`model` deliberadamente ausente del frontmatter** — cada equipo lo completa según su
 > plataforma real.
 
@@ -98,6 +93,14 @@ Si se pide diagnosticar un workflow que falló en runtime: citar el error real (
 inventar un tipo de error genérico), ubicar el punto exacto del workflow donde ocurrió, y
 proponer causa probable con la misma disciplina de evidencia que CAP-017
 (`production-incident-investigation`) — nunca forzar una conclusión sin base real.
+
+### 7. Cierre, siempre
+
+```text
+✅ Documentación y diagrama listos para revisión — la descripción de negocio marcada como
+   pendiente (si la hay) la completa una persona que conozca el proceso real; ningún
+   archivo `.xamlx` original quedó modificado.
+```
 
 ## Herramientas / permisos
 

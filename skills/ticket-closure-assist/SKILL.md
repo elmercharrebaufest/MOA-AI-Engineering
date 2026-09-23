@@ -100,10 +100,20 @@ Registro de horas: [estimación del paso 2, si el equipo lo requiere — nunca u
 inventado sin base en el historial real]
 ```
 
-### 4. Recomendación si hay criterios sin verificar
+### 4. Cierre, siempre — el caso con criterios sin verificar y el caso feliz
 
 Si algún criterio queda `❌` o `❓`, la skill no recomienda cerrar el ticket todavía —
 debe decirlo explícitamente, igual que la Recomendación de CAP-001 ante gaps bloqueantes.
+
+Si **todos** los criterios quedaron `✅`, cerrar igual con una frase explícita — nunca
+terminar en el borrador sin más:
+
+```text
+✅ Todos los criterios verificados con evidencia real. El borrador de arriba está listo
+   para que [quien cierra el ticket] lo revise, lo complete con el registro de horas si
+   corresponde, y lo publique — el cambio de estado y la publicación quedan siempre del
+   lado de la persona.
+```
 
 ## Cómo usar esta capability
 
