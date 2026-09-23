@@ -105,6 +105,15 @@ reportero real: excluir `~/.claude/plugins` de Windows Defender
 problema de forma consistente; reintentar el "Add" también puede alcanzar, al ser una
 carrera de timing.
 
+**Segundo intento, mismo bug pero silencioso**: usando el enlace de un clic, el flujo
+llegó hasta "Adding marketplace..." y terminó en "No plugins available", con la pestaña
+Marketplaces vacía ("No marketplaces configured") — el agregado del marketplace no llegó
+a persistir, mismo bug de arriba, esta vez sin mostrar el texto de error en pantalla. Esto
+descarta que el problema sea la estructura de `marketplace.json`/`plugin.json` de este
+repositorio — con `strict` en su valor por defecto (`true`), `.claude-plugin/plugin.json`
+en la raíz es la autoridad y no requiere declarar `skills`/`agents` dentro de
+`marketplace.json`, verificado contra la documentación oficial de "Strict mode".
+
 ## Qué falta confirmar
 
 - **Instalación real completa, sin el error de Windows** — todavía no se logró en

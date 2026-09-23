@@ -36,9 +36,10 @@ escribir `/plugins` → pestaña **Marketplaces** → agregar la URL
 
 Si aparece el mensaje `Run /reload-plugins to activate.`, correr ese comando.
 
-**Si falla con `EPERM` / "Failed to finalize marketplace cache"**: es un bug conocido de
-Claude Code en Windows (Windows Defender bloquea unos segundos la carpeta recién
-clonada). Reintentar el "Add" suele alcanzar. Si persiste:
+**Si falla** — con el error `EPERM` / "Failed to finalize marketplace cache", o en
+silencio (termina en "No plugins available" y la pestaña Marketplaces queda vacía): es el
+mismo bug conocido de Claude Code en Windows (Windows Defender bloquea unos segundos la
+carpeta recién clonada). Reintentar el "Add" suele alcanzar. Si persiste:
 
 ```powershell
 Add-MpPreference -ExclusionPath "$env:USERPROFILE\.claude\plugins"
