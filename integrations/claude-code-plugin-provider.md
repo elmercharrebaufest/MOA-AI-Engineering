@@ -114,6 +114,20 @@ repositorio — con `strict` en su valor por defecto (`true`), `.claude-plugin/p
 en la raíz es la autoridad y no requiere declarar `skills`/`agents` dentro de
 `marketplace.json`, verificado contra la documentación oficial de "Strict mode".
 
+**Tercer intento, la exclusión de Defender tampoco alcanzó**: hay una segunda variante del
+mismo bug, distinta de la carrera de timing, documentada en
+[#52435](https://github.com/anthropics/claude-code/issues/52435) (también cerrado "not
+planned"): en Windows, `fs.rename()` falla con `EPERM` de forma **determinística**
+(siempre, no a veces) cuando la carpeta destino ya existe de un intento anterior fallido —
+excluir el antivirus no ayuda en ese caso, porque la causa no es un bloqueo de archivo
+sino un directorio que ya está ahí. El propio mensaje de error ya lo indica ("Please
+manually delete the directory... if it exists"). El mismo issue #58241 documenta un
+workaround real, verificado por otro usuario, que evita el paso de Claude Code que falla:
+clonar el repositorio a mano y agregar esa carpeta local como marketplace, en vez de la
+URL remota — sin clone-then-rename interno, no hay nada que pueda fallar con EPERM. Ver
+el detalle paso a paso en
+[`../adoption/claude-code-plugin-quickstart.md`](../adoption/claude-code-plugin-quickstart.md).
+
 ## Qué falta confirmar
 
 - **Instalación real completa, sin el error de Windows** — todavía no se logró en

@@ -43,13 +43,30 @@ escribir `/plugins` → pestaña **Marketplaces** → agregar la URL
 Si aparece el mensaje `Run /reload-plugins to activate.`, correr ese comando.
 
 **Si falla** — con el error `EPERM` / "Failed to finalize marketplace cache", o en
-silencio (termina en "No plugins available" y la pestaña Marketplaces queda vacía): es el
-mismo bug conocido de Claude Code en Windows (Windows Defender bloquea unos segundos la
-carpeta recién clonada). Reintentar el "Add" suele alcanzar. Si persiste:
+silencio (termina en "No plugins available" y la pestaña Marketplaces queda vacía): es un
+bug conocido de Claude Code en Windows, no de este repositorio. Probar en este orden:
 
-```powershell
-Add-MpPreference -ExclusionPath "$env:USERPROFILE\.claude\plugins"
-```
+1. Borrar restos de intentos anteriores (el error es determinístico si la carpeta destino
+   ya existe — reintentar o excluir el antivirus no alcanza en ese caso):
+   ```powershell
+   Remove-Item -Recurse -Force "$env:USERPROFILE\.claude\plugins\marketplaces\ai-engineering" -ErrorAction SilentlyContinue
+   Remove-Item -Recurse -Force "$env:USERPROFILE\.claude\plugins\marketplaces\temp_*" -ErrorAction SilentlyContinue
+   ```
+   y reintentar agregar el marketplace.
+2. Si persiste, excluir la carpeta de Windows Defender (puede no alcanzar si el antivirus
+   real del equipo es otro, no Defender):
+   ```powershell
+   Add-MpPreference -ExclusionPath "$env:USERPROFILE\.claude\plugins"
+   ```
+3. Si sigue fallando, clonar el repositorio a mano y agregar esa carpeta local en vez de
+   la URL — evita por completo el paso de Claude Code que falla:
+   ```powershell
+   git clone https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering "$env:USERPROFILE\.local-marketplaces\ai-engineering"
+   ```
+   y agregar como marketplace esa ruta local
+   (`C:\Users\<usuario>\.local-marketplaces\ai-engineering`) en vez de la URL. No se
+   actualiza sola — hay que hacer `git pull` ahí y después
+   `/plugin marketplace update ai-engineering` a mano.
 
 ## 3. Confirmar que funcionó
 
