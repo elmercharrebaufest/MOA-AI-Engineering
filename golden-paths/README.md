@@ -14,11 +14,38 @@ y qué hace cada capacidad en lenguaje simple
 Cada Golden Path se define con: objetivo, entrada, pasos, capacidades utilizadas, HITL,
 evaluación, métricas, salida, criterios de éxito.
 
-De los 6 Golden Paths documentados, solo el primero (AI-Assisted Requirements) tiene su
-mecanismo probado de punta a punta — los demás siguen siendo conceptuales, sin ejecución
-real todavía. La evidencia real de uso del primero empieza con la prueba en curso de un
-developer real de MOA — ver [`../evidence/README.md`](../evidence/README.md) para el
-estado vivo.
+De los 6 Golden Paths documentados, el primero (AI-Assisted Requirements) ya tiene
+ejecución real registrada — ver [`../evidence/README.md`](../evidence/README.md) para el
+estado vivo. Los demás siguen siendo conceptuales, sin ejecución real todavía.
+
+## Mapa visual — de un requerimiento real a un ticket cerrado
+
+Cada paso dice qué capacidad lo cubre y qué corresponde hacer con el resultado — nunca
+queda en el aire qué sigue. Los pasos marcados como revisión/aprobación son siempre de
+una persona, nunca automáticos.
+
+```mermaid
+flowchart TD
+    A["Requerimiento real<br/>(ticket o descripción manual)"] --> B["user-story — CAP-001<br/>Historia + criterios + reglas + gaps"]
+    B --> C{"¿Quedan gaps<br/>bloqueantes?"}
+    C -->|"Sí"| D["Responder los gaps<br/>(PO / referente de negocio)"]
+    D --> B
+    C -->|"No"| E["Aprobar la historia<br/>(revisión humana)"]
+    E --> F["spec-driven-development — CAP-005 (Lite)<br/>Spec Author → Implementer → Reviewer"]
+    F --> G["pr-description — CAP-011<br/>Título y descripción del PR"]
+    G --> H["read-only-code-reviewer — CAP-012<br/>Hallazgos por severidad, sin poder editar"]
+    H --> I["Revisar y mergear<br/>(revisión humana)"]
+    I --> J["test-case-generation — CAP-014<br/>Casos de prueba"]
+    J --> K["ticket-closure-assist — CAP-016<br/>Borrador de cierre"]
+    K --> L["Cerrar el ticket<br/>(acción humana, nunca automática)"]
+```
+
+**Qué es real hoy y qué es propuesta**: `user-story` (CAP-001) y `spec-driven-development`
+nivel Lite (CAP-005) tienen evidencia real de uso. `pr-description` (CAP-011),
+`read-only-code-reviewer` (CAP-012), `test-case-generation` (CAP-014) y
+`ticket-closure-assist` (CAP-016) son propuestas listas para pilotear, sin ejecución real
+todavía — el diagrama muestra el camino completo, no una afirmación de que todo esté
+probado. Detalle de evidencia de cada una: [`../registry/INDEX.md`](../registry/INDEX.md).
 
 ---
 
