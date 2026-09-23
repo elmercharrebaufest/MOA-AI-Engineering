@@ -6,7 +6,13 @@ Copilot — para eso está
 Patrón completo: [`../integrations/claude-code-plugin-provider.md`](../integrations/claude-code-plugin-provider.md).
 
 **Los pasos son distintos según dónde se use Claude Code** — la CLI de terminal y la
-extensión de VS Code no comparten los mismos comandos.
+extensión de VS Code no comparten los mismos comandos:
+
+- **"Por terminal"** más abajo significa cualquier línea de comandos (PowerShell, CMD,
+  Git Bash, o la terminal integrada de VS Code) donde se ejecuta `claude` — el programa
+  de línea de comandos, no algo atado a una terminal en particular.
+- **"Extensión de VS Code"** es el panel de chat de Claude Code dentro de VS Code — una
+  interfaz gráfica, no una terminal, con sus propios comandos (`/plugins`, no `/plugin`).
 
 ## 1. Prerequisito
 

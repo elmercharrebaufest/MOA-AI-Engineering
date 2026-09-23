@@ -31,7 +31,9 @@ From Source"** → pegar esta URL:
 https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering
 ```
 
-**O por terminal, con GitHub Copilot CLI**:
+**O por terminal, con GitHub Copilot CLI** ("terminal" es cualquier línea de comandos —
+PowerShell, CMD, Git Bash, o la terminal integrada de VS Code — donde esté disponible el
+comando `copilot`):
 
 ```
 copilot plugin install https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering
