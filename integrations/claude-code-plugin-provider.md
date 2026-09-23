@@ -6,9 +6,15 @@ distribuye él mismo, en paralelo a
 ecosistemas separados: instalar uno no instala el otro (hallazgo real, 2026-09-23 — ver
 "Por qué existe este documento").
 
-**Estado**: `CONFIGURED` (2026-09-23) — estructura construida y verificada contra la
-documentación oficial de Claude Code, sin instalación real todavía. Ver "Qué falta
-confirmar".
+**Estado**: `BLOCKED — PLATFORM LIMITATION` (2026-09-23). La estructura de este repositorio
+está construida y verificada contra la documentación oficial de Claude Code — el bloqueo
+**no es de este repositorio**: es un bug real y externo de Claude Code en Windows (ver
+"Hallazgo real" más abajo), confirmado contra 2 issues reales de `anthropics/claude-code`,
+ambos cerrados "not planned" por Anthropic. `BLOCKED` no significa que la capacidad se
+descarte — significa que esta ruta puntual de distribución no se puede completar hoy por
+una causa fuera de nuestro control, mientras la misma capacidad sí funciona por la ruta de
+VS Code/GitHub Copilot ([`agent-plugin-provider.md`](agent-plugin-provider.md), `EXECUTED`).
+Ver "Qué falta confirmar".
 
 ## Por qué existe este documento
 

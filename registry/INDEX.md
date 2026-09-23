@@ -11,6 +11,13 @@ ejecuciones) → `EXECUTED` (al menos 1 ejecución real registrada, no necesaria
 independiente) → `VERIFIED` (ejecución independiente + evaluación humana confirmadas —
 **ninguna entrada llegó a este nivel todavía**). Ver detalle unificado en G4.5 más abajo.
 
+**`BLOCKED`** (agregado 2026-09-23) — no es un paso más de la progresión de arriba, es un
+estado paralelo: una ruta de ejecución/distribución concreta tiene una imposibilidad
+técnica real y externa (bug de la plataforma, no de este repositorio), confirmada contra
+fuentes oficiales. No implica descartar la capacidad ni degradar su estado en otras rutas
+que sí funcionen — ver [`claude-code-plugin-provider.md`](../integrations/claude-code-plugin-provider.md)
+como el primer caso real.
+
 ## Todas las entradas
 
 | ID | Nombre | Tipo | Repos | Corporate Standard | Configuration Status | Real Use Status | Riesgo |
@@ -86,7 +93,7 @@ candidatos inspeccionados
 la mayoría de los agentes por rol de DataAgro/Scato Logística) **no** se materializaron
 acá — quedaron clasificados TEAM-SPECIFIC o EXPERIMENTAL, con su razón documentada.
 
-**Escala de `Real Use Status`** (unificada en G4.5): `NOT FOUND` (sin evidencia de que exista) → `CONFIGURED` (existe, bien formado, cero ejecuciones) → `EXECUTED` (al menos 1 ejecución real registrada, no necesariamente independiente) → `VERIFIED` (ejecución independiente + evaluación humana confirmadas — **ninguna entrada llegó a este nivel todavía**).
+**Escala de `Real Use Status`** (unificada en G4.5): `NOT FOUND` (sin evidencia de que exista) → `CONFIGURED` (existe, bien formado, cero ejecuciones) → `EXECUTED` (al menos 1 ejecución real registrada, no necesariamente independiente) → `VERIFIED` (ejecución independiente + evaluación humana confirmadas — **ninguna entrada llegó a este nivel todavía**). `BLOCKED` (agregado 2026-09-23) es un estado paralelo, no un paso de esta progresión — ver la nota arriba.
 
 ## Por tipo
 
