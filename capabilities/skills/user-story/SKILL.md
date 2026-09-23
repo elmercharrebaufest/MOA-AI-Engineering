@@ -168,8 +168,16 @@ sin más:
 ```text
 ✅ Historia lista para revisión humana (PO o referente de negocio) — no se publicó ni se
    pegó en ningún lado automáticamente. El siguiente paso es que una persona la revise y
-   decida si pasa así a Planning/desarrollo, o si necesita otro ajuste.
+   la apruebe explícitamente; con esa aprobación, corresponde pasar a
+   `spec-driven-development` (nivel Lite) para arrancar el desarrollo — esta skill no
+   hace ese paso.
 ```
+
+**Hallazgo real (2026-09-23), un escalón más adelante del anterior**: un developer real
+respondió los gaps con el PO, recibió la historia ya refinada, y no supo qué seguía
+porque nada en la salida apuntaba al siguiente paso del SDLC (`spec-driven-development`).
+La frase de cierre de arriba tiene que nombrar el próximo Golden Path/capability real, no
+quedarse en un genérico "pasa a Planning/desarrollo" que no dice adónde ir.
 
 Si la propia historia mezcla contenido técnico de implementación (nombres de archivo,
 tablas, servicios concretos) porque hizo falta verificar contra el código real, sumar
@@ -249,8 +257,8 @@ RN-01: [restricción real]
 
 ### Cierre (siempre, sin excepción)
 📌 [si quedan gaps bloqueantes: 1 frase de por qué no está lista + a quién contactar] o
-✅ [si no quedan gaps bloqueantes: 1 frase confirmando que está lista para revisión
-   humana, y que no se publicó nada automáticamente]
+✅ [si no quedan gaps bloqueantes: lista para revisión humana; con la aprobación,
+   corresponde pasar a `spec-driven-development` para arrancar el desarrollo]
 ```
 
 ### Si ya existe una ejecución para este ticket
