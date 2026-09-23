@@ -297,10 +297,12 @@ Ver los puntos 3 y 4.
    `governance/BLOCKED-DECISIONS.md` #13).
 2. **Para distribución automática, sin acción del developer**:
    [`../integrations/capability-distribution.md`](../integrations/capability-distribution.md)
-   — sync por Pull Request, reutilizando `az repos pr create` (Scato Logística/Orquestador
-   ya lo usan en producción). El cambio le llega al equipo sin que nadie lo pida, siempre
-   con revisión humana antes de aceptarlo. Requiere que un administrador de Azure DevOps
-   habilite el permiso de escritura del pipeline — no es autoservicio.
+   — sync por Pull Request, reutilizando `az repos pr create` (la técnica en sí ya la usan
+   en producción Scato Logística/Orquestador, pero como mecanismo de distribución de este
+   repositorio sigue `PROPOSAL`, sin piloto de ningún equipo todavía — a diferencia del
+   punto 3, que ya es `EXECUTED`). El cambio le llega al equipo sin que nadie lo pida,
+   siempre con revisión humana antes de aceptarlo. Requiere que un administrador de Azure
+   DevOps habilite el permiso de escritura del pipeline — no es autoservicio.
 3. **Para adopción individual con VS Code / GitHub Copilot, sin pedirle nada a un
    administrador**:
    [`../integrations/agent-plugin-provider.md`](../integrations/agent-plugin-provider.md) —
