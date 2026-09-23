@@ -8,10 +8,11 @@
 caminos**: por terminal (GitHub Copilot CLI, 2026-09-22, salida real *"Plugin
 'ai-engineering' installed successfully. Installed 10 skills."*) y por la interfaz de VS
 Code (2026-09-23, comando **"Chat: Install Plugin From Source"**, plugin visible en el
-panel "Extensions: Agent Plugins" con nombre y descripción reales). Queda un punto
-importante sin verificar (¿se instalaron también los Agents, o solo los Skills? — ver
-"Qué falta confirmar") y un hallazgo nuevo que afecta la continuidad del método por
-terminal (ver "Aviso de deprecación").
+panel "Extensions: Agent Plugins" con nombre y descripción reales). **Los Agents también
+quedan instalados y reconocidos** (confirmado 2026-09-23, Copilot Chat reconoció
+`ticket-kickoff` y `workflow-documenter` con su descripción real) — el mensaje de
+instalación solo menciona Skills, pero no era el caso. Queda un hallazgo que afecta la
+continuidad del método por terminal (ver "Aviso de deprecación").
 
 ## Origen de este patrón
 
@@ -72,7 +73,7 @@ propagación automática (que sigue sin aplicar a MOA por estar en Azure DevOps,
    `copilot plugin uninstall ai-engineering` también funciona, con el mismo riesgo del
    bug de Windows del punto anterior.
 
-## Qué falta confirmar (actualizado 2026-09-22, primera prueba real ya ocurrió)
+## Qué falta confirmar (actualizado 2026-09-23)
 
 - ~~El formato de la URL~~ — **resuelto**: la URL real sin sufijo `.git` funcionó tal
   cual, confirmado en la primera instalación real (vía GitHub Copilot CLI).
@@ -80,17 +81,13 @@ propagación automática (que sigue sin aplicar a MOA por estar en Azure DevOps,
   CLI no hizo falta ningún paso de autenticación manual. Por la interfaz de VS Code
   ("Chat: Install Plugin From Source", 2026-09-23) tampoco se observó ningún prompt de
   autenticación adicional al instalar.
-- **Nuevo, sin confirmar: ¿se instalaron los Agents, o solo los Skills?** La salida real
-  dice *"Installed 10 skills"* — que coincide exactamente con la cantidad real de Skills
-  de este repositorio, pero **no menciona nada de los 7 Agents ni del Workflow**. Puede
-  ser que el mensaje de resumen solo cuente Skills aunque instaló todo, o puede ser que
-  `com.github.copilot/agents/` no se haya reconocido como esperábamos. **Se confirma
-  abriendo Copilot Chat en modo Agent y preguntando si reconoce, por ejemplo,
-  `ticket-kickoff` o `workflow-documenter`** — no se asume ninguna de las 2 posibilidades
-  sin esa prueba.
-- La estructura exacta de `com.github.copilot/agents/` (namespace reverse-domain) sigue
-  sin confirmación adicional más allá de la reconstrucción original — el punto de arriba
-  es, en los hechos, la forma de confirmarla o refutarla.
+- ~~¿Se instalaron los Agents, o solo las Skills?~~ — **resuelto (2026-09-23)**: la salida
+  de instalación solo menciona *"Installed 10 skills"*, pero Copilot Chat reconoció
+  correctamente `ticket-kickoff` y `workflow-documenter`, con su descripción real — los 7
+  Agents también quedan instalados, el mensaje de resumen simplemente no los cuenta.
+- ~~La estructura exacta de `com.github.copilot/agents/` (namespace reverse-domain)~~ —
+  **resuelta por el mismo hallazgo de arriba**: si Copilot Chat reconoce los Agents con
+  su descripción real, la estructura fue interpretada correctamente.
 - **Instalar desde VS Code** (paso 2) ya está confirmado, sin el bug de Windows del CLI.
   **Sigue sin confirmar si Actualizar/Desinstalar desde VS Code también lo evitan** —
   falta que algún developer real lo pruebe y reporte si el error reaparece o no.

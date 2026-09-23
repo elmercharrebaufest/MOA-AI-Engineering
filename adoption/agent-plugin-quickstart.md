@@ -11,9 +11,9 @@ todo el mundo, sin que cada developer instale nada por su cuenta — para eso es
 un administrador de Azure DevOps).
 
 **Estado**: `EXECUTED` (2026-09-23) — **confirmado por 2 caminos reales**: por terminal
-(GitHub Copilot CLI, 2026-09-22) y por la interfaz de VS Code (2026-09-23). Sigue
-habiendo 1 cosa importante sin confirmar (ver paso 3) y 1 aviso real a tener en cuenta
-(ver "Aviso importante" más abajo).
+(GitHub Copilot CLI, 2026-09-22) y por la interfaz de VS Code (2026-09-23). Los Agents
+también quedan instalados y reconocidos, no solo las Skills (ver paso 3). Queda 1 aviso
+real a tener en cuenta (ver "Aviso importante" más abajo).
 
 ## 1. Prerequisitos
 
@@ -58,16 +58,14 @@ falta hacer nada distinto por ahora. Detalle de cómo se resolverá esto cuando
 corresponda:
 [`../integrations/agent-plugin-provider.md`](../integrations/agent-plugin-provider.md#aviso-de-deprecación-hallazgo-real-2026-09-22).
 
-## 3. Confirmar que funcionó — con un chequeo extra importante
+## 3. Confirmar que funcionó
 
-Abrir Copilot Chat en modo Agent y preguntarle qué agents/skills tiene disponibles.
+Abrir Copilot Chat en modo Agent y preguntarle qué agents/skills tiene disponibles — por
+ejemplo, si reconoce `ticket-kickoff` o `workflow-documenter`.
 
-**Punto crítico a confirmar (la instalación real solo mencionó "10 skills", nada de
-Agents)**: preguntarle explícitamente por un **Agent**, no solo por Skills — por ejemplo
-*"¿reconocés el agent `ticket-kickoff` o `workflow-documenter`?"* (o su equivalente en
-tercera persona: *"¿está disponible el agent...?"*). Si Copilot Chat no los reconoce, es
-información real importante — puede ser que solo se hayan instalado las Skills y no los
-Agents, algo que todavía no está confirmado.
+**Confirmado real (2026-09-23)**: los Agents quedan instalados y reconocidos, con la
+descripción real de cada uno — no solo las Skills, aunque el mensaje de instalación solo
+mencione *"Installed 10 skills"*.
 
 ## 4. Actualizar
 
