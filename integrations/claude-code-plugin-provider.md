@@ -86,10 +86,30 @@ o `/plugins` → pestaña Marketplaces → agregar la URL → pestaña Plugins �
 **Actualizar/Desinstalar**: mismo patrón de 2 entornos — ver el Quick Start para el
 detalle de cada uno.
 
+**Hallazgo real (2026-09-23) — bug de Windows al agregar el marketplace**: usando el
+camino correcto (extensión de VS Code, diálogo "Manage Plugins" → Marketplaces → Add), la
+instalación falló con:
+
+> *"Failed to add marketplace: Failed to finalize marketplace cache. [...] EPERM:
+> operation not permitted, rename 'temp_git_...' -> '...\ai-engineering'"*
+
+Es un bug conocido de Claude Code en Windows, no de este repositorio — confirmado en
+varios issues reales del repo `anthropics/claude-code`
+([#58241](https://github.com/anthropics/claude-code/issues/58241),
+[#54053](https://github.com/anthropics/claude-code/issues/54053)). Causa: al terminar el
+`git clone`, Windows Defender (y a veces el indexador de búsqueda) mantiene el archivo
+recién escrito bloqueado unos segundos, y el `rename` que sigue choca con ese bloqueo —
+una condición de carrera, no un fallo determinístico. Workaround confirmado por un
+reportero real: excluir `~/.claude/plugins` de Windows Defender
+(`Add-MpPreference -ExclusionPath "$env:USERPROFILE\.claude\plugins"`) resuelve el
+problema de forma consistente; reintentar el "Add" también puede alcanzar, al ser una
+carrera de timing.
+
 ## Qué falta confirmar
 
-- **Instalación real, de punta a punta, en cualquiera de los 2 entornos** — nadie la
-  completó todavía. Es el paso siguiente antes de subir el `Estado` de este documento.
+- **Instalación real completa, sin el error de Windows** — todavía no se logró en
+  ninguno de los 2 entornos. Es el paso siguiente antes de subir el `Estado` de este
+  documento.
 - **Si `skills/` (ya compartido con VS Code) funciona sin cambios en Claude Code** — la
   estructura de carpetas coincide, pero el frontmatter real de nuestros `SKILL.md`
   incluye un campo `name` que los ejemplos de la documentación de Claude Code no
