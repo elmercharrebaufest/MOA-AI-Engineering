@@ -70,15 +70,22 @@ muestra el aviso *"Direct plugin installs ... are deprecated"* al usarlas):
 En cualquiera de los 3 caminos, VS Code muestra el prompt de confianza en la primera
 instalación de una fuente nueva — aceptar.
 
-**Actualizar**: desde VS Code — automático cada 24 horas si `extensions.autoUpdate` está
-activo, o a mano con **"Extensions: Check for Extension Updates"**. Por terminal
-(`copilot plugin update`), en Windows falla con *"Access is denied. (os error 5)"* — bug
-conocido de GitHub Copilot CLI, no de este repositorio, afecta a los 3 caminos de
-instalación por igual — usar VS Code en su lugar.
+**Actualizar**: por terminal (`copilot plugin update`), en Windows falla con *"Access is
+denied. (os error 5)"* — bug confirmado de GitHub Copilot CLI, no de este repositorio,
+afecta a los 3 caminos de instalación por igual. El panel "Extensions: Agent Plugins" de
+VS Code no muestra ningún botón de actualización para este plugin — no hay, hoy, un
+mecanismo de actualización confirmado que funcione en Windows. El único camino que sí
+funciona es un workaround, no una función de "actualizar": desinstalar y volver a instalar
+(ver "Desinstalar" abajo, y el punto 2 de "Cómo lo instala un developer"). No hay evidencia
+real de que `extensions.autoUpdate` (24 horas) ni **"Extensions: Check for Extension
+Updates"** apliquen a este tipo de plugin — son mecanismos de las Extensions estándar de
+VS Code, un sistema distinto de Agent Plugins; queda `REQUIRES VALIDATION`, no afirmado.
 
-**Desinstalar**: desde VS Code — vista **"Agent Plugins - Installed"**, clic derecho sobre
-el plugin → **"Uninstall"**. Por terminal (`copilot plugin uninstall`), mismo error de
-Windows que Actualizar — usar VS Code en su lugar.
+**Desinstalar**: confirmado real desde VS Code — vista **"Agent Plugins - Installed"**,
+clic derecho sobre el plugin → **"Uninstall"**. Por terminal (`copilot plugin uninstall`)
+**no hay evidencia real todavía** — nunca se probó ese comando específico; no corresponde
+asumir que falla igual que `update` solo porque comparten el mismo CLI. Usar VS Code
+mientras no exista esa prueba.
 
 **Instalar por más de un camino deja copias separadas del plugin** — `copilot plugin
 list` las distingue por su origen (`ai-engineering` vs. `ai-engineering@ai-engineering`).

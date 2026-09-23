@@ -72,15 +72,13 @@ en las propias palabras alcanza, sin necesitar nombrar ninguna capacidad por su 
 otras extensiones). Por terminal, `copilot plugin update ai-engineering@ai-engineering`
 falla en Windows con un error del propio GitHub Copilot CLI, sea cual haya sido el camino
 de instalación usado (marketplace o directo) — no es algo que se pueda corregir desde este
-repositorio. Para traer los cambios más recientes:
+repositorio. No hay, hoy, ningún mecanismo de actualización confirmado que funcione en
+Windows — el siguiente workaround es lo único que sí funciona:
 
 1. Buscar `@agentPlugins` en la vista Extensions (ícono de la barra lateral).
 2. Abrir `ai-engineering` → **"Uninstall"**.
 3. Volver a instalarlo con el mismo comando o paso usado la primera vez (punto 2 de
    arriba).
-
-También se actualiza solo, sin hacer nada, dentro de las próximas 24 horas, si
-`extensions.autoUpdate` está activo en VS Code (valor por defecto).
 
 ## 5. Desinstalar
 
