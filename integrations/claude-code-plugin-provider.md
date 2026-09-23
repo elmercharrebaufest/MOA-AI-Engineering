@@ -163,3 +163,7 @@ el detalle paso a paso en
 Igual que [`agent-plugin-provider.md`](agent-plugin-provider.md): estos espejos se
 actualizan a mano junto con cada cambio real a `capabilities/agents/` — no hay
 automatización todavía.
+
+**Versionado**: mismo `version` y mismo [`CHANGELOG.md`](../CHANGELOG.md) que
+`plugin.json` — `.claude-plugin/plugin.json` sube de versión junto con el otro, nunca por
+separado, para que ambas plataformas queden siempre en el mismo número.

@@ -7,7 +7,7 @@
     {
       "name": "ai-engineering",
       "source": "./",
-      "description": "Biblioteca reusable de capacidades de AI Engineering de Molinos Agro (Track 1) -- skills y agents generalizados desde evidencia real de equipos de MOA y evidencia externa, con Human-in-the-Loop explicito. PROPOSAL -- sin ejecucion real ni piloto de ningun equipo todavia."
+      "description": "Biblioteca reusable de capacidades de AI Engineering de Molinos Agro (Track 1) -- skills, agents y workflows generalizados desde evidencia real de equipos de MOA y evidencia externa, con Human-in-the-Loop explicito. Primera ejecucion real registrada (CAP-001); el resto del Registry sigue en fase de piloto."
     }
   ]
 }

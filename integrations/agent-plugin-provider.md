@@ -131,3 +131,9 @@ Este espejo se actualiza a mano por ahora, junto con cada cambio real a
 volumen de cambios lo justifica, se puede agregar un paso al mismo pipeline de
 [Capability Distribution](capability-distribution.md) que también actualice este espejo —
 evaluar después de la primera prueba real, no antes.
+
+**Versionado**: cada vez que el contenido empaquetado (`skills/`, `com.github.copilot/agents/`,
+`workflows/`) cambia de verdad, corresponde subir el campo `version` de `plugin.json`
+(SemVer) y agregar la entrada al [`CHANGELOG.md`](../CHANGELOG.md) — es lo que permite que
+VS Code detecte que hay una actualización real disponible. Nunca subir la versión por
+cambios de documentación pura.
