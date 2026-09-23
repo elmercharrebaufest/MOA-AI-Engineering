@@ -52,37 +52,21 @@ en las propias palabras alcanza, sin necesitar nombrar ninguna capacidad por su 
 
 ## 4. Actualizar
 
-**Automático, sin hacer nada**: si `extensions.autoUpdate` está activo en VS Code (es el
-valor por defecto), el plugin se actualiza solo, dentro de las próximas 24 horas — no
-hace falta ninguna acción.
+`ai-engineering` no tiene un botón de "Update" en su panel (a diferencia de otras
+extensiones) — es un plugin instalado directo desde la URL, no desde un marketplace con
+versionado. Para traer los cambios más recientes:
 
-**Para forzarlo ahora, en vez de esperar**:
+1. Buscar `@agentPlugins` en la vista Extensions (ícono de la barra lateral).
+2. Abrir `ai-engineering` → **"Uninstall"**.
+3. Volver a instalarlo con el mismo paso 2 de arriba (paleta de comandos → "Chat: Install
+   Plugin From Source" → la misma URL).
 
-1. Abrir la paleta de comandos: `Ctrl+Shift+P` (Windows/Linux) o `Cmd+Shift+P` (Mac).
-2. Escribir `Extensions: Check for Extension Updates` y seleccionar ese comando de la
-   lista — según la documentación oficial, este comando revisa también los Agent Plugins
-   por detrás, aunque el nombre diga "Extension".
-
-**Importante (hallazgo real, 2026-09-24)**: `ai-engineering` **no** va a aparecer en el
-panel normal de Extensions filtrado por `@outdated` — ahí solo se listan extensiones
-comunes del Marketplace (Cline, GitLens, etc.), nunca Agent Plugins. Para ver el estado
-real del plugin, corresponde abrir su propia vista:
-
-3. Abrir la vista Extensions (ícono de la barra lateral) → buscar `@agentPlugins` en el
-   cuadro de búsqueda, o ir directo a la sección **"Agent Plugins - Installed"**.
-4. Ahí debería figurar `ai-engineering` — si no aparece ningún botón de actualizar, lo
-   más probable es que ya esté en la última versión, no que algo esté roto.
-5. Para confirmar que trajo lo último: repetir el paso 3 del Quick Start (preguntarle a
-   Copilot Chat si reconoce una capacidad agregada recientemente).
-
-**Si `extensions.autoUpdate` está desactivado** y se quiere dejarlo en automático:
-paleta de comandos → `Preferences: Open User Settings` → buscar `Extensions: Auto Update`
-→ activarlo.
+También se actualiza solo, sin hacer nada, dentro de las próximas 24 horas, si
+`extensions.autoUpdate` está activo en VS Code (valor por defecto).
 
 ## 5. Desinstalar
 
-Desde VS Code: vista **"Agent Plugins - Installed"**, clic derecho sobre el plugin →
-**"Uninstall"**.
+Buscar `@agentPlugins` en la vista Extensions → abrir `ai-engineering` → **"Uninstall"**.
 
 ## 6. Alternativa: que llegue recomendado sin configurar nada
 
