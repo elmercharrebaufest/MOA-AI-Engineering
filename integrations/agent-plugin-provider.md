@@ -3,21 +3,15 @@
 **Específico de VS Code con GitHub Copilot.** Para Claude Code (herramienta separada, con
 su propio sistema de plugins), ver
 [`claude-code-plugin-provider.md`](claude-code-plugin-provider.md) — instalar este no
-instala aquel (hallazgo real, 2026-09-23).
+instala aquel.
 
 **No es una capability del Registry** — es la forma en que este repositorio se distribuye
 él mismo, mismo tratamiento que [Capability Distribution](capability-distribution.md) y
 [Context Acquisition & Resolution](../architecture/context-acquisition-resolution.md).
 
-**Estado**: `EXECUTED` (actualizado 2026-09-23) — **instalación real confirmada por 2
-caminos**: por terminal (GitHub Copilot CLI, 2026-09-22, salida real *"Plugin
-'ai-engineering' installed successfully. Installed 10 skills."*) y por la interfaz de VS
-Code (2026-09-23, comando **"Chat: Install Plugin From Source"**, plugin visible en el
-panel "Extensions: Agent Plugins" con nombre y descripción reales). **Los Agents también
-quedan instalados y reconocidos** (confirmado 2026-09-23, Copilot Chat reconoció
-`ticket-kickoff` y `workflow-documenter` con su descripción real) — el mensaje de
-instalación solo menciona Skills, pero no era el caso. Queda un hallazgo que afecta la
-continuidad del método por terminal (ver "Aviso de deprecación").
+**Estado**: `EXECUTED` — instalación real confirmada por 3 caminos (terminal directo,
+interfaz de VS Code, terminal vía marketplace). Los Agents quedan instalados y
+reconocidos igual que las Skills, aunque el mensaje de instalación solo mencione Skills.
 
 ## Origen de este patrón
 
@@ -55,64 +49,42 @@ propagación automática (que sigue sin aplicar a MOA por estar en Azure DevOps,
 **URL real del repositorio** (ya migrado):
 `https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering`
 
-1. Agregar esa URL como marketplace — en la configuración de usuario de VS Code
-   (`chat.plugins.marketplaces`), o mejor, commiteada en el repo del equipo
-   (`.github/copilot/settings.json`, sección `extraKnownMarketplaces`) para que cualquiera
-   que abra ese repo la reciba recomendada, sin configurarla a mano.
-2. **Recomendado**: instalar desde la paleta de comandos de VS Code con
-   **"Chat: Install Plugin From Source"** (pegando esa URL directamente) — confirmado
-   real, queda visible en el panel "Extensions: Agent Plugins". Alternativa por terminal
-   con **GitHub Copilot CLI** (herramienta separada de VS Code): `copilot plugin install
-   <URL>` — acepta cualquier URL de Git, no solo GitHub.
-3. Aceptar el prompt de confianza (VS Code lo muestra siempre en la primera instalación de
-   una fuente nueva).
-4. **Actualizar**: desde VS Code — automático cada 24 horas si `extensions.autoUpdate`
-   está activo, o a mano con **"Extensions: Check for Extension Updates"**. Por terminal
-   (`copilot plugin update`), en Windows falla con *"Access is denied. (os error 5)"* —
-   bug conocido de GitHub Copilot CLI, no de este repositorio — usar VS Code en su lugar.
-5. **Desinstalar**: desde VS Code — vista **"Agent Plugins - Installed"**, clic derecho
-   sobre el plugin → **"Uninstall"**. Por terminal (`copilot plugin uninstall`), mismo
-   error de Windows que Actualizar — usar VS Code en su lugar.
-
-## Qué falta confirmar (actualizado 2026-09-23)
-
-- ~~El formato de la URL~~ — **resuelto**: la URL real sin sufijo `.git` funcionó tal
-  cual, confirmado en la primera instalación real (vía GitHub Copilot CLI).
-- ~~Autenticación contra el repositorio privado~~ — **resuelto en los 2 caminos**: por
-  CLI no hizo falta ningún paso de autenticación manual. Por la interfaz de VS Code
-  ("Chat: Install Plugin From Source", 2026-09-23) tampoco se observó ningún prompt de
-  autenticación adicional al instalar.
-- ~~¿Se instalaron los Agents, o solo las Skills?~~ — **resuelto (2026-09-23)**: la salida
-  de instalación solo menciona *"Installed 10 skills"*, pero Copilot Chat reconoció
-  correctamente `ticket-kickoff` y `workflow-documenter`, con su descripción real — los 7
-  Agents también quedan instalados, el mensaje de resumen simplemente no los cuenta.
-- ~~La estructura exacta de `com.github.copilot/agents/` (namespace reverse-domain)~~ —
-  **resuelta por el mismo hallazgo de arriba**: si Copilot Chat reconoce los Agents con
-  su descripción real, la estructura fue interpretada correctamente.
-- ~~¿Actualizar/Desinstalar desde VS Code evita el bug de Windows del CLI?~~ —
-  **resuelto (2026-09-23)**: confirmado que Actualizar y Desinstalar por terminal no
-  funcionan en Windows; por VS Code sí.
-
-## Aviso de deprecación (hallazgo real, 2026-09-22)
-
-La instalación real mostró esta advertencia textual: *"Direct plugin installs (repos,
-URLs, local paths) are deprecated. Only plugin@marketplace installs will be supported in
-a future release."* — el método que documentamos **funciona hoy, pero GitHub lo va a
-retirar**. El reemplazo oficial (verificado en la documentación real de GitHub Copilot
-CLI) es un flujo de 2 pasos:
+**Recomendado — vía marketplace, por terminal con GitHub Copilot CLI**, 2 pasos:
 
 ```
-copilot plugin marketplace add <fuente>
-copilot plugin install <nombre-del-plugin>@<nombre-del-marketplace>
+copilot plugin marketplace add https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering
+copilot plugin install ai-engineering@ai-engineering
 ```
 
-**No se implementa este cambio todavía, a propósito** — la documentación real distingue
-entre un repositorio "marketplace" (una colección que lista varios plugins) y un
-repositorio de "un solo plugin" (que es lo que es `ai-engineering` hoy, con `plugin.json`
-en la raíz), y no queda claro si nuestro mismo repositorio puede servir como su propio
-marketplace o si hace falta una estructura aparte. Es una pregunta real de diseño, no
-algo para resolver adivinando — queda pendiente de investigar antes de migrar, sin
-apuro porque el método actual sigue funcionando mientras tanto.
+El repositorio no necesita ningún archivo adicional para funcionar como marketplace de un
+solo plugin — el primer comando ya lo registra como tal.
+
+**Alternativas, funcionan hoy pero GitHub las tiene marcadas para discontinuar** (el CLI
+muestra el aviso *"Direct plugin installs ... are deprecated"* al usarlas):
+
+1. Por la paleta de comandos de VS Code con **"Chat: Install Plugin From Source"**
+   (pegando la URL directamente) — queda visible en el panel "Extensions: Agent Plugins".
+2. Por terminal, instalación directa: `copilot plugin install <URL>` — acepta cualquier
+   URL de Git, no solo GitHub.
+
+En cualquiera de los 3 caminos, VS Code muestra el prompt de confianza en la primera
+instalación de una fuente nueva — aceptar.
+
+**Actualizar**: desde VS Code — automático cada 24 horas si `extensions.autoUpdate` está
+activo, o a mano con **"Extensions: Check for Extension Updates"**. Por terminal
+(`copilot plugin update`), en Windows falla con *"Access is denied. (os error 5)"* — bug
+conocido de GitHub Copilot CLI, no de este repositorio, afecta a los 3 caminos de
+instalación por igual — usar VS Code en su lugar.
+
+**Desinstalar**: desde VS Code — vista **"Agent Plugins - Installed"**, clic derecho sobre
+el plugin → **"Uninstall"**. Por terminal (`copilot plugin uninstall`), mismo error de
+Windows que Actualizar — usar VS Code en su lugar.
+
+**Instalar por más de un camino deja copias separadas del plugin** — `copilot plugin
+list` las distingue por su origen (`ai-engineering` vs. `ai-engineering@ai-engineering`).
+Conviene desinstalar cualquier copia anterior al migrar al camino recomendado, para no
+tener duplicados ni confundirse sobre cuál versión está activa (cada instalación queda
+fija en la versión con la que se instaló — no se actualiza sola).
 
 ## Implementación
 

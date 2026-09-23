@@ -24,16 +24,26 @@ un administrador de Azure DevOps).
 Se instala una sola vez por máquina y aplica a cualquier proyecto que se abra en VS Code
 — no hace falta tener ningún repositorio propio abierto.
 
-**Por la paleta de comandos** (`Ctrl+Shift+P` / `Cmd+Shift+P`) → **"Chat: Install Plugin
-From Source"** → pegar esta URL:
+**Recomendado, por terminal con GitHub Copilot CLI** ("terminal" es cualquier línea de
+comandos — PowerShell, CMD, Git Bash, o la terminal integrada de VS Code — donde esté
+disponible el comando `copilot`), en 2 pasos:
+
+```
+copilot plugin marketplace add https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering
+copilot plugin install ai-engineering@ai-engineering
+```
+
+El primer paso registra este repositorio como fuente; el segundo instala el plugin desde
+ahí. Es el camino que va a seguir funcionando a futuro (ver punto 4, Actualizar).
+
+**Alternativa, por la paleta de comandos** (`Ctrl+Shift+P` / `Cmd+Shift+P`) → **"Chat:
+Install Plugin From Source"** → pegar esta URL:
 
 ```
 https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering
 ```
 
-**O por terminal, con GitHub Copilot CLI** ("terminal" es cualquier línea de comandos —
-PowerShell, CMD, Git Bash, o la terminal integrada de VS Code — donde esté disponible el
-comando `copilot`):
+**Alternativa, instalación directa por terminal**:
 
 ```
 copilot plugin install https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering
@@ -41,6 +51,12 @@ copilot plugin install https://dev.azure.com/molinosagro/ai-engineering/_git/ai-
 
 Si GitHub Copilot CLI no está instalada, el propio comando ofrece instalarla. La URL va
 tal cual, sin agregarle `.git` al final.
+
+**Si ya se instaló antes por alguno de los 2 caminos alternativos**: no hace falta
+desinstalarlo para probar el camino recomendado — pero quedan 2 copias del plugin
+instaladas en paralelo (`copilot plugin list` las muestra por separado). Para no tener
+duplicados, desinstalar la copia anterior siguiendo el punto 5 (Desinstalar) y quedarse
+solo con la instalada vía marketplace.
 
 ## 3. Confirmar que funcionó
 
@@ -52,14 +68,16 @@ en las propias palabras alcanza, sin necesitar nombrar ninguna capacidad por su 
 
 ## 4. Actualizar
 
-`ai-engineering` no tiene un botón de "Update" en su panel (a diferencia de otras
-extensiones) — es un plugin instalado directo desde la URL, no desde un marketplace con
-versionado. Para traer los cambios más recientes:
+`ai-engineering` no tiene un botón de "Update" en su panel de VS Code (a diferencia de
+otras extensiones). Por terminal, `copilot plugin update ai-engineering@ai-engineering`
+falla en Windows con un error del propio GitHub Copilot CLI, sea cual haya sido el camino
+de instalación usado (marketplace o directo) — no es algo que se pueda corregir desde este
+repositorio. Para traer los cambios más recientes:
 
 1. Buscar `@agentPlugins` en la vista Extensions (ícono de la barra lateral).
 2. Abrir `ai-engineering` → **"Uninstall"**.
-3. Volver a instalarlo con el mismo paso 2 de arriba (paleta de comandos → "Chat: Install
-   Plugin From Source" → la misma URL).
+3. Volver a instalarlo con el mismo comando o paso usado la primera vez (punto 2 de
+   arriba).
 
 También se actualiza solo, sin hacer nada, dentro de las próximas 24 horas, si
 `extensions.autoUpdate` está activo en VS Code (valor por defecto).
