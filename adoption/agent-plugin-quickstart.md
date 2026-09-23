@@ -1,9 +1,14 @@
 # Instalar las capacidades como plugin de VS Code — Quick Start
 
 **Para quién es**: cualquier persona de un equipo (developer, tech lead, arquitecto) que
-quiere usar los `agents`/`skills` de este modelo en su propio trabajo, sin copiar archivos
-a mano y sin depender de que un administrador configure nada. Patrón completo:
+usa **VS Code con GitHub Copilot** y quiere usar los `agents`/`skills` de este modelo en
+su propio trabajo, sin copiar archivos a mano y sin depender de que un administrador
+configure nada. Patrón completo:
 [`../integrations/agent-plugin-provider.md`](../integrations/agent-plugin-provider.md).
+
+**¿Se usa Claude Code en vez de GitHub Copilot?** Es una herramienta separada, con su
+propio mecanismo de plugin — este Quick Start no aplica ahí. Ver
+[`claude-code-plugin-quickstart.md`](claude-code-plugin-quickstart.md).
 
 **No corresponde este camino si...** el equipo quiere que el cambio llegue automático a
 todo el mundo, sin que cada developer instale nada por su cuenta — para eso está

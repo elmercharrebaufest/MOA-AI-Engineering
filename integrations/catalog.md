@@ -34,9 +34,16 @@ Resolution, [`../architecture/context-acquisition-resolution.md`](../architectur
 ## Ver también — Agent Plugin Provider (nuevo, 2026-09-22)
 
 [`agent-plugin-provider.md`](agent-plugin-provider.md) — instalación vía Agent Plugins 1.0
-de VS Code (marketplace hosting-agnostic, confirmado que funciona con URLs de Azure
-DevOps). Camino de autoservicio individual, sin necesitar permisos de administración.
-`PROPOSAL`, estructura construida, sin instalación real probada.
+de VS Code con GitHub Copilot (marketplace hosting-agnostic, confirmado que funciona con
+URLs de Azure DevOps). Camino de autoservicio individual, sin necesitar permisos de
+administración. `EXECUTED`, instalación real confirmada (2026-09-23).
+
+## Ver también — Claude Code Plugin Provider (nuevo, 2026-09-23)
+
+[`claude-code-plugin-provider.md`](claude-code-plugin-provider.md) — mismo objetivo que
+el de arriba, pero para Claude Code, una herramienta separada con su propio sistema de
+plugins (instalar uno no instala el otro, hallazgo real). `CONFIGURED`, estructura
+construida contra documentación oficial, sin instalación real todavía.
 
 ## Ver también — Production Diagnostics Provider (nuevo, 2026-09-21)
 

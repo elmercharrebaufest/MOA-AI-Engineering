@@ -1,0 +1,13 @@
+{
+  "name": "ai-engineering",
+  "owner": {
+    "name": "Baufest / Molinos Agro"
+  },
+  "plugins": [
+    {
+      "name": "ai-engineering",
+      "source": "./",
+      "description": "Biblioteca reusable de capacidades de AI Engineering de Molinos Agro (Track 1) -- skills y agents generalizados desde evidencia real de equipos de MOA y evidencia externa, con Human-in-the-Loop explicito. PROPOSAL -- sin ejecucion real ni piloto de ningun equipo todavia."
+    }
+  ]
+}

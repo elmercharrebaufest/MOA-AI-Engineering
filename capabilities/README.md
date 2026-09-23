@@ -256,11 +256,16 @@ Team Repository/.github/agents/read-only-code-reviewer.agent.md
 | Instruction | `capabilities/instructions/<name>/INSTRUCTIONS.md` | `AGENTS.md` / `copilot-instructions.md` + `.github/instructions/*.instructions.md` | Contenido de cada capa/matriz — 100% |
 | Workflow | `capabilities/workflows/<name>/WORKFLOW.md` | `_sdd/` (spec-driven dev) u otro mecanismo equivalente del equipo | Todo — el Workflow describe roles y estado, no una herramienta específica |
 
-**Otras plataformas** (Copilot Studio, Claude, u otras — ver Blocked Decision #2, MOA no
-tiene una plataforma única sancionada): el mapeo de archivos/convenciones cambia, la
-**fuente y el patrón no**. Esta tabla documenta el mapeo conocido hoy (GitHub Copilot, por
-ser la plataforma con evidencia interna real dominante) — no es una nueva arquitectura,
-es una aclaración de cómo se usa la ya existente.
+**Claude Code** tiene su propio mecanismo real de distribución, ya construido —
+[`../integrations/claude-code-plugin-provider.md`](../integrations/claude-code-plugin-provider.md).
+Es un ecosistema separado de GitHub Copilot: instalar el plugin en uno no lo instala en
+el otro (hallazgo real, 2026-09-23).
+
+**Otras plataformas** (Copilot Studio u otras — ver Blocked Decision #2, MOA no tiene una
+plataforma única sancionada): el mapeo de archivos/convenciones cambia, la **fuente y el
+patrón no**. Esta tabla documenta el mapeo conocido hoy (GitHub Copilot, por ser la
+plataforma con evidencia interna real dominante) — no es una nueva arquitectura, es una
+aclaración de cómo se usa la ya existente.
 
 ### Camino más maduro — distribución automática (investigado y resuelto, 2026-09-21)
 
@@ -281,9 +286,9 @@ ninguno resultó aplicable (detalle completo en
 
 **Actualización (2026-09-22) — corrección importante**: sí existe un camino nativo para el
 resto del ciclo, distinto del repo especial `.github` de organización descartado arriba.
-Ver el punto 3.
+Ver los puntos 3 y 4.
 
-**Lo que sí aplica, en 3 partes:**
+**Lo que sí aplica, en 4 partes:**
 
 1. **Para Code Review (una sola etapa del KO)**: Azure DevOps tiene su propio mecanismo
    nativo — instrucciones de Copilot a nivel organización/proyecto/repositorio,
@@ -296,21 +301,21 @@ Ver el punto 3.
    ya lo usan en producción). El cambio le llega al equipo sin que nadie lo pida, siempre
    con revisión humana antes de aceptarlo. Requiere que un administrador de Azure DevOps
    habilite el permiso de escritura del pipeline — no es autoservicio.
-3. **Para adopción individual, sin pedirle nada a un administrador**:
+3. **Para adopción individual con VS Code / GitHub Copilot, sin pedirle nada a un
+   administrador**:
    [`../integrations/agent-plugin-provider.md`](../integrations/agent-plugin-provider.md) —
-   **Agent Plugins 1.0 de VS Code sí aplica a Azure DevOps**, distinto del repo especial
-   `.github` de organización descartado arriba. Es un mecanismo de "marketplace" de
-   plugins, verificado contra documentación oficial: acepta cualquier URL de repositorio
-   Git por HTTPS, no solo GitHub.com — la propia documentación de VS Code lista
-   `https://dev.azure.com/org/project/_git/repo` como formato soportado. Cualquier
-   developer instala directamente desde la URL real del repositorio, sin necesitar permisos
-   de administración de Azure DevOps. `PROPOSAL`, estructura construida, sin instalación
-   real probada todavía — un punto concreto (autenticación contra repositorio privado)
-   sigue sin confirmar. Guía paso a paso:
+   Agent Plugins 1.0 de VS Code, confirmado real contra Azure DevOps. `EXECUTED`,
+   instalación real confirmada por 2 caminos (terminal y VS Code), con Agents y Skills
+   reconocidos. Guía paso a paso:
    [`../adoption/agent-plugin-quickstart.md`](../adoption/agent-plugin-quickstart.md).
+4. **Para adopción individual con Claude Code**: mismo objetivo que el punto 3, pero es
+   un ecosistema separado — instalar uno no instala el otro.
+   [`../integrations/claude-code-plugin-provider.md`](../integrations/claude-code-plugin-provider.md),
+   `CONFIGURED`, sin instalación real todavía. Guía paso a paso:
+   [`../adoption/claude-code-plugin-quickstart.md`](../adoption/claude-code-plugin-quickstart.md).
 
-Las 3 no compiten entre sí — cubren necesidades distintas (gobierno centralizado vs.
-autoservicio individual vs. una etapa puntual del KO).
+Las 4 no compiten entre sí — cubren necesidades distintas (gobierno centralizado vs.
+autoservicio individual por plataforma vs. una etapa puntual del KO).
 
 `ai-engineering` (este repositorio) sigue siendo, siempre, la **fuente** del modelo —
 donde vive el Registry, la documentación y cada capacidad. Ningún mecanismo de

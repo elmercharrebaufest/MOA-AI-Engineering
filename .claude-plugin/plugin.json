@@ -1,0 +1,8 @@
+{
+  "name": "ai-engineering",
+  "version": "0.2.0",
+  "description": "Biblioteca reusable de capacidades de AI Engineering de Molinos Agro (Track 1) -- skills y agents generalizados desde evidencia real de equipos de MOA y evidencia externa, con Human-in-the-Loop explicito. PROPOSAL -- sin ejecucion real ni piloto de ningun equipo todavia.",
+  "author": {
+    "name": "Baufest / Molinos Agro"
+  }
+}

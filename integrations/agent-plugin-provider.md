@@ -1,5 +1,10 @@
 # Agent Plugin Provider (pattern) — instalación vía VS Code Agent Plugins
 
+**Específico de VS Code con GitHub Copilot.** Para Claude Code (herramienta separada, con
+su propio sistema de plugins), ver
+[`claude-code-plugin-provider.md`](claude-code-plugin-provider.md) — instalar este no
+instala aquel (hallazgo real, 2026-09-23).
+
 **No es una capability del Registry** — es la forma en que este repositorio se distribuye
 él mismo, mismo tratamiento que [Capability Distribution](capability-distribution.md) y
 [Context Acquisition & Resolution](../architecture/context-acquisition-resolution.md).
