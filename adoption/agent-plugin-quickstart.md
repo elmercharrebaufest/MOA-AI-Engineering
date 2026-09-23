@@ -60,11 +60,19 @@ hace falta ninguna acción.
 
 1. Abrir la paleta de comandos: `Ctrl+Shift+P` (Windows/Linux) o `Cmd+Shift+P` (Mac).
 2. Escribir `Extensions: Check for Extension Updates` y seleccionar ese comando de la
-   lista (aunque el nombre diga "Extension", cubre también los Agent Plugins instalados,
-   como `ai-engineering` — es el mismo mecanismo de actualización de VS Code).
-3. VS Code revisa todo lo instalado y actualiza lo que tenga una versión nueva
-   disponible — no hace falta seleccionar `ai-engineering` en particular.
-4. Para confirmar que trajo lo último: repetir el paso 3 del Quick Start (preguntarle a
+   lista — según la documentación oficial, este comando revisa también los Agent Plugins
+   por detrás, aunque el nombre diga "Extension".
+
+**Importante (hallazgo real, 2026-09-24)**: `ai-engineering` **no** va a aparecer en el
+panel normal de Extensions filtrado por `@outdated` — ahí solo se listan extensiones
+comunes del Marketplace (Cline, GitLens, etc.), nunca Agent Plugins. Para ver el estado
+real del plugin, corresponde abrir su propia vista:
+
+3. Abrir la vista Extensions (ícono de la barra lateral) → buscar `@agentPlugins` en el
+   cuadro de búsqueda, o ir directo a la sección **"Agent Plugins - Installed"**.
+4. Ahí debería figurar `ai-engineering` — si no aparece ningún botón de actualizar, lo
+   más probable es que ya esté en la última versión, no que algo esté roto.
+5. Para confirmar que trajo lo último: repetir el paso 3 del Quick Start (preguntarle a
    Copilot Chat si reconoce una capacidad agregada recientemente).
 
 **Si `extensions.autoUpdate` está desactivado** y se quiere dejarlo en automático:
