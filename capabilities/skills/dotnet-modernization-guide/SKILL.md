@@ -5,6 +5,9 @@ description: Guía para modernizar un proyecto .NET Framework legacy a .NET mode
 
 # dotnet-modernization-guide
 
+**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
+persona escriba de otra forma.
+
 **Capability Registry**: [`CAP-020`](../../../registry/entries/dotnet-modernization-guide.md).
 **Estado**: `PROPOSAL` — sin ejecución real ni piloto de ningún equipo todavía.
 

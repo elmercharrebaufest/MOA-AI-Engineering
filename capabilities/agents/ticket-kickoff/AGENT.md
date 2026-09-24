@@ -26,6 +26,9 @@ handoffs:
 
 # ticket-kickoff
 
+**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
+persona escriba de otra forma.
+
 **Capability Registry**: [`CAP-010`](../../../registry/entries/ticket-kickoff.md).
 **Golden Path**: [`AI-Assisted Development`](../../../golden-paths/README.md#2-ai-assisted-development)
 (orquestador de punta a punta de este Golden Path).

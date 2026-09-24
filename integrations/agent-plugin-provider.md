@@ -41,7 +41,7 @@ propagación automática (que sigue sin aplicar a MOA por estar en Azure DevOps,
 |---|---|---|
 | Skills (`capabilities/skills/`) | Sí | `skills/<name>/SKILL.md` |
 | Agents (`capabilities/agents/`) | Sí | `com.github.copilot/agents/<name>.agent.md` |
-| Instructions (`capabilities/instructions/`) | **No, a propósito** | Instructions son 100% Team Adaptation (matriz de autonomía propia de cada equipo) — un plugin instalado globalmente no debe traer contenido que cada equipo tiene que completar con lo suyo. Sigue siendo copia manual, ver `capabilities/README.md` |
+| Instructions (`capabilities/instructions/`) | **No como archivo** | La especificación de Agent Plugins no documenta instrucciones que se apliquen siempre (VS Code nombra un componente "Rules" sin formato publicado, por eso no se usa). Se resuelve según el tipo: la **regla universal** de idioma y estilo (`documentation-style`) viaja dentro de cada skill, agente y workflow del plugin; la **matriz de autonomía** de cada repo (`repository-governance`) es propia de ese repo y vive en él (`AGENTS.md` / `.github/copilot-instructions.md`), versionada con el código |
 | MCP servers (`mcp.json`) | No todavía | Ningún servidor MCP de MOA tiene gobierno de identidad/scope/auditoría confirmado (`governance/BLOCKED-DECISIONS.md` #4) — no se empaqueta configuración MCP sin eso resuelto |
 
 ## Cómo lo instala un developer

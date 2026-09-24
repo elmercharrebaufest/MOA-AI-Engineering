@@ -16,7 +16,7 @@
 | **Branch** | DataAgro: `dev` (confirmado rama principal real vía `origin/HEAD`, no `master`). Scato Logística: `master`. Orquestador: `master-logistica` | FACT |
 | **Integration Status** | DataAgro: integrado a `dev`. Scato Logística: integrado a `master`. Orquestador: integrado a `master-logistica`, **NO** a `master` (misma corrección de contexto que en CAP-008) | FACT |
 | **Configuration Status** | **VERIFIED** para Scato Logística y Orquestador (contenido completo leído y comparado en G3.2.5). **PARTIAL** para DataAgro — la existencia del archivo está confirmada (listado de directorio), pero **su contenido específico no fue leído completo en ninguna sesión hasta ahora** — no se sobreestima esta entrada | Mixto, declarado explícitamente por repo |
-| **Real Use Status** | **EXECUTED** (actualizado 2026-09-23) — primera ejecución real registrada: un developer de Portal de Créditos (AWS) invocó la Skill en lenguaje natural, sin nombrar ningún ID, vía el Agent Plugin de VS Code/Copilot ya instalado. Copilot reconoció y cargó la Skill sola. `NOT EVALUATED` todavía — falta revisión humana del resultado antes de subir a `VERIFIED` | Ver `Evidence Reference` abajo |
+| **Real Use Status** | **EXECUTED** (actualizado 2026-09-24) — 2 ejecuciones reales sobre el mismo requerimiento de Portal de Créditos (2026-09-23 y 2026-09-24, esta con la versión reescrita). La primera: un developer de Portal de Créditos (AWS) invocó la Skill en lenguaje natural, sin nombrar ningún ID, vía el Agent Plugin de VS Code/Copilot ya instalado. Copilot reconoció y cargó la Skill sola. `NOT EVALUATED` todavía — falta revisión humana del resultado antes de subir a `VERIFIED` | Ver `Evidence Reference` abajo |
 | **Lifecycle State** | Pilot | Mecanismo probado, sin evidencia de uso real registrada todavía — no alcanza para `Measure`/`Human Validation` (`lifecycle.md`) |
 | **Corporate Standard** | N | Sin decisión de gobierno — sin evidencia de uso real todavía |
 | **Version** | Sin versionado semántico. Proxy: DataAgro = `20b6363a3`; Scato Logística = `8bff906e`; Orquestador = `872911c` | FACT (hashes) |
@@ -32,8 +32,8 @@
 | **Metrics** | NOT FOUND | — |
 | **Adopters** | Portal de Créditos (AWS) — primer adoptante real de la versión generalizada, vía Agent Plugin, 2026-09-23. Los 3 orígenes (DataAgro/Scato Logística/Orquestador) siguen sin evidencia de adopción cruzada entre sí | FACT |
 | **Last Review** | 2026-09-24 | — |
-| **Evidence Reference** | [`records/armoa277-1-campos-propios/EXEC-20260923-001/evidence.md`](../../records/armoa277-1-campos-propios/EXEC-20260923-001/evidence.md) | Primera ejecución real registrada |
-| **Evaluation Reference** | Ninguna todavía | — |
+| **Evidence Reference** | [`EXEC-20260923-001`](../../records/armoa277-1-campos-propios/EXEC-20260923-001/evidence.md), [`EXEC-20260924-001`](../../records/armoa277-1-campos-propios/EXEC-20260924-001/evidence.md) | Ejecuciones reales registradas |
+| **Evaluation Reference** | [`EXEC-20260924-001/evaluation.md`](../../records/armoa277-1-campos-propios/EXEC-20260924-001/evaluation.md) — `model-assisted`, `PARTIAL`; evaluación humana pendiente | No independiente |
 | **Metric Reference** | Ninguna todavía | — |
 | **Reusable Asset** *(nuevo en G5.1)* | [`capabilities/skills/user-story/SKILL.md`](../../capabilities/skills/user-story/SKILL.md) | Generalización de las 3 instancias reales — **sin catálogo de roles fijo**, corrigiendo una brecha encontrada durante la construcción (rol "operador de planta" ausente del catálogo original de DataAgro) |
 | **Action Type** *(nuevo, campo agregado al implementar Context Acquisition & Resolution)* | READ (produce texto). La actualización opcional del ticket es `ACT` de CAP-023 (`ticket-update`), no de esta skill | Separación deliberada: la lógica de refinamiento no escribe; la escritura está en una sola skill gobernada |

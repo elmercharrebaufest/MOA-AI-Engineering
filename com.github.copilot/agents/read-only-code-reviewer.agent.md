@@ -17,6 +17,9 @@ handoffs:
 
 # read-only-code-reviewer
 
+**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
+persona escriba de otra forma.
+
 **Capability Registry**: [`CAP-012`](../../../registry/entries/dotnet-code-reviewer.md).
 **Golden Path**: [`AI Code Review`](../../../golden-paths/README.md#4-ai-code-review).
 

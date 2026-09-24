@@ -5,6 +5,9 @@ description: Escribe en un ticket de Jira o un work item de Azure DevOps de form
 
 # ticket-update
 
+**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
+persona escriba de otra forma.
+
 **Capability Registry**: [`CAP-023`](../../../registry/entries/ticket-update.md).
 **Estado**: `PROPOSAL` — sin ejecución real todavía. Es la primera capacidad del modelo
 que escribe en un sistema externo; las condiciones del piloto están en

@@ -21,6 +21,9 @@ handoffs:
 
 # qa-analyst
 
+**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
+persona escriba de otra forma.
+
 **Capability Registry**: [`CAP-024`](../../../registry/entries/qa-analyst.md).
 **Golden Path**: [`AI-Assisted QA`](../../../golden-paths/README.md#3-ai-assisted-qa).
 **Estado**: `PROPOSAL` — sin ejecución real todavía.

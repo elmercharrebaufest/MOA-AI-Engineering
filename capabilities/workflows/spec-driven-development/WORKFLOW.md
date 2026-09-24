@@ -5,6 +5,9 @@ description: Workflow de múltiples pasos con estado para llevar un requerimient
 
 # spec-driven-development
 
+**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
+persona escriba de otra forma.
+
 **Capability Registry**: [`CAP-005`](../../../registry/entries/spec-driven-development.md).
 **Golden Path**: [`AI-Assisted Development`](../../../golden-paths/README.md#2-ai-assisted-development).
 

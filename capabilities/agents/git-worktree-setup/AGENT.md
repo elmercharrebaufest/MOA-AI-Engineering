@@ -12,6 +12,9 @@ tools: [execute, read]
 
 # git-worktree-setup
 
+**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
+persona escriba de otra forma.
+
 **Capability Registry**: [`CAP-009`](../../../registry/entries/git-worktree-setup.md).
 **Golden Path**: [`AI-Assisted Development`](../../../golden-paths/README.md#2-ai-assisted-development).
 **Estado**: `PROPOSAL` — sin ejecución real ni piloto de ningún equipo de MOA todavía.

@@ -15,6 +15,7 @@ contar como "evidencia real de uso" algo que no lo era.
 
 | Ejecución | Tarea | Capacidad | Qué documenta |
 |---|---|---|---|
+| [EXEC-20260924-001](../records/armoa277-1-campos-propios/EXEC-20260924-001/evidence.md) | Portal de Créditos — mismo requerimiento, con el refinamiento reescrito (plugin 0.4.0) | CAP-001 (`user-story`) | Historia de ~40 líneas, criterios verificables y 2 impactos detectados en el código que el pedido no decía. Evaluación `model-assisted` `PARTIAL` (faltó dividir, voseo en el cierre); evaluación humana pendiente |
 | [EXEC-20260923-001](../records/armoa277-1-campos-propios/EXEC-20260923-001/evidence.md) | Portal de Créditos — cambio "Detalle Inmueble" → "Campos Propios" / "Localidad" → "Partido" (`ARMOA277-1`, Fase 1) | CAP-001 (`user-story`) | Primera ejecución real del mecanismo de distribución vía Agent Plugin (VS Code/Copilot) — la Skill se invocó en lenguaje natural, sin nombrar ningún ID, y Copilot la reconoció sola. `status: EXECUTED`, evaluación humana pendiente |
 
 ## Convención de carpetas (`records/<fuente>-<tarea>/<EXEC-ID>/`)

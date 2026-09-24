@@ -5,6 +5,9 @@ description: Audita requirements.md, design.md, tasks.md y feature.json generado
 
 # spec-review
 
+**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
+persona escriba de otra forma.
+
 **Capability Registry**: [`CAP-007`](../../../registry/entries/spec-review.md).
 **Golden Path**: [`AI-Assisted Development`](../../../golden-paths/README.md#2-ai-assisted-development)
 (complementa a `spec-driven-development`, CAP-005).
@@ -96,7 +99,7 @@ Sobre `feature.json`:
 
 ### 4. Aplicar fixes (solo si el usuario lo pide explícitamente)
 
-Si dice "aplicá los fixes" o similar: se pueden agregar headers faltantes o mover detalle
+Si la persona pide aplicar las correcciones: se pueden agregar headers faltantes o mover detalle
 técnico de `requirements.md` a `tasks.md`. **Nunca resolver un `[NEEDS CLARIFICATION]` por
 cuenta propia** — siempre requiere respuesta real de quien corresponda.
 

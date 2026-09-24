@@ -41,7 +41,7 @@ releídos completos 2026-09-23) — estructuralmente muy cercano a lo que ya ten
 |---|---|---|
 | Skills (`capabilities/skills/`) | Sí, reutiliza el mismo espejo `skills/` que ya usa VS Code | `skills/<name>/SKILL.md` |
 | Agents (`capabilities/agents/`) | Sí, espejo nuevo — formato distinto al de VS Code | `agents/<name>.md` |
-| Instructions (`capabilities/instructions/`) | **No, a propósito** — mismo criterio que en VS Code: son 100% Team Adaptation | Sigue siendo copia manual |
+| Instructions (`capabilities/instructions/`) | **No como archivo** — mismo criterio que en VS Code | La regla de idioma y estilo viaja dentro de cada capacidad; la matriz de autonomía de cada repo vive en ese repo (`CLAUDE.md` o `AGENTS.md`) |
 | MCP servers | No todavía — mismo motivo que en VS Code (`governance/BLOCKED-DECISIONS.md` #4) | — |
 
 ## Diferencias reales con el formato de VS Code (no cosméticas)

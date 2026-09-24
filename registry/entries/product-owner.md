@@ -31,7 +31,7 @@ que un equipo real lo pilotee con el scope acotado.
 | **Risk** | Medio | Escribe en el ticket. Acotado por lista cerrada de 7 herramientas (sin estado, horas ni borrado), nunca wildcard, y confirmación por escritura (CAP-023) |
 | **Data** | Lee contenido de tickets de Jira vía MCP — no accede a otros datos | FACT (por `tools` declarado) |
 | **Data Classification** | REQUIRES VALIDATION | Política no existe (`BLOCKED-DECISIONS.md` #3) |
-| **Tools** | Lectura: `getJiraIssue`, `listJiraIssueComments`, `getJiraIssueTypeMetaWithFields`. Escritura: `editJiraIssue`, `addOrEditJiraIssueComment`, `createJiraIssue`, `createJiraIssueLink` — explícitamente sin wildcard | FACT (nombres verificados en la documentación oficial de Atlassian Rovo MCP) |
+| **Tools** | Lectura: `read`, `search` (repo, solo lectura), `getJiraIssue`, `listJiraIssueComments`, `getJiraIssueTypeMetaWithFields`. Escritura: `editJiraIssue`, `addOrEditJiraIssueComment`, `createJiraIssue`, `createJiraIssueLink` — explícitamente sin wildcard | FACT (nombres verificados en la documentación oficial de Atlassian Rovo MCP) |
 | **Model** | No declarado — mismo criterio que CAP-012 | FACT |
 | **Autonomy** | Control estructural: `tools` sin wildcard actúa como el límite real, no una regla en prosa | FACT + INFERENCE |
 | **HITL** | Doble: el PO aprueba la historia, y cada escritura en el ticket se confirma antes de ocurrir; nunca cambia el estado | FACT (declarado en `AGENT.md`) |

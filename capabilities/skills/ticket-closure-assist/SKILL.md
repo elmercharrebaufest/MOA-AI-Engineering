@@ -5,6 +5,9 @@ description: Verifica el cumplimiento de los criterios de aceptación de un tick
 
 # ticket-closure-assist
 
+**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
+persona escriba de otra forma.
+
 **Capability Registry**: [`CAP-016`](../../../registry/entries/ticket-closure-assist.md).
 **Golden Path**: [`AI-Assisted Development`](../../../golden-paths/README.md#2-ai-assisted-development)
 (extensión — ver nota en ese Golden Path).

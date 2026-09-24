@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.4.1] — 2026-09-24
+
+**Corregido** (a partir de la segunda ejecución real, Portal de Créditos)
+- Todas las capacidades del plugin fijan el idioma de la respuesta: español neutro y
+  formal, sin voseo. La regla existía como Instruction, pero las Instructions no viajan en
+  el plugin, y la ejecución real cerró con voseo.
+- `user-story`: el formato de salida y el cierre pasan al principio del archivo (el
+  asistente leyó solo hasta la línea 200 y el cierre quedó cortado); el archivo se acortó.
+- `user-story`: si una parte de la historia está lista y otra bloqueada, el veredicto es
+  dividir, para que la parte lista avance.
+- `user-story`: sin ticket, el responsable de las preguntas es quien hizo el pedido; lo
+  deducido del código se declara siempre en "Supuestos y cambios respecto del pedido".
+- `product-owner`: lectura del repo (`read`, `search`) para detectar el impacto real del
+  cambio antes de estimar.
+
 ## [0.4.0] — 2026-09-24
 
 **Agregado**

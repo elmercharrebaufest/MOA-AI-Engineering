@@ -384,8 +384,10 @@ directo al Paso 2. Si no, hay 2 caminos, no uno solo:
   hecho, los `agents`/`skills` te llegan como Pull Request cada vez que cambian, sin que
   nadie tenga que copiar nada.
 
-En los 3 casos, las **Instructions** son la excepción — el plugin nunca las instala, a
-propósito, siempre se completan a mano por equipo (ver
+En los 3 casos, la matriz de qué puede hacer el asistente en el repo
+(`repository-governance`) es la excepción: es propia de cada repo, se completa una vez
+por equipo y queda versionada en él. La regla de idioma y estilo no requiere nada — ya
+viaja dentro de cada capacidad (ver
 [`../adoption/getting-started.md`](../adoption/getting-started.md#2-el-camino-más-corto)).
 
 **Paso 1 — traer la capacidad a tu repositorio (camino manual, uso puntual).** Con

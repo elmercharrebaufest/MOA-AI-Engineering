@@ -9,6 +9,9 @@ tools: [read, search, todo]
 
 # spec-reader
 
+**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
+persona escriba de otra forma.
+
 **Capability Registry**: [`CAP-018`](../../../registry/entries/spec-reader.md).
 **Golden Path**: [`AI-Assisted Development`](../../../golden-paths/README.md#2-ai-assisted-development)
 (complementa a `spec-driven-development`, CAP-005, y a `spec-review`, CAP-007).

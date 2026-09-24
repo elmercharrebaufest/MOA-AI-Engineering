@@ -60,7 +60,7 @@ El modelo tiene 4 tipos de capacidad — esto es lo que el plugin trae, y lo que
 | **Agents** (incluye los que otro Agent invoca como sub-agente, ej. `ticket-kickoff` → `product-owner`) | Sí | — |
 | **Skills** | Sí | — |
 | **Workflows** (ej. `spec-driven-development`) | Sí | — |
-| **Instructions** (ej. `repository-governance`) | **No, a propósito** | Cada equipo la completa con su propia matriz de autonomía — instalarla igual para todos rompería esa regla. Se sigue copiando a mano, ver [`../capabilities/README.md`](../capabilities/README.md) |
+| **Instructions** | **No como archivo** — cada tipo se resuelve distinto | La regla de idioma y estilo ya viene dentro de cada capacidad del plugin. La matriz de qué puede hacer el asistente en un repo (`repository-governance`) es propia de ese repo: se completa una vez por equipo y queda en el repo (`AGENTS.md` o `.github/copilot-instructions.md`), ver [`../capabilities/README.md`](../capabilities/README.md) |
 
 Con el plugin instalado, Copilot Chat ya reconoce agents/skills/workflows, listos para
 usar sobre un ticket real.
@@ -181,8 +181,9 @@ el cuerpo de la entrada (Propósito, Cuándo usarla, Instrucciones).
      [`capability-distribution-quickstart.md`](capability-distribution-quickstart.md).
      Requiere una decisión de gobierno (agregar el repo a una lista explícita) y permisos
      de escritura configurados una sola vez — después, los PRs llegan solos.
-   - **Instructions, en cualquier caso**: el plugin nunca las instala, a propósito (ver
-     tabla de la sección 2) — siempre se completan a mano, por equipo.
+   - **La matriz de autonomía del repo (`repository-governance`), en cualquier caso**: es
+     propia de cada repo, se completa una vez por equipo y queda versionada en él (ver
+     tabla de la sección 2).
 5. Adaptar el contenido de dominio: roles, ejemplos, reglas del contexto real.
 6. No modificar los contratos comunes (Evidence, Evaluation, Measurement, formato de la
    capability).

@@ -9,6 +9,9 @@ tools: [read, execute, search, todo]
 
 # workflow-documenter
 
+**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
+persona escriba de otra forma.
+
 **Capability Registry**: [`CAP-019`](../../../registry/entries/workflow-documenter.md).
 **Estado**: `PROPOSAL` — sin ejecución real ni piloto de ningún equipo todavía (aunque el
 patrón de origen sí tiene ejecución real, ver "Origen de esta propuesta").
