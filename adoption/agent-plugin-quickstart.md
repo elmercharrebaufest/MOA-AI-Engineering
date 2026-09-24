@@ -34,7 +34,7 @@ copilot plugin install ai-engineering@ai-engineering
 ```
 
 El primer paso registra este repositorio como fuente; el segundo instala el plugin desde
-ahí. Es el camino que va a seguir funcionando a futuro (ver punto 4, Actualizar).
+ahí. Es el mecanismo recomendado de distribución para MOA.
 
 **Alternativa, por la paleta de comandos** (`Ctrl+Shift+P` / `Cmd+Shift+P`) → **"Chat:
 Install Plugin From Source"** → pegar esta URL:

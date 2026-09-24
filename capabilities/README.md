@@ -333,8 +333,10 @@ Claude, el que esté en uso en el proyecto) hace el trabajo mecánico. Ejemplo r
 con `user-story` (CAP-001), aplicable de la misma forma a cualquier otra capacidad de
 este catálogo.
 
-**Antes del Paso 1 — decidir cómo va a llegar el contenido al repo.** Hay 2 caminos, no
-uno solo:
+**Antes del Paso 1 — decidir cómo va a llegar el contenido al repo.** Si ya se instaló
+el plugin ([`../adoption/agent-plugin-quickstart.md`](../adoption/agent-plugin-quickstart.md)),
+Skills/Agents/Workflows ya están disponibles — no hace falta ningún paso más, saltar
+directo al Paso 2. Si no, hay 2 caminos, no uno solo:
 
 - **¿Solo se necesita probarla una vez, sobre un ticket real?** → seguir el Paso 1 de
   abajo (copia manual, vía agente). Sin pedir nada a nadie, disponible ahora mismo.
@@ -347,6 +349,10 @@ uno solo:
   Requiere una decisión de gobierno (agregar tu repo a una lista explícita) — una vez
   hecho, los `agents`/`skills` te llegan como Pull Request cada vez que cambian, sin que
   nadie tenga que copiar nada.
+
+En los 3 casos, las **Instructions** son la excepción — el plugin nunca las instala, a
+propósito, siempre se completan a mano por equipo (ver
+[`../adoption/getting-started.md`](../adoption/getting-started.md#2-el-camino-más-corto)).
 
 **Paso 1 — traer la capacidad a tu repositorio (camino manual, uso puntual).** Con
 `ai-engineering` clonado o accesible en tu entorno, en tu propio repositorio de

@@ -167,7 +167,9 @@ el cuerpo de la entrada (Propósito, Cuándo usarla, Instrucciones).
 1. Abrir la capability elegida (`capabilities/<tipo>/<nombre>/`).
 2. Leer su propósito, cuándo usarla y cuándo no.
 3. Identificar qué entrada necesita y qué salida produce.
-4. Traer su contenido al repositorio del equipo — **2 caminos, según qué se necesita**:
+4. Traer su contenido al repositorio del equipo — **si ya se instaló el plugin (sección
+   2), esto no aplica**: Skills, Agents y Workflows ya están disponibles, sin copiar
+   nada. Si no se instaló el plugin, **2 caminos, según qué se necesita**:
    - **Uso puntual, una sola vez** (probar una capability sobre un ticket real antes de
      comprometerse): copiarla a mano al mecanismo de IA que use el equipo
      (`.github/skills/`, `.github/agents/`, u otro — ver el mapeo en
@@ -179,6 +181,8 @@ el cuerpo de la entrada (Propósito, Cuándo usarla, Instrucciones).
      [`capability-distribution-quickstart.md`](capability-distribution-quickstart.md).
      Requiere una decisión de gobierno (agregar el repo a una lista explícita) y permisos
      de escritura configurados una sola vez — después, los PRs llegan solos.
+   - **Instructions, en cualquier caso**: el plugin nunca las instala, a propósito (ver
+     tabla de la sección 2) — siempre se completan a mano, por equipo.
 5. Adaptar el contenido de dominio: roles, ejemplos, reglas del contexto real.
 6. No modificar los contratos comunes (Evidence, Evaluation, Measurement, formato de la
    capability).
