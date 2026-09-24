@@ -1,5 +1,5 @@
 {
-  "_comment": "Plantilla de referencia para CAP-003 (jira-context), Atlassian Rovo MCP v2. Copiar a .vscode/mcp.json del repo de un equipo -- NUNCA commitear credenciales aca, la autenticacion (OAuth 2.1) la resuelve el cliente MCP (VS Code/Copilot) en el momento de la primera conexion, no este archivo. Scope deliberadamente acotado a un unico metodo de lectura -- ver security/security-governance.md #2 y la nota de por que se descarta el patron wildcard en integrations/jira-context-provider.md.",
+  "_comment": "Plantilla de referencia del MCP de Atlassian Rovo v2. Copiar a .vscode/mcp.json del repo de un equipo -- NUNCA commitear credenciales aca, la autenticacion (OAuth 2.1) la resuelve el cliente MCP (VS Code/Copilot) en la primera conexion. El servidor no restringe herramientas: cada agente declara en su propio 'tools' solo las de su rol. jira-context (CAP-003) usa solo lectura; los agentes de rol escriben via la skill ticket-update, con confirmacion por cambio -- ver security/security-governance.md, 'Escritura en tickets'.",
   "_source": "https://support.atlassian.com/atlassian-rovo-mcp-server/docs/getting-started-with-the-atlassian-remote-mcp-server/ y https://support.atlassian.com/atlassian-rovo-mcp-server/docs/supported-tools/ -- verificado 2026-09-08, no inventado.",
   "_versionNote": "v2 es la version recomendada actual (v1 sigue existiendo, pero Atlassian ya no la referencia como setup nuevo). Actualizado de v1 a v2 en esta sesion tras verificar contra documentacion oficial.",
   "servers": {
@@ -9,14 +9,11 @@
     }
   },
   "_toolsExpected": [
-    "com.atlassian/atlassian-mcp-server/getJiraIssue"
+    "com.atlassian/atlassian-mcp-server/getJiraIssue (CAP-003 y todos los agentes de rol)",
+    "Escritura acotada por rol: ver capabilities/skills/ticket-update/SKILL.md"
   ],
   "_neverDeclare": [
     "com.atlassian/atlassian-mcp-server/*",
-    "com.atlassian/atlassian-mcp-server/createJiraIssue",
-    "com.atlassian/atlassian-mcp-server/editJiraIssue",
-    "com.atlassian/atlassian-mcp-server/transitionJiraIssue",
-    "com.atlassian/atlassian-mcp-server/addOrEditJiraIssueComment",
     "com.atlassian/atlassian-mcp-server/deleteJiraIssue"
   ]
 }
