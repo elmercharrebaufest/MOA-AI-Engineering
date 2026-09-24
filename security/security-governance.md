@@ -77,6 +77,31 @@ ambos — esto no reemplaza esa sección, la complementa con una frontera de con
 Integrations es READ-only, sin excepción.** Ningún Context Provider de esta versión
 implementa ACT.
 
+### Escritura en tickets — primera capacidad ACT (piloto)
+
+La escritura en Jira y Azure DevOps se concentra en una sola skill,
+[`ticket-update`](../capabilities/skills/ticket-update/SKILL.md), usada por los agentes
+de PO, desarrollo, QA y cierre. Cómo cumple cada requisito de ACT de la tabla anterior:
+
+| Requisito ACT | Cómo se cumple |
+|---|---|
+| Scope | Lista cerrada de herramientas por agente (nunca wildcard) y tabla de operaciones permitidas por rol. Sin borrado, sin administración, sin cambios de sprint ni de asignado |
+| Authorization | Atlassian Rovo MCP con OAuth: el asistente actúa con la cuenta de la persona y con sus mismos permisos de Jira |
+| HITL | Confirmación explícita antes de cada escritura, mostrando el valor anterior y el nuevo |
+| Audit | Historial nativo de Jira / Azure DevOps (autor y fecha de cada cambio), más una marca visible "Generado con asistencia de ai-engineering y revisado por [persona]" en todo texto escrito |
+| Evidence | Clave del ticket, operación e ID del comentario o registro de horas, informados después de escribir |
+| Failure handling | Relectura y comparación después de escribir; un solo reintento; nunca se borra lo que quedó a medias |
+| Excessive agency | Nunca cambios en varios tickets sin confirmar cada uno; nunca una transición que la plataforma ya hace sola |
+
+**Identidad — decisión para el piloto**: se escribe con la cuenta de la persona, no con
+una cuenta de servicio. Es una excepción al punto 2 de "Cualquier MCP futuro" (sección 2),
+justificada porque cada escritura la confirma la misma persona que figura como autora: la
+atribución es correcta y la marca visible distingue lo generado con asistencia. Una cuenta
+de servicio exigiría un token habilitado por un administrador de Atlassian y perdería la
+atribución de horas por persona. Para uso a escala sigue abierta la decisión del modelo de
+credenciales (sección 4, brecha 3, y
+[`BLOCKED-DECISIONS.md`](../governance/BLOCKED-DECISIONS.md) #4).
+
 ## 2. Gobierno específico de MCP
 
 **No asumir, para ningún MCP, ninguno de los siguientes atributos sin evidencia
@@ -179,7 +204,8 @@ Antes de habilitar cualquier MCP nuevo (Jira, Confluence, Azure DevOps, SQL Serv
 Playwright — todos PROPOSED según `../integrations/catalog.md`):
 
 1. Completar la tabla de la sección 1 (modelo de riesgo).
-2. Confirmar identidad/autenticación (cuenta de servicio, no personal).
+2. Confirmar identidad/autenticación (cuenta de servicio, no personal — salvo la
+   excepción documentada para la escritura en tickets, sección 1, "Escritura en tickets").
 3. Confirmar scope mínimo necesario, explícito (no wildcards salvo justificación).
 4. Confirmar mecanismo de auditoría antes de la primera ejecución real, no después.
 5. Registrar en `capability-registry.md` con `Integration Status` explícito.

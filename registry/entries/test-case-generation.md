@@ -35,12 +35,12 @@ generalización de una instancia real. Ver esa entrada para el criterio completo
 | **Observability** | NOT FOUND | — |
 | **Metrics** | NOT FOUND | — |
 | **Adopters** | Ninguno | — |
-| **Last Review** | 2026-09-18 | — |
+| **Last Review** | 2026-09-24 | — |
 | **Evidence Reference** | Ninguna todavía | — |
 | **Evaluation Reference** | Ninguna todavía | — |
 | **Metric Reference** | Ninguna todavía | — |
 | **Reusable Asset** | [`capabilities/skills/test-case-generation/SKILL.md`](../../capabilities/skills/test-case-generation/SKILL.md) | — |
-| **Action Type** | READ (no ejecuta tests ni publica el comentario por sí misma) | Mismo principio que CAP-001/002/003/011 |
+| **Action Type** | READ (no ejecuta tests). La publicación opcional como comentario es `ACT` de CAP-023 (`ticket-update`), con confirmación | KO etapa 7: casos publicados como comentario en Jira |
 | **Context Requirements** | Criterios de aceptación de CAP-001 + opcionalmente Resolved Context (CAP-002/CAP-003) | Reutiliza mecanismos ya existentes |
 
 ## Nota de selección

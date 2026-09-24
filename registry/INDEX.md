@@ -25,7 +25,7 @@ como el primer caso real.
 | [CAP-001](entries/user-story.md) | user-story | Skill | DataAgro, Scato Logística, Orquestador, Portal de Créditos (AWS) | N | VERIFIED (2/3) · PARTIAL (DataAgro) | **EXECUTED** (2026-09-23) — primera ejecución real, vía Agent Plugin, sobre Portal de Créditos. `NOT EVALUATED` todavía | Bajo |
 | [CAP-002](entries/azure-devops-context.md) | azure-devops-context | Integration/API | Ninguno todavía (patrón de referencia) | N | VERIFIED (documento) | CONFIGURED — mecanismo probado durante la construcción, pruebas purgadas; sin ejecuciones reales registradas todavía | Bajo |
 | [CAP-003](entries/jira-context.md) | jira-context | MCP | Ninguno todavía (patrón de referencia) | N | VERIFIED (documento) | CONFIGURED — mecanismo probado durante la construcción (MCP real, incluido 1 caso `BLOCKED` histórico), pruebas purgadas; sin ejecuciones reales registradas todavía, evidencia real en curso sobre `ARMOA277-194` | Bajo-Medio |
-| [CAP-004](entries/product-owner.md) | product-owner | Agent | Ninguno todavía (propuesta, corrige un hallazgo real de Scato Logística/Orquestador) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo |
+| [CAP-004](entries/product-owner.md) | product-owner | Agent | Ninguno todavía (propuesta, corrige un hallazgo real de Scato Logística/Orquestador) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Medio (escribe en el ticket con confirmación, lista cerrada de herramientas) |
 | [CAP-005](entries/spec-driven-development.md) | spec-driven-development | Workflow | DataAgro (Lite y Full — ver corrección 2026-09-22) | N | VERIFIED (ambos niveles) | EXECUTED (nivel Lite, 2 tickets reales). Nivel Full: **CONFIGURED con origen real** (`moa-sdlc`, en uso por DataAgro), sin ticket confirmado que haya completado el ciclo hasta `done` | Bajo (Lite) / Medio (Full) |
 | [CAP-006](entries/repository-governance.md) | repository-governance | Instruction | DataAgro, Scato Logística, Orquestador | N | VERIFIED | CONFIGURED | Bajo |
 | [CAP-007](entries/spec-review.md) | spec-review | Skill | Ninguno todavía (propuesta, evidencia externa Camuzzi/Baufest) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo |
@@ -37,13 +37,26 @@ como el primer caso real.
 | [CAP-013](entries/stack-best-practices-template.md) | stack-best-practices-template | Skill | Scato Logística, Orquestador | N | VERIFIED | CONFIGURED | Bajo |
 | [CAP-014](entries/test-case-generation.md) | test-case-generation | Skill | Ninguno todavía (propuesta) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo |
 | [CAP-015](entries/regression-test-generation.md) | regression-test-generation | Skill | Ninguno todavía (propuesta, evidencia externa Camuzzi/Baufest) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo |
-| [CAP-016](entries/ticket-closure-assist.md) | ticket-closure-assist | Skill | Ninguno todavía (propuesta) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo |
+| [CAP-016](entries/ticket-closure-assist.md) | ticket-closure-assist | Skill | Ninguno todavía (propuesta) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Medio cuando publica (vía CAP-023) |
 | [CAP-017](entries/production-incident-investigation.md) | production-incident-investigation | Agent | Ninguno todavía (propuesta, evidencia externa Camuzzi/Baufest) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo (por diseño, sin `edit`) |
 | [CAP-018](entries/spec-reader.md) | spec-reader | Agent | Ninguno todavía (propuesta, evidencia externa Camuzzi/Baufest) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo (por diseño, sin `edit`) |
 | [CAP-019](entries/workflow-documenter.md) | workflow-documenter | Agent | Ninguno todavía (propuesta, generalizada de Scato Logística — **opt-in, solo proyectos con WF4.5**) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales de la versión generalizada (la instancia de origen sí tiene ejecución real) | Bajo |
 | [CAP-020](entries/dotnet-modernization-guide.md) | dotnet-modernization-guide | Skill | Ninguno todavía (propuesta — guía sobre el agente oficial de Microsoft, no herramienta propia) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo |
 | [CAP-021](entries/sprint-batch-analysis.md) | sprint-batch-analysis | Skill | Ninguno todavía (propuesta, evidencia externa Camuzzi/Baufest, corrige comportamiento de escritura del original) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo |
 | [CAP-022](entries/documentation-style.md) | documentation-style | Instruction | Ninguno todavía (regla nacida de una corrección real dentro de esta misma iniciativa, no de un repo de equipo de MOA ni de un cliente externo) | N | VERIFIED (documento) | CONFIGURED — ya aplicada de forma retroactiva sobre este repositorio, sin adopción externa todavía | Bajo |
+| [CAP-023](entries/ticket-update.md) | ticket-update | Skill | Ninguno todavía (propuesta — primera capacidad `ACT` sobre un sistema externo) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Medio (confirmación por escritura, sin borrado) |
+| [CAP-024](entries/qa-analyst.md) | qa-analyst | Agent | Ninguno todavía (propuesta, pedido de MOA; precedente en DataAgro) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Medio (`edit` solo sobre tests) |
+| [CAP-025](entries/test-validator.md) | test-validator | Agent | Ninguno todavía (propuesta, pedido de MOA) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo (por diseño, sin `edit`) |
+| [CAP-026](entries/test-pipeline-setup.md) | test-pipeline-setup | Skill | Ninguno todavía (propuesta — guía sobre documentación oficial de Azure DevOps) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo |
+
+**CAP-023 a CAP-026** *(nuevas, 2026-09-24, pedido de MOA)*: completan el SDLC con
+traspasos guiados entre roles (PO → desarrollo → revisión → QA → validación → cierre),
+escritura en tickets con confirmación (CAP-023, condiciones en
+[`../security/security-governance.md`](../security/security-governance.md), "Escritura en
+tickets"), los roles de QA (CAP-024) y de validación de pruebas (CAP-025), y la guía para
+que los tests corran en CI (CAP-026). En la misma revisión, CAP-001 se reescribió contra
+el estándar de historias de usuario (INVEST, criterios verificables, división, veredicto
+de preparación) y CAP-004 pasó de solo lectura a escritura acotada.
 
 **CAP-022** *(nueva, 2026-09-22)*: a diferencia de CAP-006 (convergencia de 3 repos de
 equipo) y de las propuestas con evidencia externa de Camuzzi, nace de una corrección real
@@ -97,8 +110,8 @@ acá — quedaron clasificados TEAM-SPECIFIC o EXPERIMENTAL, con su razón docum
 
 ## Por tipo
 
-- **Skill**: CAP-001, CAP-007, CAP-008, CAP-011, CAP-013, CAP-014, CAP-015, CAP-016, CAP-020, CAP-021
-- **Agent**: CAP-004, CAP-009, CAP-010 (orquestador), CAP-012, CAP-017, CAP-018, CAP-019 (opt-in, solo WF4.5)
+- **Skill**: CAP-001, CAP-007, CAP-008, CAP-011, CAP-013, CAP-014, CAP-015, CAP-016, CAP-020, CAP-021, CAP-023, CAP-026
+- **Agent**: CAP-004, CAP-009, CAP-010 (orquestador), CAP-012, CAP-017, CAP-018, CAP-019 (opt-in, solo WF4.5), CAP-024, CAP-025
 - **Workflow**: CAP-005
 - **Instruction**: CAP-006, CAP-022
 - **Integration/API**: CAP-002 (patrón, READ-only, mecanismo probado durante la construcción, sin ejecuciones reales registradas todavía)
@@ -115,7 +128,7 @@ acá — quedaron clasificados TEAM-SPECIFIC o EXPERIMENTAL, con su razón docum
 - **Orquestador**: CAP-008, CAP-001, CAP-012, CAP-006, CAP-013 — todas en rama
   `master-logistica`, ninguna en `master`
 - **Ninguno todavía**: CAP-005 (nivel Full, conceptual), CAP-004, CAP-007, CAP-009 a
-  CAP-011, CAP-014 a CAP-019 — propuestas sin adopción real (CAP-004, CAP-011, CAP-014,
+  CAP-011, CAP-014 a CAP-019, CAP-023 a CAP-026 — propuestas sin adopción real (CAP-004, CAP-011, CAP-014,
   CAP-016 con evidencia externa mixta KO/comunidad; CAP-007, CAP-009, CAP-010, CAP-015,
   CAP-017, CAP-018 con evidencia externa de un cliente de Baufest — Camuzzi, no un equipo
   de MOA; **CAP-019 generalizada de Scato Logística, opt-in, solo para proyectos con
@@ -123,7 +136,7 @@ acá — quedaron clasificados TEAM-SPECIFIC o EXPERIMENTAL, con su razón docum
 
 ## ¿Puedo adoptarla?
 
-Ninguna de las 22 entradas del Registry está promovida a Corporate Standard. Las entradas pueden
+Ninguna de las 26 entradas del Registry está promovida a Corporate Standard. Las entradas pueden
 corresponder a capacidades reutilizables, patrones reutilizables, candidatos a Common
 Core, propuestas nuevas sin evidencia de origen, o activos Team-Specific según su
 clasificación individual — `Corporate Standard: N`

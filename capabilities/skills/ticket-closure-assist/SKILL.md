@@ -1,6 +1,6 @@
 ---
 name: ticket-closure-assist
-description: Verifica el cumplimiento de los criterios de aceptación de un ticket y redacta un borrador de comentario de cierre. Usar al terminar una historia, nunca para cambiar el estado del ticket automáticamente.
+description: Verifica el cumplimiento de los criterios de aceptación de un ticket con evidencia real, estima las horas desde el historial de Git y redacta el comentario de cierre; con confirmación, lo publica, carga las horas y pasa el ticket a Done. Usar al terminar una historia.
 ---
 
 # ticket-closure-assist
@@ -14,9 +14,9 @@ entrada del Registry para el detalle de evidencia.
 ## Propósito
 
 Al terminar una historia de usuario, verificar cuáles de sus criterios de aceptación
-quedaron efectivamente cumplidos y redactar un borrador de comentario de cierre —
-reduciendo el registro manual propenso a omisión que describe el KO para esta etapa, sin
-cambiar el estado del ticket por sí misma.
+quedaron efectivamente cumplidos, redactar el comentario de cierre y — con la
+confirmación de la persona — publicarlo, cargar las horas y cerrar el ticket, reduciendo
+el registro manual propenso a omisión que describe el KO para esta etapa.
 
 ## Cuándo usarla
 
@@ -25,10 +25,10 @@ cambiar el estado del ticket por sí misma.
 
 ## Cuándo NO usarla
 
-- Para cambiar el estado del ticket automáticamente — esta skill redacta un borrador, la
-  acción de cerrar el ticket la toma siempre una persona.
+- Para cerrar un ticket sin confirmación, o con algún criterio sin evidencia — en ese
+  caso se informa y no se cierra.
 - Cuando los criterios de aceptación no están definidos — sin ellos no hay contra qué
-  verificar cumplimiento; corresponde primero completar CAP-001.
+  verificar cumplimiento; corresponde primero refinar la historia.
 
 ## Entradas
 
@@ -74,8 +74,8 @@ antes de cargar nada:
    (evita sobreestimar por pausas largas sin actividad real).
 3. Si ya hay horas cargadas para algún día, restarlas del estimado de ese día — nunca
    duplicar.
-4. Presentar el detalle día por día y el total, **nunca cargarlo directamente** — es una
-   sugerencia para que la persona confirme o ajuste.
+4. Presentar el detalle día por día y el total, **nunca cargarlo sin confirmación** — es
+   una sugerencia para que la persona confirme o ajuste (paso 5).
 
 ```text
 ⏱️ Estimación de horas para MOA-XXXX (desde el historial de Git)
@@ -109,11 +109,24 @@ Si **todos** los criterios quedaron `✅`, cerrar igual con una frase explícita
 terminar en el borrador sin más:
 
 ```text
-✅ Todos los criterios verificados con evidencia real. El borrador de arriba está listo
-   para que [quien cierra el ticket] lo revise, lo complete con el registro de horas si
-   corresponde, y lo publique — el cambio de estado y la publicación quedan siempre del
-   lado de la persona.
+✅ Todos los criterios verificados con evidencia real. Con su confirmación, puedo
+   publicar el comentario de cierre, cargar las horas estimadas y pasar el ticket a
+   Done — cada paso se muestra antes de escribirlo.
 ```
+
+### 5. Publicar el cierre (solo con confirmación)
+
+Si la persona lo pide y el asistente tiene acceso de escritura, seguir
+[`ticket-update`](../ticket-update/SKILL.md), en este orden y con una confirmación por
+paso:
+
+1. Comentario de cierre (paso 3).
+2. Horas de la persona que confirma, restando lo ya cargado.
+3. Cambio a Done — solo si todos los criterios quedaron `✅` y si la plataforma no lo hace
+   sola al mergear el PR (automatización de Jira o "completar work items al mergear" de
+   Azure DevOps). Si lo hace, se informa y no se transiciona.
+
+Nunca cargar horas de otra persona ni cerrar con criterios `❌` o `❓`.
 
 ## Cómo usar esta capability
 
@@ -133,26 +146,15 @@ Evidencia de cumplimiento:
 ### Patrón de ejecución
 
 ```
-Usa la capability CAP-016 ticket-closure-assist.
-
-Criterios de aceptación reales:
-[los criterios]
-
-Evidencia de cumplimiento disponible:
-[la evidencia real]
-
-Verificar cada criterio contra la evidencia y redactar el borrador de comentario de cierre.
-
-No marques como cumplido ningún criterio sin evidencia real citada.
-No cambies el estado del ticket — esto es solo un borrador para que una persona lo revise
-y publique.
+Necesito preparar el cierre de [CLAVE-123]: verificar los criterios de aceptación con
+esta evidencia [tests, PR, validación de QA] y armar el comentario de cierre con las
+horas desde Git.
 ```
 
 ### Revisión humana
 
-Obligatoria: la persona que cierra el ticket debe confirmar el borrador antes de
-publicarlo y cambiar el estado — esta skill nunca actúa sobre Jira/Azure DevOps por sí
-misma.
+Obligatoria: la persona confirma el comentario, las horas y el cambio de estado, cada uno
+antes de que se escriba.
 
 ### Evidencia / Evaluación / Medición
 
@@ -168,13 +170,14 @@ CAP-002/CAP-003 — no define un mecanismo de acceso a tickets propio.
 
 ## Herramientas / permisos
 
-Ninguna — produce texto estructurado; no cambia el estado del ticket ni publica el
-comentario por sí misma.
+Ninguna propia. La publicación (paso 5) la hace el asistente siguiendo `ticket-update`,
+con sus herramientas y límites.
 
 ## Seguridad
 
-Riesgo bajo — solo lectura de criterios y evidencia ya existente; ninguna acción sobre
-sistemas externos.
+Riesgo **Medio** cuando publica: escribe en el ticket y cambia su estado. Controles: una
+confirmación por escritura, nunca cerrar con criterios sin evidencia, y no duplicar la
+transición si la plataforma ya la hace.
 
 ## Origen de esta propuesta
 
@@ -182,10 +185,9 @@ sistemas externos.
 `architecture/ai-sdlc.md` no incluía esta etapa en su tabla de cobertura real — se agregó
 la fila faltante como parte de este mismo trabajo (`architecture/ai-sdlc.md`, etapa
 "Cierre del ticket"). KO Interno pág. 26 (*"Copilot + Skills + MCP Jira sugiere registro
-de horas y actualiza estado automáticamente"*) — nótese que el KO propone incluso la
-actualización automática de estado; esta propuesta es deliberadamente más conservadora
-(solo borrador, nunca acción directa), por el mismo principio `READ` antes que `ACT` que
-ya rige CAP-001/002/003. **External Best Practice**: verificar criterios de aceptación
+de horas y actualiza estado automáticamente"*) — esta versión lo hace, pero con una
+confirmación por escritura y sin cerrar nunca con criterios sin evidencia. **External
+Best Practice**: verificar criterios de aceptación
 contra evidencia real antes de cerrar un ticket es una práctica estándar de Definition of
 Done en metodologías ágiles. **Architectural Judgment**: reutiliza los criterios ya
 producidos por CAP-001, evita construir un mecanismo de verificación nuevo. La estimación

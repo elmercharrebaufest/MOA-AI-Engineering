@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.4.0] — 2026-09-24
+
+**Agregado**
+- Agentes `qa-analyst` (rol de QA) y `test-validator` (verifica con evidencia que todo
+  está probado antes del OK final).
+- Skill `ticket-update`: escritura segura en Jira y Azure DevOps, con confirmación por
+  cambio, verificación posterior y marca visible.
+- Skill `test-pipeline-setup`: tests automáticos en cada PR de Azure DevOps.
+- Traspasos guiados entre roles: PO → desarrollo → revisión de código → QA → validación
+  → cierre. La persona decide cada paso.
+
+**Cambiado**
+- `user-story` reescrita contra el estándar de historias de usuario: 30-40 líneas, 3 a 7
+  criterios verificables, fuera de alcance, datos, preguntas bloqueantes, regla de
+  división, veredicto de preparación y modo "revisar un ticket existente".
+- `product-owner`, `ticket-kickoff`, `ticket-closure-assist` y `test-case-generation`
+  escriben en el ticket lo que corresponde a su rol, siempre con confirmación.
+- `ticket-kickoff` informa el resultado exacto de los tests y puede crear el PR tras el
+  push del developer, con confirmación.
+
 ## [0.3.1] — 2026-09-23
 
 **Corregido**

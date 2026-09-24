@@ -20,32 +20,31 @@ estado vivo. Los demás siguen siendo conceptuales, sin ejecución real todavía
 
 ## Mapa visual — de un requerimiento real a un ticket cerrado
 
-Cada paso dice qué capacidad lo cubre y qué corresponde hacer con el resultado — nunca
-queda en el aire qué sigue. Los pasos marcados como revisión/aprobación son siempre de
-una persona, nunca automáticos.
+Cada rol es un agente. Al terminar, el agente propone el siguiente paso como un botón de
+traspaso; **la persona decide si lo usa**, nunca se encadena solo. Cada escritura en el
+ticket se muestra y se confirma antes de ocurrir.
 
 ```mermaid
 flowchart TD
-    A["Requerimiento real<br/>(ticket o descripción manual)"] --> B["user-story — CAP-001<br/>Historia + criterios + reglas + gaps"]
-    B --> C{"¿Quedan gaps<br/>bloqueantes?"}
-    C -->|"Sí"| D["Responder los gaps<br/>(PO / referente de negocio)"]
+    A["Requerimiento o ticket existente"] --> B["product-owner<br/>Historia breve, criterios, preguntas, veredicto"]
+    B --> C{"¿Lista?"}
+    C -->|"No / dividir"| D["PO responde o aprueba la división<br/>(persona)"]
     D --> B
-    C -->|"No"| E["Aprobar la historia<br/>(revisión humana)"]
-    E --> F["spec-driven-development — CAP-005 (Lite)<br/>Spec Author → Implementer → Reviewer"]
-    F --> G["pr-description — CAP-011<br/>Título y descripción del PR"]
-    G --> H["read-only-code-reviewer — CAP-012<br/>Hallazgos por severidad, sin poder editar"]
-    H --> I["Revisar y mergear<br/>(revisión humana)"]
-    I --> J["test-case-generation — CAP-014<br/>Casos de prueba"]
-    J --> K["ticket-closure-assist — CAP-016<br/>Borrador de cierre"]
-    K --> L["Cerrar el ticket<br/>(acción humana, nunca automática)"]
+    C -->|"Sí"| E["PO aprueba la historia<br/>(persona) — se actualiza el ticket"]
+    E -->|"Pasar a desarrollo"| F["ticket-kickoff<br/>Plan → aprobación → código + tests en worktree"]
+    F -->|"Revisar el código"| G["read-only-code-reviewer<br/>Hallazgos por severidad, sin editar"]
+    F -->|"Generar pruebas"| H
+    G -->|"Generar pruebas"| H["qa-analyst<br/>Casos por criterio, tests automatizados"]
+    H -->|"Validar pruebas"| I["test-validator<br/>Evidencia de CI o local, criterios cubiertos"]
+    I --> J["OK final, push y PR<br/>(persona)"]
+    J -->|"Preparar cierre"| K["Cierre: comentario, horas, Done<br/>(con confirmación)"]
 ```
 
-**Qué es real hoy y qué es propuesta**: `user-story` (CAP-001) y `spec-driven-development`
-nivel Lite (CAP-005) tienen evidencia real de uso. `pr-description` (CAP-011),
-`read-only-code-reviewer` (CAP-012), `test-case-generation` (CAP-014) y
-`ticket-closure-assist` (CAP-016) son propuestas listas para pilotear, sin ejecución real
+**Qué es real hoy y qué es propuesta**: el refinamiento (`user-story`) y
+`spec-driven-development` nivel Lite tienen evidencia real de uso. Los agentes de la
+cadena y la escritura en tickets son propuestas listas para pilotear, sin ejecución real
 todavía — el diagrama muestra el camino completo, no una afirmación de que todo esté
-probado. Detalle de evidencia de cada una: [`../registry/INDEX.md`](../registry/INDEX.md).
+probado. Detalle: [`../registry/INDEX.md`](../registry/INDEX.md).
 
 ---
 
@@ -214,14 +213,16 @@ nivel de autonomía (ver Registry).
 - **Entrada**: historia de usuario con criterios de aceptación.
 - **Pasos**: derivar casos de prueba de los criterios, realizar revisión humana de los
   casos, automatizar si corresponde, ejecutar, reportar resultados.
-- **Capacidades**: [`test-case-generation`](../capabilities/skills/test-case-generation/SKILL.md)
-  (CAP-014) para la generación de casos, y
-  [`regression-test-generation`](../capabilities/skills/regression-test-generation/SKILL.md)
-  (CAP-015) para clasificar qué casos conviene automatizar y generar el código — ambas
-  `PROPOSAL`, sin ejecución real todavía. CAP-015 cubre solo la generación del código; la
-  ejecución automática en pipeline (vía MCP Playwright, como describe el KO) sigue sin
-  capacidad ni propuesta — depende de un mecanismo de ejecución que no existe en ningún
-  repo de MOA, ver `../architecture/ai-sdlc.md` (etapa "Test de regresión").
+- **Capacidades**: el agente [`qa-analyst`](../capabilities/agents/qa-analyst/AGENT.md)
+  (CAP-024) combina [`test-case-generation`](../capabilities/skills/test-case-generation/SKILL.md)
+  (CAP-014) y [`regression-test-generation`](../capabilities/skills/regression-test-generation/SKILL.md)
+  (CAP-015); [`test-validator`](../capabilities/agents/test-validator/AGENT.md) (CAP-025)
+  verifica con evidencia que todo quedó probado antes del OK final; y
+  [`test-pipeline-setup`](../capabilities/skills/test-pipeline-setup/SKILL.md) (CAP-026)
+  configura que los tests unitarios corran solos en cada PR. Todas `PROPOSAL`, sin
+  ejecución real todavía. La ejecución automática de pruebas de interfaz en pipeline (vía
+  MCP Playwright, como describe el KO) sigue sin propuesta — ver
+  `../architecture/ai-sdlc.md` (etapa "Test de regresión").
 - **Revisión humana**: obligatoria — QA debe validar los casos generados antes de
   considerarlos parte de la cobertura oficial.
 - **Evaluación**: ¿los casos generados cubren los criterios de aceptación reales?

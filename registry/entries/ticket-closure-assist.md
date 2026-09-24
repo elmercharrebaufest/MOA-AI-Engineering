@@ -24,29 +24,29 @@ generalización de una instancia real. Ver CAP-011 para el criterio completo. Qu
 | **Lifecycle State** | Proposal | Sin ejecución real todavía |
 | **Corporate Standard** | N | Sin evidencia de uso real |
 | **Version** | Sin versionado semántico | — |
-| **Risk** | Bajo | No cambia el estado del ticket ni publica el comentario por sí misma |
+| **Risk** | Medio cuando publica | Comenta, carga horas y pasa a Done vía CAP-023, una confirmación por escritura; nunca cierra con criterios sin evidencia ni duplica una transición nativa |
 | **Data** | No toca datos sensibles directamente | INFERENCE |
 | **Data Classification** | REQUIRES VALIDATION | Política no existe (`BLOCKED-DECISIONS.md` #3) |
 | **Tools** | Ninguna declarada — contenido de referencia | FACT |
 | **Model** | No declarado | FACT |
 | **Autonomy** | No aplica directo (Skill) | — |
-| **HITL** | Obligatoria: la persona que cierra el ticket debe confirmar el borrador y cambiar el estado — la skill nunca actúa sobre Jira/Azure DevOps | FACT (declarado en `SKILL.md`) |
+| **HITL** | Obligatoria: la persona confirma el comentario, las horas y el cambio de estado, cada uno antes de escribirse | FACT (declarado en `SKILL.md`) |
 | **Evaluation** | NOT FOUND | — |
 | **Observability** | NOT FOUND | — |
 | **Metrics** | NOT FOUND | — |
 | **Adopters** | Ninguno | — |
-| **Last Review** | 2026-09-18 | — |
+| **Last Review** | 2026-09-24 | — |
 | **Evidence Reference** | Ninguna todavía | — |
 | **Evaluation Reference** | Ninguna todavía | — |
 | **Metric Reference** | Ninguna todavía | — |
 | **Reusable Asset** | [`capabilities/skills/ticket-closure-assist/SKILL.md`](../../capabilities/skills/ticket-closure-assist/SKILL.md) | — |
-| **Action Type** | READ (redacta un borrador; nunca cambia el estado del ticket ni publica el comentario por sí misma) | Deliberadamente más conservador que el propio KO, que propone `ACT` para esta etapa — mismo principio `READ` de CAP-001/002/003/011/014 |
+| **Action Type** | ACT acotado vía CAP-023 (comentario de cierre, horas propias, transición a Done), con confirmación por escritura | Alineado con el KO (etapa 9), con las salvaguardas de `ticket-update` |
 | **Context Requirements** | Criterios de aceptación de CAP-001 + evidencia real de cumplimiento (tests/PR/validación de QA) | Reutiliza mecanismos ya existentes |
 
 ## Nota de selección
 
 Cubre la etapa "Cierre del ticket" del KO — que hasta este trabajo ni siquiera figuraba en
 la tabla "Cobertura real hoy" de `architecture/ai-sdlc.md` (defecto de documentación
-corregido en el mismo trabajo que generó esta entrada). Capacidad mínima y de bajo riesgo:
-solo verifica y redacta, nunca actúa sobre el ticket — más conservadora que la propuesta
-original del KO, que sí contempla actualización automática de estado.
+corregido en el mismo trabajo que generó esta entrada). Verifica y redacta, y desde
+2026-09-24 también publica el cierre, carga las horas y cambia el estado como propone el
+KO — siempre con una confirmación por escritura y sin cerrar con criterios sin evidencia.

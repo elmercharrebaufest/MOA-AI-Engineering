@@ -2,6 +2,11 @@
 name: read-only-code-reviewer
 description: Code review asistido por IA, acotado al diff, sin capacidad de escribir código. Usar antes de merge, como complemento — no reemplazo — de la revisión humana.
 tools: [execute, read, search]
+handoffs:
+  - label: Generar pruebas
+    agent: qa-analyst
+    prompt: El código ya fue revisado. Derivar los casos de prueba de los criterios de aceptación de esta historia y evaluar cuáles automatizar.
+    send: false
 ---
 
 > **`model` deliberadamente ausente del frontmatter.** La elección de modelo depende del
@@ -61,7 +66,9 @@ cada uno con ubicación exacta (archivo:línea) y una sugerencia concreta.
 4. Reportar hallazgos por severidad, con ubicación y sugerencia — nunca modificar
    archivos ni ejecutar comandos de build/test que alteren el estado del repo.
 5. Terminar siempre con un resumen: cantidad de hallazgos por severidad, y una
-   recomendación explícita de si el cambio está listo para revisión humana final.
+   recomendación explícita de si el cambio está listo para revisión humana final. Si no
+   hay hallazgos Critical, mencionar que está disponible el traspaso **"Generar
+   pruebas"**, que la persona decide si usar.
 
 ## Dependencias
 

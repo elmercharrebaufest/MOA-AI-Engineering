@@ -13,7 +13,7 @@ que un equipo real lo pilotee con el scope acotado.
 | **ID** | CAP-004 | — |
 | **Name** | product-owner | FACT (existe el archivo) |
 | **Type** | Agent | FACT |
-| **Purpose** | Empaquetar como Agent la función de refinamiento ya generalizada en CAP-001, con consulta directa del ticket vía MCP Atlassian de solo lectura y alcance acotado | FACT |
+| **Purpose** | Rol de Product Owner del SDLC: refinar requerimientos y tickets existentes con la lógica de CAP-001 y, con confirmación, dejar el resultado en el ticket (descripción, preguntas como comentario, historias divididas). Traspaso guiado a desarrollo (`ticket-kickoff`) | FACT |
 | **Owner** | REQUIRES VALIDATION | `governance/BLOCKED-DECISIONS.md` #1 |
 | **Maintainer** | REQUIRES VALIDATION | Ídem |
 | **Origin** | Función generalizada de CAP-001. Instancia real de referencia (no adoptada como contenido): `product-owner.agent.md` de Orquestador y Scato Logística — uso real e intensivo confirmado en la reunión con el equipo de Scato Logística (2026-09-18), clasificada TEAM-SPECIFIC en `docs/history/track-1/G5.1-Reusable-Capability-Library.md` | FACT (uso real) + FACT (clasificación TEAM-SPECIFIC) |
@@ -28,23 +28,23 @@ que un equipo real lo pilotee con el scope acotado.
 | **Lifecycle State** | Proposal | Sin ejecución real todavía |
 | **Corporate Standard** | N | Sin evidencia de uso real |
 | **Version** | Sin versionado semántico | — |
-| **Risk** | Bajo por diseño estructural | `tools` acotado a una sola herramienta de lectura (`getJiraIssue`), nunca wildcard — a diferencia de la instancia real de referencia |
+| **Risk** | Medio | Escribe en el ticket. Acotado por lista cerrada de 7 herramientas (sin estado, horas ni borrado), nunca wildcard, y confirmación por escritura (CAP-023) |
 | **Data** | Lee contenido de tickets de Jira vía MCP — no accede a otros datos | FACT (por `tools` declarado) |
 | **Data Classification** | REQUIRES VALIDATION | Política no existe (`BLOCKED-DECISIONS.md` #3) |
-| **Tools** | `["com.atlassian/atlassian-mcp-server/getJiraIssue"]` — explícitamente sin wildcard | FACT |
+| **Tools** | Lectura: `getJiraIssue`, `listJiraIssueComments`, `getJiraIssueTypeMetaWithFields`. Escritura: `editJiraIssue`, `addOrEditJiraIssueComment`, `createJiraIssue`, `createJiraIssueLink` — explícitamente sin wildcard | FACT (nombres verificados en la documentación oficial de Atlassian Rovo MCP) |
 | **Model** | No declarado — mismo criterio que CAP-012 | FACT |
 | **Autonomy** | Control estructural: `tools` sin wildcard actúa como el límite real, no una regla en prosa | FACT + INFERENCE |
-| **HITL** | Explícito: revisión humana obligatoria antes de Planning/desarrollo; nunca publica en el ticket ni cambia su estado | FACT (declarado en `AGENT.md`) |
+| **HITL** | Doble: el PO aprueba la historia, y cada escritura en el ticket se confirma antes de ocurrir; nunca cambia el estado | FACT (declarado en `AGENT.md`) |
 | **Evaluation** | NOT FOUND | — |
 | **Observability** | NOT FOUND | — |
 | **Metrics** | NOT FOUND | — |
 | **Adopters** | Ninguno | — |
-| **Last Review** | 2026-09-18 | — |
+| **Last Review** | 2026-09-24 | — |
 | **Evidence Reference** | Ninguna todavía | — |
 | **Evaluation Reference** | Ninguna todavía | — |
 | **Metric Reference** | Ninguna todavía | — |
 | **Reusable Asset** | [`capabilities/agents/product-owner/AGENT.md`](../../capabilities/agents/product-owner/AGENT.md) | — |
-| **Action Type** | READ (`getJiraIssue` únicamente; nunca comenta ni cambia el estado del ticket) | Corrige el hallazgo de riesgo real de la instancia de referencia — ver `security/security-governance.md` |
+| **Action Type** | ACT acotado — editar descripción, comentar, crear y vincular historias, siempre vía CAP-023 con confirmación; nunca cambia estado, sprint ni asignado | Reemplaza el permiso total de la instancia de referencia por una lista cerrada — ver `security/security-governance.md`, "Escritura en tickets" |
 | **Context Requirements** | MCP Atlassian configurado y autenticado por el desarrollador (mismo mecanismo de CAP-003) | Reutiliza mecanismo ya existente |
 
 ## Nota de selección

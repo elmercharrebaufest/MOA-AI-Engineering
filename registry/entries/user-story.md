@@ -5,7 +5,7 @@
 | **ID** | CAP-001 | — |
 | **Name** | user-story | FACT |
 | **Type** | Skill | FACT |
-| **Purpose** | Estructura y plantillas para historias de usuario (Como/quiero/para), criterios de aceptación (Given/When/Then), reglas de negocio (formato RN-XX) y análisis de gaps | FACT |
+| **Purpose** | Refinar un requerimiento, o un ticket existente largo, en una historia breve (30-40 líneas) lista para desarrollo: 3 a 7 criterios Dado/Cuando/Entonces verificables, fuera de alcance, datos y dependencias, preguntas bloqueantes/no bloqueantes, división por INVEST/SPIDR y veredicto de preparación (lista / con supuestos / dividir / no lista). Incluye el modo "revisar un ticket existente" | FACT (revisado 2026-09-24 contra INVEST, Cohn, Jeffries, Cucumber y la ejecución real registrada) |
 | **Owner** | REQUIRES VALIDATION | `BLOCKED-DECISIONS.md` #1 |
 | **Maintainer** | REQUIRES VALIDATION | Ídem |
 | **Origin** | 3 orígenes independientes: DataAgro (commit `20b6363a3`, ticket DAT-1274, 2026-08-31), Scato Logística (commit `8bff906e`, PR 5629, 2026-07-20), Orquestador (commit `872911c`, PR 5633, 2026-07-20) | FACT |
@@ -26,17 +26,17 @@
 | **Tools** | Ninguna declarada — es contenido de referencia, no requiere `tools` | FACT |
 | **Model** | No declarado en ningún caso donde se invoca (el agent `product-owner` de Orquestador que la carga tampoco declara `model`) | FACT |
 | **Autonomy** | No aplica directo (Skill) | — |
-| **HITL** | No se encontró un punto de validación humana declarado explícitamente dentro de la skill misma; el agent `product-owner` de Orquestador tiene la constraint "Never discuss implementation" pero no un HITL específico sobre la historia generada | REQUIRES VALIDATION |
+| **HITL** | Explícito: el PO valida la historia antes de Planning; la escritura opcional en el ticket pasa por la confirmación por cambio de `ticket-update` (CAP-023) | FACT (declarado en `SKILL.md`) |
 | **Evaluation** | NOT FOUND | — |
 | **Observability** | NOT FOUND | — |
 | **Metrics** | NOT FOUND | — |
 | **Adopters** | Portal de Créditos (AWS) — primer adoptante real de la versión generalizada, vía Agent Plugin, 2026-09-23. Los 3 orígenes (DataAgro/Scato Logística/Orquestador) siguen sin evidencia de adopción cruzada entre sí | FACT |
-| **Last Review** | 2026-09-23 | — |
+| **Last Review** | 2026-09-24 | — |
 | **Evidence Reference** | [`records/armoa277-1-campos-propios/EXEC-20260923-001/evidence.md`](../../records/armoa277-1-campos-propios/EXEC-20260923-001/evidence.md) | Primera ejecución real registrada |
 | **Evaluation Reference** | Ninguna todavía | — |
 | **Metric Reference** | Ninguna todavía | — |
 | **Reusable Asset** *(nuevo en G5.1)* | [`capabilities/skills/user-story/SKILL.md`](../../capabilities/skills/user-story/SKILL.md) | Generalización de las 3 instancias reales — **sin catálogo de roles fijo**, corrigiendo una brecha encontrada durante la construcción (rol "operador de planta" ausente del catálogo original de DataAgro) |
-| **Action Type** *(nuevo, campo agregado al implementar Context Acquisition & Resolution)* | READ (no accede a sistemas externos; produce texto, no actúa sobre ningún sistema) | Sin cambios respecto a la evidencia ya existente — CAP-001 nunca declaró `ACT` |
+| **Action Type** *(nuevo, campo agregado al implementar Context Acquisition & Resolution)* | READ (produce texto). La actualización opcional del ticket es `ACT` de CAP-023 (`ticket-update`), no de esta skill | Separación deliberada: la lógica de refinamiento no escribe; la escritura está en una sola skill gobernada |
 | **Context Requirements** | `Direct Context o Resolved Context, indistintamente` — ver [`SKILL.md`](../../capabilities/skills/user-story/SKILL.md#entrada) | Ambos modos quedaron probados de punta a punta durante la construcción — ninguno tiene evidencia de uso real todavía |
 
 ## Nota de selección

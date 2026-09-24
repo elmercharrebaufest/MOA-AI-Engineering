@@ -20,6 +20,13 @@ respondieron por inferencia**. Mientras no se resuelvan, el resto de la document
 
 | 12 | *(agregada en G5.1)* La skill `afip-cpe-ctg` de Scato Logística documenta que el código real deshabilita incondicionalmente la validación de certificado SSL para las llamadas a AFIP (`ServicePointManager.ServerCertificateValidationCallback = ((s,c,ch,e) => true)`, con el comentario "AFIP no valida certificado en todos los ambientes") — ¿es una decisión evaluada y aceptada por Scato Logística, o una brecha de seguridad no revisada? ¿Puede acotarse a los ambientes que realmente lo requieren en vez de deshabilitarse siempre? | Riesgo de integridad de datos en tránsito (man-in-the-middle) en comunicación con un sistema regulatorio real — ai-engineering no puede resolverlo (no modifica repos de equipos), pero tampoco debe quedar sin registrar | [`../security/security-governance.md`](../security/security-governance.md) |
 | 13 | *(agregada 2026-09-21, resuelta parcialmente el mismo día)* **Pregunta original** (ya no vigente): ¿la organización de GitHub de MOA tiene el plan de Copilot que habilita Agent Plugins 1.0? **Resuelta**: no aplica — los repos reales de MOA están en Azure DevOps, no GitHub (ver CAP-008/CAP-002), y ese mecanismo depende del hosting en github.com. **Pregunta vigente ahora**: (a) ¿quién en administración de Azure DevOps de MOA tiene permisos de Project Collection Administrator para habilitar Copilot Code Review a nivel organización?; (b) ¿qué equipo/persona cura la lista de repos destino de `integrations/capability-distribution.md` (el mecanismo de sync por PR recién diseñado)? Ninguna de las 2 tiene respuesta todavía | Determina si la distribución de capacidades del Registry puede pasar de "copiar archivos a mano" a un mecanismo automático real (para Code Review vía Azure DevOps nativo, y para el resto del ciclo vía el sync por PR), o si sigue sin esa opción disponible | `capabilities/README.md`, `integrations/capability-distribution.md` |
+**#4, avance parcial**: la escritura en tickets de Jira vía Atlassian Rovo MCP quedó
+habilitada para el piloto con condiciones explícitas — lista cerrada de herramientas por
+rol, confirmación por escritura, identidad de la propia persona y marca visible (ver
+[`../security/security-governance.md`](../security/security-governance.md), "Escritura en
+tickets"). Siguen abiertos el modelo de credenciales para uso a escala y el gobierno de los
+MCP ya existentes en los repos de equipo.
+
 **Regla aplicada mientras estas preguntas siguen abiertas**: ningún documento de
 [`../architecture/`](../architecture/) afirma estas respuestas. Donde el contenido
 depende de una de estas preguntas, queda explícitamente marcado `REQUIRES VALIDATION` y

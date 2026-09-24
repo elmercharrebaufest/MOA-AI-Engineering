@@ -31,7 +31,7 @@
 | **Observability** | NOT FOUND | — |
 | **Metrics** | NOT FOUND | — |
 | **Adopters** | Ninguno confirmado | — |
-| **Last Review** | 2026-09-07 | — |
+| **Last Review** | 2026-09-24 — se agregó el traspaso guiado "Generar pruebas" hacia `qa-analyst` (CAP-024), sin cambiar `tools` | — |
 | **Evidence Reference** *(nuevo en G4.3)* | `NOT EXECUTED` | No consumida por el Golden Path de G4.2/G4.3 — ver `G4.3-Evidence-Evaluation-Measurement.md` §13 |
 | **Evaluation Reference** *(nuevo en G4.3)* | `NOT EVALUATED` | Ídem |
 | **Metric Reference** *(nuevo en G4.3)* | `NOT MEASURED` | Ídem |

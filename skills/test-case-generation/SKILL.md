@@ -38,8 +38,9 @@ equivalente si el equipo ya tiene sus propios criterios documentados).
 
 ## Salidas
 
-Casos de prueba funcionales, uno por criterio de aceptación como mínimo, listos como
-comentario en el ticket para revisión de QA — no se publican automáticamente.
+Casos de prueba funcionales, uno por criterio de aceptación como mínimo, listos para
+revisión de QA. Si la persona lo pide, se publican como comentario del ticket siguiendo
+[`ticket-update`](../ticket-update/SKILL.md), con confirmación.
 
 ## Instrucciones
 
@@ -74,10 +75,10 @@ contemplan, señalarlo como gap — no inventar un criterio nuevo para justifica
 ### 4. Cierre, siempre
 
 ```text
-✅ Casos listos para revisión de QA — no se publicaron como comentario del ticket
-   automáticamente. Con la validación de QA, corresponde pedirle al asistente que evalúe
-   cuáles conviene automatizar y cuáles quedan como ejecución manual — esta skill no
-   toma esa decisión por sí misma.
+✅ Casos listos para revisión de QA. Si se quieren dejar en el ticket, puedo publicarlos
+   como comentario con su confirmación. Con la validación de QA, corresponde pedirle al
+   asistente que evalúe cuáles conviene automatizar y cuáles quedan como ejecución
+   manual — esta skill no toma esa decisión por sí misma.
 ```
 
 ## Cómo usar esta capability
@@ -95,17 +96,8 @@ Criterios de aceptación:
 ### Patrón de ejecución
 
 ```
-Usa la capability CAP-014 test-case-generation.
-
-Criterios de aceptación reales:
-[los criterios, tal como fueron redactados]
-
-Genera un caso de prueba funcional por cada criterio, siguiendo el formato
-Precondición/Pasos/Resultado esperado.
-
-No inventar criterios que no estén en la lista.
-Si aparece un escenario relevante que ningún criterio cubre, señalarlo como gap, nunca
-convertirlo en un caso de prueba inventado.
+Necesito los casos de prueba de esta historia a partir de sus criterios de aceptación:
+[criterios reales, o la clave del ticket]
 ```
 
 ### Revisión humana
@@ -129,8 +121,8 @@ de acceso a tickets propio.
 
 ## Herramientas / permisos
 
-Ninguna — produce texto estructurado; no publica el comentario en Jira/Azure DevOps por sí
-misma (esa acción sigue siendo de QA), no ejecuta ningún test.
+Ninguna propia — produce texto estructurado y no ejecuta ningún test. La publicación
+como comentario la hace el asistente siguiendo `ticket-update`, con confirmación.
 
 ## Seguridad
 

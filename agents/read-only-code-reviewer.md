@@ -12,6 +12,9 @@ tools: Read, Grep, Glob, Bash
 >
 > **`model` deliberadamente ausente del frontmatter.** Cada equipo agrega su propio
 > `model:` real al adoptar este Agent.
+> **Traspasos guiados**: los botones de traspaso (`handoffs`) son de VS Code. En Claude
+> Code, el paso siguiente se invoca por @-mención del agente correspondiente, con la misma
+> regla: la persona decide si lo usa.
 
 # read-only-code-reviewer
 
@@ -64,7 +67,9 @@ cada uno con ubicación exacta (archivo:línea) y una sugerencia concreta.
 4. Reportar hallazgos por severidad, con ubicación y sugerencia — nunca modificar
    archivos ni ejecutar comandos de build/test que alteren el estado del repo.
 5. Terminar siempre con un resumen: cantidad de hallazgos por severidad, y una
-   recomendación explícita de si el cambio está listo para revisión humana final.
+   recomendación explícita de si el cambio está listo para revisión humana final. Si no
+   hay hallazgos Critical, mencionar que está disponible el traspaso **"Generar
+   pruebas"**, que la persona decide si usar.
 
 ## Dependencias
 

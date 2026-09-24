@@ -31,14 +31,21 @@ Para quien recién llega y solo necesita entender qué hace cada cosa, sin tecni
 Siguiendo el orden en que normalmente aparecen en el trabajo diario de un ticket:
 
 **Refinar un requerimiento**
-- **`user-story`** (CAP-001) — toma un ticket escrito de cualquier forma y lo convierte
-  en una historia de usuario completa: con criterios de aceptación claros, reglas de
-  negocio explícitas y una lista de preguntas pendientes, para que el equipo llegue al
-  refinamiento con menos ambigüedad. **En uso real** en 3 equipos de MOA.
-- **`product-owner`** (CAP-004) — hace exactamente lo mismo que `user-story`, pero como
-  un rol de asistente permanente que puede ir directo a buscar el ticket en Jira, en vez
-  de que alguien tenga que copiarlo y pegarlo a mano. Solo puede leer el ticket, nunca
-  comentarlo ni cambiarlo. **Propuesta nueva, todavía sin probar por ningún equipo.**
+- **`user-story`** (CAP-001) — toma un requerimiento, o un ticket existente largo y
+  desordenado, y lo deja como una historia breve: criterios de aceptación que se pueden
+  probar, lo que queda fuera de alcance, los datos que hacen falta, las preguntas que
+  bloquean y un veredicto de si está lista, con propuesta de división si es demasiado
+  grande. El objetivo es que el equipo no necesite una reunión para entender el ticket.
+  **En uso real** en 3 equipos de MOA.
+- **`product-owner`** (CAP-004) — el rol de Product Owner como asistente: hace lo mismo
+  que `user-story`, trae el ticket directo de Jira y, con su confirmación, deja el
+  resultado en el ticket (la historia en la descripción, las preguntas como comentario,
+  las historias divididas como tickets nuevos). Al terminar, ofrece pasar a desarrollo.
+  **Propuesta nueva, todavía sin probar por ningún equipo.**
+- **`ticket-update`** (CAP-023) — la forma segura en que cualquier asistente escribe en
+  Jira o Azure DevOps: muestra el cambio exacto, espera su confirmación, escribe, verifica
+  que quedó bien y deja una marca visible de que se generó con asistencia. Nunca borra.
+  **Propuesta nueva, todavía sin probar por ningún equipo.**
 
 **Desarrollar y abrir el Pull Request**
 - **`spec-driven-development`** (CAP-005) — organiza el desarrollo de un ticket en pasos y
@@ -68,9 +75,10 @@ Siguiendo el orden en que normalmente aparecen en el trabajo diario de un ticket
   encadena todo lo anterior: investiga el ticket, arma un plan técnico con horas
   estimadas, y — solo si el plan se aprueba — implementa el código él mismo en un
   espacio de trabajo aislado (usando `git-worktree-setup`, CAP-009, para no pisar otras
-  tareas en paralelo), dejándolo listo para revisión antes de publicar. Es la única
-  capacidad de este catálogo que puede editar código real — siempre detrás de una
-  aprobación explícita. **Propuesta nueva, todavía sin probar por ningún equipo.**
+  tareas en paralelo), corriendo los tests antes de dejarlo listo para revisión. Nunca
+  hace push; con su confirmación, deja el plan en el ticket y crea el PR. Al terminar,
+  ofrece revisar el código o generar las pruebas. Siempre detrás de una aprobación
+  explícita. **Propuesta nueva, todavía sin probar por ningún equipo.**
 - **`pr-description`** (CAP-011) — redacta el título y la descripción de un Pull Request
   a partir del ticket de origen y del cambio real de código, para no escribirlo desde
   cero cada vez. **Propuesta nueva, todavía sin probar por ningún equipo.**
@@ -95,11 +103,23 @@ Siguiendo el orden en que normalmente aparecen en el trabajo diario de un ticket
   genera el código del test siguiendo la estructura que el repo ya use. No lo ejecuta
   automáticamente en ningún pipeline — eso sigue dependiendo de una integración que hoy
   ningún equipo de MOA tiene. **Propuesta nueva, todavía sin probar por ningún equipo.**
+- **`qa-analyst`** (CAP-024) — el rol de QA como asistente: arma los casos de prueba de
+  cada criterio, decide cuáles conviene automatizar, escribe y corre esos tests en el
+  repo, y con su confirmación publica los casos en el ticket. Nunca toca código de
+  producción. **Propuesta nueva, todavía sin probar por ningún equipo.**
+- **`test-validator`** (CAP-025) — antes del OK final, verifica con evidencia que el
+  cambio está probado: resultado del pipeline o de la corrida local, cada criterio con su
+  prueba, tests para el código modificado y ningún test desactivado. Solo lee, nunca
+  modifica nada. **Propuesta nueva, todavía sin probar por ningún equipo.**
+- **`test-pipeline-setup`** (CAP-026) — configura que los tests corran solos en cada
+  cambio y en cada PR de Azure DevOps, con el resultado visible y una política que impide
+  completar un PR con tests fallando. **Propuesta nueva, todavía sin probar por ningún
+  equipo.**
 - **`ticket-closure-assist`** (CAP-016) — antes de cerrar un ticket, revisa si sus
   criterios de aceptación realmente se cumplieron (con evidencia real, no una suposición),
-  estima cuántas horas cargar a partir del historial real de commits, y redacta un
-  borrador del comentario de cierre. **Propuesta nueva, todavía sin probar por ningún
-  equipo.**
+  estima cuántas horas cargar a partir del historial real de commits y redacta el
+  comentario de cierre; con su confirmación, lo publica, carga las horas y pasa el ticket
+  a Done. **Propuesta nueva, todavía sin probar por ningún equipo.**
 
 **Traer el contenido de un ticket automáticamente**
 - **`azure-devops-context`** (CAP-002) y **`jira-context`** (CAP-003) — con solo dar la
@@ -156,8 +176,22 @@ todavía. Ver el detalle de evidencia de cada una en su entrada del Registry.
 |---|---|---|---|---|
 | `pr-description` | Skill | [`skills/pr-description/SKILL.md`](skills/pr-description/SKILL.md) | Título/descripción de PR a partir del ticket y el diff real | [CAP-011](../registry/entries/pr-description.md) |
 | `test-case-generation` | Skill | [`skills/test-case-generation/SKILL.md`](skills/test-case-generation/SKILL.md) | Derivar casos de prueba de los criterios de aceptación | [CAP-014](../registry/entries/test-case-generation.md) |
-| `ticket-closure-assist` | Skill | [`skills/ticket-closure-assist/SKILL.md`](skills/ticket-closure-assist/SKILL.md) | Verificar criterios y redactar el borrador de cierre del ticket | [CAP-016](../registry/entries/ticket-closure-assist.md) |
-| `product-owner` | Agent | [`agents/product-owner/AGENT.md`](agents/product-owner/AGENT.md) | Empaquetado como Agent de la lógica de `user-story`, con MCP acotado | [CAP-004](../registry/entries/product-owner.md) |
+| `ticket-closure-assist` | Skill | [`skills/ticket-closure-assist/SKILL.md`](skills/ticket-closure-assist/SKILL.md) | Verificar criterios, redactar el cierre y, con confirmación, publicarlo, cargar horas y pasar a Done | [CAP-016](../registry/entries/ticket-closure-assist.md) |
+| `product-owner` | Agent | [`agents/product-owner/AGENT.md`](agents/product-owner/AGENT.md) | Rol de PO: refinar y, con confirmación, actualizar el ticket; traspaso a desarrollo | [CAP-004](../registry/entries/product-owner.md) |
+
+### Roles del SDLC y escritura en tickets — pedido de MOA (CAP-023 a CAP-026)
+
+Completan la cadena de traspasos guiados (PO → desarrollo → revisión → QA → validación →
+cierre). Tienen precedentes reales —el `qa-tester` de DataAgro, los traspasos del PO de
+Scato Logística, los patrones de confirmación de Camuzzi— pero son capacidades nuevas del
+Common Core, `PROPOSAL` hasta el primer piloto.
+
+| Capacidad | Tipo | Dónde | Para qué | Registry |
+|---|---|---|---|---|
+| `ticket-update` | Skill | [`skills/ticket-update/SKILL.md`](skills/ticket-update/SKILL.md) | Escritura segura en Jira / Azure DevOps, con confirmación por cambio | [CAP-023](../registry/entries/ticket-update.md) |
+| `qa-analyst` | Agent | [`agents/qa-analyst/AGENT.md`](agents/qa-analyst/AGENT.md) | Rol de QA: casos de prueba, tests automatizados, publicación en el ticket | [CAP-024](../registry/entries/qa-analyst.md) |
+| `test-validator` | Agent | [`agents/test-validator/AGENT.md`](agents/test-validator/AGENT.md) | Verificar con evidencia que el cambio está probado, antes del OK final | [CAP-025](../registry/entries/test-validator.md) |
+| `test-pipeline-setup` | Skill | [`skills/test-pipeline-setup/SKILL.md`](skills/test-pipeline-setup/SKILL.md) | Tests automáticos en cada PR de Azure DevOps | [CAP-026](../registry/entries/test-pipeline-setup.md) |
 
 ### Propuestas con evidencia externa de un cliente de Baufest (CAP-007, CAP-009, CAP-010, CAP-015, CAP-017, CAP-018)
 
@@ -420,8 +454,8 @@ las cuales tiene todavía una capacidad materializada):
 capabilities/
 ├── README.md          este archivo
 ├── best-practices.md   guía práctica por tipo de capacidad
-├── skills/              8 capacidades (3 con evidencia real, 5 propuestas — CAP-007/011/014/015/016)
-├── agents/              7 capacidades (1 con evidencia real, 5 propuestas de Camuzzi — CAP-004/009/010/017/018 —, 1 generalizada de un equipo real de MOA pero opt-in — CAP-019)
+├── skills/              12 capacidades (ver la entrada de cada una en el Registry)
+├── agents/              9 capacidades (roles del SDLC, orquestador de desarrollo y agentes de consulta)
 ├── instructions/         2 capacidades
 └── workflows/            1 capacidad
 ```

@@ -28,7 +28,7 @@ Registry** — ver `Risk` abajo.
 | **Risk** | **Medio — la más alta del Registry**, por ser la primera capacidad con `edit` real sobre código de negocio (todas las anteriores son `READ` o `ACT` acotado a `git worktree`) | FACT (por `tools` declarado); mitigado por 2 checkpoints humanos obligatorios y el constraint de nunca escribir código antes de aprobación |
 | **Data** | Código fuente del repo del equipo — no accede a datos de negocio en producción | INFERENCE (por `tools` y constraints declarados) |
 | **Data Classification** | REQUIRES VALIDATION | `BLOCKED-DECISIONS.md` #3 |
-| **Tools** | `[read, edit, execute, search, agent, todo]` | FACT |
+| **Tools** | `[read, edit, execute, search, agent, todo]` + `listJiraIssueComments`, `addOrEditJiraIssueComment` (solo comentarios). Traspasos guiados (`handoffs`, `send: false`) a `read-only-code-reviewer` y `qa-analyst` | FACT |
 | **Model** | No declarado | FACT |
 | **Autonomy** | Explícitamente acotada por 11 constraints textuales (ver `AGENT.md`) — la más extensa del Registry, proporcional al riesgo | FACT |
 | **HITL** | **2 checkpoints obligatorios, sin excepción**: aprobar el plan antes de implementar, revisar el código antes de publicar | FACT (declarado en `AGENT.md`) |
@@ -36,12 +36,12 @@ Registry** — ver `Risk` abajo.
 | **Observability** | NOT FOUND | — |
 | **Metrics** | NOT FOUND | — |
 | **Adopters** | Ninguno | — |
-| **Last Review** | 2026-09-21 | — |
+| **Last Review** | 2026-09-24 | — |
 | **Evidence Reference** | Ninguna todavía | — |
 | **Evaluation Reference** | Ninguna todavía | — |
 | **Metric Reference** | Ninguna todavía | — |
 | **Reusable Asset** | [`capabilities/agents/ticket-kickoff/AGENT.md`](../../capabilities/agents/ticket-kickoff/AGENT.md) | — |
-| **Action Type** | ACT (edición real de código) — únicamente tras aprobación humana explícita del plan, siempre dentro de un worktree aislado (CAP-009), nunca publica (push/PR) por su cuenta | Escalada deliberada y documentada respecto al resto del Registry — ver nota de clasificación arriba |
+| **Action Type** | ACT (edición real de código) — únicamente tras aprobación humana explícita del plan, siempre dentro de un worktree aislado (CAP-009). Nunca hace push; crea el PR solo después del push del developer y con su confirmación; comenta el plan y el vínculo al PR en el ticket vía CAP-023, con confirmación | Escalada deliberada y documentada respecto al resto del Registry — ver nota de clasificación arriba |
 | **Context Requirements** | Resolved Context (CAP-002/CAP-003) + refinamiento (CAP-001/CAP-004) + consulta de specs (CAP-018) + worktree (CAP-009) | Orquesta, no duplica, la adquisición de contexto ya existente |
 
 ## Nota de selección
