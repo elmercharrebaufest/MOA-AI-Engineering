@@ -19,46 +19,50 @@ un administrador de Azure DevOps).
 - VS Code con GitHub Copilot Chat instalado.
 - Acceso de lectura al repositorio `ai-engineering` en Azure DevOps.
 
-## 2. Instalar (una sola vez)
+## 2. Revisar qué hay instalado (siempre, antes de instalar)
+
+**Regla de MOA**: una sola instalación de `ai-engineering` por máquina — la que proviene
+del marketplace `ai-engineering`. La plataforma no impide instalar otra copia; por eso se
+revisa antes.
+
+En una terminal (PowerShell, CMD, Git Bash, o la integrada de VS Code) donde esté
+disponible el comando `copilot`:
+
+```
+copilot plugin list --json
+```
+
+| Qué aparece | Qué significa | Qué hacer |
+|---|---|---|
+| Ninguna entrada con `"name": "ai-engineering"` | No está instalado | Punto 3 |
+| Una sola, con `"marketplace": "ai-engineering"` | Instalación correcta | Nada — **no volver a instalar**. Punto 4 |
+| Una con `"marketplace": ""` | Instalación directa, no proviene del marketplace | Desinstalarla (punto 6), después punto 3 |
+| Más de una | Duplicado — estado no soportado | Desinstalar todas salvo la de `"marketplace": "ai-engineering"` (punto 6) |
+
+## 3. Instalar (solo si el punto 2 lo indica)
 
 Se instala una sola vez por máquina y aplica a cualquier proyecto que se abra en VS Code
 — no hace falta tener ningún repositorio propio abierto.
-
-**Recomendado, por terminal con GitHub Copilot CLI** ("terminal" es cualquier línea de
-comandos — PowerShell, CMD, Git Bash, o la terminal integrada de VS Code — donde esté
-disponible el comando `copilot`), en 2 pasos:
 
 ```
 copilot plugin marketplace add https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering
 copilot plugin install ai-engineering@ai-engineering
 ```
 
-El primer paso registra este repositorio como fuente; el segundo instala el plugin desde
-ahí. Es el mecanismo recomendado de distribución para MOA.
+El primer comando registra este repositorio como marketplace; el segundo instala el plugin
+desde ahí. Es el mecanismo recomendado de distribución para MOA. Si GitHub Copilot CLI no
+está instalada, el propio comando ofrece instalarla. La URL va tal cual, sin `.git` al
+final.
 
-**Alternativa, por la paleta de comandos** (`Ctrl+Shift+P` / `Cmd+Shift+P`) → **"Chat:
-Install Plugin From Source"** → pegar esta URL:
+Después, repetir `copilot plugin list --json` y confirmar que quedó **una sola** entrada
+`ai-engineering`, con `"marketplace": "ai-engineering"`.
 
-```
-https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering
-```
+**No usar para MOA** "Chat: Install Plugin From Source" en VS Code ni `copilot plugin
+install <URL>` directo: instalan desde el repositorio sin pasar por el marketplace
+(quedan con `"marketplace": ""`), el CLI las marca como deprecadas, y si ya existe la
+instalación correcta, suman una copia más.
 
-**Alternativa, instalación directa por terminal**:
-
-```
-copilot plugin install https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering
-```
-
-Si GitHub Copilot CLI no está instalada, el propio comando ofrece instalarla. La URL va
-tal cual, sin agregarle `.git` al final.
-
-**Si ya se instaló antes por alguno de los 2 caminos alternativos**: no hace falta
-desinstalarlo para probar el camino recomendado — pero quedan 2 copias del plugin
-instaladas en paralelo (`copilot plugin list` las muestra por separado). Para no tener
-duplicados, desinstalar la copia anterior siguiendo el punto 5 (Desinstalar) y quedarse
-solo con la instalada vía marketplace.
-
-## 3. Confirmar que funcionó
+## 4. Confirmar que funcionó
 
 Abrir Copilot Chat en modo Agent y preguntarle si reconoce, por ejemplo, `ticket-kickoff`
 o `workflow-documenter`.
@@ -66,42 +70,47 @@ o `workflow-documenter`.
 **¿Y ahora qué se escribe?** [`how-to-use.md`](how-to-use.md) — describir la tarea real
 en las propias palabras alcanza, sin necesitar nombrar ninguna capacidad por su ID.
 
-## 4. Actualizar
-
-`ai-engineering` no tiene un botón de "Update" en su panel de VS Code (a diferencia de
-otras extensiones). Por terminal, `copilot plugin update ai-engineering@ai-engineering`
-falla en Windows con un error del propio GitHub Copilot CLI, sea cual haya sido el camino
-de instalación usado (marketplace o directo) — no es algo que se pueda corregir desde este
-repositorio. No hay, hoy, ningún mecanismo de actualización confirmado que funcione en
-Windows — el siguiente workaround es lo único que sí funciona:
-
-1. Buscar `@agentPlugins` en la vista Extensions (ícono de la barra lateral).
-2. Abrir `ai-engineering` → **"Uninstall"**.
-3. Volver a instalarlo con el mismo comando o paso usado la primera vez (punto 2 de
-   arriba).
-
-## 5. Desinstalar
-
-Buscar `@agentPlugins` en la vista Extensions → abrir `ai-engineering` → **"Uninstall"** →
-aceptar la confirmación.
-
-**Si hay más de una copia instalada** (mismo nombre `ai-engineering` repetido en la
-lista): distinguirlas por la versión que muestra el detalle de cada una — la instalada por
-el camino recomendado (marketplace) siempre va a tener la versión más reciente. Desinstalar
-solo la copia vieja, dejando la del marketplace.
-
-**Verificar que se borró de verdad** (el Uninstall desde VS Code a veces no confirma con
-claridad): abrir una terminal con GitHub Copilot CLI disponible y correr
+## 5. Actualizar
 
 ```
-copilot plugin list
+copilot plugin update ai-engineering@ai-engineering
 ```
 
-Ese comando es de solo lectura, no le afecta el bug de Windows de `update`/`install`. Si la
-copia que se quiso borrar sigue apareciendo ahí, no se eliminó — repetir el Uninstall o
-reportarlo como bloqueo real de la plataforma.
+Después, `copilot plugin list --json`: confirmar la versión nueva y que sigue habiendo una
+sola entrada. El panel de VS Code no muestra botón de actualizar para este plugin, y no hay
+actualización automática confirmada — la actualización se pide con este comando.
 
-## 6. Alternativa: que llegue recomendado sin configurar nada
+En Windows, si falla con `Access is denied. (os error 5)`: punto 7.
+
+## 6. Desinstalar
+
+```
+copilot plugin uninstall ai-engineering@ai-engineering
+```
+
+Para una instalación directa (`"marketplace": ""`), usar el nombre tal como lo muestra
+`copilot plugin list`, sin `@...`. También se puede desde VS Code: `@agentPlugins` en la
+vista Extensions → `ai-engineering` → **"Uninstall"**.
+
+Después, `copilot plugin list --json` para confirmar que la copia ya no aparece. Si sigue
+apareciendo, o el comando falla con `Access is denied. (os error 5)`: punto 7.
+
+## 7. Windows: `Access is denied. (os error 5)`
+
+Problema conocido de GitHub Copilot CLI en Windows, no de este repositorio
+([github/copilot-cli#4095](https://github.com/github/copilot-cli/issues/4095)): mientras VS
+Code está abierto, su extensión de Copilot mantiene tomada la carpeta del plugin instalado,
+y Windows no permite reemplazarla ni borrarla. Puede afectar a instalar, actualizar y
+desinstalar — incluido el "Uninstall" del panel de VS Code, que confirma pero deja el
+plugin en su lugar.
+
+1. Cerrar **todas** las ventanas de VS Code (con eso también se cierra su terminal
+   integrada).
+2. Abrir una terminal aparte (PowerShell, CMD o Git Bash) y repetir el mismo comando.
+3. Confirmar con `copilot plugin list --json`.
+4. Volver a abrir VS Code.
+
+## 8. Alternativa: que llegue recomendado sin configurar nada
 
 Si el equipo agrega esto al archivo `.github/copilot/settings.json` de su propio
 repositorio, cualquiera que lo abra recibe el plugin recomendado automáticamente:
@@ -109,7 +118,7 @@ repositorio, cualquiera que lo abra recibe el plugin recomendado automáticament
 ```json
 {
   "extraKnownMarketplaces": {
-    "moa-ai-engineering": {
+    "ai-engineering": {
       "source": {
         "source": "git",
         "url": "https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering"
@@ -120,7 +129,9 @@ repositorio, cualquiera que lo abra recibe el plugin recomendado automáticament
 ```
 
 Cada developer igual tiene que aceptar la recomendación y el prompt de confianza — no se
-instala solo.
+instala solo. El nombre del marketplace (`ai-engineering`) tiene que ser el mismo del punto
+3, para no terminar con una instalación de otro marketplace; y aplica igual el punto 2
+antes de aceptar.
 
 ## Ver también
 

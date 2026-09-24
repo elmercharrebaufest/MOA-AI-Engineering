@@ -59,8 +59,9 @@ copilot plugin install ai-engineering@ai-engineering
 El repositorio no necesita ningún archivo adicional para funcionar como marketplace de un
 solo plugin — el primer comando ya lo registra como tal.
 
-**Alternativas, funcionan hoy pero GitHub las tiene marcadas para discontinuar** (el CLI
-muestra el aviso *"Direct plugin installs ... are deprecated"* al usarlas):
+**Instalación directa — la plataforma la soporta, pero no se usa para MOA**: queda con
+`"marketplace": ""`, suma una copia si ya existe la instalación del marketplace, y el CLI
+muestra el aviso *"Direct plugin installs ... are deprecated"* al usarla:
 
 1. Por la paleta de comandos de VS Code con **"Chat: Install Plugin From Source"**
    (pegando la URL directamente) — queda visible en el panel "Extensions: Agent Plugins".
@@ -70,28 +71,46 @@ muestra el aviso *"Direct plugin installs ... are deprecated"* al usarlas):
 En cualquiera de los 3 caminos, VS Code muestra el prompt de confianza en la primera
 instalación de una fuente nueva — aceptar.
 
-**Actualizar**: por terminal (`copilot plugin update`), en Windows falla con *"Access is
-denied. (os error 5)"* — bug confirmado de GitHub Copilot CLI, no de este repositorio,
-afecta a los 3 caminos de instalación por igual. El panel "Extensions: Agent Plugins" de
-VS Code no muestra ningún botón de actualización para este plugin — no hay, hoy, un
-mecanismo de actualización confirmado que funcione en Windows. El único camino que sí
-funciona es un workaround, no una función de "actualizar": desinstalar y volver a instalar
-(ver "Desinstalar" abajo, y el punto 2 de "Cómo lo instala un developer"). No hay evidencia
-real de que `extensions.autoUpdate` (24 horas) ni **"Extensions: Check for Extension
-Updates"** apliquen a este tipo de plugin — son mecanismos de las Extensions estándar de
-VS Code, un sistema distinto de Agent Plugins; queda `REQUIRES VALIDATION`, no afirmado.
+**Una sola instalación por máquina** — regla operativa de MOA, no una restricción de la
+plataforma: el CLI permite que convivan varias copias del mismo plugin (confirmado:
+coexistieron `ai-engineering` con `"marketplace": ""` y `ai-engineering@ai-engineering`,
+cada una fija en la versión con la que se instaló). Por eso el Quick Start empieza siempre
+con `copilot plugin list --json` y una tabla de decisión, antes de instalar nada. No hay
+script de verificación automática: la revisión es un solo comando de solo lectura, y un
+script sumaría mantenimiento sobre un formato de salida del CLI que solo se observó una
+vez.
 
-**Desinstalar**: confirmado real desde VS Code — vista **"Agent Plugins - Installed"**,
-clic derecho sobre el plugin → **"Uninstall"**. Por terminal (`copilot plugin uninstall`)
-**no hay evidencia real todavía** — nunca se probó ese comando específico; no corresponde
-asumir que falla igual que `update` solo porque comparten el mismo CLI. Usar VS Code
-mientras no exista esa prueba.
+**Actualizar**: `copilot plugin update ai-engineering@ai-engineering`. El panel "Extensions:
+Agent Plugins" no muestra botón de actualización para este plugin. No hay evidencia de que
+`extensions.autoUpdate` ni **"Extensions: Check for Extension Updates"** apliquen a Agent
+Plugins — son mecanismos de las Extensions estándar de VS Code; `REQUIRES VALIDATION`.
 
-**Instalar por más de un camino deja copias separadas del plugin** — `copilot plugin
-list` las distingue por su origen (`ai-engineering` vs. `ai-engineering@ai-engineering`).
-Conviene desinstalar cualquier copia anterior al migrar al camino recomendado, para no
-tener duplicados ni confundirse sobre cuál versión está activa (cada instalación queda
-fija en la versión con la que se instaló — no se actualiza sola).
+**Desinstalar**: `copilot plugin uninstall ai-engineering@ai-engineering`, o desde VS Code
+(vista **"Agent Plugins - Installed"** → **"Uninstall"**). Para una instalación directa,
+el nombre sin `@...` tal como lo muestra `copilot plugin list` — `REQUIRES VALIDATION`,
+esa variante no se probó.
+
+### Windows: `Access is denied. (os error 5)`
+
+Limitación de la plataforma, no de este repositorio — issue abierto
+[github/copilot-cli#4095](https://github.com/github/copilot-cli/issues/4095). Causa, según
+el diagnóstico del propio issue: la extensión de Copilot de VS Code mantiene handles de
+observación de archivos sobre `~\.copilot\installed-plugins\...`, y Windows no permite
+renombrar ni reemplazar una carpeta con esos handles abiertos.
+
+| Qué | Nivel de evidencia |
+|---|---|
+| `update` falla con VS Code abierto | Confirmado en MOA |
+| `install` y `uninstall` fallan igual | Confirmado por otros usuarios en el issue; no probado en MOA |
+| Depende del tamaño del plugin (los chicos terminan antes de que el observador reaccione) | Confirmado en el issue — explica que la instalación de `ai-engineering` sí funcionó |
+| El "Uninstall" del panel de VS Code puede confirmar sin borrar | Observado en MOA, consistente con la misma causa; no confirmado como tal |
+| Cerrar VS Code y repetir el mismo comando funciona | Confirmado en el issue; no probado en MOA |
+
+Workaround documentado en el Quick Start: cerrar todas las ventanas de VS Code, repetir el
+comando desde una terminal aparte, verificar con `copilot plugin list --json`. El issue
+también describe un workaround manual (copiar la carpeta del plugin desde la caché interna
+del CLI); no se adopta, porque modifica estado interno del CLI que no está documentado ni
+soportado.
 
 ## Implementación
 
