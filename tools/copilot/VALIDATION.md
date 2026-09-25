@@ -27,6 +27,9 @@ En una terminal aparte, cerrando VS Code durante la prueba, con Copilot CLI 1.0.
 | S2-update | Actualización real 0.4.0 → 0.4.1 | VALIDATED | "Actualizado: 0.4.0 -> 0.4.1", sin `os error 5` |
 | S3-duplicate | Instalación directa agregada a propósito junto a la del marketplace | VALIDATED | La CLI permite el duplicado. `install` lo detectó, pidió confirmación, desinstaló las 2 sin `os error 5` y dejó una sola desde el marketplace |
 | S4-components | Instalación de componentes guiada por el manifest | VALIDATED | Con el paquete 0.5.0, las Instructions quedaron en `~/.copilot/instructions/` y Copilot las detectó; la segunda ejecución informó "al día" |
+| S5-tag | Versión disponible por la etiqueta `v0.5.0` | VALIDATED | `doctor`: "0.4.1 instalada; 0.5.0 disponible" |
+| S6-install-outdated | `install` con el plugin en una versión anterior | VALIDATED | Con VS Code abierto se detuvo sin cambios. Con VS Code cerrado: "0.4.1 -> 0.5.0", "Actualizado: 0.4.1 -> 0.5.0", sin `os error 5` |
+| S7-end-to-end | Actualización real a la 0.5.0 publicada y aplicación del manifest | VALIDATED | Instructions configuradas; `doctor`: Skills, Agents, Subagents, Instructions, MCP y Workflows en OK, Integrations NOT_SUPPORTED, estado READY; una sola instalación |
 
 ## Qué sigue NOT_VALIDATED
 
@@ -34,8 +37,6 @@ En una terminal aparte, cerrando VS Code durante la prueba, con Copilot CLI 1.0.
   tienen ejecuciones reales (`EXEC-20260923-001`, `EXEC-20260924-001`).
 - Uso de las herramientas de Jira desde los agentes: requiere que el developer autentique
   Atlassian.
-- Detección de la versión disponible por etiqueta (`v*`): no hay etiquetas hasta publicar
-  la 0.5.0.
 - Integrations: sin mecanismo de carga en el plugin.
 
 ## Hallazgo lateral

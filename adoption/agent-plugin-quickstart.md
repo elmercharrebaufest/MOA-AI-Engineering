@@ -22,23 +22,31 @@ un administrador de Azure DevOps).
 
 ## 2. Instalar
 
-Una sola vez por máquina; aplica a todos los proyectos. No hace falta clonar nada.
+Una sola vez por máquina; aplica a todos los proyectos. No hace falta clonar ni descargar
+nada: el plugin trae el script `moa-ai.ps1`.
 
-1. Descargar el script: en Azure DevOps, **Repos → Files → `tools/moa-ai.ps1` →
-   Download**.
-2. Cerrar **todas** las ventanas de VS Code.
-3. En PowerShell o Windows Terminal (no en la terminal de VS Code), desde la carpeta de la
-   descarga:
+Cerrar **todas** las ventanas de VS Code y abrir PowerShell o Windows Terminal (no la
+terminal de VS Code).
+
+**Máquina sin el plugin:**
 
 ```
-powershell -ExecutionPolicy Bypass -File .\moa-ai.ps1 install
+copilot plugin marketplace add https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering
+copilot plugin install ai-engineering@ai-engineering
+powershell -ExecutionPolicy Bypass -File "$HOME\.copilot\installed-plugins\ai-engineering\ai-engineering\tools\moa-ai.ps1" install
 ```
 
-El script registra el marketplace de MOA, instala el plugin (si ya está instalado, no lo
-repite; si hay copias duplicadas, pide confirmación para dejar una sola), configura las
-Instructions en `~/.copilot/instructions/moa-ai-engineering.instructions.md` y termina
-con `doctor`. Al final muestra el comando para actualizar, que ya apunta al script dentro
-del plugin instalado: el archivo descargado se puede borrar.
+**Máquina con una versión anterior a 0.5.0** (que todavía no trae el script):
+
+```
+copilot plugin update ai-engineering@ai-engineering
+powershell -ExecutionPolicy Bypass -File "$HOME\.copilot\installed-plugins\ai-engineering\ai-engineering\tools\moa-ai.ps1" install
+```
+
+`install` no repite lo que ya está hecho: si el plugin está instalado en una versión
+anterior, lo actualiza; si hay copias duplicadas, pide confirmación para dejar una sola.
+Después configura las Instructions en
+`~/.copilot/instructions/moa-ai-engineering.instructions.md` y termina con `doctor`.
 
 ## 3. Verificar
 

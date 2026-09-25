@@ -8,8 +8,8 @@
 
   Qué se instala y cómo lo define core-manifest.json (componente, mecanismo y verificación).
 
-  install  Registra el marketplace, instala el plugin (una sola vez) y aplica cada componente
-           del manifest con su mecanismo.
+  install  Registra el marketplace, instala el plugin (una sola vez; si ya está en una versión
+           anterior, lo actualiza) y aplica cada componente del manifest con su mecanismo.
   update   Si hay una versión nueva, actualiza el plugin y vuelve a aplicar todos los componentes.
   status   Resumen del estado actual.
   doctor   Verificaciones detalladas: OK, WARNING, ERROR o NOT_VALIDATED.
@@ -226,7 +226,7 @@ function Test-Component($c, $Manifest, [string]$PluginDir) {
         }
         'agent-files' {
             $missing = @($items | Where-Object { -not (Test-Path (Join-Path $dir "$_.agent.md")) })
-            if ($missing.Count -eq 0) { return 'OK', "$($items.Count) presentes. $hosts" }
+            if ($missing.Count -eq 0) { return 'OK', "Presentes: $($items.Count). $hosts" }
             return $fail, "Faltan: $($missing -join ', ')"
         }
         'agent-flag' {
@@ -350,6 +350,22 @@ function Show-Status {
 
 # ---------------------------------------------------------------- comandos
 
+# Actualiza el plugin del marketplace de MOA y devuelve la versión resultante.
+function Update-Plugin([string]$Before) {
+    Assert-CanModifyPlugin
+    [void](Invoke-Copilot @('plugin', 'marketplace', 'update'))
+    $r = Invoke-Copilot @('plugin', 'update', $PluginId)
+    if ($r.Code -ne 0) {
+        if (Test-AccessDenied $r.Out) { Write-Line 'ERROR  Windows bloqueó archivos del plugin (os error 5). Cerrar VS Code y repetir.' Red }
+        Write-Line $r.Out Red; exit 1
+    }
+    $after = @(Get-MoaPlugins)[0].version
+    if ($after -eq $Before) { Write-Line "WARNING  La versión no cambió ($Before)." Yellow }
+    else { Write-Line "Actualizado: $Before -> $after" Green }
+}
+
+function Get-InstalledVersion($Plugin) { return [version]($Plugin.version -replace '[^\d\.].*$', '') }
+
 function Invoke-Install {
     Assert-Environment
     Set-Location $HOME
@@ -357,8 +373,17 @@ function Invoke-Install {
     $clean = ($plugins.Count -eq 1 -and $plugins[0].marketplace -eq $MarketplaceName)
 
     if ($clean) {
-        Write-Line "El plugin ya está instalado (versión $($plugins[0].version)). No se instala de nuevo." Green
         Ensure-Marketplace
+        $before = $plugins[0].version
+        $available = Get-AvailableVersion
+        if ($available -and (Get-InstalledVersion $plugins[0]) -lt $available) {
+            Write-Line "El plugin ya está instalado, en una versión anterior: $before -> $available" Cyan
+            Update-Plugin $before
+        } elseif ($available) {
+            Write-Line "El plugin ya está instalado y al día ($before). No se instala de nuevo." Green
+        } else {
+            Write-Line "El plugin ya está instalado ($before). No se pudo consultar la versión disponible; para forzar la actualización, ejecutar update." Yellow
+        }
     } else {
         Assert-CanModifyPlugin
         Ensure-Marketplace
@@ -393,23 +418,13 @@ function Invoke-Update {
     }
     $before = $plugins[0].version
     $available = Get-AvailableVersion
-    $installed = [version]($before -replace '[^\d\.].*$', '')
 
-    if ($available -and $installed -ge $available) {
+    if ($available -and (Get-InstalledVersion $plugins[0]) -ge $available) {
         Write-Line "Ya está en la última versión ($before)." Green
     } else {
         if (-not $available) { Write-Line 'No se pudo consultar la versión disponible; se intentará actualizar igual.' Yellow }
         else { Write-Line "Versión nueva disponible: $before -> $available" Cyan }
-        Assert-CanModifyPlugin
-        [void](Invoke-Copilot @('plugin', 'marketplace', 'update'))
-        $r = Invoke-Copilot @('plugin', 'update', $PluginId)
-        if ($r.Code -ne 0) {
-            if (Test-AccessDenied $r.Out) { Write-Line 'ERROR  Windows bloqueó archivos del plugin (os error 5). Cerrar VS Code y repetir.' Red }
-            Write-Line $r.Out Red; exit 1
-        }
-        $after = @(Get-MoaPlugins)[0].version
-        if ($after -eq $before) { Write-Line "WARNING  La versión no cambió ($before)." Yellow }
-        else { Write-Line "Actualizado: $before -> $after" Green }
+        Update-Plugin $before
     }
 
     Install-Components (Get-PluginDir)

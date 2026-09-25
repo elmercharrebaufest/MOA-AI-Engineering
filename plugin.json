@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "ai-engineering",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Biblioteca reusable de capacidades de AI Engineering de Molinos Agro (Track 1) -- skills, agents y workflows generalizados desde evidencia real de equipos de MOA y evidencia externa, con Human-in-the-Loop explicito. Primera ejecucion real registrada (CAP-001); el resto del Registry sigue en fase de piloto.",
   "repository": "https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering",
   "keywords": ["moa", "sdlc", "copilot", "capability-registry"]

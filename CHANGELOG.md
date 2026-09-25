@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.1] — 2026-09-25
+
+**Cambiado**
+- `install` actualiza el plugin si lo encuentra en una versión anterior: el mismo comando
+  sirve para la primera instalación y para quien viene de una versión previa.
+- El quickstart ya no pide descargar el script desde Azure DevOps: llega con el plugin
+  (`plugin install` o `plugin update`, y después `moa-ai.ps1 install`).
+
 ## [0.5.0] — 2026-09-25
 
 **Agregado**
