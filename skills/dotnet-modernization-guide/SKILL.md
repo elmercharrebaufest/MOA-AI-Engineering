@@ -1,15 +1,12 @@
 ---
 name: dotnet-modernization-guide
-description: Guía para modernizar un proyecto .NET Framework legacy a .NET moderno usando el agente oficial de GitHub Copilot ("Copilot upgrade"), con las restricciones reales de MOA ya incorporadas. No reemplaza la herramienta de Microsoft — la usa bien.
+description: Guía para modernizar un proyecto .NET Framework legacy a .NET moderno usando el agente oficial de GitHub Copilot ("Copilot upgrade"), con las restricciones reales de MOA ya incorporadas. No reemplaza la herramienta de Microsoft — la usa bien. Usar cuando un proyecto .NET Framework deba migrarse a .NET moderno.
 ---
 
 # dotnet-modernization-guide
 
-**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
-persona escriba de otra forma.
-
-**Capability Registry**: [`CAP-020`](../../../registry/entries/dotnet-modernization-guide.md).
-**Estado**: `PROPOSAL` — sin ejecución real ni piloto de ningún equipo todavía.
+**Idioma de la respuesta**: español neutro y formal: tratar a la persona de usted, sin
+voseo ni regionalismos, aunque la persona escriba de otra forma.
 
 ## Propósito
 
@@ -22,14 +19,14 @@ ya incorporadas, en vez de que cada equipo la redescubra por su cuenta.
 
 Un equipo real de MOA con proyectos `.NET Framework` (confirmado: DataAgro, MOA
 Operaciones, Orquestador, Scato Logística, Scato Puerto — ver
-[`../../../teams/README.md`](../../../teams/README.md), sección "Stack tecnológico
+[`../../../teams/README.md`](../../teams/README.md), sección "Stack tecnológico
 real") quiere avanzar hacia .NET moderno, de forma incremental, no de una vez.
 
 ## Cuándo NO usarla
 
 Para Portal de Créditos — ya es 100% .NET moderno (.NET 8), no tiene nada que modernizar.
 
-## Referencia oficial (no duplicada acá, por disciplina de tokens)
+## Referencia oficial (no duplicada aquí, por disciplina de tokens)
 
 [Best practices for GitHub Copilot upgrade - .NET Core](https://learn.microsoft.com/en-us/dotnet/core/porting/github-copilot-upgrade/best-practices)
 (Microsoft Learn, verificado 2026-09-22) — el flujo real: `assessment.md` → `plan.md` →

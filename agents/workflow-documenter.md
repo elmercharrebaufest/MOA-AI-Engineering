@@ -9,12 +9,8 @@ tools: [read, execute, search, todo]
 
 # workflow-documenter
 
-**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
-persona escriba de otra forma.
-
-**Capability Registry**: [`CAP-019`](../../../registry/entries/workflow-documenter.md).
-**Estado**: `PROPOSAL` — sin ejecución real ni piloto de ningún equipo todavía (aunque el
-patrón de origen sí tiene ejecución real, ver "Origen de esta propuesta").
+**Idioma de la respuesta**: español neutro y formal: tratar a la persona de usted, sin
+voseo ni regionalismos, aunque la persona escriba de otra forma.
 
 ## Cuándo usarla (y cuándo definitivamente no)
 
@@ -107,9 +103,9 @@ proponer causa probable con la misma disciplina de evidencia que CAP-017
 
 ## Herramientas / permisos
 
-`tools: [read, execute, search, todo]` — `execute` se limita a correr el parser sobre
-archivos ya existentes, nunca a modificar el `.xamlx` original ni ningún otro archivo del
-repositorio. Sin `edit`.
+`tools: [read, execute, search, todo]` — lee los `.xamlx` con `read`/`search`; `execute`
+se limita a correr el parser propio del equipo, si existe y está documentado en el repo.
+Nunca modifica el `.xamlx` original ni ningún otro archivo del repositorio. Sin `edit`.
 
 ## Seguridad
 
@@ -133,13 +129,10 @@ estado `Faulted`). **No se copia** el glosario de negocio específico de ese equ
 se generaliza únicamente el método (parsear, limpiar ruido de diseñador, documentar,
 detectar problemas), que es transversal a cualquier proyecto real que use WF4.5.
 **Architectural Judgment**: se mantiene como capacidad explícitamente opt-in, no
-transversal — a diferencia de CAP-006, no todo equipo de MOA usa WF4.5, y forzarla a
-quien no la necesita sería exactamente el error que este modelo busca evitar (ver
-[[moa_capability_design_principles]]).
+transversal — no todo equipo de MOA usa WF4.5, y forzarla a quien no la necesita
+no aporta valor.
 
 ## Compatibilidad / adaptación
 
-Portable a cualquier proyecto real con WF4.5 — el parser en sí (script real, no
-documentado acá para no duplicar 877 líneas de código dentro de una capability, ver
-disciplina de optimización de tokens en `capabilities/best-practices.md`) se adapta a la
-estructura de actividades custom de cada equipo real.
+Portable a cualquier proyecto con WF4.5. No incluye un parser: si el equipo tiene uno,
+se usa su comando documentado; si no, se leen los `.xamlx` directamente.

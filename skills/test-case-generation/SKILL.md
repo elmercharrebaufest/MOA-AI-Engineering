@@ -5,18 +5,13 @@ description: Deriva casos de prueba funcionales a partir de los criterios de ace
 
 # test-case-generation
 
-**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
-persona escriba de otra forma.
-
-**Capability Registry**: [`CAP-014`](../../../registry/entries/test-case-generation.md).
-**Golden Path**: [`AI-Assisted QA`](../../../golden-paths/README.md#3-ai-assisted-qa).
-**Estado**: `PROPOSAL` — sin ejecución real ni piloto de ningún equipo todavía. Ver la
-entrada del Registry para el detalle de evidencia.
+**Idioma de la respuesta**: español neutro y formal: tratar a la persona de usted, sin
+voseo ni regionalismos, aunque la persona escriba de otra forma.
 
 ## Propósito
 
 Derivar casos de prueba funcionales a partir de los criterios de aceptación ya definidos
-por [`user-story`](../user-story/SKILL.md) (CAP-001), para que QA dedique el tiempo a
+por [`user-story`](../../capabilities/skills/user-story/SKILL.md) (CAP-001), para que QA dedique el tiempo a
 validación exploratoria y de negocio en vez de a redactar desde cero los casos que ya se
 desprenden directamente de los criterios.
 
@@ -43,7 +38,7 @@ equivalente si el equipo ya tiene sus propios criterios documentados).
 
 Casos de prueba funcionales, uno por criterio de aceptación como mínimo, listos para
 revisión de QA. Si la persona lo pide, se publican como comentario del ticket siguiendo
-[`ticket-update`](../ticket-update/SKILL.md), con confirmación.
+[`ticket-update`](../../capabilities/skills/ticket-update/SKILL.md), con confirmación.
 
 ## Instrucciones
 
@@ -84,7 +79,7 @@ contemplan, señalarlo como gap — no inventar un criterio nuevo para justifica
    manual — esta skill no toma esa decisión por sí misma.
 ```
 
-## Cómo usar esta capability
+## Cómo pedirlo
 
 ### Entrada
 
@@ -108,17 +103,10 @@ Necesito los casos de prueba de esta historia a partir de sus criterios de acept
 Obligatoria, sin excepción: QA debe validar los casos generados antes de considerarlos
 parte de la cobertura oficial — la generación automática no reemplaza el criterio de QA.
 
-### Evidencia / Evaluación / Medición
-
-Mismo mecanismo que el resto del Registry —
-[Evidence Record](../../../adoption/templates/evidence-record.md),
-[Evaluation Record](../../../adoption/templates/evaluation-record.md),
-[Measurement Record](../../../adoption/templates/measurement-record.md).
-
 ## Dependencias
 
 Reutiliza los criterios de aceptación producidos por
-[`user-story`](../../../registry/entries/user-story.md) (CAP-001) y, cuando el ticket se
+[`user-story`](../../registry/entries/user-story.md) (CAP-001) y, cuando el ticket se
 resuelve automáticamente, el Resolved Context de CAP-002/CAP-003 — no define un mecanismo
 de acceso a tickets propio.
 

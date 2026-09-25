@@ -5,13 +5,8 @@ description: Audita requirements.md, design.md, tasks.md y feature.json generado
 
 # spec-review
 
-**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
-persona escriba de otra forma.
-
-**Capability Registry**: [`CAP-007`](../../../registry/entries/spec-review.md).
-**Golden Path**: [`AI-Assisted Development`](../../../golden-paths/README.md#2-ai-assisted-development)
-(complementa a `spec-driven-development`, CAP-005).
-**Estado**: `PROPOSAL` — sin ejecución real ni piloto de ningún equipo todavía.
+**Idioma de la respuesta**: español neutro y formal: tratar a la persona de usted, sin
+voseo ni regionalismos, aunque la persona escriba de otra forma.
 
 ## Propósito
 
@@ -31,8 +26,8 @@ generar los artefactos, esta los audita.
 
 ## Cuándo NO usarla
 
-- No la uses para escribir contenido nuevo de la spec — eso es CAP-005 (`Spec Author`).
-- No le pidas que resuelva una ambigüedad marcada `[NEEDS CLARIFICATION]` por su cuenta —
+- No usarla para escribir contenido nuevo de la spec — eso es CAP-005 (`Spec Author`).
+- No pedirle que resuelva una ambigüedad marcada `[NEEDS CLARIFICATION]` por su cuenta —
   siempre requiere una respuesta real de quien corresponda.
 
 ## Entradas
@@ -112,12 +107,12 @@ cuenta propia** — siempre requiere respuesta real de quien corresponda.
    a cargo decide si avanza, esta skill no lo hace por sí misma.
 ```
 
-## Cómo usar esta capability
+## Cómo pedirlo
 
 ### Patrón de ejecución
 
 ```
-Usa la capability CAP-007 spec-review sobre [carpeta de la feature real].
+Revisar la spec de [carpeta de la feature real].
 
 Aplicar los checks de requirements.md, tasks.md y feature.json.
 
@@ -129,13 +124,6 @@ se encuentra, con ubicación exacta.
 
 El reporte es un insumo — la decisión de si una spec está lista para avanzar de rol sigue
 siendo de una persona, especialmente cuando hay sign-offs pendientes.
-
-### Evidencia / Evaluación / Medición
-
-Mismo mecanismo que el resto del Registry —
-[Evidence Record](../../../adoption/templates/evidence-record.md),
-[Evaluation Record](../../../adoption/templates/evaluation-record.md),
-[Measurement Record](../../../adoption/templates/measurement-record.md).
 
 ## Dependencias
 

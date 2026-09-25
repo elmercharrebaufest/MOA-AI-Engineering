@@ -5,13 +5,8 @@ description: Genera título, descripción y sugerencia de revisores de un Pull R
 
 # pr-description
 
-**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
-persona escriba de otra forma.
-
-**Capability Registry**: [`CAP-011`](../../../registry/entries/pr-description.md).
-**Golden Path**: [`AI-Assisted Development`](../../../golden-paths/README.md#2-ai-assisted-development).
-**Estado**: `PROPOSAL` — sin ejecución real ni piloto de ningún equipo todavía. Ver la
-entrada del Registry para el detalle de evidencia.
+**Idioma de la respuesta**: español neutro y formal: tratar a la persona de usted, sin
+voseo ni regionalismos, aunque la persona escriba de otra forma.
 
 ## Propósito
 
@@ -99,7 +94,7 @@ Antes de redactar contenido nuevo, si hay forma de consultarlo (CLI/integración
 configurada por el equipo), verificar si ya existe un PR abierto para esa rama. Si existe,
 señalarlo y mostrar su referencia en vez de proponer uno nuevo — evita duplicados.
 
-## Cómo usar esta capability
+## Cómo pedirlo
 
 ### Entrada
 
@@ -117,7 +112,7 @@ Diff:
 ### Patrón de ejecución
 
 ```
-Usa la capability CAP-011 pr-description.
+Necesito el título y la descripción del Pull Request de esta rama.
 
 Ticket de origen:
 [Ticket:/Requirement: del Resolved Context, si existe]
@@ -130,9 +125,9 @@ Genera:
 2. Descripción (Qué cambia / Por qué / Cómo probarlo)
 3. Revisores sugeridos, solo si hay información real disponible
 
-No inventes revisores ni funcionalidad que el diff no muestra.
-Si el diff no coincide con lo que describe el ticket, señalalo como una discrepancia,
-no la ocultes.
+No inventar revisores ni funcionalidad que el diff no muestra.
+Si el diff no coincide con lo que describe el ticket, señalarlo como una discrepancia,
+sin ocultarla.
 ```
 
 ### Revisión humana
@@ -140,18 +135,11 @@ no la ocultes.
 Obligatoria: quien abre el PR debe revisar que la descripción generada corresponda al
 diff real antes de publicarla — esta skill redacta, no certifica el cambio.
 
-### Evidencia / Evaluación / Medición
-
-Mismo mecanismo que el resto del Registry —
-[Evidence Record](../../../adoption/templates/evidence-record.md),
-[Evaluation Record](../../../adoption/templates/evaluation-record.md),
-[Measurement Record](../../../adoption/templates/measurement-record.md).
-
 ## Dependencias
 
 Reutiliza el Resolved Context ya producido por
-[`azure-devops-context`](../../../registry/entries/azure-devops-context.md) (CAP-002) o
-[`jira-context`](../../../registry/entries/jira-context.md) (CAP-003) — no define un
+[`azure-devops-context`](../../registry/entries/azure-devops-context.md) (CAP-002) o
+[`jira-context`](../../registry/entries/jira-context.md) (CAP-003) — no define un
 mecanismo de acceso a tickets propio.
 
 ## Herramientas / permisos

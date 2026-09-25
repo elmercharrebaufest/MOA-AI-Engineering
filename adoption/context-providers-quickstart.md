@@ -23,7 +23,7 @@ depender del arquitecto.
   (`azure-devops-cli`).
 - Para Jira: **uno** de los 2 mecanismos:
   - Un cliente MCP real (VS Code + Copilot) con `com.atlassian/atlassian-mcp-server`
-    configurado y autenticado — ver `../integrations/scripts/mcp.template.json`.
+    configurado y autenticado — ver [`agent-plugin-quickstart.md`](agent-plugin-quickstart.md#3-conectar-jira-una-vez).
   - Un API token de Jira de una cuenta autorizada (Prioridad 2, fallback REST).
 
 ## 2. Configuration
@@ -54,7 +54,7 @@ real.
 - Jira REST: el API token se valida en el primer request real (401 = `UNAUTHORIZED` en el
   Resolved Context devuelto, no un error genérico).
 
-### 3a. Atlassian Rovo MCP v2 — runtime principal (VS Code + GitHub Copilot)
+### 3a. Atlassian Rovo MCP — runtime principal (VS Code + GitHub Copilot)
 
 **Este es el mecanismo Prioridad 1** — el script REST de la sección 4 es el fallback
 headless, no el runtime real de un desarrollador. Pasos verificados contra la
@@ -68,9 +68,10 @@ esa configuración/autenticación ya existente (ver detalle en
 [`../integrations/jira-context-provider.md`](../integrations/jira-context-provider.md#ejecución-interactiva-histórico-vs-esta-actualización)):
 
 1. **Instalación**: en VS Code, abrir el panel de Extensiones y buscar `@mcp Atlassian` →
-   seleccionar **Atlassian MCP server** de la galería → **Install**. Alternativa manual:
-   copiar [`../integrations/scripts/mcp.template.json`](../integrations/scripts/mcp.template.json)
-   a `.vscode/mcp.json` del repo del equipo.
+   seleccionar **Atlassian MCP server** de la galería → **Install**. Queda a nivel de
+   usuario como `com.atlassian/atlassian-mcp-server`; no se configura nada en el repo.
+   Pasos completos, incluido el cambio de sitio (la autorización cubre un sitio de Jira
+   por vez): [`agent-plugin-quickstart.md`](agent-plugin-quickstart.md#3-conectar-jira-una-vez).
 2. **Autenticación (OAuth 2.1)**: al primer uso, el cliente MCP (VS Code/Copilot) inicia
    el flujo de autenticación de Atlassian en el navegador — el desarrollador aprueba con
    su propia cuenta real. **Nunca** un token en `mcp.json` ni en ningún archivo de este
@@ -193,4 +194,4 @@ a nivel de todo el vertical slice (`Reference → Resolved Context → CAP-001`)
 
 **Todos los comandos de este documento fueron validados durante la construcción** — los
 ejemplos concretos se purgaron al pasar a adopción real; no hay instrucciones ficticias
-acá.
+aquí.

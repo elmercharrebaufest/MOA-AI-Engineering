@@ -5,8 +5,8 @@ description: Analiza en batch todos los tickets asignados a una persona en el sp
 
 # sprint-batch-analysis
 
-**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
-persona escriba de otra forma.
+**Idioma de la respuesta**: español neutro y formal: tratar a la persona de usted, sin
+voseo ni regionalismos, aunque la persona escriba de otra forma.
 
 **Capability Registry**: [`CAP-021`](../../../registry/entries/sprint-batch-analysis.md).
 **Estado**: `PROPOSAL` — sin ejecución real ni piloto de ningún equipo todavía.

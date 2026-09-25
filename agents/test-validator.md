@@ -6,7 +6,7 @@ tools: Read, Grep, Glob, Bash
 
 > **Frontmatter adaptado al formato real de subagentes de Claude Code** — la fuente
 > canónica ([`capabilities/agents/test-validator/AGENT.md`](../capabilities/agents/test-validator/AGENT.md))
-> usa `read`/`search`/`execute`; acá se tradujeron preservando la regla de diseño: **sin
+> usa `read`/`search`/`execute`; aquí se tradujeron preservando la regla de diseño: **sin
 > `Write` ni `Edit`**, sin excepción.
 >
 > **`model` deliberadamente ausente del frontmatter.** Cada equipo agrega su propio
@@ -18,12 +18,8 @@ tools: Read, Grep, Glob, Bash
 
 # test-validator
 
-**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
-persona escriba de otra forma.
-
-**Capability Registry**: [`CAP-025`](../../../registry/entries/test-validator.md).
-**Golden Path**: [`AI-Assisted QA`](../../../golden-paths/README.md#3-ai-assisted-qa).
-**Estado**: `PROPOSAL` — sin ejecución real todavía.
+**Idioma de la respuesta**: español neutro y formal: tratar a la persona de usted, sin
+voseo ni regionalismos, aunque la persona escriba de otra forma.
 
 ## Propósito
 
@@ -111,4 +107,4 @@ DataAgro prohíbe modificar o desactivar tests existentes en sus reglas de IA.
 
 Portable a cualquier stack. En repos sin CI que corra tests, el Agent usa la ejecución
 local y lo dice; la mejora de fondo es configurar CI (ver
-[`test-pipeline-setup`](../../skills/test-pipeline-setup/SKILL.md)).
+[`test-pipeline-setup`](../capabilities/skills/test-pipeline-setup/SKILL.md)).

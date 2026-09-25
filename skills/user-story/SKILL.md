@@ -9,9 +9,6 @@ description: Refina un requerimiento, o un ticket existente largo y desordenado,
 "podés", "tenés" → "puede pasar", "puede", "tiene"), aunque la persona escriba de otra
 forma.
 
-**Capability Registry**: [`CAP-001`](../../../registry/entries/user-story.md) ·
-**Golden Path**: [`AI-Assisted Requirements`](../../../golden-paths/README.md#1-ai-assisted-requirements).
-
 ## Propósito
 
 Que una historia llegue a desarrollo entendible sin una reunión de aclaración: corta, con
@@ -124,7 +121,7 @@ bloqueado — se separan.
 ## 4. Actualizar el ticket (solo si la persona lo pide)
 
 Con acceso de escritura al sistema de tickets, seguir
-[`ticket-update`](../ticket-update/SKILL.md) — mostrar el cambio exacto y esperar
+[`ticket-update`](../../capabilities/skills/ticket-update/SKILL.md) — mostrar el cambio exacto y esperar
 confirmación:
 
 - historia lista o con supuestos → reemplazar la descripción (el original queda en el
@@ -134,7 +131,7 @@ confirmación:
 
 Nunca cambiar el estado, el sprint ni el asignado del ticket.
 
-## Cómo usar esta capability
+## Cómo pedirlo
 
 ```text
 Necesito refinar este requerimiento en una historia de usuario: [requerimiento real]
@@ -146,7 +143,7 @@ Revisar este ticket, está muy largo y no se entiende: [ticket pegado, o su clav
 
 Revisión humana obligatoria: el PO valida la historia antes de Planning. Evidencia,
 evaluación y medición con las plantillas de
-[`../../../adoption/templates/`](../../../adoption/templates/) — métricas útiles en un
+[`../../../adoption/templates/`](../../adoption/templates) — métricas útiles en un
 piloto: largo de la historia, idas y vueltas con el PO, y si se evitó la reunión de
 refinamiento.
 

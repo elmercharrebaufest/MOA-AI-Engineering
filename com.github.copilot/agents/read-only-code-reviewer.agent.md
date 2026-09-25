@@ -18,11 +18,8 @@ handoffs:
 
 # read-only-code-reviewer
 
-**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
-persona escriba de otra forma.
-
-**Capability Registry**: [`CAP-012`](../../../registry/entries/dotnet-code-reviewer.md).
-**Golden Path**: [`AI Code Review`](../../../golden-paths/README.md#4-ai-code-review).
+**Idioma de la respuesta**: español neutro y formal: tratar a la persona de usted, sin
+voseo ni regionalismos, aunque la persona escriba de otra forma.
 
 ## Propósito
 
@@ -40,9 +37,9 @@ escribir código sin importar qué le pida el prompt.
 
 ## Cuándo NO usarlo
 
-- No lo uses como aprobador automático de PRs — su salida es un input para el revisor
+- No usarlo como aprobador automático de PRs — su salida es un input para el revisor
   humano, no una decisión.
-- No le agregues `tools: edit` "para que también arregle lo que encuentra" — eso rompe el
+- No agregarle `tools: edit` "para que también arregle lo que encuentra" — eso rompe el
   control de seguridad que es la razón de ser de este patrón. Si se necesita un Agent que
   también corrija, es un Agent distinto, con su propia matriz de autonomía y revisión
   humana — no una extensión de este.

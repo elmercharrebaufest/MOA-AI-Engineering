@@ -7,7 +7,7 @@ tools: Read, Edit, Write, Bash, Grep, Glob, TodoWrite, Task
 > **Frontmatter adaptado al formato real de subagentes de Claude Code** — la fuente
 > canónica ([`capabilities/agents/ticket-kickoff/AGENT.md`](../capabilities/agents/ticket-kickoff/AGENT.md))
 > usa nombres de herramienta genéricos (`read`/`edit`/`execute`/`search`/`agent`/`todo`);
-> acá se tradujeron a los nombres reales de Claude Code. Los subagentes de plugin de
+> aquí se tradujeron a los nombres reales de Claude Code. Los subagentes de plugin de
 > Claude Code **no tienen un campo `agents:` en el frontmatter** para declarar de
 > antemano a quién pueden delegar — la delegación a `product-owner`, `git-worktree-setup`
 > y `spec-reader` ocurre en tiempo real, invocándolos por nombre con la herramienta
@@ -28,15 +28,8 @@ tools: Read, Edit, Write, Bash, Grep, Glob, TodoWrite, Task
 
 # ticket-kickoff
 
-**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
-persona escriba de otra forma.
-
-**Capability Registry**: [`CAP-010`](../../../registry/entries/ticket-kickoff.md).
-**Golden Path**: [`AI-Assisted Development`](../../../golden-paths/README.md#2-ai-assisted-development)
-(orquestador de punta a punta de este Golden Path).
-**Estado**: `PROPOSAL` — sin ejecución real ni piloto de ningún equipo todavía. **Antes de
-pilotear esta capacidad con cualquier ticket real, la revisión humana de cada paso es
-obligatoria sin excepción** — ver Constraints.
+**Idioma de la respuesta**: español neutro y formal: tratar a la persona de usted, sin
+voseo ni regionalismos, aunque la persona escriba de otra forma.
 
 ## Propósito
 
@@ -112,7 +105,7 @@ workspace con el/los repositorio(s) reales donde va a implementar.
   título), y ejecutarlo solo con un "sí". Nunca con `--auto-complete` ni
   `--bypass-policy`, nunca mergear.
 - **Escritura en el ticket, solo lo de este rol y siempre con
-  [`ticket-update`](../../skills/ticket-update/SKILL.md)**: el plan aprobado y el vínculo
+  [`ticket-update`](../capabilities/skills/ticket-update/SKILL.md)**: el plan aprobado y el vínculo
   al PR, como comentario. Nunca cambiar el estado, cerrar el ticket ni cargar horas desde
   este agente — eso es del cierre (CAP-016).
 - **La estimación propia es un checkpoint de planning, no una re-estimación oficial del
@@ -126,9 +119,10 @@ workspace con el/los repositorio(s) reales donde va a implementar.
 
 ### 1. Investigar el ticket
 
-Delegar la resolución de contexto (CAP-002/CAP-003 según la fuente) y el refinamiento
-(CAP-001 o CAP-004) del ticket. Usar el resultado como única fuente de verdad — no
-volver a consultar lo mismo dos veces sin una razón concreta.
+Leer el ticket con `getJiraIssue` y sus comentarios con `listJiraIssueComments` (en
+Azure DevOps, con `az boards work-item show`). Si el ticket necesita refinarse, usar el
+subagente `product-owner`. Usar el resultado como única fuente de verdad — no volver a
+consultar lo mismo dos veces sin una razón concreta.
 
 ### 2. Validar contra specs existentes y contra el código real
 
@@ -235,6 +229,14 @@ de una sesión de IA no crece de forma lineal con su duración (ver
   volver a consultarlo "para estar seguro".
 
 ## Herramientas / permisos
+
+**Sitio de Jira.** El `cloudId` es el sitio del ticket: el host de su URL (por ejemplo,
+`molinosagro.atlassian.net` o `baufest.atlassian.net`). Si la persona da solo la clave,
+usar el sitio que indique el `AGENTS.md` del repo; si no lo indica, preguntar una vez cuál.
+Si Jira responde que no hay acceso a ese sitio, no probar en otro: informar que la sesión de
+Atlassian de VS Code autoriza un solo sitio por vez y cómo cambiarlo (Cuentas → cerrar
+sesión de la cuenta del MCP de Atlassian → `MCP: List Servers` →
+`com.atlassian/atlassian-mcp-server` → Restart → elegir el sitio).
 
 `tools: [read, edit, execute, search, agent, todo]` más 2 herramientas de Jira acotadas a
 comentarios (`listJiraIssueComments`, `addOrEditJiraIssueComment`) — `edit` y la escritura

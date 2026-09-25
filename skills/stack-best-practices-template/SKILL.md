@@ -1,18 +1,12 @@
 ---
 name: stack-best-practices-template
-description: Plantilla para documentar las buenas prácticas específicas del stack tecnológico de un equipo, para que un Agent de code review (o cualquier asistente) las cargue on-demand. No es una skill de buenas prácticas en sí — es el patrón para escribir una.
+description: Plantilla para documentar las buenas prácticas específicas del stack tecnológico de un equipo, para que un Agent de code review (o cualquier asistente) las cargue on-demand. No es una skill de buenas prácticas en sí — es el patrón para escribir una. Usar cuando un equipo quiera formalizar las convenciones de su stack para la revisión de código.
 ---
 
 # stack-best-practices-template
 
-**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
-persona escriba de otra forma.
-
-**Capability Registry**: [`CAP-013`](../../../registry/entries/stack-best-practices-template.md).
-**Golden Path**: [`AI Code Review`](../../../golden-paths/README.md#4-ai-code-review) —
-es la skill que un Agent de code review (ver
-[`capabilities/agents/read-only-code-reviewer/`](../../agents/read-only-code-reviewer/AGENT.md))
-carga para aplicar reglas concretas por stack.
+**Idioma de la respuesta**: español neutro y formal: tratar a la persona de usted, sin
+voseo ni regionalismos, aunque la persona escriba de otra forma.
 
 ## Propósito
 
@@ -83,7 +77,7 @@ Ninguna — es contenido de referencia.
 ## Seguridad
 
 Riesgo bajo. El riesgo real es que el contenido quede desactualizado respecto al código y
-genere recomendaciones incorrectas — revisalo cuando el stack cambie de versión.
+genere recomendaciones incorrectas — revisarlo cuando el stack cambie de versión.
 
 ## Datos
 
@@ -119,8 +113,8 @@ un asistente de IA resuelve cada caso de forma distinta e inconsistente).
   dejarlo ambiguo. Para el proyecto en 10.1.4 (Scato Logística/Scato Puerto), Signals no
   aplica — es una versión anterior a esa API.
 - **.NET Framework → .NET moderno**: ver
-  [`../dotnet-modernization-guide/SKILL.md`](../dotnet-modernization-guide/SKILL.md)
-  (CAP-020) — guía completa de modernización, no duplicada acá.
+  [`../dotnet-modernization-guide/SKILL.md`](../../capabilities/skills/dotnet-modernization-guide/SKILL.md)
+  (CAP-020) — guía completa de modernización, no duplicada aquí.
 
 ## Reglas genéricas reales confirmadas por `moa-sdlc` (Existing Practice, DataAgro — 2026-09-22)
 

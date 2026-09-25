@@ -1,7 +1,7 @@
 ---
 name: ticket-kickoff
-description: Use when un developer acaba de recibir un ticket y necesita investigarlo, armar un plan técnico y, una vez aprobado, implementarlo. Orquesta investigación (delega a user-story/product-owner), preparación de entorno aislado (delega a git-worktree-setup) e implementación propia tras aprobación humana. Trabaja 1 ticket a la vez.
-tools: [read, edit, execute, search, agent, todo, "com.atlassian/atlassian-mcp-server/listJiraIssueComments", "com.atlassian/atlassian-mcp-server/addOrEditJiraIssueComment"]
+description: Usar cuando un desarrollador acaba de recibir un ticket y necesita investigarlo, armar un plan técnico y, una vez aprobado, implementarlo. Orquesta investigación (delega a user-story/product-owner), preparación de entorno aislado (delega a git-worktree-setup) e implementación propia tras aprobación humana. Trabaja 1 ticket a la vez.
+tools: [read, edit, execute, search, agent, todo, "com.atlassian/atlassian-mcp-server/getJiraIssue", "com.atlassian/atlassian-mcp-server/listJiraIssueComments", "com.atlassian/atlassian-mcp-server/addOrEditJiraIssueComment"]
 user-invocable: true
 agents: ["product-owner", "git-worktree-setup", "spec-reader"]
 handoffs:
@@ -26,8 +26,8 @@ handoffs:
 
 # ticket-kickoff
 
-**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
-persona escriba de otra forma.
+**Idioma de la respuesta**: español neutro y formal: tratar a la persona de usted, sin
+voseo ni regionalismos, aunque la persona escriba de otra forma.
 
 **Capability Registry**: [`CAP-010`](../../../registry/entries/ticket-kickoff.md).
 **Golden Path**: [`AI-Assisted Development`](../../../golden-paths/README.md#2-ai-assisted-development)
@@ -124,9 +124,10 @@ workspace con el/los repositorio(s) reales donde va a implementar.
 
 ### 1. Investigar el ticket
 
-Delegar la resolución de contexto (CAP-002/CAP-003 según la fuente) y el refinamiento
-(CAP-001 o CAP-004) del ticket. Usar el resultado como única fuente de verdad — no
-volver a consultar lo mismo dos veces sin una razón concreta.
+Leer el ticket con `getJiraIssue` y sus comentarios con `listJiraIssueComments` (en
+Azure DevOps, con `az boards work-item show`). Si el ticket necesita refinarse, usar el
+subagente `product-owner`. Usar el resultado como única fuente de verdad — no volver a
+consultar lo mismo dos veces sin una razón concreta.
 
 ### 2. Validar contra specs existentes y contra el código real
 
@@ -233,6 +234,14 @@ de una sesión de IA no crece de forma lineal con su duración (ver
   volver a consultarlo "para estar seguro".
 
 ## Herramientas / permisos
+
+**Sitio de Jira.** El `cloudId` es el sitio del ticket: el host de su URL (por ejemplo,
+`molinosagro.atlassian.net` o `baufest.atlassian.net`). Si la persona da solo la clave,
+usar el sitio que indique el `AGENTS.md` del repo; si no lo indica, preguntar una vez cuál.
+Si Jira responde que no hay acceso a ese sitio, no probar en otro: informar que la sesión de
+Atlassian de VS Code autoriza un solo sitio por vez y cómo cambiarlo (Cuentas → cerrar
+sesión de la cuenta del MCP de Atlassian → `MCP: List Servers` →
+`com.atlassian/atlassian-mcp-server` → Restart → elegir el sitio).
 
 `tools: [read, edit, execute, search, agent, todo]` más 2 herramientas de Jira acotadas a
 comentarios (`listJiraIssueComments`, `addOrEditJiraIssueComment`) — `edit` y la escritura

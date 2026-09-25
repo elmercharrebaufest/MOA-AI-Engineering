@@ -15,14 +15,14 @@ reales, con evidencia de ejecución y evaluación `model-assisted`, sin validaci
 independiente ni baseline cuantitativo (ver `Real Use Status` de cada entrada en el
 Registry).
 
-**Ninguna capacidad acá es `Corporate Standard: Y`** — son candidatas evaluadas con
+**Ninguna capacidad aquí es `Corporate Standard: Y`** — son candidatas evaluadas con
 evidencia real, adoptables y adaptables, no un estándar impuesto. Ver
 [`../registry/INDEX.md`](../registry/INDEX.md) para el estado completo de gobernanza de
 cada una.
 
 **Este documento sigue las 11 etapas del SDLC que define el KO Interno de Track 1** (pág.
 23-26) — no solo las capacidades con evidencia real. Ver
-[`../README.md#4-qué-puedo-utilizar-actualmente-etapa-por-etapa-del-ko`](../README.md#4-qué-puedo-utilizar-actualmente-etapa-por-etapa-del-ko)
+[`../README.md#cobertura-por-etapa-del-sdlc`](../README.md#cobertura-por-etapa-del-sdlc)
 para la tabla completa, etapa por etapa, con lo que cubre cada una hoy.
 
 ## Qué hace cada capacidad, explicado simple
@@ -230,7 +230,7 @@ está en la primera tabla justamente para no dar a entender que es de uso genera
 No son Skill/Agent/Workflow/Instruction — son la implementación concreta de traer
 automáticamente el contenido real de un ticket, y por eso viven en
 [`../integrations/`](../integrations/catalog.md), no en las carpetas de `capabilities/`.
-Se listan acá para que la cobertura de las 11 etapas del KO quede completa en un solo
+Se listan aquí para que la cobertura de las 11 etapas del KO quede completa en un solo
 lugar — ver la sección "Sigue sin existir `capabilities/integrations/`" más abajo para la
 razón completa de por qué no están en las tablas anteriores.
 
@@ -243,18 +243,18 @@ razón completa de por qué no están en las tablas anteriores.
 
 Se inspeccionaron ~30 candidatos reales (agentes por rol, skills de dominio, instructions
 de seguridad, patrones de workflow) de 6 repos de equipos de MOA. **La mayoría no está
-acá** — quedaron clasificados `TEAM-SPECIFIC` (correctos para su equipo, no para
+aquí** — quedaron clasificados `TEAM-SPECIFIC` (correctos para su equipo, no para
 centralizar) o `EXPERIMENTAL` (interesantes, sin evidencia suficiente todavía). Ver la
 tabla completa de clasificación en
 [el historial de construcción](../docs/history/track-1/G5.1-Reusable-Capability-Library.md)
-— nada acá llegó por "estar en 2 repos", cada una pasó por: propósito, dependencias,
+— nada aquí llegó por "estar en 2 repos", cada una pasó por: propósito, dependencias,
 qué parte es genérica vs. específica, seguridad, permisos, datos, mantenibilidad,
 portabilidad, evidencia de uso, reusabilidad, y contraste con buenas prácticas externas.
 
 ## De dónde viene una capacidad y a dónde va
 
 `ai-engineering` contiene la **fuente/patrón reusable** — no el runtime ejecutable
-de ningún equipo. Copiar un archivo de acá a un repo de equipo **no lo convierte
+de ningún equipo. Copiar un archivo de aquí a un repo de equipo **no lo convierte
 automáticamente en capacidad corporativa** — sigue siendo Team-Specific hasta que pase
 por Assessment/Human Governance (`../architecture/assessment-gate.md`), sin importar
 cuántas veces se copie.
@@ -316,7 +316,7 @@ en github.com bajo esa organización — y los repos reales de MOA están en **A
 (`az repos pr create`, Work Items — ver CAP-008/CAP-002). Se investigaron además 3
 mecanismos adicionales de GitHub Enterprise que podrían no depender del hosting del repo;
 ninguno resultó aplicable (detalle completo en
-[`../TRACK-1/analisis-camuzzi-agent-plugins.md`](../TRACK-1/analisis-camuzzi-agent-plugins.md)).
+`TRACK-1/analisis-camuzzi-agent-plugins.md`, documento de trabajo del Track 1).
 
 **Actualización (2026-09-22) — corrección importante**: sí existe un camino nativo para el
 resto del ciclo, distinto del repo especial `.github` de organización descartado arriba.
@@ -357,15 +357,13 @@ autoservicio individual por plataforma vs. una etapa puntual del KO).
 `ai-engineering` (este repositorio) sigue siendo, siempre, la **fuente** del modelo —
 donde vive el Registry, la documentación y cada capacidad. Ningún mecanismo de
 distribución (ni el de Azure DevOps para Code Review, ni el sync por PR) reemplaza esa
-fuente — son formas distintas de que el contenido llegue desde acá hasta cada repo de
+fuente — son formas distintas de que el contenido llegue desde aquí hasta cada repo de
 equipo, igual que hoy un equipo copia una capacidad a mano a su propio repo.
 
 ## Cómo usar una capacidad — ejemplo concreto, de punta a punta
 
-No hace falta instalar nada nuevo — el propio asistente de IA ya disponible (Copilot,
-Claude, el que esté en uso en el proyecto) hace el trabajo mecánico. Ejemplo real,
-con `user-story` (CAP-001), aplicable de la misma forma a cualquier otra capacidad de
-este catálogo.
+Ejemplo con `user-story`, aplicable de la misma forma a cualquier otra capacidad de este
+catálogo.
 
 **Antes del Paso 1 — decidir cómo va a llegar el contenido al repo.** Si ya se instaló
 el plugin ([`../adoption/agent-plugin-quickstart.md`](../adoption/agent-plugin-quickstart.md)),
@@ -375,13 +373,13 @@ directo al Paso 2. Si no, hay 2 caminos, no uno solo:
 - **¿Solo se necesita probarla una vez, sobre un ticket real?** → seguir el Paso 1 de
   abajo (copia manual, vía agente). Sin pedir nada a nadie, disponible ahora mismo.
 - **¿El equipo va a adoptarla de forma continua, y se necesita que se mantenga
-  actualizada sola cuando cambie acá?** → no copiar a mano — sumar el repo al mecanismo
+  actualizada sola cuando cambie aquí?** → no copiar a mano — sumar el repo al mecanismo
   de distribución automática por Pull Request. Ver
   [`../integrations/capability-distribution.md`](../integrations/capability-distribution.md)
   y la guía paso a paso:
   [`../adoption/capability-distribution-quickstart.md`](../adoption/capability-distribution-quickstart.md).
-  Requiere una decisión de gobierno (agregar tu repo a una lista explícita) — una vez
-  hecho, los `agents`/`skills` te llegan como Pull Request cada vez que cambian, sin que
+  Requiere una decisión de gobierno (agregar el repo a una lista explícita) — una vez
+  hecho, los `agents`/`skills` llegan como Pull Request cada vez que cambian, sin que
   nadie tenga que copiar nada.
 
 En los 3 casos, la matriz de qué puede hacer el asistente en el repo
@@ -390,13 +388,11 @@ por equipo y queda versionada en él. La regla de idioma y estilo no requiere na
 viaja dentro de cada capacidad (ver
 [`../adoption/getting-started.md`](../adoption/getting-started.md#2-el-camino-más-corto)).
 
-**Paso 1 — traer la capacidad a tu repositorio (camino manual, uso puntual).** Con
-`ai-engineering` clonado o accesible en tu entorno, en tu propio repositorio de
-aplicación, en modo agente:
+**Paso 1 — traer la capacidad al repositorio (camino manual, uso puntual).** Con
+`ai-engineering` clonado o accesible, en el repositorio de la aplicación, en modo agente:
 
 ```text
-Se necesita adoptar la capability CAP-001 (user-story) de ai-engineering en este
-repositorio.
+Se necesita adoptar la skill user-story de ai-engineering en este repositorio.
 
 1. Leer capabilities/skills/user-story/SKILL.md del repositorio ai-engineering.
 2. Copiar su contenido a este repositorio, en la carpeta que se use para
@@ -407,13 +403,13 @@ repositorio.
 4. Mostrar el archivo final antes de guardarlo.
 ```
 
-**Paso 2 — usarla sobre un ticket real de tu proyecto.** No hace falta nombrar "CAP-001"
-— ese ID es solo una referencia interna de este repositorio, el asistente no lo necesita.
+**Paso 2 — usarla sobre un ticket real del proyecto.** No hace falta nombrar ningún ID
+del Registry: el asistente no lo necesita.
 Alcanza con describir la tarea (detalle completo: [`../adoption/how-to-use.md`](../adoption/how-to-use.md)):
 
 ```text
 Necesito refinar este ticket en una historia de usuario con criterios de aceptación:
-[pegar el ticket real de tu proyecto acá]
+[pegar el ticket real del proyecto aquí]
 ```
 
 **Paso 3 — revisar el resultado** antes de darlo por bueno (nunca se aprueba una salida

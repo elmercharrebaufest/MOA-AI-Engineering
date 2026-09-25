@@ -5,7 +5,8 @@ lo demás (gobierno, evidencia, Golden Paths), ver [`getting-started.md`](gettin
 
 ## Lo único que hace falta saber
 
-1. Abrir el chat del asistente (Copilot Chat o Claude Code) en modo Agent.
+1. Abrir Copilot Chat en VS Code: elegir un agente en el selector de agentes del chat
+   (por ejemplo, `product-owner`) o usar el modo **Agent** para una tarea suelta.
 2. Describir la tarea real, en las propias palabras — sin fórmulas ni IDs.
 3. Revisar el resultado antes de darlo por bueno.
 
@@ -19,13 +20,13 @@ capacidad de forma explícita, se usa su nombre real (ej. `user-story`), nunca e
 **Refinar un requerimiento**:
 ```
 Necesito refinar este requerimiento en una historia de usuario con criterios de
-aceptación: [pegar el requerimiento real acá]
+aceptación: [pegar el requerimiento real aquí]
 ```
 
 **Ordenar un ticket largo que no se entiende**:
 ```
-Revisar este ticket, está muy largo y no se entiende: [pegar el ticket, o su clave
-si el asistente tiene acceso a Jira]
+Revisar este ticket, está muy largo y no se entiende: [pegar el ticket, o su URL de
+Jira, por ejemplo https://molinosagro.atlassian.net/browse/SEFI-36]
 ```
 
 **Dejar el resultado en el ticket** (el asistente muestra el cambio y espera su "sí"):
@@ -60,9 +61,9 @@ que corresponda y seguir sus traspasos:
 5. **test-validator** — verifica que todo esté probado. Botón **"Preparar cierre"**.
 
 Cada botón solo propone el paso siguiente: usted decide si lo usa, y nada se escribe en
-el ticket sin su confirmación. Para escribir en Jira, el asistente necesita el MCP de
-Atlassian instalado — ver
-[`context-providers-quickstart.md`](context-providers-quickstart.md#3a-atlassian-rovo-mcp-v2--runtime-principal-vs-code--github-copilot).
+el ticket sin su confirmación. Para leer y escribir en Jira, el servidor de Atlassian tiene
+que estar conectado en VS Code — ver
+[`agent-plugin-quickstart.md`](agent-plugin-quickstart.md#3-conectar-jira-una-vez).
 
 ## Si el asistente no reconoce ninguna capacidad instalada
 
@@ -73,13 +74,8 @@ Usar la skill user-story para refinar esto: [requerimiento real]
 ```
 
 Si tampoco así la reconoce, el problema es de instalación, no de cómo se pidió — ver
-[`agent-plugin-quickstart.md`](agent-plugin-quickstart.md) o
-[`claude-code-plugin-quickstart.md`](claude-code-plugin-quickstart.md) según la
-herramienta.
+[`agent-plugin-quickstart.md`](agent-plugin-quickstart.md).
 
 ## Qué hacer con el resultado
 
-Revisarlo — ninguna salida de IA se da por aprobada solo por generarse. Si se quiere
-dejar registro de que se ejecutó, ver el paso de Evidence en
-[`getting-started.md`](getting-started.md#9-generar-evidencia) — es opcional para una
-prueba puntual, no un requisito para poder usar la capacidad.
+Revisarlo: ninguna salida de IA se da por aprobada solo por generarse.

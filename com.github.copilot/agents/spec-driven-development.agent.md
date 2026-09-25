@@ -1,7 +1,7 @@
 ---
 name: spec-driven-development
 description: Workflow Plan → Execute → Verify para llevar un requerimiento desde el ticket hasta código verificado, con trazabilidad y sign-off humano. Usar cuando la tarea tiene ticket y la secuencia spec → implementar → verificar es conocida de antemano.
-tools: [read, search, edit, execute]
+tools: [read, search, edit, execute, "com.atlassian/atlassian-mcp-server/getJiraIssue", "com.atlassian/atlassian-mcp-server/listJiraIssueComments"]
 include-custom-instructions: true
 ---
 
@@ -9,9 +9,8 @@ include-custom-instructions: true
 
 # spec-driven-development
 
-**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
-persona escriba de otra forma.
-
+**Idioma de la respuesta**: español neutro y formal: tratar a la persona de usted, sin
+voseo ni regionalismos, aunque la persona escriba de otra forma.
 
 ## Propósito
 
@@ -106,15 +105,14 @@ Ninguno de los 2 es obligatorio — son condicionales a que la feature real lo j
 
 ## Instrucciones adicionales (nivel Full — solo si se justifica escalar)
 
-**Origen real (corregido 2026-09-22)**: esto ya no es un diseño conceptual — es la
-generalización de la arquitectura real de `moa-sdlc`, en uso por DataAgro (ver
-`registry/entries/spec-driven-development.md` para el detalle de evidencia).
+**Origen**: generalización de un patrón en uso en DataAgro (detalle en
+`registry/entries/spec-driven-development.md`).
 
 Sobre el nivel Lite, agregar: un rol `security-reviewer` con permiso de lectura sobre
 configuración/secretos pero sin poder aprobar cambios con hallazgos críticos sin
 corregir; un rol `human-approver` como gate final explícito antes de cerrar; contratos
 JSON de entrada/salida por rol; y un log de auditoría estructurado. Ver
-[`registry/entries/spec-driven-development.md`](../../../registry/entries/spec-driven-development.md)
+[`registry/entries/spec-driven-development.md`](../../registry/entries/spec-driven-development.md)
 para el detalle completo del esquema.
 
 **Máquina de estados real** (7 estados, no una lista abierta):
@@ -127,8 +125,8 @@ antes de implementar — permite revisar `requirements.md`/`design.md`/`tasks.md
 código de por medio) y un PR final de implementación — ambos con aprobación humana
 explícita, nunca merge automático de ninguno de los 2.
 
-**Contrato real de entrada/salida por rol** (condensado — el esquema completo con
-ejemplos vive en `moa-sdlc/.github/AGENTS-CONTRACTS.md`, no se duplica acá):
+**Contrato real de entrada/salida por rol** (condensado; el detalle está en
+`registry/entries/spec-driven-development.md`):
 
 - **Entrada**: identificador del ticket, rol, estado actual, rutas a los archivos de spec
   reales, contexto (branch/ambiente/stack), y `constraints` explícitos (`mustNotChange`:
@@ -141,8 +139,7 @@ ejemplos vive en `moa-sdlc/.github/AGENTS-CONTRACTS.md`, no se duplica acá):
 
 **Log de auditoría real, por cada ejecución**: `timestamp`, `featureId`, `agentRole`,
 `actor` (agente o humano), qué se pidió, qué se hizo, qué se produjo, evidencia de
-verificación, estado, errores/advertencias, y próximo paso — mismo campo por campo que ya
-usa `moa-sdlc` en producción, no un diseño nuevo.
+verificación, estado, errores/advertencias, y próximo paso.
 
 **Reintentos y reversión** (regla dura, no negociable): máximo 1-2 reintentos ante un
 fallo claramente transitorio y reproducible — si persiste, se bloquea la transición y

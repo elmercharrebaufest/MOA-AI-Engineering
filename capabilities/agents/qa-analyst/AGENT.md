@@ -21,8 +21,8 @@ handoffs:
 
 # qa-analyst
 
-**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
-persona escriba de otra forma.
+**Idioma de la respuesta**: español neutro y formal: tratar a la persona de usted, sin
+voseo ni regionalismos, aunque la persona escriba de otra forma.
 
 **Capability Registry**: [`CAP-024`](../../../registry/entries/qa-analyst.md).
 **Golden Path**: [`AI-Assisted QA`](../../../golden-paths/README.md#3-ai-assisted-qa).
@@ -76,6 +76,14 @@ los criterios.
 ```
 
 ## Herramientas / permisos
+
+**Sitio de Jira.** El `cloudId` es el sitio del ticket: el host de su URL (por ejemplo,
+`molinosagro.atlassian.net` o `baufest.atlassian.net`). Si la persona da solo la clave,
+usar el sitio que indique el `AGENTS.md` del repo; si no lo indica, preguntar una vez cuál.
+Si Jira responde que no hay acceso a ese sitio, no probar en otro: informar que la sesión de
+Atlassian de VS Code autoriza un solo sitio por vez y cómo cambiarlo (Cuentas → cerrar
+sesión de la cuenta del MCP de Atlassian → `MCP: List Servers` →
+`com.atlassian/atlassian-mcp-server` → Restart → elegir el sitio).
 
 `read`, `search`, `edit` (solo archivos de test), `execute` (solo comandos de build y test
 del repo), y de Jira: leer el ticket y sus comentarios, y comentar con confirmación. Sin

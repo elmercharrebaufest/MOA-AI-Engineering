@@ -129,6 +129,26 @@ function Test-AccessDenied([string]$Out) { return ($Out -match 'os error 5' -or 
 
 function Expand-HomePath([string]$Path) { return ($Path -replace '^~', $HOME) -replace '/', '\' }
 
+# Servidores MCP configurados a nivel de usuario en VS Code (perfil por defecto y perfiles).
+function Get-VSCodeMcpServers {
+    $files = @(Join-Path $env:APPDATA 'Code\User\mcp.json')
+    $profiles = Join-Path $env:APPDATA 'Code\User\profiles'
+    if (Test-Path $profiles) { $files += @(Get-ChildItem $profiles -Directory | ForEach-Object { Join-Path $_.FullName 'mcp.json' }) }
+    $names = @()
+    foreach ($f in $files) {
+        if (-not (Test-Path $f)) { continue }
+        $text = (Get-Content $f -Raw -Encoding UTF8) -replace '(?m)^\s*//.*$', ''
+        try { $json = $text | ConvertFrom-Json } catch { continue }
+        if ($json.servers) { $names += @($json.servers.PSObject.Properties | ForEach-Object { $_.Name }) }
+    }
+    return @($names | Select-Object -Unique)
+}
+
+function Write-VSCodeMcpHelp([string]$Server) {
+    Write-Line "  Instalar el servidor de Atlassian en VS Code (una vez): vista Extensions -> buscar '@mcp atlassian' -> Install." Yellow
+    Write-Line "  Debe quedar con el nombre $Server. El login de Atlassian se hace en VS Code al primer uso." Yellow
+}
+
 function Get-Components($Manifest) {
     return @($Manifest.components.PSObject.Properties | ForEach-Object {
         [pscustomobject]@{ Key = $_.Name; Def = $_.Value; Copilot = $_.Value.delivery.copilot }
@@ -154,6 +174,12 @@ function Install-Components([string]$PluginDir) {
                 $same = (Test-Path $dst) -and ((Get-FileHash $src).Hash -eq (Get-FileHash $dst).Hash)
                 if (-not $same) { Copy-Item $src $dst -Force; Write-Line "$($c.Key): configurado en $dst" Green }
                 else { Write-Line "$($c.Key): al día" Green }
+            }
+            'vscode-user-mcp' {
+                $found = Get-VSCodeMcpServers
+                $missing = @($c.Def.items | Where-Object { $found -notcontains $_ })
+                if ($missing.Count -eq 0) { Write-Line "$($c.Key): $($c.Def.items -join ', ') configurado en VS Code" Green }
+                else { Write-Line "WARNING  $($c.Key): falta $($missing -join ', ') en VS Code." Yellow; $missing | ForEach-Object { Write-VSCodeMcpHelp $_ } }
             }
             'none' { Write-Line "$($c.Key): NOT_SUPPORTED en Copilot. $($c.Copilot.notes)" DarkYellow }
             default { }
@@ -244,14 +270,11 @@ function Test-Component($c, $Manifest, [string]$PluginDir) {
             if ($found.Count -gt 0) { return 'OK', "Activas para todos los repos. $hosts" }
             return $fail, 'No detectadas (ejecutar install)'
         }
-        'mcp-list' {
-            $mcp = Get-Json @('mcp', 'list', '--json')
-            $servers = @()
-            if ($mcp -and $mcp.mcpServers) { $servers = @($mcp.mcpServers.PSObject.Properties | ForEach-Object { [pscustomobject]@{ Name = $_.Name; Url = "$($_.Value.url)" } }) }
-            $hits = @($servers | Where-Object { $_.Url -like "*$($cp.match)*" })
-            if ($hits.Count -eq 1) { return 'OK', "$($hits[0].Name) configurado; cada developer autentica con su cuenta. $hosts" }
-            if ($hits.Count -gt 1) { return 'WARNING', "Configurado $($hits.Count) veces ($(($hits | ForEach-Object { $_.Name }) -join ', ')); dejar uno solo" }
-            return $fail, "$($items -join ', ') no detectado"
+        'vscode-mcp' {
+            $found = Get-VSCodeMcpServers
+            $missing = @($items | Where-Object { $found -notcontains $_ })
+            if ($missing.Count -eq 0) { return 'OK', "$($items -join ', ') configurado en VS Code; un sitio de Jira por vez. $hosts" }
+            return $fail, "Falta en VS Code: $($missing -join ', ') (vista Extensions -> '@mcp atlassian' -> Install)"
         }
         'none' { return 'NOT_SUPPORTED', $cp.notes }
         default { return 'WARNING', "Verificación desconocida: $($cp.check)" }

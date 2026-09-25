@@ -134,7 +134,7 @@ confirmación:
 
 Nunca cambiar el estado, el sprint ni el asignado del ticket.
 
-## Cómo usar esta capability
+## Cómo pedirlo
 
 ```text
 Necesito refinar este requerimiento en una historia de usuario: [requerimiento real]

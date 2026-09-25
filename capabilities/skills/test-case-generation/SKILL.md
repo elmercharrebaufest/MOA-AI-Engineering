@@ -5,8 +5,8 @@ description: Deriva casos de prueba funcionales a partir de los criterios de ace
 
 # test-case-generation
 
-**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
-persona escriba de otra forma.
+**Idioma de la respuesta**: español neutro y formal: tratar a la persona de usted, sin
+voseo ni regionalismos, aunque la persona escriba de otra forma.
 
 **Capability Registry**: [`CAP-014`](../../../registry/entries/test-case-generation.md).
 **Golden Path**: [`AI-Assisted QA`](../../../golden-paths/README.md#3-ai-assisted-qa).
@@ -84,7 +84,7 @@ contemplan, señalarlo como gap — no inventar un criterio nuevo para justifica
    manual — esta skill no toma esa decisión por sí misma.
 ```
 
-## Cómo usar esta capability
+## Cómo pedirlo
 
 ### Entrada
 
@@ -108,12 +108,6 @@ Necesito los casos de prueba de esta historia a partir de sus criterios de acept
 Obligatoria, sin excepción: QA debe validar los casos generados antes de considerarlos
 parte de la cobertura oficial — la generación automática no reemplaza el criterio de QA.
 
-### Evidencia / Evaluación / Medición
-
-Mismo mecanismo que el resto del Registry —
-[Evidence Record](../../../adoption/templates/evidence-record.md),
-[Evaluation Record](../../../adoption/templates/evaluation-record.md),
-[Measurement Record](../../../adoption/templates/measurement-record.md).
 
 ## Dependencias
 

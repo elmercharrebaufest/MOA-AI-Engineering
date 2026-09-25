@@ -1,5 +1,26 @@
 # Changelog
 
+## [0.5.2] — 2026-09-25
+
+**Cambiado**
+- Jira se conecta con el servidor MCP de Atlassian instalado una vez en VS Code
+  (`com.atlassian/atlassian-mcp-server`), el mismo que ya usan los equipos. Se quita el
+  `mcp.json` del plugin, que creaba un segundo servidor que los agentes no usaban.
+- `product-owner`, `ticket-kickoff`, `qa-analyst` y `ticket-update` toman el sitio de Jira
+  de la URL del ticket (o del `AGENTS.md` del repo) y, si la sesión está autorizada para otro
+  sitio, explican cómo cambiarlo.
+- `doctor` verifica que el servidor de Atlassian esté configurado en VS Code.
+- Quickstart con la sección "Conectar Jira (una vez)"; los demás documentos la enlazan.
+
+**Corregido** (revisión completa antes de las pruebas reales)
+- `ticket-kickoff` y el Workflow adaptado pueden leer el ticket de Jira (`getJiraIssue`).
+- Todas las capacidades piden tratar a la persona de usted; sin voseo, tuteo ni "acá".
+- Los ejemplos de pedido usan palabras simples, sin IDs internos.
+- Las copias que se entregan (`skills/`, `com.github.copilot/agents/`, `agents/`) se
+  generan desde `capabilities/`: enlaces que funcionan y sin las líneas internas del
+  Registry.
+- README con "Empezar" en la primera pantalla: instalar, usar y qué hace cada capacidad.
+
 ## [0.5.1] — 2026-09-25
 
 **Cambiado**

@@ -10,13 +10,8 @@ include-custom-instructions: true
 
 # spec-reader
 
-**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
-persona escriba de otra forma.
-
-**Capability Registry**: [`CAP-018`](../../../registry/entries/spec-reader.md).
-**Golden Path**: [`AI-Assisted Development`](../../../golden-paths/README.md#2-ai-assisted-development)
-(complementa a `spec-driven-development`, CAP-005, y a `spec-review`, CAP-007).
-**Estado**: `PROPOSAL` — sin ejecución real ni piloto de ningún equipo todavía.
+**Idioma de la respuesta**: español neutro y formal: tratar a la persona de usted, sin
+voseo ni regionalismos, aunque la persona escriba de otra forma.
 
 ## Propósito
 
@@ -36,11 +31,11 @@ las 3 hace el trabajo de las otras.
 
 ## Cuándo NO usarlo
 
-- No lo uses para generar o modificar una spec — eso es CAP-005 (`Spec Author`, en el
+- No usarlo para generar o modificar una spec — eso es CAP-005 (`Spec Author`, en el
   Workflow de `spec-driven-development`).
-- No lo uses para auditar la calidad de una spec (ambigüedades sin resolver, tareas
+- No usarlo para auditar la calidad de una spec (ambigüedades sin resolver, tareas
   huérfanas) — eso es CAP-007 (`spec-review`).
-- No lo uses para diseño técnico ni estimación — eso es CAP-010 (`ticket-kickoff`).
+- No usarlo para diseño técnico ni estimación — eso es CAP-010 (`ticket-kickoff`).
 
 ## Entradas
 
@@ -94,7 +89,7 @@ No hay specs documentadas sobre <tema>. Corresponde generar una con CAP-005
 (spec-driven-development) antes de seguir.
 ```
 
-**Nunca inventes contenido ni sugieras "probablemente exista en..."**. Proponer búsquedas
+**Nunca inventar contenido ni sugerir "probablemente exista en..."**. Proponer búsquedas
 alternativas (sinónimos, módulos relacionados) está bien, pero siempre como sugerencia
 explícita, no como respuesta.
 
@@ -107,16 +102,16 @@ usuario que la información puede cambiar — nunca presentarla como definitiva.
 
 ```text
 ✅ Respuesta citada contra la fuente real de arriba. Si se va a tomar una decisión sobre
-   esto, corresponde confirmar que la spec sigue vigente antes de actuar — esta skill
+   esto, corresponde confirmar que la spec sigue vigente antes de actuar — este agente
    solo consulta, no valida vigencia por su cuenta.
 ```
 
-## Cómo usar esta capability
+## Cómo pedirlo
 
 ### Patrón de ejecución
 
 ```
-Usa la capability CAP-018 spec-reader.
+Responder con lo que ya está documentado en las specs.
 
 Pregunta: [la pregunta real sobre una feature/módulo/ticket ya documentado]
 
@@ -131,13 +126,6 @@ conocimiento general ni inventar contenido.
 La respuesta cita fuentes verificables — igual, quien la usa para tomar una decisión debe
 confirmar que la spec citada sigue vigente (no está en `Draft` desactualizado) antes de
 actuar sobre ella.
-
-### Evidencia / Evaluación / Medición
-
-Mismo mecanismo que el resto del Registry —
-[Evidence Record](../../../adoption/templates/evidence-record.md),
-[Evaluation Record](../../../adoption/templates/evaluation-record.md),
-[Measurement Record](../../../adoption/templates/measurement-record.md).
 
 ## Dependencias
 

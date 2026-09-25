@@ -18,8 +18,8 @@ handoffs:
 
 # product-owner
 
-**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
-persona escriba de otra forma.
+**Idioma de la respuesta**: español neutro y formal: tratar a la persona de usted, sin
+voseo ni regionalismos, aunque la persona escriba de otra forma.
 
 **Capability Registry**: [`CAP-004`](../../../registry/entries/product-owner.md).
 **Golden Path**: [`AI-Assisted Requirements`](../../../golden-paths/README.md#1-ai-assisted-requirements).
@@ -73,6 +73,14 @@ Agent no duplica ninguna de las dos.
    a desarrollo"**, que la persona decide si usar.
 
 ## Herramientas / permisos
+
+**Sitio de Jira.** El `cloudId` es el sitio del ticket: el host de su URL (por ejemplo,
+`molinosagro.atlassian.net` o `baufest.atlassian.net`). Si la persona da solo la clave,
+usar el sitio que indique el `AGENTS.md` del repo; si no lo indica, preguntar una vez cuál.
+Si Jira responde que no hay acceso a ese sitio, no probar en otro: informar que la sesión de
+Atlassian de VS Code autoriza un solo sitio por vez y cómo cambiarlo (Cuentas → cerrar
+sesión de la cuenta del MCP de Atlassian → `MCP: List Servers` →
+`com.atlassian/atlassian-mcp-server` → Restart → elegir el sitio).
 
 Lectura: `read` y `search` sobre el repo; `getJiraIssue`, `listJiraIssueComments`,
 `getJiraIssueTypeMetaWithFields`.

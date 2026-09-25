@@ -42,7 +42,7 @@ necesiten, el resto queda como referencia.
 
 ¿Todavía no queda claro qué le ofrece esto al rol propio (Product Owner, developer,
 revisor de código, QA, arquitecto)? Ver
-[`../README.md#3-para-quién-es-y-qué-le-ofrece-a-cada-rol`](../README.md#3-para-quién-es-y-qué-le-ofrece-a-cada-rol)
+[`../README.md#qué-ofrece-a-cada-rol`](../README.md#qué-ofrece-a-cada-rol)
 antes de seguir — resume, por rol, qué existe hoy y qué resuelve. El detalle de qué hace
 cada capacidad concreta, en lenguaje simple, está en
 [`../capabilities/README.md#qué-hace-cada-capacidad-explicado-simple`](../capabilities/README.md#qué-hace-cada-capacidad-explicado-simple).
@@ -100,7 +100,7 @@ asumir que algo no funciona:
 |---|---|---|
 | **GitHub Copilot** (asistencia base) | Instalar la extensión de Copilot en el IDE y autenticarse con la cuenta correspondiente | Licencia asignada al usuario, gestionada de forma centralizada |
 | **GitHub Copilot Code Review for Azure DevOps** | Nada a nivel individual — se activa a nivel de organización/proyecto | Habilitación sobre el proyecto de Azure DevOps |
-| **Jira** (para traer contexto de un ticket automáticamente) | Instalar el cliente MCP de Atlassian Rovo en el IDE y autenticar la cuenta — paso a paso en [`context-providers-quickstart.md`](context-providers-quickstart.md#3a-atlassian-rovo-mcp-v2--runtime-principal-vs-code--github-copilot) | Que el usuario ya tenga permisos sobre el proyecto de Jira correspondiente |
+| **Jira** (para traer contexto de un ticket automáticamente) | Instalar en VS Code el servidor MCP de Atlassian y autenticar la cuenta (un sitio de Jira por vez) — paso a paso en [`agent-plugin-quickstart.md`](agent-plugin-quickstart.md#3-conectar-jira-una-vez) | Que el usuario ya tenga permisos sobre el proyecto de Jira correspondiente |
 | **Azure DevOps** (para traer contexto de un Work Item automáticamente) | Azure CLI + extensión `azure-devops`, `az login`, variables de entorno — paso a paso en [`context-providers-quickstart.md`](context-providers-quickstart.md#1-prerequisites) | Que el usuario ya tenga permisos sobre la organización/proyecto |
 
 Si algo de la columna derecha todavía no está resuelto, se trata de una dependencia de
@@ -215,10 +215,9 @@ Si no existe registro previo, conviene responder primero cómo se va a dar el co
 
 **Contexto conectado** (si hay un Context Provider configurado): se le da al asistente
 una referencia (por ejemplo, un ID de ticket), no el contenido completo — el Context
-Provider ya configurado la resuelve automáticamente. Hoy está validado de punta a punta
-para Jira (vía Atlassian Rovo MCP) y Azure DevOps. Requiere acceso al sistema
-correspondiente, un cliente MCP compatible, y permisos sobre el proyecto o issue — el
-flujo es de solo lectura.
+Provider ya configurado la resuelve automáticamente. Funciona para Jira (servidor MCP de
+Atlassian en VS Code) y Azure DevOps. Requiere acceso al sistema correspondiente y
+permisos sobre el proyecto; toda escritura en el ticket requiere confirmación.
 
 **Entrada manual** (si no hay un Context Provider disponible): se le da al asistente el
 contenido de la capability más el requerimiento real, copiado del ticket o de donde se

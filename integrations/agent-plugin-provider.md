@@ -37,13 +37,13 @@ propagación automática (que sigue sin aplicar a MOA por estar en Azure DevOps,
 
 ## Qué instala, y qué deliberadamente no
 
-| Contenido | Se empaqueta acá | Ruta |
+| Contenido | Se empaqueta aquí | Ruta |
 |---|---|---|
 | Skills (`capabilities/skills/`) | Sí | `skills/<name>/SKILL.md` |
 | Agents (`capabilities/agents/`) | Sí | `com.github.copilot/agents/<name>.agent.md` |
 | Workflows (`capabilities/workflows/`) | Como agente adaptado | `com.github.copilot/agents/spec-driven-development.agent.md`, generado desde `WORKFLOW.md` (sigue siendo la fuente) |
 | Instructions (`capabilities/instructions/`) | Fuera del plugin, con el script | `com.github.copilot/rules/` no se aplica (probado). La regla general va a `~/.copilot/instructions/moa-ai-engineering.instructions.md`, que instala `tools/moa-ai.ps1`. La matriz de autonomía de cada repo (`repository-governance`) vive en ese repo (`AGENTS.md`); los agentes la leen porque declaran `include-custom-instructions: true` |
-| MCP servers (`mcp.json`) | Sí | Solo el servidor de Atlassian Rovo, sin credenciales: cada developer autentica con su cuenta (decisión del piloto en `security/security-governance.md`) y cada agente declara únicamente las herramientas de su rol |
+| MCP servers | No, se usa el de VS Code | El servidor de Atlassian se instala una vez en VS Code desde la galería (`com.atlassian/atlassian-mcp-server`), con la cuenta de cada persona; los agentes lo referencian por ese nombre. Un `mcp.json` en el plugin creaba un segundo servidor que los agentes no usaban. Pasos: [`../adoption/agent-plugin-quickstart.md`](../adoption/agent-plugin-quickstart.md#3-conectar-jira-una-vez) |
 
 Estado de cada componente y evidencia: [`../core-manifest.json`](../core-manifest.json) y
 [`../tools/copilot/VALIDATION.md`](../tools/copilot/VALIDATION.md).

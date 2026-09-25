@@ -1,12 +1,12 @@
 ---
 name: azure-devops-cli
-description: Ejecutar operaciones de Azure DevOps (pipelines, builds, PRs, variable groups) vía `az` CLI, con verificación de entorno obligatoria antes de cualquier tarea, sin inventar sintaxis de memoria.
+description: Ejecutar operaciones de Azure DevOps (pipelines, builds, PRs, variable groups) vía `az` CLI, con verificación de entorno obligatoria antes de cualquier tarea, sin inventar sintaxis de memoria. Usar cuando se deba consultar o modificar pipelines, PRs, builds o work items con `az`.
 ---
 
 # azure-devops-cli
 
-**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
-persona escriba de otra forma.
+**Idioma de la respuesta**: español neutro y formal: tratar a la persona de usted, sin
+voseo ni regionalismos, aunque la persona escriba de otra forma.
 
 **Capability Registry**: [`CAP-008`](../../../registry/entries/azure-devops-cli.md).
 Se usa como capacidad de soporte dentro de cualquier flujo que necesite operar Azure
@@ -87,8 +87,8 @@ define ni eleva permisos.
 
 ## Seguridad
 
-- Nunca imprimas tokens, PATs, ni el contenido de variables marcadas como secretas.
-- No ejecutes operaciones destructivas (borrar recursos, cambiar permisos) salvo pedido
+- Nunca imprimir tokens, PATs, ni el contenido de variables marcadas como secretas.
+- No ejecutar operaciones destructivas (borrar recursos, cambiar permisos) salvo pedido
   explícito y confirmado por un humano en la propia interacción.
 - Riesgo base bajo — los pre-checks son de solo lectura; el riesgo real depende de qué
   subcomando se invoque después.

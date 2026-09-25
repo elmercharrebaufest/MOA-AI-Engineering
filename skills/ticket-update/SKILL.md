@@ -5,14 +5,8 @@ description: Escribe en un ticket de Jira o un work item de Azure DevOps de form
 
 # ticket-update
 
-**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
-persona escriba de otra forma.
-
-**Capability Registry**: [`CAP-023`](../../../registry/entries/ticket-update.md).
-**Estado**: `PROPOSAL` — sin ejecución real todavía. Es la primera capacidad del modelo
-que escribe en un sistema externo; las condiciones del piloto están en
-[`security/security-governance.md`](../../../security/security-governance.md), sección
-"Escritura en tickets".
+**Idioma de la respuesta**: español neutro y formal: tratar a la persona de usted, sin
+voseo ni regionalismos, aunque la persona escriba de otra forma.
 
 ## Propósito
 
@@ -45,6 +39,14 @@ carga de horas o el cierre.
 | Cierre | Comentar (resumen de cierre); cargar las horas propias; cambiar a "Done", solo si no lo hace la plataforma |
 
 ## Herramientas
+
+**Sitio de Jira.** El `cloudId` es el sitio del ticket: el host de su URL (por ejemplo,
+`molinosagro.atlassian.net` o `baufest.atlassian.net`). Si la persona da solo la clave,
+usar el sitio que indique el `AGENTS.md` del repo; si no lo indica, preguntar una vez cuál.
+Si Jira responde que no hay acceso a ese sitio, no probar en otro: informar que la sesión de
+Atlassian de VS Code autoriza un solo sitio por vez y cómo cambiarlo (Cuentas → cerrar
+sesión de la cuenta del MCP de Atlassian → `MCP: List Servers` →
+`com.atlassian/atlassian-mcp-server` → Restart → elegir el sitio).
 
 **Jira** (servidor oficial Atlassian Rovo MCP —
 [herramientas soportadas](https://developer.atlassian.com/cloud/rovo-mcp/guides/supported-tools/)):
@@ -141,7 +143,7 @@ con sus mismos permisos de Jira: el historial del ticket la muestra como autora,
 es quien confirmó cada cambio. La marca del paso 5 deja visible que el texto se generó
 con asistencia. Si un equipo necesita que escriba una cuenta técnica compartida, es una
 decisión de gobierno pendiente, no algo que esta skill resuelva
-([`governance/BLOCKED-DECISIONS.md`](../../../governance/BLOCKED-DECISIONS.md) #4).
+([`governance/BLOCKED-DECISIONS.md`](../../governance/BLOCKED-DECISIONS.md) #4).
 
 ## Revisión humana
 

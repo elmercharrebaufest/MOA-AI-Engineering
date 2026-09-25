@@ -10,8 +10,8 @@ tools: [read, search, execute, web]
 
 # production-incident-investigation
 
-**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
-persona escriba de otra forma.
+**Idioma de la respuesta**: español neutro y formal: tratar a la persona de usted, sin
+voseo ni regionalismos, aunque la persona escriba de otra forma.
 
 **Capability Registry**: [`CAP-017`](../../../registry/entries/production-incident-investigation.md).
 **Golden Path**: sin Golden Path propio todavía — cubre la etapa "Soporte productivo" del
@@ -57,9 +57,9 @@ deliberadamente:
 
 ## Cuándo NO usarlo
 
-- No lo uses para aplicar ningún cambio, ni en código ni en configuración — solo investiga
+- No usarlo para aplicar ningún cambio, ni en código ni en configuración — solo investiga
   y propone, nunca actúa.
-- No lo uses para reemplazar la comunicación con el usuario/cliente afectado — su salida es
+- No usarlo para reemplazar la comunicación con el usuario/cliente afectado — su salida es
   un insumo técnico, no un mensaje para el cliente.
 
 ## Entradas
@@ -94,7 +94,7 @@ explícitamente, y nunca se envían/publican solas):
    de uno bajo monitoreo. Nunca asumir cuál es — si el usuario dice "el backend" o "el
    pago" y hay varios componentes posibles, preguntar cuál exactamente antes de investigar.
    Mantener (fuera de este archivo, en la configuración real del equipo) la tabla real de
-   qué servicio corresponde a qué recurso de monitoreo — nunca inventarla ni adivinarla acá.
+   qué servicio corresponde a qué recurso de monitoreo — nunca inventarla ni adivinarla aquí.
 2. **Verificar el acceso a la plataforma de monitoreo antes de consultar nada** — sesión
    activa, permisos y alcance correctos. Si no hay sesión o apunta al recurso equivocado,
    asistir el proceso de autenticación real del mecanismo que el equipo use (nunca pedir
@@ -152,12 +152,12 @@ primer diagnóstico, para no partir de cero cada vez:
   operación/trace específico (requests, dependencias, excepciones), ordenado
   cronológicamente — el más útil cuando ya se tiene el ID de un caso puntual reportado.
 
-## Cómo usar esta capability
+## Cómo pedirlo
 
 ### Patrón de ejecución
 
 ```
-Usa la capability CAP-017 production-incident-investigation.
+Investigar este incidente de producción.
 
 Incidente reportado:
 [descripción real del problema — mensaje de error, comportamiento observado]
@@ -182,12 +182,6 @@ Obligatoria — el reporte es un insumo para quien resuelve el incidente, nunca 
 conclusión que se aplique sin validación humana, especialmente antes de cualquier cambio en
 producción derivado de la investigación.
 
-### Evidencia / Evaluación / Medición
-
-Mismo mecanismo que el resto del Registry —
-[Evidence Record](../../../adoption/templates/evidence-record.md),
-[Evaluation Record](../../../adoption/templates/evaluation-record.md),
-[Measurement Record](../../../adoption/templates/measurement-record.md).
 
 ## Dependencias
 

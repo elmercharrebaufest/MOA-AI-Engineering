@@ -118,7 +118,7 @@ ACT**. No crea, no comenta, no transiciona, no cierra issues. La única operaci�
 disponible es la lectura acotada a un issue por su identificador exacto. Cualquier
 extensión futura hacia ACT (ej. comentar automáticamente) requiere pasar primero por el
 Golden Path #6 (*MCP / Integration Onboarding*, [`../golden-paths/README.md`](../golden-paths/README.md#6-mcp--integration-onboarding))
-y por la sección "READ vs. ACT" de `security-governance.md` — **no se habilita acá**.
+y por la sección "READ vs. ACT" de `security-governance.md` — **no se habilita aquí**.
 
 ## Evidencia
 
@@ -144,7 +144,7 @@ Context` (ej. CAP-001). No reemplaza el flujo manual — es una alternativa.
 ```text
 VS Code + GitHub Copilot (runtime real de los desarrolladores de MOA)
         ↓
-Atlassian Rovo MCP v2  (https://mcp.atlassian.com/v2/mcp, OAuth 2.1)
+Atlassian Rovo MCP  (com.atlassian/atlassian-mcp-server, galería de VS Code, OAuth 2.1)
         ↓
     getJiraIssue  (único método declarado, sin wildcard)
         ↓
@@ -156,10 +156,11 @@ oficial de Atlassian (no inventado): endpoint, formato de `mcp.json`, mecanismo 
 2.1 y el propio nombre `getJiraIssue` (fuentes:
 [Get started with the Atlassian Rovo MCP Server](https://support.atlassian.com/atlassian-rovo-mcp-server/docs/getting-started-with-the-atlassian-remote-mcp-server/),
 [Supported tools](https://support.atlassian.com/atlassian-rovo-mcp-server/docs/supported-tools/)).
-Instalación: galería de extensiones de VS Code (`@mcp Atlassian`) o copiando
-[`scripts/mcp.template.json`](scripts/mcp.template.json) a `.vscode/mcp.json` del repo del
-equipo. La autenticación la resuelve el cliente MCP en el primer uso (flujo OAuth 2.1 en
-el navegador) — **nunca** un token en un archivo.
+Instalación: galería de extensiones de VS Code (`@mcp Atlassian`), a nivel de usuario; no
+se configura nada en el repo. La autenticación la resuelve el cliente MCP en el primer uso
+(flujo OAuth 2.1 en el navegador) — **nunca** un token en un archivo. La autorización cubre
+un sitio de Jira por vez. Pasos completos:
+[`../adoption/agent-plugin-quickstart.md`](../adoption/agent-plugin-quickstart.md#3-conectar-jira-una-vez).
 
 **El script REST (Prioridad 2, fallback)** —
 [`scripts/jira-context.ps1`](scripts/jira-context.ps1) — sigue existiendo para escenarios

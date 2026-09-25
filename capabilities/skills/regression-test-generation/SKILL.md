@@ -5,8 +5,8 @@ description: Clasifica si un caso de prueba funcional conviene automatizar (vs. 
 
 # regression-test-generation
 
-**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
-persona escriba de otra forma.
+**Idioma de la respuesta**: español neutro y formal: tratar a la persona de usted, sin
+voseo ni regionalismos, aunque la persona escriba de otra forma.
 
 **Capability Registry**: [`CAP-015`](../../../registry/entries/regression-test-generation.md).
 **Golden Path**: [`AI-Assisted QA`](../../../golden-paths/README.md#3-ai-assisted-qa).
@@ -116,12 +116,12 @@ hasta un máximo razonable de reintentos (ej. 3) antes de escalar el problema a 
    estabilice, no queda ninguna acción pendiente ahora.
 ```
 
-## Cómo usar esta capability
+## Cómo pedirlo
 
 ### Patrón de ejecución
 
 ```
-Usa la capability CAP-015 regression-test-generation sobre este caso de prueba:
+Evaluar si conviene automatizar este caso de prueba y, si conviene, generar el test:
 
 [caso de prueba real, con pasos y resultados esperados]
 
@@ -143,12 +143,6 @@ poder verificarlo.
 Obligatoria, sin excepción — QA/el developer debe revisar el código generado antes de
 agregarlo al repo, y correrlo al menos una vez antes de confiar en el resultado.
 
-### Evidencia / Evaluación / Medición
-
-Mismo mecanismo que el resto del Registry —
-[Evidence Record](../../../adoption/templates/evidence-record.md),
-[Evaluation Record](../../../adoption/templates/evaluation-record.md),
-[Measurement Record](../../../adoption/templates/measurement-record.md).
 
 ## Dependencias
 

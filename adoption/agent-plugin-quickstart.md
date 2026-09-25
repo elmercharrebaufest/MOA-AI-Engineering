@@ -1,24 +1,14 @@
 # Instalar las capacidades como plugin de VS Code — Quick Start
 
-**Para quién es**: cualquier persona que use **VS Code con GitHub Copilot** y quiera usar
-los `agents`/`skills` de este modelo en su propio trabajo, sin copiar archivos a mano ni
-depender de un administrador. Patrón completo:
-[`../integrations/agent-plugin-provider.md`](../integrations/agent-plugin-provider.md).
-
-**Con Claude Code en vez de GitHub Copilot, este Quick Start no aplica** — es una
-herramienta separada, con su propio mecanismo de plugin. Ver
-[`claude-code-plugin-quickstart.md`](claude-code-plugin-quickstart.md).
-
-**No corresponde este camino si...** el equipo quiere que el cambio llegue automático a
-todo el mundo, sin que cada developer instale nada por su cuenta — para eso está
-[`capability-distribution-quickstart.md`](capability-distribution-quickstart.md) (requiere
-un administrador de Azure DevOps).
+Para **VS Code con GitHub Copilot**. Se instala una vez por máquina, sin copiar archivos a
+los repositorios. El mismo modelo para Claude Code está en preparación, todavía sin validar.
 
 ## 1. Prerequisitos
 
 - VS Code con GitHub Copilot Chat, y GitHub Copilot CLI (`copilot --version`, 1.0.86 o
   superior; se actualiza con `copilot update`).
 - Git, y acceso de lectura al repositorio `ai-engineering` en Azure DevOps.
+- Para Jira: permiso en el proyecto de Jira del equipo (el mismo que se usa en la web).
 
 ## 2. Instalar
 
@@ -48,18 +38,46 @@ anterior, lo actualiza; si hay copias duplicadas, pide confirmación para dejar 
 Después configura las Instructions en
 `~/.copilot/instructions/moa-ai-engineering.instructions.md` y termina con `doctor`.
 
-## 3. Verificar
+## 3. Conectar Jira (una vez)
+
+Los agentes leen y escriben en Jira con el servidor MCP oficial de Atlassian instalado en
+VS Code, con la cuenta de cada persona. No se configura nada en los repositorios.
+
+1. En VS Code, vista **Extensions**, buscar `@mcp atlassian` e instalar el servidor de
+   Atlassian. Queda configurado como `com.atlassian/atlassian-mcp-server`.
+2. En Copilot Chat, modo **Agent**, pedir: *"Usa getAccessibleAtlassianResources y lista
+   los sitios a los que tengo acceso."* La primera vez se abre el navegador: iniciar sesión
+   con la cuenta de Atlassian y, en **Use app on**, elegir el sitio del equipo (MOA:
+   `molinosagro`; Baufest: `baufest`).
+3. La respuesta debe mostrar ese sitio. `doctor` confirma que el servidor está configurado.
+
+**Un sitio por vez.** La autorización de Atlassian cubre un solo sitio: autorizar otro lo
+reemplaza. Para cambiar: **Cuentas** (abajo a la izquierda) → cerrar sesión de la cuenta del
+MCP de Atlassian → `Ctrl+Shift+P` → **MCP: List Servers** →
+`com.atlassian/atlassian-mcp-server` → **Restart** → elegir el otro sitio.
+
+**Cómo pedir un ticket.** Con la URL completa, el agente usa ese sitio. Con solo la clave,
+usa el sitio que indique el `AGENTS.md` del repo (por ejemplo, una línea
+`- Jira: molinosagro.atlassian.net, proyecto SEFI`); si no lo indica, pregunta.
+
+**Solo en VS Code.** Desde Copilot CLI, el login de Atlassian falla por un problema conocido
+de GitHub ([github/copilot-cli#4901](https://github.com/github/copilot-cli/issues/4901)).
+
+## 4. Verificar
 
 ```
 powershell -ExecutionPolicy Bypass -File "$HOME\.copilot\installed-plugins\ai-engineering\ai-engineering\tools\moa-ai.ps1" doctor
 ```
 
-Cada componente sale como `OK`, `WARNING`, `ERROR` o `NOT_VALIDATED` (todavía no
-demostrado con una prueba real, ver [`../tools/copilot/VALIDATION.md`](../tools/copilot/VALIDATION.md)).
-`status` muestra el resumen. Después, abrir Copilot Chat en modo Agent y describir una
-tarea real: [`how-to-use.md`](how-to-use.md).
+El estado general debe ser `READY` o `READY (con advertencias)`. Cada componente sale como
+`OK`, `WARNING`, `ERROR` o `NOT_SUPPORTED` (sin mecanismo en Copilot, es lo esperado para
+Integrations). `status` muestra el resumen. Qué está probado:
+[`../tools/copilot/VALIDATION.md`](../tools/copilot/VALIDATION.md).
 
-## 4. Actualizar
+Después, en VS Code, abrir Copilot Chat, elegir un agente en el selector de agentes (por
+ejemplo, `product-owner`) y describir una tarea real: [`how-to-use.md`](how-to-use.md).
+
+## 5. Actualizar
 
 Con VS Code cerrado, en una terminal aparte:
 
@@ -70,7 +88,7 @@ powershell -ExecutionPolicy Bypass -File "$HOME\.copilot\installed-plugins\ai-en
 Actualiza solo si hay una versión nueva y muestra la versión anterior y la nueva. No hay
 actualización automática.
 
-## 5. Desinstalar
+## 6. Desinstalar
 
 ```
 copilot plugin uninstall ai-engineering@ai-engineering
@@ -78,7 +96,7 @@ copilot plugin uninstall ai-engineering@ai-engineering
 
 Borrar también `~/.copilot/instructions/moa-ai-engineering.instructions.md`.
 
-## 6. Windows: `Access is denied. (os error 5)`
+## 7. Windows: `Access is denied. (os error 5)`
 
 Problema conocido de GitHub Copilot CLI en Windows
 ([github/copilot-cli#4095](https://github.com/github/copilot-cli/issues/4095)): mientras VS
@@ -87,7 +105,7 @@ no permite reemplazarla. Por eso el script exige VS Code cerrado y se niega a co
 su terminal. Si el error aparece igual: cerrar todas las ventanas de VS Code, repetir el
 comando en una terminal aparte y verificar con `doctor`.
 
-## 7. Sin script
+## 8. Sin script
 
 Si la política de la máquina no permite ejecutar scripts de PowerShell, los pasos
 equivalentes son `copilot plugin marketplace add
@@ -95,7 +113,7 @@ https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering` y `copilot
 install ai-engineering@ai-engineering`, revisando antes con `copilot plugin list --json`
 que no exista otra copia. Las Instructions quedan sin configurar.
 
-## 8. Alternativa: que llegue recomendado sin configurar nada
+## 9. Alternativa: que llegue recomendado sin configurar nada
 
 Si el equipo agrega esto al archivo `.github/copilot/settings.json` de su propio
 repositorio, cualquiera que lo abra recibe el plugin recomendado automáticamente:
@@ -119,6 +137,6 @@ instala solo. El nombre del marketplace (`ai-engineering`) tiene que ser el mism
 
 ## Ver también
 
-- Patrón completo, justificación y hallazgos detallados: [`../integrations/agent-plugin-provider.md`](../integrations/agent-plugin-provider.md).
+- Qué distribuye el plugin y por qué: [`../integrations/agent-plugin-provider.md`](../integrations/agent-plugin-provider.md).
 - Alternativa para equipos (no individual): [`capability-distribution-quickstart.md`](capability-distribution-quickstart.md).
 - Camino manual, para probar una sola capacidad sin instalar nada: [`../capabilities/README.md`](../capabilities/README.md).

@@ -1,11 +1,10 @@
 {
-  "_comment": "Plantilla de referencia del MCP de Atlassian Rovo v2. Copiar a .vscode/mcp.json del repo de un equipo -- NUNCA commitear credenciales aca, la autenticacion (OAuth 2.1) la resuelve el cliente MCP (VS Code/Copilot) en la primera conexion. El servidor no restringe herramientas: cada agente declara en su propio 'tools' solo las de su rol. jira-context (CAP-003) usa solo lectura; los agentes de rol escriben via la skill ticket-update, con confirmacion por cambio -- ver security/security-governance.md, 'Escritura en tickets'.",
-  "_source": "https://support.atlassian.com/atlassian-rovo-mcp-server/docs/getting-started-with-the-atlassian-remote-mcp-server/ y https://support.atlassian.com/atlassian-rovo-mcp-server/docs/supported-tools/ -- verificado 2026-09-08, no inventado.",
-  "_versionNote": "v2 es la version recomendada actual (v1 sigue existiendo, pero Atlassian ya no la referencia como setup nuevo). Actualizado de v1 a v2 en esta sesion tras verificar contra documentacion oficial.",
+  "_comment": "Referencia de la configuración validada. No se copia a los repos: el servidor se instala una vez en VS Code desde la galería de MCP (@mcp atlassian) y queda a nivel de usuario con este nombre y URL. La autenticación (OAuth 2.1) la hace VS Code con la cuenta de la persona y cubre un sitio de Jira por vez; nunca credenciales en archivos. Cada agente declara solo las herramientas de su rol. Pasos: adoption/agent-plugin-quickstart.md, sección 3.",
+  "_source": "Instalación real verificada en VS Code (galería, versión 1.1.3) y documentación oficial: https://support.atlassian.com/atlassian-rovo-mcp-server/docs/getting-started-with-the-atlassian-remote-mcp-server/",
   "servers": {
-    "atlassian-mcp-server": {
-      "url": "https://mcp.atlassian.com/v2/mcp",
-      "type": "http"
+    "com.atlassian/atlassian-mcp-server": {
+      "type": "http",
+      "url": "https://mcp.atlassian.com/v1/mcp"
     }
   },
   "_toolsExpected": [

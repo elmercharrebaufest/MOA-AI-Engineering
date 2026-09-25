@@ -13,12 +13,8 @@ include-custom-instructions: true
 
 # git-worktree-setup
 
-**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
-persona escriba de otra forma.
-
-**Capability Registry**: [`CAP-009`](../../../registry/entries/git-worktree-setup.md).
-**Golden Path**: [`AI-Assisted Development`](../../../golden-paths/README.md#2-ai-assisted-development).
-**Estado**: `PROPOSAL` — sin ejecución real ni piloto de ningún equipo de MOA todavía.
+**Idioma de la respuesta**: español neutro y formal: tratar a la persona de usted, sin
+voseo ni regionalismos, aunque la persona escriba de otra forma.
 
 ## Propósito
 
@@ -125,7 +121,7 @@ mecanismo de aislamiento por tarea; es un gap real que ni siquiera se había ide
 de esta sesión. **External Best Practice**: `git worktree` es un comando nativo de Git (no una
 herramienta de terceros) para exactamente este propósito; el patrón de agente dedicado a
 prepararlo/limpiarlo proviene de una instancia real observada en un cliente de Baufest
-(Camuzzi, reunión 2026-09-18) — evidencia externa, no de un equipo de MOA, generalizada acá sin
+(Camuzzi, reunión 2026-09-18) — evidencia externa, no de un equipo de MOA, generalizada aquí sin
 copiar nombres de repos ni contenido específico de ese cliente. **Architectural Judgment**:
 delegar esto a un agente dedicado, de solo lectura/ejecución de `git`, separado del agente que
 implementa el código (ver CAP-010), sigue el mismo principio de scope acotado ya aplicado en

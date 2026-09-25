@@ -5,8 +5,8 @@ description: Verifica el cumplimiento de los criterios de aceptación de un tick
 
 # ticket-closure-assist
 
-**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
-persona escriba de otra forma.
+**Idioma de la respuesta**: español neutro y formal: tratar a la persona de usted, sin
+voseo ni regionalismos, aunque la persona escriba de otra forma.
 
 **Capability Registry**: [`CAP-016`](../../../registry/entries/ticket-closure-assist.md).
 **Golden Path**: [`AI-Assisted Development`](../../../golden-paths/README.md#2-ai-assisted-development)
@@ -131,7 +131,7 @@ paso:
 
 Nunca cargar horas de otra persona ni cerrar con criterios `❌` o `❓`.
 
-## Cómo usar esta capability
+## Cómo pedirlo
 
 ### Entrada
 
@@ -159,12 +159,6 @@ horas desde Git.
 Obligatoria: la persona confirma el comentario, las horas y el cambio de estado, cada uno
 antes de que se escriba.
 
-### Evidencia / Evaluación / Medición
-
-Mismo mecanismo que el resto del Registry —
-[Evidence Record](../../../adoption/templates/evidence-record.md),
-[Evaluation Record](../../../adoption/templates/evaluation-record.md),
-[Measurement Record](../../../adoption/templates/measurement-record.md).
 
 ## Dependencias
 

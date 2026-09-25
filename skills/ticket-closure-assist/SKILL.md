@@ -5,14 +5,8 @@ description: Verifica el cumplimiento de los criterios de aceptación de un tick
 
 # ticket-closure-assist
 
-**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
-persona escriba de otra forma.
-
-**Capability Registry**: [`CAP-016`](../../../registry/entries/ticket-closure-assist.md).
-**Golden Path**: [`AI-Assisted Development`](../../../golden-paths/README.md#2-ai-assisted-development)
-(extensión — ver nota en ese Golden Path).
-**Estado**: `PROPOSAL` — sin ejecución real ni piloto de ningún equipo todavía. Ver la
-entrada del Registry para el detalle de evidencia.
+**Idioma de la respuesta**: español neutro y formal: tratar a la persona de usted, sin
+voseo ni regionalismos, aunque la persona escriba de otra forma.
 
 ## Propósito
 
@@ -120,7 +114,7 @@ terminar en el borrador sin más:
 ### 5. Publicar el cierre (solo con confirmación)
 
 Si la persona lo pide y el asistente tiene acceso de escritura, seguir
-[`ticket-update`](../ticket-update/SKILL.md), en este orden y con una confirmación por
+[`ticket-update`](../../capabilities/skills/ticket-update/SKILL.md), en este orden y con una confirmación por
 paso:
 
 1. Comentario de cierre (paso 3).
@@ -131,7 +125,7 @@ paso:
 
 Nunca cargar horas de otra persona ni cerrar con criterios `❌` o `❓`.
 
-## Cómo usar esta capability
+## Cómo pedirlo
 
 ### Entrada
 
@@ -158,13 +152,6 @@ horas desde Git.
 
 Obligatoria: la persona confirma el comentario, las horas y el cambio de estado, cada uno
 antes de que se escriba.
-
-### Evidencia / Evaluación / Medición
-
-Mismo mecanismo que el resto del Registry —
-[Evidence Record](../../../adoption/templates/evidence-record.md),
-[Evaluation Record](../../../adoption/templates/evaluation-record.md),
-[Measurement Record](../../../adoption/templates/measurement-record.md).
 
 ## Dependencias
 
