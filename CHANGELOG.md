@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.5.0] — 2026-09-25
+
+**Agregado**
+- `tools/moa-ai.ps1`: `install`, `update`, `status` y `doctor`. Una sola instalación por
+  máquina, sin clonar; exige VS Code cerrado antes de modificar el plugin.
+- `core-manifest.json`: contrato de distribución. Por cada componente: tipo, fuente,
+  mecanismo de entrega, alcance, verificación y estado. El script instala y verifica según
+  el manifest. La versión sigue en `plugin.json`.
+- Workflow `spec-driven-development` disponible en Copilot como agente adaptado.
+- `mcp.json` con el servidor de Atlassian Rovo.
+- Instructions generales de MOA a nivel de usuario, instaladas por el script.
+
+**Corregido**
+- Los agentes de Copilot declaran `include-custom-instructions: true`: sin eso, un agente
+  invocado por otro no lee el `AGENTS.md` del repo (probado).
+- Voseo y tuteo en `spec-driven-development`.
+
 ## [0.4.1] — 2026-09-24
 
 **Corregido** (a partir de la segunda ejecución real, Portal de Créditos)

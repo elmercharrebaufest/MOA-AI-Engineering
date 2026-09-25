@@ -2,6 +2,7 @@
 name: git-worktree-setup
 description: Prepara y limpia entornos de trabajo aislados (git worktree) por tarea, para que varios tickets en paralelo sobre el mismo repositorio no se pisen entre sí. Usar antes de empezar a editar código para un ticket nuevo, y para limpiar al terminar.
 tools: [execute, read]
+include-custom-instructions: true
 ---
 
 > **`model` deliberadamente ausente del frontmatter.** Misma nota que en

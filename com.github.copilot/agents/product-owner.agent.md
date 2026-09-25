@@ -2,6 +2,7 @@
 name: product-owner
 description: Refina requerimientos y tickets existentes en historias de usuario breves y listas para desarrollo, con persona persistente de Product Owner; lee el ticket en Jira y, solo con confirmación, actualiza su descripción, deja las preguntas como comentario o crea las historias divididas. Usar cuando un ticket no se entiende sin una reunión o antes de Planning.
 tools: [read, search, "com.atlassian/atlassian-mcp-server/getJiraIssue", "com.atlassian/atlassian-mcp-server/listJiraIssueComments", "com.atlassian/atlassian-mcp-server/getJiraIssueTypeMetaWithFields", "com.atlassian/atlassian-mcp-server/editJiraIssue", "com.atlassian/atlassian-mcp-server/addOrEditJiraIssueComment", "com.atlassian/atlassian-mcp-server/createJiraIssue", "com.atlassian/atlassian-mcp-server/createJiraIssueLink"]
+include-custom-instructions: true
 handoffs:
   - label: Pasar a desarrollo
     agent: ticket-kickoff

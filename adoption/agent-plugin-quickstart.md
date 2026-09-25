@@ -16,99 +16,76 @@ un administrador de Azure DevOps).
 
 ## 1. Prerequisitos
 
-- VS Code con GitHub Copilot Chat instalado.
-- Acceso de lectura al repositorio `ai-engineering` en Azure DevOps.
+- VS Code con GitHub Copilot Chat, y GitHub Copilot CLI (`copilot --version`, 1.0.86 o
+  superior; se actualiza con `copilot update`).
+- Git, y acceso de lectura al repositorio `ai-engineering` en Azure DevOps.
 
-## 2. Revisar qué hay instalado (siempre, antes de instalar)
+## 2. Instalar
 
-**Regla de MOA**: una sola instalación de `ai-engineering` por máquina — la que proviene
-del marketplace `ai-engineering`. La plataforma no impide instalar otra copia; por eso se
-revisa antes.
+Una sola vez por máquina; aplica a todos los proyectos. No hace falta clonar nada.
 
-En una terminal (PowerShell, CMD, Git Bash, o la integrada de VS Code) donde esté
-disponible el comando `copilot`:
-
-```
-copilot plugin list --json
-```
-
-| Qué aparece | Qué significa | Qué hacer |
-|---|---|---|
-| Ninguna entrada con `"name": "ai-engineering"` | No está instalado | Punto 3 |
-| Una sola, con `"marketplace": "ai-engineering"` | Instalación correcta | Nada — **no volver a instalar**. Punto 4 |
-| Una con `"marketplace": ""` | Instalación directa, no proviene del marketplace | Desinstalarla (punto 6), después punto 3 |
-| Más de una | Duplicado — estado no soportado | Desinstalar todas salvo la de `"marketplace": "ai-engineering"` (punto 6) |
-
-## 3. Instalar (solo si el punto 2 lo indica)
-
-Se instala una sola vez por máquina y aplica a cualquier proyecto que se abra en VS Code
-— no hace falta tener ningún repositorio propio abierto.
+1. Descargar el script: en Azure DevOps, **Repos → Files → `tools/moa-ai.ps1` →
+   Download**.
+2. Cerrar **todas** las ventanas de VS Code.
+3. En PowerShell o Windows Terminal (no en la terminal de VS Code), desde la carpeta de la
+   descarga:
 
 ```
-copilot plugin marketplace add https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering
-copilot plugin install ai-engineering@ai-engineering
+powershell -ExecutionPolicy Bypass -File .\moa-ai.ps1 install
 ```
 
-El primer comando registra este repositorio como marketplace; el segundo instala el plugin
-desde ahí. Es el mecanismo recomendado de distribución para MOA. Si GitHub Copilot CLI no
-está instalada, el propio comando ofrece instalarla. La URL va tal cual, sin `.git` al
-final.
+El script registra el marketplace de MOA, instala el plugin (si ya está instalado, no lo
+repite; si hay copias duplicadas, pide confirmación para dejar una sola), configura las
+Instructions en `~/.copilot/instructions/moa-ai-engineering.instructions.md` y termina
+con `doctor`. Al final muestra el comando para actualizar, que ya apunta al script dentro
+del plugin instalado: el archivo descargado se puede borrar.
 
-Después, repetir `copilot plugin list --json` y confirmar que quedó **una sola** entrada
-`ai-engineering`, con `"marketplace": "ai-engineering"`.
-
-**No usar para MOA** "Chat: Install Plugin From Source" en VS Code ni `copilot plugin
-install <URL>` directo: instalan desde el repositorio sin pasar por el marketplace
-(quedan con `"marketplace": ""`), el CLI las marca como deprecadas, y si ya existe la
-instalación correcta, suman una copia más.
-
-## 4. Confirmar que funcionó
-
-Abrir Copilot Chat en modo Agent y preguntarle si reconoce, por ejemplo, `ticket-kickoff`
-o `workflow-documenter`.
-
-**¿Y ahora qué se escribe?** [`how-to-use.md`](how-to-use.md) — describir la tarea real
-en las propias palabras alcanza, sin necesitar nombrar ninguna capacidad por su ID.
-
-## 5. Actualizar
+## 3. Verificar
 
 ```
-copilot plugin update ai-engineering@ai-engineering
+powershell -ExecutionPolicy Bypass -File "$HOME\.copilot\installed-plugins\ai-engineering\ai-engineering\tools\moa-ai.ps1" doctor
 ```
 
-Después, `copilot plugin list --json`: confirmar la versión nueva y que sigue habiendo una
-sola entrada. El panel de VS Code no muestra botón de actualizar para este plugin, y no hay
-actualización automática confirmada — la actualización se pide con este comando.
+Cada componente sale como `OK`, `WARNING`, `ERROR` o `NOT_VALIDATED` (todavía no
+demostrado con una prueba real, ver [`../tools/copilot/VALIDATION.md`](../tools/copilot/VALIDATION.md)).
+`status` muestra el resumen. Después, abrir Copilot Chat en modo Agent y describir una
+tarea real: [`how-to-use.md`](how-to-use.md).
 
-En Windows, si falla con `Access is denied. (os error 5)`: punto 7.
+## 4. Actualizar
 
-## 6. Desinstalar
+Con VS Code cerrado, en una terminal aparte:
+
+```
+powershell -ExecutionPolicy Bypass -File "$HOME\.copilot\installed-plugins\ai-engineering\ai-engineering\tools\moa-ai.ps1" update
+```
+
+Actualiza solo si hay una versión nueva y muestra la versión anterior y la nueva. No hay
+actualización automática.
+
+## 5. Desinstalar
 
 ```
 copilot plugin uninstall ai-engineering@ai-engineering
 ```
 
-Para una instalación directa (`"marketplace": ""`), usar el nombre tal como lo muestra
-`copilot plugin list`, sin `@...`. También se puede desde VS Code: `@agentPlugins` en la
-vista Extensions → `ai-engineering` → **"Uninstall"**.
+Borrar también `~/.copilot/instructions/moa-ai-engineering.instructions.md`.
 
-Después, `copilot plugin list --json` para confirmar que la copia ya no aparece. Si sigue
-apareciendo, o el comando falla con `Access is denied. (os error 5)`: punto 7.
+## 6. Windows: `Access is denied. (os error 5)`
 
-## 7. Windows: `Access is denied. (os error 5)`
-
-Problema conocido de GitHub Copilot CLI en Windows, no de este repositorio
+Problema conocido de GitHub Copilot CLI en Windows
 ([github/copilot-cli#4095](https://github.com/github/copilot-cli/issues/4095)): mientras VS
-Code está abierto, su extensión de Copilot mantiene tomada la carpeta del plugin instalado,
-y Windows no permite reemplazarla ni borrarla. Puede afectar a instalar, actualizar y
-desinstalar — incluido el "Uninstall" del panel de VS Code, que confirma pero deja el
-plugin en su lugar.
+Code está abierto, su extensión de Copilot mantiene tomada la carpeta del plugin y Windows
+no permite reemplazarla. Por eso el script exige VS Code cerrado y se niega a correr desde
+su terminal. Si el error aparece igual: cerrar todas las ventanas de VS Code, repetir el
+comando en una terminal aparte y verificar con `doctor`.
 
-1. Cerrar **todas** las ventanas de VS Code (con eso también se cierra su terminal
-   integrada).
-2. Abrir una terminal aparte (PowerShell, CMD o Git Bash) y repetir el mismo comando.
-3. Confirmar con `copilot plugin list --json`.
-4. Volver a abrir VS Code.
+## 7. Sin script
+
+Si la política de la máquina no permite ejecutar scripts de PowerShell, los pasos
+equivalentes son `copilot plugin marketplace add
+https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering` y `copilot plugin
+install ai-engineering@ai-engineering`, revisando antes con `copilot plugin list --json`
+que no exista otra copia. Las Instructions quedan sin configurar.
 
 ## 8. Alternativa: que llegue recomendado sin configurar nada
 
@@ -130,8 +107,7 @@ repositorio, cualquiera que lo abra recibe el plugin recomendado automáticament
 
 Cada developer igual tiene que aceptar la recomendación y el prompt de confianza — no se
 instala solo. El nombre del marketplace (`ai-engineering`) tiene que ser el mismo del punto
-3, para no terminar con una instalación de otro marketplace; y aplica igual el punto 2
-antes de aceptar.
+2, para no terminar con una instalación de otro marketplace.
 
 ## Ver también
 

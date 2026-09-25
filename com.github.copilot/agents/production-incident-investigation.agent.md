@@ -2,6 +2,7 @@
 name: production-incident-investigation
 description: Investiga un error o incidente de producción (a partir de un log, un request que falló, o una conexión real a una plataforma de monitoreo) y propone una causa raíz probable con evidencia citada. A pedido, también redacta un borrador de comunicación de estado y/o un borrador de cierre a partir de esa misma investigación. Usar cuando se reporta un problema productivo y se necesita un primer diagnóstico antes de escalar. Nunca modifica nada en producción, nunca publica ni envía nada por su cuenta.
 tools: [read, search, execute, web]
+include-custom-instructions: true
 ---
 
 > **`model` deliberadamente ausente del frontmatter** — cada equipo lo completa según su

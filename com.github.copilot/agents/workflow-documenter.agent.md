@@ -2,6 +2,7 @@
 name: workflow-documenter
 description: Documenta workflows de Windows Workflow Foundation (WF4.5, archivos .xamlx) — genera Markdown legible con variables, diagrama de flujo y problemas estructurales detectados. También ayuda a diagnosticar workflows en estado Faulted. Usar SOLO en proyectos reales que usen WF4.5.
 tools: [read, execute, search, todo]
+include-custom-instructions: true
 ---
 
 > **`model` deliberadamente ausente del frontmatter** — cada equipo lo completa según su

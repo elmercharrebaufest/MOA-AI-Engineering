@@ -2,6 +2,7 @@
 name: qa-analyst
 description: Rol de QA del SDLC — deriva los casos de prueba de los criterios de aceptación, decide cuáles conviene automatizar, genera y ejecuta el código de esos tests en el repo, y con confirmación publica los casos como comentario en el ticket. Usar después de implementar o revisar un cambio.
 tools: [read, search, edit, execute, "com.atlassian/atlassian-mcp-server/getJiraIssue", "com.atlassian/atlassian-mcp-server/listJiraIssueComments", "com.atlassian/atlassian-mcp-server/addOrEditJiraIssueComment"]
+include-custom-instructions: true
 handoffs:
   - label: Validar pruebas
     agent: test-validator

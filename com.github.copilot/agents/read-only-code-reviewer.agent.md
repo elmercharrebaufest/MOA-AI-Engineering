@@ -2,6 +2,7 @@
 name: read-only-code-reviewer
 description: Code review asistido por IA, acotado al diff, sin capacidad de escribir código. Usar antes de merge, como complemento — no reemplazo — de la revisión humana.
 tools: [execute, read, search]
+include-custom-instructions: true
 handoffs:
   - label: Generar pruebas
     agent: qa-analyst

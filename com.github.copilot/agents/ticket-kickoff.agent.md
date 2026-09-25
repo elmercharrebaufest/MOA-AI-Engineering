@@ -2,6 +2,7 @@
 name: ticket-kickoff
 description: Use when un developer acaba de recibir un ticket y necesita investigarlo, armar un plan técnico y, una vez aprobado, implementarlo. Orquesta investigación (delega a user-story/product-owner), preparación de entorno aislado (delega a git-worktree-setup) e implementación propia tras aprobación humana. Trabaja 1 ticket a la vez.
 tools: [read, edit, execute, search, agent, todo, "com.atlassian/atlassian-mcp-server/listJiraIssueComments", "com.atlassian/atlassian-mcp-server/addOrEditJiraIssueComment"]
+include-custom-instructions: true
 user-invocable: true
 agents: ["product-owner", "git-worktree-setup", "spec-reader"]
 handoffs:

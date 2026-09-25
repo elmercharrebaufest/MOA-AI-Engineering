@@ -2,6 +2,7 @@
 name: spec-reader
 description: Responde preguntas sobre lo que ya está documentado en las specs de spec-driven-development (requirements.md/design.md/tasks.md), siempre citando archivo + ID exacto. Nunca escribe ni edita specs. Usar cuando se pregunte qué hace una feature, cuáles son sus criterios, o qué está documentado sobre un tema.
 tools: [read, search, todo]
+include-custom-instructions: true
 ---
 
 > **`model` deliberadamente ausente del frontmatter** — cada equipo lo completa según su

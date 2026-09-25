@@ -1,15 +1,17 @@
 ---
 name: spec-driven-development
-description: Workflow de múltiples pasos con estado para llevar un requerimiento desde ticket hasta código verificado, con roles fijos y trazabilidad explícita.
+description: Workflow Plan → Execute → Verify para llevar un requerimiento desde el ticket hasta código verificado, con trazabilidad y sign-off humano. Usar cuando la tarea tiene ticket y la secuencia spec → implementar → verificar es conocida de antemano.
+tools: [read, search, edit, execute]
+include-custom-instructions: true
 ---
+
+<!-- Adaptador para Copilot, generado desde capabilities/workflows/spec-driven-development/WORKFLOW.md (fuente canónica). No editar aquí: editar el original y regenerar. -->
 
 # spec-driven-development
 
 **Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos, aunque la
 persona escriba de otra forma.
 
-**Capability Registry**: [`CAP-005`](../../../registry/entries/spec-driven-development.md).
-**Golden Path**: [`AI-Assisted Development`](../../../golden-paths/README.md#2-ai-assisted-development).
 
 ## Propósito
 

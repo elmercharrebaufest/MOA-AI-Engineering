@@ -1,0 +1,150 @@
+{
+  "name": "MOA AI Engineering Core",
+  "description": "Contrato de distribución del Core: qué componentes existen, de dónde salen y cómo se entregan en cada herramienta. No contiene capacidades. La versión vive solo en plugin.json. Estados: VALIDATED (demostrado con una prueba real, ver tools/copilot/VALIDATION.md), NOT_VALIDATED o NOT_SUPPORTED.",
+  "versionSource": "plugin.json",
+  "providers": {
+    "copilot": {
+      "adapterVersion": "1.1.0",
+      "package": {
+        "type": "plugin",
+        "id": "ai-engineering@ai-engineering",
+        "marketplace": "ai-engineering",
+        "url": "https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering"
+      },
+      "minCliVersion": "1.0.86",
+      "validatedWith": "Copilot CLI 1.0.87",
+      "hosts": ["cli", "vscode"]
+    }
+  },
+  "components": {
+    "skills": {
+      "type": "skill",
+      "required": true,
+      "source": "capabilities/skills",
+      "items": ["azure-devops-cli", "dotnet-modernization-guide", "pr-description", "regression-test-generation", "spec-review", "sprint-batch-analysis", "stack-best-practices-template", "test-case-generation", "test-pipeline-setup", "ticket-closure-assist", "ticket-update", "user-story"],
+      "versionSource": "plugin.json",
+      "delivery": {
+        "copilot": {
+          "mechanism": "plugin",
+          "path": "skills",
+          "scope": "machine",
+          "check": "skill-list",
+          "status": { "cli": "VALIDATED", "vscode": "VALIDATED" },
+          "evidence": ["T0-skills", "EXEC-20260923-001", "EXEC-20260924-001"]
+        }
+      }
+    },
+    "agents": {
+      "type": "agent",
+      "required": true,
+      "source": "capabilities/agents",
+      "items": ["git-worktree-setup", "product-owner", "production-incident-investigation", "qa-analyst", "read-only-code-reviewer", "spec-reader", "test-validator", "ticket-kickoff", "workflow-documenter"],
+      "versionSource": "plugin.json",
+      "delivery": {
+        "copilot": {
+          "mechanism": "plugin",
+          "path": "com.github.copilot/agents",
+          "scope": "machine",
+          "check": "agent-files",
+          "status": { "cli": "VALIDATED", "vscode": "NOT_VALIDATED" },
+          "evidence": ["T1a-agent"]
+        }
+      }
+    },
+    "subagents": {
+      "type": "subagent",
+      "required": true,
+      "source": "capabilities/agents",
+      "itemsFrom": "agents",
+      "versionSource": "plugin.json",
+      "delivery": {
+        "copilot": {
+          "mechanism": "plugin",
+          "path": "com.github.copilot/agents",
+          "scope": "machine",
+          "check": "agent-flag",
+          "flag": "include-custom-instructions: true",
+          "status": { "cli": "VALIDATED", "vscode": "NOT_VALIDATED" },
+          "evidence": ["T1b-subagent", "T5d"],
+          "notes": "Los mismos agentes, invocados por otro agente. La declaración les da acceso al AGENTS.md del repo."
+        }
+      }
+    },
+    "instructions": {
+      "type": "instruction",
+      "required": true,
+      "source": "capabilities/instructions",
+      "items": ["moa-ai-engineering"],
+      "versionSource": "plugin.json",
+      "delivery": {
+        "copilot": {
+          "mechanism": "user-instructions",
+          "source": "tools/copilot/moa-ai-engineering.instructions.md",
+          "target": "~/.copilot/instructions/moa-ai-engineering.instructions.md",
+          "scope": "machine",
+          "check": "instruction-list",
+          "status": { "cli": "VALIDATED", "vscode": "NOT_VALIDATED" },
+          "evidence": ["T2c-user-instr"],
+          "notes": "com.github.copilot/rules/ no se aplica (T2a, T2b)."
+        }
+      },
+      "repoScoped": {
+        "items": ["repository-governance"],
+        "scope": "repo",
+        "notes": "Vive en el AGENTS.md de cada repo; no se distribuye."
+      }
+    },
+    "mcp": {
+      "type": "mcp",
+      "required": false,
+      "source": "integrations/scripts/mcp.template.json",
+      "items": ["atlassian-mcp-server"],
+      "versionSource": "plugin.json",
+      "delivery": {
+        "copilot": {
+          "mechanism": "plugin",
+          "path": "mcp.json",
+          "scope": "machine",
+          "check": "mcp-list",
+          "match": "mcp.atlassian.com",
+          "status": { "cli": "VALIDATED", "vscode": "NOT_VALIDATED" },
+          "evidence": ["T3-mcp"],
+          "notes": "Validado hasta el pedido de OAuth. El uso de las herramientas de Jira desde los agentes requiere que el developer autentique Atlassian."
+        }
+      }
+    },
+    "integrations": {
+      "type": "integration",
+      "required": false,
+      "source": "integrations",
+      "versionSource": "plugin.json",
+      "delivery": {
+        "copilot": {
+          "mechanism": "none",
+          "scope": "machine",
+          "check": "none",
+          "status": { "cli": "NOT_SUPPORTED", "vscode": "NOT_SUPPORTED" },
+          "notes": "El plugin no tiene mecanismo de carga para scripts sueltos. Alternativa documentada, sin probar: scripts dentro de una skill."
+        }
+      }
+    },
+    "workflows": {
+      "type": "workflow",
+      "required": false,
+      "source": "capabilities/workflows",
+      "items": ["spec-driven-development"],
+      "versionSource": "plugin.json",
+      "delivery": {
+        "copilot": {
+          "mechanism": "plugin-agent",
+          "path": "com.github.copilot/agents",
+          "scope": "machine",
+          "check": "agent-files",
+          "status": { "cli": "VALIDATED", "vscode": "NOT_VALIDATED" },
+          "evidence": ["T4-workflow"],
+          "notes": "Agente generado desde WORKFLOW.md, que sigue siendo la fuente."
+        }
+      }
+    }
+  }
+}

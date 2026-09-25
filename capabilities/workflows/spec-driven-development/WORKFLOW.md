@@ -19,7 +19,7 @@ asistente invente el contenido de un requerimiento en vez de leerlo de la fuente
 que "está terminado" se declare sin evidencia verificable (tests en verde, QA manual con
 sign-off).
 
-## Dos niveles de madurez — no los confundas
+## Dos niveles de madurez
 
 | | **Nivel Lite** | **Nivel Full** |
 |---|---|---|
@@ -69,16 +69,16 @@ corresponda, sin el estado ni la trazabilidad completa de este Workflow.
 
 ## Artefactos opcionales — `research.md` y `contracts/`
 
-- **`research.md`**: usalo cuando el Spec Author necesitó investigar, comparar
+- **`research.md`**: usarlo cuando el Spec Author necesitó investigar, comparar
   alternativas o consultar material fuente antes de poder escribir `requirements.md` con
   confianza — no es obligatorio para features triviales. Contenido: opciones
   consideradas, por qué se eligió una, links o citas al material fuente real, nunca
   resumido de memoria.
-- **`contracts/`**: usalo cuando la feature expone o consume una API o interfaz entre
+- **`contracts/`**: usarlo cuando la feature expone o consume una API o interfaz entre
   componentes (endpoint REST, contrato entre capas, DTO compartido) — el Spec Author o
   el Implementer declara la forma esperada (request/response, campos, tipos) antes de
   implementar, para que el Reviewer pueda verificar el código contra un contrato
-  explícito. No lo confundas con los contratos JSON de entrada/salida entre roles del
+  explícito. No confundirlo con los contratos JSON de entrada/salida entre roles del
   nivel Full — son conceptos distintos: uno es un contrato técnico (API), el otro es un
   contrato de proceso (handoff entre roles).
 
@@ -164,7 +164,7 @@ amplio que el resto de los roles, que debe gobernarse explícitamente si se adop
 ## Seguridad
 
 Riesgo bajo en el nivel Lite (sin permisos especiales). El nivel Full introduce un rol
-con acceso a secretos/configuración — tratá ese acceso con el mismo rigor que cualquier
+con acceso a secretos/configuración — tratar ese acceso con el mismo rigor que cualquier
 otro acceso a datos sensibles.
 
 ## Datos

@@ -41,8 +41,12 @@ propagación automática (que sigue sin aplicar a MOA por estar en Azure DevOps,
 |---|---|---|
 | Skills (`capabilities/skills/`) | Sí | `skills/<name>/SKILL.md` |
 | Agents (`capabilities/agents/`) | Sí | `com.github.copilot/agents/<name>.agent.md` |
-| Instructions (`capabilities/instructions/`) | **No como archivo** | La especificación de Agent Plugins no documenta instrucciones que se apliquen siempre (VS Code nombra un componente "Rules" sin formato publicado, por eso no se usa). Se resuelve según el tipo: la **regla universal** de idioma y estilo (`documentation-style`) viaja dentro de cada skill, agente y workflow del plugin; la **matriz de autonomía** de cada repo (`repository-governance`) es propia de ese repo y vive en él (`AGENTS.md` / `.github/copilot-instructions.md`), versionada con el código |
-| MCP servers (`mcp.json`) | No todavía | Ningún servidor MCP de MOA tiene gobierno de identidad/scope/auditoría confirmado (`governance/BLOCKED-DECISIONS.md` #4) — no se empaqueta configuración MCP sin eso resuelto |
+| Workflows (`capabilities/workflows/`) | Como agente adaptado | `com.github.copilot/agents/spec-driven-development.agent.md`, generado desde `WORKFLOW.md` (sigue siendo la fuente) |
+| Instructions (`capabilities/instructions/`) | Fuera del plugin, con el script | `com.github.copilot/rules/` no se aplica (probado). La regla general va a `~/.copilot/instructions/moa-ai-engineering.instructions.md`, que instala `tools/moa-ai.ps1`. La matriz de autonomía de cada repo (`repository-governance`) vive en ese repo (`AGENTS.md`); los agentes la leen porque declaran `include-custom-instructions: true` |
+| MCP servers (`mcp.json`) | Sí | Solo el servidor de Atlassian Rovo, sin credenciales: cada developer autentica con su cuenta (decisión del piloto en `security/security-governance.md`) y cada agente declara únicamente las herramientas de su rol |
+
+Estado de cada componente y evidencia: [`../core-manifest.json`](../core-manifest.json) y
+[`../tools/copilot/VALIDATION.md`](../tools/copilot/VALIDATION.md).
 
 ## Cómo lo instala un developer
 

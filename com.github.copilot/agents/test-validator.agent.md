@@ -2,6 +2,7 @@
 name: test-validator
 description: Verifica antes del OK final que el cambio está probado con evidencia real — resultado de CI o de la ejecución local, cada criterio de aceptación con su test o su caso manual, tests para la lógica modificada, y ningún test desactivado ni debilitado. Solo lectura; nunca edita código, tests ni pipelines.
 tools: [read, search, execute]
+include-custom-instructions: true
 handoffs:
   - label: Preparar cierre
     agent: agent
