@@ -130,11 +130,15 @@ repositorio entero.**
    no por texto: una búsqueda de contenido por una palabra común del dominio ("Localidad",
    "Partido", el nombre de la pantalla) devuelve cientos de resultados en cualquier repo
    real; una búsqueda por ruta encuentra los 2 o 3 archivos reales en un solo paso. Leer
-   solo esos archivos, completos. Si esa pantalla tiene una versión de exportación o
-   reporte (PDF, Excel, email), verificar también esa versión — suele vivir en un archivo
-   con otro nombre (el concepto de negocio + "Pdf"/"Report"/"Service", no el nombre literal
-   de la pantalla), así que ubicarlo por ese concepto, no asumir que comparte carpeta con
-   la pantalla.
+   solo esos archivos, completos. Ese mismo dato de negocio puede tener otros procesos
+   relacionados en archivos con otro nombre — una versión de exportación o reporte (PDF,
+   Excel, email), un traspaso automático desde otra pantalla, una integración — que la
+   ruta de la pantalla no encuentra porque no comparten carpeta ni nombre de archivo. Para
+   ubicarlos, buscar el **texto que la pantalla muestra** (ej. "Campos Propios") como
+   contenido dentro del backend o de otros módulos — una búsqueda amplia se justifica
+   cuando busca ese texto específico de negocio, no una palabra genérica del dominio
+   ("Localidad", "clase", "servicio"). Si esa búsqueda no encuentra nada, no seguir
+   ampliando — declararlo en "Impacto técnico a confirmar en Planning".
 3. Si el pedido es genérico (no nombra una pantalla puntual — un bug transversal, una
    mejora de performance, algo que toca varios módulos), buscar por el término más
    distintivo del pedido (un mensaje de error, el nombre de una regla de negocio), nunca

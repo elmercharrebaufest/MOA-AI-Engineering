@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.6.2] — 2026-09-28
+
+**Cambiado** (2 ejecuciones reales confirmaron la misma causa: un proceso relacionado con
+la pantalla del pedido — antes solo se cubría exportación/reporte — vive en un archivo con
+otro nombre, que la búsqueda por ruta de la pantalla no encuentra)
+- `user-story` generaliza la verificación de procesos relacionados (exportación, reporte,
+  **traspaso automático entre pantallas, integración**) a cualquiera con nombre distinto al
+  de la pantalla — se ubican buscando el texto de negocio que la pantalla muestra dentro
+  del backend u otros módulos, no una palabra genérica del dominio. Si esa búsqueda no
+  encuentra nada, no se sigue ampliando: se declara como impacto a confirmar en Planning.
+
 ## [0.6.1] — 2026-09-28
 
 **Agregado** (2 ejecuciones reales del mismo requerimiento mostraron el mismo patrón:
