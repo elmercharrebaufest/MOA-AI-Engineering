@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.5.5] — 2026-09-28
+
+**Cambiado** (realineación con el KO y con DataAgro/Scato Logística/Orquestador/Camuzzi,
+sin ejecución real todavía; reemplaza el enfoque de 0.5.4)
+- `user-story` y `product-owner` verifican el código con un propósito acotado — confirmar
+  lo que el pedido nombra, no mapear su impacto — en vez de una lista de pasos a seguir.
+  El mapeo de pantallas, reportes, traspasos e integraciones afectados es de Planning
+  (`ticket-kickoff`, CAP-010): la etapa de refinamiento lo declara como "Impacto técnico a
+  confirmar en Planning", sin investigarlo, y `ticket-kickoff` lo retoma como punto de
+  partida.
+- `user-story` suma un análisis de gaps en lenguaje de negocio (ambigüedades, escenarios
+  faltantes, conflictos entre reglas, bordes, integraciones), generalizado de las skills
+  reales de DataAgro y Scato Logística sin sus ejemplos de dominio.
+- `user-story` suma una pasada final antes de responder (criterios verificables, sin
+  palabras vagas, origen de cada afirmación), tomada del auditor `spec-review` de Camuzzi.
+
 ## [0.5.4] — 2026-09-28
 
 **Corregido** (con una ejecución real de `user-story` en VS Code)

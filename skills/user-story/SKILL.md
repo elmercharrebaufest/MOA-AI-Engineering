@@ -20,6 +20,12 @@ conversaciones) no va en la historia.
 Usarla con un requerimiento nuevo o con un ticket existente que no se entiende. No
 usarla para diseño técnico ni para redactar casos de prueba detallados.
 
+**Límite con Planning, del propio KO**: esta etapa "detecta ambigüedades y genera
+preguntas" (Recepción/Refinamiento); "sugerir dependencias o componentes afectados" es
+Planning, y en este modelo lo hace [`ticket-kickoff`](../../capabilities/agents/ticket-kickoff/AGENT.md)
+(CAP-010), con sus propias salvaguardas (revisión humana del plan, entorno aislado).
+Confirmar lo que el pedido nombra, sí — mapear todo lo que podría verse afectado, no.
+
 ## 1. Formato de salida (entre 30 y 40 líneas por historia lista)
 
 ```text
@@ -36,6 +42,8 @@ usarla para diseño técnico ni para redactar casos de prueba detallados.
 **Reglas de negocio**: [solo las que no están en un criterio — o "Ninguna adicional"]
 **Fuera de alcance**: ...
 **Datos y dependencias**: ...
+**Impacto técnico a confirmar en Planning**: [una señal concreta encontrada al verificar
+lo que el pedido nombra, sin investigarla — o "Ninguna detectada"]
 
 **Preguntas abiertas**
 ❓ [Bloqueante | No bloqueante] [pregunta cerrada]
@@ -52,9 +60,9 @@ usarla para diseño técnico ni para redactar casos de prueba detallados.
 ```
 
 Si el veredicto es ✂️, la historia lista lleva el formato completo. La historia bloqueada,
-y toda historia ⛔, lleva solo la historia, el contexto, "Datos y dependencias", las
-preguntas y los supuestos, sin criterios de aceptación: los criterios dependen de las
-respuestas y se escriben cuando las haya.
+y toda historia ⛔, lleva solo la historia, el contexto, "Datos y dependencias", "Impacto
+técnico a confirmar en Planning", las preguntas y los supuestos, sin criterios de
+aceptación: los criterios dependen de las respuestas y se escriben cuando las haya.
 
 ## 2. Veredicto y cierre, siempre
 
@@ -95,23 +103,23 @@ y dependencias". Detalle de implementación, casos de prueba paso a paso y captu
 fuera de la historia (anexo o link). Repeticiones e historial de conversaciones → se
 descartan. Nada se descarta en silencio: todo lo que sale de la historia se lista.
 
-**Verificar antes de afirmar, acotado al pedido.** Si hay acceso al código, revisar solo
-lo que el pedido toca:
+**Verificar lo que el pedido nombra — con un propósito, no una lista de pasos.** Si hay
+acceso al código, mirarlo solo para responder una pregunta concreta: ¿la historia describe
+correctamente cómo funciona hoy lo que el pedido nombra (la pantalla, el campo, el texto)?
+Detenerse apenas esa pregunta está respondida — no es una investigación de impacto, es una
+confirmación de partida.
 
-1. Ubicar lo que el pedido nombra (pantalla, campo, texto) buscando por el nombre exacto
-   y, cuando se conozca, dentro de la carpeta de ese módulo.
-2. Leer esa sección para confirmar cómo funciona hoy.
-3. Seguir una dependencia solo si puede cambiar los criterios, los datos o la
-   estimación: dónde se guarda el dato, qué otras pantallas, reportes o exportaciones lo
-   muestran y qué integraciones lo usan. No seguir las dependencias de esas
-   dependencias, salvo que cambien la historia.
-4. Terminar cuando cada afirmación de la historia tenga su origen. Lo que no se verificó
-   se deja como pregunta o supuesto.
+No corresponde a esta etapa (es Planning, ver "Propósito"): mapear todas las pantallas,
+reportes, traspasos o integraciones que podrían verse afectados, ni recorrer el
+repositorio completo, ni buscar términos genéricos. Si al confirmar lo que el pedido
+nombra aparece una señal concreta de más alcance (otra pantalla con el mismo dato, una
+dependencia visible en el mismo archivo), no investigarla: declararla en "Impacto técnico
+a confirmar en Planning" tal como se encontró, sin profundizar. No usar el código para lo
+que ya dicen el pedido o el `AGENTS.md` (rol, sitio de Jira).
 
-No recorrer el repositorio completo ni buscar términos genéricos. No usar el código para
-lo que ya dicen el pedido o el `AGENTS.md` (rol, sitio de Jira). Lo deducido del código se
-declara en "Supuestos y cambios respecto del pedido", con su origen. Nunca afirmar algo
-del sistema que no se verificó.
+Toda afirmación sobre el sistema lleva su origen (archivo, o el propio pedido). Lo
+deducido del código se declara en "Supuestos y cambios respecto del pedido". Lo que no se
+verificó es pregunta o supuesto, nunca una afirmación.
 
 **Historia.** Rol real de quien usa la funcionalidad, tomado del ticket o de la línea de
 roles del `AGENTS.md` del repositorio (por ejemplo, `- Roles: analista de créditos,
@@ -139,6 +147,27 @@ si la quiere igual.
 
 **Preguntas.** Antes de preguntar, verificar que no esté resuelto en otro documento. Es
 **bloqueante** si la respuesta cambia los criterios o la estimación.
+
+**Análisis de gaps, antes de cerrar.** Repasar, en lenguaje de negocio, sin abrir código
+nuevo para responderlo:
+- **Ambigüedades**: ¿algún término del pedido admite más de una interpretación?
+- **Escenarios faltantes**: ¿qué pasa si la acción se repite, se cancela a mitad de
+  camino, o el sistema del que depende no responde?
+- **Conflictos entre reglas**: ¿alguna regla de negocio contradice otra, o hay que definir
+  una prioridad entre ellas?
+- **Condiciones de borde**: ¿qué pasa con un valor vacío, cero, el primero o el último
+  caso?
+- **Integraciones**: ¿depende de un sistema externo? ¿qué pasa si falla? (si no se sabe,
+  es pregunta, no investigación de código)
+
+Cada gap real detectado se convierte en criterio, regla o pregunta — nunca queda
+implícito.
+
+**Antes de responder, una pasada final.** Confirmar, sin reabrir investigación: cada
+criterio se puede responder con sí/no; ninguna palabra vaga quedó sin reemplazar; el rol
+tiene su origen (ticket, `AGENTS.md`, o supuesto declarado); toda afirmación sobre el
+sistema tiene su origen citado; si hay división, la parte que avanza aporta valor por sí
+sola; "Impacto técnico a confirmar en Planning" está completo o dice "Ninguna detectada".
 
 ## 4. Actualizar el ticket (solo si la persona lo pide)
 
@@ -177,9 +206,15 @@ requerimiento sin necesidad.
 
 ## Origen
 
-**Existing Practice**: prácticas reales de 3 equipos de MOA (estructura común, roles y
-ejemplos propios de cada uno) y ejecuciones reales sobre un mismo requerimiento de
-Portal de Créditos. **External Best Practice**:
+**Existing Practice**: prácticas reales de 3 equipos de MOA — DataAgro, Scato Logística y
+Orquestador — mismo formato Historia/Criterios/RN y el mismo checklist de análisis de
+gaps, generalizado aquí sin los ejemplos de dominio de cada equipo (SAP/AFIP en uno,
+AFIP/SENASA en otro); sus 3 agentes `product-owner` reales ya declaran `read`/`search`,
+coherente con verificar el código para entender el pedido — no con investigar su impacto
+completo. Ejecuciones reales sobre un mismo requerimiento de Portal de Créditos
+(2026-09-23 a 2026-09-28) mostraron que, sin un límite explícito, esa verificación crece
+hasta el análisis de impacto que corresponde a Planning; de ahí el límite explícito de
+esta versión. **External Best Practice**:
 [INVEST](https://xp123.com/invest-in-good-stories-and-smart-tasks/),
 [Card, Conversation, Confirmation](https://ronjeffries.com/xprog/articles/expcardconversationconfirmation/),
 [criterios de aceptación](https://www.mountaingoatsoftware.com/agile/user-stories/acceptance-criteria),
@@ -188,8 +223,12 @@ Portal de Créditos. **External Best Practice**:
 [división SPIDR](https://www.mountaingoatsoftware.com/blog/five-simple-but-powerful-ways-to-split-user-stories),
 [Gherkin declarativo](https://cucumber.io/docs/bdd/better-gherkin/),
 [Guía Scrum 2020](https://scrumguides.org/scrum-guide.html). **Evidencia externa
-(Camuzzi)**: fuera de alcance, dependencias, preguntas con opciones y recomendación,
-detección de palabras vagas.
+(Camuzzi)**: `spec-writer` acota su lectura del workspace a "qué repos toca", nunca
+detalle técnico dentro del documento; `spec-review` audita con un checklist explícito
+antes de dar una spec por buena (palabras vagas, ambigüedades sin resolver, criterios no
+medibles) — de ahí la pasada final de esta versión; su `Ticket Kickoff` (ya generalizado
+como CAP-010 de este Registry) es quien hace el mapeo completo de impacto, nunca el
+refinamiento.
 
 Portable a cualquier equipo; la única adaptación recomendada es la línea de roles reales
 del equipo en el `AGENTS.md` de su repositorio.

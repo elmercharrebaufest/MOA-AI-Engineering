@@ -131,7 +131,9 @@ para confirmar si ya existe documentación relacionada, y registrar cualquier
 inconsistencia que devuelva como duda para PO/tech lead — nunca ignorarla ni resolverla
 por cuenta propia. Después, leer los archivos/módulos que el ticket parece impactar.
 Cruzar las ambigüedades y gaps ya señalados en el paso 1 (y las inconsistencias que haya
-devuelto `spec-reader`) contra el código real — muchas se resuelven solas. Si falta un
+devuelto `spec-reader`) contra el código real — muchas se resuelven solas. Si la historia
+refinada declaró "Impacto técnico a confirmar en Planning", ese es el punto de partida de
+esta validación — la señal que dejó el refinamiento sin investigar. Si falta un
 repo/archivo clave, detenerse y pedirlo.
 
 ### 3. Armar el plan técnico
