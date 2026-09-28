@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.5.9] — 2026-09-28
+
+**Cambiado** (generalización, no ligada a un caso puntual — el modelo sirve a múltiples
+equipos con tareas de forma y adjuntos distintos)
+- `user-story` ubica lo que verifica con una escalera de especificidad: usar lo que el
+  pedido ya da directo, ubicar por ruta cuando nombra una pantalla, buscar por el término
+  más distintivo cuando el pedido es genérico (sin pantalla puntual), y solo al final una
+  búsqueda de contenido acotada — nunca el repositorio completo.
+- Agrega una regla de intake: el pedido puede llegar como imagen, PDF, Word, texto plano o
+  ticket con adjuntos; se extraen los hechos con la misma disciplina que del código (cita
+  de origen, sin inventar); si un adjunto no se puede leer, se pregunta en vez de suponer.
+
 ## [0.5.8] — 2026-09-28
 
 **Corregido** (con una ejecución real de `user-story` en VS Code)

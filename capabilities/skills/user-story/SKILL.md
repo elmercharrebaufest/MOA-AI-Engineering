@@ -106,16 +106,30 @@ y dependencias". Detalle de implementación, casos de prueba paso a paso y captu
 fuera de la historia (anexo o link). Repeticiones e historial de conversaciones → se
 descartan. Nada se descarta en silencio: todo lo que sale de la historia se lista.
 
-**Verificar lo que el pedido nombra — ubicar por ruta, nunca por contenido.** Convertir el
-nombre de la pantalla o sección que da el pedido (o que muestra una captura) a la
-convención de archivos del repo (kebab-case de carpeta/componente, PascalCase de entidad,
-u otra si el repo la documenta) y buscarlo como **ruta de archivo o carpeta**, no como
-texto dentro del código: una búsqueda de contenido por una palabra común del dominio
-("Localidad", "Partido", el nombre de la pantalla) devuelve cientos de resultados en
-cualquier repo real; una búsqueda por ruta encuentra los 2 o 3 archivos reales de esa
-pantalla en un solo paso. Leer solo esos archivos, completos. Recién si ninguna ruta
-coincide con ese nombre, hacer una búsqueda de contenido acotada a la carpeta más
-probable — nunca al repositorio completo ni por un término genérico.
+**Verificar lo que el pedido nombra — de lo más específico a lo más costoso, nunca el
+repositorio entero.**
+1. Si el pedido ya da un archivo, un mensaje de error exacto o un ticket con enlaces —
+   usar eso directo, no buscar de nuevo lo que ya se tiene.
+2. Si nombra una pantalla o sección (por texto o por una captura), convertir ese nombre a
+   la convención de archivos del repo (kebab-case de carpeta/componente, PascalCase de
+   entidad, u otra si el repo la documenta) y ubicarlo por **ruta de archivo o carpeta**,
+   no por texto: una búsqueda de contenido por una palabra común del dominio ("Localidad",
+   "Partido", el nombre de la pantalla) devuelve cientos de resultados en cualquier repo
+   real; una búsqueda por ruta encuentra los 2 o 3 archivos reales en un solo paso. Leer
+   solo esos archivos, completos.
+3. Si el pedido es genérico (no nombra una pantalla puntual — un bug transversal, una
+   mejora de performance, algo que toca varios módulos), buscar por el término más
+   distintivo del pedido (un mensaje de error, el nombre de una regla de negocio), nunca
+   por una palabra común. Si no hay ningún término distintivo para buscar, no es señal
+   para ampliar la búsqueda: es una pregunta para quien hizo el pedido.
+4. Recién si los pasos 2 o 3 no encuentran nada, una búsqueda de contenido acotada a la
+   carpeta más probable — nunca al repositorio completo.
+
+**El pedido puede llegar en cualquier formato — imagen, PDF, Word, texto plano, ticket con
+adjuntos.** Extraer los hechos concretos de cada uno con la misma disciplina que del
+código: citar de dónde sale cada afirmación (la captura, la página del documento, el
+ticket). Si un adjunto no se puede leer en la sesión, decirlo y preguntar — nunca completar
+su contenido por supuesto.
 
 Mirar el código solo para responder una pregunta concreta: ¿la historia describe
 correctamente cómo funciona hoy lo que el pedido nombra (la pantalla, el campo, el texto)?
