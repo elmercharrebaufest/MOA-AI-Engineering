@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.6.3] — 2026-09-28
+
+**Agregado** (pregunta real del piloto: qué pasa si se crea el ticket sin responder las
+preguntas bloqueantes)
+- `ticket-kickoff` define qué cuenta como "el ticket necesita refinarse": una pregunta
+  marcada "❓ Bloqueante" sin respuesta posterior del responsable. En ese caso, no arma el
+  plan sobre esa parte — la informa y espera la respuesta, o delega a `product-owner`.
+
 ## [0.6.2] — 2026-09-28
 
 **Cambiado** (2 ejecuciones reales confirmaron la misma causa: un proceso relacionado con

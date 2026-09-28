@@ -125,7 +125,10 @@ subagente `product-owner`. Usar el resultado como única fuente de verdad — no
 consultar lo mismo dos veces sin una razón concreta. Si la descripción trae una sección
 "Supuestos y cambios respecto del pedido" sin un comentario posterior del PO que los
 confirme, tratar cada uno como duda para PO/tech lead en el plan (paso 3) — nunca construir
-el plan asumiéndolos como hechos ya validados.
+el plan asumiéndolos como hechos ya validados. Si la descripción o los comentarios traen
+una pregunta marcada "❓ Bloqueante" sin una respuesta posterior del responsable, es lo que
+"necesita refinarse": no armar el plan sobre esa parte — informarlo y esperar la respuesta,
+o delegar a `product-owner` si corresponde re-refinarla.
 
 ### 2. Validar contra specs existentes y contra el código real
 
