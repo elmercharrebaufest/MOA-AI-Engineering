@@ -105,7 +105,10 @@ patrón "verificador" con límite de iteraciones y escalamiento a una persona
 ([Microsoft — patrones de orquestación de agentes](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns)).
 **Evidencia externa (Camuzzi)**: el agente que corre los tests reporta las fallas previas
 en lugar de arreglarlas y no aplica correcciones no documentadas. **Existing Practice**:
-DataAgro prohíbe modificar o desactivar tests existentes en sus reglas de IA.
+**corregido (0.5.5)** — ninguna instancia real de MOA tiene una regla equivalente sobre
+tests todavía. DataAgro sí prohíbe desactivar validaciones de seguridad
+(`copilot-instructions.md`), pero no se refiere a tests; no se generaliza esa regla para no
+atribuirle a DataAgro algo que no dice.
 
 ## Compatibilidad / adaptación
 

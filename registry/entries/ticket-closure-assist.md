@@ -12,7 +12,7 @@ generalización de una instancia real. Ver CAP-011 para el criterio completo. Qu
 | **Purpose** | Verificar cumplimiento de criterios de aceptación y redactar un borrador de comentario de cierre de ticket | FACT |
 | **Owner** | REQUIRES VALIDATION | `governance/BLOCKED-DECISIONS.md` #1 |
 | **Maintainer** | REQUIRES VALIDATION | Ídem |
-| **Origin** | No aplica — no hay instancia real de ningún equipo. KO Interno pág. 26 (*"Copilot + Skills + MCP Jira sugiere registro de horas y actualiza estado automáticamente"*) | FACT (cita del KO) |
+| **Origin** | No aplica — no hay instancia real de ningún equipo. KO Interno pág. 26 (*"Copilot + SKILLs + MCP Jira sugiere registro de horas basado en tiempo transcurrido/actividad del sprint, y actualiza estado a Done automáticamente"*) | FACT (cita textual corregida 0.5.5 — la versión previa era una paráfrasis presentada entre comillas) |
 | **Originator** | No aplica | — |
 | **Team** | Ninguno todavía | — |
 | **Domain** | Transversal — sin contenido específico de dominio que adaptar | FACT |

@@ -73,7 +73,10 @@ de confirmación, o nada que limpiar).
    - Calcular el path del worktree: `<repo>/.worktrees/<branch-slug>` (slug = nombre de
      rama sin el prefijo `feature/`/`fix/`).
    - Asegurarse de que `.worktrees/` esté excluido en `.git/info/exclude` del repo
-     (exclusión local, nunca en el `.gitignore` versionado y compartido con el equipo).
+     (exclusión local, nunca en el `.gitignore` versionado y compartido con el equipo). Si
+     esa escritura falla (permisos, archivo no editable), seguir creando el worktree
+     igual y avisar del fallo — no es bloqueante, solo deja de estar excluido de `git
+     status`.
    - Si la rama ya existe (local o remota), reutilizarla — nunca recrearla. Si no
      existe, crearla desde la base.
    - Si la creación falla porque la rama ya está en otro path, o el path ya está

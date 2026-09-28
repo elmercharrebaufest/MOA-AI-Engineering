@@ -91,7 +91,11 @@ Ninguno de los 2 es obligatorio — son condicionales a que la feature real lo j
    investigación o decisión real antes de poder escribir el spec, dejarla en
    `research.md` (opcional); producir `requirements.md` en formato EARS; si la feature
    expone o consume una API, declarar su forma esperada en `contracts/` (opcional) antes
-   de pasar a Implementer.
+   de pasar a Implementer. **2 Pull Requests por ticket, no uno solo** — práctica real de
+   DataAgro, no exclusiva del nivel Full (ver `sdd-workflow.prompt.md` de ese repo): un
+   PR de spec, contra la rama de destino, antes de implementar (permite revisar
+   `requirements.md` sin código de por medio) y un PR final de implementación — ambos con
+   aprobación humana explícita.
 2. **Implementer**: implementar contra el spec, generar tests, actualizar la
    trazabilidad con los archivos reales tocados por cada requisito.
 3. **Reviewer**: verificar que el código cumple el spec y que los tests están en verde —
@@ -99,7 +103,7 @@ Ninguno de los 2 es obligatorio — son condicionales a que la feature real lo j
 4. El estado de avance vive en un archivo de progreso no versionado (memoria de trabajo,
    no artefacto de producto) — nunca commitear el estado de sesión junto al código.
 5. **Cierre, siempre**: con el Reviewer aprobando, corresponde pedirle al asistente que
-   redacte el título y la descripción del Pull Request a partir del diff real, y — una
+   redacte el título y la descripción del PR final a partir del diff real, y — una
    vez mergeado — que arme el borrador de cierre del ticket. Este Workflow no hace
    ninguna de las 2 cosas por sí mismo.
 
@@ -119,11 +123,6 @@ para el detalle completo del esquema.
 `draft → spec_ready → approved → in_progress → verified → reviewed → done`. Cada
 transición requiere que el rol correspondiente confirme el criterio de salida de la etapa
 anterior — nunca se salta un estado.
-
-**2 Pull Requests por ticket, no uno solo**: un PR de spec (contra la rama de destino,
-antes de implementar — permite revisar `requirements.md`/`design.md`/`tasks.md` sin
-código de por medio) y un PR final de implementación — ambos con aprobación humana
-explícita, nunca merge automático de ninguno de los 2.
 
 **Contrato real de entrada/salida por rol** (condensado; el detalle está en
 `registry/entries/spec-driven-development.md`):

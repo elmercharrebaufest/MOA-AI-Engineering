@@ -53,15 +53,19 @@ Estado de cada componente y evidencia: [`../core-manifest.json`](../core-manifes
 **URL real del repositorio** (ya migrado):
 `https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering`
 
-**Recomendado — vía marketplace, por terminal con GitHub Copilot CLI**, 2 pasos:
+**Recomendado — vía marketplace, por terminal con GitHub Copilot CLI**, 3 pasos:
 
 ```
 copilot plugin marketplace add https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering
 copilot plugin install ai-engineering@ai-engineering
+powershell -ExecutionPolicy Bypass -File "$HOME\.copilot\installed-plugins\ai-engineering\ai-engineering\tools\moa-ai.ps1" install
 ```
 
 El repositorio no necesita ningún archivo adicional para funcionar como marketplace de un
-solo plugin — el primer comando ya lo registra como tal.
+solo plugin — el primer comando ya lo registra como tal. El tercer paso es el que deja
+configuradas las Instructions (`~/.copilot/instructions/moa-ai-engineering.instructions.md`)
+— sin él, Skills y Agents quedan instalados, pero las Instructions no. Detalle completo:
+[`../adoption/agent-plugin-quickstart.md`](../adoption/agent-plugin-quickstart.md).
 
 **Instalación directa — la plataforma la soporta, pero no se usa para MOA**: queda con
 `"marketplace": ""`, suma una copia si ya existe la instalación del marketplace, y el CLI

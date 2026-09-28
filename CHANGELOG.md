@@ -1,5 +1,44 @@
 # Changelog
 
+## [0.5.6] — 2026-09-28
+
+**Corregido** (auditoría real de las 26 capacidades del Registry contra sus precedentes
+reales de MOA/Camuzzi y contra el KO — 3 auditorías independientes, sin especular)
+- `repository-governance` (CAP-006): el Registry afirmaba convergencia independiente de la
+  matriz ALWAYS/ASK FIRST/NEVER en 3 repos; verificado archivo por archivo, solo está en
+  DataAgro. Corregido `Origin`, `Configuration Status`, `Adopters` y la clasificación.
+- `test-validator` (CAP-025): citaba una regla de DataAgro sobre tests que no existe en su
+  repo real (verificado archivo por archivo). Retirada la cita.
+- `azure-devops-cli` (CAP-008): la generalización había perdido los 455 líneas de sintaxis
+  `az` verificada que comparten Scato Logística y Orquestador — recuperadas completas
+  (`references/pipelines-and-builds.md`, `references/variables-and-agents.md`), ya
+  genéricas, sin datos de ninguna organización real.
+- `read-only-code-reviewer` (CAP-012): agrega la nota positiva obligatoria que exigen los 2
+  precedentes reales (Scato Logística, Orquestador) y que la generalización había perdido.
+- `spec-driven-development` (CAP-005): el patrón de 2 Pull Requests por ticket (spec +
+  implementación) pasa al nivel Lite — ya es práctica real de DataAgro, no exclusiva del
+  nivel Full.
+- `ticket-kickoff` (CAP-010): matiza la cita de la guía de Anthropic sobre contexto limpio
+  (su footprint de Jira es menor al de Camuzzi, no una desviación); documenta como brecha
+  explícita en el Registry la falta de una capacidad que actualice specs impactadas.
+- `production-incident-investigation` (CAP-017): retira la cita a una skill que se
+  autoidentifica como de otro proyecto ("MAE"), no de Camuzzi.
+- `regression-test-generation` y `ticket-closure-assist`: declaran con precisión qué se
+  adoptó literal de Camuzzi (fórmula de ROI, umbrales de horas), en vez de presentarlo como
+  criterio de industria genérico.
+- 2 citas del KO en el Registry (`test-case-generation`, `ticket-closure-assist`) que
+  aparecían entre comillas como texto textual eran en realidad paráfrasis — corregidas a
+  la cita real.
+- `git-worktree-setup`: agrega el fallback ante fallo de escritura en `.git/info/exclude`
+  (no bloqueante), presente en el precedente real de Camuzzi.
+- `integrations/agent-plugin-provider.md`: agrega el 3er paso de instalación
+  (`moa-ai.ps1 install`) que faltaba desde el fix de PowerShell del quickstart.
+- 3 referencias a un documento de análisis interno (nunca parte del modelo entregable, y
+  que nombra al cliente en cada línea) quedaban rotas al no existir en el repo activo —
+  reemplazadas por una descripción sin esa dependencia
+  (`integrations/capability-distribution.md`, `capabilities/README.md`,
+  `registry/entries/ticket-kickoff.md`).
+
 ## [0.5.5] — 2026-09-28
 
 **Cambiado** (realineación con el KO y con DataAgro/Scato Logística/Orquestador/Camuzzi,

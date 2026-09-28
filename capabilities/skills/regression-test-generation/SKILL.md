@@ -167,11 +167,13 @@ reproducirse textualmente en el código generado sin necesidad.
 **Existing Practice**: cero evidencia real en MOA (`architecture/ai-sdlc.md`, etapa "Test
 de regresión", sin capacidad ni propuesta hasta este trabajo). **External Best
 Practice / evidencia externa**: patrón real de un cliente de Baufest (Camuzzi, skills
-`testrail-desde-jira` + `playwright-desde-testrail`, reunión 2026-09-18) — se adoptó la
-fórmula de ROI (un criterio de industria reconocible, no inventado por ese cliente) y el
-patrón de generación de código con verificación/reintentos, sin copiar el mecanismo
-concreto (TestRail como fuente, framework Playwright específico, nombres de repos de ese
-cliente). **Architectural Judgment**: separar deliberadamente "generar el código del test"
+`testrail-desde-jira` + `playwright-desde-testrail`, reunión 2026-09-18) — se adoptó de
+Camuzzi la fórmula de ROI tal cual (Frecuencia/Impacto/Estabilidad/Esfuerzo/Dependencias,
+`testrail-desde-jira/SKILL.md:82`) y el patrón de reintentos con máximo 3 intentos
+(`playwright-desde-testrail/SKILL.md:278-293`) — **corregido (0.5.5)**: son adopciones
+literales de esa fuente, no un "criterio de industria" independiente sin más respaldo que
+esta cita; el mecanismo concreto (TestRail como fuente, framework Playwright específico,
+nombres de repos de ese cliente) sí se descartó, no se copió. **Architectural Judgment**: separar deliberadamente "generar el código del test"
 (esta propuesta, bajo riesgo) de "ejecutarlo automáticamente en el pipeline vía MCP
 Playwright" (fuera de alcance, sin evidencia) — cerrar solo la parte de la etapa que puede
 justificarse hoy, sin inventar gobierno de MCP que no existe.

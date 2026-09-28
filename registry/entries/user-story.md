@@ -5,7 +5,7 @@
 | **ID** | CAP-001 | — |
 | **Name** | user-story | FACT |
 | **Type** | Skill | FACT |
-| **Purpose** | Refinar un requerimiento, o un ticket existente largo, en una historia breve (30-40 líneas) lista para desarrollo: 3 a 7 criterios Dado/Cuando/Entonces verificables, fuera de alcance, datos y dependencias, preguntas bloqueantes/no bloqueantes, división por INVEST/SPIDR y veredicto de preparación (lista / con supuestos / dividir / no lista). Incluye el modo "revisar un ticket existente" | FACT (revisado 2026-09-24 contra INVEST, Cohn, Jeffries, Cucumber y la ejecución real registrada) |
+| **Purpose** | Refinar un requerimiento, o un ticket existente largo, en una historia breve (30-40 líneas) lista para desarrollo: criterios Dado/Cuando/Entonces verificables, fuera de alcance, datos y dependencias, un campo propio de "Impacto técnico a confirmar en Planning" (consumido por CAP-010), análisis de gaps en lenguaje de negocio, una pasada final de calidad, preguntas bloqueantes/no bloqueantes, división por INVEST/SPIDR y veredicto de preparación. La verificación de código queda acotada a confirmar lo que el pedido nombra — el mapeo de impacto completo es de Planning (CAP-010), no de esta skill | FACT (rediseño 2026-09-28, versión 0.5.5, tras revisar contra INVEST/Cohn/Jeffries/Cucumber, las 3 instancias reales de origen y el patrón real de Camuzzi — ver "Origen" en `SKILL.md`) |
 | **Owner** | REQUIRES VALIDATION | `BLOCKED-DECISIONS.md` #1 |
 | **Maintainer** | REQUIRES VALIDATION | Ídem |
 | **Origin** | 3 orígenes independientes: DataAgro (commit `20b6363a3`, ticket DAT-1274, 2026-08-31), Scato Logística (commit `8bff906e`, PR 5629, 2026-07-20), Orquestador (commit `872911c`, PR 5633, 2026-07-20) | FACT |
@@ -19,7 +19,7 @@
 | **Real Use Status** | **EXECUTED** (actualizado 2026-09-24) — 2 ejecuciones reales sobre el mismo requerimiento de Portal de Créditos (2026-09-23 y 2026-09-24, esta con la versión reescrita). La primera: un developer de Portal de Créditos (AWS) invocó la Skill en lenguaje natural, sin nombrar ningún ID, vía el Agent Plugin de VS Code/Copilot ya instalado. Copilot reconoció y cargó la Skill sola. `NOT EVALUATED` todavía — falta revisión humana del resultado antes de subir a `VERIFIED` | Ver `Evidence Reference` abajo |
 | **Lifecycle State** | Pilot | Mecanismo probado, sin evidencia de uso real registrada todavía — no alcanza para `Measure`/`Human Validation` (`lifecycle.md`) |
 | **Corporate Standard** | N | Sin decisión de gobierno — sin evidencia de uso real todavía |
-| **Version** | Sin versionado semántico. Proxy: DataAgro = `20b6363a3`; Scato Logística = `8bff906e`; Orquestador = `872911c` | FACT (hashes) |
+| **Version** | `0.5.5` del plugin (`plugin.json`), commit `cf5919b`. Proxy de origen: DataAgro = `20b6363a3`; Scato Logística = `8bff906e`; Orquestador = `872911c` | FACT |
 | **Risk** | Bajo | No ejecuta código, no accede a sistemas externos — produce texto estructurado |
 | **Data** | No toca datos sensibles | INFERENCE |
 | **Data Classification** | REQUIRES VALIDATION | Política no existe (`../governance/BLOCKED-DECISIONS.md` #3) |
@@ -35,7 +35,7 @@
 | **Evidence Reference** | [`EXEC-20260923-001`](../../records/armoa277-1-campos-propios/EXEC-20260923-001/evidence.md), [`EXEC-20260924-001`](../../records/armoa277-1-campos-propios/EXEC-20260924-001/evidence.md) | Ejecuciones reales registradas |
 | **Evaluation Reference** | [`EXEC-20260924-001/evaluation.md`](../../records/armoa277-1-campos-propios/EXEC-20260924-001/evaluation.md) — `model-assisted`, `PARTIAL`; evaluación humana pendiente | No independiente |
 | **Metric Reference** | Ninguna todavía | — |
-| **Reusable Asset** *(nuevo en G5.1)* | [`capabilities/skills/user-story/SKILL.md`](../../capabilities/skills/user-story/SKILL.md) | Generalización de las 3 instancias reales — **sin catálogo de roles fijo**, corrigiendo una brecha encontrada durante la construcción (rol "operador de planta" ausente del catálogo original de DataAgro) |
+| **Reusable Asset** | [`capabilities/skills/user-story/SKILL.md`](../../capabilities/skills/user-story/SKILL.md) | Generalización de las 3 instancias reales — sin catálogo de roles fijo (rol tomado del ticket o de `AGENTS.md`) y sin los ejemplos de dominio del checklist de gaps (SAP/AFIP en DataAgro, AFIP/SENASA en Scato Logística) |
 | **Action Type** *(nuevo, campo agregado al implementar Context Acquisition & Resolution)* | READ (produce texto). La actualización opcional del ticket es `ACT` de CAP-023 (`ticket-update`), no de esta skill | Separación deliberada: la lógica de refinamiento no escribe; la escritura está en una sola skill gobernada |
 | **Context Requirements** | `Direct Context o Resolved Context, indistintamente` — ver [`SKILL.md`](../../capabilities/skills/user-story/SKILL.md#entrada) | Ambos modos quedaron probados de punta a punta durante la construcción — ninguno tiene evidencia de uso real todavía |
 

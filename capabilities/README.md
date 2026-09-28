@@ -315,8 +315,8 @@ distinto de Baufest (no de MOA). Pero ese mecanismo depende de que el repo tenga
 en github.com bajo esa organización — y los repos reales de MOA están en **Azure DevOps**
 (`az repos pr create`, Work Items — ver CAP-008/CAP-002). Se investigaron además 3
 mecanismos adicionales de GitHub Enterprise que podrían no depender del hosting del repo;
-ninguno resultó aplicable (detalle completo en
-`TRACK-1/analisis-camuzzi-agent-plugins.md`, documento de trabajo del Track 1).
+ninguno resultó aplicable (detalle completo en un documento de análisis del Track 1, ya
+fuera del modelo entregable).
 
 **Actualización (2026-09-22) — corrección importante**: sí existe un camino nativo para el
 resto del ciclo, distinto del repo especial `.github` de organización descartado arriba.

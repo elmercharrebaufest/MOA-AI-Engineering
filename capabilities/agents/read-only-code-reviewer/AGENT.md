@@ -56,7 +56,10 @@ comparable entre ejecuciones.
 ## Salidas
 
 Reporte estructurado de hallazgos, agrupados por severidad (Critical / Major / Minor),
-cada uno con ubicación exacta (archivo:línea) y una sugerencia concreta.
+cada uno con ubicación exacta (archivo:línea) y una sugerencia concreta. Cierra siempre con
+una **nota positiva** (al menos un aspecto bien resuelto del diff, si lo hay) — mismo
+formato que exigen los 2 precedentes reales (Scato Logística, Orquestador): un review que
+solo señala problemas no es una revisión completa.
 
 ## Instrucciones
 
@@ -68,7 +71,9 @@ cada uno con ubicación exacta (archivo:línea) y una sugerencia concreta.
 3. Revisar el diff (no el repo completo) contra: seguridad, manejo de errores, calidad
    de tests, SOLID/clean code, y performance apropiada a la versión real del stack.
 4. Reportar hallazgos por severidad, con ubicación y sugerencia — nunca modificar
-   archivos ni ejecutar comandos de build/test que alteren el estado del repo.
+   archivos ni ejecutar comandos de build/test que alteren el estado del repo. Incluir
+   siempre una nota positiva; si de verdad no hay ningún aspecto rescatable, decirlo en
+   vez de omitir la sección.
 5. Terminar siempre con un resumen: cantidad de hallazgos por severidad, y una
    recomendación explícita de si el cambio está listo para revisión humana final. Si no
    hay hallazgos Critical, mencionar que está disponible el traspaso **"Generar
@@ -106,6 +111,7 @@ de aprobación.
 
 - `tools` nunca incluye `edit`, sin excepción.
 - Cada hallazgo tiene severidad, ubicación exacta, y sugerencia concreta, no genérica.
+- Incluye una nota positiva, salvo que de verdad no exista ningún aspecto rescatable.
 - El resumen final es honesto sobre si el cambio está listo, no optimista por defecto.
 
 ## Compatibilidad / adaptación

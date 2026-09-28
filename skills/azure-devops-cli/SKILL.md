@@ -52,8 +52,11 @@ respuesta inventada.
 2. Si algún paso falla, detenerse y reportar el error exacto — nunca continuar asumiendo
    un estado de entorno que no se verificó.
 3. Recién después, ejecutar el subcomando de `az devops`/`az pipelines`/`az repos`
-   necesario — consultar siempre la sintaxis real (`az <comando> --help`) ante cualquier
-   duda, en vez de recordarla.
+   necesario. Para pipelines, builds, releases, variables o agentes, consultar primero
+   [`references/pipelines-and-builds.md`](references/pipelines-and-builds.md) o
+   [`references/variables-and-agents.md`](references/variables-and-agents.md) — sintaxis
+   real verificada, no de memoria. Si el comando necesario no está en esos archivos,
+   confirmar con `az <comando> --help` antes de ejecutarlo.
 4. Reportar el resultado real de la ejecución, no una interpretación optimista.
 5. **Antes de cualquier operación de escritura no familiar** (crear PR, actualizar un
    Work Item, cambiar una variable de pipeline), leer primero el estado actual del
@@ -75,6 +78,15 @@ respuesta inventada.
 
 - Azure CLI (`az`) instalado, con la extensión `azure-devops`.
 - Sesión autenticada contra la organización de Azure DevOps del equipo.
+
+## Archivos de referencia
+
+[`references/pipelines-and-builds.md`](references/pipelines-and-builds.md) y
+[`references/variables-and-agents.md`](references/variables-and-agents.md) —
+sintaxis real de `az pipelines`/`az artifacts`, compartida byte-idéntica entre las 2
+instancias reales de origen (Scato Logística, Orquestador), sin datos de ninguna
+organización real. Es la fuente que cumple el propósito declarado de esta skill: evitar
+que el asistente invente sintaxis de memoria.
 
 ## Herramientas / permisos
 

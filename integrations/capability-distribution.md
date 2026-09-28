@@ -29,9 +29,8 @@ la misma idea sobre la infraestructura real de MOA (Azure Pipelines + `az repos 
 create`), no copia ninguna herramienta puntual.
 
 **Architectural Judgment**: se investigaron y descartaron 3 mecanismos nativos de
-plataforma antes de proponer este (ver
-[`../TRACK-1/analisis-camuzzi-agent-plugins.md`](../TRACK-1/analisis-camuzzi-agent-plugins.md)
-para el detalle completo de la investigación):
+plataforma antes de proponer este (el detalle completo de esa investigación quedó en un
+documento de análisis temporal, ya fuera del modelo entregable):
 1. Agent Plugins 1.0 de GitHub (repo especial `.github` de organización) — requiere que el
    repo del equipo tenga su remote en github.com bajo esa organización. Los repos reales de
    MOA están en Azure DevOps (`az repos pr create`, Work Items — ver CAP-008/CAP-002) — no

@@ -273,7 +273,13 @@ cliente de Baufest (Camuzzi, agent `Ticket Kickoff`, reunión 2026-09-18) — ge
 copiar contenido específico de ese cliente (nombres de repos, prefijos de ticket, CLIs
 propias). El principio "el agente principal nunca hace el trabajo de sus sub-agentes, delega
 sistemáticamente" coincide con la guía de Anthropic para diseño de agentes con sub-agentes
-especializados (mantener el contexto del orquestador limpio, delegar tareas acotadas).
+especializados (mantener el contexto del orquestador limpio, delegar tareas acotadas). **Con
+un matiz (0.5.5)**: a diferencia de Camuzzi, que delega toda lectura/escritura de Jira a un
+sub-agente dedicado (`Atlassian TWG Agent`), este Agent lee el ticket directo con
+`getJiraIssue` — footprint de Jira más chico (3 operaciones acotadas, no un CLI completo de
+lectura/escritura de Jira y Confluence). El principio de contexto limpio se aplica igual a lo
+que sí orquesta: investigación/refinamiento (CAP-001/004), entorno (CAP-009) e implementación
+propia después de aprobar — no a cada llamada individual a una herramienta de solo lectura.
 **Architectural Judgment**: se adaptaron los sub-agentes de Camuzzi a las capacidades ya
 existentes del Registry de MOA (CAP-001/002/003/004/009/011/016/018) en vez de inventar
 sub-agentes nuevos — reutiliza, no duplica. Se conservaron los 2 checkpoints humanos y la

@@ -204,8 +204,8 @@ consuma (si la hay) — no de esta capability en sí.
 "Soporte productivo", `REQUIRES VALIDATION`, sin propuesta hasta este trabajo, por decisión
 deliberada del 2026-09-18 de relevar primero con un equipo real). **External Best
 Practice / evidencia externa**: patrón real de un cliente de Baufest (Camuzzi, agent
-`appinsights-investigator` + skill `appinsights-diagnostics`, reunión 2026-09-18, con
-conexión real a Application Insights) — se adoptó el patrón de investigación (evidencia
+`appinsights-investigator`, reunión 2026-09-18, con conexión real a Application Insights)
+— se adoptó el patrón de investigación (evidencia
 real, causas ordenadas por probabilidad, nunca inventar) sin asumir que MOA ya tiene esa
 integración gobernada. También se incorporaron 3 elementos concretos del agente real de
 Camuzzi que la primera versión de esta propuesta no capturaba: resolver el servicio/
@@ -213,7 +213,11 @@ componente antes de investigar (nunca asumirlo), verificar el acceso a la plataf
 monitoreo como paso obligatorio previo a cualquier consulta, y un set de consultas de
 referencia reutilizables (excepciones, requests fallidos, performance, timeline de una
 operación) — generalizados sin copiar nombres de recursos, subscripciones ni servicios
-reales de ese cliente. **Architectural Judgment**: se acota deliberadamente a 3 de las 5
+reales de ese cliente. **Corregido (0.5.5)**: la propuesta también citaba la skill
+`appinsights-diagnostics` como evidencia de Camuzzi; esa skill se autoidentifica como de
+otro proyecto ("MAE" — `skills/appinsights-diagnostics/README.md:3`), no de Camuzzi — se
+retira esa cita y queda `appinsights-investigator` como única evidencia externa
+confirmada. **Architectural Judgment**: se acota deliberadamente a 3 de las 5
 líneas del KO para esta etapa (las que reutilizan la misma investigación, sin inventar
 mecanismo nuevo ni requerir evidencia adicional), en vez de proponer las 5 de una vez —
 mismo criterio de no sobredimensionar ya aplicado en `architecture/ai-sdlc.md` (lección de

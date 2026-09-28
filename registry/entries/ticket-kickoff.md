@@ -5,6 +5,14 @@ tratamiento que el resto de las propuestas nuevas del Registry. Queda `PROPOSAL`
 un equipo real de MOA lo pilotee. **Es la propuesta de mayor riesgo/autonomía de todo el
 Registry** — ver `Risk` abajo.
 
+**Gap conocido (auditoría 0.5.5, 2026-09-28)**: el precedente real de Camuzzi actualiza la
+documentación de specs impactada dentro del propio flujo, delegando a un agente `Spec
+Writer`. El Registry de MOA no tiene ninguna capacidad equivalente — el plan que arma este
+Agent solo *señala* qué documentación queda impactada (paso 3 del `AGENT.md`), sin que
+nada la escriba. Queda documentado como brecha explícita, no como omisión silenciosa; se
+evalúa si corresponde una capacidad nueva recién con evidencia real de que un equipo la
+necesita (Golden Path #5, `Agent Creation`).
+
 | Campo | Valor | Evidencia / clasificación |
 |---|---|---|
 | **ID** | CAP-010 | — |
@@ -36,7 +44,7 @@ Registry** — ver `Risk` abajo.
 | **Observability** | NOT FOUND | — |
 | **Metrics** | NOT FOUND | — |
 | **Adopters** | Ninguno | — |
-| **Last Review** | 2026-09-24 | — |
+| **Last Review** | 2026-09-28 | Integración de "Impacto técnico a confirmar en Planning" (0.5.5) y gap de Spec Writer documentado |
 | **Evidence Reference** | Ninguna todavía | — |
 | **Evaluation Reference** | Ninguna todavía | — |
 | **Metric Reference** | Ninguna todavía | — |
@@ -46,8 +54,8 @@ Registry** — ver `Risk` abajo.
 
 ## Nota de selección
 
-Es el candidato de mayor impacto identificado en el análisis de Camuzzi (`TRACK-1/analisis-camuzzi-agent-plugins.md`)
-— fortalece directamente el Golden Path #2 (`AI-Assisted Development`), que hoy no tiene
+Es el candidato de mayor impacto identificado en el análisis de evidencia externa
+(cliente de Baufest, sesión 2026-09-18) — fortalece directamente el Golden Path #2 (`AI-Assisted Development`), que hoy no tiene
 ningún orquestador real, solo capacidades individuales. Se recomienda explícitamente **no
 pilotear esta capacidad como parte de un lote junto a otras** — por su nivel de autonomía,
 merece un piloto propio, acotado, con seguimiento humano estrecho antes de considerar
