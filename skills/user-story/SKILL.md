@@ -97,6 +97,18 @@ capacidad siguiente por su ID o nombre técnico — describir la acción en leng
 
 ## 3. Cómo construir cada parte
 
+**Si nada de lo esencial surge del pedido, preguntar antes de redactar.** Antes de escribir
+cualquier parte de la historia, identificar el objetivo de negocio, a quién afecta y cómo
+se sabría que está resuelto. Si **ninguno** de los 3 surge del pedido (un título o una
+frase sin contexto, por ejemplo "mejorar el login"), detenerse ahí: hacer una ronda de 2 a
+4 preguntas cerradas, con el mismo formato que las preguntas abiertas de la sección 1
+(opciones, recomendación), y esperar la respuesta antes de escribir nada — ni la historia,
+ni el contexto. Redactar una historia completa alrededor de casi nada real produce un
+documento de supuestos, no una historia. Si la persona prefiere no responder ("decidí
+vos"), proponer la opción más razonable, declararla como supuesto, y recién ahí redactar.
+Si **al menos uno** de los 3 surge, seguir el flujo normal: redactar la historia completa y
+dejar lo que falte como pregunta abierta, en el formato de la sección 1.
+
 **Separar el contenido antes de escribir.** Objetivo, rol y beneficio → historia. Reglas
 → criterios (o RN si no entran en un criterio). Datos de referencia y sistemas → "Datos
 y dependencias". Detalle de implementación, casos de prueba paso a paso y capturas →

@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.6.0] — 2026-09-28
+
+**Agregado** (evidencia externa real de Camuzzi — `spec-writer`, paso 3, "Clarificar
+ambigüedades ANTES de escribir")
+- `user-story`/`product-owner` se detienen a preguntar, en una ronda corta (2 a 4 preguntas
+  cerradas, con opciones y recomendación), antes de redactar cualquier parte de la
+  historia, cuando ninguno de los 3 datos base (objetivo, a quién afecta, cómo se sabe que
+  está resuelto) surge del pedido — en vez de redactar siempre una historia completa
+  alrededor de supuestos. Si la persona prefiere no responder ("decidí vos"), se propone la
+  opción más razonable como supuesto y recién ahí se redacta.
+
 ## [0.5.9] — 2026-09-28
 
 **Cambiado** (generalización, no ligada a un caso puntual — el modelo sirve a múltiples

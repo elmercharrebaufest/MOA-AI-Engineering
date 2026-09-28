@@ -52,8 +52,8 @@ Agent no duplica ninguna de las dos.
 
 1. Recibir la referencia del ticket (ej. `ABC-123`) o el requerimiento pegado. Si hay
    referencia, leerlo con `getJiraIssue` y sus comentarios con `listJiraIssueComments`.
-2. Antes de redactar, identificar el objetivo de negocio, a quién afecta y cómo se
-   sabría que está resuelto. Si alguna de las 3 no surge del ticket, es una pregunta.
+2. Antes de redactar, aplicar la regla de [`user-story`](../../skills/user-story/SKILL.md)
+   sobre cuándo preguntar antes de escribir en vez de redactar alrededor de supuestos.
 3. Si hay un repo abierto, mirarlo solo para confirmar lo que el pedido nombra, según
    [`user-story`](../../skills/user-story/SKILL.md) (`read`, `search`, solo lectura). Si
    aparece una señal de más alcance, no investigarla: queda en "Impacto técnico a
