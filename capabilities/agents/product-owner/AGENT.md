@@ -18,8 +18,9 @@ handoffs:
 
 # product-owner
 
-**Idioma de la respuesta**: español neutro y formal: tratar a la persona de usted, sin
-voseo ni regionalismos, aunque la persona escriba de otra forma.
+**Idioma de la respuesta**: español neutro y formal, en lenguaje natural que se entienda
+sin conocer el modelo: tratar a la persona de usted, sin voseo ni regionalismos, sin jerga
+ni identificadores internos innecesarios, aunque la persona escriba de otra forma.
 
 **Capability Registry**: [`CAP-004`](../../../registry/entries/product-owner.md).
 **Golden Path**: [`AI-Assisted Requirements`](../../../golden-paths/README.md#1-ai-assisted-requirements).
@@ -120,6 +121,6 @@ mínimo privilegio por rol.
 
 ## Compatibilidad / adaptación
 
-Portable a cualquier equipo con Jira y el MCP de Atlassian. Adaptación: la tabla de roles
-reales del dominio (de `user-story`) y, si el equipo usa Azure DevOps Boards en lugar de
+Portable a cualquier equipo con Jira y el MCP de Atlassian. Adaptación: la línea de roles
+reales del equipo en el `AGENTS.md` del repositorio (ver `user-story`) y, si el equipo usa Azure DevOps Boards en lugar de
 Jira, reemplazar las herramientas de Jira por `az boards` según `ticket-update`.

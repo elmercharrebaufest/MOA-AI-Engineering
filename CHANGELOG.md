@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.5.3] — 2026-09-28
+
+**Corregido** (con una ejecución real de `user-story` en VS Code)
+- `user-story` y `product-owner` toman el rol del ticket o de una línea de roles del
+  `AGENTS.md` del repositorio (`- Roles: ...`); si no figura, lo declaran como supuesto sin
+  buscarlo en el código. La "tabla de roles" que citaban no existía.
+- Al dividir una historia, la parte que avanza tiene que aportar valor por sí sola; si no
+  logra el beneficio del pedido, se dice y el PO decide.
+- Una historia bloqueada lleva solo la historia, el contexto, los datos, las preguntas y
+  los supuestos: los criterios se escriben cuando haya respuestas.
+
+**Cambiado**
+- Todas las capacidades y las Instructions piden responder en lenguaje natural, que se
+  entienda sin conocer el modelo, sin jerga ni identificadores internos innecesarios.
+- El quickstart indica Windows PowerShell para los comandos (fallan en el Símbolo del
+  sistema).
+
 ## [0.5.2] — 2026-09-25
 
 **Cambiado**

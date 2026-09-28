@@ -5,8 +5,9 @@ description: Escribe en un ticket de Jira o un work item de Azure DevOps de form
 
 # ticket-update
 
-**Idioma de la respuesta**: español neutro y formal: tratar a la persona de usted, sin
-voseo ni regionalismos, aunque la persona escriba de otra forma.
+**Idioma de la respuesta**: español neutro y formal, en lenguaje natural que se entienda
+sin conocer el modelo: tratar a la persona de usted, sin voseo ni regionalismos, sin jerga
+ni identificadores internos innecesarios, aunque la persona escriba de otra forma.
 
 **Capability Registry**: [`CAP-023`](../../../registry/entries/ticket-update.md).
 **Estado**: `PROPOSAL` — sin ejecución real todavía. Es la primera capacidad del modelo

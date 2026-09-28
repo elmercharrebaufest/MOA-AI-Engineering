@@ -5,9 +5,9 @@ description: Refina un requerimiento, o un ticket existente largo y desordenado,
 
 # user-story
 
-**Idioma de la respuesta**: español neutro y formal, sin voseo ni regionalismos ("pasás",
-"podés", "tenés" → "puede pasar", "puede", "tiene"), aunque la persona escriba de otra
-forma.
+**Idioma de la respuesta**: español neutro y formal, en lenguaje natural que se entienda
+sin conocer el modelo: tratar a la persona de usted, sin voseo ni regionalismos, sin jerga
+ni identificadores internos innecesarios, aunque la persona escriba de otra forma.
 
 ## Propósito
 
@@ -20,7 +20,7 @@ conversaciones) no va en la historia.
 Usarla con un requerimiento nuevo o con un ticket existente que no se entiende. No
 usarla para diseño técnico ni para redactar casos de prueba detallados.
 
-## 1. Formato de salida (entre 30 y 40 líneas por historia)
+## 1. Formato de salida (entre 30 y 40 líneas por historia lista)
 
 ```text
 ## [Título corto]
@@ -51,8 +51,10 @@ usarla para diseño técnico ni para redactar casos de prueba detallados.
 [Cierre — sección 2]
 ```
 
-Si el veredicto es ✂️, se repite el formato para cada historia resultante, marcando cuál
-está lista.
+Si el veredicto es ✂️, la historia lista lleva el formato completo. La historia bloqueada,
+y toda historia ⛔, lleva solo la historia, el contexto, "Datos y dependencias", las
+preguntas y los supuestos, sin criterios de aceptación: los criterios dependen de las
+respuestas y se escriben cuando las haya.
 
 ## 2. Veredicto y cierre, siempre
 
@@ -60,7 +62,7 @@ está lista.
 |---|---|
 | ✅ **Lista** | Sin preguntas bloqueantes |
 | 🟡 **Lista con supuestos** | Solo quedan preguntas no bloqueantes; los supuestos se listan |
-| ✂️ **Dividir** | La historia es demasiado grande (más de 7 criterios o más de un objetivo), **o una parte está lista y otra bloqueada** — la parte lista avanza sin esperar a la otra |
+| ✂️ **Dividir** | La historia es demasiado grande (más de 7 criterios o más de un objetivo), **o una parte está lista y otra bloqueada** — la parte lista avanza sin esperar a la otra, si aporta valor por sí sola (sección 3, "Tamaño y división") |
 | ⛔ **No lista** | Todo depende de una pregunta bloqueante |
 
 El veredicto es una recomendación para el PO, no una barrera. Cerrar siempre con la frase
@@ -72,8 +74,10 @@ que corresponde:
         implementarla, con el plan aprobado antes de tocar código.
 
 ✂️      Conviene dividirla: [historia A] puede avanzar ya; [historia B] espera [qué].
+        (Si A sola no logra el beneficio del pedido: [historia A] puede avanzar, pero
+        sola no logra [beneficio]; el PO decide si la quiere antes que [historia B].)
         Con la aprobación del PO, corresponde pedirle al asistente que cree las
-        historias en el ticket.
+        historias en el sistema de tickets.
 
 ⛔      📌 No está lista: [razón concreta]. Corresponde consultar a [reporter real del
         ticket, o quien hizo el pedido] las preguntas bloqueantes y, con las respuestas,
@@ -96,8 +100,11 @@ para confirmar cómo funciona hoy lo que se pide cambiar y qué otras pantallas 
 afecta. Lo deducido así se declara en "Supuestos y cambios respecto del pedido", con su
 origen. Nunca afirmar algo del sistema que no se verificó.
 
-**Historia.** Rol tomado de la tabla de roles reales del equipo, nunca "usuario"
-genérico si se puede saber quién es. Acción observable, no un método ni un botón.
+**Historia.** Rol real de quien usa la funcionalidad, tomado del ticket o de la línea de
+roles del `AGENTS.md` del repositorio (por ejemplo, `- Roles: analista de créditos,
+comercial`); nunca "usuario" genérico. Si no figura en ninguno de los dos, proponer el más
+probable según el pedido y declararlo como supuesto, sin buscarlo en el código. Acción
+observable, no un método ni un botón.
 
 **Criterios de aceptación.**
 - Dado / Cuando / Entonces, declarativo, de 3 a 5 pasos. El "Entonces" es un resultado
@@ -109,11 +116,13 @@ genérico si se puede saber quién es. Acción observable, no un método ni un b
 - Un criterio que depende de una pregunta abierta lo indica: "(depende de la pregunta N)".
 - Reglas de negocio solo si no están ya en un criterio. Nunca repetirlas.
 
-**Tamaño.** Revisar con INVEST (independiente, negociable, valiosa, estimable, pequeña,
-verificable). Para dividir, nombrar el criterio: **por camino** (flujo principal primero),
-**por datos**, **por reglas**, **por interfaz**, o **investigación previa** si hay una
-incógnita técnica. Caso típico: un cambio de textos listo hoy junto a un cambio de datos
-bloqueado — se separan.
+**Tamaño y división.** Revisar con INVEST (independiente, negociable, valiosa, estimable,
+pequeña, verificable). Para dividir, nombrar el criterio: **por camino** (flujo principal
+primero), **por datos**, **por reglas**, **por interfaz**, o **investigación previa** si
+hay una incógnita técnica. Cada parte tiene que aportar valor por sí sola: si la parte
+lista no logra el beneficio del pedido (por ejemplo, cambiar un texto cuando lo pedido es
+informar un dato distinto), decirlo, indicar qué queda pendiente y dejar que el PO decida
+si la quiere igual.
 
 **Preguntas.** Antes de preguntar, verificar que no esté resuelto en otro documento. Es
 **bloqueante** si la respuesta cambia los criterios o la estimación.
@@ -156,7 +165,7 @@ requerimiento sin necesidad.
 ## Origen
 
 **Existing Practice**: prácticas reales de 3 equipos de MOA (estructura común, roles y
-ejemplos propios de cada uno) y 2 ejecuciones reales sobre el mismo requerimiento de
+ejemplos propios de cada uno) y ejecuciones reales sobre un mismo requerimiento de
 Portal de Créditos. **External Best Practice**:
 [INVEST](https://xp123.com/invest-in-good-stories-and-smart-tasks/),
 [Card, Conversation, Confirmation](https://ronjeffries.com/xprog/articles/expcardconversationconfirmation/),
@@ -169,5 +178,5 @@ Portal de Créditos. **External Best Practice**:
 (Camuzzi)**: fuera de alcance, dependencias, preguntas con opciones y recomendación,
 detección de palabras vagas.
 
-Portable a cualquier equipo; la única adaptación obligatoria es la tabla de roles reales
-del dominio.
+Portable a cualquier equipo; la única adaptación recomendada es la línea de roles reales
+del equipo en el `AGENTS.md` de su repositorio.

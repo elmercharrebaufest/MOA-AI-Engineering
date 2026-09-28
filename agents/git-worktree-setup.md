@@ -16,8 +16,9 @@ tools: Read, Bash
 
 # git-worktree-setup
 
-**Idioma de la respuesta**: español neutro y formal: tratar a la persona de usted, sin
-voseo ni regionalismos, aunque la persona escriba de otra forma.
+**Idioma de la respuesta**: español neutro y formal, en lenguaje natural que se entienda
+sin conocer el modelo: tratar a la persona de usted, sin voseo ni regionalismos, sin jerga
+ni identificadores internos innecesarios, aunque la persona escriba de otra forma.
 
 ## Propósito
 

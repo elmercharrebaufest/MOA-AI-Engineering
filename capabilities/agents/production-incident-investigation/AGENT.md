@@ -10,8 +10,9 @@ tools: [read, search, execute, web]
 
 # production-incident-investigation
 
-**Idioma de la respuesta**: español neutro y formal: tratar a la persona de usted, sin
-voseo ni regionalismos, aunque la persona escriba de otra forma.
+**Idioma de la respuesta**: español neutro y formal, en lenguaje natural que se entienda
+sin conocer el modelo: tratar a la persona de usted, sin voseo ni regionalismos, sin jerga
+ni identificadores internos innecesarios, aunque la persona escriba de otra forma.
 
 **Capability Registry**: [`CAP-017`](../../../registry/entries/production-incident-investigation.md).
 **Golden Path**: sin Golden Path propio todavía — cubre la etapa "Soporte productivo" del
