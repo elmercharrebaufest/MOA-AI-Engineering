@@ -95,6 +95,11 @@ que corresponde:
         volver a pedirle al asistente que la refine.
 ```
 
+Si la historia queda con supuestos (veredicto 🟡, o una parte de una división ✂️), la
+aprobación del PO incluye confirmarlos o corregirlos **uno por uno** — aprobar la historia
+en general no los da por aceptados. Sin esa confirmación explícita, `ticket-kickoff` los
+trata como duda para el tech lead, nunca como hecho ya asentado.
+
 Nunca inventar un nombre de responsable: si no se conoce, decirlo. Nunca nombrar la
 capacidad siguiente por su ID o nombre técnico — describir la acción en lenguaje natural.
 
@@ -128,7 +133,11 @@ repositorio entero.**
    no por texto: una búsqueda de contenido por una palabra común del dominio ("Localidad",
    "Partido", el nombre de la pantalla) devuelve cientos de resultados en cualquier repo
    real; una búsqueda por ruta encuentra los 2 o 3 archivos reales en un solo paso. Leer
-   solo esos archivos, completos.
+   solo esos archivos, completos. Si esa pantalla tiene una versión de exportación o
+   reporte (PDF, Excel, email), verificar también esa versión — suele vivir en un archivo
+   con otro nombre (el concepto de negocio + "Pdf"/"Report"/"Service", no el nombre literal
+   de la pantalla), así que ubicarlo por ese concepto, no asumir que comparte carpeta con
+   la pantalla.
 3. Si el pedido es genérico (no nombra una pantalla puntual — un bug transversal, una
    mejora de performance, algo que toca varios módulos), buscar por el término más
    distintivo del pedido (un mensaje de error, el nombre de una regla de negocio), nunca

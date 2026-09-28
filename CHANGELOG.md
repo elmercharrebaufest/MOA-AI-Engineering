@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.6.1] — 2026-09-28
+
+**Agregado** (2 ejecuciones reales del mismo requerimiento mostraron el mismo patrón:
+una pantalla con una versión de exportación/reporte nombrada distinto, cubierta en una
+corrida y perdida en la otra, y viceversa)
+- `user-story` verifica también la versión de exportación o reporte (PDF, Excel, email)
+  de la pantalla que el pedido nombra, ubicándola por el concepto de negocio — no asume
+  que comparte carpeta ni nombre con la pantalla.
+- El cierre de la historia exige confirmar los supuestos uno por uno, no darlos por
+  aceptados al aprobar la historia en general.
+- `ticket-kickoff` trata los supuestos sin confirmación posterior del PO como duda
+  pendiente para el plan, nunca como hecho ya validado.
+
 ## [0.6.0] — 2026-09-28
 
 **Agregado** (evidencia externa real de Camuzzi — `spec-writer`, paso 3, "Clarificar

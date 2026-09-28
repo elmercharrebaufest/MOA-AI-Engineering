@@ -128,7 +128,10 @@ workspace con el/los repositorio(s) reales donde va a implementar.
 Leer el ticket con `getJiraIssue` y sus comentarios con `listJiraIssueComments` (en
 Azure DevOps, con `az boards work-item show`). Si el ticket necesita refinarse, usar el
 subagente `product-owner`. Usar el resultado como única fuente de verdad — no volver a
-consultar lo mismo dos veces sin una razón concreta.
+consultar lo mismo dos veces sin una razón concreta. Si la descripción trae una sección
+"Supuestos y cambios respecto del pedido" sin un comentario posterior del PO que los
+confirme, tratar cada uno como duda para PO/tech lead en el plan (paso 3) — nunca construir
+el plan asumiéndolos como hechos ya validados.
 
 ### 2. Validar contra specs existentes y contra el código real
 
