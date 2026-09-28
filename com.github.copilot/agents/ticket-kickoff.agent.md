@@ -139,8 +139,16 @@ por cuenta propia. Después, leer los archivos/módulos que el ticket parece imp
 Cruzar las ambigüedades y gaps ya señalados en el paso 1 (y las inconsistencias que haya
 devuelto `spec-reader`) contra el código real — muchas se resuelven solas. Si la historia
 refinada declaró "Impacto técnico a confirmar en Planning", ese es el punto de partida de
-esta validación — la señal que dejó el refinamiento sin investigar. Si falta un
-repo/archivo clave, detenerse y pedirlo.
+esta validación — la señal que dejó el refinamiento sin investigar.
+
+**Mapeo de impacto completo — a diferencia del refinamiento, acá sí corresponde una
+búsqueda amplia.** Buscar todos los usos o referencias de la entidad, campo o pantalla que
+la historia modifica — no solo lo que el pedido nombra — para encontrar consumidores que el
+refinamiento no vio: otras pantallas, traspasos entre módulos, reportes o integraciones. El
+refinamiento verifica acotado a propósito (confirmar el pedido, no mapear impacto); esta
+etapa existe precisamente para el mapeo completo que el KO le asigna a Planning
+("sugerir dependencias/componentes afectados") — omitirlo acá no tiene una etapa siguiente
+que lo compense. Si falta un repo/archivo clave, detenerse y pedirlo.
 
 ### 3. Armar el plan técnico
 

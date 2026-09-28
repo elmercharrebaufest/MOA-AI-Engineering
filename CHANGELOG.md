@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.6.5] — 2026-09-28
+
+**Agregado** (una ejecución real de refinamiento no encontró un traspaso entre módulos que
+otra ejecución anterior sí había encontrado — variabilidad esperada, no un error a
+corregir en el refinamiento; el diseño ya reserva el mapeo completo de impacto para
+Planning, y ahí no tenía todavía una técnica explícita)
+- `ticket-kickoff` (paso 2) suma un mapeo de impacto completo: buscar todos los usos o
+  referencias de la entidad, campo o pantalla que la historia modifica, no solo lo que el
+  pedido nombra, para encontrar consumidores que el refinamiento no vio (otras pantallas,
+  traspasos, reportes, integraciones). A diferencia del refinamiento, en esta etapa sí
+  corresponde una búsqueda amplia — es el mapeo que el KO le asigna a Planning
+  ("sugerir dependencias/componentes afectados"), y no hay una etapa siguiente que lo
+  compense si se omite acá.
+
 ## [0.6.4] — 2026-09-28
 
 **Agregado** (pregunta real del piloto: cómo se crea el ticket de un requerimiento
