@@ -98,10 +98,23 @@ y dependencias". Detalle de implementación, casos de prueba paso a paso y captu
 fuera de la historia (anexo o link). Repeticiones e historial de conversaciones → se
 descartan. Nada se descarta en silencio: todo lo que sale de la historia se lista.
 
-**Verificar antes de afirmar.** Si hay acceso al código o a la documentación, usarlos
-para confirmar cómo funciona hoy lo que se pide cambiar y qué otras pantallas o datos
-afecta. Lo deducido así se declara en "Supuestos y cambios respecto del pedido", con su
-origen. Nunca afirmar algo del sistema que no se verificó.
+**Verificar antes de afirmar, acotado al pedido.** Si hay acceso al código, revisar solo
+lo que el pedido toca:
+
+1. Ubicar lo que el pedido nombra (pantalla, campo, texto) buscando por el nombre exacto
+   y, cuando se conozca, dentro de la carpeta de ese módulo.
+2. Leer esa sección para confirmar cómo funciona hoy.
+3. Seguir una dependencia solo si puede cambiar los criterios, los datos o la
+   estimación: dónde se guarda el dato, qué otras pantallas, reportes o exportaciones lo
+   muestran y qué integraciones lo usan. No seguir las dependencias de esas
+   dependencias, salvo que cambien la historia.
+4. Terminar cuando cada afirmación de la historia tenga su origen. Lo que no se verificó
+   se deja como pregunta o supuesto.
+
+No recorrer el repositorio completo ni buscar términos genéricos. No usar el código para
+lo que ya dicen el pedido o el `AGENTS.md` (rol, sitio de Jira). Lo deducido del código se
+declara en "Supuestos y cambios respecto del pedido", con su origen. Nunca afirmar algo
+del sistema que no se verificó.
 
 **Historia.** Rol real de quien usa la funcionalidad, tomado del ticket o de la línea de
 roles del `AGENTS.md` del repositorio (por ejemplo, `- Roles: analista de créditos,

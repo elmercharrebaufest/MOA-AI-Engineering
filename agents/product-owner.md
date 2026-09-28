@@ -54,9 +54,10 @@ Agent no duplica ninguna de las dos.
    referencia, leerlo con `getJiraIssue` y sus comentarios con `listJiraIssueComments`.
 2. Antes de redactar, identificar el objetivo de negocio, a quién afecta y cómo se
    sabría que está resuelto. Si alguna de las 3 no surge del ticket, es una pregunta.
-3. Si hay un repo abierto, leer cómo funciona hoy lo que se pide cambiar y buscar qué
-   otras pantallas, reportes o datos lo usan (`read`, `search`, solo lectura). Es lo que
-   convierte un "cambio de texto" aparente en su impacto real, antes de estimar.
+3. Si hay un repo abierto, revisar el código acotado al pedido según "Verificar antes de
+   afirmar" de [`user-story`](../capabilities/skills/user-story/SKILL.md) (`read`, `search`, solo
+   lectura). Es lo que convierte un "cambio de texto" aparente en su impacto real, antes
+   de estimar.
 4. Aplicar [`user-story`](../capabilities/skills/user-story/SKILL.md) completa, con su formato de
    salida y su veredicto. Lo deducido del código va en "Supuestos y cambios respecto del
    pedido".

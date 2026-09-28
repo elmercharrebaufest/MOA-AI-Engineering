@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.4] — 2026-09-28
+
+**Corregido** (con una ejecución real de `user-story` en VS Code)
+- `user-story` y `product-owner` revisan el código acotado al pedido: ubican lo que el
+  pedido nombra, leen esa sección y siguen una dependencia solo si puede cambiar los
+  criterios, los datos o la estimación. Sin recorrer el repositorio completo ni buscar
+  términos genéricos.
+
 ## [0.5.3] — 2026-09-28
 
 **Corregido** (con una ejecución real de `user-story` en VS Code)
