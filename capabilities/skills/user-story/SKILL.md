@@ -80,19 +80,23 @@ El veredicto es una recomendación para el PO, no una barrera. Cerrar siempre co
 que corresponde:
 
 ```text
-✅ / 🟡  Historia lista para revisión del PO o referente funcional. Con su aprobación,
-        corresponde pedirle al asistente que la actualice en el ticket y que empiece a
-        implementarla, con el plan aprobado antes de tocar código.
+✅ / 🟡  Historia lista para revisión del PO o referente funcional. Para continuar: abrir
+        una conversación NUEVA y seleccionar el agente `ticket-kickoff` (o usar el botón
+        "Pasar a desarrollo" si aparece) — pegar ahí esta historia ya aprobada. No
+        escribir "implementar" ni nada similar en esta misma conversación: acá no se
+        ejecuta nada, solo se indica el paso siguiente.
 
 ✂️      Conviene dividirla: [historia A] puede avanzar ya; [historia B] espera [qué].
         (Si A sola no logra el beneficio del pedido: [historia A] puede avanzar, pero
         sola no logra [beneficio]; el PO decide si la quiere antes que [historia B].)
-        Con la aprobación del PO, corresponde pedirle al asistente que cree las
-        historias en el sistema de tickets.
+        Con la aprobación del PO, para crear las historias en el sistema de tickets, se
+        lo pide en esta misma conversación (es lectura/escritura de ticket, no código).
+        Para implementar la que esté lista, igual que arriba: conversación nueva con
+        `ticket-kickoff`.
 
 ⛔      📌 No está lista: [razón concreta]. Corresponde consultar a [reporter real del
         ticket, o quien hizo el pedido] las preguntas bloqueantes y, con las respuestas,
-        volver a pedirle al asistente que la refine.
+        volver a pedir la refinación acá mismo.
 ```
 
 Si la historia queda con supuestos (veredicto 🟡, o una parte de una división ✂️), la
@@ -256,6 +260,14 @@ refinamiento.
 Ninguna herramienta propia: produce texto. La escritura en el ticket la hace el
 asistente siguiendo `ticket-update`. Riesgo bajo; no reproducir datos sensibles del
 requerimiento sin necesidad.
+
+**Esta skill no impone ninguna restricción por sí misma — la restricción real vive en el
+agente que la use (`product-owner`), no acá.** Si se invoca sin pasar por ese agente, la
+sesión puede tener acceso completo a editar y ejecutar, aunque esta skill no lo necesite.
+Por eso, sin importar qué herramientas estén disponibles en la sesión: **nunca escribir ni
+ejecutar código bajo ningún pedido** — ni "implementar", ni "dale", ni "empezá", ni ningún
+sinónimo de aprobación. El trabajo de esta skill termina en producir la historia; el paso
+siguiente siempre se indica como texto, nunca se ejecuta acá.
 
 ## Origen
 

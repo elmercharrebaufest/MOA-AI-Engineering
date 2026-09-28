@@ -5,8 +5,11 @@ lo demás (gobierno, evidencia, Golden Paths), ver [`getting-started.md`](gettin
 
 ## Lo único que hace falta saber
 
-1. Abrir Copilot Chat en VS Code: elegir un agente en el selector de agentes del chat
-   (por ejemplo, `product-owner`) o usar el modo **Agent** para una tarea suelta.
+1. Abrir Copilot Chat en VS Code y **elegir explícitamente el agente que corresponda** en
+   el selector (por ejemplo, `product-owner`, `ticket-kickoff`). El modo genérico
+   **Agent** de VS Code no tiene ninguna de las restricciones ni los checkpoints de este
+   modelo — sirve para una consulta suelta que no toque código real, nunca para refinar
+   o implementar con las garantías de este modelo.
 2. Describir la tarea real, en las propias palabras — sin fórmulas ni IDs.
 3. Revisar el resultado antes de darlo por bueno.
 
@@ -45,8 +48,13 @@ tome del branch actual]
 Necesito crear un PR de esta rama hacia develop
 ```
 
-En todos los casos, si el plugin está instalado, el asistente reconoce qué capacidad
-corresponde usar según lo que se describió — no hace falta nombrarlas.
+Con un agente ya elegido en el selector, el asistente reconoce qué skill corresponde usar
+según lo que se describió — no hace falta nombrarla. **Esto no reemplaza elegir el agente
+correcto**: si no hay ningún agente seleccionado, Copilot puede igual reconocer y aplicar
+el contenido de una skill (por ejemplo, `user-story`) dentro de su propio modo genérico —
+y ese modo no tiene ninguna restricción de herramientas ni checkpoints, aunque el
+resultado de texto se vea igual de bien. Por eso, para refinar o implementar, elegir
+siempre el agente en el selector, no solo describir la tarea.
 
 ## Recorrer el SDLC completo con los roles
 
@@ -61,7 +69,24 @@ que corresponda y seguir sus traspasos:
 5. **test-validator** — verifica que todo esté probado. Botón **"Preparar cierre"**.
 
 Cada botón solo propone el paso siguiente: usted decide si lo usa, y nada se escribe en
-el ticket sin su confirmación. Para leer y escribir en Jira, el servidor de Atlassian tiene
+el ticket sin su confirmación.
+
+**Para pasar de refinar a implementar, abrir una conversación nueva con `ticket-kickoff`
+seleccionado — nunca escribir "implementar" en la conversación de refinamiento.** Cada
+agente tiene una lista cerrada de herramientas que la plataforma hace cumplir — por
+ejemplo, `product-owner` no puede editar código ni ejecutar comandos, aunque se le pida.
+Pero esa garantía existe **solo si `product-owner` fue el agente realmente seleccionado**.
+Si el refinamiento se pidió con el modo genérico Agent (sin elegir `product-owner` en el
+selector), esa conversación nunca tuvo ninguna restricción, aunque el resultado se haya
+visto igual de bien — y seguir escribiendo ahí "implementar" implementa de verdad, sin plan
+ni aprobación de por medio. Así es como funciona también el flujo real de un cliente de
+Baufest con SDLC-IA maduro: la palabra que aprueba la implementación se escribe *dentro*
+de la conversación de kickoff que ya armó el plan con estimación, después de revisarlo —
+nunca en la conversación de refinamiento. Antes de pedir que se implemente algo, confirmar
+que el selector de agentes diga `ticket-kickoff` — si sigue mostrando el agente anterior (o
+ningún agente), abrir una conversación nueva con `ticket-kickoff` en vez de continuar ahí.
+
+Para leer y escribir en Jira, el servidor de Atlassian tiene
 que estar conectado en VS Code — ver
 [`agent-plugin-quickstart.md`](agent-plugin-quickstart.md#3-conectar-jira-una-vez).
 

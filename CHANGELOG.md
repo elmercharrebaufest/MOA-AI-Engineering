@@ -1,5 +1,26 @@
 # Changelog
 
+## [0.6.6] — 2026-09-28
+
+**Corregido** (incidente real de piloto: un pedido de "implementar", escrito en la misma
+conversación donde se venía refinando, terminó editando código real y corriendo builds
+sin plan ni aprobación — verificado contra la documentación oficial de VS Code y contra
+el video real de un cliente de Baufest con SDLC-IA maduro)
+- La causa no era el modelo, era `adoption/how-to-use.md`: decía "elegir un agente... o
+  usar el modo Agent" y "no hace falta nombrarlas" como si fueran equivalentes. Corregido:
+  el modo genérico Agent no tiene ninguna restricción ni checkpoint de este modelo; para
+  refinar o implementar hay que elegir el agente explícito en el selector.
+- `user-story` agrega un límite duro, sin importar qué herramientas estén disponibles en
+  la sesión: nunca escribir ni ejecutar código bajo ningún pedido ("implementar", "dale",
+  cualquier sinónimo de aprobación) — el trabajo de la skill termina en producir la
+  historia.
+- Los 3 cierres de `user-story` (✅/🟡, ✂️, ⛔) pasan de una frase pasiva ("corresponde
+  pedirle al asistente que...") a la acción concreta: abrir una conversación nueva con
+  `ticket-kickoff` seleccionado, nunca escribir "implementar" en la conversación de
+  refinamiento.
+- Ni `ticket-kickoff` ni `product-owner` cambian: el video confirma que el patrón ya
+  diseñado (plan → aprobación → implementación, dentro del mismo agente) es el correcto.
+
 ## [0.6.5] — 2026-09-28
 
 **Agregado** (una ejecución real de refinamiento no encontró un traspaso entre módulos que
