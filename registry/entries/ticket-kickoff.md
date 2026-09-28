@@ -5,7 +5,7 @@ tratamiento que el resto de las propuestas nuevas del Registry. Queda `PROPOSAL`
 un equipo real de MOA lo pilotee. **Es la propuesta de mayor riesgo/autonomía de todo el
 Registry** — ver `Risk` abajo.
 
-**Gap conocido (auditoría 0.5.5, 2026-09-28)**: el precedente real de Camuzzi actualiza la
+**Gap conocido**: el precedente real de Camuzzi actualiza la
 documentación de specs impactada dentro del propio flujo, delegando a un agente `Spec
 Writer`. El Registry de MOA no tiene ninguna capacidad equivalente — el plan que arma este
 Agent solo *señala* qué documentación queda impactada (paso 3 del `AGENT.md`), sin que
@@ -44,7 +44,7 @@ necesita (Golden Path #5, `Agent Creation`).
 | **Observability** | NOT FOUND | — |
 | **Metrics** | NOT FOUND | — |
 | **Adopters** | Ninguno | — |
-| **Last Review** | 2026-09-28 | Integración de "Impacto técnico a confirmar en Planning" (0.5.5) y gap de Spec Writer documentado |
+| **Last Review** | 2026-09-28 | — |
 | **Evidence Reference** | Ninguna todavía | — |
 | **Evaluation Reference** | Ninguna todavía | — |
 | **Metric Reference** | Ninguna todavía | — |

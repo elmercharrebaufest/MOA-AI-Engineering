@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.5.7] — 2026-09-28
+
+**Corregido**
+- El quickstart de instalación transcribía el mensaje de error real de PowerShell al
+  ejecutarse en el Símbolo del sistema — reemplazado por la instrucción simple de usar
+  Windows PowerShell.
+- Varias capacidades y entradas del Registry narraban su propia corrección ("Corregido
+  (0.5.5)", fechas y números de versión dentro de la prosa) en vez de describir solo el
+  estado correcto actual — limpiado en `user-story`, `ticket-kickoff`,
+  `ticket-closure-assist`, `production-incident-investigation`,
+  `regression-test-generation`, `test-validator`, `repository-governance`,
+  `azure-devops-cli`, `test-case-generation`.
+- `documentation-style` (CAP-022) agrega la regla explícita: la documentación describe el
+  estado correcto, no su propio historial de correcciones; ningún mensaje de error real
+  queda como contenido permanente.
+
 ## [0.5.6] — 2026-09-28
 
 **Corregido** (auditoría real de las 26 capacidades del Registry contra sus precedentes

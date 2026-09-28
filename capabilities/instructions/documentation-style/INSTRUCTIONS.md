@@ -64,6 +64,15 @@ contenido que realmente aporta algo nuevo.
 6. **Sin lenguaje de marketing ni autorreferencial de IA** ("solución revolucionaria",
    "de última generación", "como asistente de IA puedo..."). Se escribe como
    documentación técnica, no como una presentación.
+7. **La documentación describe el estado correcto, no su propio historial de correcciones.**
+   Nunca dejar la traza de un error ya resuelto (un mensaje de error transcrito, "esto
+   antes decía X", "corregido en la versión Y") en un archivo de referencia (Registry,
+   capacidades, guías de adopción) — eso es una guía, no un registro de cambios. Un
+   mensaje de error real sirve como diagnóstico dentro de una conversación puntual, nunca
+   como contenido permanente de la documentación. Sin fechas ni números de versión dentro
+   de la prosa de un hallazgo o una corrección — la fecha vive en el historial de Git y,
+   cuando corresponde, en `CHANGELOG.md`; el archivo de referencia solo dice qué es
+   correcto hoy.
 
 ## Dependencias
 
@@ -95,6 +104,8 @@ capacidad.
   documento o de otro documento enlazable.
 - Toda afirmación no evidente tiene una fuente citada (archivo:línea, commit, o
   referencia externa real).
+- Ningún archivo de referencia (Registry, capacidades, guías de adopción) narra su propio
+  historial de correcciones ni transcribe un mensaje de error como contenido permanente.
 
 ## Origen de esta regla
 

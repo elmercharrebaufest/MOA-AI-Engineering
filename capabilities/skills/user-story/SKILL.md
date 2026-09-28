@@ -214,10 +214,8 @@ Orquestador — mismo formato Historia/Criterios/RN y el mismo checklist de aná
 gaps, generalizado aquí sin los ejemplos de dominio de cada equipo (SAP/AFIP en uno,
 AFIP/SENASA en otro); sus 3 agentes `product-owner` reales ya declaran `read`/`search`,
 coherente con verificar el código para entender el pedido — no con investigar su impacto
-completo. Ejecuciones reales sobre un mismo requerimiento de Portal de Créditos
-(2026-09-23 a 2026-09-28) mostraron que, sin un límite explícito, esa verificación crece
-hasta el análisis de impacto que corresponde a Planning; de ahí el límite explícito de
-esta versión. **External Best Practice**:
+completo, que corresponde a Planning (`ticket-kickoff`, CAP-010). **External Best
+Practice**:
 [INVEST](https://xp123.com/invest-in-good-stories-and-smart-tasks/),
 [Card, Conversation, Confirmation](https://ronjeffries.com/xprog/articles/expcardconversationconfirmation/),
 [criterios de aceptación](https://www.mountaingoatsoftware.com/agile/user-stories/acceptance-criteria),

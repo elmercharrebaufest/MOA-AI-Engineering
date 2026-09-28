@@ -185,10 +185,9 @@ Done en metodologías ágiles. **Architectural Judgment**: reutiliza los criteri
 producidos por CAP-001, evita construir un mecanismo de verificación nuevo. La estimación
 de horas desde Git (paso 2) se agregó tras contrastar contra una instancia real de un
 cliente de Baufest (Camuzzi, skill `log-work`, reunión 2026-09-18) — evidencia externa, no
-de un equipo de MOA. **Corregido (0.5.5)**: los umbrales concretos (1h por defecto, rango
-de 30 min a 4 h, tope de 4 h) se adoptaron tal cual de esa fuente
-(`log-work/SKILL.md:58-60`), no son una generalización propia — se declara así en vez de
-subestimar cuánto se tomó literal. El nombre del cliente no se cita fuera de esta sección.
+de un equipo de MOA. Los umbrales concretos (1h por defecto, rango de 30 min a 4 h, tope de
+4 h) se adoptaron tal cual de esa fuente (`log-work/SKILL.md:58-60`), no son una
+generalización propia. El nombre del cliente no se cita fuera de esta sección.
 
 ## Compatibilidad / adaptación
 

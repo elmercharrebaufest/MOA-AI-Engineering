@@ -16,9 +16,8 @@ Una sola vez por máquina; aplica a todos los proyectos. No hace falta clonar ni
 nada: el plugin trae el script `moa-ai.ps1`.
 
 Cerrar **todas** las ventanas de VS Code y abrir **Windows PowerShell** (Inicio → escribir
-"PowerShell"), no la terminal de VS Code. Los comandos de esta guía son de PowerShell: en el
-Símbolo del sistema (cmd) fallan con el mensaje
-`The argument '$HOME\...' to the -File parameter does not exist`.
+"PowerShell"), no la terminal de VS Code ni el Símbolo del sistema (cmd) — los comandos de
+esta guía son de PowerShell.
 
 **Máquina sin el plugin:**
 

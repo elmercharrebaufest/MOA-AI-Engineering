@@ -214,11 +214,7 @@ componente antes de investigar (nunca asumirlo), verificar el acceso a la plataf
 monitoreo como paso obligatorio previo a cualquier consulta, y un set de consultas de
 referencia reutilizables (excepciones, requests fallidos, performance, timeline de una
 operación) — generalizados sin copiar nombres de recursos, subscripciones ni servicios
-reales de ese cliente. **Corregido (0.5.5)**: la propuesta también citaba la skill
-`appinsights-diagnostics` como evidencia de Camuzzi; esa skill se autoidentifica como de
-otro proyecto ("MAE" — `skills/appinsights-diagnostics/README.md:3`), no de Camuzzi — se
-retira esa cita y queda `appinsights-investigator` como única evidencia externa
-confirmada. **Architectural Judgment**: se acota deliberadamente a 3 de las 5
+reales de ese cliente. **Architectural Judgment**: se acota deliberadamente a 3 de las 5
 líneas del KO para esta etapa (las que reutilizan la misma investigación, sin inventar
 mecanismo nuevo ni requerir evidencia adicional), en vez de proponer las 5 de una vez —
 mismo criterio de no sobredimensionar ya aplicado en `architecture/ai-sdlc.md` (lección de

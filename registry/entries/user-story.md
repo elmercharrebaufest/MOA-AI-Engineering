@@ -5,7 +5,7 @@
 | **ID** | CAP-001 | — |
 | **Name** | user-story | FACT |
 | **Type** | Skill | FACT |
-| **Purpose** | Refinar un requerimiento, o un ticket existente largo, en una historia breve (30-40 líneas) lista para desarrollo: criterios Dado/Cuando/Entonces verificables, fuera de alcance, datos y dependencias, un campo propio de "Impacto técnico a confirmar en Planning" (consumido por CAP-010), análisis de gaps en lenguaje de negocio, una pasada final de calidad, preguntas bloqueantes/no bloqueantes, división por INVEST/SPIDR y veredicto de preparación. La verificación de código queda acotada a confirmar lo que el pedido nombra — el mapeo de impacto completo es de Planning (CAP-010), no de esta skill | FACT (rediseño 2026-09-28, versión 0.5.5, tras revisar contra INVEST/Cohn/Jeffries/Cucumber, las 3 instancias reales de origen y el patrón real de Camuzzi — ver "Origen" en `SKILL.md`) |
+| **Purpose** | Refinar un requerimiento, o un ticket existente largo, en una historia breve (30-40 líneas) lista para desarrollo: criterios Dado/Cuando/Entonces verificables, fuera de alcance, datos y dependencias, un campo propio de "Impacto técnico a confirmar en Planning" (consumido por CAP-010), análisis de gaps en lenguaje de negocio, una pasada final de calidad, preguntas bloqueantes/no bloqueantes, división por INVEST/SPIDR y veredicto de preparación. La verificación de código queda acotada a confirmar lo que el pedido nombra — el mapeo de impacto completo es de Planning (CAP-010), no de esta skill | FACT — ver "Origen" en `SKILL.md` |
 | **Owner** | REQUIRES VALIDATION | `BLOCKED-DECISIONS.md` #1 |
 | **Maintainer** | REQUIRES VALIDATION | Ídem |
 | **Origin** | 3 orígenes independientes: DataAgro (commit `20b6363a3`, ticket DAT-1274, 2026-08-31), Scato Logística (commit `8bff906e`, PR 5629, 2026-07-20), Orquestador (commit `872911c`, PR 5633, 2026-07-20) | FACT |
@@ -19,7 +19,7 @@
 | **Real Use Status** | **EXECUTED** (actualizado 2026-09-24) — 2 ejecuciones reales sobre el mismo requerimiento de Portal de Créditos (2026-09-23 y 2026-09-24, esta con la versión reescrita). La primera: un developer de Portal de Créditos (AWS) invocó la Skill en lenguaje natural, sin nombrar ningún ID, vía el Agent Plugin de VS Code/Copilot ya instalado. Copilot reconoció y cargó la Skill sola. `NOT EVALUATED` todavía — falta revisión humana del resultado antes de subir a `VERIFIED` | Ver `Evidence Reference` abajo |
 | **Lifecycle State** | Pilot | Mecanismo probado, sin evidencia de uso real registrada todavía — no alcanza para `Measure`/`Human Validation` (`lifecycle.md`) |
 | **Corporate Standard** | N | Sin decisión de gobierno — sin evidencia de uso real todavía |
-| **Version** | `0.5.5` del plugin (`plugin.json`), commit `cf5919b`. Proxy de origen: DataAgro = `20b6363a3`; Scato Logística = `8bff906e`; Orquestador = `872911c` | FACT |
+| **Version** | Versión del plugin en `plugin.json`. Proxy de origen: DataAgro = `20b6363a3`; Scato Logística = `8bff906e`; Orquestador = `872911c` | FACT |
 | **Risk** | Bajo | No ejecuta código, no accede a sistemas externos — produce texto estructurado |
 | **Data** | No toca datos sensibles | INFERENCE |
 | **Data Classification** | REQUIRES VALIDATION | Política no existe (`../governance/BLOCKED-DECISIONS.md` #3) |

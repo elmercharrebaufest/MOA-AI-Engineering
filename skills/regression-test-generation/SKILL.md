@@ -163,10 +163,9 @@ Practice / evidencia externa**: patrón real de un cliente de Baufest (Camuzzi, 
 `testrail-desde-jira` + `playwright-desde-testrail`, reunión 2026-09-18) — se adoptó de
 Camuzzi la fórmula de ROI tal cual (Frecuencia/Impacto/Estabilidad/Esfuerzo/Dependencias,
 `testrail-desde-jira/SKILL.md:82`) y el patrón de reintentos con máximo 3 intentos
-(`playwright-desde-testrail/SKILL.md:278-293`) — **corregido (0.5.5)**: son adopciones
-literales de esa fuente, no un "criterio de industria" independiente sin más respaldo que
-esta cita; el mecanismo concreto (TestRail como fuente, framework Playwright específico,
-nombres de repos de ese cliente) sí se descartó, no se copió. **Architectural Judgment**: separar deliberadamente "generar el código del test"
+(`playwright-desde-testrail/SKILL.md:278-293`) — adopciones literales de esa fuente; el
+mecanismo concreto (TestRail como fuente, framework Playwright específico, nombres de
+repos de ese cliente) no se copió. **Architectural Judgment**: separar deliberadamente "generar el código del test"
 (esta propuesta, bajo riesgo) de "ejecutarlo automáticamente en el pipeline vía MCP
 Playwright" (fuera de alcance, sin evidencia) — cerrar solo la parte de la etapa que puede
 justificarse hoy, sin inventar gobierno de MCP que no existe.

@@ -12,7 +12,7 @@ generalización de una instancia real. Ver esa entrada para el criterio completo
 | **Purpose** | Derivar casos de prueba funcionales a partir de los criterios de aceptación de una historia de usuario (CAP-001) | FACT |
 | **Owner** | REQUIRES VALIDATION | `governance/BLOCKED-DECISIONS.md` #1 |
 | **Maintainer** | REQUIRES VALIDATION | Ídem |
-| **Origin** | No aplica — no hay instancia real de ningún equipo. KO Interno pág. 25 (*"Copilot + SKILLs + MCP Jira/Confluence analiza el requerimiento y propone casos de prueba automáticamente, publicados como comentario en Jira; QA se enfoca en validación exploratoria/negocio"*) | FACT (cita textual corregida 0.5.5 — la versión previa era una paráfrasis presentada entre comillas) |
+| **Origin** | No aplica — no hay instancia real de ningún equipo. KO Interno pág. 25 (*"Copilot + SKILLs + MCP Jira/Confluence analiza el requerimiento y propone casos de prueba automáticamente, publicados como comentario en Jira; QA se enfoca en validación exploratoria/negocio"*) | FACT (cita textual del KO) |
 | **Originator** | No aplica | — |
 | **Team** | Ninguno todavía | — |
 | **Domain** | Transversal — sin contenido específico de dominio que adaptar | FACT |
