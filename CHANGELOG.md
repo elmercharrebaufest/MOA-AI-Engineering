@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.6.4] — 2026-09-28
+
+**Agregado** (pregunta real del piloto: cómo se crea el ticket de un requerimiento
+manual, sin ninguno de origen)
+- `ticket-update`/`product-owner` distinguen "crear el primer ticket" (el pedido llegó
+  pegado, no desde un ticket existente) del resto de las operaciones, que asumían una
+  descripción para reemplazar, un reporter a quien comentar o un ticket original al cual
+  vincular — ninguno de los 3 existe todavía en este caso. Antes de crear, preguntan el
+  sitio de Jira, el proyecto y el tipo de ticket: ninguno se infiere, porque crear en el
+  lugar equivocado no se puede deshacer sin intervención manual.
+
 ## [0.6.3] — 2026-09-28
 
 **Agregado** (pregunta real del piloto: qué pasa si se crea el ticket sin responder las

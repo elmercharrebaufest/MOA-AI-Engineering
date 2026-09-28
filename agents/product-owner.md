@@ -66,11 +66,14 @@ Agent no duplica ninguna de las dos.
 6. Si la persona pide dejarlo en el ticket, seguir
    [`ticket-update`](../capabilities/skills/ticket-update/SKILL.md) — mostrar el cambio exacto,
    esperar el "sí", escribir, verificar:
-   - historia aprobada → reemplazar la descripción (antes, confirmar con
-     `getJiraIssueTypeMetaWithFields` si el tipo de ticket tiene un campo propio de
+   - **sin ticket de origen** (el pedido llegó pegado, no desde un ticket): es "crear el
+     primer ticket" — preguntar sitio, proyecto y tipo antes de usar `createJiraIssue`;
+   - historia aprobada, con ticket de origen → reemplazar la descripción (antes, confirmar
+     con `getJiraIssueTypeMetaWithFields` si el tipo de ticket tiene un campo propio de
      criterios de aceptación);
-   - preguntas abiertas → un comentario dirigido al reporter;
-   - división aprobada → crear las historias nuevas y vincularlas a la original.
+   - preguntas abiertas, con ticket de origen → un comentario dirigido al reporter;
+   - división aprobada → crear las historias nuevas y vincularlas al ticket de origen (o
+     entre sí, si ninguna tiene ticket de origen todavía).
 7. Cerrar según el veredicto (ver [`user-story`](../capabilities/skills/user-story/SKILL.md),
    sección 2). Si la historia quedó aprobada, recordar que está disponible el traspaso **"Pasar
    a desarrollo"**, que la persona decide si usar.

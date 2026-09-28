@@ -49,6 +49,14 @@ Atlassian de VS Code autoriza un solo sitio por vez y cómo cambiarlo (Cuentas �
 sesión de la cuenta del MCP de Atlassian → `MCP: List Servers` →
 `com.atlassian/atlassian-mcp-server` → Restart → elegir el sitio).
 
+**Crear el primer ticket (requerimiento manual, sin ticket de origen).** Nada de lo
+anterior aplica: no hay clave de la que derivar el sitio, ni descripción que reemplazar, ni
+reporter al que dirigir un comentario. Antes de usar `createJiraIssue`, preguntar (una sola
+vez, salvo que el `AGENTS.md` del repo ya lo declare): el sitio de Jira, el proyecto, y el
+tipo de ticket. Ninguno de los 3 se infiere ni se asume por defecto — crear en el sitio o
+proyecto equivocado no se puede deshacer sin intervención manual. Con esos 3 datos, mostrar
+el contenido exacto (igual que cualquier otro cambio) y esperar el "sí" antes de crear.
+
 **Jira** (servidor oficial Atlassian Rovo MCP —
 [herramientas soportadas](https://developer.atlassian.com/cloud/rovo-mcp/guides/supported-tools/)):
 
