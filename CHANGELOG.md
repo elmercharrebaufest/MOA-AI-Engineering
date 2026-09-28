@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.5.8] — 2026-09-28
+
+**Corregido** (con una ejecución real de `user-story` en VS Code)
+- `user-story` ubica lo que el pedido nombra por **ruta de archivo o carpeta** (nombre de
+  la pantalla convertido a la convención del repo), no por búsqueda de texto en el código:
+  una búsqueda de contenido por una palabra común del dominio devuelve cientos de
+  resultados en cualquier repo real, mientras que la ruta encuentra los archivos exactos
+  en un paso. Solo si ninguna ruta coincide, cae a una búsqueda de contenido acotada a la
+  carpeta más probable.
+- Prohíbe explícitamente buscar el rol en archivos de convenciones de stack (`skills.md`,
+  guías de buenas prácticas) — no tienen roles de negocio; la ejecución real lo había
+  intentado ahí sin éxito.
+
 ## [0.5.7] — 2026-09-28
 
 **Corregido**

@@ -106,19 +106,30 @@ y dependencias". Detalle de implementación, casos de prueba paso a paso y captu
 fuera de la historia (anexo o link). Repeticiones e historial de conversaciones → se
 descartan. Nada se descarta en silencio: todo lo que sale de la historia se lista.
 
-**Verificar lo que el pedido nombra — con un propósito, no una lista de pasos.** Si hay
-acceso al código, mirarlo solo para responder una pregunta concreta: ¿la historia describe
+**Verificar lo que el pedido nombra — ubicar por ruta, nunca por contenido.** Convertir el
+nombre de la pantalla o sección que da el pedido (o que muestra una captura) a la
+convención de archivos del repo (kebab-case de carpeta/componente, PascalCase de entidad,
+u otra si el repo la documenta) y buscarlo como **ruta de archivo o carpeta**, no como
+texto dentro del código: una búsqueda de contenido por una palabra común del dominio
+("Localidad", "Partido", el nombre de la pantalla) devuelve cientos de resultados en
+cualquier repo real; una búsqueda por ruta encuentra los 2 o 3 archivos reales de esa
+pantalla en un solo paso. Leer solo esos archivos, completos. Recién si ninguna ruta
+coincide con ese nombre, hacer una búsqueda de contenido acotada a la carpeta más
+probable — nunca al repositorio completo ni por un término genérico.
+
+Mirar el código solo para responder una pregunta concreta: ¿la historia describe
 correctamente cómo funciona hoy lo que el pedido nombra (la pantalla, el campo, el texto)?
 Detenerse apenas esa pregunta está respondida — no es una investigación de impacto, es una
 confirmación de partida.
 
 No corresponde a esta etapa (es Planning, ver "Propósito"): mapear todas las pantallas,
-reportes, traspasos o integraciones que podrían verse afectados, ni recorrer el
-repositorio completo, ni buscar términos genéricos. Si al confirmar lo que el pedido
-nombra aparece una señal concreta de más alcance (otra pantalla con el mismo dato, una
-dependencia visible en el mismo archivo), no investigarla: declararla en "Impacto técnico
-a confirmar en Planning" tal como se encontró, sin profundizar. No usar el código para lo
-que ya dicen el pedido o el `AGENTS.md` (rol, sitio de Jira).
+reportes, traspasos o integraciones que podrían verse afectados. Si al confirmar lo que el
+pedido nombra aparece una señal concreta de más alcance (otra pantalla con el mismo dato,
+una dependencia visible en el mismo archivo), no investigarla: declararla en "Impacto
+técnico a confirmar en Planning" tal como se encontró, sin profundizar. No usar el código
+para lo que ya dicen el pedido o el `AGENTS.md` (rol, sitio de Jira) — y nunca buscar el
+rol en archivos de convenciones de stack (`skills.md`, guías de buenas prácticas): no
+tienen roles de negocio.
 
 Toda afirmación sobre el sistema lleva su origen (archivo, o el propio pedido). Lo
 deducido del código se declara en "Supuestos y cambios respecto del pedido". Lo que no se
