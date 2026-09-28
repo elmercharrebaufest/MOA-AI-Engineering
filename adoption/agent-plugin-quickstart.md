@@ -15,8 +15,10 @@ los repositorios. El mismo modelo para Claude Code está en preparación, todav�
 Una sola vez por máquina; aplica a todos los proyectos. No hace falta clonar ni descargar
 nada: el plugin trae el script `moa-ai.ps1`.
 
-Cerrar **todas** las ventanas de VS Code y abrir PowerShell o Windows Terminal (no la
-terminal de VS Code).
+Cerrar **todas** las ventanas de VS Code y abrir **Windows PowerShell** (Inicio → escribir
+"PowerShell"), no la terminal de VS Code. Los comandos de esta guía son de PowerShell: en el
+Símbolo del sistema (cmd) fallan con el mensaje
+`The argument '$HOME\...' to the -File parameter does not exist`.
 
 **Máquina sin el plugin:**
 
@@ -79,7 +81,7 @@ ejemplo, `product-owner`) y describir una tarea real: [`how-to-use.md`](how-to-u
 
 ## 5. Actualizar
 
-Con VS Code cerrado, en una terminal aparte:
+Con VS Code cerrado, en Windows PowerShell:
 
 ```
 powershell -ExecutionPolicy Bypass -File "$HOME\.copilot\installed-plugins\ai-engineering\ai-engineering\tools\moa-ai.ps1" update
@@ -103,7 +105,7 @@ Problema conocido de GitHub Copilot CLI en Windows
 Code está abierto, su extensión de Copilot mantiene tomada la carpeta del plugin y Windows
 no permite reemplazarla. Por eso el script exige VS Code cerrado y se niega a correr desde
 su terminal. Si el error aparece igual: cerrar todas las ventanas de VS Code, repetir el
-comando en una terminal aparte y verificar con `doctor`.
+comando en Windows PowerShell y verificar con `doctor`.
 
 ## 8. Sin script
 
