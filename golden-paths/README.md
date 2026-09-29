@@ -31,7 +31,7 @@ flowchart TD
     C -->|"No / dividir"| D["PO responde o aprueba la división<br/>(persona)"]
     D --> B
     C -->|"Sí"| E["PO aprueba la historia<br/>(persona) — se actualiza el ticket"]
-    E -->|"Pasar a desarrollo"| F["ticket-kickoff<br/>Plan → aprobación → código + tests en worktree"]
+    E -->|"Armar el plan de desarrollo"| F["ticket-kickoff<br/>Plan → aprobación → código + tests en worktree"]
     F -->|"Revisar el código"| G["read-only-code-reviewer<br/>Hallazgos por severidad, sin editar"]
     F -->|"Generar pruebas"| H
     G -->|"Generar pruebas"| H["qa-analyst<br/>Casos por criterio, tests automatizados"]

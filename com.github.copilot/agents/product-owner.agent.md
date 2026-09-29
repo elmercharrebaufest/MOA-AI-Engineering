@@ -4,7 +4,7 @@ description: Refina requerimientos y tickets existentes en historias de usuario 
 tools: [read, search, "com.atlassian/atlassian-mcp-server/getJiraIssue", "com.atlassian/atlassian-mcp-server/listJiraIssueComments", "com.atlassian/atlassian-mcp-server/getJiraIssueTypeMetaWithFields", "com.atlassian/atlassian-mcp-server/editJiraIssue", "com.atlassian/atlassian-mcp-server/addOrEditJiraIssueComment", "com.atlassian/atlassian-mcp-server/createJiraIssue", "com.atlassian/atlassian-mcp-server/createJiraIssueLink"]
 include-custom-instructions: true
 handoffs:
-  - label: Pasar a desarrollo
+  - label: Armar el plan de desarrollo
     agent: ticket-kickoff
     prompt: La historia [si hay más de una arriba, aclarar acá cuál — ej. "Historia A"] ya fue aprobada por el PO. Investigar el código afectado y proponer el plan técnico, sin escribir código hasta que apruebe el plan.
     send: false

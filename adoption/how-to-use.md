@@ -63,7 +63,7 @@ que corresponda y seguir sus traspasos. Cada uno enlaza a su "Cuándo usarlo / C
 usarlo" real, con más detalle que el resumen de acá:
 
 1. **[product-owner](../capabilities/agents/product-owner/AGENT.md)** — refina la
-   historia. Al aprobarla, botón **"Pasar a desarrollo"**.
+   historia. Al aprobarla, botón **"Armar el plan de desarrollo"**.
 2. **[ticket-kickoff](../capabilities/agents/ticket-kickoff/AGENT.md)** — propone el
    plan, y con su aprobación implementa y corre los tests. Botones **"Revisar el
    código"** y **"Generar pruebas"**.

@@ -3,7 +3,7 @@ name: product-owner
 description: Refina requerimientos y tickets existentes en historias de usuario breves y listas para desarrollo, con persona persistente de Product Owner; lee el ticket en Jira y, solo con confirmación, actualiza su descripción, deja las preguntas como comentario o crea las historias divididas. Usar cuando un ticket no se entiende sin una reunión o antes de Planning.
 tools: [read, search, "com.atlassian/atlassian-mcp-server/getJiraIssue", "com.atlassian/atlassian-mcp-server/listJiraIssueComments", "com.atlassian/atlassian-mcp-server/getJiraIssueTypeMetaWithFields", "com.atlassian/atlassian-mcp-server/editJiraIssue", "com.atlassian/atlassian-mcp-server/addOrEditJiraIssueComment", "com.atlassian/atlassian-mcp-server/createJiraIssue", "com.atlassian/atlassian-mcp-server/createJiraIssueLink"]
 handoffs:
-  - label: Pasar a desarrollo
+  - label: Armar el plan de desarrollo
     agent: ticket-kickoff
     prompt: La historia [si hay más de una arriba, aclarar acá cuál — ej. "Historia A"] ya fue aprobada por el PO. Investigar el código afectado y proponer el plan técnico, sin escribir código hasta que apruebe el plan.
     send: false
@@ -74,8 +74,8 @@ Agent no duplica ninguna de las dos.
    - división aprobada → crear las historias nuevas y vincularlas al ticket de origen (o
      entre sí, si ninguna tiene ticket de origen todavía).
 7. Cerrar según el veredicto (ver [`user-story`](../../skills/user-story/SKILL.md),
-   sección 2). Si la historia quedó aprobada, recordar que está disponible el traspaso **"Pasar
-   a desarrollo"**, que la persona decide si usar.
+   sección 2). Si la historia quedó aprobada, recordar que está disponible el traspaso
+   **"Armar el plan de desarrollo"**, que la persona decide si usar.
 
 ## Herramientas / permisos
 

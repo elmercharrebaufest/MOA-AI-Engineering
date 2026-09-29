@@ -75,8 +75,8 @@ Agent no duplica ninguna de las dos.
    - división aprobada → crear las historias nuevas y vincularlas al ticket de origen (o
      entre sí, si ninguna tiene ticket de origen todavía).
 7. Cerrar según el veredicto (ver [`user-story`](../capabilities/skills/user-story/SKILL.md),
-   sección 2). Si la historia quedó aprobada, recordar que está disponible el traspaso **"Pasar
-   a desarrollo"**, que la persona decide si usar.
+   sección 2). Si la historia quedó aprobada, recordar que está disponible el traspaso
+   **"Armar el plan de desarrollo"**, que la persona decide si usar.
 
 ## Herramientas / permisos
 

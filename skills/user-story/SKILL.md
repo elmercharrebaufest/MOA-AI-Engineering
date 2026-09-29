@@ -79,8 +79,8 @@ que corresponde:
 ```text
 ✅ / 🟡  Historia lista para revisión del PO o referente funcional. Para continuar: abrir
         una conversación NUEVA y seleccionar el agente `ticket-kickoff` (o usar el botón
-        "Pasar a desarrollo" si aparece) — pegar ahí esta historia ya aprobada. **Esto no
-        implementa nada todavía**: `ticket-kickoff` primero investiga el código y
+        "Armar el plan de desarrollo" si aparece) — pegar ahí esta historia ya aprobada.
+        **Esto no implementa nada todavía**: `ticket-kickoff` primero investiga el código y
         presenta un plan técnico (archivos, pasos, estimación, riesgos) para que lo
         revise — recién si lo aprueba explícitamente, empieza a escribir código. No
         escribir "implementar" ni nada similar en esta misma conversación: acá no se

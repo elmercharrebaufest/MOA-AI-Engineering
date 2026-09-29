@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.6.10] — 2026-09-28
+
+**Corregido** (pregunta real del piloto: el developer entendió que el botón
+"Pasar a desarrollo" iba a implementar directamente, sin ver antes qué se va a cambiar ni
+qué pasa con las preguntas abiertas que no había respondido)
+- El botón de traspaso `product-owner` → `ticket-kickoff` se renombra a **"Armar el plan
+  de desarrollo"**: el nombre anterior sonaba a que ya se iba a codificar. Cambiado en el
+  frontmatter `handoffs` (fuente y copia de Copilot) y en toda mención de prosa
+  (`product-owner`, `user-story`, `golden-paths/README.md`, `adoption/how-to-use.md`).
+
 ## [0.6.9] — 2026-09-28
 
 **Corregido** (pregunta real del piloto: el developer no tenía claro si el botón "Pasar a
