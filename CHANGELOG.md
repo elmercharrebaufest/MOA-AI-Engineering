@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.7.2] — 2026-09-28
+
+**Corregido** (análisis comparativo directo contra el archivo real de Camuzzi, no solo
+contra su nombre y propósito general)
+- `spec-review` (CAP-007): se agregaron 2 checks reales que faltaban y sí aplican a
+  nuestro formato — contexto de negocio insuficiente en `requirements.md`, y dependencia
+  entre tareas de `tasks.md` que referencia una tarea inexistente. No se copiaron los
+  checks atados a secciones fijas de la estructura de Camuzzi que nuestro formato
+  (EARS, generalizado de DataAgro) no exige.
+
 ## [0.7.1] — 2026-09-28
 
 **Agregado**

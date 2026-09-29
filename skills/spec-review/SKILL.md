@@ -57,6 +57,7 @@ Sobre `requirements.md`:
 | Requisito no expresado en formato EARS ("Cuando X, el sistema debe Y") | Desvío del formato ya definido por CAP-005 | 🟡 Media |
 | Requisito con término no medible ("adecuado", "rápido", "correctamente", "óptimo") | No es verificable | 🟡 Media |
 | Detalle de implementación mezclado en el requisito (nombre de archivo, tabla de BD, endpoint concreto) | El detalle técnico pertenece a `design.md`/`tasks.md`, no a `requirements.md` | 🟡 Media |
+| Contexto de negocio vacío o demasiado breve para entender qué problema resuelve la feature y a quién afecta | No alcanza para justificar los requisitos que siguen | 🔴 Alta |
 
 Sobre `tasks.md`:
 
@@ -65,6 +66,8 @@ Sobre `tasks.md`:
 | Tarea que no mapea a ningún requisito de `requirements.md` | Tarea huérfana | 🟡 Media |
 | Requisito de `requirements.md` sin ninguna tarea que lo cubra | Cobertura incompleta | 🔴 Alta |
 | Tarea con verbo vago ("Analizar", "Ver", "Definir") sin acción concreta | Tarea no accionable | 🟢 Baja |
+| Dependencia entre tareas que referencia una tarea inexistente | Referencia cruzada rota | 🟡 Media |
+| Falta un criterio de cierre explícito (qué hace que la tarea se considere terminada) | Sin eso, "avanza" queda a criterio de quien implementa, no de la spec | 🟡 Media |
 
 Sobre `feature.json`:
 
@@ -151,6 +154,16 @@ de ese cliente, se auditó el formato que MOA ya tiene definido. **Architectural
 separar la generación (CAP-005) de la auditoría (esta skill) sigue el mismo principio de
 Camuzzi de no mezclar quien escribe con quien revisa — sin agregar un rol nuevo al
 Workflow, como una capacidad complementaria e independiente.
+
+**Revisión de fidelidad (2026-09-28)**: tras leer el contenido completo y real del archivo
+de Camuzzi (`skills/spec-review/SKILL.md`, 9 checks sobre `spec.md` + 6 sobre `tasks.md`),
+se agregaron 2 checks que faltaban y sí aplican a nuestro propio formato (no a la
+estructura puntual de Camuzzi): contexto de negocio insuficiente (equivalente a su C5,
+"Overview vacío") y dependencia entre tareas que referencia una tarea inexistente
+(equivalente a su T6). No se copiaron los checks específicos de la estructura de Camuzzi
+que no aplican a la nuestra (secciones fijas "Out of Scope"/"User Story"/encabezado
+Ticket-Repo — nuestro `requirements.md`, generalizado del EARS real de DataAgro, no exige
+esas secciones).
 
 ## Compatibilidad / adaptación
 

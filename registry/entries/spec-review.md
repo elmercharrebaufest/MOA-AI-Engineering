@@ -35,7 +35,7 @@ un equipo real de MOA lo pilotee.
 | **Observability** | NOT FOUND | — |
 | **Metrics** | NOT FOUND | — |
 | **Adopters** | Ninguno | — |
-| **Last Review** | 2026-09-21 | — |
+| **Last Review** | 2026-09-28 (revisión de fidelidad — ver nota abajo) | — |
 | **Evidence Reference** | Ninguna todavía | — |
 | **Evaluation Reference** | Ninguna todavía | — |
 | **Metric Reference** | Ninguna todavía | — |
@@ -48,3 +48,14 @@ un equipo real de MOA lo pilotee.
 Complementa a CAP-005 (`spec-driven-development`) — hoy esa capability define cómo generar
 los artefactos, pero nada audita su calidad después. Bajo riesgo, alto valor de detección
 temprana (sign-offs marcados sin evidencia real, cobertura incompleta requisito→tarea).
+
+## Revisión de fidelidad (2026-09-28)
+
+Primera lectura completa y directa del archivo real de Camuzzi
+(`TRACK-1/github-main/.github-main/skills/spec-review/SKILL.md`, 9 checks sobre `spec.md` +
+6 sobre `tasks.md`) — hasta ahora solo se conocía por su nombre y su propósito general. Se
+agregaron 2 checks reales que faltaban y sí aplican a nuestro formato: contexto de negocio
+insuficiente (equivalente a su C5) y dependencia entre tareas que referencia una tarea
+inexistente (equivalente a su T6). No se copiaron los checks atados a la estructura fija de
+Camuzzi (`Out of Scope`, `User Story`, encabezado `Ticket`/`Repo`) porque nuestro
+`requirements.md`, generalizado del EARS real de DataAgro, no exige esas secciones.
