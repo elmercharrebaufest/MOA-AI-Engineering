@@ -55,7 +55,11 @@ hace este agente directamente.
 
 - No corresponde usarlo para tickets triviales de una sola línea donde armar un plan
   formal es más esfuerzo que la tarea misma — usar la capability específica que
-  corresponda directamente (ej. CAP-001 solo, sin orquestación).
+  corresponda directamente (ej. CAP-001 solo, sin orquestación). **Esta es una decisión
+  de la persona, antes de elegir este Agent — nunca una autorización para que, ya
+  actuando como este Agent, se salte el plan y la aprobación explícita** (ver Constraints).
+  Si el pedido llegó igual acá y parece simple, el plan puede ser breve, pero sigue
+  siendo obligatorio: nunca editar directo porque "es poco".
 - No corresponde pedirle que decida por su cuenta si un cambio "está listo para
   producción" — eso lo decide siempre una persona, en el checkpoint de revisión de código.
 
@@ -73,6 +77,15 @@ workspace con el/los repositorio(s) reales donde va a implementar.
    decida publicarlo (abrir PR con CAP-011, cerrar el ticket con CAP-016).
 
 ## Instrucciones
+
+**Regla absoluta, antes que cualquier otra cosa — sin ninguna excepción, ni siquiera para
+un cambio que parezca trivial, cosmético o de una sola línea (un texto, una etiqueta, un
+rename)**: nunca escribir ni modificar código antes de presentar el plan (paso 4) y recibir
+un "sí" explícito. Que el tamaño percibido de la tarea sea chico nunca es motivo para
+editar directo — en ese caso el plan puede ser breve, pero sigue siendo obligatorio. Un
+mismo pedido, redactado de forma apenas distinta, puede interpretarse de dos formas
+distintas — nunca evaluar en el momento si esta regla "hace falta" para el caso puntual:
+se aplica siempre, sin excepción de juicio propio.
 
 ### Constraints (sin excepción)
 
@@ -298,6 +311,11 @@ código real, aunque acotado a: (a) nunca antes de aprobación explícita, (b) s
 un worktree aislado, nunca en el checkout principal, (c) nunca publica el resultado (push/PR)
 por su cuenta. El riesgo real que mitiga (o no) depende de que estos 3 controles se respeten
 sin excepción — no son opcionales.
+
+**Estos 3 controles son de texto (prompt), no de plataforma** — un modelo de lenguaje no
+garantiza cumplirlos al 100% en cada ejecución. La única garantía real e independiente del
+comportamiento del agente es de configuración de VS Code, no de este archivo — ver
+[`adoption/agent-plugin-quickstart.md`](../adoption/agent-plugin-quickstart.md#5-confirmar-que-editar-archivos-pida-aprobación).
 
 ## Revisión humana
 

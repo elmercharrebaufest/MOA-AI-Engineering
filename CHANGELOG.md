@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.7.6] — 2026-09-28
+
+**Corregido** (incidente real de piloto: `ticket-kickoff` editó 4 archivos reales sin
+presentar el plan ni esperar aprobación, ni usar worktree aislado)
+- Se cerró el loophole real: la nota de "Cuándo NO usarlo" sobre tickets triviales le daba
+  al agente una salida aparente para saltear su propio constraint "sin excepción" cuando
+  clasificaba (de forma más superficial que en una prueba casi idéntica minutos antes) un
+  pedido como cosmético. Ahora aclara explícitamente que esa nota es para decidir si
+  invocar el Agent, nunca una autorización para saltear el plan ya actuando como él.
+- El constraint de "nunca código sin aprobación explícita" se restató al inicio de
+  "Instrucciones", antes de la lista de 16, para reducir el riesgo de dilución.
+- `adoption/agent-plugin-quickstart.md`: nuevo paso 5, la única garantía real (no de
+  prompt) — configurar `chat.permissions.default`/`chat.tools.eligibleForAutoApproval` de
+  VS Code para que la edición de archivos siempre pida confirmación, independiente de lo
+  que decida cualquier agente.
+
 ## [0.7.5] — 2026-09-28
 
 **Corregido** (primera lectura completa y directa del archivo real de Camuzzi —

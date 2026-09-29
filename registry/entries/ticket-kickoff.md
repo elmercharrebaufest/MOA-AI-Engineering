@@ -27,6 +27,22 @@ respuesta del agente, sin condicionarse al paso interno — es la única capacid
 Registry con 2 traspasos pensados para 2 momentos distintos de la misma conversación. El
 paso 4 ahora cierra siempre aclarando que esos botones no aplican todavía en ese punto.
 
+**Incidente real de piloto (2026-09-28)**: en una prueba real, un pedido de rename de
+texto (frontend, sin tocar el modelo de datos) se interpretó de forma más superficial que
+un pedido casi idéntico probado minutos antes (que sí había identificado correctamente un
+cambio de modelo de datos) — y, con esa lectura, el agente editó 4 archivos reales
+directamente, sin presentar el plan ni esperar aprobación, ni usar el worktree aislado.
+Causa raíz identificada: la nota de "Cuándo NO usarlo" sobre tickets triviales le dio una
+salida aparente para saltear su propio constraint "sin excepción". Se corrigió cerrando
+ese loophole explícitamente y restatando el constraint al inicio de "Instrucciones", antes
+de la lista. **Límite honesto de esta corrección**: sigue siendo una regla de prompt, no
+de plataforma — un modelo de lenguaje no garantiza cumplimiento al 100% en cada ejecución,
+ni el de este Registry ni el de Camuzzi (mismo diseño verificado: `edit` en el frontmatter
++ regla en texto, no en herramienta). La garantía real e independiente del comportamiento
+del agente es de configuración de VS Code
+(`chat.tools.eligibleForAutoApproval`) — ver
+[`adoption/agent-plugin-quickstart.md`](../../adoption/agent-plugin-quickstart.md#5-confirmar-que-editar-archivos-pida-aprobación).
+
 **Constraint agregado (2026-09-28, persistencia del plan)**: el plan aprobado ahora se
 persiste en `.ticket-kickoff-plan.md` dentro del worktree, nunca comiteado, para poder
 retomar una sesión larga sin depender de que la persona la redescriba. Verificado contra
@@ -62,7 +78,7 @@ comitear) por ser el de mayor evidencia convergente y el de menor riesgo.
 | **Data Classification** | REQUIRES VALIDATION | `BLOCKED-DECISIONS.md` #3 |
 | **Tools** | `[read, edit, execute, search, agent, todo]` + `listJiraIssueComments`, `addOrEditJiraIssueComment` (solo comentarios). Traspasos guiados (`handoffs`, `send: false`) a `read-only-code-reviewer` y `qa-analyst` | FACT |
 | **Model** | No declarado | FACT |
-| **Autonomy** | Explícitamente acotada por 13 constraints textuales (ver `AGENT.md`) — la más extensa del Registry, proporcional al riesgo | FACT |
+| **Autonomy** | Explícitamente acotada por 16 constraints textuales (ver `AGENT.md`) — la más extensa del Registry, proporcional al riesgo | FACT |
 | **HITL** | **2 checkpoints obligatorios, sin excepción**: aprobar el plan antes de implementar, revisar el código antes de publicar | FACT (declarado en `AGENT.md`) |
 | **Evaluation** | NOT FOUND | — |
 | **Observability** | NOT FOUND | — |

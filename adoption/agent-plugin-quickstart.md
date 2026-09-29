@@ -78,7 +78,29 @@ Integrations). `status` muestra el resumen. Qué está probado:
 Después, en VS Code, abrir Copilot Chat, elegir un agente en el selector de agentes (por
 ejemplo, `product-owner`) y describir una tarea real: [`how-to-use.md`](how-to-use.md).
 
-## 5. Actualizar
+## 5. Confirmar que editar archivos pida aprobación
+
+**Este paso es la única garantía real, no de texto, de que ningún agente edite código sin
+que una persona lo confirme antes.** Los `AGENT.md` de este modelo (`ticket-kickoff`,
+`qa-analyst`) ya piden, en su propio texto, presentar un plan y esperar un "sí" antes de
+escribir código — pero esa es una instrucción de prompt, no un candado de la plataforma:
+un modelo de lenguaje no es determinístico y puede, en un caso puntual, no respetarla. VS
+Code sí tiene un candado real, independiente de lo que diga cualquier agente:
+
+1. `Ctrl+Shift+P` → **Preferences: Open Settings (JSON)**.
+2. Confirmar que `chat.permissions.default` esté en **Manual** (el valor por defecto) — no
+   en **Allow all**.
+3. Revisar `chat.tools.eligibleForAutoApproval`: la herramienta de editar archivos **no**
+   debe estar en la lista de auto-aprobadas. Si lo está, quitarla — así, la edición de un
+   archivo real siempre muestra un pedido de confirmación antes de escribirse en disco,
+   sin importar qué decida el agente.
+
+Con esto configurado, aunque un agente decida (por error) editar sin haber presentado el
+plan, la plataforma igual va a pedir la confirmación antes de aplicar el cambio — es la
+diferencia entre una regla que un modelo *intenta* cumplir y una que la plataforma *hace*
+cumplir.
+
+## 6. Actualizar
 
 Con VS Code cerrado, en Windows PowerShell:
 
@@ -89,7 +111,7 @@ powershell -ExecutionPolicy Bypass -File "$HOME\.copilot\installed-plugins\ai-en
 Actualiza solo si hay una versión nueva y muestra la versión anterior y la nueva. No hay
 actualización automática.
 
-## 6. Desinstalar
+## 7. Desinstalar
 
 ```
 copilot plugin uninstall ai-engineering@ai-engineering
@@ -97,7 +119,7 @@ copilot plugin uninstall ai-engineering@ai-engineering
 
 Borrar también `~/.copilot/instructions/moa-ai-engineering.instructions.md`.
 
-## 7. Windows: `Access is denied. (os error 5)`
+## 8. Windows: `Access is denied. (os error 5)`
 
 Problema conocido de GitHub Copilot CLI en Windows
 ([github/copilot-cli#4095](https://github.com/github/copilot-cli/issues/4095)): mientras VS
@@ -106,7 +128,7 @@ no permite reemplazarla. Por eso el script exige VS Code cerrado y se niega a co
 su terminal. Si el error aparece igual: cerrar todas las ventanas de VS Code, repetir el
 comando en Windows PowerShell y verificar con `doctor`.
 
-## 8. Sin script
+## 9. Sin script
 
 Si la política de la máquina no permite ejecutar scripts de PowerShell, los pasos
 equivalentes son `copilot plugin marketplace add
@@ -114,7 +136,7 @@ https://dev.azure.com/molinosagro/ai-engineering/_git/ai-engineering` y `copilot
 install ai-engineering@ai-engineering`, revisando antes con `copilot plugin list --json`
 que no exista otra copia. Las Instructions quedan sin configurar.
 
-## 9. Alternativa: que llegue recomendado sin configurar nada
+## 10. Alternativa: que llegue recomendado sin configurar nada
 
 Si el equipo agrega esto al archivo `.github/copilot/settings.json` de su propio
 repositorio, cualquiera que lo abra recibe el plugin recomendado automáticamente:
