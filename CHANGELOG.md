@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.6.9] — 2026-09-28
+
+**Corregido** (pregunta real del piloto: el developer no tenía claro si el botón "Pasar a
+desarrollo" implementa directamente, sin ver antes qué se va a modificar)
+- El cierre de `user-story` dice ahora explícito, en el mismo lugar donde aparece el
+  botón: pasar a `ticket-kickoff` no implementa nada — primero investiga el código y
+  presenta un plan técnico para revisar, y solo con esa segunda aprobación explícita
+  empieza a escribir código.
+
 ## [0.6.8] — 2026-09-28
 
 **Corregido** (pregunta real del piloto: con 2 historias en la misma respuesta, el botón
