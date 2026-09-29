@@ -27,6 +27,13 @@ respuesta del agente, sin condicionarse al paso interno — es la única capacid
 Registry con 2 traspasos pensados para 2 momentos distintos de la misma conversación. El
 paso 4 ahora cierra siempre aclarando que esos botones no aplican todavía en ese punto.
 
+**Corrección de formato y transparencia (2026-09-29, feedback real de piloto)**: el plan
+se estaba presentando como texto corrido, difícil de leer y de aprobar parte por parte; y
+la estimación en horas no explicaba en qué se basaba. El paso 3 ahora exige tabla Markdown
+(paso / archivos / estimación) y obliga a declarar la base de cada estimación —
+complejidad juzgada (código + tests + buffer), o referencia histórica real si el equipo la
+tiene — nunca un número sin justificar.
+
 **Incidente real de piloto (2026-09-28)**: en una prueba real, un pedido de rename de
 texto (frontend, sin tocar el modelo de datos) se interpretó de forma más superficial que
 un pedido casi idéntico probado minutos antes (que sí había identificado correctamente un

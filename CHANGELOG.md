@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.7.7] — 2026-09-29
+
+**Corregido** (feedback real de piloto: el plan de `ticket-kickoff` se presentaba como
+texto corrido, difícil de leer y de aprobar parte por parte, y la estimación en horas no
+explicaba en qué se basaba)
+- El paso 3 ("Armar el plan técnico") ahora exige una tabla Markdown (paso / archivos
+  principales / estimación), en vez de dejar el formato a criterio del momento.
+- Cada estimación tiene que declarar su base explícita — juicio de complejidad (código +
+  tests + buffer de revisión) o referencia histórica real de un ticket similar ya cerrado
+  — nunca un número sin justificar.
+
 ## [0.7.6] — 2026-09-28
 
 **Corregido** (incidente real de piloto: `ticket-kickoff` editó 4 archivos reales sin

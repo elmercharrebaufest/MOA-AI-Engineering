@@ -178,10 +178,29 @@ que lo compense. Si falta un repo/archivo clave, detenerse y pedirlo.
 
 ### 3. Armar el plan técnico
 
-Pasos implementables (unidad testeable, con archivos a tocar), estimación honesta por paso
-(código + tests + buffer de revisión), riesgos técnicos concretos, dudas para PO/tech lead
-que sigan sin resolver, y qué documentación queda impactada si el equipo usa CAP-005
-(`spec-driven-development`).
+**Presentar los pasos siempre en una tabla Markdown, nunca como texto corrido** — mucho
+más fácil de leer y de aprobar (o cuestionar) paso por paso:
+
+```text
+| # | Paso | Archivos principales | Estimación |
+|---|------|----------------------|------------|
+| 1 | ...  | `archivo.cs`, ...    | X h        |
+| … | …    | …                    | …          |
+| **Total** | | | **≈ N h** (código + tests + buffer de revisión) |
+```
+
+**Base de la estimación, siempre explícita, nunca un número sin justificar**: cada valor es
+código + tests + buffer de revisión de ese paso puntual — un juicio informado sobre la
+complejidad real (archivos a tocar, tamaño aproximado del cambio, dificultad), **no una
+medición histórica**, a diferencia de `ticket-closure-assist` (CAP-016), que sí estima
+desde el historial real de Git — acá todavía no hay commits porque nada se implementó. Si
+el equipo tiene datos reales de tickets similares ya cerrados (horas reales vs.
+estimadas), usarlos como referencia y citar el ticket real; si no hay ese dato, decirlo
+también explícito ("estimación por complejidad, sin referencia histórica del equipo").
+
+Además, cada uno en su propia sección con encabezado (nunca mezclado dentro de la tabla):
+riesgos técnicos concretos, dudas para PO/tech lead que sigan sin resolver, y qué
+documentación queda impactada si el equipo usa CAP-005 (`spec-driven-development`).
 
 ### 4. Presentar el plan y esperar aprobación explícita
 
