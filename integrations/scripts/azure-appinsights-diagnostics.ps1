@@ -2,10 +2,10 @@
 .SYNOPSIS
     Azure Application Insights Diagnostics -- implementacion real del patron
     ../production-diagnostics-provider.md, mitad Azure. Consulta Application Insights via
-    KQL, READ-only, para las 5 consultas de referencia que ya usa CAP-017
+    KQL, READ-only, para las 6 consultas de referencia que ya usa CAP-017
     (production-incident-investigation): excepciones recientes, requests fallidos,
-    dependencias fallidas (llamadas a otros recursos de Azure), performance, timeline de
-    una operacion puntual.
+    dependencias fallidas (llamadas a otros recursos de Azure), performance, disponibilidad
+    (uptime %), timeline de una operacion puntual.
 
 .DESCRIPTION
     Usa Azure CLI (`az monitor app-insights query`) -- el mecanismo real y oficial de
@@ -22,12 +22,15 @@
     $env:APPINSIGHTS_APP_ID.
 
 .PARAMETER QueryType
-    Una de las 5 consultas de referencia de CAP-017: 'recent-exceptions',
-    'failed-requests', 'failed-dependencies', 'performance', 'operation-timeline'.
+    Una de las 6 consultas de referencia de CAP-017: 'recent-exceptions',
+    'failed-requests', 'failed-dependencies', 'performance', 'availability',
+    'operation-timeline'.
     'failed-dependencies' es para cuando el error no es de la app en si, sino de un
     recurso del que depende (Blob Storage, Cognitive Services, Azure AD B2C, SQL, una API
     externa) -- el mismo caso que analizar el error directo contra el endpoint real del
     servicio.
+    'availability' (uptime %) no tiene equivalente estructurado en CloudWatch Logs --
+    solo disponible en este script, no en aws-cloudwatch-diagnostics.ps1.
 
 .PARAMETER TimespanHours
     Ventana de tiempo hacia atras, en horas (ej. 24). Default: 24.
@@ -49,7 +52,7 @@ param(
     [string]$AppId = $env:APPINSIGHTS_APP_ID,
 
     [Parameter(Mandatory = $true)]
-    [ValidateSet('recent-exceptions', 'failed-requests', 'failed-dependencies', 'performance', 'operation-timeline')]
+    [ValidateSet('recent-exceptions', 'failed-requests', 'failed-dependencies', 'performance', 'availability', 'operation-timeline')]
     [string]$QueryType,
 
     [int]$TimespanHours = 24,
@@ -100,7 +103,7 @@ if ($QueryType -eq 'operation-timeline' -and -not $OperationId) {
     exit 1
 }
 
-# Las 5 consultas de referencia de CAP-017, en sintaxis real de KQL sobre Application Insights.
+# Las 6 consultas de referencia de CAP-017, en sintaxis real de KQL sobre Application Insights.
 $kqlQuery = switch ($QueryType) {
     'recent-exceptions' {
         'exceptions | order by timestamp desc | project timestamp, type, outerMessage, operation_Id | take 50'
@@ -116,6 +119,12 @@ $kqlQuery = switch ($QueryType) {
     }
     'performance' {
         'requests | summarize avgDuration=avg(duration), p50=percentile(duration,50), p95=percentile(duration,95), p99=percentile(duration,99) by bin(timestamp, 5m), name'
+    }
+    'availability' {
+        # Uptime % por bin de 5 minutos, a partir de la tasa de requests exitosos -- no
+        # depende de tener Availability Web Tests configurados (los sinteticos viven en la
+        # tabla 'availabilityResults', que no todos los recursos tienen poblada).
+        'requests | summarize total=count(), failed=countif(success == false), uptime=todouble(countif(success == true))/count()*100 by bin(timestamp, 5m) | order by timestamp asc'
     }
     'operation-timeline' {
         "union requests, dependencies, exceptions | where operation_Id == `"$OperationId`" | order by timestamp asc"

@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.7.5] — 2026-09-28
+
+**Corregido** (primera lectura completa y directa del archivo real de Camuzzi —
+`agents/appinsights-investigator.agent.md` — hasta ahora solo se conocía por nombre y
+propósito general)
+- `production-incident-investigation` (CAP-017): faltaba un tipo de consulta real de esa
+  fuente — disponibilidad (uptime %) — sin exclusión deliberada documentada. Se agregó
+  como sexto tipo de consulta, en el `AGENT.md` y en el script ejecutable real
+  (`integrations/scripts/azure-appinsights-diagnostics.ps1`), solo para Azure (sin
+  equivalente estructurado en CloudWatch Logs).
+
+**Verificado sin cambios**: `repository-governance`, `azure-devops-cli`,
+`azure-devops-context`, `jira-context`.
+
 ## [0.7.4] — 2026-09-28
 
 **Corregido** (análisis comparativo capacidad por capacidad — bug real encontrado en

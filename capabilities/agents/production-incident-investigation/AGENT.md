@@ -128,11 +128,11 @@ explícitamente, y nunca se envían/publican solas):
 
 **Implementación ejecutable real, para las 2 plataformas con evidencia de uso en MOA**:
 [`../../../integrations/production-diagnostics-provider.md`](../../../integrations/production-diagnostics-provider.md)
-(AWS CloudWatch / Azure Application Insights) — estos 5 tipos de consulta ya corren como
+(AWS CloudWatch / Azure Application Insights) — estos 6 tipos de consulta ya corren como
 script real (`-QueryType`), no solo como descripción. Para on-premise, sigue sin mecanismo
 nativo identificado (`REQUIRES VALIDATION`).
 
-No es sintaxis obligatoria — son los 5 tipos de consulta que más valor aportan para un
+No es sintaxis obligatoria — son los 6 tipos de consulta que más valor aportan para un
 primer diagnóstico, para no partir de cero cada vez:
 
 - **Excepciones recientes**: últimas excepciones en una ventana de tiempo, con tipo,
@@ -149,6 +149,11 @@ primer diagnóstico, para no partir de cero cada vez:
   `recent-exceptions`/`failed-requests` si la app lo loguea, no en una consulta separada.
 - **Performance**: percentiles de duración (p50/p95/p99) por endpoint/operación, para
   detectar degradación antes de que sea un incidente reportado.
+- **Disponibilidad** *(agregada 2026-09-28)*: uptime % por ventana de 5 minutos, a partir
+  de la tasa de requests exitosos — responde directo a "¿estuvo caído el servicio, y
+  cuándo?" sin depender de tener Availability Web Tests configurados. Solo disponible hoy
+  en Azure Application Insights (tabla `requests`); CloudWatch Logs no tiene un
+  equivalente estructurado.
 - **Timeline de una operación puntual**: todo lo relacionado a un identificador de
   operación/trace específico (requests, dependencias, excepciones), ordenado
   cronológicamente — el más útil cuando ya se tiene el ID de un caso puntual reportado.
@@ -236,6 +241,12 @@ como tarea manual aparte, siempre indicando cuándo llega la próxima actualizac
 cierre/postmortem se beneficia de resumir timeline, causa raíz y acción tomada apenas
 terminada la investigación, mientras el contexto está fresco. No es evidencia de MOA ni de
 Camuzzi — es la misma disciplina de citar la fuente que rige el resto del Registry.
+
+**Revisión de fidelidad (2026-09-28)**: tras leer el contenido completo y real del archivo
+de Camuzzi (`agents/appinsights-investigator.agent.md`), se detectó que faltaba un tipo de
+consulta que sí tiene esa fuente — disponibilidad (uptime %) — sin haber quedado
+documentado como exclusión deliberada. Se agregó como sexto tipo de consulta, tanto acá
+como en el script ejecutable real (`azure-appinsights-diagnostics.ps1`).
 
 ## Compatibilidad / adaptación
 

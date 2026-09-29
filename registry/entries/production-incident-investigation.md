@@ -77,3 +77,14 @@ equipo quiera integrar una fuente real: [`../../adoption/production-diagnostics-
 
 Ninguna de las 2 primeras requiere que MOA construya nada — son productos ya existentes de
 cada proveedor. La fila on-premise sigue abierta.
+
+## Revisión de fidelidad (2026-09-28)
+
+Primera lectura completa y directa del archivo real de Camuzzi
+(`agents/appinsights-investigator.agent.md`) — hasta ahora solo se conocía por su nombre y
+propósito general. Se detectó que faltaba un tipo de consulta real de esa fuente
+(disponibilidad / uptime %) sin exclusión deliberada documentada — se agregó como sexto
+tipo de consulta, tanto en el `AGENT.md` como en el script ejecutable real
+(`azure-appinsights-diagnostics.ps1`). El resto de la generalización (mapeo de servicio
+antes de investigar, verificación de acceso previa, las demás 5 consultas) coincide con la
+fuente real.

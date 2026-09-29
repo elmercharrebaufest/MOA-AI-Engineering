@@ -15,13 +15,16 @@ y Scato Logística; AWS (ECS/RDS) ya en uso real de producción en Portal de Cr�
 ScatoPuerto. **External Best Practice**: mismo mecanismo oficial de consulta que cada
 plataforma documenta (`aws logs start-query`/`get-query-results` para CloudWatch Logs
 Insights; `az monitor app-insights query` para Application Insights) — no una API
-inventada. **Architectural Judgment**: las 5 consultas (excepciones recientes, requests
-fallidos, dependencias fallidas, performance, timeline de operación) son las mismas que ya
-define CAP-017 — este patrón no inventa un vocabulario nuevo, solo lo hace ejecutable
-contra las 2 plataformas reales de MOA. La consulta de dependencias fallidas (agregada
-2026-09-22) solo existe hoy del lado de Azure (tabla `dependencies` de Application
-Insights) — es la que responde al caso real de "el error está en un recurso de Azure del
-que depende la app (Blob Storage, Cognitive Services, Azure AD B2C), no en la app misma".
+inventada. **Architectural Judgment**: las 6 consultas (excepciones recientes, requests
+fallidos, dependencias fallidas, performance, disponibilidad, timeline de operación) son
+las mismas que ya define CAP-017 — este patrón no inventa un vocabulario nuevo, solo lo
+hace ejecutable contra las 2 plataformas reales de MOA. Las consultas de dependencias
+fallidas y disponibilidad (agregadas 2026-09-22 y 2026-09-28) solo existen hoy del lado de
+Azure: dependencias fallidas usa la tabla `dependencies` de Application Insights — responde
+al caso real de "el error está en un recurso de Azure del que depende la app (Blob
+Storage, Cognitive Services, Azure AD B2C), no en la app misma"; disponibilidad usa la
+tasa de éxito de `requests` por bin de 5 minutos — evidencia externa real (Camuzzi, agent
+`Application Insights Investigator`), sin equivalente estructurado en CloudWatch Logs.
 
 ## Alcance — qué cubre y qué no
 
@@ -48,10 +51,10 @@ CAP-017 lo cita como evidencia real en el reporte de investigación
 ## Input común a ambos scripts
 
 ```
-QueryType: recent-exceptions | failed-requests | failed-dependencies | performance | operation-timeline
+QueryType: recent-exceptions | failed-requests | failed-dependencies | performance | availability | operation-timeline
 (operation-timeline requiere además el ID de operación/request puntual)
-(failed-dependencies solo disponible en azure-appinsights-diagnostics.ps1 — sin
- equivalente estructurado en CloudWatch Logs, ver aws-cloudwatch-diagnostics.ps1)
+(failed-dependencies y availability solo disponibles en azure-appinsights-diagnostics.ps1
+ — sin equivalente estructurado en CloudWatch Logs, ver aws-cloudwatch-diagnostics.ps1)
 ```
 
 ## Output común (ambos scripts, mismo contrato)
