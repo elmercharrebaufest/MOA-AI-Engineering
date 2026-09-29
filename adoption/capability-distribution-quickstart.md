@@ -18,7 +18,7 @@ sigue siendo el camino más simple, sin pedirle nada a nadie.
 - Alguien con permisos de administración de tu proyecto/organización en Azure DevOps, para
   crear o ajustar la Service Connection del pipeline (una sola vez).
 - Azure CLI (`az`) con la extensión `azure-devops` — mismo prerequisito ya vigente para
-  CAP-008 (`azure-devops-cli`).
+  CAP-008 (`moa-azure-devops-cli`).
 - Acceso de escritura (crear ramas y Pull Requests, **nunca** push directo a tu rama
   principal) desde esa Service Connection hacia tu repo.
 

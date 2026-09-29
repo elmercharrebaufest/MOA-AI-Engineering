@@ -22,7 +22,7 @@ corresponde marcarlo `REQUIRES VALIDATION` y avanzar con la parte que sí es cla
 | Elemento | Ejemplo real ya evidenciado |
 |---|---|
 | **Domain instructions** | Las 8 instructions de Orquestador (`applyTo` por capa de su propia arquitectura de dispositivos) |
-| **Domain Skills** | El contenido de `azure-devops-cli`/`user-story` — mismo formato, contenido 100% distinto por dominio (`../architecture/assessment-gate.md`) |
+| **Domain Skills** | El contenido de `moa-azure-devops-cli`/`moa-user-story` — mismo formato, contenido 100% distinto por dominio (`../architecture/assessment-gate.md`) |
 | **Project Agents** | `.NET Code Reviewer` de Orquestador — reglas específicas de .NET Framework 4.7.2 |
 | **Tools/integrations propias** | Qué conectores/MCP usa cada equipo (siempre pasando por el modelo de riesgo de `security-governance.md`) |
 | **Workflows particulares** | `_sdd/` de DataAgro es una elección de ese equipo, no obligatoria para otros |

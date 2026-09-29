@@ -76,13 +76,13 @@ Integrations). `status` muestra el resumen. Qué está probado:
 [`../tools/copilot/VALIDATION.md`](../tools/copilot/VALIDATION.md).
 
 Después, en VS Code, abrir Copilot Chat, elegir un agente en el selector de agentes (por
-ejemplo, `product-owner`) y describir una tarea real: [`how-to-use.md`](how-to-use.md).
+ejemplo, `moa-product-owner`) y describir una tarea real: [`how-to-use.md`](how-to-use.md).
 
 ## 5. Confirmar que editar archivos pida aprobación
 
 **Este paso es la única garantía real, no de texto, de que ningún agente edite código sin
-que una persona lo confirme antes.** Los `AGENT.md` de este modelo (`ticket-kickoff`,
-`qa-analyst`) ya piden, en su propio texto, presentar un plan y esperar un "sí" antes de
+que una persona lo confirme antes.** Los `AGENT.md` de este modelo (`moa-ticket-kickoff`,
+`moa-qa-analyst`) ya piden, en su propio texto, presentar un plan y esperar un "sí" antes de
 escribir código — pero esa es una instrucción de prompt, no un candado de la plataforma:
 un modelo de lenguaje no es determinístico y puede, en un caso puntual, no respetarla. VS
 Code sí tiene un candado real, independiente de lo que diga cualquier agente:

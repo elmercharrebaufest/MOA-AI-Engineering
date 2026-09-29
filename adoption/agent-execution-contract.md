@@ -115,7 +115,7 @@ del modelo.
 **Comportamiento por defecto: actuar, no preguntar primero.** Si la persona da
 únicamente una referencia (`ARMOA277-XXX`, `MOA-XXXX`) sin decir qué necesita, y no hay
 ninguna ejecución previa de esa misma tarea — corresponde traer el detalle vía el
-Context Provider correspondiente y aplicar CAP-001 (`user-story`) directamente, sin
+Context Provider correspondiente y aplicar CAP-001 (`moa-user-story`) directamente, sin
 preguntar antes "¿qué se quiere hacer con esto?". No es una suposición nueva: es el
 patrón real que ya ocurrió en las ejecuciones reales anteriores de Connected Context —
 ninguna preguntó primero, y el KO describe exactamente este comportamiento (*"Rovo

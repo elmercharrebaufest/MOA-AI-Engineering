@@ -1,7 +1,7 @@
 # Conectar herramientas de diagnóstico de producción — Quick Start
 
 **Para quién es**: alguien de un equipo que quiere que un asistente de IA (por ejemplo,
-[CAP-017 `production-incident-investigation`](../registry/entries/production-incident-investigation.md))
+[CAP-017 `moa-production-incident-investigation`](../registry/entries/production-incident-investigation.md))
 consulte los logs/errores reales de su aplicación, sin importar si esa aplicación corre en
 AWS, Azure o en un servidor propio (on-premise) — las 3 conviven hoy en MOA.
 

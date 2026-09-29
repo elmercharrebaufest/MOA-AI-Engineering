@@ -1,7 +1,7 @@
 # Context Providers — Quick Start
 
 **Para quién es**: un desarrollador que quiere ejecutar el vertical slice real
-`Jira/Azure DevOps → Resolved Context → CAP-001 (user-story)` en su propio entorno, sin
+`Jira/Azure DevOps → Resolved Context → CAP-001 (moa-user-story)` en su propio entorno, sin
 depender del arquitecto.
 
 **Estado de cada paso, distinguido sin excepción** (Principio central del modelo,
@@ -20,7 +20,7 @@ depender del arquitecto.
 - PowerShell (Windows) o PowerShell Core (`pwsh`, cualquier plataforma).
 - Para Azure DevOps: Azure CLI (`az`) con la extensión `azure-devops` instalada, sesión
   autenticada (`az login`) — mismo prerequisito ya vigente para CAP-008
-  (`azure-devops-cli`).
+  (`moa-azure-devops-cli`).
 - Para Jira: **uno** de los 2 mecanismos:
   - Un cliente MCP real (VS Code + Copilot) con `com.atlassian/atlassian-mcp-server`
     configurado y autenticado — ver [`agent-plugin-quickstart.md`](agent-plugin-quickstart.md#3-conectar-jira-una-vez).

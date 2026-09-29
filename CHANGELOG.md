@@ -1,5 +1,30 @@
 # Changelog
 
+## [0.8.0] — 2026-09-29
+
+**Cambio importante — prefijo `moa-` en todos los Agents y Skills distribuidos**
+
+Confirmado con evidencia real ya relevada esta sesión: `product-owner` colisiona con el
+nombre real de un agente en 3 equipos de MOA (DataAgro, Scato Logística, Orquestador), y
+`release-manager` con 2 (DataAgro, Scato Logística). Verificado contra documentación
+oficial de GitHub Copilot CLI: cuando un agente o skill de un plugin tiene el mismo nombre
+que uno ya existente en el repo del equipo, **el del plugin se ignora en silencio, sin
+error** — nuestras mejoras de seguridad (por ejemplo, el scope acotado de Jira de
+`product-owner` frente al wildcard real de esos 3 equipos) nunca llegarían a aplicarse
+donde más hacen falta.
+
+- Los 10 Agents y las 12 Skills distribuidos (Claude Code + Copilot) pasan a
+  `moa-<nombre>` — por ejemplo `moa-ticket-kickoff`, `moa-product-owner`,
+  `moa-user-story`. El Workflow `spec-driven-development` también.
+- `capabilities/` (fuente canónica) y `registry/` (Registry) **no cambian** — siguen sin
+  prefijo, es la referencia de patrón, nunca se instala directamente.
+- `adoption/*.md` actualizado para que cada ejemplo diga el nombre real que va a aparecer
+  en el selector de VS Code.
+- La documentación arquitectónica (`README.md`, `golden-paths/`, `architecture/*`,
+  `governance/`, `integrations/*`) y los registros de evidencia real (`records/`,
+  `TRACK-1/`, `evidence/`) quedan sin cambios, a propósito — describen el patrón o
+  documentan una ejecución real ya ocurrida, no instruyen qué seleccionar hoy.
+
 ## [0.7.7] — 2026-09-29
 
 **Corregido** (feedback real de piloto: el plan de `ticket-kickoff` se presentaba como
