@@ -39,14 +39,21 @@ Agent no duplica ninguna de las dos.
 
 ## Cuándo usarlo
 
-- Un PO o analista funcional quiere refinar un requerimiento nuevo.
+- Un PO o analista funcional quiere refinar un requerimiento nuevo — es su caso de uso
+  principal: a diferencia de `ticket-kickoff`, este Agent nunca tiene permiso de editar
+  código ni ejecutar comandos, sin importar qué se le pida.
 - Un ticket ya existe y no se entiende sin preguntar, o tiene mucho texto que no aporta.
 - Antes de Planning, para saber qué tickets están listos.
+- Un developer que va a implementar puede usarlo igual, si prefiere una pasada de
+  refinamiento sin ningún riesgo de tocar código antes de pasar a `ticket-kickoff`.
 
 ## Cuándo NO usarlo
 
 - Para diseñar la solución técnica — define el qué y el para qué, nunca el cómo.
 - Como aprobador: el veredicto es una recomendación, la aprobación es del PO.
+- Como paso obligatorio antes de `ticket-kickoff` para todo developer con una tarea nueva
+  — `ticket-kickoff` ya lo invoca por detrás, en la misma conversación, cuando el ticket o
+  el requerimiento pegado lo necesitan.
 
 ## Instrucciones
 

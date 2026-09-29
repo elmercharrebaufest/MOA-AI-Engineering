@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.6.11] — 2026-09-28
+
+**Corregido** (siguió una duda real del piloto sobre cómo `ticket-kickoff` recuerda las
+preguntas abiertas de un requerimiento pegado a mano, sin ticket)
+- `ticket-kickoff`, paso 1: la delegación a `product-owner` y el chequeo de supuestos o
+  preguntas "❓ Bloqueante" sin confirmar ahora aplican igual si el contenido viene de un
+  ticket real o de texto pegado en la misma conversación — antes solo estaban escritos en
+  términos de leer un ticket de Jira/Azure DevOps.
+- `product-owner`, "Cuándo usarlo"/"Cuándo NO usarlo": se aclara que como agente de nivel
+  superior corresponde a un PO/analista funcional (que nunca debe tener permiso de editar
+  código), o a un developer que prefiere una pasada de refinamiento aislada — no es un
+  paso obligatorio antes de `ticket-kickoff` para todo developer con una tarea nueva, ya
+  que `ticket-kickoff` ya lo invoca por detrás, en la misma conversación, cuando hace falta.
+- `adoption/how-to-use.md`: aclara el punto de entrada según el rol — un developer con una
+  tarea (ticket o pegada) puede empezar directo por `ticket-kickoff`.
+- Corregido además un arrastre de la versión anterior: `com.github.copilot/agents/product-owner.agent.md`
+  todavía tenía el texto viejo "Pasar a desarrollo" en el paso 7, sin actualizar al nombre
+  vigente desde 0.6.10.
+
 ## [0.6.10] — 2026-09-28
 
 **Corregido** (pregunta real del piloto: el developer entendió que el botón

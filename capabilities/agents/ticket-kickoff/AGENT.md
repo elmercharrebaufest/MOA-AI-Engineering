@@ -123,18 +123,23 @@ workspace con el/los repositorio(s) reales donde va a implementar.
   confirme explícitamente que el trabajo quedó publicado (PR abierto o mergeado) —
   delegar el cleanup a CAP-009 recién después de esa confirmación.
 
-### 1. Investigar el ticket
+### 1. Investigar el requerimiento
 
-Leer el ticket con `getJiraIssue` y sus comentarios con `listJiraIssueComments` (en
-Azure DevOps, con `az boards work-item show`). Si el ticket necesita refinarse, usar el
-subagente `product-owner`. Usar el resultado como única fuente de verdad — no volver a
-consultar lo mismo dos veces sin una razón concreta. Si la descripción trae una sección
-"Supuestos y cambios respecto del pedido" sin un comentario posterior del PO que los
-confirme, tratar cada uno como duda para PO/tech lead en el plan (paso 3) — nunca construir
-el plan asumiéndolos como hechos ya validados. Si la descripción o los comentarios traen
-una pregunta marcada "❓ Bloqueante" sin una respuesta posterior del responsable, es lo que
-"necesita refinarse": no armar el plan sobre esa parte — informarlo y esperar la respuesta,
-o delegar a `product-owner` si corresponde re-refinarla.
+Si hay un ticket real, leerlo con `getJiraIssue` y sus comentarios con
+`listJiraIssueComments` (en Azure DevOps, con `az boards work-item show`); si el pedido
+llegó pegado directamente en esta conversación, sin ticket, tomar ese texto como la
+descripción del requerimiento para todo lo que sigue — el criterio de abajo aplica igual en
+los 2 casos. Si el requerimiento necesita refinarse, usar el subagente `product-owner`,
+nunca investigarlo ni redactarlo por cuenta propia. Usar el resultado como única fuente de
+verdad — no volver a consultar lo mismo dos veces sin una razón concreta. Si la descripción
+(de ticket o pegada) trae una sección "Supuestos y cambios respecto del pedido" sin una
+confirmación posterior de quien aprueba — un comentario del PO en el ticket, o su
+confirmación explícita en esta misma conversación si no hay ticket —, tratar cada uno como
+duda para PO/tech lead en el plan (paso 3) — nunca construir el plan asumiéndolos como
+hechos ya validados. Si trae una pregunta marcada "❓ Bloqueante" sin una respuesta
+posterior del responsable, es lo que "necesita refinarse": no armar el plan sobre esa parte
+— informarlo y esperar la respuesta, o delegar a `product-owner` si corresponde
+re-refinarla.
 
 ### 2. Validar contra specs existentes y contra el código real
 

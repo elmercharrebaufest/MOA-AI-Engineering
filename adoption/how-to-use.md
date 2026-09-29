@@ -62,6 +62,12 @@ Para seguir un ticket de punta a punta, elegir en el selector de agentes del cha
 que corresponda y seguir sus traspasos. Cada uno enlaza a su "Cuándo usarlo / Cuándo NO
 usarlo" real, con más detalle que el resumen de acá:
 
+**Punto de entrada, según el rol**: un PO o analista funcional que solo refina (nunca va a
+tocar código) empieza por `product-owner` (paso 1). **Un developer que ya va a implementar
+puede empezar directo por `ticket-kickoff`** (paso 2), con el ticket real o pegando el
+requerimiento en esa misma conversación — `ticket-kickoff` delega a `product-owner` por
+detrás si hace falta refinar, sin abrir otra conversación.
+
 1. **[product-owner](../capabilities/agents/product-owner/AGENT.md)** — refina la
    historia. Al aprobarla, botón **"Armar el plan de desarrollo"**.
 2. **[ticket-kickoff](../capabilities/agents/ticket-kickoff/AGENT.md)** — propone el
