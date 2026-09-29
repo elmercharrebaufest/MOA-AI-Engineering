@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.6.8] — 2026-09-28
+
+**Corregido** (pregunta real del piloto: con 2 historias en la misma respuesta, el botón
+"Pasar a desarrollo" pre-carga un texto genérico — "la historia de arriba" — ambiguo
+sobre cuál implementar)
+- El texto fijo del traspaso `product-owner` → `ticket-kickoff` ahora pide aclarar cuál
+  historia corresponde cuando hay más de una, en vez de asumir "la de arriba".
+- El cierre ✂️ de `user-story` lo dice explícito: el botón trae el texto para revisar y
+  completar antes de enviar, no para enviarlo tal cual cuando hay 2 historias.
+
 ## [0.6.7] — 2026-09-28
 
 **Corregido** (pregunta real: "¿estos 5 son todos los agentes?")

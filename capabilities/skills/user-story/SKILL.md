@@ -92,7 +92,9 @@ que corresponde:
         Con la aprobación del PO, para crear las historias en el sistema de tickets, se
         lo pide en esta misma conversación (es lectura/escritura de ticket, no código).
         Para implementar la que esté lista, igual que arriba: conversación nueva con
-        `ticket-kickoff`.
+        `ticket-kickoff`, **nombrando cuál de las dos** — "la historia de arriba" es
+        ambiguo cuando hay más de una; el botón trae el texto pre-cargado para revisar y
+        completar antes de enviar, no para enviarlo tal cual.
 
 ⛔      📌 No está lista: [razón concreta]. Corresponde consultar a [reporter real del
         ticket, o quien hizo el pedido] las preguntas bloqueantes y, con las respuestas,

@@ -6,7 +6,7 @@ include-custom-instructions: true
 handoffs:
   - label: Pasar a desarrollo
     agent: ticket-kickoff
-    prompt: La historia de arriba ya fue aprobada por el PO. Investigar el código afectado y proponer el plan técnico, sin escribir código hasta que apruebe el plan.
+    prompt: La historia [si hay más de una arriba, aclarar acá cuál — ej. "Historia A"] ya fue aprobada por el PO. Investigar el código afectado y proponer el plan técnico, sin escribir código hasta que apruebe el plan.
     send: false
 ---
 
