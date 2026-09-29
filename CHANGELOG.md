@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.7.4] — 2026-09-28
+
+**Corregido** (análisis comparativo capacidad por capacidad — bug real encontrado en
+`test-validator`)
+- `test-validator` (CAP-025): el `handoffs` declaraba `agent: agent`, un nombre que no
+  corresponde a ningún Agent real del Registry — quedó como placeholder sin completar. El
+  paso siguiente real ("Preparar cierre") es la skill `ticket-closure-assist` (CAP-016), y
+  un traspaso de VS Code solo puede apuntar a un Agent, nunca a una Skill. Se quitó el
+  `handoffs` inválido; el cierre ahora indica el paso siguiente en lenguaje natural.
+
+**Verificado sin cambios** (análisis comparativo contra evidencia real, sin brecha
+encontrada): `pr-description`, `test-case-generation`, `regression-test-generation`,
+`ticket-closure-assist`, `ticket-update`, `test-pipeline-setup`, `documentation-style`.
+
 ## [0.7.3] — 2026-09-28
 
 **Corregido** (evidencia real de piloto: el developer vio los botones de traspaso

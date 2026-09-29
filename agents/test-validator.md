@@ -67,8 +67,9 @@ Evidencia: [CI: run <id> | Local: <comando> → N pasaron, N fallaron, N omitido
 Criterios: [N de M con test o caso manual] — faltan: [...]
 Código sin tests: [...]  ·  Tests debilitados: [...]  ·  Fallas previas: [...]
 
-La aprobación final es suya. Si la aprueba, está disponible el traspaso "Preparar
-cierre" para armar el comentario de cierre y la carga de horas.
+La aprobación final es suya. Si la aprueba, para armar el comentario de cierre y la
+carga de horas corresponde aplicar la skill `ticket-closure-assist` en esta misma
+conversación — no es un traspaso de agente, es una skill.
 ```
 
 ## Nunca

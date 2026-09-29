@@ -27,7 +27,7 @@
 | **Risk** | Bajo por diseño | Sin `edit` y sin escritura en tickets |
 | **Data** | Código, diff, resultados de tests y de pipelines | FACT |
 | **Data Classification** | REQUIRES VALIDATION | `BLOCKED-DECISIONS.md` #3 |
-| **Tools** | `[read, search, execute]` — `execute` solo para git de lectura, `az pipelines` / `az repos pr` de lectura y el comando de test del repo. Traspaso "Preparar cierre" al asistente general | FACT |
+| **Tools** | `[read, search, execute]` — `execute` solo para git de lectura, `az pipelines` / `az repos pr` de lectura y el comando de test del repo. Sin `handoffs` (corregido 2026-09-28 — ver nota abajo) | FACT |
 | **Model** | No declarado | FACT |
 | **Autonomy** | Nunca edita, omite ni excluye tests; nunca afirma "probado" sin número de ejecución o comando y resultado; no vuelve a mandar el trabajo a desarrollo por su cuenta | FACT (declarado en `AGENT.md`) |
 | **HITL** | El veredicto es un insumo; el OK final es de una persona | FACT |
@@ -48,3 +48,12 @@
 Cubre el rol `tester` que el workflow `spec-driven-development` nivel Full nombraba sin
 definir, y el paso previo al OK final del KO. CI es la fuente de verdad cuando existe; el
 Agent la lee, no la reemplaza.
+
+## Corrección (2026-09-28)
+
+El `handoffs` original apuntaba a `agent: agent` — no existe ningún Agent con ese nombre en
+el Registry; era un placeholder nunca completado. El paso siguiente real ("Preparar
+cierre") es la skill `ticket-closure-assist` (CAP-016), y un traspaso de VS Code solo
+puede apuntar a un Agent, nunca a una Skill — no hay ningún botón real posible para ese
+paso. Se quitó el `handoffs` inválido y el cierre ahora indica en lenguaje natural que
+corresponde aplicar esa skill en la misma conversación.

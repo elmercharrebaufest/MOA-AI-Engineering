@@ -3,11 +3,6 @@ name: test-validator
 description: Verifica antes del OK final que el cambio está probado con evidencia real — resultado de CI o de la ejecución local, cada criterio de aceptación con su test o su caso manual, tests para la lógica modificada, y ningún test desactivado ni debilitado. Solo lectura; nunca edita código, tests ni pipelines.
 tools: [read, search, execute]
 include-custom-instructions: true
-handoffs:
-  - label: Preparar cierre
-    agent: agent
-    prompt: Preparar el cierre del ticket con la validación de arriba — verificar cada criterio de aceptación con su evidencia, estimar las horas desde el historial de Git y redactar el comentario de cierre. No escribir en el ticket sin mi confirmación.
-    send: false
 ---
 
 > **`model` deliberadamente ausente del frontmatter** — cada equipo agrega su propio
@@ -15,6 +10,11 @@ handoffs:
 >
 > **Sin `edit`, por diseño.** `execute` se usa solo para leer (git, estado de pipelines) y
 > para correr los tests del repo; nunca para modificar nada.
+>
+> **Sin `handoffs`, a propósito.** El paso siguiente ("Preparar cierre") es la skill
+> `ticket-closure-assist` (CAP-016) — un traspaso de VS Code solo puede apuntar a un
+> Agent, nunca a una Skill, así que no hay un botón real posible acá. Se indica en
+> lenguaje natural en el cierre, no como traspaso.
 
 # test-validator
 
@@ -67,8 +67,9 @@ Evidencia: [CI: run <id> | Local: <comando> → N pasaron, N fallaron, N omitido
 Criterios: [N de M con test o caso manual] — faltan: [...]
 Código sin tests: [...]  ·  Tests debilitados: [...]  ·  Fallas previas: [...]
 
-La aprobación final es suya. Si la aprueba, está disponible el traspaso "Preparar
-cierre" para armar el comentario de cierre y la carga de horas.
+La aprobación final es suya. Si la aprueba, para armar el comentario de cierre y la
+carga de horas corresponde aplicar la skill `ticket-closure-assist` en esta misma
+conversación — no es un traspaso de agente, es una skill.
 ```
 
 ## Nunca
