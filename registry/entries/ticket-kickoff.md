@@ -18,6 +18,16 @@ destructiva sin mostrar el script real y esperar confirmación explícita puntua
 externa real del agent `database-migration` de Scato Logística
 (`.github/agents/database-migration.agent.md`), con la misma regla textual.
 
+**Constraint agregado (2026-09-28, persistencia del plan)**: el plan aprobado ahora se
+persiste en `.ticket-kickoff-plan.md` dentro del worktree, nunca comiteado, para poder
+retomar una sesión larga sin depender de que la persona la redescriba. Verificado contra
+4 fuentes reales antes de decidir el diseño: `_sdd/progress/current/<TICKET>.md` de
+moa-sdlc (efímero, `gitignored`, nunca comiteado — el mismo patrón elegido acá) y
+`.specify/feature.json` de GitHub Spec Kit (estado de la feature activa, sin mandato de
+comitearlo) coinciden en persistir localmente sin comitear; Camuzzi persiste specs
+directo en el repo (más cerca de comitear). Se eligió el extremo más conservador (nunca
+comitear) por ser el de mayor evidencia convergente y el de menor riesgo.
+
 | Campo | Valor | Evidencia / clasificación |
 |---|---|---|
 | **ID** | CAP-010 | — |
@@ -43,7 +53,7 @@ externa real del agent `database-migration` de Scato Logística
 | **Data Classification** | REQUIRES VALIDATION | `BLOCKED-DECISIONS.md` #3 |
 | **Tools** | `[read, edit, execute, search, agent, todo]` + `listJiraIssueComments`, `addOrEditJiraIssueComment` (solo comentarios). Traspasos guiados (`handoffs`, `send: false`) a `read-only-code-reviewer` y `qa-analyst` | FACT |
 | **Model** | No declarado | FACT |
-| **Autonomy** | Explícitamente acotada por 12 constraints textuales (ver `AGENT.md`) — la más extensa del Registry, proporcional al riesgo | FACT |
+| **Autonomy** | Explícitamente acotada por 13 constraints textuales (ver `AGENT.md`) — la más extensa del Registry, proporcional al riesgo | FACT |
 | **HITL** | **2 checkpoints obligatorios, sin excepción**: aprobar el plan antes de implementar, revisar el código antes de publicar | FACT (declarado en `AGENT.md`) |
 | **Evaluation** | NOT FOUND | — |
 | **Observability** | NOT FOUND | — |

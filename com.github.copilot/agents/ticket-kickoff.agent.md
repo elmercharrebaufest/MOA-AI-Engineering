@@ -92,6 +92,10 @@ workspace con el/los repositorio(s) reales donde va a implementar.
   cleanup al terminar, solo tras confirmación de que el trabajo quedó publicado.
 - **Implementar siempre dentro del path del worktree** que devuelve CAP-009 — nunca en el
   checkout original.
+- **El plan aprobado se persiste en `.ticket-kickoff-plan.md` dentro del worktree, nunca
+  se comitea** — es memoria de trabajo local para retomar la sesión, no un artefacto de
+  producto ni un reemplazo de `spec-driven-development` (CAP-005) para el equipo que
+  necesite trazabilidad versionada.
 - **Nunca dar la implementación por terminada sin validar que compila y que los tests
   pasan** — usando el mecanismo de build/test que el equipo ya tenga configurado
   (pipeline local, `azure-devops-cli`/CAP-008 si aplica). Si algo falla, corregir dentro
@@ -175,7 +179,12 @@ plan como comentario en el ticket, siguiendo `ticket-update`.
 ### 5. Preparar el entorno aislado
 
 Delegar a CAP-009 (`git-worktree-setup`, modo setup) con el nombre de rama y los repos
-correspondientes. Usar el path que devuelve — nunca otro.
+correspondientes. Usar el path que devuelve — nunca otro. Apenas se recibe el path,
+persistir el plan aprobado en `<path>/.ticket-kickoff-plan.md` — memoria de trabajo local
+para poder retomar la sesión, nunca un artefacto de producto (CAP-009 ya lo excluye de
+`git status` vía `.git/info/exclude`; nunca agregarlo al control de versiones a mano). Si
+la sesión se corta y se retoma más tarde, releer ese archivo como fuente de verdad del
+plan aprobado, en vez de depender de que la persona lo redescriba.
 
 ### 6. Implementar el plan aprobado
 
@@ -241,10 +250,12 @@ de una sesión de IA no crece de forma lineal con su duración (ver
 `capabilities/best-practices.md`, sección de optimización de tokens). Reglas concretas:
 
 - Si un ticket real requiere más de 1 sesión para completarse (por ejemplo, por
-  corte de jornada), no reabrir la conversación completa desde cero — retomar
-  indicando explícitamente en qué paso del flujo de 8 pasos se había quedado, igual que
-  ya recomienda el agente oficial de modernización .NET (CAP-020) para sus propias
-  sesiones largas.
+  corte de jornada), no reabrir la conversación completa desde cero — si ya existe un
+  worktree preparado, releer `.ticket-kickoff-plan.md` como fuente de verdad del plan
+  aprobado y en qué paso se había quedado, en vez de depender de que la persona lo
+  redescriba; si el corte fue antes del paso 5 (todavía no hay worktree), retomar
+  indicando explícitamente en qué paso se había quedado, igual que ya recomienda el
+  agente oficial de modernización .NET (CAP-020) para sus propias sesiones largas.
 - Delegar a los sub-agentes (CAP-001/004/009/011/016) en vez de acumular su
   razonamiento dentro de la propia sesión de este agente — ya es el diseño elegido, esto
   confirma que es correcto también por motivo de costo, no solo de separación de

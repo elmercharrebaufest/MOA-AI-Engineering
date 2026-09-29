@@ -69,9 +69,11 @@ de confirmación, o nada que limpiar).
    - Actualizar la base (`fetch`).
    - Calcular el path del worktree: `<repo>/.worktrees/<branch-slug>` (slug = nombre de
      rama sin el prefijo `feature/`/`fix/`).
-   - Asegurarse de que `.worktrees/` esté excluido en `.git/info/exclude` del repo
-     (exclusión local, nunca en el `.gitignore` versionado y compartido con el equipo). Si
-     esa escritura falla (permisos, archivo no editable), seguir creando el worktree
+   - Asegurarse de que `.worktrees/` y `.ticket-kickoff-plan.md` estén excluidos en
+     `.git/info/exclude` del repo (exclusión local, nunca en el `.gitignore` versionado y
+     compartido con el equipo — `.ticket-kickoff-plan.md` es el archivo de estado local
+     donde `ticket-kickoff`, CAP-010, persiste el plan aprobado dentro de cada worktree).
+     Si esa escritura falla (permisos, archivo no editable), seguir creando el worktree
      igual y avisar del fallo — no es bloqueante, solo deja de estar excluido de `git
      status`.
    - Si la rama ya existe (local o remota), reutilizarla — nunca recrearla. Si no

@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.7.1] — 2026-09-28
+
+**Agregado**
+- `ticket-kickoff` persiste el plan aprobado en `.ticket-kickoff-plan.md`, dentro del
+  worktree que prepara `git-worktree-setup` — memoria de trabajo local, nunca comiteada
+  (excluida vía `.git/info/exclude`, el mismo mecanismo que ya excluye `.worktrees/`), para
+  poder retomar una sesión larga sin depender de que la persona la redescriba. Decisión
+  verificada contra 4 fuentes reales (moa-sdlc, GitHub Spec Kit, Camuzzi, y el propio
+  incidente de sesión larga ya documentado) — se eligió el extremo más conservador (nunca
+  comitear), coincidente con moa-sdlc y GitHub Spec Kit.
+
 ## [0.7.0] — 2026-09-28
 
 **Agregado**
