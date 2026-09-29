@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.6.7] — 2026-09-28
+
+**Corregido** (pregunta real: "¿estos 5 son todos los agentes?")
+- `adoption/how-to-use.md` aclara que los 5 roles del flujo principal de desarrollo no
+  son todos los agentes del modelo — enlaza a cada uno su "Cuándo usarlo / Cuándo NO
+  usarlo" real, y explica dónde están los otros 4 (2 se delegan automáticamente, 1 es
+  otro flujo, 1 es opcional).
+
 ## [0.6.6] — 2026-09-28
 
 **Corregido** (incidente real de piloto: un pedido de "implementar", escrito en la misma

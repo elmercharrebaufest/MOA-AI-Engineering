@@ -59,17 +59,30 @@ siempre el agente en el selector, no solo describir la tarea.
 ## Recorrer el SDLC completo con los roles
 
 Para seguir un ticket de punta a punta, elegir en el selector de agentes del chat el rol
-que corresponda y seguir sus traspasos:
+que corresponda y seguir sus traspasos. Cada uno enlaza a su "Cuándo usarlo / Cuándo NO
+usarlo" real, con más detalle que el resumen de acá:
 
-1. **product-owner** — refina la historia. Al aprobarla, botón **"Pasar a desarrollo"**.
-2. **ticket-kickoff** — propone el plan, y con su aprobación implementa y corre los
-   tests. Botones **"Revisar el código"** y **"Generar pruebas"**.
-3. **read-only-code-reviewer** — revisa el cambio. Botón **"Generar pruebas"**.
-4. **qa-analyst** — casos de prueba y tests automatizados. Botón **"Validar pruebas"**.
-5. **test-validator** — verifica que todo esté probado. Botón **"Preparar cierre"**.
+1. **[product-owner](../capabilities/agents/product-owner/AGENT.md)** — refina la
+   historia. Al aprobarla, botón **"Pasar a desarrollo"**.
+2. **[ticket-kickoff](../capabilities/agents/ticket-kickoff/AGENT.md)** — propone el
+   plan, y con su aprobación implementa y corre los tests. Botones **"Revisar el
+   código"** y **"Generar pruebas"**.
+3. **[read-only-code-reviewer](../capabilities/agents/read-only-code-reviewer/AGENT.md)**
+   — revisa el cambio. Botón **"Generar pruebas"**.
+4. **[qa-analyst](../capabilities/agents/qa-analyst/AGENT.md)** — casos de prueba y
+   tests automatizados. Botón **"Validar pruebas"**.
+5. **[test-validator](../capabilities/agents/test-validator/AGENT.md)** — verifica que
+   todo esté probado. Botón **"Preparar cierre"**.
 
 Cada botón solo propone el paso siguiente: usted decide si lo usa, y nada se escribe en
 el ticket sin su confirmación.
+
+**Estos 5 no son todos los agentes del modelo — son los del flujo principal de
+desarrollo.** Otros 4 cubren casos distintos: `git-worktree-setup` y `spec-reader` no se
+eligen a mano, `ticket-kickoff` los invoca por detrás cuando corresponde;
+`production-incident-investigation` es para soporte productivo, un flujo aparte del de
+desarrollo; `workflow-documenter` es opcional, solo para equipos que usan WF4.5. Ver
+[`capabilities/README.md`](../capabilities/README.md) para el listado completo.
 
 **Para pasar de refinar a implementar, abrir una conversación nueva con `ticket-kickoff`
 seleccionado — nunca escribir "implementar" en la conversación de refinamiento.** Cada
