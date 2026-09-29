@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.7.3] — 2026-09-28
+
+**Corregido** (evidencia real de piloto: el developer vio los botones de traspaso
+"Revisar el código"/"Generar pruebas" ya visibles mientras el plan todavía esperaba
+aprobación, antes de que existiera código implementado)
+- `ticket-kickoff`, paso 4: cierra siempre aclarando explícitamente que esos botones
+  (pensados para el paso 8, después de implementar) todavía no aplican en ese punto.
+  Verificado contra documentación oficial de VS Code: los botones de `handoffs` se
+  muestran después de cada respuesta del agente, sin condicionarse al paso interno en el
+  que esté — es la única capacidad del Registry con 2 traspasos pensados para 2 momentos
+  distintos de la misma conversación.
+
 ## [0.7.2] — 2026-09-28
 
 **Corregido** (análisis comparativo directo contra el archivo real de Camuzzi, no solo

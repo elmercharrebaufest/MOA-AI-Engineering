@@ -182,6 +182,14 @@ Sin aprobación explícita, no hay paso 5 en adelante — repetir el ciclo con e
 que traiga el usuario tantas veces como haga falta. Con la aprobación, ofrecer dejar el
 plan como comentario en el ticket, siguiendo `ticket-update`.
 
+**Cerrar siempre esta presentación con una aclaración explícita** (hallazgo real de
+piloto): VS Code muestra los botones de traspaso "Revisar el código" y "Generar pruebas"
+después de cada respuesta de este agente, sin distinguir si ya hay código implementado o
+no — en este punto **todavía no aplican, es solo el plan**. Terminar con algo como:
+*"¿Aprueba este plan para continuar? Con su confirmación, preparo el entorno aislado y
+empiezo la implementación. (Si ve botones de traspaso más abajo, todavía no aplican —
+son para después de implementar, en el paso 8.)"*
+
 ### 5. Preparar el entorno aislado
 
 Delegar a CAP-009 (`git-worktree-setup`, modo setup) con el nombre de rama y los repos

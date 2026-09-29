@@ -18,6 +18,15 @@ destructiva sin mostrar el script real y esperar confirmación explícita puntua
 externa real del agent `database-migration` de Scato Logística
 (`.github/agents/database-migration.agent.md`), con la misma regla textual.
 
+**Corrección de UX agregada (2026-09-28, evidencia real de piloto)**: en una prueba real,
+el developer vio los botones de traspaso "Revisar el código" y "Generar pruebas" (pensados
+para el paso 8, cierre) ya visibles debajo del mensaje del paso 4, mientras el plan
+todavía esperaba aprobación y no había código implementado. Verificado contra
+documentación oficial de VS Code: los botones de `handoffs` se muestran después de cada
+respuesta del agente, sin condicionarse al paso interno — es la única capacidad del
+Registry con 2 traspasos pensados para 2 momentos distintos de la misma conversación. El
+paso 4 ahora cierra siempre aclarando que esos botones no aplican todavía en ese punto.
+
 **Constraint agregado (2026-09-28, persistencia del plan)**: el plan aprobado ahora se
 persiste en `.ticket-kickoff-plan.md` dentro del worktree, nunca comiteado, para poder
 retomar una sesión larga sin depender de que la persona la redescriba. Verificado contra
