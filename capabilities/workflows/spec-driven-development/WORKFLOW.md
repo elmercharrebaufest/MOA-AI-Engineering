@@ -97,7 +97,11 @@ Ninguno de los 2 es obligatorio — son condicionales a que la feature real lo j
    `requirements.md` sin código de por medio) y un PR final de implementación — ambos con
    aprobación humana explícita.
 2. **Implementer**: implementar contra el spec, generar tests, actualizar la
-   trazabilidad con los archivos reales tocados por cada requisito.
+   trazabilidad con los archivos reales tocados por cada requisito. **Ninguna migración de
+   base de datos destructiva** (borrar una tabla o columna, un `DROP`, cualquier cambio con
+   pérdida de datos irreversible) **se ejecuta sin mostrar el script real y esperar
+   confirmación explícita** — la aprobación del spec no cubre por sí sola una operación
+   destructiva de datos.
 3. **Reviewer**: verificar que el código cumple el spec y que los tests están en verde —
    nunca marcar un requisito de tipo manual como cubierto sin sign-off humano real.
 4. El estado de avance vive en un archivo de progreso no versionado (memoria de trabajo,

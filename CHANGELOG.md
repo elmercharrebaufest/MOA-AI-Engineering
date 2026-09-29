@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.7.0] — 2026-09-28
+
+**Agregado**
+- Nueva capacidad **`release-manager`** (CAP-027, Agent): consolida los cambios reales de
+  una release completa (no un ticket) — trae los PRs/commits reales, detecta cambios de
+  base de datos como riesgo a revisar, clasifica cada cambio y redacta el borrador del
+  `CHANGELOG.md` y de las release notes para el PO. Nunca hace push, tag ni dispara un
+  pipeline sin confirmación explícita. Generalizado a partir de 2 instancias reales
+  independientes (DataAgro y Scato Logística), sin copiar contenido de ningún equipo.
+- `adoption/how-to-use.md`: nueva sección "Qué agente elegir, según la etapa" — los 10
+  agentes del modelo explicados en lenguaje natural, agrupados por Planning, Desarrollo,
+  Testing, Cierre/release y Soporte.
+
+**Corregido**
+- `ticket-kickoff` y `spec-driven-development` (Implementer): nueva salvaguarda explícita
+  — nunca ejecutar una migración de base de datos destructiva sin mostrar el script real
+  y esperar confirmación explícita puntual, aunque el plan general ya esté aprobado.
+  Evidencia externa real (agent `database-migration` de Scato Logística).
+
 ## [0.6.11] — 2026-09-28
 
 **Corregido** (siguió una duda real del piloto sobre cómo `ticket-kickoff` recuerda las

@@ -84,11 +84,13 @@ Cada botón solo propone el paso siguiente: usted decide si lo usa, y nada se es
 el ticket sin su confirmación.
 
 **Estos 5 no son todos los agentes del modelo — son los del flujo principal de
-desarrollo.** Otros 4 cubren casos distintos: `git-worktree-setup` y `spec-reader` no se
-eligen a mano, `ticket-kickoff` los invoca por detrás cuando corresponde;
-`production-incident-investigation` es para soporte productivo, un flujo aparte del de
-desarrollo; `workflow-documenter` es opcional, solo para equipos que usan WF4.5. Ver
-[`capabilities/README.md`](../capabilities/README.md) para el listado completo.
+desarrollo.** Los otros 5 cubren casos distintos, detallados en la sección siguiente
+("Qué agente elegir, según la etapa"): `git-worktree-setup` no se elige a mano
+(`ticket-kickoff` lo invoca por detrás); `spec-reader` sí se puede usar directo, para
+consultar specs ya escritas; `release-manager` opera al nivel de una release completa, no
+de un ticket; `production-incident-investigation` es para soporte productivo, un flujo
+aparte del de desarrollo; `workflow-documenter` es opcional, solo para equipos que usan
+WF4.5. Ver [`capabilities/README.md`](../capabilities/README.md) para el listado completo.
 
 **Para pasar de refinar a implementar, abrir una conversación nueva con `ticket-kickoff`
 seleccionado — nunca escribir "implementar" en la conversación de refinamiento.** Cada
@@ -104,6 +106,67 @@ de la conversación de kickoff que ya armó el plan con estimación, después de
 nunca en la conversación de refinamiento. Antes de pedir que se implemente algo, confirmar
 que el selector de agentes diga `ticket-kickoff` — si sigue mostrando el agente anterior (o
 ningún agente), abrir una conversación nueva con `ticket-kickoff` en vez de continuar ahí.
+
+## Qué agente elegir, según la etapa
+
+Los 10 agentes del modelo, agrupados por el momento del trabajo en el que se usan — no
+hace falta memorizar nombres técnicos, alcanza con reconocer en qué etapa está parado.
+
+### Planning — antes de escribir código
+
+- **`product-owner`** — para un PO o analista funcional que necesita convertir un
+  requerimiento (nuevo o un ticket que no se entiende) en una historia clara, con
+  criterios y preguntas. Nunca edita código ni ejecuta comandos, sin importar qué se le
+  pida — es la opción segura cuando quien lo usa no va a implementar.
+- **`ticket-kickoff`** — para un developer que ya tiene una tarea (un ticket real, o el
+  requerimiento escrito a mano) y quiere pasar directo a tener un plan técnico claro. Si
+  la tarea todavía no está clara, este mismo agente consulta a `product-owner` por
+  detrás, sin que haga falta abrir otra conversación.
+- **`spec-reader`** — para preguntar qué dice ya la documentación existente de una
+  feature (criterios, decisiones tomadas) antes de empezar algo nuevo, sin tener que
+  buscar a mano en los archivos. Solo responde, nunca escribe ni audita.
+
+### Desarrollo — mientras se implementa
+
+- **`ticket-kickoff`** — con el plan ya aprobado, es el mismo agente el que implementa el
+  código, en un espacio de trabajo aislado, y corre los tests antes de dejarlo listo para
+  revisión. Nunca escribe código antes de esa aprobación explícita, y nunca hace push.
+- **`git-worktree-setup`** — prepara y limpia ese espacio de trabajo aislado. No hace
+  falta elegirlo a mano: `ticket-kickoff` lo invoca por detrás cuando corresponde.
+
+### Testing — antes de dar el cambio por bueno
+
+- **`read-only-code-reviewer`** — revisa un cambio de código ya implementado y señala
+  problemas de seguridad, errores sin manejar o tests faltantes. Solo informa, nunca
+  modifica ningún archivo — es una segunda mirada antes de que una persona apruebe.
+- **`qa-analyst`** — arma los casos de prueba de cada criterio de aceptación, decide
+  cuáles conviene automatizar, y escribe y corre esos tests en el repo (nunca código de
+  producción).
+- **`test-validator`** — justo antes del cierre, confirma con evidencia real (resultado
+  del pipeline o de la corrida local) que el cambio está probado — nunca a partir de una
+  suposición.
+
+### Cierre y release
+
+- **`release-manager`** — a diferencia de los anteriores, no trabaja sobre un ticket
+  individual sino sobre una **release completa** (varios tickets, una versión): antes de
+  cerrarla o de un deploy a producción, trae los cambios reales, señala si hay
+  migraciones de base de datos para revisar, y redacta el borrador del `CHANGELOG` y de
+  las release notes para el PO. Nunca hace push, tag ni dispara un pipeline por su
+  cuenta.
+
+### Soporte — con la aplicación ya en producción
+
+- **`production-incident-investigation`** — dado un error o incidente real (pegado a
+  mano, o desde una plataforma de monitoreo si el equipo ya tiene una conectada), busca
+  la causa más probable citando evidencia real, sin modificar nada. Es un flujo aparte
+  del de desarrollo — no continúa un ticket que ya venía de `ticket-kickoff`.
+
+### Caso especial, opt-in
+
+- **`workflow-documenter`** — solo para equipos con proyectos reales en Windows Workflow
+  Foundation 4.5 (`.xamlx`): documenta esos workflows y ayuda a diagnosticar los que
+  quedan en estado `Faulted`. Si el equipo no usa WF4.5, este agente no aplica.
 
 Para leer y escribir en Jira, el servidor de Atlassian tiene
 que estar conectado en VS Code — ver

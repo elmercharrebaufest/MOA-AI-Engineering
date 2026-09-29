@@ -98,6 +98,10 @@ workspace con el/los repositorio(s) reales donde va a implementar.
   (pipeline local, `azure-devops-cli`/CAP-008 si aplica). Si algo falla, corregir dentro
   del alcance del ticket; si el fallo es preexistente o fuera de alcance, reportarlo sin
   forzar un arreglo a ciegas.
+- **Nunca ejecutar una migración de base de datos destructiva** (borrar una tabla o
+  columna, un `DROP`, cualquier cambio con pérdida de datos irreversible) **sin mostrar el
+  script real y esperar confirmación explícita** — la aprobación general del plan no cubre
+  por sí sola una operación destructiva de datos, necesita su propio "sí" puntual.
 - **Nunca hacer push.** El push lo hace siempre el developer, después de revisar el
   código.
 - **El Pull Request, solo con confirmación explícita y después del push del developer**:

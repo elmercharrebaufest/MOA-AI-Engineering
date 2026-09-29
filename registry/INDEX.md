@@ -48,6 +48,16 @@ como el primer caso real.
 | [CAP-024](entries/qa-analyst.md) | qa-analyst | Agent | Ninguno todavía (propuesta, pedido de MOA; precedente en DataAgro) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Medio (`edit` solo sobre tests) |
 | [CAP-025](entries/test-validator.md) | test-validator | Agent | Ninguno todavía (propuesta, pedido de MOA) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo (por diseño, sin `edit`) |
 | [CAP-026](entries/test-pipeline-setup.md) | test-pipeline-setup | Skill | Ninguno todavía (propuesta — guía sobre documentación oficial de Azure DevOps) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales | Bajo |
+| [CAP-027](entries/release-manager.md) | release-manager | Agent | DataAgro (origen, `TEAM-SPECIFIC` en G5.1) + Scato Logística (segunda instancia real, independiente) | N | VERIFIED (documento) | CONFIGURED — documentada, cero ejecuciones reales de la versión generalizada | Bajo |
+
+**CAP-027** *(nueva, 2026-09-28)*: reconsidera, con evidencia nueva, la clasificación
+`TEAM-SPECIFIC` que G5.1 le dio al `release-manager` de DataAgro — apareció una segunda
+instancia real e independiente en Scato Logística, no relevada en G5.1. Mismo criterio ya
+usado para `dotnet-best-practices` → `stack-best-practices-template` (CAP-013): se
+generaliza el patrón portable (consolidar cambios reales por versión, detectar riesgo de
+datos, borrador de CHANGELOG/release notes), sin copiar contenido de ningún equipo. Cierra
+un gap de granularidad: ninguna de las 11 etapas del KO cubría el nivel de release
+completa, solo ticket.
 
 **CAP-023 a CAP-026** *(nuevas, 2026-09-24, pedido de MOA)*: completan el SDLC con
 traspasos guiados entre roles (PO → desarrollo → revisión → QA → validación → cierre),
@@ -111,7 +121,7 @@ acá — quedaron clasificados TEAM-SPECIFIC o EXPERIMENTAL, con su razón docum
 ## Por tipo
 
 - **Skill**: CAP-001, CAP-007, CAP-008, CAP-011, CAP-013, CAP-014, CAP-015, CAP-016, CAP-020, CAP-021, CAP-023, CAP-026
-- **Agent**: CAP-004, CAP-009, CAP-010 (orquestador), CAP-012, CAP-017, CAP-018, CAP-019 (opt-in, solo WF4.5), CAP-024, CAP-025
+- **Agent**: CAP-004, CAP-009, CAP-010 (orquestador), CAP-012, CAP-017, CAP-018, CAP-019 (opt-in, solo WF4.5), CAP-024, CAP-025, CAP-027
 - **Workflow**: CAP-005
 - **Instruction**: CAP-006, CAP-022
 - **Integration/API**: CAP-002 (patrón, READ-only, mecanismo probado durante la construcción, sin ejecuciones reales registradas todavía)
@@ -123,8 +133,8 @@ acá — quedaron clasificados TEAM-SPECIFIC o EXPERIMENTAL, con su razón docum
 ## Por equipo (`Team`)
 
 - **DataAgro**: CAP-001 (Configuration Status: PARTIAL — contenido no leído completo),
-  CAP-005 (Lite, real), CAP-006
-- **Scato Logística**: CAP-008, CAP-001, CAP-012, CAP-006, CAP-013, CAP-019 (origen; propuesta opt-in, no adoptada todavía en su forma generalizada)
+  CAP-005 (Lite, real), CAP-006, CAP-027 (origen, junto con Scato Logística)
+- **Scato Logística**: CAP-008, CAP-001, CAP-012, CAP-006, CAP-013, CAP-019 (origen; propuesta opt-in, no adoptada todavía en su forma generalizada), CAP-027 (origen, junto con DataAgro)
 - **Orquestador**: CAP-008, CAP-001, CAP-012, CAP-006, CAP-013 — todas en rama
   `master-logistica`, ninguna en `master`
 - **Ninguno todavía**: CAP-005 (nivel Full, conceptual), CAP-004, CAP-007, CAP-009 a
@@ -136,7 +146,7 @@ acá — quedaron clasificados TEAM-SPECIFIC o EXPERIMENTAL, con su razón docum
 
 ## ¿Puedo adoptarla?
 
-Ninguna de las 26 entradas del Registry está promovida a Corporate Standard. Las entradas pueden
+Ninguna de las 27 entradas del Registry está promovida a Corporate Standard. Las entradas pueden
 corresponder a capacidades reutilizables, patrones reutilizables, candidatos a Common
 Core, propuestas nuevas sin evidencia de origen, o activos Team-Specific según su
 clasificación individual — `Corporate Standard: N`
@@ -190,13 +200,18 @@ explícitamente, en vez de dejar la afirmación anterior sin corregir.
 - **`dotnet-best-practices` (contenido real)**, **`abm-mvc`**, **`afip-cpe-ctg`** /
   `afip-integration`, y la mayoría de los agentes por rol de DataAgro/Scato Logística
   (`architect`, `dba-migraciones`, `kendo-grid-builder`, `product-owner`, `qa-tester`,
-  `release-manager`, `database-migration`, `devops`, `domain-validation-engineer`,
+  `database-migration`, `devops`, `domain-validation-engineer`,
   `frontend-engineer`, `test-engineer`, `wf-activity-refactor`, `workflow-designer`,
   `xamlx-documenter`): inspeccionados en G5.1, clasificados **TEAM-SPECIFIC** o
   **EXPERIMENTAL** — no registrados como capability reusable porque su contenido no es
   portable entre equipos. Ver
   [`../docs/history/track-1/G5.1-Reusable-Capability-Library.md`](../docs/history/track-1/G5.1-Reusable-Capability-Library.md),
-  tabla de clasificación completa, para la razón de cada uno.
+  tabla de clasificación completa, para la razón de cada uno. **`release-manager`
+  reconsiderado (2026-09-28)**: ver CAP-027 — apareció una segunda instancia real
+  independiente (Scato Logística) que G5.1 no relevó, y se generalizó el patrón portable
+  sin copiar contenido de ningún equipo. `database-migration` sigue sin materializarse
+  como capability aparte, pero su regla central (nunca una migración destructiva sin
+  confirmación explícita) ya se incorporó como constraint en CAP-010 y CAP-005.
 - Otras capacidades de DataAgro/Scato Logística/Orquestador relevadas sin inspección
   profunda todavía: ver
   [`../docs/history/track-1/relevamiento-capacidades-g2.md`](../docs/history/track-1/relevamiento-capacidades-g2.md)

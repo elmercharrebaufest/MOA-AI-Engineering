@@ -58,6 +58,14 @@ nivel Full. Antes de recomendar el nivel Full a otro equipo, corresponde confirm
 primero si algún ticket real completó el ciclo — no adoptarlo "porque está mejor
 especificado" (ver `capabilities/best-practices.md`).
 
+## Constraint agregado (2026-09-28)
+
+El rol Implementer (nivel Lite y Full) ahora tiene escrita la misma regla que
+`ticket-kickoff` (CAP-010): nunca ejecutar una migración de base de datos destructiva sin
+mostrar el script real y esperar confirmación explícita puntual — evidencia externa real
+del agent `database-migration` de Scato Logística
+(`.github/agents/database-migration.agent.md`), con la misma regla textual.
+
 ## Nota de ampliación — `research.md` y `contracts/`
 
 Decisión explícita del Solutions Architect, tras contrastar este Workflow contra GitHub

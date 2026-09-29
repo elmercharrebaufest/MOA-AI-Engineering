@@ -121,6 +121,14 @@ Siguiendo el orden en que normalmente aparecen en el trabajo diario de un ticket
   comentario de cierre; con su confirmación, lo publica, carga las horas y pasa el ticket
   a Done. **Propuesta nueva, todavía sin probar por ningún equipo.**
 
+**Cerrar una release (no un ticket)**
+- **`release-manager`** (CAP-027) — antes de cerrar una release completa (varios tickets,
+  una versión), trae los PRs/commits reales mergeados, detecta cambios de base de datos
+  (como riesgo a revisar, nunca los ejecuta), clasifica cada cambio y redacta el borrador
+  del `CHANGELOG.md` y de las release notes para el PO. Nunca hace push, tag ni dispara un
+  pipeline por su cuenta. **En uso real** en 2 equipos de MOA (DataAgro y Scato Logística,
+  de forma independiente), generalizado sin copiar el contenido específico de ninguno.
+
 **Traer el contenido de un ticket automáticamente**
 - **`azure-devops-context`** (CAP-002) y **`jira-context`** (CAP-003) — con solo dar la
   referencia de un ticket o Work Item (por ejemplo, `MOA-1234`), el asistente trae su
@@ -150,7 +158,7 @@ entrada completa del Registry (con la evidencia detallada detrás de cada una). 
 en varias tablas — no porque unas valgan más que otras, sino porque el origen de la
 evidencia es distinto en cada grupo.
 
-### Con evidencia real de al menos un equipo de MOA (6)
+### Con evidencia real de al menos un equipo de MOA (7)
 
 | Capacidad | Tipo | Dónde | Para qué | Registry |
 |---|---|---|---|---|
@@ -161,6 +169,7 @@ evidencia es distinto en cada grupo.
 | `repository-governance` | Instruction | [`instructions/repository-governance/INSTRUCTIONS.md`](instructions/repository-governance/INSTRUCTIONS.md) | Declarar qué puede/no puede hacer un asistente sin supervisión | [CAP-006](../registry/entries/repository-governance.md) |
 | `stack-best-practices-template` | Skill | [`skills/stack-best-practices-template/SKILL.md`](skills/stack-best-practices-template/SKILL.md) | Plantilla para documentar las buenas prácticas del stack real de cada equipo | [CAP-013](../registry/entries/stack-best-practices-template.md) |
 | `documentation-style` | Instruction | [`instructions/documentation-style/INSTRUCTIONS.md`](instructions/documentation-style/INSTRUCTIONS.md) | Lenguaje formal, natural y acotado en toda la documentación del modelo | [CAP-022](../registry/entries/documentation-style.md) |
+| `release-manager` | Agent | [`agents/release-manager/AGENT.md`](agents/release-manager/AGENT.md) | Consolidar cambios reales de una release, CHANGELOG y release notes | [CAP-027](../registry/entries/release-manager.md) |
 
 ### Propuestas nuevas — sin evidencia de origen todavía (CAP-004, CAP-011, CAP-014, CAP-016)
 
@@ -453,7 +462,7 @@ capabilities/
 ├── README.md          este archivo
 ├── best-practices.md   guía práctica por tipo de capacidad
 ├── skills/              12 capacidades (ver la entrada de cada una en el Registry)
-├── agents/              9 capacidades (roles del SDLC, orquestador de desarrollo y agentes de consulta)
+├── agents/              10 capacidades (roles del SDLC, orquestador de desarrollo y agentes de consulta)
 ├── instructions/         2 capacidades
 └── workflows/            1 capacidad
 ```

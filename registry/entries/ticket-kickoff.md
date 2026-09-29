@@ -13,6 +13,11 @@ nada la escriba. Queda documentado como brecha explícita, no como omisión sile
 evalúa si corresponde una capacidad nueva recién con evidencia real de que un equipo la
 necesita (Golden Path #5, `Agent Creation`).
 
+**Constraint agregado (2026-09-28)**: nunca ejecutar una migración de base de datos
+destructiva sin mostrar el script real y esperar confirmación explícita puntual — evidencia
+externa real del agent `database-migration` de Scato Logística
+(`.github/agents/database-migration.agent.md`), con la misma regla textual.
+
 | Campo | Valor | Evidencia / clasificación |
 |---|---|---|
 | **ID** | CAP-010 | — |
@@ -38,7 +43,7 @@ necesita (Golden Path #5, `Agent Creation`).
 | **Data Classification** | REQUIRES VALIDATION | `BLOCKED-DECISIONS.md` #3 |
 | **Tools** | `[read, edit, execute, search, agent, todo]` + `listJiraIssueComments`, `addOrEditJiraIssueComment` (solo comentarios). Traspasos guiados (`handoffs`, `send: false`) a `read-only-code-reviewer` y `qa-analyst` | FACT |
 | **Model** | No declarado | FACT |
-| **Autonomy** | Explícitamente acotada por 11 constraints textuales (ver `AGENT.md`) — la más extensa del Registry, proporcional al riesgo | FACT |
+| **Autonomy** | Explícitamente acotada por 12 constraints textuales (ver `AGENT.md`) — la más extensa del Registry, proporcional al riesgo | FACT |
 | **HITL** | **2 checkpoints obligatorios, sin excepción**: aprobar el plan antes de implementar, revisar el código antes de publicar | FACT (declarado en `AGENT.md`) |
 | **Evaluation** | NOT FOUND | — |
 | **Observability** | NOT FOUND | — |

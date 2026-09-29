@@ -43,6 +43,12 @@ generalizada. **Propuesta**: lista para usar, todavía sin piloto.
 | 10 | Soporte productivo | `production-incident-investigation` | Propuesta (parcial) |
 | 11 | Build & CI | `azure-devops-cli`, `test-pipeline-setup` | Real (`test-pipeline-setup`: propuesta) |
 
+Las 11 etapas están pensadas a granularidad de **ticket**. `release-manager` (CAP-027)
+opera un nivel arriba — consolida varios tickets/PRs al cerrar una **release** completa —
+y por eso no encaja en una sola fila de esta tabla; es transversal a las etapas 9 (Cierre
+del ticket) y 11 (Build & CI), sin reemplazar a ninguna. **Real** en 2 equipos de MOA
+(DataAgro y Scato Logística, de forma independiente).
+
 Detalle por etapa: [`architecture/ai-sdlc.md`](architecture/ai-sdlc.md).
 
 ## Estado actual
